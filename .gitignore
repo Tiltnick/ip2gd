@@ -14,3 +14,9 @@ export_credentials.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+# Android build directory
+/android/
+
+# macOS system file
+.DS_Store
