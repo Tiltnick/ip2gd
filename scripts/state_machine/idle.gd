@@ -1,12 +1,15 @@
 extends State
-class_name idle
+class_name Idle
 
-@export var sprite : AnimatedSprite2D
+# Passende Idle animation
+func Enter(_prev: State) -> void:
+	actor.get_node("anim").play("idle_" + actor.last_direction)
 
-func Enter():
-	spirte.play("Idle")
-	pass
-	
-func Update(_delta: float):
-if(Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown")):
-	
+# Vector != 0 -> transition move state
+func PhysicsUpdate(_delta: float) -> void:
+	var input_vector := Vector2(
+		Input.get_axis("moveLeft", "moveRight"),
+		Input.get_axis("moveUp", "moveDown")
+	)
+	if input_vector != Vector2.ZERO:
+		TransitionTo("move")
