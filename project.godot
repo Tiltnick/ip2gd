@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="IP2GameDevelopment"
+config/name="MemoryofBloom"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://assets/sprites/icon.svg"
 
@@ -21,16 +21,23 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"character": "res://dialogic/character.dch"
+"Oris": "res://dialogic/charakters/Oris.dch"
 }
 directories/dtl_directory={
-"timeline": "res://dialogic/timeline.dtl"
+"Test_Timeline_1": "res://dialogic/glossaries/Test_Timeline_1.dtl"
 }
-layout/style_directory={}
+layout/style_directory={
+"": "res://dialogic/glossaries/Style.tres",
+"Style": "res://dialogic/glossaries/Style.tres"
+}
 glossary/default_case_sensitive=true
-layout/style_list=[]
-layout/default_style=""
-variables={}
+layout/style_list=["res://dialogic/glossaries/Style.tres"]
+layout/default_style="res://dialogic/glossaries/Style.tres"
+variables={
+"Test": {
+"thisisatest": false
+}
+}
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
@@ -61,16 +68,23 @@ audio/channel_defaults={
 "music": {
 "audio_bus": "",
 "fade_length": 0.0,
-"loop": true,
+"loop": false,
 "volume": 0.0
 }
 }
 translation/enabled=true
-translation/original_locale="de"
+translation/original_locale="en"
 translation/file_mode=1
-translation/translation_folder=""
+translation/translation_folder="res://dialogic/translations"
 translation/save_mode=0
 translation/add_separator=false
+save/autosave=false
+glossary/glossary_files=[]
+translation/intern/save_mode=0
+translation/intern/file_mode=1
+translation/intern/translation_folder="res://dialogic/translations"
+translation/id_counter=20
+translation/locales=[]
 
 [editor_plugins]
 
@@ -87,3 +101,7 @@ dialogic_default_action={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/test="de"
