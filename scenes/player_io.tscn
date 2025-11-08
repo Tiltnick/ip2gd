@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://g3lq2jc4484f" path="res://assets/sprites/animation/anim_door_Sheet_3-Sheet.png" id="2_388kp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqs4m"]
-size = Vector2(47.5, 47)
+size = Vector2(92, 93)
 
 [node name="Player_IO" type="Node2D"]
 
@@ -12,10 +12,14 @@ size = Vector2(47.5, 47)
 script = ExtResource("2_1pf1e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-2.25, -2.5)
+position = Vector2(-3, -6.5)
 shape = SubResource("RectangleShape2D_iqs4m")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(2, 2)
 texture = ExtResource("2_388kp")
 region_enabled = true
 region_rect = Rect2(-6, 10, 96, 64)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position_smoothing_enabled = true

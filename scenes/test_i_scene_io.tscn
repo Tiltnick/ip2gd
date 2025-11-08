@@ -6,7 +6,16 @@
 [node name="TestISceneIO" type="Node2D"]
 
 [node name="Player_IO" parent="." instance=ExtResource("1_oy0ge")]
-position = Vector2(53, 79)
+position = Vector2(580, 324)
 
 [node name="InteractableObject" parent="." instance=ExtResource("2_tpkr7")]
-position = Vector2(130, 130)
+position = Vector2(216, 338)
+
+[node name="InteractableObject2" parent="." instance=ExtResource("2_tpkr7")]
+position = Vector2(368, 200)
+
+[node name="InteractableObject3" parent="." instance=ExtResource("2_tpkr7")]
+position = Vector2(559, 516)
+
+[node name="InteractableObject4" parent="." instance=ExtResource("2_tpkr7")]
+position = Vector2(468, 202)
