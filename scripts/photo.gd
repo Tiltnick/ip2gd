@@ -5,18 +5,19 @@ extends "res://scripts/interactable_object.gd"
 
 var is_front := true
 var is_zoomed := false
-var start_scale: Vector2
+var front_start_scale: Vector2
+var back_start_scale: Vector2
 var photo_active := false   
+var node_start_scale = scale
 
 func _ready():
-	start_scale = scale
-
+	front_start_scale = front.scale
+	back_start_scale = back.scale
+	
 func _process(delta):
-	if Input.is_action_just_pressed("interact"):
-		if not is_zoomed:
-			_on_interact()
-		else:
-			_on_interact()
+	if (outline.visible or photo_active) and Input.is_action_just_pressed("interact"):
+		_on_interact()
+
 
 func _on_interact():
 	if not is_zoomed:
@@ -32,13 +33,17 @@ func _on_interact():
 
 func _zoom_in():
 	var tween = create_tween()
-	tween.tween_property(self, "scale", start_scale * 2, 0.2)
-
+	tween.tween_property(self, "scale", node_start_scale * 2, 0.2)
+	
 func _flip_photo():
+	_hide_outline()
 	var tween = create_tween()
-	tween.tween_property(self, "scale:x", 0, 0.15)
+	tween.tween_property(front, "scale:x", 0, 0.15)
 	tween.tween_callback(Callable(self, "_toggle_sides"))
-	tween.tween_property(self, "scale:x", start_scale.x * 2, 0.15)
+	tween.tween_property(front, "scale:x", front_start_scale.x, 0.15)
+
+
+
 
 func _toggle_sides():
 	is_front = !is_front
@@ -47,17 +52,17 @@ func _toggle_sides():
 
 func _reset_photo():
 	var tween = create_tween()
-	tween.tween_property(self, "scale", start_scale, 0.2)
+	tween.tween_property(self, "scale", node_start_scale, 0.2)
 	tween.tween_callback(Callable(self, "_reset_state"))
 
 func _reset_state():
 	is_zoomed = false
+	photo_active = false
 	is_front = true
 	front.visible = true
 	back.visible = false
-	photo_active = false
-	if not photo_active and get_node("Area2D").has_overlapping_bodies():
-		outline.visible = true
+	_show_outline() 
+
 
 func _show_outline():
 	if photo_active:
@@ -65,6 +70,7 @@ func _show_outline():
 	else:
 		if get_node("Area2D").has_overlapping_bodies():
 			outline.visible = true
+
 
 func _hide_outline():
 	outline.visible = false
