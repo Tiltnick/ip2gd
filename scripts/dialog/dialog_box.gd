@@ -25,11 +25,7 @@ func _ready() -> void:
 	show_dialog(
 		"NPC",
 		null,
-		"Hello, this is a long test text. It should paginate across multiple pages "
-		+ "if the box is too small. Keep pressing Enter to advance. Lorem ipsum dolor "
-		+ "sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel "
-		+ "scelerisque nisl consectetur et. Donec sed odio dui. Vivamus sagittis lacus "
-		+ "vel augue laoreet rutrum faucibus dolor auctor."
+		"Hello, this is a long test text. It should paginate across multiple pages if the box is too small. Keep pressing Enter to advance. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor."
 	)
 
 func show_dialog(charakter_name: String = "", portrait_texture: Texture2D = null, text: String = "") -> void:
