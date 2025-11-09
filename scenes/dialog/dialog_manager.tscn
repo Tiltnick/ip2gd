@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://5ro6t5nvfn0w"]
+
+[ext_resource type="Script" uid="uid://c82i8bus3bmy2" path="res://scripts/dialog/dialog_box.gd" id="1_dlq0r"]
+[ext_resource type="FontFile" uid="uid://dvt47yyobv738" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_lgn1u"]
+
+[node name="DialogManager" type="CanvasLayer"]
+
+[node name="DialogBox" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 354.0
+offset_bottom = 175.0
+script = ExtResource("1_dlq0r")
+
+[node name="Name" type="Label" parent="DialogBox"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.045
+anchor_top = 0.81000006
+anchor_right = 0.045
+anchor_bottom = 0.81000006
+offset_left = 108.07
+offset_top = -96.750015
+offset_right = 284.07
+offset_bottom = 19.249985
+text = "Das ist Text
+"
+
+[node name="Portrait" type="TextureRect" parent="DialogBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15
+anchor_top = 0.549
+anchor_right = 0.15
+anchor_bottom = 0.549
+offset_left = 32.899998
+offset_top = -5.0750046
+offset_right = 177.9
+offset_bottom = 57.924995
+
+[node name="Dialog" type="RichTextLabel" parent="DialogBox"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 597.0
+offset_bottom = 275.0
+theme_override_fonts/normal_font = ExtResource("2_lgn1u")
+theme_override_fonts/bold_font = ExtResource("2_lgn1u")
+theme_override_fonts/bold_italics_font = ExtResource("2_lgn1u")
+theme_override_fonts/italics_font = ExtResource("2_lgn1u")
+theme_override_fonts/mono_font = ExtResource("2_lgn1u")
+
+[node name="Choices" type="VBoxContainer" parent="DialogBox"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 61.0
+offset_right = 537.0
+offset_bottom = 283.0

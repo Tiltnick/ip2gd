@@ -1,0 +1,14 @@
+{
+  "entries": [
+	{
+	  "name": "NPC",
+	  "text": "Willkommen! Schön, dass du da bist.",
+	  "choices": ["Hi!", "Lass mich durch."]
+	},
+	{
+	  "name": "",
+	  "portrait": "",
+	  "text": "Dieser Schritt zeigt nur Text — ohne Name und ohne Bild."
+	}
+  ]
+}
