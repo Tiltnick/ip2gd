@@ -13,6 +13,8 @@ var node_start_scale = scale
 func _ready():
 	front_start_scale = front.scale
 	back_start_scale = back.scale
+	node_start_scale = scale
+
 	
 func _process(delta):
 	if (outline.visible or photo_active) and Input.is_action_just_pressed("interact"):

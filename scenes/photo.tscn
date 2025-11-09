@@ -19,7 +19,7 @@ script = ExtResource("1_vv5lh")
 visible = false
 visibility_layer = 2
 material = SubResource("ShaderMaterial_nnfc5")
-scale = Vector2(1.3, 1.3)
+scale = Vector2(1.1, 1.1)
 texture = ExtResource("2_vv5lh")
 
 [node name="Sprite_Front" type="Sprite2D" parent="."]
