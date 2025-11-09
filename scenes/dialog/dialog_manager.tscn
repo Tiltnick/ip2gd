@@ -22,9 +22,10 @@ anchor_right = 0.045
 anchor_bottom = 0.81000006
 offset_left = 108.07
 offset_top = -96.750015
-offset_right = 284.07
-offset_bottom = 19.249985
-text = "Das ist Text
+offset_right = 341.07
+offset_bottom = 5.2499847
+theme_override_fonts/font = ExtResource("2_lgn1u")
+text = "Das ist der Name 
 "
 
 [node name="Portrait" type="TextureRect" parent="DialogBox"]
@@ -40,6 +41,7 @@ offset_right = 177.9
 offset_bottom = 57.924995
 
 [node name="Dialog" type="RichTextLabel" parent="DialogBox"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 1.0
 offset_right = 597.0
@@ -49,10 +51,12 @@ theme_override_fonts/bold_font = ExtResource("2_lgn1u")
 theme_override_fonts/bold_italics_font = ExtResource("2_lgn1u")
 theme_override_fonts/italics_font = ExtResource("2_lgn1u")
 theme_override_fonts/mono_font = ExtResource("2_lgn1u")
+theme_override_font_sizes/normal_font_size = 30
+text = "Das ist der Dialog Text"
 
 [node name="Choices" type="VBoxContainer" parent="DialogBox"]
 layout_mode = 0
-offset_left = 28.0
-offset_top = 61.0
-offset_right = 537.0
-offset_bottom = 283.0
+offset_left = 8.0
+offset_top = 97.0
+offset_right = 517.0
+offset_bottom = 319.0
