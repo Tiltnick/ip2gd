@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vuf15hf1msvt"
-path="res://.godot/imported/props-Sheet.png-83bfb4dcb9a50381a04426d0d6738d1d.ctex"
+uid="uid://bbwtu422q5q3t"
+path="res://.godot/imported/foreground_pipes.png-847306d9fffdb6e0bb17a66afb136692.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/props-Sheet.png"
-dest_files=["res://.godot/imported/props-Sheet.png-83bfb4dcb9a50381a04426d0d6738d1d.ctex"]
+source_file="res://assets/sprites/map/foreground_pipes.png"
+dest_files=["res://.godot/imported/foreground_pipes.png-847306d9fffdb6e0bb17a66afb136692.ctex"]
 
 [params]
 
