@@ -51,16 +51,17 @@ offset_bottom = 36.5
 
 [node name="Dialog" type="RichTextLabel" parent="DialogBox/NinePatchRect"]
 texture_filter = 1
+custom_minimum_size = Vector2(100, 120)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.33600003
 anchor_top = 0.342
 anchor_right = 0.33600003
-anchor_bottom = 0.342
-offset_left = 1.6319885
-offset_top = 1.633995
-offset_right = 312.632
-offset_bottom = 132.634
+anchor_bottom = 0.34800002
+offset_left = 3.6319885
+offset_top = -11.366005
+offset_right = 307.632
+offset_bottom = 120.995995
 theme_override_fonts/normal_font = ExtResource("2_lgn1u")
 theme_override_fonts/bold_font = ExtResource("2_lgn1u")
 theme_override_fonts/bold_italics_font = ExtResource("2_lgn1u")
@@ -68,10 +69,11 @@ theme_override_fonts/italics_font = ExtResource("2_lgn1u")
 theme_override_fonts/mono_font = ExtResource("2_lgn1u")
 theme_override_font_sizes/normal_font_size = 30
 text = "Here comes the dialog"
+scroll_active = false
 
 [node name="Choices" type="VBoxContainer" parent="DialogBox/NinePatchRect"]
 layout_mode = 0
-offset_left = 174.0
-offset_top = 89.0
-offset_right = 485.0
-offset_bottom = 227.0
+offset_left = 172.0
+offset_top = 81.0
+offset_right = 483.0
+offset_bottom = 219.0
