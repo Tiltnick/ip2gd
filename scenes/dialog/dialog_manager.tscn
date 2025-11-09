@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://5ro6t5nvfn0w"]
+[gd_scene load_steps=4 format=3 uid="uid://5ro6t5nvfn0w"]
 
 [ext_resource type="Script" uid="uid://c82i8bus3bmy2" path="res://scripts/dialog/dialog_box.gd" id="1_dlq0r"]
 [ext_resource type="FontFile" uid="uid://dvt47yyobv738" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_lgn1u"]
+[ext_resource type="Texture2D" uid="uid://dualo6y0kjjst" path="res://assets/sprites/ui/Dialog_Prototyp.png" id="2_y2k7g"]
 
 [node name="DialogManager" type="CanvasLayer"]
 
@@ -12,51 +13,65 @@ offset_right = 354.0
 offset_bottom = 175.0
 script = ExtResource("1_dlq0r")
 
-[node name="Name" type="Label" parent="DialogBox"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.045
-anchor_top = 0.81000006
-anchor_right = 0.045
-anchor_bottom = 0.81000006
-offset_left = 108.07
-offset_top = -96.750015
-offset_right = 341.07
-offset_bottom = 5.2499847
-theme_override_fonts/font = ExtResource("2_lgn1u")
-text = "Das ist der Name 
-"
-
-[node name="Portrait" type="TextureRect" parent="DialogBox"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.15
-anchor_top = 0.549
-anchor_right = 0.15
-anchor_bottom = 0.549
-offset_left = 32.899998
-offset_top = -5.0750046
-offset_right = 177.9
-offset_bottom = 57.924995
-
-[node name="Dialog" type="RichTextLabel" parent="DialogBox"]
-texture_filter = 1
+[node name="NinePatchRect" type="NinePatchRect" parent="DialogBox"]
 layout_mode = 0
-offset_left = 1.0
-offset_right = 597.0
-offset_bottom = 275.0
+offset_right = 513.0
+offset_bottom = 273.0
+texture = ExtResource("2_y2k7g")
+
+[node name="Name" type="Label" parent="DialogBox/NinePatchRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.097
+anchor_top = 0.689
+anchor_right = 0.097
+anchor_bottom = 0.689
+offset_left = 1.2389984
+offset_top = -5.097
+offset_right = 122.239
+offset_bottom = 33.903
+theme_override_fonts/font = ExtResource("2_lgn1u")
+text = "Here comes the name
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Portrait" type="TextureRect" parent="DialogBox/NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.21200001
+anchor_top = 0.5
+anchor_right = 0.21200001
+anchor_bottom = 0.5
+offset_left = -41.756004
+offset_top = -35.5
+offset_right = 41.243996
+offset_bottom = 36.5
+
+[node name="Dialog" type="RichTextLabel" parent="DialogBox/NinePatchRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33600003
+anchor_top = 0.342
+anchor_right = 0.33600003
+anchor_bottom = 0.342
+offset_left = 1.6319885
+offset_top = 1.633995
+offset_right = 312.632
+offset_bottom = 132.634
 theme_override_fonts/normal_font = ExtResource("2_lgn1u")
 theme_override_fonts/bold_font = ExtResource("2_lgn1u")
 theme_override_fonts/bold_italics_font = ExtResource("2_lgn1u")
 theme_override_fonts/italics_font = ExtResource("2_lgn1u")
 theme_override_fonts/mono_font = ExtResource("2_lgn1u")
 theme_override_font_sizes/normal_font_size = 30
-text = "Das ist der Dialog Text"
+text = "Here comes the dialog"
 
-[node name="Choices" type="VBoxContainer" parent="DialogBox"]
+[node name="Choices" type="VBoxContainer" parent="DialogBox/NinePatchRect"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 97.0
-offset_right = 517.0
-offset_bottom = 319.0
+offset_left = 174.0
+offset_top = 89.0
+offset_right = 485.0
+offset_bottom = 227.0

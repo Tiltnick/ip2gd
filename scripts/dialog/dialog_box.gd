@@ -1,10 +1,10 @@
 extends Control
 
 # References to UI elements inside the scene
-@onready var portrait = $Portrait
-@onready var name_label = $Name
-@onready var choices = $Choices
-@onready var dialog_text: RichTextLabel = $Dialog
+@onready var portrait = $NinePatchRect/Portrait
+@onready var name_label = $NinePatchRect/Name
+@onready var choices = $NinePatchRect/Choices
+@onready var dialog_text: RichTextLabel = $NinePatchRect/Dialog
 
 # Settings and state
 @export var typing_speed := 0.02   # Delay between each character
@@ -13,7 +13,7 @@ var skip := false                  # True when the player wants to skip the typi
 
 func _ready():
 	hide()  
-	show_dialog("NPC", null, "Hallo! Das ist ein Test.")  # Example dialog on startup
+	show_dialog("NPC", null, "Hello, this is a Test")  # Example dialog on startup
 
 func show_dialog(charakter_name: String = "", portrait_texture: Texture2D = null, text: String = ""):
 	# Handle the character name label
