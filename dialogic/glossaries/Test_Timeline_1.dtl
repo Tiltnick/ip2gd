@@ -1,6 +1,0 @@
-join  center
-Oris: WASSUP #id:11
-if {Test.thisisatest} == false:
-	Oris: DAS IST FALSCH #id:12
-else:
-	DAS IST WAHR #id:13

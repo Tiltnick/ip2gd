@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://5ro6t5nvfn0w"]
+
+[ext_resource type="Script" uid="uid://c82i8bus3bmy2" path="res://scenes/dialog_box.gd" id="1_ybr4o"]
+[ext_resource type="FontFile" uid="uid://dvt47yyobv738" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_m88cy"]
+
+[node name="DialogManager" type="CanvasLayer"]
+
+[node name="DialogBox" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 354.0
+offset_bottom = 175.0
+script = ExtResource("1_ybr4o")
+
+[node name="NameLabel" type="Label" parent="DialogBox"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 161.0
+text = "Das ist Text
+"
+
+[node name="Portrait" type="TextureRect" parent="DialogBox"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Dialog" type="RichTextLabel" parent="DialogBox"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_fonts/normal_font = ExtResource("2_m88cy")
+theme_override_fonts/bold_font = ExtResource("2_m88cy")
+theme_override_fonts/bold_italics_font = ExtResource("2_m88cy")
+theme_override_fonts/italics_font = ExtResource("2_m88cy")
+theme_override_fonts/mono_font = ExtResource("2_m88cy")
+
+[node name="Choices" type="VBoxContainer" parent="DialogBox"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

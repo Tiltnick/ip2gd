@@ -14,10 +14,6 @@ config/name="MemoryofBloom"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://assets/sprites/icon.svg"
 
-[autoload]
-
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-
 [dialogic]
 
 directories/dch_directory={
@@ -85,10 +81,6 @@ translation/intern/file_mode=1
 translation/intern/translation_folder="res://dialogic/translations"
 translation/id_counter=20
 translation/locales=[]
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 [input]
 
