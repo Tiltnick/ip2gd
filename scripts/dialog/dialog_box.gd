@@ -43,12 +43,7 @@ func show_dialog(charakter_name: String = "", portrait_texture: Texture2D = null
 		portrait.texture = portrait_texture
 		portrait.show()
 
-	# Choices stay hidden until the dialog is done 
-	for c in choices.get_children():
-		c.queue_free()
-	choices.visible = false
-
-	show()
+	
 
 	# Build pages from the full text, then start typing the first page
 	_page_index = 0
@@ -57,6 +52,7 @@ func show_dialog(charakter_name: String = "", portrait_texture: Texture2D = null
 		type_text("")
 	else:
 		type_text(_pages[_page_index])
+	show()
 
 func type_text(text: String) -> void:
 	# Set page text and start typewriter animation
