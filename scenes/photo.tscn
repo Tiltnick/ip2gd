@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbsgsaipcdr2r"]
+
+[ext_resource type="Script" uid="uid://bjrvomfladugu" path="res://scripts/photo.gd" id="1_vv5lh"]
+[ext_resource type="Texture2D" uid="uid://cgu2u0yltxc6d" path="res://assets/sprites/photos/photo_back_placeholder.png" id="2_35foj"]
+[ext_resource type="Texture2D" uid="uid://dg2exfsu8bp5e" path="res://assets/sprites/photos/photo_front_placeholder.png" id="2_vv5lh"]
+[ext_resource type="Shader" uid="uid://dp3u7j0j0ndm2" path="res://scripts/photo.gdshader" id="4_0rg5a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nnfc5"]
+shader = ExtResource("4_0rg5a")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ensy"]
+size = Vector2(272, 262)
+
+[node name="Photo" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_vv5lh")
+
+[node name="Outline" type="Sprite2D" parent="."]
+visible = false
+visibility_layer = 2
+material = SubResource("ShaderMaterial_nnfc5")
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("2_vv5lh")
+
+[node name="Sprite_Front" type="Sprite2D" parent="."]
+texture = ExtResource("2_vv5lh")
+
+[node name="Sprite_Back" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_35foj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, -7)
+shape = SubResource("RectangleShape2D_7ensy")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
