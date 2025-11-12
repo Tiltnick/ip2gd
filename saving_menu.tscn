@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dfa4ga2b2k76f"]
+[gd_scene load_steps=9 format=3 uid="uid://dfa4ga2b2k76f"]
 
 [ext_resource type="FontFile" uid="uid://fse6tly1co51" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_ksa70"]
 
@@ -55,23 +55,11 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wo5m"]
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-expand_margin_left = 100.0
-expand_margin_top = 10.0
-expand_margin_right = 100.0
-expand_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wg1eu"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ksa70"]
+content_margin_left = 150.0
+content_margin_top = 10.0
+content_margin_right = 150.0
+content_margin_bottom = 10.0
 bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
 border_width_left = 2
 border_width_top = 2
@@ -82,10 +70,6 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
-expand_margin_left = 100.0
-expand_margin_top = 10.0
-expand_margin_right = 100.0
-expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d2h07"]
 
@@ -100,76 +84,6 @@ corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8n17"]
-content_margin_left = 150.0
-content_margin_top = 10.0
-content_margin_right = 150.0
-content_margin_bottom = 10.0
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1pw67"]
-bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-expand_margin_left = 100.0
-expand_margin_top = 10.0
-expand_margin_right = 100.0
-expand_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h1pbe"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xa7w"]
-content_margin_left = 150.0
-content_margin_top = 10.0
-content_margin_right = 150.0
-content_margin_bottom = 10.0
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o4v25"]
-bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-expand_margin_left = 100.0
-expand_margin_top = 10.0
-expand_margin_right = 100.0
-expand_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ksa70"]
 
 [node name="saving_menu" type="Control"]
 layout_mode = 3
@@ -264,8 +178,8 @@ theme_override_colors/font_hover_pressed_color = Color(0.45882353, 0.8392157, 0.
 theme_override_fonts/font = ExtResource("1_ksa70")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_fyhw1")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_2wo5m")
-theme_override_styles/hover = SubResource("StyleBoxFlat_wg1eu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ksa70")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ksa70")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_d2h07")
 text = "Save Slot"
 
@@ -296,10 +210,10 @@ theme_override_colors/font_hover_color = Color(0.45882353, 0.8392157, 0.7490196,
 theme_override_colors/font_hover_pressed_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_fonts/font = ExtResource("1_ksa70")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_f8n17")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_1pw67")
-theme_override_styles/hover = SubResource("StyleBoxFlat_wg1eu")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_h1pbe")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fyhw1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ksa70")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ksa70")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d2h07")
 text = "Save Slot"
 
 [node name="Label" type="Label" parent="TabContainer/Save Game/VBoxContainer3/VBoxContainer/Save Slot2"]
@@ -329,10 +243,10 @@ theme_override_colors/font_hover_color = Color(0.45882353, 0.8392157, 0.7490196,
 theme_override_colors/font_hover_pressed_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_fonts/font = ExtResource("1_ksa70")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_4xa7w")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_o4v25")
-theme_override_styles/hover = SubResource("StyleBoxFlat_wg1eu")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ksa70")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fyhw1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ksa70")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ksa70")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d2h07")
 text = "Save Slot"
 
 [node name="Label" type="Label" parent="TabContainer/Save Game/VBoxContainer3/VBoxContainer/Save Slot3"]
