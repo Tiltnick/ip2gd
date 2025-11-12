@@ -75,7 +75,7 @@ scroll_active = false
 
 [node name="Choices" type="VBoxContainer" parent="DialogBox/NinePatchRect"]
 layout_mode = 0
-offset_left = 172.0
-offset_top = 81.0
-offset_right = 483.0
-offset_bottom = 219.0
+offset_left = 174.0
+offset_top = 160.0
+offset_right = 475.0
+offset_bottom = 229.0

@@ -16,6 +16,7 @@ func start_dialog(json_path: String) -> void:
 		var line: Dictionary = runtime.get_current_line()
 		if line.is_empty():
 			break  # Something with the JSON is wrong
+
 		# speaker = Person that is speaking in the dialog rn 
 		var speaker: String = String(line.get("speaker", ""))
 		var text: String    = String(line.get("text", ""))
@@ -26,7 +27,24 @@ func start_dialog(json_path: String) -> void:
 		# Wait until the player presses Enter AFTER the typewriter finished
 		await box.continue_pressed
 
-		# Move to the next line / section
+		# we show them and branch based on the player's selection.
+		if runtime.is_last_line_in_node() and runtime.has_choices_for_current_node():
+			# Build  list of button texts
+			var choice_texts: Array[String] = []
+			for c in runtime.get_current_choices():
+				choice_texts.append(String(c.get("text", "")))
+
+			# Show and await selection 
+			box.show_choices(choice_texts)
+			var selected_index: int = await box.choice_selected
+
+			# Apply the branch
+			runtime.choose(selected_index)
+
+			# Continue the while-loop 
+			continue
+
+		# Otherwise, move to the next line
 		runtime.next()
 
 	# Conversation done → hide the box

@@ -15,6 +15,10 @@ run/main_scene="uid://dmc0iyujrmah7"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://assets/sprites/icon.svg"
 
+[autoload]
+
+DialogManager="*res://scenes/dialog/dialog_manager.tscn"
+
 [dialogic]
 
 directories/dch_directory={
