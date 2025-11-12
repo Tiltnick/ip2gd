@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://5ro6t5nvfn0w"]
+[gd_scene load_steps=5 format=3 uid="uid://5ro6t5nvfn0w"]
 
 [ext_resource type="Script" uid="uid://c82i8bus3bmy2" path="res://scripts/dialog/dialog_box.gd" id="1_dlq0r"]
+[ext_resource type="Script" uid="uid://bayc27gfeqkkm" path="res://scenes/dialog/dialog_manager.gd" id="1_y2k7g"]
 [ext_resource type="FontFile" uid="uid://dvt47yyobv738" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_lgn1u"]
 [ext_resource type="Texture2D" uid="uid://dualo6y0kjjst" path="res://assets/sprites/ui/Dialog_Prototyp.png" id="2_y2k7g"]
 
 [node name="DialogManager" type="CanvasLayer"]
+script = ExtResource("1_y2k7g")
 
 [node name="DialogBox" type="Control" parent="."]
 layout_mode = 3

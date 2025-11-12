@@ -1,14 +1,14 @@
 {
-  "entries": [
-	{
-	  "name": "NPC",
-	  "text": "Willkommen! Schön, dass du da bist.",
-	  "choices": ["Hi!", "Lass mich durch."]
+  "id": "test_oris_dennis",
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Dennis", "text": "Hey Oris, are you alright?" },
+		{ "speaker": "Oris", "text": "I'm fine. Do you know the purpose of life?" },
+		{ "speaker": "Dennis", "text": "Your purpose is to be my Test Charakter" }
+	  ],
+	  "next": "end"
 	},
-	{
-	  "name": "",
-	  "portrait": "",
-	  "text": "Dieser Schritt zeigt nur Text — ohne Name und ohne Bild."
-	}
-  ]
+	"end": { "lines": [] }
+  }
 }
