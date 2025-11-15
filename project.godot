@@ -17,7 +17,7 @@ config/icon="res://assets/sprites/icon.svg"
 
 [autoload]
 
-DialogManager="*res://scenes/dialog/dialog_manager.tscn"
+Choice_Store="*res://scripts/dialog/choice_store.gd"
 
 [dialogic]
 
