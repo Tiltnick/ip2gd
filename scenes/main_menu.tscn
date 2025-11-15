@@ -1,0 +1,362 @@
+[gd_scene load_steps=24 format=3 uid="uid://cc86xpvrn37so"]
+
+[ext_resource type="Script" uid="uid://c66icxn0ex1r2" path="res://scripts/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://b58phef2u4osr" path="res://assets/sprites/ui/Logo.png" id="3_oa1go"]
+[ext_resource type="FontFile" uid="uid://bcydf3meoraya" path="res://assets/fonts/ModernDOS9x14.ttf" id="4_wu84c"]
+[ext_resource type="Texture2D" uid="uid://dprepxc2r0jqd" path="res://assets/sprites/ui/instagram (2) 1.png" id="5_oa1go"]
+[ext_resource type="Texture2D" uid="uid://cgmo1vfleetle" path="res://assets/sprites/ui/settings 1.png" id="6_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://d12eclmam7q5d" path="res://assets/sprites/ui/discord 1.png" id="7_jk1qb"]
+[ext_resource type="PackedScene" uid="uid://cpockpmuyp365" path="res://scenes/PopUp.tscn" id="8_tbmy8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.2954166, 0.6311031, 0.55639124, 1)
+corner_radius_top_left = 27
+corner_radius_top_right = 27
+corner_radius_bottom_right = 27
+corner_radius_bottom_left = 27
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.2954166, 0.6311031, 0.55639124, 1)
+corner_radius_top_left = 27
+corner_radius_top_right = 27
+corner_radius_bottom_right = 27
+corner_radius_bottom_left = 27
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
+bg_color = Color(0.17254902, 0.24705882, 0.28235295, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 27
+corner_radius_top_right = 27
+corner_radius_bottom_right = 27
+corner_radius_bottom_left = 27
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l6cm7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
+bg_color = Color(0.09213082, 0.14377508, 0.16761148, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 27
+corner_radius_top_right = 27
+corner_radius_bottom_right = 27
+corner_radius_bottom_left = 27
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dd4i"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_flqon"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa1go"]
+bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oa1go"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgwnu"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jk1qb"]
+bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5dd4i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rcqid"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
+bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lgwnu"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ekxnf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -78.5
+offset_top = -250.0
+offset_right = 78.5
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 12
+
+[node name="NewGButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_focus_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_pressed_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_hover_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l6cm7")
+text = "New Game"
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_focus_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_pressed_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_hover_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8ln24")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l6cm7")
+disabled = true
+text = "Resume"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_focus_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_pressed_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_hover_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l6cm7")
+text = "Exit"
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.15356
+offset_top = -334.5
+offset_right = 175.15356
+offset_bottom = 14.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_oa1go")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -100.5
+offset_right = 118.0
+offset_bottom = 74.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -5
+
+[node name="Bloom" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_fonts/font = ExtResource("4_wu84c")
+theme_override_font_sizes/font_size = 70
+text = "BLOOM"
+horizontal_alignment = 1
+
+[node name="Of" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_fonts/font = ExtResource("4_wu84c")
+theme_override_font_sizes/font_size = 46
+text = "OF"
+horizontal_alignment = 1
+
+[node name="Memory" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_fonts/font = ExtResource("4_wu84c")
+theme_override_font_sizes/font_size = 70
+text = "MEMORY"
+horizontal_alignment = 1
+
+[node name="InstaButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -149.0
+offset_right = 80.0
+offset_bottom = -96.0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_5dd4i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_flqon")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oa1go")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_oa1go")
+icon = ExtResource("5_oa1go")
+icon_alignment = 1
+
+[node name="SettingsButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 77.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_5dd4i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lgwnu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5dd4i")
+icon = ExtResource("6_tbmy8")
+icon_alignment = 1
+
+[node name="DiscordButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -77.0
+offset_right = 80.0
+offset_bottom = -24.0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_5dd4i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rcqid")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lgwnu")
+icon = ExtResource("7_jk1qb")
+icon_alignment = 1
+
+[node name="PopUp" parent="." instance=ExtResource("8_tbmy8")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/NewGButton" to="." method="_on_new_g_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="InstaButton" to="." method="_on_insta_button_pressed"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="DiscordButton" to="." method="_on_discord_button_pressed"]
