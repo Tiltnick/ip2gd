@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dgqqm7w7cyunk"
-path="res://.godot/imported/Jersey10-Regular.ttf-200460e514ca6d2634756f713ee1b38e.fontdata"
+uid="uid://bcydf3meoraya"
+path="res://.godot/imported/ModernDOS9x14.ttf-ecbbddbc8023a378e0097c2a16379a5b.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/Jersey10-Regular.ttf"
-dest_files=["res://.godot/imported/Jersey10-Regular.ttf-200460e514ca6d2634756f713ee1b38e.fontdata"]
+source_file="res://assets/fonts/ModernDOS9x14.ttf"
+dest_files=["res://.godot/imported/ModernDOS9x14.ttf-ecbbddbc8023a378e0097c2a16379a5b.fontdata"]
 
 [params]
 

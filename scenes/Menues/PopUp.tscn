@@ -1,0 +1,160 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpockpmuyp365"]
+
+[ext_resource type="Script" uid="uid://gdadv652mqv6" path="res://scripts/pop_up.gd" id="1_7yghh"]
+[ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_mugek"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mth2m"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfdmi"]
+content_margin_left = 24.0
+content_margin_right = 24.0
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.2954166, 0.6311031, 0.55639124, 1)
+corner_radius_top_left = 27
+corner_radius_top_right = 27
+corner_radius_bottom_right = 27
+corner_radius_bottom_left = 27
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pncru"]
+content_margin_left = 24.0
+content_margin_right = 24.0
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.2954166, 0.6311031, 0.55639124, 1)
+corner_radius_top_left = 27
+corner_radius_top_right = 27
+corner_radius_bottom_right = 27
+corner_radius_bottom_left = 27
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yn554"]
+content_margin_left = 24.0
+content_margin_right = 24.0
+bg_color = Color(0.17254902, 0.24705882, 0.28235295, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 27
+corner_radius_top_right = 27
+corner_radius_bottom_right = 27
+corner_radius_bottom_left = 27
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iexew"]
+
+[node name="PopUp" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7yghh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14509805, 0.14509805, 0.14509805, 0.88235295)
+
+[node name="Panel" type="Panel" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.375
+offset_top = -56.25
+offset_right = 138.375
+offset_bottom = 56.25
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mth2m")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.75
+offset_top = -42.25
+offset_right = 102.75
+offset_bottom = 36.75
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 11
+
+[node name="Label" type="Label" parent="ColorRect/Panel/VBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_fonts/font = ExtResource("2_mugek")
+theme_override_font_sizes/font_size = 30
+text = "Start new game ?"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/Panel/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="YesButton" type="Button" parent="ColorRect/Panel/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_focus_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_pressed_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_hover_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_fonts/font = ExtResource("2_mugek")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_dfdmi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pncru")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yn554")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iexew")
+text = "Yes"
+
+[node name="NoButton" type="Button" parent="ColorRect/Panel/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_focus_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_pressed_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_hover_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_fonts/font = ExtResource("2_mugek")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_dfdmi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pncru")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yn554")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iexew")
+text = "No"
+
+[connection signal="pressed" from="ColorRect/Panel/VBoxContainer3/HBoxContainer/YesButton" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="ColorRect/Panel/VBoxContainer3/HBoxContainer/NoButton" to="." method="_on_no_button_pressed"]

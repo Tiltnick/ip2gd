@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dgqqm7w7cyunk"
-path="res://.godot/imported/Jersey10-Regular.ttf-200460e514ca6d2634756f713ee1b38e.fontdata"
+uid="uid://blbfg5kalenra"
+path="res://.godot/imported/windows_command_prompt.ttf-b20714b5d62b45564b88fef6268d0f20.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/Jersey10-Regular.ttf"
-dest_files=["res://.godot/imported/Jersey10-Regular.ttf-200460e514ca6d2634756f713ee1b38e.fontdata"]
+source_file="res://assets/fonts/windows_command_prompt.ttf"
+dest_files=["res://.godot/imported/windows_command_prompt.ttf-b20714b5d62b45564b88fef6268d0f20.fontdata"]
 
 [params]
 

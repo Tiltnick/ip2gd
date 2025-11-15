@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbwtu422q5q3t"
-path="res://.godot/imported/foreground_pipes.png-9569a0f3847a5c73cd28ca53ea9659da.ctex"
+uid="uid://b4frm1yyhtjb7"
+path="res://.godot/imported/Run-Sheet.png-8c13def27544f4e2e8a5efaf34554e8f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/foreground_pipes.png"
-dest_files=["res://.godot/imported/foreground_pipes.png-9569a0f3847a5c73cd28ca53ea9659da.ctex"]
+source_file="res://assets/sprites/map/Pixel Crawler - Desert/Pixel Crawler - Desert/Enemy/Mummy - Mage/Run/Run-Sheet.png"
+dest_files=["res://.godot/imported/Run-Sheet.png-8c13def27544f4e2e8a5efaf34554e8f.ctex"]
 
 [params]
 

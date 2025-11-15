@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kxs6kkm0ut6w"
-path="res://.godot/imported/background.png-dde469fb1f19281f3784b52d4bea96cd.ctex"
+uid="uid://dwfuo2ufjgs81"
+path="res://.godot/imported/MockUp-02.png-a1156fd2f91bcdc133b45d3f5892dd49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/background.png"
-dest_files=["res://.godot/imported/background.png-dde469fb1f19281f3784b52d4bea96cd.ctex"]
+source_file="res://assets/sprites/map/Pixel Crawler - Desert/Pixel Crawler - Desert/Social/MockUp-02.png"
+dest_files=["res://.godot/imported/MockUp-02.png-a1156fd2f91bcdc133b45d3f5892dd49.ctex"]
 
 [params]
 
