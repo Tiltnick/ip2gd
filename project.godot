@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="IP2GameDevelopment"
-run/main_scene="uid://dfa4ga2b2k76f"
+run/main_scene="uid://b6ylim7t3rj8g"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://assets/sprites/icon.svg"
 
