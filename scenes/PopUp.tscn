@@ -155,3 +155,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_pncru")
 theme_override_styles/hover = SubResource("StyleBoxFlat_yn554")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_iexew")
 text = "No"
+
+[connection signal="pressed" from="ColorRect/Panel/VBoxContainer3/HBoxContainer/YesButton" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="ColorRect/Panel/VBoxContainer3/HBoxContainer/NoButton" to="." method="_on_no_button_pressed"]

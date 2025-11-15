@@ -9,15 +9,21 @@ func _ready() -> void:
 
 
 func _on_new_g_button_pressed() -> void:
-	pop_up.open()
-
+	pop_up.open(
+		"New Game?",
+		func(): start_new_game() 
+	)
 
 func _on_resume_button_pressed() -> void:
 	print("pressed resume") #funktion muss noch rein wenn gespeichert
 	#oder raus wenn speichern erst im nächsten sprint
 
 func _on_exit_button_pressed() -> void:
-	get_tree().quit()
+	pop_up.open(
+		"Exit Game?",
+		func(): exit_game()
+	)
+
 
 
 func _on_insta_button_pressed() -> void:
@@ -31,11 +37,9 @@ func _on_discord_button_pressed() -> void:
 #TODO func _on_settings_button_pressed() -> void:
 #TODO 	get_tree().change_scene_to_file()
 
-
-func _on_yes_button_pressed() -> void:
+func start_new_game() -> void:
 	get_tree().change_scene_to_file("res://scenes/folderSetup.tscn")
-	#TODO link to start scene
+#TODO link to start scene
 
-
-func _on_no_button_pressed() -> void:
-	pop_up.close()
+func exit_game() -> void:
+	get_tree().quit()
