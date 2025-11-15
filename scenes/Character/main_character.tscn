@@ -474,3 +474,4 @@ script = ExtResource("5_16h32")
 script = ExtResource("6_22e6q")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
