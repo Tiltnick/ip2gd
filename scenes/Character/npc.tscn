@@ -1,0 +1,98 @@
+[gd_scene load_steps=16 format=3 uid="uid://cc56upiuyf8v1"]
+
+[ext_resource type="Script" uid="uid://dw1iv6dgjbatq" path="res://scripts/state_machine_npc/npc.gd" id="1_jpar3"]
+[ext_resource type="Texture2D" uid="uid://ccqodpqayll2d" path="res://assets/sprites/character/Enemy 1-Melee-Sheet.png" id="1_q33tr"]
+[ext_resource type="Script" uid="uid://bag4u47y1hlnx" path="res://scripts/state_machine_npc/state_machine_npc.gd" id="3_li0y0"]
+[ext_resource type="Script" uid="uid://bj3wge2cd2so2" path="res://scripts/state_machine_npc/npc_idle.gd" id="4_qklou"]
+[ext_resource type="Script" uid="uid://pxcfgc747h2m" path="res://scripts/state_machine_npc/npc_move.gd" id="5_5dfqd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpar3"]
+atlas = ExtResource("1_q33tr")
+region = Rect2(0, 206, 48, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_li0y0"]
+atlas = ExtResource("1_q33tr")
+region = Rect2(48, 206, 48, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urjxl"]
+atlas = ExtResource("1_q33tr")
+region = Rect2(96, 206, 48, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qklou"]
+atlas = ExtResource("1_q33tr")
+region = Rect2(144, 206, 48, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dfqd"]
+atlas = ExtResource("1_q33tr")
+region = Rect2(192, 206, 48, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwd6m"]
+atlas = ExtResource("1_q33tr")
+region = Rect2(240, 206, 48, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_db3se"]
+atlas = ExtResource("1_q33tr")
+region = Rect2(288, 206, 48, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrpjs"]
+atlas = ExtResource("1_q33tr")
+region = Rect2(336, 206, 48, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eprow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpar3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_li0y0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urjxl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qklou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dfqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwd6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_db3se")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrpjs")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q33tr"]
+size = Vector2(20, 21.5)
+
+[node name="NPC" type="CharacterBody2D"]
+script = ExtResource("1_jpar3")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_eprow")
+animation = &"idle"
+autoplay = "idle"
+frame = 4
+frame_progress = 0.9084463
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_q33tr")
+
+[node name="stateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_li0y0")
+initial_state = NodePath("move")
+
+[node name="idle" type="Node" parent="stateMachine"]
+script = ExtResource("4_qklou")
+
+[node name="move" type="Node" parent="stateMachine"]
+script = ExtResource("5_5dfqd")
