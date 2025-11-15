@@ -77,10 +77,6 @@ func next() -> void:
 		current_node = String(node.get("next", "end"))
 		line_index = 0
 
-# ------------------------
-# Additive API for choices
-# ------------------------
-
 # Returns true if the current node has a non-empty "choices" array.
 func has_choices_for_current_node() -> bool:
 	if is_finished():
@@ -127,3 +123,7 @@ func choose(index: int) -> void:
 	var choice: Dictionary = choices[index] as Dictionary
 	current_node = String(choice.get("next", "end"))
 	line_index = 0
+
+# *** NEU: einfacher Getter, damit der DialogManager den aktuellen Node kennt
+func get_current_node() -> String:
+	return current_node

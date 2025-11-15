@@ -7,9 +7,10 @@
 		{ "speaker": "Oris", "text": "I'm fine. Do you know the purpose of life?" }
 	  ],
 	  "choices": [
-		{ "text": "Of course I do!", "next": "oris_confident" },
-		{ "text": "No idea at all.", "next": "oris_confused" }
-	  ]
+  { "id": "confident", "text": "Of course I do!", "next": "oris_confident" },
+  { "id": "confused",  "text": "No idea at all.", "next": "oris_confused" }
+]
+
 	},
 
 	"oris_confident": {

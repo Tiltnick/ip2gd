@@ -1,5 +1,10 @@
 extends CanvasLayer
 
+signal choice_made(choice_id: String)
+
+
+
+
 @onready var box: DialogBox = $DialogBox
 
 # Initialize my DialogParser
@@ -37,6 +42,18 @@ func start_dialog(json_path: String) -> void:
 			# Show and await selection 
 			box.show_choices(choice_texts)
 			var selected_index: int = await box.choice_selected
+
+			# Inform anyone listening which choice was made.
+			var current_node_name: String = runtime.get_current_node()
+			var choices: Array = runtime.get_current_choices()
+			if selected_index >= 0 and selected_index < choices.size():
+				var choices_array: Array = runtime.get_current_choices()
+				var chosen: Dictionary = choices[selected_index] as Dictionary
+				var chosen_id: String = String(chosen.get("id", ""))
+				choice_made.emit(chosen_id)
+
+
+
 
 			# Apply the branch
 			runtime.choose(selected_index)
