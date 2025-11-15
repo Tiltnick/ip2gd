@@ -442,8 +442,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_30qu0"]
-size = Vector2(20, 26)
+[sub_resource type="CircleShape2D" id="CircleShape2D_22e6q"]
+radius = 7.071068
 
 [node name="Character" type="CharacterBody2D"]
 script = ExtResource("1_3p8r5")
@@ -457,8 +457,8 @@ autoplay = "idle_down"
 frame_progress = 0.39550674
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -13)
-shape = SubResource("RectangleShape2D_30qu0")
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_22e6q")
 
 [node name="stateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_783vt")
@@ -472,3 +472,5 @@ script = ExtResource("5_16h32")
 
 [node name="run" type="Node" parent="stateMachine"]
 script = ExtResource("6_22e6q")
+
+[node name="Camera2D" type="Camera2D" parent="."]
