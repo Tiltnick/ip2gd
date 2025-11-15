@@ -1,13 +1,13 @@
 [gd_scene load_steps=24 format=3 uid="uid://cc86xpvrn37so"]
 
-[ext_resource type="Script" uid="uid://c66icxn0ex1r2" path="res://scripts/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://b58phef2u4osr" path="res://assets/sprites/ui/Logo.png" id="3_oa1go"]
 [ext_resource type="FontFile" uid="uid://bcydf3meoraya" path="res://assets/fonts/ModernDOS9x14.ttf" id="4_wu84c"]
 [ext_resource type="Texture2D" uid="uid://dprepxc2r0jqd" path="res://assets/sprites/ui/instagram (2) 1.png" id="5_oa1go"]
 [ext_resource type="Texture2D" uid="uid://cgmo1vfleetle" path="res://assets/sprites/ui/settings 1.png" id="6_tbmy8"]
 [ext_resource type="Texture2D" uid="uid://d12eclmam7q5d" path="res://assets/sprites/ui/discord 1.png" id="7_jk1qb"]
-[ext_resource type="PackedScene" uid="uid://cpockpmuyp365" path="res://scenes/PopUp.tscn" id="8_tbmy8"]
+[ext_resource type="PackedScene" uid="uid://cpockpmuyp365" path="res://scenes/Menues/PopUp.tscn" id="8_tbmy8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
