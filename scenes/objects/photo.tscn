@@ -1,15 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cn5jhs1qws61g"]
+[gd_scene load_steps=5 format=3 uid="uid://cn5jhs1qws61g"]
 
-[ext_resource type="Script" uid="uid://bjrvomfladugu" path="res://scripts/photo.gd" id="1_vt8s6"]
-[ext_resource type="Shader" uid="uid://dp3u7j0j0ndm2" path="res://scripts/photo.gdshader" id="2_xgmx0"]
-[ext_resource type="Texture2D" uid="uid://dg2exfsu8bp5e" path="res://assets/sprites/photos/photo_front_placeholder.png" id="3_1dfbt"]
-[ext_resource type="Texture2D" uid="uid://cgu2u0yltxc6d" path="res://assets/sprites/photos/photo_back_placeholder.png" id="4_26ynh"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nnfc5"]
-shader = ExtResource("2_xgmx0")
+[ext_resource type="Script" uid="uid://bjrvomfladugu" path="res://scripts/objects/photo.gd" id="1_vt8s6"]
+[ext_resource type="Texture2D" uid="uid://qpyr384203kn" path="res://assets/sprites/photos/Photo_Front.jpg" id="2_vt8s6"]
+[ext_resource type="Texture2D" uid="uid://blohtbcp4xs6f" path="res://assets/sprites/photos/Photo_Back.jpg" id="3_l1rhr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ensy"]
-size = Vector2(272, 262)
+size = Vector2(164, 148)
 
 [node name="Photo" type="Node2D"]
 scale = Vector2(0.5, 0.5)
@@ -18,21 +14,22 @@ script = ExtResource("1_vt8s6")
 [node name="Outline" type="Sprite2D" parent="."]
 visible = false
 visibility_layer = 2
-material = SubResource("ShaderMaterial_nnfc5")
-scale = Vector2(1.1, 1.1)
-texture = ExtResource("3_1dfbt")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_vt8s6")
 
 [node name="Sprite_Front" type="Sprite2D" parent="."]
-texture = ExtResource("3_1dfbt")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_vt8s6")
 
 [node name="Sprite_Back" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("4_26ynh")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_l1rhr")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2, -7)
+position = Vector2(-2, 2)
 shape = SubResource("RectangleShape2D_7ensy")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

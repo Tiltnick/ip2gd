@@ -5,7 +5,6 @@ extends Interactable
 
 var is_front := true
 var is_zoomed := false
-#var outline_locked := false
 
 var start_scale: Vector2
 var front_start_scale: Vector2

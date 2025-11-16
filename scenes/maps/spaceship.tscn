@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://muw3551a68sd" path="res://assets/sprites/map/Spaceship/tileset.png" id="5_2km4p"]
 [ext_resource type="Texture2D" uid="uid://dh4gcjmn2qfyh" path="res://assets/sprites/selfmade/spaceship_door_locked.png" id="6_o77e3"]
 [ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="7_elrx7"]
-[ext_resource type="PackedScene" uid="uid://dbsgsaipcdr2r" path="res://scenes/photo.tscn" id="8_ikcf1"]
+[ext_resource type="PackedScene" uid="uid://cn5jhs1qws61g" path="res://scenes/objects/photo.tscn" id="8_ikcf1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oegse"]
 texture = ExtResource("1_krvlx")
@@ -1271,7 +1271,4 @@ z_index = 1
 position = Vector2(273, 108)
 
 [node name="Photo" parent="." instance=ExtResource("8_ikcf1")]
-position = Vector2(169, 184)
-
-[node name="Photo2" parent="." instance=ExtResource("8_ikcf1")]
-position = Vector2(38, 189)
+position = Vector2(197, 167)
