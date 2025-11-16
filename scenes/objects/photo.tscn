@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bjrvomfladugu" path="res://scripts/objects/photo.gd" id="1_vt8s6"]
 [ext_resource type="Texture2D" uid="uid://qpyr384203kn" path="res://assets/sprites/photos/Photo_Front.jpg" id="2_vt8s6"]
-[ext_resource type="Shader" uid="uid://b0e2vounomt8g" path="res://assets/shaders/outline_shader.gdshader" id="2_xgmx0"]
+[ext_resource type="Shader" uid="uid://b0e2vounomt8g" path="res://assets/shaders/photo.gdshader" id="2_xgmx0"]
 [ext_resource type="Texture2D" uid="uid://blohtbcp4xs6f" path="res://assets/sprites/photos/Photo_Back.jpg" id="3_l1rhr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1dfbt"]
