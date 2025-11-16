@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://csejhruust020"]
+[gd_scene load_steps=17 format=4 uid="uid://csejhruust020"]
 
 [ext_resource type="Texture2D" uid="uid://kxs6kkm0ut6w" path="res://assets/sprites/map/Spaceship/background.png" id="1_krvlx"]
 [ext_resource type="Texture2D" uid="uid://bbwtu422q5q3t" path="res://assets/sprites/map/Spaceship/foreground_pipes.png" id="2_elrx7"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dh4gcjmn2qfyh" path="res://assets/sprites/selfmade/spaceship_door_locked.png" id="6_o77e3"]
 [ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="7_elrx7"]
 [ext_resource type="Texture2D" uid="uid://cjdbq7hs0se5g" path="res://assets/sprites/selfmade/waldgeist-32x (8).png" id="8_ikcf1"]
+[ext_resource type="PackedScene" uid="uid://cn5jhs1qws61g" path="res://scenes/objects/photo.tscn" id="9_g0lot"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oegse"]
 texture = ExtResource("1_krvlx")
@@ -1275,3 +1276,6 @@ z_index = 1
 position = Vector2(178, 103)
 scale = Vector2(0.5625, 0.5625)
 texture = ExtResource("8_ikcf1")
+
+[node name="Photo" parent="." instance=ExtResource("9_g0lot")]
+position = Vector2(40, 10)
