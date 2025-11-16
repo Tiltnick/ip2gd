@@ -19,8 +19,6 @@ func esc():
 		resume()
 
 
-
-
 func _on_continue_button_pressed() -> void:
 	resume()
 
