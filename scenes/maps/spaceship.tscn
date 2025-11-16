@@ -1271,4 +1271,4 @@ z_index = 1
 position = Vector2(273, 108)
 
 [node name="Photo" parent="." instance=ExtResource("8_ikcf1")]
-position = Vector2(197, 167)
+position = Vector2(40, 12)
