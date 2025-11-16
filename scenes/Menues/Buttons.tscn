@@ -1,0 +1,212 @@
+[gd_scene load_steps=15 format=3 uid="uid://bdcidqjxxqp54"]
+
+[ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_uxpaj"]
+[ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="2_pdalu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtit6"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.2954166, 0.6311031, 0.55639124, 1)
+corner_radius_top_left = 27
+corner_radius_top_right = 27
+corner_radius_bottom_right = 27
+corner_radius_bottom_left = 27
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywcaw"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.2954166, 0.6311031, 0.55639124, 1)
+corner_radius_top_left = 27
+corner_radius_top_right = 27
+corner_radius_bottom_right = 27
+corner_radius_bottom_left = 27
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sejoc"]
+bg_color = Color(0.17254902, 0.24705882, 0.28235295, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 27
+corner_radius_top_right = 27
+corner_radius_bottom_right = 27
+corner_radius_bottom_left = 27
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u5roi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wfvic"]
+content_margin_left = 150.0
+content_margin_top = 10.0
+content_margin_right = 150.0
+content_margin_bottom = 10.0
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eg0ku"]
+content_margin_left = 150.0
+content_margin_top = 10.0
+content_margin_right = 150.0
+content_margin_bottom = 10.0
+bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w1s14"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h1c3o"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vscuo"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wg7x"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q4kul"]
+bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_03hbu"]
+
+[node name="Button" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NewGButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 23.0
+offset_right = 237.0
+offset_bottom = 59.0
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_focus_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_pressed_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_hover_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_fonts/font = ExtResource("1_uxpaj")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_rtit6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ywcaw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sejoc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u5roi")
+text = "Standard Button"
+
+[node name="SettingsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 139.0
+offset_right = 398.0
+offset_bottom = 182.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_colors/font_focus_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_colors/font_pressed_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_colors/font_hover_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_fonts/font = ExtResource("1_uxpaj")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_wfvic")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eg0ku")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eg0ku")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_w1s14")
+text = "Settings Button"
+
+[node name="Label" type="Label" parent="SettingsButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 5.5
+offset_top = -15.5
+offset_right = 38.5
+offset_bottom = 15.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_fonts/font = ExtResource("1_uxpaj")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_h1c3o")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RoundButtton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 77.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_vscuo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0wg7x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q4kul")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_03hbu")
+icon = ExtResource("2_pdalu")
+icon_alignment = 1

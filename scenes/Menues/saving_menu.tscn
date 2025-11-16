@@ -1,49 +1,22 @@
-[gd_scene load_steps=14 format=3 uid="uid://dfa4ga2b2k76f"]
+[gd_scene load_steps=11 format=3 uid="uid://dfa4ga2b2k76f"]
 
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_ksa70"]
 [ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="2_f4u1l"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lu08r"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_duj72"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
 border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
-corner_radius_top_left = 25
-corner_radius_top_right = 25
-corner_radius_bottom_right = 25
-corner_radius_bottom_left = 25
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfxdv"]
-content_margin_left = 30.0
-content_margin_top = 13.0
-content_margin_right = 30.0
-content_margin_bottom = 5.0
-bg_color = Color(0.043137256, 0.13333334, 0.14509805, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_soqa0"]
-bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
-border_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fyhw1"]
-content_margin_left = 150.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u0lg0"]
 content_margin_top = 10.0
-content_margin_right = 150.0
 content_margin_bottom = 10.0
 draw_center = false
 border_width_left = 2
@@ -56,10 +29,8 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ksa70"]
-content_margin_left = 150.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8ufa"]
 content_margin_top = 10.0
-content_margin_right = 150.0
 content_margin_bottom = 10.0
 bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
 border_width_left = 2
@@ -72,21 +43,9 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d2h07"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_au487"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dgj8m"]
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxxnq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0p6j"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
 border_width_left = 4
 border_width_top = 4
@@ -98,7 +57,7 @@ corner_radius_top_right = 60
 corner_radius_bottom_right = 60
 corner_radius_bottom_left = 62
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxrfw"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bf1gj"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
 border_width_left = 4
 border_width_top = 4
@@ -110,7 +69,7 @@ corner_radius_top_right = 60
 corner_radius_bottom_right = 60
 corner_radius_bottom_left = 62
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ni1px"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1wah"]
 bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
 border_width_left = 4
 border_width_top = 4
@@ -122,7 +81,7 @@ corner_radius_top_right = 60
 corner_radius_bottom_right = 60
 corner_radius_bottom_left = 62
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_alu83"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5n6h5"]
 
 [node name="saving_menu" type="Control"]
 layout_mode = 3
@@ -139,84 +98,51 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.14509805, 0.14509805, 0.14509805, 0.88235295)
 
-[node name="TabContainer" type="TabContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 100.0
-offset_top = 50.0
-offset_right = -100.0
-offset_bottom = -100.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_selected_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
-theme_override_colors/font_hovered_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
-theme_override_colors/font_unselected_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
-theme_override_constants/side_margin = 8
-theme_override_fonts/font = ExtResource("1_ksa70")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/panel = SubResource("StyleBoxFlat_lu08r")
-theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_kfxdv")
-theme_override_styles/tab_selected = SubResource("StyleBoxFlat_kfxdv")
-tab_alignment = 1
-current_tab = 0
-
-[node name="Save Game" type="TabBar" parent="TabContainer"]
-layout_mode = 2
-metadata/_tab_index = 0
-
-[node name="Panel" type="Panel" parent="TabContainer/Save Game"]
+[node name="Panel" type="Panel" parent="ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -205.5
-offset_top = -184.5
-offset_right = 205.5
-offset_bottom = 190.5
+offset_left = -160.1875
+offset_top = -165.10745
+offset_right = 160.1875
+offset_bottom = 129.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_soqa0")
+theme_override_styles/panel = SubResource("StyleBoxFlat_duj72")
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="TabContainer/Save Game"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/Panel"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -164.0
-offset_top = 34.0
-offset_right = 164.0
-offset_bottom = 315.0
+anchor_bottom = 0.5
+offset_left = -127.5
+offset_top = -112.0
+offset_right = 127.5
+offset_bottom = 112.0
 grow_horizontal = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 31
-alignment = 1
+grow_vertical = 2
+theme_override_constants/separation = 23
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Save Game/VBoxContainer3"]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="Label" type="Label" parent="TabContainer/Save Game/VBoxContainer3/VBoxContainer2"]
+[node name="Label" type="Label" parent="ColorRect/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_fonts/font = ExtResource("1_ksa70")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 35
 text = "Save Game ?"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Save Game/VBoxContainer3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/Panel/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 20
+theme_override_constants/separation = 11
 
-[node name="Save Slot" type="Button" parent="TabContainer/Save Game/VBoxContainer3/VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="ColorRect/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
@@ -225,32 +151,14 @@ theme_override_colors/font_pressed_color = Color(0.45882353, 0.8392157, 0.749019
 theme_override_colors/font_hover_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_fonts/font = ExtResource("1_ksa70")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_fyhw1")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ksa70")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ksa70")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_d2h07")
-text = "Save Slot"
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_u0lg0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y8ufa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y8ufa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_au487")
+text = "Save and Continue"
 
-[node name="Label" type="Label" parent="TabContainer/Save Game/VBoxContainer3/VBoxContainer/Save Slot"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 5.5
-offset_top = -15.5
-offset_right = 38.5
-offset_bottom = 15.5
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
-theme_override_fonts/font = ExtResource("1_ksa70")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_dgj8m")
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Save Slot2" type="Button" parent="TabContainer/Save Game/VBoxContainer3/VBoxContainer"]
+[node name="SettingsButton2" type="Button" parent="ColorRect/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
@@ -259,80 +167,28 @@ theme_override_colors/font_pressed_color = Color(0.45882353, 0.8392157, 0.749019
 theme_override_colors/font_hover_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_fonts/font = ExtResource("1_ksa70")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_fyhw1")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ksa70")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ksa70")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_d2h07")
-text = "Save Slot"
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_u0lg0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y8ufa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y8ufa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_au487")
+text = "Save and Exit"
 
-[node name="Label" type="Label" parent="TabContainer/Save Game/VBoxContainer3/VBoxContainer/Save Slot2"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 5.5
-offset_top = -15.5
-offset_right = 38.5
-offset_bottom = 15.5
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
-theme_override_fonts/font = ExtResource("1_ksa70")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_dgj8m")
-text = "2"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Save Slot3" type="Button" parent="TabContainer/Save Game/VBoxContainer3/VBoxContainer"]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
-theme_override_colors/font_focus_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
-theme_override_colors/font_pressed_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
-theme_override_colors/font_hover_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
-theme_override_fonts/font = ExtResource("1_ksa70")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_fyhw1")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ksa70")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ksa70")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_d2h07")
-text = "Save Slot"
-
-[node name="Label" type="Label" parent="TabContainer/Save Game/VBoxContainer3/VBoxContainer/Save Slot3"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 5.5
-offset_top = -15.5
-offset_right = 38.5
-offset_bottom = 15.5
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
-theme_override_fonts/font = ExtResource("1_ksa70")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_dgj8m")
-text = "3"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="SettingsButton" type="Button" parent="."]
+[node name="RoundButtton" type="Button" parent="ColorRect"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -80.0
-offset_top = 24.0
-offset_right = -24.0
-offset_bottom = 77.0
+offset_left = -415.0
+offset_top = 123.0
+offset_right = -370.62262
+offset_bottom = 165.0
 grow_horizontal = 0
 mouse_default_cursor_shape = 2
 theme_override_constants/icon_max_width = 34
-theme_override_styles/normal = SubResource("StyleBoxFlat_sxxnq")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_jxrfw")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ni1px")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_alu83")
+theme_override_styles/normal = SubResource("StyleBoxFlat_t0p6j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bf1gj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s1wah")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5n6h5")
 icon = ExtResource("2_f4u1l")
 icon_alignment = 1
