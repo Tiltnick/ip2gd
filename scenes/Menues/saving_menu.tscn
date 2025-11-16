@@ -85,7 +85,6 @@ corner_radius_bottom_left = 62
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5n6h5"]
 
 [node name="saving_menu" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
