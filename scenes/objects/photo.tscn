@@ -12,7 +12,7 @@ shader = ExtResource("2_xgmx0")
 size = Vector2(204, 228)
 
 [node name="Photo" type="Node2D"]
-z_index = 2
+z_index = 4
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_vt8s6")
 
@@ -20,16 +20,16 @@ script = ExtResource("1_vt8s6")
 visible = false
 visibility_layer = 2
 material = SubResource("ShaderMaterial_1dfbt")
-scale = Vector2(0.07, 0.07)
+scale = Vector2(0.06, 0.06)
 texture = ExtResource("2_vt8s6")
 
 [node name="Sprite_Front" type="Sprite2D" parent="."]
-scale = Vector2(0.06, 0.06)
+scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_vt8s6")
 
 [node name="Sprite_Back" type="Sprite2D" parent="."]
 visible = false
-scale = Vector2(0.06, 0.06)
+scale = Vector2(0.05, 0.05)
 texture = ExtResource("3_l1rhr")
 
 [node name="Area2D" type="Area2D" parent="."]
