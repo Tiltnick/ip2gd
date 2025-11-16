@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cn5jhs1qws61g"]
+[gd_scene load_steps=8 format=3 uid="uid://cn5jhs1qws61g"]
 
 [ext_resource type="Script" uid="uid://bjrvomfladugu" path="res://scripts/objects/photo.gd" id="1_vt8s6"]
 [ext_resource type="Texture2D" uid="uid://qpyr384203kn" path="res://assets/sprites/photos/Photo_Front.jpg" id="2_vt8s6"]
 [ext_resource type="Shader" uid="uid://b0e2vounomt8g" path="res://assets/shaders/photo.gdshader" id="2_xgmx0"]
 [ext_resource type="Texture2D" uid="uid://blohtbcp4xs6f" path="res://assets/sprites/photos/Photo_Back.jpg" id="3_l1rhr"]
+[ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E.tscn" id="5_xgmx0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1dfbt"]
 shader = ExtResource("2_xgmx0")
@@ -37,6 +38,10 @@ texture = ExtResource("3_l1rhr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 72)
 shape = SubResource("RectangleShape2D_7ensy")
+
+[node name="PressE" parent="." instance=ExtResource("5_xgmx0")]
+visible = false
+position = Vector2(14, -26)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
