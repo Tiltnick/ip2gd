@@ -1,0 +1,268 @@
+[gd_scene load_steps=19 format=3 uid="uid://y5kct0mr503d"]
+
+[ext_resource type="Script" uid="uid://lctvrsugxdja" path="res://scripts/menu/diary.gd" id="1_4v06k"]
+[ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_fpuyl"]
+[ext_resource type="Texture2D" uid="uid://7s3ow47xlbrq" path="res://assets/sprites/ui/icons8-left-arrow-50.png" id="3_vjvwg"]
+[ext_resource type="Texture2D" uid="uid://cld6btb0rssqf" path="res://assets/sprites/ui/icons8-right-arrow-50.png" id="4_4tuhk"]
+[ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="5_5og7o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0y5o"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0ysv"]
+content_margin_left = 30.0
+content_margin_top = 13.0
+content_margin_right = 30.0
+content_margin_bottom = 5.0
+bg_color = Color(0.043137256, 0.13333334, 0.14509805, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2kte2"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3g06l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_owa1a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_itq1g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_shvcr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rh350"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8q5ut"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b85bu"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_safip"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3pu0"]
+bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jwi3x"]
+
+[node name="Diary" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4v06k")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 50.0
+offset_right = -100.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_selected_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_hovered_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_unselected_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_constants/side_margin = 8
+theme_override_fonts/font = ExtResource("2_fpuyl")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/panel = SubResource("StyleBoxFlat_g0y5o")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_k0ysv")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_k0ysv")
+tab_alignment = 1
+current_tab = 0
+
+[node name="Diary" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Panel" type="Panel" parent="TabContainer/Diary"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 44.0
+offset_top = -187.5
+offset_right = 469.0
+offset_bottom = 187.5
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2kte2")
+
+[node name="Button" type="Button" parent="TabContainer/Diary/Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = 123.0
+offset_right = 90.0
+offset_bottom = 181.0
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3g06l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_owa1a")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_itq1g")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_shvcr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rh350")
+icon = ExtResource("3_vjvwg")
+
+[node name="Header" type="Label" parent="TabContainer/Diary/Panel"]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 81.0
+offset_bottom = 47.0
+text = "Header"
+
+[node name="Text" type="Label" parent="TabContainer/Diary/Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -130.5
+offset_right = 399.0
+offset_bottom = 119.5
+grow_vertical = 2
+text = "Text"
+
+[node name="Panel2" type="Panel" parent="TabContainer/Diary"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -469.0
+offset_top = -187.5
+offset_right = -44.0
+offset_bottom = 187.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8q5ut")
+
+[node name="Button" type="Button" parent="TabContainer/Diary/Panel2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = 123.0
+offset_right = -32.0
+offset_bottom = 181.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3g06l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_owa1a")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_itq1g")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_shvcr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rh350")
+icon = ExtResource("4_4tuhk")
+
+[node name="Text" type="Label" parent="TabContainer/Diary/Panel2"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -130.5
+offset_right = 399.0
+offset_bottom = 119.5
+grow_vertical = 2
+text = "Text"
+
+[node name="Header" type="Label" parent="TabContainer/Diary/Panel2"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 81.0
+offset_bottom = 47.0
+text = "Header"
+
+[node name="SettingsButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 77.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_safip")
+theme_override_styles/hover = SubResource("StyleBoxFlat_j3pu0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jwi3x")
+icon = ExtResource("5_5og7o")
+icon_alignment = 1

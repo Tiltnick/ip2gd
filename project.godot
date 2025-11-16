@@ -18,6 +18,7 @@ config/icon="res://assets/sprites/icon.svg"
 [autoload]
 
 Choice_Store="*res://scripts/dialog/choice_store.gd"
+Diary="*res://scripts/menu/diary.gd"
 
 [dialogic]
 

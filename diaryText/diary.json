@@ -1,0 +1,17 @@
+{
+	"entries": {
+		"entry_1":{
+			"header": "Titel",
+			"pages": [
+				"First entry on first page",
+				"second page"
+			]
+		},
+		"entry_2": {
+			"header": "Titel2",
+			"pages": [
+				"blalbalbalbla"
+			]
+		}
+	}
+}
