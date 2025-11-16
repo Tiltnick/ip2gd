@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://5ro6t5nvfn0w"]
+
+[ext_resource type="Script" uid="uid://c82i8bus3bmy2" path="res://scripts/dialog/dialog_box.gd" id="1_dlq0r"]
+[ext_resource type="Script" uid="uid://bayc27gfeqkkm" path="res://scripts/dialog/dialog_manager.gd" id="1_y2k7g"]
+[ext_resource type="FontFile" uid="uid://dvt47yyobv738" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_lgn1u"]
+[ext_resource type="Texture2D" uid="uid://dualo6y0kjjst" path="res://assets/sprites/ui/Dialog_Prototyp.png" id="2_y2k7g"]
+
+[node name="DialogManager" type="CanvasLayer"]
+script = ExtResource("1_y2k7g")
+
+[node name="DialogBox" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 354.0
+offset_bottom = 175.0
+script = ExtResource("1_dlq0r")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="DialogBox"]
+layout_mode = 0
+offset_right = 513.0
+offset_bottom = 273.0
+texture = ExtResource("2_y2k7g")
+
+[node name="Name" type="Label" parent="DialogBox/NinePatchRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.097
+anchor_top = 0.689
+anchor_right = 0.097
+anchor_bottom = 0.689
+offset_left = 1.2389984
+offset_top = -5.097
+offset_right = 122.239
+offset_bottom = 33.903
+theme_override_fonts/font = ExtResource("2_lgn1u")
+text = "Here comes the name
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Portrait" type="TextureRect" parent="DialogBox/NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.21200001
+anchor_top = 0.5
+anchor_right = 0.21200001
+anchor_bottom = 0.5
+offset_left = -41.756004
+offset_top = -35.5
+offset_right = 41.243996
+offset_bottom = 36.5
+
+[node name="Dialog" type="RichTextLabel" parent="DialogBox/NinePatchRect"]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 120)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33600003
+anchor_top = 0.342
+anchor_right = 0.33600003
+anchor_bottom = 0.34800002
+offset_left = 3.6319885
+offset_top = -11.366005
+offset_right = 307.632
+offset_bottom = 120.995995
+theme_override_fonts/normal_font = ExtResource("2_lgn1u")
+theme_override_fonts/bold_font = ExtResource("2_lgn1u")
+theme_override_fonts/bold_italics_font = ExtResource("2_lgn1u")
+theme_override_fonts/italics_font = ExtResource("2_lgn1u")
+theme_override_fonts/mono_font = ExtResource("2_lgn1u")
+theme_override_font_sizes/normal_font_size = 30
+text = "Here comes the dialog"
+scroll_active = false
+
+[node name="Choices" type="VBoxContainer" parent="DialogBox/NinePatchRect"]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 160.0
+offset_right = 475.0
+offset_bottom = 229.0

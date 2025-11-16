@@ -1,0 +1,33 @@
+{
+  "id": "test_oris_dennis",
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Dennis", "text": "Hey Oris, are you alright?" },
+		{ "speaker": "Oris", "text": "I'm fine. Do you know the purpose of life?" }
+	  ],
+	  "choices": [
+  { "id": "confident", "text": "Of course I do!", "next": "oris_confident" },
+  { "id": "confused",  "text": "No idea at all.", "next": "oris_confused" }
+]
+
+	},
+
+	"oris_confident": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "It’s to help you debug dialogs, Dennis." },
+		{ "speaker": "Dennis", "text": "Fair enough!" }
+	  ],
+	  "next": "end"
+	},
+
+	"oris_confused": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Don’t worry, you’ll figure it out eventually." },
+	  ],
+	  "next": "end"
+	},
+
+	"end": { "lines": [] }
+  }
+}
