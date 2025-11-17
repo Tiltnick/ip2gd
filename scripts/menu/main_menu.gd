@@ -4,7 +4,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
+
 
 
 
@@ -38,7 +39,7 @@ func _on_discord_button_pressed() -> void:
 #TODO 	get_tree().change_scene_to_file()
 
 func start_new_game() -> void:
-	get_tree().change_scene_to_file("res://scenes/folderSetup.tscn")
+	get_tree().change_scene_to_file("res://scenes/maps/spaceship.tscn")
 #TODO link to start scene
 
 func exit_game() -> void:
