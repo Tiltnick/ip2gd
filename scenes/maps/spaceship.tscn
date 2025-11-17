@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://csejhruust020"]
+[gd_scene load_steps=18 format=4 uid="uid://csejhruust020"]
 
 [ext_resource type="Texture2D" uid="uid://kxs6kkm0ut6w" path="res://assets/sprites/map/Spaceship/background.png" id="1_krvlx"]
 [ext_resource type="Texture2D" uid="uid://bbwtu422q5q3t" path="res://assets/sprites/map/Spaceship/foreground_pipes.png" id="2_elrx7"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="7_elrx7"]
 [ext_resource type="PackedScene" uid="uid://cn5jhs1qws61g" path="res://scenes/objects/photo.tscn" id="9_g0lot"]
 [ext_resource type="PackedScene" uid="uid://bo5pcx0bd2gfx" path="res://scenes/objects/diary.tscn" id="10_2km4p"]
+[ext_resource type="PackedScene" uid="uid://5ro6t5nvfn0w" path="res://scenes/dialog/dialog_manager.tscn" id="10_o77e3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oegse"]
 texture = ExtResource("1_krvlx")
@@ -1276,3 +1277,5 @@ position = Vector2(16, 8)
 
 [node name="Diary" parent="." instance=ExtResource("10_2km4p")]
 position = Vector2(177, 104)
+
+[node name="DialogManager" parent="." instance=ExtResource("10_o77e3")]

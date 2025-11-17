@@ -1,0 +1,26 @@
+{
+  "id": "diary_test",
+  "steps": {
+	"sections": {
+	  "lines": [
+		{
+		  "speaker": "Diary",
+		  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras placerat massa vel velit gravida, a ultrices lorem ullamcorper. Morbi dapibus libero sed risus convallis, at hendrerit felis sollicitudin. Suspendisse vulputate dignissim eros, at elementum metus convallis eget."
+		},
+		{
+		  "speaker": "Diary",
+		  "text": "Quisque aliquet, felis vitae blandit aliquet, urna ligula tristique neque, vitae faucibus nibh orci non dolor. Donec nec nisl vel mauris luctus efficitur. Praesent molestie lorem nec semper porta. Praesent vitae augue sed mauris vestibulum volutpat eu vitae arcu."
+		},
+		{
+		  "speaker": "Diary",
+		  "text": "Aenean cursus enim sed nisl hendrerit tincidunt. Integer eget dolor a lectus tincidunt viverra. Sed luctus, felis id dictum varius, ipsum magna vehicula ligula, in dictum felis ipsum at dolor. Etiam sodales purus vel mauris sollicitudin, et blandit odio vehicula."
+		}
+	  ],
+	  "choices": [
+		{ "id": "diary_close", "text": "Close the diary.", "next": "end" }
+	  ]
+	},
+
+	"end": { "lines": [] }
+  }
+}

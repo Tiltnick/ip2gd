@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c82i8bus3bmy2" path="res://scripts/dialog/dialog_box.gd" id="1_dlq0r"]
 [ext_resource type="Script" uid="uid://bayc27gfeqkkm" path="res://scripts/dialog/dialog_manager.gd" id="1_y2k7g"]
-[ext_resource type="FontFile" uid="uid://dvt47yyobv738" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_lgn1u"]
+[ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_lgn1u"]
 [ext_resource type="Texture2D" uid="uid://dualo6y0kjjst" path="res://assets/sprites/ui/Dialog_Prototyp.png" id="2_y2k7g"]
 
 [node name="DialogManager" type="CanvasLayer"]
@@ -10,15 +10,29 @@ script = ExtResource("1_y2k7g")
 
 [node name="DialogBox" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 354.0
-offset_bottom = 175.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -177.0
+offset_top = -250.0
+offset_right = 268.0
+grow_horizontal = 2
+grow_vertical = 0
 script = ExtResource("1_dlq0r")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="DialogBox"]
-layout_mode = 0
-offset_right = 513.0
-offset_bottom = 273.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.135
+anchor_top = -0.112
+anchor_right = -0.135
+anchor_bottom = -0.112
+offset_left = -16.925007
+offset_top = 3.9999847
+offset_right = 496.075
+offset_bottom = 277.0
 texture = ExtResource("2_y2k7g")
 
 [node name="Name" type="Label" parent="DialogBox/NinePatchRect"]
@@ -60,10 +74,10 @@ anchor_left = 0.33600003
 anchor_top = 0.342
 anchor_right = 0.33600003
 anchor_bottom = 0.34800002
-offset_left = 3.6319885
-offset_top = -11.366005
-offset_right = 307.632
-offset_bottom = 120.995995
+offset_left = -1.3680115
+offset_top = -16.366005
+offset_right = 302.632
+offset_bottom = 115.995995
 theme_override_fonts/normal_font = ExtResource("2_lgn1u")
 theme_override_fonts/bold_font = ExtResource("2_lgn1u")
 theme_override_fonts/bold_italics_font = ExtResource("2_lgn1u")
@@ -75,7 +89,7 @@ scroll_active = false
 
 [node name="Choices" type="VBoxContainer" parent="DialogBox/NinePatchRect"]
 layout_mode = 0
-offset_left = 174.0
-offset_top = 160.0
-offset_right = 475.0
-offset_bottom = 229.0
+offset_left = 179.0
+offset_top = 164.0
+offset_right = 480.0
+offset_bottom = 233.0
