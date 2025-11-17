@@ -18,10 +18,10 @@ config/icon="res://assets/sprites/icon.svg"
 [autoload]
 
 Choice_Store="*res://scripts/dialog/choice_store.gd"
-Diary="*res://scripts/menu/Diary/diary.gd"
-GlobalMenuButton="*res://scenes/Menues/menu_button.tscn"
-Visibility_Button="*res://scripts/menu/menu_button.gd"
-GameMenu="*res://scenes/Menues/diary_menu.tscn"
+Diary="*res://scripts/menu/GameMenu/diary.gd"
+GlobalMenuButton="*res://scenes/Menues/GameMenu/menu_button.tscn"
+Visibility_Button="*res://scripts/menu/GameMenu/menu_button.gd"
+GameMenu="*res://scenes/Menues/GameMenu/diary_menu.tscn"
 
 [dialogic]
 

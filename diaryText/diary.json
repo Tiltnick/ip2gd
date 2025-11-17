@@ -2,16 +2,17 @@
 	"entries": {
 		"entry_1":{
 			"header": "Titel",
-			"pages": [
-				"First entry on first pagekhsdkjhdskhkdskhfdsf",
-				"second page"
-			]
+			"text": 
+				"First entry on first pagekhsdkjhdskhkdskhfdsf pagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfvpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfvpagekhsdkjhdskhkdskhfdsf
+				pagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsf
+				pagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsfpagekhsdkjhdskhkdskhfdsf"
+			
 		},
 		"entry_2": {
 			"header": "Titel2",
-			"pages": [
+			"text": 
 				"blalbalbalbla"
-			]
+			
 		}
 	}
 }

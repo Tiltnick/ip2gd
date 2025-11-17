@@ -1,10 +1,10 @@
 [gd_scene load_steps=19 format=3 uid="uid://y5kct0mr503d"]
 
-[ext_resource type="Script" uid="uid://ccwcwotgnlcg2" path="res://scripts/menu/Diary/diary_menu.gd" id="2_4v06k"]
-[ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_fpuyl"]
-[ext_resource type="Texture2D" uid="uid://7s3ow47xlbrq" path="res://assets/sprites/ui/icons8-left-arrow-50.png" id="3_vjvwg"]
-[ext_resource type="Texture2D" uid="uid://cld6btb0rssqf" path="res://assets/sprites/ui/icons8-right-arrow-50.png" id="4_4tuhk"]
-[ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="5_5og7o"]
+[ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_xn7nl"]
+[ext_resource type="Script" uid="uid://ccwcwotgnlcg2" path="res://scripts/menu/GameMenu/diary_menu.gd" id="2_yqnfc"]
+[ext_resource type="Texture2D" uid="uid://7s3ow47xlbrq" path="res://assets/sprites/ui/icons8-left-arrow-50.png" id="3_fk2nq"]
+[ext_resource type="Texture2D" uid="uid://cld6btb0rssqf" path="res://assets/sprites/ui/icons8-right-arrow-50.png" id="4_c81p2"]
+[ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="5_i2vsb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0y5o"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -101,7 +101,6 @@ corner_radius_bottom_left = 62
 
 [node name="CanvasLayer" type="CanvasLayer"]
 process_mode = 3
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -125,7 +124,7 @@ theme_override_colors/font_selected_color = Color(0.84313726, 0.8156863, 0.67058
 theme_override_colors/font_hovered_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
 theme_override_colors/font_unselected_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
 theme_override_constants/side_margin = 8
-theme_override_fonts/font = ExtResource("2_fpuyl")
+theme_override_fonts/font = ExtResource("1_xn7nl")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/panel = SubResource("StyleBoxFlat_g0y5o")
 theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_k0ysv")
@@ -135,7 +134,7 @@ current_tab = 0
 
 [node name="Diary" type="TabBar" parent="TabContainer"]
 layout_mode = 2
-script = ExtResource("2_4v06k")
+script = ExtResource("2_yqnfc")
 metadata/_tab_index = 0
 
 [node name="Panel" type="Panel" parent="TabContainer/Diary"]
@@ -165,7 +164,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_owa1a")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_itq1g")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_shvcr")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rh350")
-icon = ExtResource("3_vjvwg")
+icon = ExtResource("3_fk2nq")
 
 [node name="Header" type="Label" parent="TabContainer/Diary/Panel"]
 layout_mode = 1
@@ -186,6 +185,7 @@ offset_right = 399.0
 offset_bottom = 119.5
 grow_vertical = 2
 text = "Text"
+autowrap_mode = 3
 
 [node name="Panel2" type="Panel" parent="TabContainer/Diary"]
 layout_mode = 1
@@ -220,7 +220,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_owa1a")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_itq1g")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_shvcr")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rh350")
-icon = ExtResource("4_4tuhk")
+icon = ExtResource("4_c81p2")
 
 [node name="Text" type="Label" parent="TabContainer/Diary/Panel2"]
 layout_mode = 1
@@ -258,7 +258,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_safip")
 theme_override_styles/hover = SubResource("StyleBoxFlat_j3pu0")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jwi3x")
-icon = ExtResource("5_5og7o")
+icon = ExtResource("5_i2vsb")
 icon_alignment = 1
 
 [connection signal="pressed" from="TabContainer/Diary/Panel/PrevButton" to="TabContainer/Diary" method="_on_prev_button_pressed"]

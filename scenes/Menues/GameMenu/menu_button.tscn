@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ciw6qb5jrmsf3"]
 
-[ext_resource type="Texture2D" uid="uid://mnl3plswls45" path="res://assets/sprites/ui/space-book 1.png" id="1_0eveq"]
-[ext_resource type="Script" uid="uid://sdev7jqq4jdb" path="res://scripts/menu/Diary/round_buttton.gd" id="2_exgfe"]
+[ext_resource type="Texture2D" uid="uid://mnl3plswls45" path="res://assets/sprites/ui/space-book 1.png" id="1_1d2pv"]
+[ext_resource type="Script" uid="uid://sdev7jqq4jdb" path="res://scripts/menu/GameMenu/round_buttton.gd" id="2_fgigl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exgfe"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -70,8 +70,8 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_exgfe")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_82io4")
 theme_override_styles/hover = SubResource("StyleBoxFlat_k47ng")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_84ry2")
-icon = ExtResource("1_0eveq")
+icon = ExtResource("1_1d2pv")
 icon_alignment = 1
-script = ExtResource("2_exgfe")
+script = ExtResource("2_fgigl")
 
 [connection signal="pressed" from="Control/RoundButtton" to="Control/RoundButtton" method="_on_pressed"]

@@ -29,8 +29,8 @@ func is_unlocked(id: String) -> bool:
 func get_header(id: String) -> String:
 	return all_entries[id].get("header", "")
 
-func get_pages(id: String) -> Array:
-	return all_entries[id].get("pages", [])
+func get_text(id: String) -> String:
+	return all_entries[id].get("text", "")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
