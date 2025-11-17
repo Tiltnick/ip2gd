@@ -101,7 +101,6 @@ corner_radius_bottom_left = 62
 
 [node name="CanvasLayer" type="CanvasLayer"]
 process_mode = 3
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -160,6 +159,7 @@ offset_top = 123.0
 offset_right = 90.0
 offset_bottom = 181.0
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3g06l")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_owa1a")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_itq1g")
@@ -216,6 +216,7 @@ offset_right = -32.0
 offset_bottom = 181.0
 grow_horizontal = 0
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3g06l")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_owa1a")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_itq1g")
