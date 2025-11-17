@@ -101,6 +101,7 @@ corner_radius_bottom_left = 62
 
 [node name="CanvasLayer" type="CanvasLayer"]
 process_mode = 3
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -233,6 +234,7 @@ offset_right = 399.0
 offset_bottom = 119.5
 grow_vertical = 2
 text = "Text"
+autowrap_mode = 3
 
 [node name="Header" type="Label" parent="TabContainer/Diary/Panel2"]
 layout_mode = 0
