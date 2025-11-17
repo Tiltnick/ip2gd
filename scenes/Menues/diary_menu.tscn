@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://y5kct0mr503d"]
 
-[ext_resource type="Script" uid="uid://ccwcwotgnlcg2" path="res://scripts/menu/diary_menu.gd" id="2_4v06k"]
+[ext_resource type="Script" uid="uid://ccwcwotgnlcg2" path="res://scripts/menu/Diary/diary_menu.gd" id="2_4v06k"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_fpuyl"]
 [ext_resource type="Texture2D" uid="uid://7s3ow47xlbrq" path="res://assets/sprites/ui/icons8-left-arrow-50.png" id="3_vjvwg"]
 [ext_resource type="Texture2D" uid="uid://cld6btb0rssqf" path="res://assets/sprites/ui/icons8-right-arrow-50.png" id="4_4tuhk"]
@@ -99,26 +99,20 @@ corner_radius_bottom_left = 62
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jwi3x"]
 
-[node name="Diary" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 3
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.14509805, 0.14509805, 0.14509805, 0.88235295)
 
 [node name="TabContainer" type="TabContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 100.0
@@ -248,14 +242,14 @@ offset_right = 81.0
 offset_bottom = 47.0
 text = "Header"
 
-[node name="SettingsButton" type="Button" parent="."]
-layout_mode = 1
+[node name="CloseButton" type="Button" parent="."]
+process_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -80.0
-offset_top = 24.0
-offset_right = -24.0
+offset_top = 30.0
+offset_right = -32.0
 offset_bottom = 77.0
 grow_horizontal = 0
 mouse_default_cursor_shape = 2
@@ -269,3 +263,4 @@ icon_alignment = 1
 
 [connection signal="pressed" from="TabContainer/Diary/Panel/PrevButton" to="TabContainer/Diary" method="_on_prev_button_pressed"]
 [connection signal="pressed" from="TabContainer/Diary/Panel2/NextButton" to="TabContainer/Diary" method="_on_next_button_pressed"]
+[connection signal="pressed" from="CloseButton" to="TabContainer/Diary" method="_on_close_button_pressed"]

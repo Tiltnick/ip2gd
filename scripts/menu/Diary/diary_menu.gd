@@ -1,8 +1,5 @@
 extends Control
-#var current_entry_id = ""
 var current_page = 0
-#var pages: Array = []
-#var entry_header = ""
 var pages = []
 @onready var header_left: Label = $Panel/Header
 @onready var text_left: Label = $Panel/Text
@@ -51,14 +48,6 @@ func build_all_pages():
 		})
 	return combined_pages
 
-
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_prev_button_pressed() -> void:
 	if current_page - 2 >= 0:
 		current_page -= 2
@@ -69,3 +58,9 @@ func _on_next_button_pressed() -> void:
 	if current_page + 2 < pages.size():
 		current_page += 2
 		update_pages()
+
+
+func _on_close_button_pressed() -> void:
+	get_tree().paused = false
+	GameMenu.hide()
+	GlobalMenuButton.show()
