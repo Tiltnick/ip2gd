@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bo5pcx0bd2gfx"]
+[gd_scene load_steps=6 format=3 uid="uid://bo5pcx0bd2gfx"]
 
 [ext_resource type="Script" uid="uid://d3u6au3ypgurn" path="res://scripts/objects/diary.gd" id="1_1j2xx"]
 [ext_resource type="Texture2D" uid="uid://cjdbq7hs0se5g" path="res://assets/sprites/selfmade/waldgeist-32x (8).png" id="1_4vq8n"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="3_1j2xx"]
-[ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="4_82wr1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1j2xx"]
 shader = ExtResource("3_1j2xx")
@@ -16,7 +15,6 @@ size = Vector2(32, 63)
 [node name="Diary" type="Node2D"]
 z_index = 4
 script = ExtResource("1_1j2xx")
-e_popup_path = NodePath("Press_E_Popup")
 
 [node name="Book" type="Sprite2D" parent="."]
 z_index = 1
@@ -35,6 +33,3 @@ texture = ExtResource("1_4vq8n")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1, 16.5)
 shape = SubResource("RectangleShape2D_ko5b1")
-
-[node name="Press_E_Popup" parent="." instance=ExtResource("4_82wr1")]
-visible = false
