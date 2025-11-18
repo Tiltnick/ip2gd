@@ -26,6 +26,7 @@ func _ready():
 			e_popup.visible = false
 			# Position relativ zum Objekt, z.B. über dem Mittelpunkt
 			e_popup.position = Vector2(-10, -55)
+			
 
 func _on_enter(body):
 	if body.is_in_group("player"):

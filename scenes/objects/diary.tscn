@@ -14,6 +14,7 @@ shader_parameter/outline_color = Color(1, 1, 1, 1)
 size = Vector2(32, 63)
 
 [node name="Diary" type="Node2D"]
+z_index = 4
 script = ExtResource("1_1j2xx")
 e_popup_path = NodePath("Press_E_Popup")
 
