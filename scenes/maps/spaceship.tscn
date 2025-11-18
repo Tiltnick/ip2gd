@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://csejhruust020"]
+[gd_scene load_steps=18 format=4 uid="uid://csejhruust020"]
 
 [ext_resource type="Texture2D" uid="uid://kxs6kkm0ut6w" path="res://assets/sprites/map/Spaceship/background.png" id="1_krvlx"]
 [ext_resource type="Texture2D" uid="uid://bbwtu422q5q3t" path="res://assets/sprites/map/Spaceship/foreground_pipes.png" id="2_elrx7"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="7_elrx7"]
 [ext_resource type="PackedScene" uid="uid://cn5jhs1qws61g" path="res://scenes/objects/photo.tscn" id="9_g0lot"]
 [ext_resource type="PackedScene" uid="uid://bo5pcx0bd2gfx" path="res://scenes/objects/diary.tscn" id="10_2km4p"]
+[ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="10_o77e3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oegse"]
 texture = ExtResource("1_krvlx")
@@ -1271,8 +1272,26 @@ polygon = PackedVector2Array(-112, -75, 59, -77, 58, -42, 135, -42, 135, -78, 30
 z_index = 1
 position = Vector2(273, 108)
 
-[node name="Photo" parent="." instance=ExtResource("9_g0lot")]
+[node name="Photo" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("9_g0lot")]
 position = Vector2(16, 8)
+e_popup_node = NodePath("Press_E_Popup_Photo")
 
-[node name="Diary" parent="." instance=ExtResource("10_2km4p")]
+[node name="Press_E_Popup_Photo" parent="Photo" instance=ExtResource("10_o77e3")]
+visible = false
+offset_left = -16.0
+offset_top = -60.0
+offset_right = 6.499998
+offset_bottom = -35.000004
+scale = Vector2(1.6, 1.6)
+
+[node name="Diary" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("10_2km4p")]
 position = Vector2(177, 104)
+e_popup_node = NodePath("Press_E_Popup_Diary")
+
+[node name="Press_E_Popup_Diary" parent="Diary" instance=ExtResource("10_o77e3")]
+visible = false
+offset_left = -7.9999924
+offset_top = -31.000008
+offset_right = 12.000008
+offset_bottom = -7.2500076
+scale = Vector2(0.8, 0.8)
