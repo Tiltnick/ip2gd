@@ -30,6 +30,10 @@ func _zoom_in():
 	is_zoomed = true
 	outline.visible = false
 	outline_locked = true
+	
+	if e_popup_node: 
+		e_popup_node.visible = false
+	
 
 
 	var t = create_tween()
@@ -65,6 +69,9 @@ func _reset_state():
 
 	outline_locked = false
 	_try_show_outline()
+	
+	if e_popup_node and player_in_area:
+		e_popup_node.visible = true
 
 
 func _disable_outline_full():
