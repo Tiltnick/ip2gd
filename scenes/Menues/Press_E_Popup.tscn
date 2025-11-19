@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvwiy7ygg1e46"]
+
+[ext_resource type="Texture2D" uid="uid://dh34ug5pqv358" path="res://assets/sprites/selfmade/Popup_E.png" id="1_80jwv"]
+
+[node name="Press_E_Popup" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="E" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 25.5
+offset_bottom = 29.88
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_80jwv")
+expand_mode = 1

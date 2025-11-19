@@ -14,10 +14,13 @@ signal choice_selected(index: int)
 
 # typewriter speed in seconds per character 
 @export var typing_speed: float = 0.02
+@export var max_chars_per_page: int = 200
 
 var typing: bool = false     # true while characters are being typed
 var skip: bool = false       # set to true to instantly reveal the rest
 var full_text: String = ""   # the full line we want to display
+var _pages: Array[String] = []
+var _page_index: int = 0
 
 func _ready() -> void:
 	# Start hidden; the manager decides when to show/hide.
@@ -37,8 +40,8 @@ func show_line(speaker: String, text: String) -> void:
 
 	# set the full text but hide all characters for now
 	full_text = text
-	dialog_text.text = full_text
-	dialog_text.visible_characters = 0
+	_pages = _split_into_pages(full_text)
+	_page_index = 0
 
 	# reset typing state and make the box visible
 	typing = true
@@ -49,7 +52,7 @@ func show_line(speaker: String, text: String) -> void:
 	hide_choices()
 
 	# start typewriter
-	typewriter()
+	_apply_current_page()
 
 func _unhandled_input(event: InputEvent) -> void:
 	# One button does two things depending on state:
@@ -59,7 +62,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		if typing:
 			skip = true
 		else:
-			emit_signal("continue_pressed")
+			if _page_index < _pages.size() - 1:
+				_page_index += 1
+				typing = true
+				skip = false
+				_apply_current_page()
+			else:
+				emit_signal("continue_pressed")
 
 func typewriter() -> void:
 	# Wait one frame so the label has laid out the text;
@@ -123,3 +132,27 @@ func hide_choices() -> void:
 func _clear_children(node: Node) -> void:
 	for c in node.get_children():
 		c.queue_free()
+
+func _apply_current_page() -> void:
+	dialog_text.text = _pages[_page_index]
+	dialog_text.visible_characters = 0
+	typewriter()
+
+func _split_into_pages(text: String) -> Array[String]:
+	var result: Array[String] = []
+	var max_chars: int = max_chars_per_page
+	var i: int = 0
+	var length: int = text.length()
+	while i < length:
+		var end: int = min(i + max_chars, length)
+		var slice_end: int = end
+		if end < length:
+			var last_space: int = text.rfind(" ", end - 1)
+			if last_space >= i:
+				slice_end = last_space + 1
+		var part: String = text.substr(i, slice_end - i)
+		result.append(part)
+		i = slice_end
+	if result.is_empty():
+		result.append("")
+	return result
