@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://csejhruust020"]
+[gd_scene load_steps=19 format=4 uid="uid://csejhruust020"]
 
 [ext_resource type="Texture2D" uid="uid://kxs6kkm0ut6w" path="res://assets/sprites/map/Spaceship/background.png" id="1_krvlx"]
 [ext_resource type="Texture2D" uid="uid://bbwtu422q5q3t" path="res://assets/sprites/map/Spaceship/foreground_pipes.png" id="2_elrx7"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cn5jhs1qws61g" path="res://scenes/objects/photo.tscn" id="9_g0lot"]
 [ext_resource type="PackedScene" uid="uid://bo5pcx0bd2gfx" path="res://scenes/objects/diary.tscn" id="10_2km4p"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="10_o77e3"]
+[ext_resource type="PackedScene" uid="uid://dfa4ga2b2k76f" path="res://scenes/Menues/saving_menu.tscn" id="11_o77e3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oegse"]
 texture = ExtResource("1_krvlx")
@@ -1295,3 +1296,5 @@ offset_top = -31.000008
 offset_right = 12.000008
 offset_bottom = -7.2500076
 scale = Vector2(0.8, 0.8)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("11_o77e3")]

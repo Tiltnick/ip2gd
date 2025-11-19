@@ -85,6 +85,7 @@ corner_radius_bottom_left = 62
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5n6h5"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 3
 visible = false
 script = ExtResource("1_u0lg0")
 
@@ -199,9 +200,9 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_5n6h5")
 icon = ExtResource("2_f4u1l")
 icon_alignment = 1
 
-[connection signal="pressed" from="saving_menu/ColorRect/Panel/VBoxContainer/VBoxContainer/ContinueButton" to="saving_menu" method="_on_continue_button_pressed"]
 [connection signal="pressed" from="saving_menu/ColorRect/Panel/VBoxContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="saving_menu/ColorRect/Panel/VBoxContainer/VBoxContainer/ExitButton" to="saving_menu" method="_on_exit_button_pressed"]
+[connection signal="pressed" from="saving_menu/ColorRect/Panel/VBoxContainer/VBoxContainer/ContinueButton" to="saving_menu" method="_on_continue_button_pressed"]
 [connection signal="pressed" from="saving_menu/ColorRect/Panel/VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="saving_menu/ColorRect/RoundButtton" to="saving_menu" method="_on_round_buttton_pressed"]
+[connection signal="pressed" from="saving_menu/ColorRect/Panel/VBoxContainer/VBoxContainer/ExitButton" to="saving_menu" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="saving_menu/ColorRect/RoundButtton" to="." method="_on_round_buttton_pressed"]
+[connection signal="pressed" from="saving_menu/ColorRect/RoundButtton" to="saving_menu" method="_on_round_buttton_pressed"]
