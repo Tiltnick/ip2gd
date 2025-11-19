@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://csejhruust020"]
+[gd_scene load_steps=22 format=4 uid="uid://csejhruust020"]
 
 [ext_resource type="Texture2D" uid="uid://kxs6kkm0ut6w" path="res://assets/sprites/map/Spaceship/background.png" id="1_krvlx"]
 [ext_resource type="Texture2D" uid="uid://bbwtu422q5q3t" path="res://assets/sprites/map/Spaceship/foreground_pipes.png" id="2_elrx7"]
@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="7_elrx7"]
 [ext_resource type="PackedScene" uid="uid://cn5jhs1qws61g" path="res://scenes/interactables/objects/photo.tscn" id="9_g0lot"]
 [ext_resource type="PackedScene" uid="uid://bo5pcx0bd2gfx" path="res://scenes/interactables/objects/diary.tscn" id="10_2km4p"]
+[ext_resource type="PackedScene" uid="uid://dhyl0rqmojucp" path="res://scenes/interactables/doors/door.tscn" id="10_172bc"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="10_o77e3"]
+[ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="11_1oksb"]
 [ext_resource type="PackedScene" uid="uid://dfa4ga2b2k76f" path="res://scenes/Menues/saving_menu.tscn" id="11_o77e3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oegse"]
@@ -1236,6 +1238,11 @@ sources/3 = SubResource("TileSetAtlasSource_ikcf1")
 sources/4 = SubResource("TileSetAtlasSource_g0lot")
 sources/5 = SubResource("TileSetAtlasSource_2km4p")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_emg07"]
+shader = ExtResource("11_1oksb")
+shader_parameter/outline_size = 2.0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+
 [node name="Spaceship" type="Node2D"]
 
 [node name="Tilemap" type="Node" parent="."]
@@ -1250,10 +1257,11 @@ tile_map_data = PackedByteArray("AAD3/wQABAAWAAoAAAD3/wUABAAWAAsAAAD3/wYABAAWAAw
 tile_set = SubResource("TileSet_2km4p")
 
 [node name="Decoration" type="TileMapLayer" parent="Tilemap"]
-tile_map_data = PackedByteArray("AAD6/wgAAwAKAAkAAAD6/wkAAwAKAAoAAAD6/woAAwAKAAsAAAD7/wgAAwANAAUAAAD7/wkAAwANAAYAAAD7/woAAwANAAcAAAD7/wsAAwANAAgAAAD8/wgAAwAOAAUAAAD8/wkAAwAOAAYAAAD8/woAAwAOAAcAAAD8/wsAAwAOAAgAAAD9/wAAAwAPAAMAAAD9/wEAAwAPAAQAAAD9/wIAAwAGAAkAAAD9/wMAAwAGAAsAAAD9/wQAAwAJAAkAAAD9/wUAAwAJAAoAAAD9/wYAAwAJAAoAAAD9/wcAAwAJAAsAAAD+/wAAAwAQAAMAAAD+/wEAAwAQAAQAAAD+/wIAAwAHAAkAAAD+/wMAAwAHAAsAAAD/////AwAIAAMAAAD//wIAAwAHAAkAAAD//wMAAwAHAAsAAAD//woAAwARAAAAAAAAAAIAAwAHAAkAAAAAAAMAAwAHAAsAAAABAAIAAwAHAAkAAAABAAMAAwAHAAsAAAABAA0AAwAOAAAAAAACAP//AwAIAAMAAAACAAIAAwAHAAkAAAACAAMAAwAHAAsAAAADAAAAAwAPAAMAAAADAAEAAwAPAAQAAAADAAIAAwAHAAkAAAADAAMAAwAHAAsAAAAEAAAAAwAQAAMAAAAEAAEAAwAQAAQAAAAEAAIAAwAIAAkAAAAEAAMAAwAIAAsAAAAEAAQAAwAJAAkAAAAEAAUAAwAJAAoAAAAEAAYAAwAJAAoAAAAEAAcAAwAJAAsAAAAEAAwAAwAPAAAAAAAFAAcAAwAIAAQAAAAFAAgAAwAIAAUAAAAFAAkAAwAIAAYAAAAGAAcAAwAJAAQAAAAGAAgAAwAJAAUAAAAGAAkAAwAJAAYAAAAIAAUAAwAGAAwAAAAIAAYAAwAGAA0AAAAIAAcAAwAGAA4AAAAJAAUAAwAHAAwAAAAJAAYAAwAHAA0AAAAJAAcAAwAHAA4AAAAKAAUAAwAHAAwAAAAKAAYAAwAHAA0AAAAKAAcAAwAHAA4AAAALAAUAAwAHAAwAAAALAAYAAwAHAA0AAAALAAcAAwAHAA4AAAAMAAUAAwAHAAwAAAAMAAYAAwAHAA0AAAAMAAcAAwAHAA4AAAANAAUAAwAIAAwAAAANAAYAAwAIAA0AAAANAAcAAwAIAA4AAAAOAAMAAwAJAAMAAAAOAAUAAwANAAEAAAAOAAcAAwASAAAAAAARAAIAAwARAAUAAAASAAIAAwASAAUAAAASAAMAAwATAAUAAAATAAIAAwAMAAwAAAATAAMAAwAMAA0AAAATAAQAAwAMAA0AAAATAAUAAwAMAA4AAAAOAAYAAwANAAIAAAASAAcAAwAPAAoAAAASAAgAAwAPAAsAAAATAAcAAwAQAAoAAAATAAgAAwAQAAsAAAD9/woABAAPABcAAAD9/wsABAAPABgAAAD+/woABAAQABcAAAD+/wsABAAQABgAAAAGAA0ABAAPABcAAAAGAA4ABAAPABgAAAAHAA0ABAAQABcAAAAHAA4ABAAQABgAAAASAAwABAAQABcAABASAA0ABAAQABgAABATAAwABAAPABcAABATAA0ABAAPABgAABAQAAMABQAAAAAAAAAQAAQABQAAAAEAAAAQAAUABQAAAAIAAAARAAMABQABAAAAAAARAAQABQABAAEAAAARAAUABQABAAIAAAA=")
+tile_map_data = PackedByteArray("AAD6/wgAAwAKAAkAAAD6/wkAAwAKAAoAAAD6/woAAwAKAAsAAAD7/wgAAwANAAUAAAD7/wkAAwANAAYAAAD7/woAAwANAAcAAAD7/wsAAwANAAgAAAD8/wgAAwAOAAUAAAD8/wkAAwAOAAYAAAD8/woAAwAOAAcAAAD8/wsAAwAOAAgAAAD9/wAAAwAPAAMAAAD9/wEAAwAPAAQAAAD9/wIAAwAGAAkAAAD9/wMAAwAGAAsAAAD9/wQAAwAJAAkAAAD9/wUAAwAJAAoAAAD9/wYAAwAJAAoAAAD9/wcAAwAJAAsAAAD+/wAAAwAQAAMAAAD+/wEAAwAQAAQAAAD+/wIAAwAHAAkAAAD+/wMAAwAHAAsAAAD/////AwAIAAMAAAD//wIAAwAHAAkAAAD//wMAAwAHAAsAAAD//woAAwARAAAAAAAAAAIAAwAHAAkAAAAAAAMAAwAHAAsAAAABAAIAAwAHAAkAAAABAAMAAwAHAAsAAAABAA0AAwAOAAAAAAACAP//AwAIAAMAAAACAAIAAwAHAAkAAAACAAMAAwAHAAsAAAADAAAAAwAPAAMAAAADAAEAAwAPAAQAAAADAAIAAwAHAAkAAAADAAMAAwAHAAsAAAAEAAAAAwAQAAMAAAAEAAEAAwAQAAQAAAAEAAIAAwAIAAkAAAAEAAMAAwAIAAsAAAAEAAQAAwAJAAkAAAAEAAUAAwAJAAoAAAAEAAYAAwAJAAoAAAAEAAcAAwAJAAsAAAAEAAwAAwAPAAAAAAAFAAcAAwAIAAQAAAAFAAgAAwAIAAUAAAAFAAkAAwAIAAYAAAAGAAcAAwAJAAQAAAAGAAgAAwAJAAUAAAAGAAkAAwAJAAYAAAAIAAUAAwAGAAwAAAAIAAYAAwAGAA0AAAAIAAcAAwAGAA4AAAAJAAUAAwAHAAwAAAAJAAYAAwAHAA0AAAAJAAcAAwAHAA4AAAAKAAUAAwAHAAwAAAAKAAYAAwAHAA0AAAAKAAcAAwAHAA4AAAALAAUAAwAHAAwAAAALAAYAAwAHAA0AAAALAAcAAwAHAA4AAAAMAAUAAwAHAAwAAAAMAAYAAwAHAA0AAAAMAAcAAwAHAA4AAAANAAUAAwAIAAwAAAANAAYAAwAIAA0AAAANAAcAAwAIAA4AAAAOAAMAAwAJAAMAAAAOAAUAAwANAAEAAAAOAAcAAwASAAAAAAARAAIAAwARAAUAAAASAAIAAwASAAUAAAASAAMAAwATAAUAAAATAAIAAwAMAAwAAAATAAMAAwAMAA0AAAATAAQAAwAMAA0AAAATAAUAAwAMAA4AAAAOAAYAAwANAAIAAAASAAcAAwAPAAoAAAASAAgAAwAPAAsAAAATAAcAAwAQAAoAAAATAAgAAwAQAAsAAAD9/woABAAPABcAAAD9/wsABAAPABgAAAD+/woABAAQABcAAAD+/wsABAAQABgAAAAGAA0ABAAPABcAAAAGAA4ABAAPABgAAAAHAA0ABAAQABcAAAAHAA4ABAAQABgAAAASAAwABAAQABcAABASAA0ABAAQABgAABATAAwABAAPABcAABATAA0ABAAPABgAABA=")
 tile_set = SubResource("TileSet_2km4p")
 
 [node name="Decoration2" type="TileMapLayer" parent="Tilemap"]
+z_index = 1
 tile_map_data = PackedByteArray("AAD9////AwAUAAUAAAD9/wEAAwAGAAAAAAD9/wIAAwAGAAEAAAD9/wUAAwAUAAAAAAD9/wYAAwARAAAAAAD+/wEAAwAHAAAAAAD+/wIAAwAHAAEAAAD+/wQAAwAEAAwAAAD+/wUAAwAEAA0AAAD+/wYAAwAEAA4AAAD//wIAAwADAAwAAAD//wMAAwADAA0AAAD//wQAAwADAA4AAAAAAAEAAwAGAAIAAAAAAAIAAwAGAAMAAAABAAEAAwAHAAIAAAABAAIAAwAHAAMAAAACAAIAAwADAAwAAAACAAMAAwADAA0AAAACAAQAAwADAA4AAAADAAEAAwAGAAAAAAADAAIAAwAGAAEAAAADAAQAAwAFAAwAAAADAAUAAwAFAA0AAAADAAYAAwAFAA4AAAAEAP//AwAUAAUAAAAEAAEAAwAHAAAAAAAEAAIAAwAHAAEAAAAEAAQAAwATAAAAAAAEAAUAAwAOAAAAAAAEAAYAAwASAAAAAAAIAAIAAwARAAEAAAAIAAMAAwARAAIAAAAIAAUAAwAMAAUAAAAJAAIAAwASAAEAAAAJAAMAAwASAAIAAAAJAAUAAwAMAAgAAAAJAAYAAwAPAAAAAAAKAAIAAwATAAEAAAAKAAMAAwATAAIAAAAKAAUAAwARAAAAAAALAAIAAwAUAAEAAAALAAMAAwAUAAIAAAAMAAIAAwARAAEAAAAMAAMAAwARAAIAAAAMAAYAAwATAAAAAAANAAIAAwASAAEAAAANAAMAAwASAAIAAAANAAUAAwAMAAMAAAA=")
 tile_set = SubResource("TileSet_2km4p")
 
@@ -1269,15 +1277,13 @@ position = Vector2(15, 305)
 build_mode = 1
 polygon = PackedVector2Array(-112, -75, 59, -77, 58, -42, 135, -42, 135, -78, 303, -77, 304, -211, 110, -209, 112, -160, 65, -162, 62, -274, -61, -274, -64, -128, -111, -130)
 
-[node name="Character" parent="." instance=ExtResource("7_elrx7")]
-z_index = 1
-position = Vector2(273, 108)
+[node name="Objects" type="Node" parent="."]
 
-[node name="Photo" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("9_g0lot")]
+[node name="Photo" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("9_g0lot")]
 position = Vector2(16, 8)
 e_popup_node = NodePath("Press_E_Popup_Photo")
 
-[node name="Press_E_Popup_Photo" parent="Photo" instance=ExtResource("10_o77e3")]
+[node name="Press_E_Popup_Photo" parent="Objects/Photo" instance=ExtResource("10_o77e3")]
 visible = false
 offset_left = -16.0
 offset_top = -60.0
@@ -1285,16 +1291,36 @@ offset_right = 6.499998
 offset_bottom = -35.000004
 scale = Vector2(1.6, 1.6)
 
-[node name="Diary" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("10_2km4p")]
+[node name="Diary" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("10_2km4p")]
 position = Vector2(177, 104)
 e_popup_node = NodePath("Press_E_Popup_Diary")
 
-[node name="Press_E_Popup_Diary" parent="Diary" instance=ExtResource("10_o77e3")]
+[node name="Press_E_Popup_Diary" parent="Objects/Diary" instance=ExtResource("10_o77e3")]
 visible = false
 offset_left = -7.9999924
 offset_top = -31.000008
 offset_right = 12.000008
 offset_bottom = -7.2500076
 scale = Vector2(0.8, 0.8)
+
+[node name="Door" parent="." instance=ExtResource("10_172bc")]
+z_index = 1
+position = Vector2(272, 72)
+scale = Vector2(1.63, 1.63)
+target_scene_path = "uid://b4r2irdvo1x1b"
+
+[node name="Sprite2D" type="Sprite2D" parent="Door"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_o77e3")
+
+[node name="Outline" type="Sprite2D" parent="Door"]
+visible = false
+material = SubResource("ShaderMaterial_emg07")
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_o77e3")
+
+[node name="Character" parent="." instance=ExtResource("7_elrx7")]
+z_index = 1
+position = Vector2(272, 150)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("11_o77e3")]

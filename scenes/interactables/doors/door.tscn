@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhyl0rqmojucp"]
+
+[ext_resource type="Script" uid="uid://dge528a6i2b6f" path="res://scripts/interactables/doors/door.gd" id="1_s3e0f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3e0f"]
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_s3e0f")
+metadata/_custom_type_script = "uid://bdssbm1prbicl"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_s3e0f")
+debug_color = Color(0.9941378, 0, 0.23401481, 0.41960785)
