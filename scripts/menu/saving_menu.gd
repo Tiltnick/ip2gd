@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 #Game not paused anymore, menu hides
 func resume():

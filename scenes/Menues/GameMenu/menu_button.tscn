@@ -42,6 +42,7 @@ corner_radius_bottom_left = 62
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_84ry2"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+layer = 0
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
