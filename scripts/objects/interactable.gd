@@ -1,12 +1,12 @@
 extends Node2D
 class_name Interactable
 
-# Nodes
+
 @onready var outline := $Outline
 @onready var area := $Area2D
 
-# Statt Child: NodePath oder direkt Node setzen
-@export var e_popup_node: Node  # z.B. auf "UI_Popups/Press_E_Popup_Foto" setzen
+
+@export var e_popup_node: Node  
 var player_in_area := false
 var outline_locked := false
 
