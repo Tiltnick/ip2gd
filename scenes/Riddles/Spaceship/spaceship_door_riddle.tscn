@@ -1,0 +1,106 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpvneidk4xerj"]
+
+[ext_resource type="Script" uid="uid://kbhnfhu7cr1r" path="res://scripts/spaceship_riddle/spaceship_door_riddle.gd" id="1_ptefd"]
+[ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_8dm3v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ftk5h"]
+bg_color = Color(0.1575, 0.29545835, 0.35, 0.5372549)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0geu5"]
+bg_color = Color(0.9254902, 0.36862746, 0.23137255, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.89153266, 0.7861071, 0.59561604, 1)
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+shadow_color = Color(0.91896814, 2.5399956e-06, 1.0159984e-06, 0.714)
+shadow_size = 240
+
+[node name="SpaceshipDoor" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ptefd")
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ftk5h")
+
+[node name="ExitButton" type="Button" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 58.0
+offset_right = 284.0
+offset_bottom = 163.0
+theme_override_fonts/font = ExtResource("2_8dm3v")
+theme_override_font_sizes/font_size = 56
+text = "<- go back"
+
+[node name="Panel2" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 379.0
+offset_top = 243.0
+offset_right = 1542.0
+offset_bottom = 803.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0geu5")
+
+[node name="Label" type="Label" parent="Control/Panel2"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 81.0
+offset_right = 1164.0
+offset_bottom = 167.0
+theme_override_fonts/font = ExtResource("2_8dm3v")
+theme_override_font_sizes/font_size = 71
+text = "Enter Code to Exit"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel2"]
+layout_mode = 0
+offset_left = -66.0
+offset_top = 226.0
+offset_right = 397.0
+offset_bottom = 273.20813
+scale = Vector2(2.815, 2.815)
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="Input1" type="LineEdit" parent="Control/Panel2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8dm3v")
+alignment = 1
+
+[node name="Input2" type="LineEdit" parent="Control/Panel2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8dm3v")
+alignment = 1
+
+[node name="Input3" type="LineEdit" parent="Control/Panel2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8dm3v")
+alignment = 1
+
+[node name="Input4" type="LineEdit" parent="Control/Panel2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8dm3v")
+alignment = 1
+
+[node name="EnterButton" type="Button" parent="Control/Panel2"]
+layout_mode = 0
+offset_left = 491.0
+offset_top = 426.0
+offset_right = 659.0
+offset_bottom = 485.0
+theme_override_fonts/font = ExtResource("2_8dm3v")
+theme_override_font_sizes/font_size = 21
+text = "Verify"
