@@ -43,6 +43,7 @@ corner_radius_bottom_left = 62
 
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 0
+visible = false
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

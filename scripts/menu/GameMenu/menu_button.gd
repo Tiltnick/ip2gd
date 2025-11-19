@@ -10,6 +10,7 @@ var hidden_in_scenes = [
 var _last_path = ""
 
 func update_visibility(path: String):
+	#TODO proving if diary is in inventory 
 	if path in hidden_in_scenes:
 		GlobalMenuButton.hide()
 	else:

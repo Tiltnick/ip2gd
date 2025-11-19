@@ -7,3 +7,4 @@ func interact():
 	
 	# Buch verschwindet
 	queue_free()
+	GlobalMenuButton.show()
