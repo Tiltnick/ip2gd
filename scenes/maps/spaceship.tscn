@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://muw3551a68sd" path="res://assets/sprites/map/Spaceship/tileset.png" id="5_2km4p"]
 [ext_resource type="Texture2D" uid="uid://dh4gcjmn2qfyh" path="res://assets/sprites/selfmade/spaceship_door_locked.png" id="6_o77e3"]
 [ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="7_elrx7"]
-[ext_resource type="PackedScene" uid="uid://cn5jhs1qws61g" path="res://scenes/objects/photo.tscn" id="9_g0lot"]
-[ext_resource type="PackedScene" uid="uid://bo5pcx0bd2gfx" path="res://scenes/objects/diary.tscn" id="10_2km4p"]
+[ext_resource type="PackedScene" uid="uid://cn5jhs1qws61g" path="res://scenes/interactables/objects/photo.tscn" id="9_g0lot"]
+[ext_resource type="PackedScene" uid="uid://bo5pcx0bd2gfx" path="res://scenes/interactables/objects/diary.tscn" id="10_2km4p"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="10_o77e3"]
 [ext_resource type="PackedScene" uid="uid://dfa4ga2b2k76f" path="res://scenes/Menues/saving_menu.tscn" id="11_o77e3"]
 
