@@ -91,6 +91,11 @@ translation/intern/translation_folder="res://dialogic/translations"
 translation/id_counter=20
 translation/locales=[]
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1180
+
 [input]
 
 moveLeft={

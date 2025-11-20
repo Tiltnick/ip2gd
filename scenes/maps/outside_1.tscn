@@ -409,6 +409,7 @@ shader_parameter/outline_color = Color(1, 1, 1, 1)
 [node name="Outside1" type="Node2D"]
 
 [node name="CanvasLayer" parent="." instance=ExtResource("1_vbcns")]
+visible = false
 
 [node name="Ground" type="TileMapLayer" parent="."]
 z_index = -1
@@ -449,5 +450,5 @@ texture = ExtResource("3_jlsic")
 [node name="Outline" type="Sprite2D" parent="Door"]
 visible = false
 material = SubResource("ShaderMaterial_iqy5x")
-scale = Vector2(1.05, 1.05)
+scale = Vector2(1.02, 1.02)
 texture = ExtResource("3_jlsic")
