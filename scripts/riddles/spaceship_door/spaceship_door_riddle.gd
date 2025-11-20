@@ -1,21 +1,21 @@
-extends Control
+extends CanvasLayer
 
-@export var code = ["1", "1", "1", "x"]
+@export var code = ["1", "1", "1", "1"]
 
 @onready var inputs = [
-	$Panel2/HBoxContainer/Input1,
-	$Panel2/HBoxContainer/Input2,
-	$Panel2/HBoxContainer/Input3,
-	$Panel2/HBoxContainer/Input4	
+	$Control/Panel2/HBoxContainer/Input1,
+	$Control/Panel2/HBoxContainer/Input2,
+	$Control/Panel2/HBoxContainer/Input3,
+	$Control/Panel2/HBoxContainer/Input4    
 ]
 
-@onready var title_label = $Panel2/Label
+@onready var title_label = $Control/Panel2/Label
 signal code_verified(result: bool)
 
+var code_solved: bool = false
+
 func _ready():
-	$Panel2/EnterButton.pressed.connect(_on_button_pressed)
-	
-	position = (get_viewport_rect().size - size) / 2
+	$Control/Panel2/EnterButton.pressed.connect(_on_button_pressed)
 	
 	for input in inputs:
 		input.max_length = 1
@@ -31,13 +31,18 @@ func _on_text_changed(new_text: String, input: LineEdit):
 			input.text = new_text[-1]
 
 func _on_button_pressed():
-	var entered = []
+	if code_solved:
+		hide()
+		return
+
+	var entered := []
 	for input in inputs:
 		entered.append(input.text)
 
 	if entered == code:
 		title_label.text = "Access Granted"
 		title_label.modulate = Color.GREEN
+		code_solved = true
 		emit_signal("code_verified", true)
 		await get_tree().create_timer(0.3).timeout
 		hide()
@@ -45,7 +50,6 @@ func _on_button_pressed():
 		title_label.text = "Error"
 		title_label.modulate = Color.BLACK
 		emit_signal("code_verified", false)
-
 
 func _on_exit_pressed() -> void:
 	hide()

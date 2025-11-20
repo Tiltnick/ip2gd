@@ -137,11 +137,12 @@ corner_radius_bottom_left = 62
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7y3tn"]
 
-[node name="SpaceshipDoor" type="CanvasLayer"]
+[node name="SpaceshipDoor" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_5uccr")
 
 [node name="Control" type="Control" parent="."]
-layout_mode = 3
 anchors_preset = 0
 offset_right = 1153.0
 offset_bottom = 648.0
@@ -161,10 +162,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_0geu5")
 
 [node name="Label" type="Label" parent="Control/Panel2"]
 layout_mode = 0
-offset_left = 83.0
-offset_top = 51.0
-offset_right = 748.0
-offset_bottom = 137.0
+offset_left = 63.0
+offset_top = 49.0
+offset_right = 728.0
+offset_bottom = 135.0
 theme_override_fonts/font = ExtResource("2_8dm3v")
 theme_override_font_sizes/font_size = 60
 text = "Enter Code to Exit"
@@ -231,7 +232,7 @@ icon_alignment = 1
 
 [node name="saving_menu" type="Control" parent="."]
 visible = false
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
