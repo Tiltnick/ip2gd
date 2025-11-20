@@ -146,6 +146,11 @@ anchors_preset = 0
 offset_right = 1153.0
 offset_bottom = 648.0
 
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_right = 1144.0
+offset_bottom = 648.0
+
 [node name="Panel2" type="Panel" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
@@ -161,10 +166,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_0geu5")
 
 [node name="Label" type="Label" parent="Control/Panel2"]
 layout_mode = 0
-offset_left = 83.0
-offset_top = 51.0
-offset_right = 748.0
-offset_bottom = 137.0
+offset_left = 77.0
+offset_top = 52.0
+offset_right = 750.0
+offset_bottom = 138.0
 theme_override_fonts/font = ExtResource("2_8dm3v")
 theme_override_font_sizes/font_size = 60
 text = "Enter Code to Exit"
@@ -172,9 +177,9 @@ horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel2"]
 layout_mode = 0
-offset_left = 103.999985
+offset_left = 92.999985
 offset_top = 172.0
-offset_right = 468.5
+offset_right = 467.26898
 offset_bottom = 217.756
 scale = Vector2(1.71, 1.71)
 theme_override_constants/separation = 14
@@ -202,9 +207,9 @@ alignment = 1
 
 [node name="EnterButton" type="Button" parent="Control/Panel2"]
 layout_mode = 0
-offset_left = 377.0
+offset_left = 341.0
 offset_top = 316.0
-offset_right = 466.0
+offset_right = 482.0
 offset_bottom = 347.0
 theme_override_fonts/font = ExtResource("2_8dm3v")
 theme_override_font_sizes/font_size = 21
@@ -215,10 +220,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -132.0
-offset_top = 41.0
-offset_right = -87.62256
-offset_bottom = 83.0
+offset_left = -153.0
+offset_top = 40.0
+offset_right = -108.62256
+offset_bottom = 82.0
 grow_horizontal = 0
 mouse_default_cursor_shape = 2
 theme_override_constants/icon_max_width = 34
@@ -341,6 +346,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_7y3tn")
 icon = ExtResource("2_hospe")
 icon_alignment = 1
 
+[connection signal="pressed" from="Control/RoundButtton" to="." method="_on_round_buttton_pressed"]
 [connection signal="pressed" from="saving_menu/ColorRect/Panel/VBoxContainer/VBoxContainer/ContinueButton" to="saving_menu" method="_on_continue_button_pressed"]
 [connection signal="pressed" from="saving_menu/ColorRect/Panel/VBoxContainer/VBoxContainer/ExitButton" to="saving_menu" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="saving_menu/ColorRect/RoundButtton" to="saving_menu" method="_on_round_buttton_pressed"]

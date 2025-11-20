@@ -7,10 +7,7 @@ var code_solved: bool = false
 func _ready():
 	
 	super ._ready()
-	print("Popup-NodePath:", code_popup_path)
-	print("Popup-Node existiert:", code_popup)
-	print("Popup-Node sichtbar:", code_popup.visible if code_popup else "n/a")
-
+	
 	if code_popup_path != null and code_popup_path != NodePath(""):
 		code_popup = get_node(code_popup_path) as CanvasLayer
 	else:

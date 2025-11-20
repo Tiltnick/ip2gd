@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@export var code = ["1", "1", "1", "1"]
+@export var code = ["1", "1", "1", "1"]#
 
 @onready var inputs = [
 	$Control/Panel2/HBoxContainer/Input1,
@@ -44,7 +44,7 @@ func _on_button_pressed():
 		title_label.modulate = Color.GREEN
 		code_solved = true
 		emit_signal("code_verified", true)
-		await get_tree().create_timer(0.3).timeout
+		#await get_tree().create_timer(0.3).timeout
 		hide()
 	else:
 		title_label.text = "Error"
@@ -52,4 +52,8 @@ func _on_button_pressed():
 		emit_signal("code_verified", false)
 
 func _on_exit_pressed() -> void:
+	hide()
+
+
+func _on_round_buttton_pressed() -> void:
 	hide()
