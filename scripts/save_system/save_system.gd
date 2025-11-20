@@ -15,7 +15,7 @@ func save_game() -> void:
 	file.store_string(JSON.stringify(data))
 	# Besitzt Speicherstand
 	GameState.has_save = true
-	print("Game saved to: ", SAVE_PATH)
+	print("Spiel gespeichert unter: ", SAVE_PATH)
 
 # Checkt ob Speicherstand existiert -> bool
 func load_game() -> bool:
@@ -41,5 +41,5 @@ func load_game() -> bool:
 # Speicherstand existiert
 	GameState.has_save = true
 
-	print("Game loaded from: ", SAVE_PATH)
+	print("Spiel geladen von: ", SAVE_PATH)
 	return true
