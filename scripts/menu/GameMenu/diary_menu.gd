@@ -56,7 +56,7 @@ func _split_into_pages(text: String, max_chars_per_page: int) -> Array[String]:
 
 func build_all_pages():
 	var combined_pages = []
-	var max_chars = 400
+	var max_chars = 750
 	
 	for id in Diary.unlocked_entries:
 		var header = Diary.get_header(id)

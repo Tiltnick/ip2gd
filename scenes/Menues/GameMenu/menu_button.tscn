@@ -43,7 +43,6 @@ corner_radius_bottom_left = 62
 
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 0
-visible = false
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -61,10 +60,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 975.0
-offset_top = 33.0
-offset_right = 1031.0
-offset_bottom = 86.0
+offset_left = 983.0
+offset_top = 30.0
+offset_right = 1046.0
+offset_bottom = 93.0
 grow_horizontal = 0
 mouse_default_cursor_shape = 2
 theme_override_constants/icon_max_width = 34

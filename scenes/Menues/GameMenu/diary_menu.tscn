@@ -102,6 +102,7 @@ corner_radius_bottom_left = 62
 [node name="CanvasLayer" type="CanvasLayer"]
 process_mode = 3
 layer = 0
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -126,7 +127,7 @@ theme_override_colors/font_hovered_color = Color(0.84313726, 0.8156863, 0.670588
 theme_override_colors/font_unselected_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
 theme_override_constants/side_margin = 8
 theme_override_fonts/font = ExtResource("1_xn7nl")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 30
 theme_override_styles/panel = SubResource("StyleBoxFlat_g0y5o")
 theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_k0ysv")
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_k0ysv")
@@ -135,6 +136,7 @@ current_tab = 0
 
 [node name="Diary" type="TabBar" parent="TabContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 21
 script = ExtResource("2_yqnfc")
 metadata/_tab_index = 0
 
@@ -170,10 +172,12 @@ icon = ExtResource("3_fk2nq")
 
 [node name="Header" type="Label" parent="TabContainer/Diary/Panel"]
 layout_mode = 1
-offset_left = 24.0
-offset_top = 24.0
-offset_right = 81.0
-offset_bottom = 47.0
+offset_left = 64.0
+offset_top = 28.0
+offset_right = 156.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_font_sizes/font_size = 26
 text = "Header"
 
 [node name="Text" type="Label" parent="TabContainer/Diary/Panel"]
@@ -181,13 +185,16 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 24.0
-offset_top = -130.5
-offset_right = 399.0
-offset_bottom = 119.5
+offset_left = 64.0
+offset_top = -275.5
+offset_right = 704.0
+offset_bottom = 288.0
 grow_vertical = 2
-text = "Ich hasse alles"
+theme_override_colors/font_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+theme_override_font_sizes/font_size = 23
+text = "Text"
 autowrap_mode = 3
+justification_flags = 162
 
 [node name="Panel2" type="Panel" parent="TabContainer/Diary"]
 layout_mode = 1
@@ -197,7 +204,7 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -850.0
-offset_top = -385.5
+offset_top = -345.5
 offset_right = -82.0
 offset_bottom = 358.5
 grow_horizontal = 0
@@ -211,10 +218,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -86.0
-offset_top = 308.0
-offset_right = -36.0
-offset_bottom = 366.0
+offset_left = -90.0
+offset_top = 288.0
+offset_right = -40.0
+offset_bottom = 346.0
 grow_horizontal = 0
 grow_vertical = 2
 mouse_default_cursor_shape = 2
@@ -230,20 +237,24 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 24.0
-offset_top = -130.5
-offset_right = 399.0
-offset_bottom = 119.5
+offset_left = 64.0
+offset_top = -275.5
+offset_right = 704.0
+offset_bottom = 288.0
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+theme_override_font_sizes/font_size = 23
 text = "Text"
 autowrap_mode = 3
 
 [node name="Header" type="Label" parent="TabContainer/Diary/Panel2"]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 24.0
-offset_right = 81.0
-offset_bottom = 47.0
+offset_left = 64.0
+offset_top = 25.0
+offset_right = 156.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_font_sizes/font_size = 26
 text = "Header"
 
 [node name="CloseButton" type="Button" parent="."]
@@ -253,8 +264,8 @@ anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -80.0
 offset_top = 30.0
-offset_right = -32.0
-offset_bottom = 77.0
+offset_right = -17.0
+offset_bottom = 93.0
 grow_horizontal = 0
 mouse_default_cursor_shape = 2
 theme_override_constants/icon_max_width = 34
