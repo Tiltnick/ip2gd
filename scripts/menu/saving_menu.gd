@@ -27,12 +27,13 @@ func _on_exit_button_pressed() -> void:
 
 	# 2. Spielstand speichern
 	SaveSystem.save_game()
+	GameState.has_save = true
 
 	# 3. Spiel wieder "entpausen", damit MainMenu normal läuft
 	get_tree().paused = false
 
 	# 4. Zur MainMenu-Szene wechseln
-	get_tree().change_scene_to_file("res://scenes/Menues/main_menu.tscn")
+	SceneManager.goto_main_menu()
 
 
 func _on_round_buttton_pressed() -> void:

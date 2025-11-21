@@ -10,6 +10,10 @@ func _ready() -> void:
 
 
 func spawn_player() -> void:
+	# 🔥 FIX: Alle alten Player-Instanzen entfernen, falls welche existieren
+	for p in get_tree().get_nodes_in_group("player"):
+		p.queue_free()
+
 	var packed: PackedScene = load(player_scene_path)
 	var player: Node2D = packed.instantiate()
 
@@ -20,3 +24,7 @@ func spawn_player() -> void:
 
 	player.global_position = spawn.global_position
 	add_child(player)
+
+	# 🔥 FIX: Kamera der neuen Player-Instanz aktivieren
+	var cam := player.get_node("Camera2D")
+	cam.make_current()
