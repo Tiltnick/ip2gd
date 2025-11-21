@@ -85,7 +85,7 @@ autowrap_mode = 2
 
 [node name="Choices" type="VBoxContainer" parent="DialogBox/NinePatchRect"]
 layout_mode = 0
-offset_left = 613.0
-offset_top = 153.0
-offset_right = 914.0
-offset_bottom = 222.0
+offset_left = 696.0
+offset_top = 114.0
+offset_right = 901.0
+offset_bottom = 217.0
