@@ -32,7 +32,9 @@ func update_pages():
 		text_right.text = ""
 		$Panel2.hide()
 	prev_button.disabled = current_page == 0
-	next_button.disabled = current_page + 2 > pages.size()
+	next_button.disabled = current_page + 2 >= pages.size()
+	print(pages.size())
+	print(current_page + 2)
 
 func _split_into_pages(text: String, max_chars_per_page: int) -> Array[String]:
 	var result: Array[String] = []
