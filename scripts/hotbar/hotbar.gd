@@ -1,6 +1,6 @@
 extends Control
 
-@onready var slots := $HBoxContainer.get_children()
+@onready var slots := $Background/HBoxContainer.get_children()
 
 var selected_slot := 0
 
@@ -12,7 +12,7 @@ func _unhandled_input(event):
 		if event.is_action_pressed("hotbar_%d" % (i+1)):
 			selected_slot = i
 			_update_visuals()
-			Hotbarglobal.activate_slot(i)
+			hotbarglobal.activate_slot(i)
 
 func _update_visuals():
 	for i in range(slots.size()):
