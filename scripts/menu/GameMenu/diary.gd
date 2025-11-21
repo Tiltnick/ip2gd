@@ -6,9 +6,6 @@ var unlocked_entries: Array[String] = []
 func _ready() -> void:
 	load_diary_data()
 	unlock_entry("entry_1")
-	unlock_entry("entry_2")
-	print("Entries loaded:", all_entries)
-	print("Unlocked:", unlocked_entries)
 	
 
 func load_diary_data():
@@ -31,7 +28,3 @@ func get_header(id: String) -> String:
 
 func get_text(id: String) -> String:
 	return all_entries[id].get("text", "")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
