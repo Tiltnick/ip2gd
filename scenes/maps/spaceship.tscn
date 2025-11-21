@@ -1332,3 +1332,8 @@ visible = false
 
 [node name="CanvasLayer" parent="." instance=ExtResource("11_o77e3")]
 visible = false
+
+[node name="SceneCamera" type="Camera2D" parent="."]
+position = Vector2(135, 108)
+scale = Vector2(1.4704298, 0.9683421)
+zoom = Vector2(3, 3)

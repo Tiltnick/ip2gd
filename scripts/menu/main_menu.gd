@@ -17,12 +17,11 @@ func _on_new_g_button_pressed() -> void:
 
 
 func _on_resume_button_pressed() -> void:
-	# Lädt Speicherstand aus GameState
+	# Speicherstand aus GameState
 	var loaded := SaveSystem.load_game()
 	if loaded and GameState.has_save:
-		# Sicherstellen, dass nichts pausiert ist
 		get_tree().paused = false
-		# WICHTIG: Szene nun über den SceneManager laden
+		# Scene über scene manager starten
 		SceneManager.goto_scene(GameState.current_area_path, "start")
 	else:
 		print("Kein gültiger Spielstand zum Fortsetzen.")
@@ -50,10 +49,9 @@ func start_new_game() -> void:
 	GameState.puzzle_state = {}
 	GameState.has_save = false
 
-	# sicherstellen, dass nicht pausiert ist
 	get_tree().paused = false
 
-	# Szene über SceneManager laden
+	# Scene über SceneManager laden
 	SceneManager.goto_scene("res://scenes/maps/spaceship.tscn", "start")
 
 
