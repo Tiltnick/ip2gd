@@ -1,12 +1,12 @@
 [gd_scene load_steps=25 format=4 uid="uid://csejhruust020"]
 
+[ext_resource type="Script" uid="uid://dkosu7fsxv5uu" path="res://scripts/scene_manager/spaceship.gd" id="1_b8ov6"]
 [ext_resource type="Texture2D" uid="uid://kxs6kkm0ut6w" path="res://assets/sprites/map/Spaceship/background.png" id="1_krvlx"]
 [ext_resource type="Texture2D" uid="uid://bbwtu422q5q3t" path="res://assets/sprites/map/Spaceship/foreground_pipes.png" id="2_elrx7"]
 [ext_resource type="Texture2D" uid="uid://vuf15hf1msvt" path="res://assets/sprites/map/Spaceship/props-Sheet.png" id="3_ikcf1"]
 [ext_resource type="Texture2D" uid="uid://kfintc48fnii" path="res://assets/sprites/map/Spaceship/props.png" id="4_g0lot"]
 [ext_resource type="Texture2D" uid="uid://muw3551a68sd" path="res://assets/sprites/map/Spaceship/tileset.png" id="5_2km4p"]
 [ext_resource type="Texture2D" uid="uid://dh4gcjmn2qfyh" path="res://assets/sprites/selfmade/spaceship_door_locked.png" id="6_o77e3"]
-[ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="7_elrx7"]
 [ext_resource type="PackedScene" uid="uid://cn5jhs1qws61g" path="res://scenes/interactables/objects/photo.tscn" id="9_g0lot"]
 [ext_resource type="PackedScene" uid="uid://bo5pcx0bd2gfx" path="res://scenes/interactables/objects/diary.tscn" id="10_2km4p"]
 [ext_resource type="PackedScene" uid="uid://dhyl0rqmojucp" path="res://scenes/interactables/doors/door.tscn" id="10_172bc"]
@@ -1247,6 +1247,7 @@ shader_parameter/outline_size = 2.0
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 
 [node name="Spaceship" type="Node2D"]
+script = ExtResource("1_b8ov6")
 
 [node name="Tilemap" type="Node" parent="."]
 
@@ -1305,12 +1306,21 @@ offset_right = 12.000008
 offset_bottom = -7.2500076
 scale = Vector2(0.8, 0.8)
 
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="start" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(240, 176)
+
+[node name="from_outside" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(272, 116)
+
 [node name="Door" parent="." groups=["player"] instance=ExtResource("10_172bc")]
 z_index = 1
 position = Vector2(272, 72)
 script = ExtResource("11_emg07")
 code_popup_path = NodePath("../SpaceshipDoor")
 target_scene_path = "uid://b4r2irdvo1x1b"
+target_spawn_id = "from_spaceship"
 
 [node name="Outline" type="Sprite2D" parent="Door"]
 visible = false
@@ -1321,10 +1331,6 @@ texture = ExtResource("13_b8ov6")
 
 [node name="Sprite2D" type="Sprite2D" parent="Door"]
 texture = ExtResource("6_o77e3")
-
-[node name="Character" parent="." instance=ExtResource("7_elrx7")]
-z_index = 1
-position = Vector2(272, 150)
 
 [node name="SpaceshipDoor" parent="." instance=ExtResource("14_1oksb")]
 visible = false

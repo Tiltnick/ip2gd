@@ -22,6 +22,7 @@ Diary="*res://scripts/menu/GameMenu/diary.gd"
 GlobalMenuButton="*res://scenes/Menues/GameMenu/menu_button.tscn"
 Visibility_Button="*res://scripts/menu/GameMenu/menu_button.gd"
 GameMenu="*res://scenes/Menues/GameMenu/diary_menu.tscn"
+SceneManager="*res://scripts/scene_manager/scene_manager.gd"
 
 [dialogic]
 
