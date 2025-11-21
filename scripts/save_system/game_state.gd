@@ -3,15 +3,15 @@ extends Node
 # Merken in welcher Szene der Spieler zuletzt war
 var current_area_path: String = "res://scenes/maps/spaceship.tscn"
 
-# Zustände speichern z.B Diary
+# Zustände speichern
 var puzzle_state: Dictionary = {}
 
 var has_save: bool = false
 
-# NEU: letzte bekannte Spielerposition
+# Letzte Spielerposition
 var player_position: Vector2 = Vector2.ZERO
 
-# NEU: Nur zur Laufzeit – soll beim nächsten Spawn verwendet werden
+
 var use_saved_position: bool = false
 
 

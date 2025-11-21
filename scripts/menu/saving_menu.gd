@@ -20,19 +20,19 @@ func _on_continue_button_pressed() -> void:
 
 
 func _on_exit_button_pressed() -> void:
-	# 1. aktuelle Szene/Area im GameState merken
+	# Scene/Area im GameState merken
 	var current_scene := get_tree().current_scene
 	if current_scene:
 		GameState.current_area_path = current_scene.get_scene_file_path()
 
-	# 2. Spielstand speichern
+	# Spielstand speichern
 	SaveSystem.save_game()
 	GameState.has_save = true
 
-	# 3. Spiel wieder "entpausen", damit MainMenu normal läuft
+	# Spiel wieder "entpausen" für Main menu
 	get_tree().paused = false
 
-	# 4. Zur MainMenu-Szene wechseln
+	# Zur MainMenu scene wechseln
 	SceneManager.goto_main_menu()
 
 
