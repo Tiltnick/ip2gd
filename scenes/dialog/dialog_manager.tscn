@@ -67,20 +67,21 @@ scroll_active = false
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.097
-anchor_top = 0.689
-anchor_right = 0.097
-anchor_bottom = 0.689
-offset_left = 2.2979965
-offset_top = -16.097
-offset_right = 123.298
-offset_bottom = 22.903
-scale = Vector2(0.57946235, 0.57946235)
+anchor_left = 0.1
+anchor_top = 0.60800004
+anchor_right = 0.1
+anchor_bottom = 0.60800004
+offset_left = 0.40000153
+offset_top = 3.0159912
+offset_right = 122.927345
+offset_bottom = 94.01599
+scale = Vector2(0.5758743, 0.57946235)
 theme_override_fonts/font = ExtResource("2_lgn1u")
-text = "Here comes the name
+theme_override_font_sizes/font_size = 40
+text = "Oris
 "
 horizontal_alignment = 1
-vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Choices" type="VBoxContainer" parent="DialogBox/NinePatchRect"]
 layout_mode = 0
