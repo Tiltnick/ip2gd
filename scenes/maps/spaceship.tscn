@@ -1319,6 +1319,7 @@ target_spawn_id = "from_spaceship"
 e_popup_node = NodePath("Press_E_Popup_Door")
 
 [node name="Press_E_Popup_Door" parent="Door" instance=ExtResource("10_o77e3")]
+visible = false
 z_index = 7
 offset_left = -8.000008
 offset_top = -42.000008
