@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c82i8bus3bmy2" path="res://scripts/dialog/dialog_box.gd" id="1_dlq0r"]
 [ext_resource type="Script" uid="uid://bayc27gfeqkkm" path="res://scripts/dialog/dialog_manager.gd" id="1_y2k7g"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_lgn1u"]
-[ext_resource type="Texture2D" uid="uid://dualo6y0kjjst" path="res://assets/sprites/ui/Dialog_Prototyp.png" id="2_y2k7g"]
+[ext_resource type="Texture2D" uid="uid://dtl5r7fhkv6mt" path="res://assets/sprites/ui/UITEST2.png" id="3_y2k7g"]
 
 [node name="DialogManager" type="CanvasLayer"]
 script = ExtResource("1_y2k7g")
@@ -15,37 +15,31 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -177.0
-offset_top = -250.0
-offset_right = 268.0
+offset_left = -454.0
+offset_top = -254.0
+offset_right = -9.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_dlq0r")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="DialogBox"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.135
-anchor_top = -0.112
-anchor_right = -0.135
-anchor_bottom = -0.112
-offset_left = -16.925007
-offset_top = 3.9999847
-offset_right = 496.075
-offset_bottom = 277.0
-texture = ExtResource("2_y2k7g")
+layout_mode = 0
+offset_right = 966.0
+offset_bottom = 273.0
+texture = ExtResource("3_y2k7g")
 
 [node name="Portrait" type="TextureRect" parent="DialogBox/NinePatchRect"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.21200001
-anchor_top = 0.5
-anchor_right = 0.21200001
-anchor_bottom = 0.5
-offset_left = -41.756004
-offset_top = -35.5
-offset_right = 41.243996
-offset_bottom = 36.5
+anchor_left = 0.135
+anchor_top = 0.397
+anchor_right = 0.135
+anchor_bottom = 0.397
+offset_left = -40.410004
+offset_top = -37.381004
+offset_right = 42.589996
+offset_bottom = 34.618996
 
 [node name="Dialog" type="RichTextLabel" parent="DialogBox/NinePatchRect"]
 texture_filter = 1
@@ -56,10 +50,10 @@ anchor_left = 0.33600003
 anchor_top = 0.342
 anchor_right = 0.33600003
 anchor_bottom = 0.34800002
-offset_left = -1.3680115
-offset_top = -16.366005
-offset_right = 302.632
-offset_bottom = 115.995995
+offset_left = -107.57602
+offset_top = -25.366005
+offset_right = 593.42395
+offset_bottom = 129.996
 theme_override_fonts/normal_font = ExtResource("2_lgn1u")
 theme_override_fonts/bold_font = ExtResource("2_lgn1u")
 theme_override_fonts/bold_italics_font = ExtResource("2_lgn1u")
@@ -77,10 +71,11 @@ anchor_left = 0.097
 anchor_top = 0.689
 anchor_right = 0.097
 anchor_bottom = 0.689
-offset_left = 1.2389984
-offset_top = -5.097
-offset_right = 122.239
-offset_bottom = 33.903
+offset_left = 2.2979965
+offset_top = -16.097
+offset_right = 123.298
+offset_bottom = 22.903
+scale = Vector2(0.57946235, 0.57946235)
 theme_override_fonts/font = ExtResource("2_lgn1u")
 text = "Here comes the name
 "
@@ -89,7 +84,7 @@ vertical_alignment = 1
 
 [node name="Choices" type="VBoxContainer" parent="DialogBox/NinePatchRect"]
 layout_mode = 0
-offset_left = 179.0
-offset_top = 164.0
-offset_right = 480.0
-offset_bottom = 233.0
+offset_left = 613.0
+offset_top = 153.0
+offset_right = 914.0
+offset_bottom = 222.0
