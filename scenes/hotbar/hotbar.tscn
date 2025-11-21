@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm2wftrsdlv0f"]
+
+[ext_resource type="Script" uid="uid://dpamqgtciq24p" path="res://scripts/hotbar/hotbar.gd" id="1_s257k"]
+
+[node name="Hotbar" type="Control"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 3
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_s257k")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 10
+alignment = 1
