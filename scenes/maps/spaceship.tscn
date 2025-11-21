@@ -1310,12 +1310,21 @@ position = Vector2(240, 176)
 [node name="from_outside" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(272, 116)
 
-[node name="Door" parent="." instance=ExtResource("10_172bc")]
+[node name="Door" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("10_172bc")]
 position = Vector2(272, 72)
 script = ExtResource("11_emg07")
 code_popup_path = NodePath("../SpaceshipDoor")
 target_scene_path = "uid://b4r2irdvo1x1b"
 target_spawn_id = "from_spaceship"
+e_popup_node = NodePath("Press_E_Popup_Door")
+
+[node name="Press_E_Popup_Door" parent="Door" instance=ExtResource("10_o77e3")]
+z_index = 7
+offset_left = -8.000008
+offset_top = -42.000008
+offset_right = 11.999992
+offset_bottom = -18.250008
+scale = Vector2(0.8, 0.8)
 
 [node name="Outline" type="Sprite2D" parent="Door"]
 visible = false
