@@ -1,0 +1,352 @@
+[gd_scene load_steps=17 format=3 uid="uid://bpvneidk4xerj"]
+
+[ext_resource type="Script" uid="uid://cvmdyyq3vtih8" path="res://scripts/riddles/spaceship_door/spaceship_door_riddle.gd" id="1_5uccr"]
+[ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_8dm3v"]
+[ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="2_hospe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0geu5"]
+bg_color = Color(0.9254902, 0.36862746, 0.23137255, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.89153266, 0.7861071, 0.59561604, 1)
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+shadow_color = Color(0.92, 0, 0, 0.46666667)
+shadow_size = 85
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u4s8f"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7y3tn"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqtue"]
+bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6xmg8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5uccr"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3i6n"]
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e43hm"]
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u4s8f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvkjj"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yp148"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ch4ow"]
+bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7y3tn"]
+
+[node name="SpaceshipDoor" type="CanvasLayer"]
+script = ExtResource("1_5uccr")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1153.0
+offset_bottom = 648.0
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_right = 1144.0
+offset_bottom = 648.0
+
+[node name="Panel2" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.141
+anchor_top = 0.15400001
+anchor_right = 0.84800005
+anchor_bottom = 0.82100004
+offset_left = 0.42700195
+offset_top = 0.20799255
+offset_right = 0.2559204
+offset_bottom = -0.0079956055
+theme_override_styles/panel = SubResource("StyleBoxFlat_0geu5")
+
+[node name="Label" type="Label" parent="Control/Panel2"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 52.0
+offset_right = 750.0
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("2_8dm3v")
+theme_override_font_sizes/font_size = 60
+text = "Enter Code to Exit"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel2"]
+layout_mode = 0
+offset_left = 92.999985
+offset_top = 172.0
+offset_right = 467.26898
+offset_bottom = 217.756
+scale = Vector2(1.71, 1.71)
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="Input1" type="LineEdit" parent="Control/Panel2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8dm3v")
+alignment = 1
+
+[node name="Input2" type="LineEdit" parent="Control/Panel2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8dm3v")
+alignment = 1
+
+[node name="Input3" type="LineEdit" parent="Control/Panel2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8dm3v")
+alignment = 1
+
+[node name="Input4" type="LineEdit" parent="Control/Panel2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8dm3v")
+alignment = 1
+
+[node name="EnterButton" type="Button" parent="Control/Panel2"]
+layout_mode = 0
+offset_left = 341.0
+offset_top = 316.0
+offset_right = 482.0
+offset_bottom = 347.0
+theme_override_fonts/font = ExtResource("2_8dm3v")
+theme_override_font_sizes/font_size = 21
+text = "Verify"
+
+[node name="RoundButtton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -153.0
+offset_top = 40.0
+offset_right = -108.62256
+offset_bottom = 82.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_u4s8f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7y3tn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vqtue")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6xmg8")
+icon = ExtResource("2_hospe")
+icon_alignment = 1
+
+[node name="saving_menu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="saving_menu"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14509805, 0.14509805, 0.14509805, 0.88235295)
+
+[node name="Panel" type="Panel" parent="saving_menu/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.1875
+offset_top = -165.10745
+offset_right = 160.1875
+offset_bottom = 129.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5uccr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="saving_menu/ColorRect/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.5
+offset_top = -112.0
+offset_right = 127.5
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 23
+
+[node name="Label" type="Label" parent="saving_menu/ColorRect/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_fonts/font = ExtResource("2_8dm3v")
+theme_override_font_sizes/font_size = 35
+text = "Save Game ?"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="saving_menu/ColorRect/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="ContinueButton" type="Button" parent="saving_menu/ColorRect/Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_colors/font_focus_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_colors/font_pressed_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_colors/font_hover_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_fonts/font = ExtResource("2_8dm3v")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_h3i6n")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e43hm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e43hm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u4s8f")
+text = "Save and Continue"
+
+[node name="ExitButton" type="Button" parent="saving_menu/ColorRect/Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_colors/font_focus_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_colors/font_pressed_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_colors/font_hover_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_fonts/font = ExtResource("2_8dm3v")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_h3i6n")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e43hm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e43hm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u4s8f")
+text = "Save and Exit"
+
+[node name="RoundButtton" type="Button" parent="saving_menu/ColorRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -415.0
+offset_top = 123.0
+offset_right = -370.62262
+offset_bottom = 165.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_tvkjj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yp148")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ch4ow")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7y3tn")
+icon = ExtResource("2_hospe")
+icon_alignment = 1
+
+[connection signal="pressed" from="Control/RoundButtton" to="." method="_on_round_buttton_pressed"]
+[connection signal="pressed" from="saving_menu/ColorRect/Panel/VBoxContainer/VBoxContainer/ContinueButton" to="saving_menu" method="_on_continue_button_pressed"]
+[connection signal="pressed" from="saving_menu/ColorRect/Panel/VBoxContainer/VBoxContainer/ExitButton" to="saving_menu" method="_on_exit_button_pressed"]
+[connection signal="pressed" from="saving_menu/ColorRect/RoundButtton" to="saving_menu" method="_on_round_buttton_pressed"]

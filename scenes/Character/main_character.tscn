@@ -446,6 +446,7 @@ animations = [{
 radius = 7.071068
 
 [node name="Character" type="CharacterBody2D" groups=["player"]]
+z_index = 2
 script = ExtResource("1_3p8r5")
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
@@ -474,4 +475,4 @@ script = ExtResource("5_16h32")
 script = ExtResource("6_22e6q")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)

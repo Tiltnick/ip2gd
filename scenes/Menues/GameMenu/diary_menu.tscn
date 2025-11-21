@@ -144,10 +144,10 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 44.0
-offset_top = -187.5
-offset_right = 469.0
-offset_bottom = 187.5
+offset_left = 42.0
+offset_top = -391.5
+offset_right = 850.0
+offset_bottom = 401.5
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2kte2")
 
@@ -187,7 +187,7 @@ offset_top = -130.5
 offset_right = 399.0
 offset_bottom = 119.5
 grow_vertical = 2
-text = "Text"
+text = "Ich hasse alles"
 autowrap_mode = 3
 
 [node name="Panel2" type="Panel" parent="TabContainer/Diary"]
@@ -197,10 +197,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -469.0
-offset_top = -187.5
+offset_left = -850.0
+offset_top = -385.5
 offset_right = -44.0
-offset_bottom = 187.5
+offset_bottom = 398.5
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8q5ut")
