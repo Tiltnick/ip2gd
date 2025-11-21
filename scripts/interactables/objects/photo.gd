@@ -37,7 +37,7 @@ func _zoom_in():
 
 
 	var t = create_tween()
-	t.tween_property(self, "scale", start_scale * 15, 0.2)
+	t.tween_property(self, "scale", start_scale * 7, 0.2)
 
 
 func _flip_photo():
