@@ -1,11 +1,15 @@
 extends Interactable
+class_name Photo
+
+@export var spawned_from_hotbar: bool = false
+var meta_slot_index := -1
+var hotbar_scale: Vector2 = Vector2(0.5, 0.5)
 
 @onready var front := $Sprite_Front
 @onready var back := $Sprite_Back
 
 var is_front := true
 var is_zoomed := false
-
 var start_scale: Vector2
 var front_start_scale: Vector2
 var back_start_scale: Vector2
@@ -17,6 +21,7 @@ func _ready():
 	super._ready()
 
 
+# Normal interact: Aufheben, Flip, Store
 func interact():
 	if not is_zoomed:
 		_zoom_in()
@@ -24,6 +29,7 @@ func interact():
 		_flip_photo()
 	else:
 		_store_in_hotbar()
+
 
 func _store_in_hotbar():
 	hotbarglobal.add_item("photo")
@@ -34,11 +40,9 @@ func _zoom_in():
 	is_zoomed = true
 	outline.visible = false
 	outline_locked = true
-	
+
 	if e_popup_node: 
 		e_popup_node.visible = false
-	
-
 
 	var t = create_tween()
 	t.tween_property(self, "scale", start_scale * 7, 0.2)
@@ -70,10 +74,8 @@ func _reset_state():
 	is_front = true
 	front.visible = true
 	back.visible = false
-
 	outline_locked = false
 	_try_show_outline()
-	
 	if e_popup_node and player_in_area:
 		e_popup_node.visible = true
 
@@ -88,3 +90,23 @@ func _try_show_outline():
 		outline.visible = false
 		return
 	outline.visible = true
+
+
+func hotbar_activate():
+	# Setze Flag
+	spawned_from_hotbar = true
+	is_zoomed = false
+	is_front = true
+	front.visible = true
+	back.visible = false
+	outline.visible = false
+	outline_locked = true
+	
+	# Position in der Bildschirmmitte
+	global_position = get_viewport().get_visible_rect().size / 2
+	scale = hotbar_scale
+	z_index = 100
+	
+	# Tween für Zoom
+	var t = create_tween()
+	t.tween_property(self, "scale", start_scale * 7, 0.2)
