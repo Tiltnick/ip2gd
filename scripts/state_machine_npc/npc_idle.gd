@@ -12,5 +12,5 @@ func PhysicsUpdate(_delta: float) -> void:
 	npc.move_and_slide()
 
 # Transition wenn Player nicht near in npc.gd
-	if not npc.is_player_near():
+	if not npc.player_inside:
 		TransitionTo("move")

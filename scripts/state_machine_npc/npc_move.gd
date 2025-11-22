@@ -24,7 +24,7 @@ func Enter(_prev: NPCState) -> void:
 
 # Idle transition mit Funktion aus npc.gd
 func PhysicsUpdate(_delta: float) -> void:
-	if npc.is_player_near():
+	if npc.player_inside:
 		TransitionTo("idle")
 		return
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://b4r2irdvo1x1b"]
+[gd_scene load_steps=13 format=4 uid="uid://b4r2irdvo1x1b"]
 
 [ext_resource type="Script" uid="uid://ch2sapm3vk3ex" path="res://scripts/scene_manager/outside_1.gd" id="1_ax0hk"]
 [ext_resource type="Texture2D" uid="uid://bfd0d1qqtnli" path="res://assets/sprites/map/Outside_1/Ground.png" id="1_iu6ob"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dhyl0rqmojucp" path="res://scenes/interactables/doors/door.tscn" id="5_ax0hk"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="6_8xmlc"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="7_8xmlc"]
+[ext_resource type="PackedScene" uid="uid://cc56upiuyf8v1" path="res://scenes/Character/npc.tscn" id="8_iqy5x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ax0hk"]
 texture = ExtResource("1_iu6ob")
@@ -468,3 +469,14 @@ position = Vector2(-63, -30)
 
 [node name="from_spaceship" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(-120, -31)
+
+[node name="NPC" parent="." instance=ExtResource("8_iqy5x")]
+position = Vector2(272, -136)
+player_path = NodePath("res://scenes/Character/main_character.tscn")
+
+[node name="Press_E_Popup" parent="NPC" instance=ExtResource("7_8xmlc")]
+visible = false
+offset_left = -11.0
+offset_top = -33.0
+offset_right = -11.0
+offset_bottom = -33.0

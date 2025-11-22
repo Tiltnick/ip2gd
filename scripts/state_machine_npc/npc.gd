@@ -1,22 +1,37 @@
 extends CharacterBody2D
 class_name NPC
 
-# Player festlegen
-@export var player_path: NodePath
-@export var detect_radius: float = 120.0
-@export var move_speed: float = 50.0
+@export var move_speed: float = 50.0   
+@export var detect_radius: float = 120.0   
 
 @onready var anim: AnimatedSprite2D = $anim
+@onready var outline: AnimatedSprite2D = $Outline
+@onready var detect_area: Area2D = $DetectionArea
 
-var player: Node2D
+var player_inside := false
+var player: Node2D = null
 
-# Player init
 func _ready() -> void:
-	if player_path != NodePath():
-		player = get_node(player_path)
+	player = get_tree().get_first_node_in_group("player")
 
-# Funktion zu checken ob der Spieler existiert und Abstand checken
-func is_player_near() -> bool:
-	if not is_instance_valid(player):
-		return false
-	return global_position.distance_to(player.global_position) <= detect_radius
+	outline.visible = false
+
+	detect_area.body_entered.connect(_on_body_entered)
+	detect_area.body_exited.connect(_on_body_exited)
+
+
+func _process(delta: float) -> void:
+	outline.visible = player_inside
+
+	if player_inside:
+		outline.frame = anim.frame
+
+
+func _on_body_entered(body):
+	if body.is_in_group("player"):
+		player_inside = true
+
+
+func _on_body_exited(body):
+	if body.is_in_group("player"):
+		player_inside = false
