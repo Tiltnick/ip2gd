@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://ciw6qb5jrmsf3"]
+
+[ext_resource type="Texture2D" uid="uid://mnl3plswls45" path="res://assets/sprites/ui/space-book 1.png" id="1_1d2pv"]
+[ext_resource type="Script" uid="uid://sdev7jqq4jdb" path="res://scripts/menu/GameMenu/round_buttton.gd" id="2_fgigl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exgfe"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82io4"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k47ng"]
+bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_84ry2"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 0
+visible = false
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1152.0
+offset_right = -1063.0
+offset_bottom = 104.0
+grow_horizontal = 0
+pivot_offset = Vector2(-100, 20)
+
+[node name="RoundButtton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 983.0
+offset_top = 30.0
+offset_right = 1046.0
+offset_bottom = 93.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_exgfe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_82io4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k47ng")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_84ry2")
+icon = ExtResource("1_1d2pv")
+icon_alignment = 1
+script = ExtResource("2_fgigl")
+
+[connection signal="pressed" from="Control/RoundButtton" to="Control/RoundButtton" method="_on_pressed"]

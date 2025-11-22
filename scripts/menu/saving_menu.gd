@@ -1,17 +1,13 @@
-extends Control
+extends CanvasLayer
 
-#Game not paused anymore, menu hides
 func resume():
 	get_tree().paused = false
 	hide()
 
-#game pauses and menu shows
 func pause():
 	get_tree().paused = true
 	show()
 
-#when pressing esc and game is paused, game starts 
-#when game isn't paused, it pauses --> menu opens
 func esc():
 	if Input.is_action_just_pressed("esc") and get_tree().paused == false:
 		pause()
@@ -24,11 +20,25 @@ func _on_continue_button_pressed() -> void:
 
 
 func _on_exit_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/Menues/main_menu.tscn")
+	# Scene/Area im GameState merken
+	var current_scene := get_tree().current_scene
+	if current_scene:
+		GameState.current_area_path = current_scene.get_scene_file_path()
+
+	# Spielstand speichern
+	SaveSystem.save_game()
+	GameState.has_save = true
+
+	# Spiel wieder "entpausen" für Main menu
+	get_tree().paused = false
+
+	# Zur MainMenu scene wechseln
+	SceneManager.goto_main_menu()
 
 
 func _on_round_buttton_pressed() -> void:
 	resume()
-	
-func _process(delta):
+
+
+func _process(delta: float) -> void:
 	esc()

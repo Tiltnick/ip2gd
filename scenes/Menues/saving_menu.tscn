@@ -84,17 +84,19 @@ corner_radius_bottom_left = 62
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5n6h5"]
 
-[node name="saving_menu" type="Control"]
-visible = false
+[node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_u0lg0")
+
+[node name="saving_menu" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_u0lg0")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="saving_menu"]
 process_mode = 3
 layout_mode = 1
 anchors_preset = 15
@@ -104,49 +106,49 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.14509805, 0.14509805, 0.14509805, 0.88235295)
 
-[node name="Panel" type="Panel" parent="ColorRect"]
+[node name="Panel" type="Panel" parent="saving_menu/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -160.1875
-offset_top = -165.10745
-offset_right = 160.1875
-offset_bottom = 129.0
+offset_left = -204.24606
+offset_top = -163.0
+offset_right = 204.24606
+offset_bottom = 163.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_duj72")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="saving_menu/ColorRect/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -127.5
-offset_top = -112.0
-offset_right = 127.5
-offset_bottom = 112.0
+offset_left = -163.5
+offset_top = -117.0
+offset_right = 163.5
+offset_bottom = 130.78125
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 23
 
-[node name="Label" type="Label" parent="ColorRect/Panel/VBoxContainer"]
+[node name="Label" type="Label" parent="saving_menu/ColorRect/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_fonts/font = ExtResource("1_ksa70")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 40
 text = "Save Game ?"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/Panel/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="saving_menu/ColorRect/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 11
 
-[node name="ContinueButton" type="Button" parent="ColorRect/Panel/VBoxContainer/VBoxContainer"]
+[node name="ContinueButton" type="Button" parent="saving_menu/ColorRect/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
@@ -155,14 +157,14 @@ theme_override_colors/font_pressed_color = Color(0.45882353, 0.8392157, 0.749019
 theme_override_colors/font_hover_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_fonts/font = ExtResource("1_ksa70")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_u0lg0")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_y8ufa")
 theme_override_styles/hover = SubResource("StyleBoxFlat_y8ufa")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_au487")
 text = "Save and Continue"
 
-[node name="ExitButton" type="Button" parent="ColorRect/Panel/VBoxContainer/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="saving_menu/ColorRect/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
@@ -171,22 +173,22 @@ theme_override_colors/font_pressed_color = Color(0.45882353, 0.8392157, 0.749019
 theme_override_colors/font_hover_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_fonts/font = ExtResource("1_ksa70")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_u0lg0")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_y8ufa")
 theme_override_styles/hover = SubResource("StyleBoxFlat_y8ufa")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_au487")
 text = "Save and Exit"
 
-[node name="RoundButtton" type="Button" parent="ColorRect"]
+[node name="RoundButtton" type="Button" parent="saving_menu/ColorRect"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -415.0
-offset_top = 123.0
-offset_right = -370.62262
-offset_bottom = 165.0
+offset_left = -752.0
+offset_top = 344.0
+offset_right = -710.0
+offset_bottom = 386.0
 grow_horizontal = 0
 mouse_default_cursor_shape = 2
 theme_override_constants/icon_max_width = 34
@@ -197,6 +199,9 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_5n6h5")
 icon = ExtResource("2_f4u1l")
 icon_alignment = 1
 
-[connection signal="pressed" from="ColorRect/Panel/VBoxContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="ColorRect/Panel/VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="ColorRect/RoundButtton" to="." method="_on_round_buttton_pressed"]
+[connection signal="pressed" from="saving_menu/ColorRect/Panel/VBoxContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="saving_menu/ColorRect/Panel/VBoxContainer/VBoxContainer/ContinueButton" to="saving_menu" method="_on_continue_button_pressed"]
+[connection signal="pressed" from="saving_menu/ColorRect/Panel/VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="saving_menu/ColorRect/Panel/VBoxContainer/VBoxContainer/ExitButton" to="saving_menu" method="_on_exit_button_pressed"]
+[connection signal="pressed" from="saving_menu/ColorRect/RoundButtton" to="." method="_on_round_buttton_pressed"]
+[connection signal="pressed" from="saving_menu/ColorRect/RoundButtton" to="saving_menu" method="_on_round_buttton_pressed"]
