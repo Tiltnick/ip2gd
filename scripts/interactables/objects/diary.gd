@@ -16,6 +16,5 @@ func interact() -> void:
 
 	# im GameState als eingesammelt markieren
 	mark_collected()
-
-	GlobalMenuButton.show()
+	GameMenu.show()
 	queue_free()
