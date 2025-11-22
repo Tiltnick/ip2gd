@@ -98,7 +98,7 @@ anchor_right = 0.84800005
 anchor_bottom = 0.82100004
 offset_left = 0.42700195
 offset_top = 0.20799255
-offset_right = 0.25585938
+offset_right = 14.75592
 offset_bottom = -0.0079956055
 theme_override_styles/panel = SubResource("StyleBoxFlat_0geu5")
 

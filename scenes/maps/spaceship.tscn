@@ -1337,6 +1337,7 @@ texture = ExtResource("6_o77e3")
 
 [node name="SpaceshipDoor" parent="." instance=ExtResource("14_1oksb")]
 visible = false
+code = ["2", "1", "5", "1"]
 
 [node name="CanvasLayer" parent="." instance=ExtResource("11_o77e3")]
 visible = false
