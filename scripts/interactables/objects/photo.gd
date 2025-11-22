@@ -23,11 +23,7 @@ func interact():
 	elif is_front:
 		_flip_photo()
 	else:
-		_store_in_hotbar()
-
-func _store_in_hotbar():
-	hotbarglobal.add_item("photo")
-	queue_free()
+		_reset_photo()
 
 
 func _zoom_in():
