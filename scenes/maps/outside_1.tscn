@@ -472,11 +472,3 @@ position = Vector2(-120, -31)
 
 [node name="NPC" parent="." instance=ExtResource("8_iqy5x")]
 position = Vector2(272, -136)
-player_path = NodePath("res://scenes/Character/main_character.tscn")
-
-[node name="Press_E_Popup" parent="NPC" instance=ExtResource("7_8xmlc")]
-visible = false
-offset_left = -11.0
-offset_top = -33.0
-offset_right = -11.0
-offset_bottom = -33.0

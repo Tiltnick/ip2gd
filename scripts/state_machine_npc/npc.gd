@@ -7,6 +7,8 @@ class_name NPC
 @onready var anim: AnimatedSprite2D = $anim
 @onready var outline: AnimatedSprite2D = $Outline
 @onready var detect_area: Area2D = $DetectionArea
+@onready var e_popup_node: Control = $Press_E_Popup_NPC
+
 
 var player_inside := false
 var player: Node2D = null
@@ -30,8 +32,13 @@ func _process(delta: float) -> void:
 func _on_body_entered(body):
 	if body.is_in_group("player"):
 		player_inside = true
-
+		outline.visible = true
+		if e_popup_node:
+			e_popup_node.visible = true
 
 func _on_body_exited(body):
 	if body.is_in_group("player"):
 		player_inside = false
+		outline.visible = false
+		if e_popup_node:
+			e_popup_node.visible = false
