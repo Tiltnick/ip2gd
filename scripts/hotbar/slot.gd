@@ -11,18 +11,22 @@ func set_item_icon(item_id: String):
 		return
 	
 	var path = ""
+	var icon_size = SLOT_ICON_SIZE  
+
 	if item_id == "diary":
 		path = "res://assets/sprites/selfmade/waldgeist-32x (8).png"
 	elif item_id == "photo":
 		path = "res://assets/sprites/photos/Photo_Front.jpg"
+		icon_size = Vector2(55, 55)  # Foto extra kleiner
 
 	if ResourceLoader.exists(path):
 		icon.texture = load(path)
-		icon.size = SLOT_ICON_SIZE                     # Größe setzen
+		icon.size = icon_size
 		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		icon.position = (size - SLOT_ICON_SIZE) / 2   # Mittig im Slot
+		icon.position = (size - icon_size) / 2
 	else:
 		clear_icon()
+
 
 func clear_icon():
 	if icon:

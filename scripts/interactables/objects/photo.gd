@@ -21,7 +21,6 @@ func _ready():
 	super._ready()
 
 
-# Normal interact: Aufheben, Flip, Store
 func interact():
 	if not is_zoomed:
 		_zoom_in()
@@ -93,7 +92,6 @@ func _try_show_outline():
 
 
 func hotbar_activate():
-	# Setze Flag
 	spawned_from_hotbar = true
 	is_zoomed = false
 	is_front = true
@@ -107,6 +105,5 @@ func hotbar_activate():
 	scale = hotbar_scale
 	z_index = 100
 	
-	# Tween für Zoom
 	var t = create_tween()
 	t.tween_property(self, "scale", start_scale * 7, 0.2)
