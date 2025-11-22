@@ -1290,7 +1290,6 @@ offset_bottom = -35.000004
 scale = Vector2(1.6, 1.6)
 
 [node name="Diary" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("10_2km4p")]
-z_index = 0
 position = Vector2(177, 104)
 e_popup_node = NodePath("Press_E_Popup_Diary")
 
