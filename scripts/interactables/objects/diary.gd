@@ -7,15 +7,17 @@ func _ready() -> void:
 	super._ready()  
 
 
-func interact() -> void:
-	# falls aus irgendeinem Grund schon eingesammelt → nichts tun
+func interact():
 	if GameState.puzzle_state.get(save_id, false):
 		return
 
-	print("Buch eingesammelt!")
-
-	# im GameState als eingesammelt markieren
 	mark_collected()
+	print("Diary eingesammelt!")
 
-	GlobalMenuButton.show()
+	hotbarglobal.add_item("diary")  # hier stand vorher save_id Slot wird intern zugewiesen
+
+	# Hotbar aktualisieren, falls existiert
+	if hotbarglobal.hotbar:
+		hotbarglobal.hotbar.update_slots()
+
 	queue_free()
