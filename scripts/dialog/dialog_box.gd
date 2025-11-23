@@ -10,6 +10,7 @@ signal choice_selected(index: int)
 @onready var name_label: Label          = $NinePatchRect/Name
 @onready var dialog_text: RichTextLabel = $NinePatchRect/Dialog
 @onready var portrait: TextureRect      = $NinePatchRect/Portrait
+
 @onready var choice1: Control           = $NinePatchRect/Choice1
 @onready var choice2: Control           = $NinePatchRect/Choice2
 @onready var choice1_text: RichTextLabel        = $NinePatchRect/Choice1/Text_Choice1
@@ -29,12 +30,21 @@ func _ready() -> void:
 	hide()
 	choice1.visible = false
 	choice2.visible = false
+
 	choice1.mouse_filter = Control.MOUSE_FILTER_STOP
 	choice2.mouse_filter = Control.MOUSE_FILTER_STOP
+
 	choice1.gui_input.connect(_on_choice1_clicked)
 	choice2.gui_input.connect(_on_choice2_clicked)
 
+	choice1.mouse_entered.connect(_on_choice1_mouse_entered)
+	choice1.mouse_exited.connect(_on_choice1_mouse_exited)
+
+	choice2.mouse_entered.connect(_on_choice2_mouse_entered)
+	choice2.mouse_exited.connect(_on_choice2_mouse_exited)
+
 func show_line(speaker: String, text: String) -> void:
+	# update the speaker label (hide it if empty)
 	if speaker.strip_edges() == "":
 		name_label.text = ""
 		name_label.hide()
@@ -42,18 +52,26 @@ func show_line(speaker: String, text: String) -> void:
 		name_label.text = speaker
 		name_label.show()
 
+	# set the full text but hide all characters for now
 	full_text = text
 	_pages = _split_into_pages(full_text)
 	_page_index = 0
 
+	# reset typing state and make the box visible
 	typing = true
 	skip = false
 	show()
 
+	# hide any stale choices from previous steps
 	hide_choices()
+
+	# start typewriter
 	_apply_current_page()
 
 func _unhandled_input(event: InputEvent) -> void:
+	# One button does two things depending on state:
+	# while typing: skip animation and reveal the rest
+	# after typing: tell the manager we're ready to advance
 	if event.is_action_pressed("ui_accept"):
 		if typing:
 			skip = true
@@ -67,6 +85,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				emit_signal("continue_pressed")
 
 func typewriter() -> void:
+	# Wait one frame so the label has laid out the text;
+	# otherwise get_total_character_count() can be wrong.
 	await get_tree().process_frame
 
 	var total: int = dialog_text.get_total_character_count()
@@ -87,13 +107,14 @@ func typewriter() -> void:
 	typing = false
 	skip = false
 
-
+# Show a list of choices (array of strings). 
 func show_choices(choice_texts: Array) -> void:
 	hide_choices()
 
 	if choice_texts.size() >= 1:
 		choice1.visible = true
 		choice1_text.text = String(choice_texts[0])
+
 	if choice_texts.size() >= 2:
 		choice2.visible = true
 		choice2_text.text = String(choice_texts[1])
@@ -104,13 +125,29 @@ func hide_choices() -> void:
 
 func _on_choice1_clicked(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
+		choice1.modulate = Color(1, 1, 1, 0.6)
 		hide_choices()
 		emit_signal("choice_selected", 0)
+		choice1.modulate = Color(1, 1, 1, 1)
 
-func _on_choice2_clicked(event: InputEventMouseButton) -> void:
+func _on_choice2_clicked(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
+		choice2.modulate = Color(1, 1, 1, 0.6)
 		hide_choices()
 		emit_signal("choice_selected", 1)
+		choice2.modulate = Color(1, 1, 1, 1)
+
+func _on_choice1_mouse_entered() -> void:
+	choice1.modulate = Color(1, 1, 1, 0.8)
+
+func _on_choice1_mouse_exited() -> void:
+	choice1.modulate = Color(1, 1, 1, 1)
+
+func _on_choice2_mouse_entered() -> void:
+	choice2.modulate = Color(1, 1, 1, 0.8)
+
+func _on_choice2_mouse_exited() -> void:
+	choice2.modulate = Color(1, 1, 1, 1)
 
 func _apply_current_page() -> void:
 	dialog_text.text = _pages[_page_index]
