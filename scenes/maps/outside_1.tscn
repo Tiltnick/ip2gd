@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://b4r2irdvo1x1b"]
+[gd_scene load_steps=14 format=4 uid="uid://b4r2irdvo1x1b"]
 
 [ext_resource type="Script" uid="uid://ch2sapm3vk3ex" path="res://scripts/scene_manager/outside_1.gd" id="1_ax0hk"]
 [ext_resource type="Texture2D" uid="uid://bfd0d1qqtnli" path="res://assets/sprites/map/Outside_1/Ground.png" id="1_iu6ob"]
@@ -8,6 +8,7 @@
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="6_8xmlc"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="7_8xmlc"]
 [ext_resource type="PackedScene" uid="uid://cc56upiuyf8v1" path="res://scenes/Character/npc.tscn" id="8_iqy5x"]
+[ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="8_myyye"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ax0hk"]
 texture = ExtResource("1_iu6ob")
@@ -473,5 +474,7 @@ position = Vector2(-120, -31)
 [node name="Hotbar" type="CanvasLayer" parent="."]
 layer = 0
 
-[node name="Hotbar" parent="Hotbar" instance=ExtResource("8_iqy5x")]
-metadata/_edit_use_anchors_ = true
+[node name="Hotbar" parent="Hotbar" instance=ExtResource("8_myyye")]
+
+[node name="NPC" parent="." instance=ExtResource("8_iqy5x")]
+position = Vector2(288, -120)
