@@ -7,8 +7,10 @@ func _ready() -> void:
 	super._ready()  
 
 
-func interact():
+func interact() -> void:
+	# falls aus irgendeinem Grund schon eingesammelt → nichts tun
 	if GameState.puzzle_state.get(save_id, false):
+		
 		return
 	print("Buch eingesammelt!")
 	mark_collected()

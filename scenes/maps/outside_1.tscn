@@ -457,10 +457,10 @@ texture = ExtResource("3_jlsic")
 [node name="Press_E_Popup_DoorOutside" parent="Door" instance=ExtResource("7_8xmlc")]
 visible = false
 z_index = 10
-offset_left = 39.0
-offset_top = -43.0
-offset_right = 39.0
-offset_bottom = -43.0
+offset_left = -10.0
+offset_top = -72.0
+offset_right = -10.0
+offset_bottom = -72.0
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 

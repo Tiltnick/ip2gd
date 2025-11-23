@@ -162,7 +162,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_u0lg0")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_y8ufa")
 theme_override_styles/hover = SubResource("StyleBoxFlat_y8ufa")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_au487")
-text = "Save and Continue"
+text = "Continue"
 
 [node name="ExitButton" type="Button" parent="saving_menu/ColorRect/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
