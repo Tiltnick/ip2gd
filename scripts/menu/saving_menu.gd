@@ -40,5 +40,5 @@ func _on_round_buttton_pressed() -> void:
 	resume()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	esc()

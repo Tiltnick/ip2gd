@@ -19,7 +19,7 @@ func update_visibility(path: String):
 		GlobalMenuButton.show()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var scene = get_tree().current_scene
 	var path = scene.scene_file_path
 		#scene could be in between two scnenes null, while switching to new scene -> could crash
