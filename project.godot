@@ -26,6 +26,7 @@ GameState="*res://scripts/save_system/game_state.gd"
 SaveSystem="*res://scripts/save_system/save_system.gd"
 SceneManager="*res://scripts/scene_manager/scene_manager.gd"
 hotbarglobal="*res://scripts/hotbarglobal.gd"
+DialogManager="*res://scenes/dialog/dialog_manager.tscn"
 
 [dialogic]
 

@@ -15,7 +15,7 @@ var player: Node2D = null
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
-
+	
 	outline.visible = false
 
 	detect_area.body_entered.connect(_on_body_entered)
@@ -35,6 +35,8 @@ func _on_body_entered(body):
 		outline.visible = true
 		if e_popup_node:
 			e_popup_node.visible = true
+			# Das reicht um einen Dialog zu starten :) 
+			DialogManager.start_dialog("res://dialog/oris_mr_blob.json")
 
 func _on_body_exited(body):
 	if body.is_in_group("player"):
