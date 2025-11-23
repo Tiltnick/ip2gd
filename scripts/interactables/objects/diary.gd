@@ -10,12 +10,12 @@ func _ready() -> void:
 func interact() -> void:
 	# falls aus irgendeinem Grund schon eingesammelt → nichts tun
 	if GameState.puzzle_state.get(save_id, false):
+		
 		return
-
 	print("Buch eingesammelt!")
-
-	# im GameState als eingesammelt markieren
 	mark_collected()
+	
 
 	GlobalMenuButton.show()
+
 	queue_free()

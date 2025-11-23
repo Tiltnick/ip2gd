@@ -4,7 +4,9 @@ var hidden_in_scenes = [
 "res://scenes/Menues/diary_menu.tscn",
 "res://scenes/Menues/main_menu.tscn",
 "res://scenes/Menues/PopUp.tscn",
-"res://scenes/Menues/saving_menu.tscn"
+"res://scenes/Menues/saving_menu.tscn",
+"res://scenes/hotbar/hotbar.tscn"
+
 	
 ]
 var _last_path = ""
@@ -17,7 +19,7 @@ func update_visibility(path: String):
 		GlobalMenuButton.show()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var scene = get_tree().current_scene
 	var path = scene.scene_file_path
 		#scene could be in between two scnenes null, while switching to new scene -> could crash

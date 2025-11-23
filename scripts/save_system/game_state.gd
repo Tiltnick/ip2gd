@@ -11,8 +11,13 @@ var has_save: bool = false
 # Letzte Spielerposition
 var player_position: Vector2 = Vector2.ZERO
 
-
 var use_saved_position: bool = false
+
+# Aufgehobene Items speichern
+var picked_items: Array = []
+
+# Puzzle-Items (Fix für deinen New Game Fehler)
+var puzzle_items: Array = []
 
 
 # Funktion -> Dic wird geupdated
@@ -24,6 +29,8 @@ func to_dict() -> Dictionary:
 			"x": player_position.x,
 			"y": player_position.y,
 		},
+		"picked_items": picked_items,
+		"puzzle_items": puzzle_items,
 	}
 
 
@@ -39,3 +46,9 @@ func from_dict(data: Dictionary) -> void:
 		var p = data["player_position"]
 		if typeof(p) == TYPE_DICTIONARY and p.has("x") and p.has("y"):
 			player_position = Vector2(p["x"], p["y"])
+
+	if data.has("picked_items"):
+		picked_items = data["picked_items"]
+
+	if data.has("puzzle_items"):
+		puzzle_items = data["puzzle_items"]

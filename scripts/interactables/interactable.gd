@@ -33,6 +33,6 @@ func _on_exit(body):
 func interact():
 	print(name, " interacted but has no special interact() function!")
 
-func _process(delta):
+func _process(_delta):
 	if player_in_area and Input.is_action_just_pressed("interact"):
 		interact()

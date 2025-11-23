@@ -10,7 +10,11 @@ signal choice_selected(index: int)
 @onready var name_label: Label          = $NinePatchRect/Name
 @onready var dialog_text: RichTextLabel = $NinePatchRect/Dialog
 @onready var portrait: TextureRect      = $NinePatchRect/Portrait
-@onready var choices: VBoxContainer     = $NinePatchRect/Choices  # <-- VBoxContainer
+
+@onready var choice1: Control           = $NinePatchRect/Choice1
+@onready var choice2: Control           = $NinePatchRect/Choice2
+@onready var choice1_text: RichTextLabel        = $NinePatchRect/Choice1/Text_Choice1
+@onready var choice2_text: RichTextLabel        = $NinePatchRect/Choice2/Text_Choice2
 
 # typewriter speed in seconds per character 
 @export var typing_speed: float = 0.02
@@ -23,11 +27,21 @@ var _pages: Array[String] = []
 var _page_index: int = 0
 
 func _ready() -> void:
-	# Start hidden; the manager decides when to show/hide.
 	hide()
-	# Make sure the choices container is hidden initially.
-	if is_instance_valid(choices):
-		choices.visible = false
+	choice1.visible = false
+	choice2.visible = false
+
+	choice1.mouse_filter = Control.MOUSE_FILTER_STOP
+	choice2.mouse_filter = Control.MOUSE_FILTER_STOP
+
+	choice1.gui_input.connect(_on_choice1_clicked)
+	choice2.gui_input.connect(_on_choice2_clicked)
+
+	choice1.mouse_entered.connect(_on_choice1_mouse_entered)
+	choice1.mouse_exited.connect(_on_choice1_mouse_exited)
+
+	choice2.mouse_entered.connect(_on_choice2_mouse_entered)
+	choice2.mouse_exited.connect(_on_choice2_mouse_exited)
 
 func show_line(speaker: String, text: String) -> void:
 	# update the speaker label (hide it if empty)
@@ -78,60 +92,62 @@ func typewriter() -> void:
 	var total: int = dialog_text.get_total_character_count()
 
 	while typing:
-		# If the player requested a skip, reveal everything at once
 		if skip:
 			dialog_text.visible_characters = total
 			break
 
-		# Reveal the next character
 		var next_count: int = min(dialog_text.visible_characters + 1, total)
 		dialog_text.visible_characters = next_count
 
-		# If we reached the end of the line, stop typing
 		if next_count >= total:
 			break
 
-		# Small delay to create the typewriter feel
 		await get_tree().create_timer(typing_speed).timeout
 
-	# Clean up and wait to continue
 	typing = false
 	skip = false
 
-
-# Show a list of choices (array of strings). Creates one Button per entry.
+# Show a list of choices (array of strings). 
 func show_choices(choice_texts: Array) -> void:
+	hide_choices()
 
-	# Clear previous buttons and show container
-	_clear_children(choices)
-	choices.visible = true
+	if choice_texts.size() >= 1:
+		choice1.visible = true
+		choice1_text.text = String(choice_texts[0])
 
-	# Add the buttons into the hbox
-	for i in choice_texts.size():
-		var b := Button.new()
-		b.text = String(choice_texts[i])
-		b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		b.size_flags_vertical = Control.SIZE_FILL
-		b.focus_mode = Control.FOCUS_NONE
-		choices.add_child(b)
+	if choice_texts.size() >= 2:
+		choice2.visible = true
+		choice2_text.text = String(choice_texts[1])
 
-		# Each button emits the index and we also hide the choice box.
-		b.pressed.connect(func():
-			hide_choices()
-			emit_signal("choice_selected", i)
-		)
-
-# Hide and clear  choices containers.
 func hide_choices() -> void:
-	if not is_instance_valid(choices):
-		return
-	choices.visible = false
-	_clear_children(choices)
+	choice1.visible = false
+	choice2.visible = false
 
-# Delete Choices
-func _clear_children(node: Node) -> void:
-	for c in node.get_children():
-		c.queue_free()
+func _on_choice1_clicked(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		choice1.modulate = Color(1, 1, 1, 0.6)
+		hide_choices()
+		emit_signal("choice_selected", 0)
+		choice1.modulate = Color(1, 1, 1, 1)
+
+func _on_choice2_clicked(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		choice2.modulate = Color(1, 1, 1, 0.6)
+		hide_choices()
+		emit_signal("choice_selected", 1)
+		choice2.modulate = Color(1, 1, 1, 1)
+
+func _on_choice1_mouse_entered() -> void:
+	choice1.modulate = Color(1, 1, 1, 0.8)
+
+func _on_choice1_mouse_exited() -> void:
+	choice1.modulate = Color(1, 1, 1, 1)
+
+func _on_choice2_mouse_entered() -> void:
+	choice2.modulate = Color(1, 1, 1, 0.8)
+
+func _on_choice2_mouse_exited() -> void:
+	choice2.modulate = Color(1, 1, 1, 1)
 
 func _apply_current_page() -> void:
 	dialog_text.text = _pages[_page_index]

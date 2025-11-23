@@ -6,6 +6,7 @@ var unlocked_entries: Array[String] = []
 func _ready() -> void:
 	load_diary_data()
 	unlock_entry("entry_1")
+	unlock_entry("entry_2")
 	
 
 func load_diary_data():

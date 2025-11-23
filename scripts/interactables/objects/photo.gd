@@ -1,11 +1,16 @@
 extends Interactable
+class_name Photo
+
+@export var spawned_from_hotbar: bool = false
+# Spätere Slots
+var meta_slot_index := -1
+var hotbar_scale: Vector2 = Vector2(0.5, 0.5)
 
 @onready var front := $Sprite_Front
 @onready var back := $Sprite_Back
 
 var is_front := true
 var is_zoomed := false
-
 var start_scale: Vector2
 var front_start_scale: Vector2
 var back_start_scale: Vector2
@@ -16,6 +21,10 @@ func _ready():
 	start_scale = scale
 	super._ready()
 
+	# Photo wird que freed wenn es die game state schon hat
+	if GameState.picked_items.has("photo_1") and not spawned_from_hotbar:
+		queue_free()
+
 
 func interact():
 	if not is_zoomed:
@@ -23,18 +32,31 @@ func interact():
 	elif is_front:
 		_flip_photo()
 	else:
-		_reset_photo()
+		_store_in_hotbar()
+
+
+func _store_in_hotbar():
+	# Photo als aufgehoben markieren
+	if not spawned_from_hotbar and not GameState.picked_items.has("photo_1"):
+		GameState.picked_items.append("photo_1")
+
+	# Nicht nochmal in hotbar speichern
+	if spawned_from_hotbar:
+		queue_free()
+		return
+
+	# Phot in Array eintragen dann aus Welt löschen
+	hotbarglobal.add_item("photo")
+	queue_free()
 
 
 func _zoom_in():
 	is_zoomed = true
 	outline.visible = false
 	outline_locked = true
-	
-	if e_popup_node: 
-		e_popup_node.visible = false
-	
 
+	if e_popup_node:
+		e_popup_node.visible = false
 
 	var t = create_tween()
 	t.tween_property(self, "scale", start_scale * 7, 0.2)
@@ -54,7 +76,7 @@ func _toggle_sides():
 	front.visible = is_front
 	back.visible = !is_front
 
-
+# Ursprungsskala
 func _reset_photo():
 	var t = create_tween()
 	t.tween_property(self, "scale", start_scale, 0.2)
@@ -66,10 +88,8 @@ func _reset_state():
 	is_front = true
 	front.visible = true
 	back.visible = false
-
 	outline_locked = false
 	_try_show_outline()
-	
 	if e_popup_node and player_in_area:
 		e_popup_node.visible = true
 
@@ -84,3 +104,29 @@ func _try_show_outline():
 		outline.visible = false
 		return
 	outline.visible = true
+
+
+func hotbar_activate():
+	spawned_from_hotbar = true
+
+	is_zoomed = false
+	is_front = true
+	front.visible = true
+	back.visible = false
+	outline.visible = false
+	outline_locked = true
+
+	# Mitte der aktuellen Kamera setzen
+	var cam := get_viewport().get_camera_2d()
+	if cam:
+		global_position = cam.global_position
+	else:
+		# Falls keine Kamera vorhanden
+		global_position = Vector2.ZERO
+
+	scale = hotbar_scale
+	start_scale = scale
+
+	z_index = 100
+
+	_zoom_in()
