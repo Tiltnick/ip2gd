@@ -46,8 +46,15 @@ func _on_discord_button_pressed() -> void:
 func start_new_game() -> void:
 	# GameState wird gecleart
 	GameState.current_area_path = "res://scenes/maps/spaceship.tscn"
+	GameState.puzzle_items = []
 	GameState.puzzle_state = {}
 	GameState.has_save = false
+	GameState.picked_items = []
+
+	# Hotbar-Inhalt zurücksetzen = Feste größe festgelegt in hotbar.gd vorzeitig
+	hotbarglobal.items = [null, null, null, null]
+	if hotbarglobal.hotbar:
+		hotbarglobal.hotbar.update_slots()
 
 	get_tree().paused = false
 
