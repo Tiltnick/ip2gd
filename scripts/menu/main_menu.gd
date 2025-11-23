@@ -7,6 +7,7 @@ extends Control
 func _ready() -> void:
 	# Prüft ob es eine Save-Datei gibt -> Nein = button.disabled
 	resume_button.disabled = not FileAccess.file_exists(SaveSystem.SAVE_PATH)
+	
 
 
 func _on_new_g_button_pressed() -> void:

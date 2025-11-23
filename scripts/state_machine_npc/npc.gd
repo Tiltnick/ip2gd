@@ -40,7 +40,9 @@ func _on_body_entered(body):
 
 func _on_body_exited(body):
 	if body.is_in_group("player"):
+		DialogManager.hide()
 		player_inside = false
 		outline.visible = false
 		if e_popup_node:
 			e_popup_node.visible = false
+			

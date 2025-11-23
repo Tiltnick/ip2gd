@@ -3,14 +3,16 @@ extends CanvasLayer
 func resume():
 	get_tree().paused = false
 	hide()
-
+	DialogManager.show()
 func pause():
 	get_tree().paused = true
 	show()
+	DialogManager.hide()
 
 func esc():
 	if Input.is_action_just_pressed("esc") and get_tree().paused == false:
 		pause()
+		
 	elif Input.is_action_just_pressed("esc") and get_tree().paused == true:
 		resume()
 

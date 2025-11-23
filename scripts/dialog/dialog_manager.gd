@@ -7,7 +7,14 @@ signal choice_made(choice_id: String)
 # Initialize my DialogParser
 var runtime: DialogParser = DialogParser.new()
 
+
+func _ready() -> void:
+	hide()
+
+
+
 func start_dialog(json_path: String) -> void:
+	show()
 	# Load the JSON. 
 	# If Loading fails -> PANIC
 	if not runtime.load_json(json_path):
