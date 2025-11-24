@@ -2,6 +2,7 @@ extends Node
 class_name DialogParser
 
 var data: Dictionary = {}
+var portraits: Dictionary = {}   # <--- neu
 
 # Name of the current section inside the JSON (dialog starts with "sections" and ends with "end")
 var current_node: String = ""
@@ -19,6 +20,10 @@ func load_json(path: String) -> bool:
 		return false
 
 	var dict: Dictionary = parsed as Dictionary
+
+	# Characters/Portraits
+	if dict.has("characters"):
+		portraits = dict["characters"] as Dictionary
 
 	# We expect "steps" to hold all sections/nodes
 	if not dict.has("steps") or typeof(dict["steps"]) != TYPE_DICTIONARY:
@@ -53,9 +58,16 @@ func get_current_line() -> Dictionary:
 
 	if line_index >= 0 and line_index < lines.size():
 		var ld: Dictionary = lines[line_index] as Dictionary
+		var sp: String = String(ld.get("speaker", ""))
+
+		var portrait_path := ""
+		if portraits.has(sp):
+			portrait_path = String(portraits[sp])
+
 		return {
-			"speaker": String(ld.get("speaker", "")),
-			"text": String(ld.get("text", ""))
+			"speaker": sp,
+			"text": String(ld.get("text", "")),
+			"portrait": portrait_path
 		}
 
 	return {}
@@ -77,7 +89,6 @@ func next() -> void:
 		current_node = String(node.get("next", "end"))
 		line_index = 0
 
-# Returns true if the current node has a non-empty "choices" array.
 func has_choices_for_current_node() -> bool:
 	if is_finished():
 		return false
@@ -88,8 +99,6 @@ func has_choices_for_current_node() -> bool:
 	var choices := node.get("choices", []) as Array
 	return choices.size() > 0
 
-# Returns the raw "choices" array for the current node (array of dictionaries).
-# Each entry commonly has: { "text": String, "next": String }
 func get_current_choices() -> Array:
 	if is_finished():
 		return []
@@ -97,7 +106,6 @@ func get_current_choices() -> Array:
 	var node: Dictionary  = steps.get(current_node, {}) as Dictionary
 	return node.get("choices", []) as Array
 
-# Returns true if the current line_index points to the last line of the node.
 func is_last_line_in_node() -> bool:
 	if is_finished():
 		return false
@@ -105,11 +113,9 @@ func is_last_line_in_node() -> bool:
 	var node: Dictionary  = steps.get(current_node, {}) as Dictionary
 	var lines: Array      = node.get("lines", []) as Array
 	if lines.is_empty():
-		# If there are no lines, we consider it "last" so that choices can still show.
 		return true
 	return line_index >= (lines.size() - 1)
 
-# Pick a choice by index
 func choose(index: int) -> void:
 	if is_finished():
 		return
@@ -124,6 +130,5 @@ func choose(index: int) -> void:
 	current_node = String(choice.get("next", "end"))
 	line_index = 0
 
-# *** NEU: einfacher Getter, damit der DialogManager den aktuellen Node kennt
 func get_current_node() -> String:
 	return current_node
