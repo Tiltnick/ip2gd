@@ -12,6 +12,7 @@ signal choice_selected(index: int)
 @onready var choice2: Control           = $NinePatchRect/Choice2
 @onready var choice1_text: RichTextLabel        = $NinePatchRect/Choice1/Text_Choice1
 @onready var choice2_text: RichTextLabel        = $NinePatchRect/Choice2/Text_Choice2
+@onready var space_to_continue: RichTextLabel    =$NinePatchRect/Space_to_Continue
 
 @export var typing_speed: float = 0.02
 @export var max_chars_per_page: int = 200
@@ -59,6 +60,7 @@ func show_line(speaker: String, text: String, portrait_path: String = "") -> voi
 	typing = true
 	skip = false
 	show()
+	space_to_continue.show()
 
 	hide_choices()
 
@@ -96,6 +98,8 @@ func typewriter() -> void:
 
 	typing = false
 	skip = false
+	space_to_continue.visible = true
+
 
 func show_choices(choice_texts: Array) -> void:
 	hide_choices()
@@ -139,6 +143,8 @@ func _on_choice2_mouse_exited() -> void:
 	choice2.modulate = Color(1, 1, 1, 1)
 
 func _apply_current_page() -> void:
+	space_to_continue.visible = false
+
 	dialog_text.text = _pages[_page_index]
 	dialog_text.visible_characters = 0
 	typewriter()

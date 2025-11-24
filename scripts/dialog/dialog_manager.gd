@@ -17,6 +17,8 @@ func start_dialog(json_path: String) -> void:
 	show()
 	# Load the JSON. 
 	# If Loading fails -> PANIC
+	#signal 
+	dialog_is_started()
 	if not runtime.load_json(json_path):
 		return
 
@@ -35,6 +37,7 @@ func start_dialog(json_path: String) -> void:
 		await box.continue_pressed
 
 		if runtime.is_last_line_in_node() and runtime.has_choices_for_current_node():
+			
 			var choice_texts: Array[String] = []
 			for c in runtime.get_current_choices():
 				choice_texts.append(String(c.get("text", "")))
@@ -61,3 +64,5 @@ func dialog_is_finished():
 	box.hide()
 	emit_signal("dialog_finished")
 	hide()
+func dialog_is_started():
+	emit_signal("dialog_started")
