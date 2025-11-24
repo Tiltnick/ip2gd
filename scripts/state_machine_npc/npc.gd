@@ -36,7 +36,7 @@ func _on_body_entered(body):
 		if e_popup_node:
 			e_popup_node.visible = true
 			# Das reicht um einen Dialog zu starten :) 
-			DialogManager.start_dialog("res://dialog/oris_mr_blob.json")
+			DialogManager.start_dialog("res://dialog/first_level/oris_hex.json")
 
 func _on_body_exited(body):
 	if body.is_in_group("player"):

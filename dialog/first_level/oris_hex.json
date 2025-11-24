@@ -1,0 +1,95 @@
+{
+  "id": "hex_intro",
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png",
+	"Hex": "res://assets/sprites/portrait/hex.png"
+  },
+
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Hex", "text": "Beep-bop… Scanning… Unknown lifeform detected. Identification running… running… running… Scan failed. What exactly are you?" }
+	  ],
+	  "choices": [
+		{ "id": "oris_hex_1", "text": "Uh… friendly?", "next": "oris_hex_1" },
+		{ "id": "oris_hex_2", "text": "What’s that supposed to mean?", "next": "oris_hex_2" }
+	  ]
+	},
+
+	"oris_hex_1": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Uh… friendly? Hopefully?" },
+		{ "speaker": "Hex", "text": "Friendliness cannot be confirmed. Threat level: moderately concerning." }
+	  ],
+	  "choices": [
+		{ "id": "oris_hex_ask_1", "text": "Excuse me?!", "next": "oris_hex_ask" },
+		{ "id": "oris_hex_ask_2", "text": "Okay… why are you patrolling?", "next": "oris_hex_ask" }
+	  ]
+	},
+
+	"oris_hex_2": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "What’s that supposed to mean?" },
+		{ "speaker": "Hex", "text": "You look like someone who touches things they’re not supposed to touch." }
+	  ],
+	  "choices": [
+		{ "id": "oris_hex_ask_1", "text": "Alright… continue.", "next": "oris_hex_ask" },
+		{ "id": "oris_hex_ask_2", "text": "What are you even doing out here?", "next": "oris_hex_ask" }
+	  ]
+	},
+
+	"oris_hex_ask": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Okay, but what are you doing out here?" },
+		{ "speaker": "Hex", "text": "I patrol this area. Regulation 47c: 'Maintain visual contact with unusual organic subjects'. You match all criteria." }
+	  ],
+	  "choices": [
+		{ "id": "oris_ask_sam_1", "text": "Seen Sam?", "next": "oris_ask_sam" },
+		{ "id": "oris_ask_sam_2", "text": "Sounds fun.", "next": "oris_ask_sam" }
+	  ]
+	},
+
+	"oris_ask_sam": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Alright… have you seen someone named Sam by any chance?" },
+		{ "speaker": "Hex", "text": "Match found: a human named Sam passed through this area recently. He was running. Very fast." }
+	  ],
+	  "choices": [
+		{ "id": "oris_hex_run_1", "text": "Why was he running?", "next": "oris_hex_run" },
+		{ "id": "oris_hex_run_2", "text": "That sounds like him…", "next": "oris_hex_run" }
+	  ]
+	},
+
+	"oris_hex_run": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Why was he running?" },
+		{ "speaker": "Hex", "text": "Because he stood between me and my charging station. That is forbidden across the entire galaxy." }
+	  ],
+	  "choices": [
+		{ "id": "oris_hex_where_1", "text": "Where did he go?", "next": "oris_hex_where" },
+		{ "id": "oris_hex_where_2", "text": "Yep, that checks out.", "next": "oris_hex_where" }
+	  ]
+	},
+
+	"oris_hex_where": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Can you tell me where he went?" },
+		{ "speaker": "Hex", "text": "Negative. But I can tell you where *you* should go: north. Footprints. Strange energy signatures." }
+	  ],
+	  "choices": [
+		{ "id": "oris_hex_goodbye_1", "text": "Thanks, Hex!", "next": "oris_hex_goodbye" },
+		{ "id": "oris_hex_goodbye_2", "text": "You’re weird.", "next": "oris_hex_goodbye" }
+	  ]
+	},
+
+	"oris_hex_goodbye": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Okay… thanks for the info!" },
+		{ "speaker": "Hex", "text": "Confirmation: You are chaos. I will continue observing you. Beep-bop." }
+	  ],
+	  "next": "end"
+	},
+
+	"end": { "lines": [] }
+  }
+}
