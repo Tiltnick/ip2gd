@@ -1,7 +1,7 @@
 extends State
 class_name Run
 
-@export var run_multiplier: float = 1.5
+@export var run_multiplier: float = 1.8
 
 func Enter(_prev: State) -> void:
 	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://y5kct0mr503d"]
+[gd_scene load_steps=16 format=3 uid="uid://y5kct0mr503d"]
 
 [ext_resource type="Script" uid="uid://bxjsc3ungryxn" path="res://scripts/menu/settings_menu.gd" id="1_dt6qk"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_ijo36"]
@@ -59,7 +59,7 @@ expand_margin_top = 15.0
 expand_margin_right = 320.0
 expand_margin_bottom = 17.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cm8sp"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_safip"]
 draw_center = false
 border_width_left = 5
 border_width_top = 10
@@ -67,7 +67,8 @@ border_width_right = 10
 border_width_bottom = 10
 border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
 corner_radius_top_right = 10
-expand_margin_left = 490.0
+corner_radius_bottom_right = 10
+expand_margin_left = 470.0
 expand_margin_top = 15.0
 expand_margin_right = 10.0
 expand_margin_bottom = 17.0
@@ -79,19 +80,7 @@ border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
 border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
-expand_margin_left = 490.0
-expand_margin_top = 15.0
-expand_margin_right = 10.0
-expand_margin_bottom = 17.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_safip"]
-draw_center = false
-border_width_left = 5
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
-expand_margin_left = 490.0
+expand_margin_left = 470.0
 expand_margin_top = 15.0
 expand_margin_right = 10.0
 expand_margin_bottom = 17.0
@@ -107,19 +96,6 @@ corner_radius_bottom_left = 10
 expand_margin_left = 21.0
 expand_margin_top = 15.0
 expand_margin_right = 320.0
-expand_margin_bottom = 17.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0y5o"]
-draw_center = false
-border_width_left = 5
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
-corner_radius_bottom_right = 10
-expand_margin_left = 490.0
-expand_margin_top = 15.0
-expand_margin_right = 10.0
 expand_margin_bottom = 17.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwi3x"]
@@ -234,7 +210,7 @@ theme_override_constants/margin_top = 47
 [node name="GridContainer" type="GridContainer" parent="TabContainer/Settings/MarginContainer"]
 layout_direction = 2
 layout_mode = 2
-theme_override_constants/h_separation = 805
+theme_override_constants/h_separation = 785
 theme_override_constants/v_separation = 23
 columns = 2
 
@@ -250,7 +226,7 @@ vertical_alignment = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_cm8sp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_safip")
 text = "W"
 
 [node name="MoveDown" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
@@ -335,7 +311,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
-text = "1,2,3,4"
+text = "1, 2, 3, 4"
 
 [node name="Exit" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
 layout_mode = 2
@@ -362,7 +338,7 @@ text = "Dialogue"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_g0y5o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_safip")
 text = "space"
 
 [node name="CloseButton" type="Button" parent="."]

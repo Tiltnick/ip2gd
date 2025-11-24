@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name MainCharacter
 
-@export var speed: float = 100.0
+@export var speed: float = 80.0
 
 # Init Blickrichtung von Character
 var last_direction: String = "down"
