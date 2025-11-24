@@ -1,13 +1,11 @@
 extends Node
-#scenes the button needs to be hidden
+#scenes in which the button needs to be hidden
 var hidden_in_scenes = [
 "res://scenes/Menues/diary_menu.tscn",
 "res://scenes/Menues/main_menu.tscn",
 "res://scenes/Menues/PopUp.tscn",
 "res://scenes/Menues/saving_menu.tscn",
 "res://scenes/hotbar/hotbar.tscn"
-
-	
 ]
 var _last_path = ""
 

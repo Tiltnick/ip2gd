@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://c43osb4yewrwo"]
+
+[ext_resource type="Script" uid="uid://dlex8u5yrmfmy" path="res://scripts/menu/settings_button.gd" id="1_21ea7"]
+[ext_resource type="Texture2D" uid="uid://cgmo1vfleetle" path="res://assets/sprites/ui/settings 1.png" id="2_xf7nn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qiev"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ahpat"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ce35c"]
+bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4dauv"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SettingsButton2" type="Button" parent="Control"]
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1785.0
+offset_top = 32.0
+offset_right = 1848.0
+offset_bottom = 95.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_7qiev")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ahpat")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ce35c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4dauv")
+icon = ExtResource("2_xf7nn")
+icon_alignment = 1
+script = ExtResource("1_21ea7")
+
+[connection signal="pressed" from="Control/SettingsButton2" to="Control/SettingsButton2" method="_on_pressed"]
