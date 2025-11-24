@@ -3,6 +3,8 @@ extends Node
 # Merken in welcher Szene der Spieler zuletzt war
 var current_area_path: String = "res://scenes/maps/spaceship.tscn"
 
+var should_play_intro_dialog: bool = false
+
 # Zustände speichern
 var puzzle_state: Dictionary = {}
 

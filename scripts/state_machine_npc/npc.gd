@@ -22,7 +22,7 @@ func _ready() -> void:
 	detect_area.body_exited.connect(_on_body_exited)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	outline.visible = player_inside
 
 	if player_inside:

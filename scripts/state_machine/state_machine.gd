@@ -3,9 +3,13 @@ class_name StateMachine
 
 # Init state = idle
 @export var initial_state: State
+@export var dialog_manager_path: NodePath       # NEU: optionaler Pfad zum DialogManager
 
 var current_state: State
 var states: Dictionary = {}
+
+var state_before_dialog: State = null           # NEU
+
 
 func _ready() -> void:
 	# Actor ist der Parent (MainCharacter)
@@ -24,9 +28,32 @@ func _ready() -> void:
 		current_state = initial_state
 		current_state.Enter(null)
 
+	# ---------- DialogManager anbinden (NEU) ----------
+	var dm: Node = null
+
+	# Variante 1: DialogManager ist als Autoload registriert (Name: DialogManager)
+	if dialog_manager_path == NodePath():  
+		dm = DialogManager
+	# Variante 2: normaler Node in der Szene, Pfad im Inspector gesetzt
+	elif has_node(dialog_manager_path):
+		dm = get_node(dialog_manager_path)
+
+	if dm != null:
+		if not dm.dialog_started.is_connected(_on_dialog_started):
+			dm.dialog_started.connect(_on_dialog_started)
+		if not dm.dialog_finished.is_connected(_on_dialog_finished):
+			dm.dialog_finished.connect(_on_dialog_finished)
+
+		# NEU: falls beim Start schon ein Dialog läuft
+		if dm.is_running:
+			_on_dialog_started()
+	# --------------------------------------------------
+
+
 # Empfang Signal
 func _on_state_transition(target: String) -> void:
 	change_state(target)
+
 
 # Wechsel states
 func change_state(target: String) -> void:
@@ -42,6 +69,21 @@ func change_state(target: String) -> void:
 
 	current_state = next
 	current_state.Enter(prev)
+
+
+# ---------- Dialog-Handling (NEU) ----------
+func _on_dialog_started() -> void:
+	state_before_dialog = current_state
+	change_state("dialog")          # Node-Name muss "dialog" sein
+
+func _on_dialog_finished() -> void:
+	if state_before_dialog != null:
+		change_state(state_before_dialog.name.to_lower())
+		state_before_dialog = null
+	else:
+		change_state("idle")
+# ------------------------------------------
+
 
 # Eingaben weiterleiten
 func _unhandled_input(event: InputEvent) -> void:
