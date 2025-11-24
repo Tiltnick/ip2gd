@@ -5,3 +5,4 @@ func _on_pressed() -> void:
 	GlobalMenuButton.hide()
 	SettingsButton.hide()
 	GameMenu.show()
+	hotbarglobal.hotbar.hide()

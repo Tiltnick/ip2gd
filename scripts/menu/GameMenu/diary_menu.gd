@@ -14,10 +14,12 @@ func _ready() -> void:
 	pages = build_all_pages()
 	update_pages()
 
+
 func open_entries():
 	pages = build_all_pages()
 	current_page = 0
 	update_pages()
+	
 
 func update_pages():
 	header_left.text = pages[current_page]["header"]
@@ -89,3 +91,5 @@ func _on_close_button_pressed() -> void:
 	GameMenu.hide()
 	GlobalMenuButton.show()
 	SettingsButton.show()
+	hotbarglobal.hotbar.show()
+	

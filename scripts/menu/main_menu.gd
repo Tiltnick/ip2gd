@@ -60,8 +60,12 @@ func start_new_game() -> void:
 
 	get_tree().paused = false
 
+	# NEU: Intro-Dialog aktivieren
+	GameState.should_play_intro_dialog = true
+
 	# Scene über SceneManager laden
 	SceneManager.goto_scene("res://scenes/maps/spaceship.tscn", "start")
+	
 
 
 func exit_game() -> void:

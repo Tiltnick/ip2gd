@@ -1,8 +1,12 @@
 extends Door
 
 @export var code_popup_path: NodePath
+# ID für Gamestate
+@export var puzzle_id: String = "Spaceship_code"      
+
 var code_popup: CanvasLayer   # CanvasLayer, nicht Control!
 var code_solved: bool = false
+
 
 func _ready():
 	
@@ -12,6 +16,12 @@ func _ready():
 		code_popup = get_node(code_popup_path) as CanvasLayer
 	else:
 		push_warning("Kein Code-Popup Pfad gesetzt!")
+
+	# Puzzle ID != null und Gamestate hat die puzzle ID dann code solved = true
+	if puzzle_id != "" and GameState.puzzle_state.has(puzzle_id):
+		if GameState.puzzle_state[puzzle_id] == true:
+			code_solved = true
+
 
 func interact() -> void:
 	# Wenn das Rätsel bereits gelöst ist → normale Türfunktion
@@ -38,8 +48,14 @@ func interact() -> void:
 	if not code_popup.is_connected("code_verified", callback):
 		code_popup.connect("code_verified", callback)
 
+
 func _on_code_verified(result: bool) -> void:
 	if result:
 		code_solved = true
+
+		# NEU: im GameState merken, dass dieses Rätsel gelöst wurde
+		if puzzle_id != "":
+			GameState.puzzle_state[puzzle_id] = true
+
 		code_popup.visible = false
 		open_door()

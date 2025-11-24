@@ -1,0 +1,185 @@
+[gd_scene load_steps=6 format=3 uid="uid://5ro6t5nvfn0w"]
+
+[ext_resource type="Script" uid="uid://c82i8bus3bmy2" path="res://scripts/dialog/dialog_box.gd" id="1_dlq0r"]
+[ext_resource type="Script" uid="uid://bayc27gfeqkkm" path="res://scripts/dialog/dialog_manager.gd" id="1_y2k7g"]
+[ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_lgn1u"]
+[ext_resource type="Texture2D" uid="uid://snao6awj1ldf" path="res://assets/sprites/ui/UITEST3.png" id="3_y2k7g"]
+[ext_resource type="Texture2D" uid="uid://d1mwf81hjjo48" path="res://assets/sprites/ui/Choices.png" id="5_djrsg"]
+
+[node name="DialogManager" type="CanvasLayer"]
+script = ExtResource("1_y2k7g")
+
+[node name="DialogBox" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -545.0
+offset_top = -252.0
+offset_right = 392.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_dlq0r")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="DialogBox"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = -23.0
+offset_right = 1033.0
+offset_bottom = 250.0
+texture = ExtResource("3_y2k7g")
+
+[node name="Portrait" type="TextureRect" parent="DialogBox/NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.16600001
+anchor_top = 0.386
+anchor_right = 0.16600001
+anchor_bottom = 0.386
+offset_left = -116.356
+offset_top = -24.377998
+offset_right = -84.356
+offset_bottom = 7.6220016
+scale = Vector2(2.8, 2.8)
+
+[node name="Dialog" type="RichTextLabel" parent="DialogBox/NinePatchRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33600003
+anchor_top = 0.149
+anchor_right = 0.33600003
+anchor_bottom = 0.149
+offset_left = -151.57602
+offset_top = 14.322998
+offset_right = 625.42395
+offset_bottom = 130.323
+theme_override_fonts/normal_font = ExtResource("2_lgn1u")
+theme_override_fonts/bold_font = ExtResource("2_lgn1u")
+theme_override_fonts/bold_italics_font = ExtResource("2_lgn1u")
+theme_override_fonts/italics_font = ExtResource("2_lgn1u")
+theme_override_fonts/mono_font = ExtResource("2_lgn1u")
+theme_override_font_sizes/normal_font_size = 38
+text = "Here comes the dialog"
+scroll_active = false
+
+[node name="Name" type="Label" parent="DialogBox/NinePatchRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.60800004
+anchor_right = 0.1
+anchor_bottom = 0.60800004
+offset_left = -49.6
+offset_top = 32.01599
+offset_right = 99.73817
+offset_bottom = 147.01599
+scale = Vector2(0.5758743, 0.57946235)
+theme_override_fonts/font = ExtResource("2_lgn1u")
+theme_override_font_sizes/font_size = 52
+text = "Oris
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Choice1" type="TextureRect" parent="DialogBox/NinePatchRect"]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 182.0
+offset_right = 355.0
+offset_bottom = 214.0
+scale = Vector2(2, 2)
+mouse_filter = 0
+texture = ExtResource("5_djrsg")
+stretch_mode = 6
+
+[node name="Text_Choice1" type="RichTextLabel" parent="DialogBox/NinePatchRect/Choice1"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33600003
+anchor_top = 0.149
+anchor_right = 0.33600003
+anchor_bottom = 0.149
+offset_left = -56.324005
+offset_top = -1.2680001
+offset_right = 159.30096
+offset_bottom = 30.607
+scale = Vector2(0.8, 0.8)
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_lgn1u")
+theme_override_fonts/bold_font = ExtResource("2_lgn1u")
+theme_override_fonts/bold_italics_font = ExtResource("2_lgn1u")
+theme_override_fonts/italics_font = ExtResource("2_lgn1u")
+theme_override_fonts/mono_font = ExtResource("2_lgn1u")
+theme_override_font_sizes/normal_font_size = 19
+text = "Here comes the dialog"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Choice2" type="TextureRect" parent="DialogBox/NinePatchRect"]
+layout_mode = 0
+offset_left = 569.0
+offset_top = 183.0
+offset_right = 753.0
+offset_bottom = 215.0
+scale = Vector2(2, 2)
+mouse_filter = 0
+texture = ExtResource("5_djrsg")
+stretch_mode = 6
+
+[node name="Text_Choice2" type="RichTextLabel" parent="DialogBox/NinePatchRect/Choice2"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33600003
+anchor_top = 0.149
+anchor_right = 0.33600003
+anchor_bottom = 0.149
+offset_left = -55.824005
+offset_top = -1.7680001
+offset_right = 157.301
+offset_bottom = 30.732
+scale = Vector2(0.8, 0.8)
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_lgn1u")
+theme_override_fonts/bold_font = ExtResource("2_lgn1u")
+theme_override_fonts/bold_italics_font = ExtResource("2_lgn1u")
+theme_override_fonts/italics_font = ExtResource("2_lgn1u")
+theme_override_fonts/mono_font = ExtResource("2_lgn1u")
+theme_override_font_sizes/normal_font_size = 19
+text = "Here comes the dialog"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space_to_Continue" type="RichTextLabel" parent="DialogBox/NinePatchRect"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33600003
+anchor_top = 0.149
+anchor_right = 0.33600003
+anchor_bottom = 0.149
+offset_left = 415.42398
+offset_top = -30.677002
+offset_right = 612.92395
+offset_bottom = 14.322998
+scale = Vector2(1.1, 1.1)
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_lgn1u")
+theme_override_fonts/bold_font = ExtResource("2_lgn1u")
+theme_override_fonts/bold_italics_font = ExtResource("2_lgn1u")
+theme_override_fonts/italics_font = ExtResource("2_lgn1u")
+theme_override_fonts/mono_font = ExtResource("2_lgn1u")
+theme_override_font_sizes/normal_font_size = 19
+text = "Press Space to continue"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -4,10 +4,14 @@ func resume():
 	get_tree().paused = false
 	hide()
 	DialogManager.show()
+	hotbarglobal.hotbar.show()
+		
 func pause():
 	get_tree().paused = true
 	show()
 	DialogManager.hide()
+	hotbarglobal.hotbar.hide()
+	
 
 
 func esc():

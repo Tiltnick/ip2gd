@@ -2,11 +2,14 @@ extends CanvasLayer
 
 signal choice_made(choice_id: String)
 signal dialog_finished
+signal dialog_started
 
 @onready var box: DialogBox = $DialogBox
 
 # Initialize my DialogParser
 var runtime: DialogParser = DialogParser.new()
+
+var is_running: bool = false # NEU
 
 
 func _ready() -> void:
@@ -14,12 +17,14 @@ func _ready() -> void:
 
 
 func start_dialog(json_path: String) -> void:
+	is_running = true  # NEU
 	show()
 	# Load the JSON. 
 	# If Loading fails -> PANIC
 	#signal 
 	dialog_is_started()
 	if not runtime.load_json(json_path):
+		is_running = false  # NEU
 		return
 
 	# Main loop: show one line, wait for player input -> repeat
@@ -63,6 +68,8 @@ func start_dialog(json_path: String) -> void:
 func dialog_is_finished():
 	box.hide()
 	emit_signal("dialog_finished")
+	is_running = false # NEU
 	hide()
+	
 func dialog_is_started():
 	emit_signal("dialog_started")

@@ -22,7 +22,7 @@ func _on_yes_button_pressed() -> void:
 	if yes_callback.is_valid():
 		yes_callback.call()
 		close()
-		DialogManager.start_dialog("res://dialog/spaceship/wakeup.json")
+		
 
 
 func _on_no_button_pressed() -> void:

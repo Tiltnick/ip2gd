@@ -32,7 +32,7 @@ func _on_text_changed(new_text: String, input: LineEdit):
 
 func _on_button_pressed():
 	if code_solved:
-		hide()
+		
 		return
 
 	var entered := []
@@ -40,12 +40,15 @@ func _on_button_pressed():
 		entered.append(input.text)
 
 	if entered == code:
-		title_label.text = "Access Granted"
-		title_label.modulate = Color.GREEN
+		title_label.text = "Code Verified"
+		title_label.modulate = Color.CHARTREUSE
+	
+		await get_tree().create_timer(1.5).timeout
 		code_solved = true
+		
+		
 		emit_signal("code_verified", true)
-		#await get_tree().create_timer(0.3).timeout
-		hide()
+		#hide()
 	else:
 		title_label.text = "Error"
 		title_label.modulate = Color.BLACK
@@ -53,7 +56,9 @@ func _on_button_pressed():
 
 func _on_exit_pressed() -> void:
 	hide()
+	
 
 
 func _on_round_buttton_pressed() -> void:
 	hide()
+	

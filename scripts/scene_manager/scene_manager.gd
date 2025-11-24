@@ -96,13 +96,16 @@ func _spawn_player_in_scene(new_scene: Node) -> void:
 	var scene_camera := new_scene.get_node_or_null("SceneCamera")
 	if scene_camera and scene_camera is Camera2D:
 		scene_camera.make_current()
-		return 
+	else:
+		var cam := player.get_node_or_null("Camera2D")
+		if cam:
+			cam.make_current()
+			if new_scene.has_method("configure_camera"):
+				new_scene.call("configure_camera", cam)
 
-	# Wenn keine SceneCamera existiert dann Camer2D vom Spieler nehmen
-	var cam := player.get_node_or_null("Camera2D")
-	if cam:
-		cam.make_current()
-
-		# Limits setzen in scenen.gd
-		if new_scene.has_method("configure_camera"):
-			new_scene.call("configure_camera", cam)
+	# -----------------------------------------------
+	# NEU: Start-Dialog nach Player-Spawn
+	# -----------------------------------------------
+	if GameState.should_play_intro_dialog:
+		GameState.should_play_intro_dialog = false
+		DialogManager.start_dialog("res://dialog/spaceship/wakeup.json")
