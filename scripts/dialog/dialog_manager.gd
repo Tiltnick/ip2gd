@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 signal choice_made(choice_id: String)
+signal dialog_finished
 
 @onready var box: DialogBox = $DialogBox
 
@@ -53,5 +54,10 @@ func start_dialog(json_path: String) -> void:
 			continue
 
 		runtime.next()
+	dialog_is_finished()
+	
 
+func dialog_is_finished():
 	box.hide()
+	emit_signal("dialog_finished")
+	hide()
