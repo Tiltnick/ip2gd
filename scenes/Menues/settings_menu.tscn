@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://y5kct0mr503d"]
+[gd_scene load_steps=18 format=3 uid="uid://y5kct0mr503d"]
 
+[ext_resource type="Script" uid="uid://bxjsc3ungryxn" path="res://scripts/menu/settings_menu.gd" id="1_dt6qk"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_ijo36"]
 [ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="2_dt6qk"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0y5o"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0ysv"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
 border_width_left = 10
 border_width_top = 10
@@ -15,7 +16,7 @@ corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0ysv"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8q5ut"]
 content_margin_left = 30.0
 content_margin_top = 13.0
 content_margin_right = 30.0
@@ -28,39 +29,100 @@ border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ijo36"]
-bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
-border_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
-corner_radius_top_left = 10
-corner_radius_bottom_left = 10
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhma1"]
+bg_color = Color(0.105882354, 0.25882354, 0.25882354, 1)
+border_width_left = 9
+border_width_top = 9
+border_width_right = 10
+border_width_bottom = 9
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+corner_radius_top_left = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8q5ut"]
-bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
-border_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmovl"]
+content_margin_left = 50.0
+content_margin_bottom = 33.0
+draw_center = false
+border_width_bottom = 10
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghnlw"]
+draw_center = false
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+corner_radius_top_left = 10
+expand_margin_left = 21.0
+expand_margin_top = 15.0
+expand_margin_right = 320.0
+expand_margin_bottom = 17.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cm8sp"]
+draw_center = false
+border_width_left = 5
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
 corner_radius_top_right = 10
-corner_radius_bottom_right = 10
+expand_margin_left = 490.0
+expand_margin_top = 15.0
+expand_margin_right = 10.0
+expand_margin_bottom = 17.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b85bu"]
-bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 62
+draw_center = false
+border_width_left = 5
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+expand_margin_left = 490.0
+expand_margin_top = 15.0
+expand_margin_right = 10.0
+expand_margin_bottom = 17.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_safip"]
+draw_center = false
+border_width_left = 5
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+expand_margin_left = 490.0
+expand_margin_top = 15.0
+expand_margin_right = 10.0
+expand_margin_bottom = 17.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3pu0"]
+draw_center = false
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+corner_radius_bottom_left = 10
+expand_margin_left = 21.0
+expand_margin_top = 15.0
+expand_margin_right = 320.0
+expand_margin_bottom = 17.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0y5o"]
+draw_center = false
+border_width_left = 5
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+corner_radius_bottom_right = 10
+expand_margin_left = 490.0
+expand_margin_top = 15.0
+expand_margin_right = 10.0
+expand_margin_bottom = 17.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwi3x"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
 border_width_left = 4
 border_width_top = 4
@@ -72,7 +134,19 @@ corner_radius_top_right = 60
 corner_radius_bottom_right = 60
 corner_radius_bottom_left = 62
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3pu0"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3intc"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u6bsc"]
 bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
 border_width_left = 4
 border_width_top = 4
@@ -84,28 +158,21 @@ corner_radius_top_right = 60
 corner_radius_bottom_right = 60
 corner_radius_bottom_left = 62
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jwi3x"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6icie"]
 
-[node name="DiaryMenu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CanvasLayer" type="CanvasLayer"]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.14509805, 0.14509805, 0.14509805, 0.88235295)
 
 [node name="TabContainer" type="TabContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 100.0
@@ -119,59 +186,202 @@ theme_override_colors/font_hovered_color = Color(0.84313726, 0.8156863, 0.670588
 theme_override_colors/font_unselected_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
 theme_override_constants/side_margin = 8
 theme_override_fonts/font = ExtResource("1_ijo36")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/panel = SubResource("StyleBoxFlat_g0y5o")
-theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_k0ysv")
-theme_override_styles/tab_selected = SubResource("StyleBoxFlat_k0ysv")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/panel = SubResource("StyleBoxFlat_k0ysv")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_8q5ut")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_8q5ut")
 tab_alignment = 1
 current_tab = 0
 
-[node name="Diary" type="TabBar" parent="TabContainer"]
+[node name="Settings" type="TabBar" parent="TabContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 21
+script = ExtResource("1_dt6qk")
 metadata/_tab_index = 0
 
-[node name="Panel" type="Panel" parent="TabContainer/Diary"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 40.0
-offset_top = -187.5
-offset_right = 470.0
-offset_bottom = 187.5
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ijo36")
+[node name="Panel" type="Panel" parent="TabContainer/Settings"]
+layout_mode = 0
+offset_left = -9.0
+offset_top = -9.0
+offset_right = 410.0
+offset_bottom = 867.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qhma1")
 
-[node name="Panel2" type="Panel" parent="TabContainer/Diary"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -470.0
-offset_top = -187.5
-offset_right = -40.0
-offset_bottom = 187.5
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_8q5ut")
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/Panel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 41.0
+offset_right = 411.0
+offset_bottom = 192.0
 
-[node name="ExitButton" type="Button" parent="."]
-layout_mode = 1
+[node name="Button" type="Button" parent="TabContainer/Settings/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 53
+theme_override_styles/normal = SubResource("StyleBoxFlat_pmovl")
+text = "Controls"
+alignment = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Settings"]
+layout_mode = 0
+offset_left = 410.0
+offset_right = 1698.0
+offset_bottom = 856.0
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 47
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Settings/MarginContainer"]
+layout_direction = 2
+layout_mode = 2
+theme_override_constants/h_separation = 805
+theme_override_constants/v_separation = 23
+columns = 2
+
+[node name="MoveUp" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
+text = "Move up"
+vertical_alignment = 1
+
+[node name="W" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_cm8sp")
+text = "W"
+
+[node name="MoveDown" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
+text = "Move down"
+
+[node name="S" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
+text = "S"
+
+[node name="MoveLeft" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
+text = "Move left"
+
+[node name="A" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
+text = "A"
+
+[node name="MoveRight" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
+text = "Move right"
+
+[node name="D" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
+text = "D"
+
+[node name="MoveDown2" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
+text = "Run"
+
+[node name="space2" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_safip")
+text = "shift"
+
+[node name="Interact" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
+text = "Interact/ Pick up"
+
+[node name="E" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
+text = "E"
+
+[node name="Hotbar" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
+text = "Hotbar slots"
+
+[node name="number" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
+text = "1,2,3,4"
+
+[node name="Exit" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
+text = "Exit game"
+
+[node name="esc" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
+text = "esc"
+
+[node name="Dialogue" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_j3pu0")
+text = "Dialogue"
+
+[node name="space" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_g0y5o")
+text = "space"
+
+[node name="CloseButton" type="Button" parent="."]
+process_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -80.0
-offset_top = 24.0
-offset_right = -24.0
-offset_bottom = 77.0
+offset_top = 30.0
+offset_right = -17.0
+offset_bottom = 93.0
 grow_horizontal = 0
 mouse_default_cursor_shape = 2
 theme_override_constants/icon_max_width = 34
-theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_safip")
-theme_override_styles/hover = SubResource("StyleBoxFlat_j3pu0")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_jwi3x")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jwi3x")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3intc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u6bsc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6icie")
 icon = ExtResource("2_dt6qk")
 icon_alignment = 1
+
+[connection signal="pressed" from="CloseButton" to="TabContainer/Settings" method="_on_close_button_pressed"]
