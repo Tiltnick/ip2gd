@@ -12,7 +12,7 @@
 	  ],
 	  "choices": [
 		{ "id": "oris_hex_1", "text": "Uh… friendly?", "next": "oris_hex_1" },
-		{ "id": "oris_hex_2", "text": "What’s that supposed to mean?", "next": "oris_hex_2" }
+		{ "id": "oris_hex_2", "text": "What?", "next": "oris_hex_2" }
 	  ]
 	},
 
@@ -23,13 +23,13 @@
 	  ],
 	  "choices": [
 		{ "id": "oris_hex_ask_1", "text": "Excuse me?!", "next": "oris_hex_ask" },
-		{ "id": "oris_hex_ask_2", "text": "Okay… why are you patrolling?", "next": "oris_hex_ask" }
+		{ "id": "oris_hex_ask_2", "text": "Why are you patrolling?", "next": "oris_hex_ask" }
 	  ]
 	},
 
 	"oris_hex_2": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "What’s that supposed to mean?" },
+		{ "speaker": "Oris", "text": "What is that supposed to mean?" },
 		{ "speaker": "Hex", "text": "You look like someone who touches things they’re not supposed to touch." }
 	  ],
 	  "choices": [

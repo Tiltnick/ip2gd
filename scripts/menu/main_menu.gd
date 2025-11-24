@@ -15,6 +15,7 @@ func _on_new_g_button_pressed() -> void:
 		"New Game?",
 		func(): start_new_game()
 	)
+	
 
 
 func _on_resume_button_pressed() -> void:
