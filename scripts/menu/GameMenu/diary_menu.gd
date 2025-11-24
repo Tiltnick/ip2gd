@@ -88,3 +88,4 @@ func _on_close_button_pressed() -> void:
 	get_tree().paused = false
 	GameMenu.hide()
 	GlobalMenuButton.show()
+	SettingsButton.show()

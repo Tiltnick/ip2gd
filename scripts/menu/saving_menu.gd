@@ -9,6 +9,7 @@ func pause():
 	show()
 	DialogManager.hide()
 
+
 func esc():
 	if Input.is_action_just_pressed("esc") and get_tree().paused == false:
 		pause()

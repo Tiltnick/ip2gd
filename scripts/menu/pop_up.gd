@@ -10,10 +10,12 @@ var no_callback: Callable = Callable()
 func open(text: String, yes_func: Callable):
 	header.text = text
 	yes_callback = yes_func
+	SettingsButton.hide()
 	show()
 
 func close() -> void:
 	hide()
+	SettingsButton.show()
 
 
 func _on_yes_button_pressed() -> void:
@@ -24,3 +26,4 @@ func _on_yes_button_pressed() -> void:
 
 func _on_no_button_pressed() -> void:
 	close()
+	SettingsButton.show()

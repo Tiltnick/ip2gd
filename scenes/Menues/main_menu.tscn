@@ -1,11 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://cc86xpvrn37so"]
+[gd_scene load_steps=20 format=3 uid="uid://cc86xpvrn37so"]
 
 [ext_resource type="Script" uid="uid://c66icxn0ex1r2" path="res://scripts/menu/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://b58phef2u4osr" path="res://assets/sprites/ui/Logo.png" id="3_oa1go"]
 [ext_resource type="FontFile" uid="uid://bcydf3meoraya" path="res://assets/fonts/ModernDOS9x14.ttf" id="4_wu84c"]
 [ext_resource type="Texture2D" uid="uid://dprepxc2r0jqd" path="res://assets/sprites/ui/instagram (2) 1.png" id="5_oa1go"]
-[ext_resource type="Texture2D" uid="uid://cgmo1vfleetle" path="res://assets/sprites/ui/settings 1.png" id="6_tbmy8"]
 [ext_resource type="Texture2D" uid="uid://d12eclmam7q5d" path="res://assets/sprites/ui/discord 1.png" id="7_jk1qb"]
 [ext_resource type="PackedScene" uid="uid://cpockpmuyp365" path="res://scenes/Menues/PopUp.tscn" id="8_tbmy8"]
 
@@ -96,32 +95,6 @@ corner_radius_bottom_right = 60
 corner_radius_bottom_left = 62
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oa1go"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgwnu"]
-bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 62
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jk1qb"]
-bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 62
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5dd4i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rcqid"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -312,26 +285,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_oa1go")
 icon = ExtResource("5_oa1go")
 icon_alignment = 1
 
-[node name="SettingsButton" type="Button" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -80.0
-offset_top = 24.0
-offset_right = -24.0
-offset_bottom = 77.0
-grow_horizontal = 0
-mouse_default_cursor_shape = 2
-theme_override_constants/icon_max_width = 34
-theme_override_styles/normal = SubResource("StyleBoxFlat_5dd4i")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lgwnu")
-theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_5dd4i")
-icon = ExtResource("6_tbmy8")
-icon_alignment = 1
-
 [node name="DiscordButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 2
@@ -359,5 +312,4 @@ layout_mode = 1
 [connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="InstaButton" to="." method="_on_insta_button_pressed"]
-[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="DiscordButton" to="." method="_on_discord_button_pressed"]
