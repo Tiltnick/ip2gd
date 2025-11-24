@@ -1,10 +1,7 @@
 extends Control
 class_name DialogBox
 
-# emitted when the player presses space (Continue)
 signal continue_pressed
-
-# emitted when the player clicks on a choice button (index is 0-based)
 signal choice_selected(index: int)
 
 @onready var name_label: Label          = $NinePatchRect/Name
@@ -16,13 +13,12 @@ signal choice_selected(index: int)
 @onready var choice1_text: RichTextLabel        = $NinePatchRect/Choice1/Text_Choice1
 @onready var choice2_text: RichTextLabel        = $NinePatchRect/Choice2/Text_Choice2
 
-# typewriter speed in seconds per character 
 @export var typing_speed: float = 0.02
 @export var max_chars_per_page: int = 200
 
-var typing: bool = false     # true while characters are being typed
-var skip: bool = false       # set to true to instantly reveal the rest
-var full_text: String = ""   # the full line we want to display
+var typing: bool = false
+var skip: bool = false
+var full_text: String = ""
 var _pages: Array[String] = []
 var _page_index: int = 0
 
@@ -43,8 +39,7 @@ func _ready() -> void:
 	choice2.mouse_entered.connect(_on_choice2_mouse_entered)
 	choice2.mouse_exited.connect(_on_choice2_mouse_exited)
 
-func show_line(speaker: String, text: String) -> void:
-	# update the speaker label (hide it if empty)
+func show_line(speaker: String, text: String, portrait_path: String = "") -> void:
 	if speaker.strip_edges() == "":
 		name_label.text = ""
 		name_label.hide()
@@ -52,26 +47,24 @@ func show_line(speaker: String, text: String) -> void:
 		name_label.text = speaker
 		name_label.show()
 
-	# set the full text but hide all characters for now
+	if portrait_path != "":
+		portrait.texture = load(portrait_path)
+	else:
+		portrait.texture = null
+
 	full_text = text
 	_pages = _split_into_pages(full_text)
 	_page_index = 0
 
-	# reset typing state and make the box visible
 	typing = true
 	skip = false
 	show()
 
-	# hide any stale choices from previous steps
 	hide_choices()
 
-	# start typewriter
 	_apply_current_page()
 
 func _unhandled_input(event: InputEvent) -> void:
-	# One button does two things depending on state:
-	# while typing: skip animation and reveal the rest
-	# after typing: tell the manager we're ready to advance
 	if event.is_action_pressed("ui_accept"):
 		if typing:
 			skip = true
@@ -85,10 +78,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				emit_signal("continue_pressed")
 
 func typewriter() -> void:
-	# Wait one frame so the label has laid out the text;
-	# otherwise get_total_character_count() can be wrong.
 	await get_tree().process_frame
-
 	var total: int = dialog_text.get_total_character_count()
 
 	while typing:
@@ -107,7 +97,6 @@ func typewriter() -> void:
 	typing = false
 	skip = false
 
-# Show a list of choices (array of strings). 
 func show_choices(choice_texts: Array) -> void:
 	hide_choices()
 

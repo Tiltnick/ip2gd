@@ -1,5 +1,10 @@
 {
   "id": "mr_blob_intro",
+  "characters": {
+	"Mr. Blob": "res://assets/sprites/portrait/mr_blob.png",
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
   "steps": {
 	"sections": {
 	  "lines": [
@@ -269,6 +274,8 @@
 	  "next": "end"
 	},
 
-	"end": { "lines": [] }
+	"end": {
+	  "lines": []
+	}
   }
 }
