@@ -221,6 +221,10 @@ offset_bottom = 539.0
 grow_horizontal = 2
 texture = ExtResource("3_oa1go")
 
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Logo"]
+position = Vector2(600.5, -41)
+max_distance = 2897.0
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
