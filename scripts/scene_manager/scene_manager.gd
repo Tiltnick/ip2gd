@@ -103,9 +103,7 @@ func _spawn_player_in_scene(new_scene: Node) -> void:
 			if new_scene.has_method("configure_camera"):
 				new_scene.call("configure_camera", cam)
 
-	# -----------------------------------------------
-	# NEU: Start-Dialog nach Player-Spawn
-	# -----------------------------------------------
+	
 	if GameState.should_play_intro_dialog:
 		GameState.should_play_intro_dialog = false
 		DialogManager.start_dialog("res://dialog/spaceship/wakeup.json")
