@@ -41,7 +41,7 @@ func _on_insta_button_pressed() -> void:
 
 
 func _on_discord_button_pressed() -> void:
-	OS.shell_open("https://discord.gg/NUBAuVsp")
+	OS.shell_open("https://discord.gg/jRj5tqUYKx")
 
 
 # Startet ein neues Spiel
