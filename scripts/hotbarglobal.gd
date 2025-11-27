@@ -3,6 +3,7 @@ class_name Hotbarglobal
 
 var items = [null, null, null, null]  
 var hotbar: Control
+var inventory: Control
 
 func add_item(item_id: String) -> void:
 	for i in range(items.size()):
@@ -10,6 +11,9 @@ func add_item(item_id: String) -> void:
 			items[i] = item_id
 			if hotbar:
 				hotbar.update_slots()
+				
+			if inventory:
+				inventory.update_slots()
 			print("Item added to slot ", i)
 			return
 	print("Keine freien Hotbar-Slots!")

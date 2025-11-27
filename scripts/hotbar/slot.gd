@@ -2,14 +2,22 @@ extends Control
 class_name HotbarSlot
 
 @onready var icon := $Icon
+@export var show_shadow: bool = true
 
 # Maximalgröße des Icons im Slot
 const SLOT_ICON_SIZE = Vector2(64, 64)
 
+func _ready():
+	if not show_shadow:
+		_disable_shadow()
+
 func set_item_icon(item_id: String):
 	if not icon:
 		return
-	
+
+	if not show_shadow:
+		_disable_shadow()
+
 	var path = ""
 	var icon_size = SLOT_ICON_SIZE  
 
@@ -31,3 +39,12 @@ func set_item_icon(item_id: String):
 func clear_icon():
 	if icon:
 		icon.texture = null
+
+
+func _disable_shadow():
+	var stylebox: StyleBox = $Background.get("theme_override_styles/panel")
+	if stylebox is StyleBoxFlat:
+		var new_style: StyleBoxFlat = stylebox.duplicate()
+		new_style.shadow_size = 0
+		new_style.shadow_color = Color(0,0,0,0)
+		$Background.set("theme_override_styles/panel", new_style)
