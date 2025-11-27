@@ -18,59 +18,59 @@ corner_radius_bottom_left = 8
 corner_detail = 20
 anti_aliasing = false
 
+[sub_resource type="Animation" id="Animation_uhgwa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Panel:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-100.0]
+}
+
 [sub_resource type="Animation" id="Animation_v51nl"]
 resource_name = "slide_in"
 length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:y")
+tracks/0/path = NodePath("CanvasLayer/Panel:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-200.0, -60.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-
-[sub_resource type="Animation" id="Animation_uhgwa"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:y")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0.0]
-}
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:modulate")
+tracks/1/path = NodePath("CanvasLayer/Panel:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [-100.0, 35.0]
 }
 
 [sub_resource type="Animation" id="Animation_4fdes"]
@@ -79,26 +79,26 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:y")
+tracks/0/path = NodePath("CanvasLayer/Panel:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [-60.0, -200.0]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:modulate")
+tracks/1/path = NodePath("CanvasLayer/Panel:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [35.0, -100.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4fdes"]
@@ -114,21 +114,33 @@ layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
+offset_left = -1920.0
+offset_right = -1920.0
 grow_horizontal = 0
 script = ExtResource("1_v51nl")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_right = 118.73685
-offset_bottom = 32.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -486.34204
+offset_top = -100.0
+offset_right = -367.60522
+offset_bottom = -68.000046
+grow_horizontal = 0
+scale = Vector2(2.555, 2.555)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_dn4hv")
 
-[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel"]
 position = Vector2(16.500015, 16.10003)
 scale = Vector2(0.087136924, 0.087136924)
 texture = ExtResource("1_p3422")
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Label" type="Label" parent="CanvasLayer/Panel"]
 layout_mode = 0
 offset_left = 35.0
 offset_top = 6.0
@@ -136,9 +148,9 @@ offset_right = 800.0
 offset_bottom = 247.0
 scale = Vector2(0.085, 0.085)
 theme_override_colors/font_color = Color(0.105882354, 0.25882354, 0.25882354, 1)
-theme_override_constants/line_spacing = -19
+theme_override_constants/line_spacing = -32
 theme_override_fonts/font = ExtResource("2_dn4hv")
-theme_override_font_sizes/font_size = 120
+theme_override_font_sizes/font_size = 128
 text = "Use Spacegram to
 solve this riddle!"
 
