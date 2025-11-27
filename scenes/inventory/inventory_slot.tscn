@@ -41,21 +41,16 @@ corner_radius_bottom_left = 10
 
 [node name="InventorySlot" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchor_right = 0.033
+anchor_bottom = 0.059000004
+offset_right = -63.36
+offset_bottom = -63.720005
 script = ExtResource("1_u6pog")
 
 [node name="Icon" type="TextureRect" parent="."]
-z_index = 6
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 3
-stretch_mode = 5
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
 
 [node name="Background" type="Panel" parent="."]
 layout_mode = 0
@@ -85,7 +80,7 @@ text = "1"
 horizontal_alignment = 1
 
 [node name="Border" type="Panel" parent="."]
-z_index = 20
+z_index = 27
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
