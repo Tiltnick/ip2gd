@@ -169,13 +169,13 @@ theme_override_styles/tab_selected = SubResource("StyleBoxFlat_8q5ut")
 tab_alignment = 1
 current_tab = 0
 
-[node name="Settings" type="TabBar" parent="TabContainer"]
+[node name="SETTINGS" type="TabBar" parent="TabContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 script = ExtResource("1_dt6qk")
 metadata/_tab_index = 0
 
-[node name="Panel" type="Panel" parent="TabContainer/Settings"]
+[node name="Panel" type="Panel" parent="TabContainer/SETTINGS"]
 layout_mode = 0
 offset_left = -9.0
 offset_top = -9.0
@@ -183,14 +183,14 @@ offset_right = 410.0
 offset_bottom = 867.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qhma1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/SETTINGS/Panel"]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 41.0
 offset_right = 411.0
 offset_bottom = 192.0
 
-[node name="Button" type="Button" parent="TabContainer/Settings/Panel/VBoxContainer"]
+[node name="Button" type="Button" parent="TabContainer/SETTINGS/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
@@ -199,7 +199,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_pmovl")
 text = "Controls"
 alignment = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Settings"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/SETTINGS"]
 layout_mode = 0
 offset_left = 410.0
 offset_right = 1698.0
@@ -207,14 +207,14 @@ offset_bottom = 856.0
 theme_override_constants/margin_left = 70
 theme_override_constants/margin_top = 47
 
-[node name="GridContainer" type="GridContainer" parent="TabContainer/Settings/MarginContainer"]
+[node name="GridContainer" type="GridContainer" parent="TabContainer/SETTINGS/MarginContainer"]
 layout_direction = 2
 layout_mode = 2
 theme_override_constants/h_separation = 785
 theme_override_constants/v_separation = 23
 columns = 2
 
-[node name="MoveUp" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+[node name="MoveUp" type="Label" parent="TabContainer/SETTINGS/MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
@@ -222,119 +222,119 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
 text = "Move up"
 vertical_alignment = 1
 
-[node name="W" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+[node name="W" type="Label" parent="TabContainer/SETTINGS/MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_safip")
 text = "W"
 
-[node name="MoveDown" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+[node name="MoveDown" type="Label" parent="TabContainer/SETTINGS/MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
 text = "Move down"
 
-[node name="S" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+[node name="S" type="Label" parent="TabContainer/SETTINGS/MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
 text = "S"
 
-[node name="MoveLeft" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+[node name="MoveLeft" type="Label" parent="TabContainer/SETTINGS/MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
 text = "Move left"
 
-[node name="A" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+[node name="A" type="Label" parent="TabContainer/SETTINGS/MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
 text = "A"
 
-[node name="MoveRight" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+[node name="MoveRight" type="Label" parent="TabContainer/SETTINGS/MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
 text = "Move right"
 
-[node name="D" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+[node name="D" type="Label" parent="TabContainer/SETTINGS/MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
 text = "D"
 
-[node name="MoveDown2" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+[node name="MoveDown2" type="Label" parent="TabContainer/SETTINGS/MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
 text = "Run"
 
-[node name="space2" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+[node name="space2" type="Label" parent="TabContainer/SETTINGS/MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_safip")
 text = "shift"
 
-[node name="Interact" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+[node name="Interact" type="Label" parent="TabContainer/SETTINGS/MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
 text = "Interact/ Pick up"
 
-[node name="E" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+[node name="E" type="Label" parent="TabContainer/SETTINGS/MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
 text = "E"
 
-[node name="Hotbar" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+[node name="Hotbar" type="Label" parent="TabContainer/SETTINGS/MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
 text = "Hotbar slots"
 
-[node name="number" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+[node name="number" type="Label" parent="TabContainer/SETTINGS/MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
 text = "1, 2, 3, 4"
 
-[node name="Exit" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+[node name="Exit" type="Label" parent="TabContainer/SETTINGS/MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
 text = "Exit game"
 
-[node name="esc" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+[node name="esc" type="Label" parent="TabContainer/SETTINGS/MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
 text = "esc"
 
-[node name="Dialogue" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+[node name="Dialogue" type="Label" parent="TabContainer/SETTINGS/MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_j3pu0")
 text = "Dialogue"
 
-[node name="space" type="Label" parent="TabContainer/Settings/MarginContainer/GridContainer"]
+[node name="space" type="Label" parent="TabContainer/SETTINGS/MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
@@ -360,4 +360,4 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_6icie")
 icon = ExtResource("2_dt6qk")
 icon_alignment = 1
 
-[connection signal="pressed" from="CloseButton" to="TabContainer/Settings" method="_on_close_button_pressed"]
+[connection signal="pressed" from="CloseButton" to="TabContainer/SETTINGS" method="_on_close_button_pressed"]
