@@ -1,4 +1,6 @@
 extends Control
+@onready var sound: Button = $Panel/VBoxContainer/Sound
+@onready var margin_container: MarginContainer = $MarginContainer
 
 
 func _on_close_button_pressed() -> void:
@@ -8,3 +10,7 @@ func _on_close_button_pressed() -> void:
 	Visibility_Button.update_visibility(path)
 	SettingsButton.show()
 	SettingsMenu.hide()
+
+
+func _on_sound_pressed() -> void:
+	pass
