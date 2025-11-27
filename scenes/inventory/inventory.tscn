@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://cywjiu2rfvmir"]
+[gd_scene load_steps=14 format=3 uid="uid://cywjiu2rfvmir"]
 
+[ext_resource type="Script" uid="uid://oc34d75xxifh" path="res://scripts/inventory/inventory.gd" id="1_msrby"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_tvok8"]
 [ext_resource type="Script" uid="uid://bxjsc3ungryxn" path="res://scripts/menu/settings_menu.gd" id="3_bxceu"]
 [ext_resource type="PackedScene" uid="uid://iuoj0p7tw4oi" path="res://scenes/inventory/inventory_slot.tscn" id="3_tvok8"]
@@ -82,6 +83,7 @@ corner_radius_bottom_left = 62
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_folsp"]
 
 [node name="Inventory" type="CanvasLayer"]
+script = ExtResource("1_msrby")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
