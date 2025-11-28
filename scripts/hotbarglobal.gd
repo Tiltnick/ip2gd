@@ -16,25 +16,7 @@ var hotbar: Control
 var inventory: Control
 
 
-#func add_item(item_id: String) -> void:
-	## 1) Versuche zuerst Hotbar zu füllen
-	#for i in range(hotbar_items.size()):
-		#if hotbar_items[i] == null:
-			#hotbar_items[i] = item_id
-			#update_ui()
-			#print("Hotbar item added to slot ", i)
-			#return
-#
-	## 2) Hotbar voll → Inventory benutzen
-	#for i in range(inventory_items.size()):
-		#if inventory_items[i] == null:
-			#inventory_items[i] = item_id
-			#update_ui()
-			#print("Inventory item added to slot ", i)
-			#return
-#
-	#print("Kein Platz im Hotbar und Inventory!")
-	
+# gleichzeitig
 func add_item(item_id: String) -> void:
 	# Hotbar füllen
 	for i in range(hotbar_items.size()):
