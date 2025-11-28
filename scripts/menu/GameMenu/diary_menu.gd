@@ -86,10 +86,10 @@ func _on_next_button_pressed() -> void:
 		update_pages()
 
 
-func _on_close_button_pressed() -> void:
-	get_tree().paused = false
-	GameMenu.hide()
-	GlobalMenuButton.show()
-	SettingsButton.show()
-	hotbarglobal.hotbar.show()
+#func _on_close_button_pressed() -> void:
+	#get_tree().paused = false
+	#GameMenu.hide()
+	#GlobalMenuButton.show()
+	#SettingsButton.show()
+	#hotbarglobal.hotbar.show()
 	

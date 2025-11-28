@@ -1,10 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://y5kct0mr503d"]
+[gd_scene load_steps=25 format=3 uid="uid://y5kct0mr503d"]
 
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_xn7nl"]
 [ext_resource type="Script" uid="uid://ccwcwotgnlcg2" path="res://scripts/menu/GameMenu/diary_menu.gd" id="2_yqnfc"]
 [ext_resource type="Texture2D" uid="uid://7s3ow47xlbrq" path="res://assets/sprites/ui/icons8-left-arrow-50.png" id="3_fk2nq"]
 [ext_resource type="Texture2D" uid="uid://cld6btb0rssqf" path="res://assets/sprites/ui/icons8-right-arrow-50.png" id="4_c81p2"]
 [ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="5_i2vsb"]
+[ext_resource type="Script" uid="uid://bxjsc3ungryxn" path="res://scripts/menu/settings_menu.gd" id="5_jpjjb"]
+[ext_resource type="PackedScene" uid="uid://iuoj0p7tw4oi" path="res://scenes/inventory/inventory_slot.tscn" id="6_vagrn"]
+[ext_resource type="PackedScene" uid="uid://bfivg0njs3ku8" path="res://scenes/hotbar/slot.tscn" id="7_d5s1g"]
+[ext_resource type="Shader" uid="uid://bggfs48ys3kc5" path="res://assets/shaders/hide_shadow.gdshader" id="8_5rqpv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0y5o"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -61,6 +65,21 @@ border_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8122"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_82ri6"]
+shader = ExtResource("8_5rqpv")
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b85bu"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
 border_width_left = 4
@@ -102,7 +121,6 @@ corner_radius_bottom_left = 62
 [node name="CanvasLayer" type="CanvasLayer"]
 process_mode = 3
 layer = 0
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -256,6 +274,445 @@ offset_bottom = 61.0
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_font_sizes/font_size = 26
 text = "Header"
+
+[node name="INVENTORY" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+script = ExtResource("5_jpjjb")
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/INVENTORY"]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 1698.0
+offset_bottom = 856.0
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 47
+
+[node name="Panel" type="Panel" parent="TabContainer/INVENTORY"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 82.0
+offset_top = -345.5
+offset_right = 922.0
+offset_bottom = 358.5
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v8122")
+
+[node name="InventorySlot" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("6_vagrn")]
+visible = false
+layout_mode = 1
+anchor_left = 0.124000005
+anchor_top = 0.109000005
+anchor_right = 0.27600002
+anchor_bottom = 0.279
+offset_left = 7.8399963
+offset_top = -5.236
+offset_right = -119.84003
+offset_bottom = -124.916016
+scale = Vector2(2, 2)
+
+[node name="InventorySlot2" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("6_vagrn")]
+visible = false
+layout_mode = 1
+anchor_left = 0.333
+anchor_top = 0.109000005
+anchor_right = 0.467
+anchor_bottom = 0.279
+offset_left = -3.7199707
+offset_top = -6.236
+offset_right = -116.27997
+offset_bottom = -125.916016
+scale = Vector2(2, 2)
+
+[node name="InventorySlot3" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("6_vagrn")]
+visible = false
+layout_mode = 1
+anchor_left = 0.51900005
+anchor_top = 0.109000005
+anchor_right = 0.66700006
+anchor_bottom = 0.259
+offset_left = 0.040008545
+offset_top = -7.236
+offset_right = -124.27997
+offset_bottom = -112.836
+scale = Vector2(2, 2)
+
+[node name="InventorySlot4" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("6_vagrn")]
+visible = false
+layout_mode = 1
+anchor_left = 0.71500003
+anchor_top = 0.120000005
+anchor_right = 0.86700004
+anchor_bottom = 0.256
+offset_left = 0.40008545
+offset_top = -14.980003
+offset_right = -127.27991
+offset_bottom = -110.724014
+scale = Vector2(2, 2)
+
+[node name="InventorySlot5" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("6_vagrn")]
+visible = false
+layout_mode = 1
+anchor_left = 0.133
+anchor_top = 0.321
+anchor_right = 0.27600002
+anchor_bottom = 0.48400003
+offset_left = 0.27999878
+offset_top = -11.484009
+offset_right = -119.84003
+offset_bottom = -126.23602
+scale = Vector2(2, 2)
+
+[node name="InventorySlot6" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("6_vagrn")]
+visible = false
+layout_mode = 1
+anchor_left = 0.34300002
+anchor_top = 0.31300002
+anchor_right = 0.467
+anchor_bottom = 0.48400003
+offset_left = -12.119995
+offset_top = -6.8520203
+offset_right = -116.27997
+offset_bottom = -127.23602
+scale = Vector2(2, 2)
+
+[node name="InventorySlot7" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("6_vagrn")]
+visible = false
+layout_mode = 1
+anchor_left = 0.53300005
+anchor_top = 0.31300002
+anchor_right = 0.66700006
+anchor_bottom = 0.47200003
+offset_left = -11.719971
+offset_top = -7.8520203
+offset_right = -124.27997
+offset_bottom = -119.788025
+scale = Vector2(2, 2)
+
+[node name="InventorySlot8" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("6_vagrn")]
+visible = false
+layout_mode = 1
+anchor_left = 0.72400004
+anchor_top = 0.31300002
+anchor_right = 0.85700005
+anchor_bottom = 0.48400003
+offset_left = -7.159912
+offset_top = -7.8520203
+offset_right = -118.879944
+offset_bottom = -128.23602
+scale = Vector2(2, 2)
+
+[node name="InventorySlot9" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("6_vagrn")]
+visible = false
+layout_mode = 1
+anchor_left = 0.133
+anchor_top = 0.518
+anchor_right = 0.27600002
+anchor_bottom = 0.67700005
+offset_left = 0.27999878
+offset_top = -8.171997
+offset_right = -119.84003
+offset_bottom = -120.10803
+scale = Vector2(2, 2)
+
+[node name="InventorySlot10" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("6_vagrn")]
+visible = false
+layout_mode = 1
+anchor_left = 0.34300002
+anchor_top = 0.518
+anchor_right = 0.476
+anchor_bottom = 0.67700005
+offset_left = -12.119995
+offset_top = -9.171997
+offset_right = -123.839966
+offset_bottom = -121.10803
+scale = Vector2(2, 2)
+
+[node name="InventorySlot11" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("6_vagrn")]
+visible = false
+layout_mode = 1
+anchor_left = 0.53300005
+anchor_top = 0.50600004
+anchor_right = 0.657
+anchor_bottom = 0.67700005
+offset_left = -11.719971
+offset_top = -1.7239685
+offset_right = -115.879944
+offset_bottom = -122.10797
+scale = Vector2(2, 2)
+
+[node name="InventorySlot12" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("6_vagrn")]
+visible = false
+layout_mode = 1
+anchor_left = 0.72400004
+anchor_top = 0.518
+anchor_right = 0.85700005
+anchor_bottom = 0.67700005
+offset_left = -7.159912
+offset_top = -10.171936
+offset_right = -118.879944
+offset_bottom = -122.10797
+scale = Vector2(2, 2)
+
+[node name="InventorySlot13" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("6_vagrn")]
+visible = false
+layout_mode = 1
+anchor_left = 0.133
+anchor_top = 0.71400005
+anchor_right = 0.27600002
+anchor_bottom = 0.88100004
+offset_left = 0.27999878
+offset_top = -0.15597534
+offset_right = -119.84003
+offset_bottom = -117.72394
+scale = Vector2(2, 2)
+
+[node name="InventorySlot14" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("6_vagrn")]
+visible = false
+layout_mode = 1
+anchor_left = 0.333
+anchor_top = 0.72200006
+anchor_right = 0.476
+anchor_bottom = 0.88100004
+offset_left = -3.7199707
+offset_top = -6.7880554
+offset_right = -123.839966
+offset_bottom = -118.724
+scale = Vector2(2, 2)
+
+[node name="InventorySlot15" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("6_vagrn")]
+visible = false
+layout_mode = 1
+anchor_left = 0.53300005
+anchor_top = 0.72200006
+anchor_right = 0.657
+anchor_bottom = 0.89300007
+offset_left = -11.719971
+offset_top = -7.7880554
+offset_right = -115.879944
+offset_bottom = -128.17206
+scale = Vector2(2, 2)
+
+[node name="InventorySlot16" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("6_vagrn")]
+visible = false
+layout_mode = 1
+anchor_left = 0.73300004
+anchor_top = 0.734
+anchor_right = 0.85700005
+anchor_bottom = 0.88100004
+offset_left = -14.71991
+offset_top = -16.235962
+offset_right = -118.879944
+offset_bottom = -119.72394
+scale = Vector2(2, 2)
+
+[node name="Slot" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+offset_left = 113.0
+offset_top = 71.5
+offset_right = 177.0
+offset_bottom = 135.5
+scale = Vector2(2, 2)
+
+[node name="Slot2" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+offset_left = 276.0
+offset_top = 70.5
+offset_right = 340.0
+offset_bottom = 134.5
+scale = Vector2(2, 2)
+
+[node name="Slot3" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+offset_left = 436.0
+offset_top = 68.5
+offset_right = 500.0
+offset_bottom = 132.5
+scale = Vector2(2, 2)
+
+[node name="Slot4" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+offset_left = 601.0
+offset_top = 67.5
+offset_right = 665.0
+offset_bottom = 131.5
+scale = Vector2(2, 2)
+
+[node name="Slot5" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+offset_left = 112.0
+offset_top = 216.5
+offset_right = 176.0
+offset_bottom = 280.5
+scale = Vector2(2, 2)
+
+[node name="Slot6" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+offset_left = 275.0
+offset_top = 215.5
+offset_right = 339.0
+offset_bottom = 279.5
+scale = Vector2(2, 2)
+
+[node name="Slot7" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+offset_left = 435.0
+offset_top = 213.5
+offset_right = 499.0
+offset_bottom = 277.5
+scale = Vector2(2, 2)
+
+[node name="Slot8" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+offset_left = 600.0
+offset_top = 212.5
+offset_right = 664.0
+offset_bottom = 276.5
+scale = Vector2(2, 2)
+
+[node name="Slot9" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+offset_left = 113.0
+offset_top = 358.5
+offset_right = 177.0
+offset_bottom = 422.5
+scale = Vector2(2, 2)
+
+[node name="Slot10" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+offset_left = 276.0
+offset_top = 357.5
+offset_right = 340.0
+offset_bottom = 421.5
+scale = Vector2(2, 2)
+
+[node name="Slot11" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+offset_left = 436.0
+offset_top = 355.5
+offset_right = 500.0
+offset_bottom = 419.5
+scale = Vector2(2, 2)
+
+[node name="Slot12" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+offset_left = 601.0
+offset_top = 354.5
+offset_right = 665.0
+offset_bottom = 418.5
+scale = Vector2(2, 2)
+
+[node name="Slot13" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+offset_left = 112.0
+offset_top = 503.5
+offset_right = 176.0
+offset_bottom = 567.5
+scale = Vector2(2, 2)
+
+[node name="Slot14" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+offset_left = 275.0
+offset_top = 502.5
+offset_right = 339.0
+offset_bottom = 566.5
+scale = Vector2(2, 2)
+
+[node name="Slot15" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+offset_left = 435.0
+offset_top = 500.5
+offset_right = 499.0
+offset_bottom = 564.5
+scale = Vector2(2, 2)
+
+[node name="Slot16" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+offset_left = 600.0
+offset_top = 499.5
+offset_right = 664.0
+offset_bottom = 563.5
+scale = Vector2(2, 2)
+
+[node name="Description" type="Panel" parent="TabContainer/INVENTORY"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 978.0
+offset_top = -345.0
+offset_right = 1618.0
+offset_bottom = 359.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v8122")
+
+[node name="Description" type="Label" parent="TabContainer/INVENTORY/Description"]
+layout_mode = 1
+offset_left = 64.0
+offset_top = 68.0
+offset_right = 156.0
+offset_bottom = 104.0
+theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_font_sizes/font_size = 26
+text = "Header"
+
+[node name="Text" type="Label" parent="TabContainer/INVENTORY/Description"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = -235.5
+offset_right = 376.0
+offset_bottom = 328.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+theme_override_font_sizes/font_size = 23
+text = "Text"
+autowrap_mode = 3
+justification_flags = 162
+
+[node name="ItemZoom" parent="TabContainer/INVENTORY/Description" instance=ExtResource("6_vagrn")]
+visible = false
+layout_mode = 1
+anchor_left = 0.65000004
+anchor_top = 0.098000005
+anchor_right = 0.90000004
+anchor_bottom = 0.321
+offset_left = -8.0000305
+offset_top = -15.991974
+offset_right = -168.0
+offset_bottom = -172.98398
+scale = Vector2(2.7, 2.7)
+
+[node name="Slot" parent="TabContainer/INVENTORY/Description" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+offset_left = 416.0
+offset_top = 60.0
+offset_right = 480.0
+offset_bottom = 124.0
+scale = Vector2(2.5, 2.5)
 
 [node name="CloseButton" type="Button" parent="."]
 process_mode = 3
