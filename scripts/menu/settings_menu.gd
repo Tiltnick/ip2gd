@@ -1,8 +1,10 @@
 extends Control
 @onready var graphics: Button = $Panel/VBoxContainer/Graphics
-@onready var h_box_container: HBoxContainer = $Panel/HBoxContainer
-@onready var grid_container: GridContainer = $Panel/GridContainer
 @onready var controls: Button = $Panel/VBoxContainer/Controls
+@onready var graphics_menu: HBoxContainer = $HBoxContainer
+@onready var control_menu: GridContainer = $GridContainer
+@onready var sound: Button = $Panel/VBoxContainer/Sound
+@onready var sound_menu: VBoxContainer = $VBoxContainer
 
 
 
@@ -15,12 +17,22 @@ func _on_close_button_pressed() -> void:
 	SettingsMenu.hide()
 
 func _on_controls_pressed() -> void:
-	grid_container.show()
-	h_box_container.hide()
+	control_menu.show()
+	graphics_menu.hide()
 	graphics.set_pressed_no_signal(false)
+	sound.set_pressed_no_signal(false)
 
 
 func _on_graphics_pressed() -> void:
-	h_box_container.show()
-	grid_container.hide()
+	graphics_menu.show()
+	control_menu.hide()
 	controls.set_pressed_no_signal(false)
+	sound.set_pressed_no_signal(false)
+
+func _on_sound_pressed() -> void:
+	sound_menu.show()
+	graphics_menu.hide()
+	control_menu.hide()
+	controls.set_pressed_no_signal(false)
+	graphics.set_pressed_no_signal(false)
+	

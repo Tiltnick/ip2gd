@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://y5kct0mr503d"]
+[gd_scene load_steps=41 format=3 uid="uid://y5kct0mr503d"]
 
 [ext_resource type="Script" uid="uid://bxjsc3ungryxn" path="res://scripts/menu/settings_menu.gd" id="1_dt6qk"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_ijo36"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cyl6ywrrigfxv" path="res://assets/sprites/ui/pfeil-nach-unten-zum-navigieren 1.png" id="3_g0y5o"]
 [ext_resource type="Theme" uid="uid://bajhsetnb0nx6" path="res://assets/themes/new_theme.tres" id="3_k0ysv"]
 [ext_resource type="Script" uid="uid://c68im6fl78a81" path="res://scripts/menu/option_button.gd" id="5_8q5ut"]
+[ext_resource type="Script" uid="uid://cxlvnj5ow5ltm" path="res://scripts/menu/settings/v_box_container.gd" id="6_ghnlw"]
+[ext_resource type="Texture2D" uid="uid://bklvnm5csnt2e" path="res://assets/sprites/ui/lautstarke-erhohen (1).png" id="6_pmovl"]
+[ext_resource type="Texture2D" uid="uid://brynadvskwckv" path="res://assets/sprites/ui/lautstarke-runter 1.png" id="7_ghnlw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0ysv"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -87,6 +90,58 @@ expand_margin_top = 35.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qhma1"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghnlw"]
+draw_center = false
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+corner_radius_top_left = 10
+expand_margin_left = 21.0
+expand_margin_top = 15.0
+expand_margin_right = 320.0
+expand_margin_bottom = 17.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_safip"]
+draw_center = false
+border_width_left = 5
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+expand_margin_left = 470.0
+expand_margin_top = 15.0
+expand_margin_right = 10.0
+expand_margin_bottom = 17.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b85bu"]
+draw_center = false
+border_width_left = 5
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+expand_margin_left = 470.0
+expand_margin_top = 15.0
+expand_margin_right = 10.0
+expand_margin_bottom = 17.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3pu0"]
+draw_center = false
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+corner_radius_bottom_left = 10
+expand_margin_left = 21.0
+expand_margin_top = 15.0
+expand_margin_right = 320.0
+expand_margin_bottom = 17.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6icie"]
 content_margin_left = 36.0
 content_margin_right = 37.0
@@ -141,57 +196,30 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g0y5o"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghnlw"]
-draw_center = false
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
-corner_radius_top_left = 10
-expand_margin_left = 21.0
-expand_margin_top = 15.0
-expand_margin_right = 320.0
-expand_margin_bottom = 17.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j3pu0"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_safip"]
-draw_center = false
-border_width_left = 5
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-expand_margin_left = 470.0
-expand_margin_top = 15.0
-expand_margin_right = 10.0
-expand_margin_bottom = 17.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ghnlw"]
+content_margin_left = 8.0
+content_margin_bottom = 7.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b85bu"]
-draw_center = false
-border_width_left = 5
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
-expand_margin_left = 470.0
-expand_margin_top = 15.0
-expand_margin_right = 10.0
-expand_margin_bottom = 17.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b85bu"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3pu0"]
-draw_center = false
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
-corner_radius_bottom_left = 10
-expand_margin_left = 21.0
-expand_margin_top = 15.0
-expand_margin_right = 320.0
-expand_margin_bottom = 17.0
+[sub_resource type="Theme" id="Theme_cm8sp"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_pmovl"]
+color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+thickness = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8hd3w"]
+bg_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jwi3x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_safip"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_b85bu"]
+color = Color(0.76862746, 0.9843137, 0.93333334, 1)
+thickness = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwi3x"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -322,22 +350,180 @@ toggle_mode = true
 text = "Graphics"
 alignment = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Settings/Panel"]
+[node name="Sound" type="Button" parent="TabContainer/Settings/Panel/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
+theme_override_colors/font_focus_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
+theme_override_colors/font_pressed_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
+theme_override_colors/font_hover_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 53
+theme_override_styles/normal = SubResource("StyleBoxFlat_pmovl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g0ydb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0mqfy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qhma1")
+toggle_mode = true
+text = "Sound
+"
+alignment = 0
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Settings"]
+layout_direction = 2
+layout_mode = 0
+offset_left = 471.0
+offset_top = 38.0
+offset_right = 1689.0
+offset_bottom = 847.0
+theme_override_constants/h_separation = 785
+theme_override_constants/v_separation = 23
+columns = 2
+
+[node name="MoveUp" type="Label" parent="TabContainer/Settings/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
+text = "Move up"
+vertical_alignment = 1
+
+[node name="W" type="Label" parent="TabContainer/Settings/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_safip")
+text = "W"
+
+[node name="MoveDown" type="Label" parent="TabContainer/Settings/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
+text = "Move down"
+
+[node name="S" type="Label" parent="TabContainer/Settings/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
+text = "S"
+
+[node name="MoveLeft" type="Label" parent="TabContainer/Settings/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
+text = "Move left"
+
+[node name="A" type="Label" parent="TabContainer/Settings/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
+text = "A"
+
+[node name="MoveRight" type="Label" parent="TabContainer/Settings/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
+text = "Move right"
+
+[node name="D" type="Label" parent="TabContainer/Settings/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
+text = "D"
+
+[node name="MoveDown2" type="Label" parent="TabContainer/Settings/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
+text = "Run"
+
+[node name="space2" type="Label" parent="TabContainer/Settings/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_safip")
+text = "shift"
+
+[node name="Interact" type="Label" parent="TabContainer/Settings/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
+text = "Interact/ Pick up"
+
+[node name="E" type="Label" parent="TabContainer/Settings/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
+text = "E"
+
+[node name="Hotbar" type="Label" parent="TabContainer/Settings/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
+text = "Hotbar slots"
+
+[node name="number" type="Label" parent="TabContainer/Settings/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
+text = "1, 2, 3, 4"
+
+[node name="Exit" type="Label" parent="TabContainer/Settings/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
+text = "Exit game"
+
+[node name="esc" type="Label" parent="TabContainer/Settings/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
+text = "esc"
+
+[node name="Dialogue" type="Label" parent="TabContainer/Settings/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_j3pu0")
+text = "Dialogue"
+
+[node name="space" type="Label" parent="TabContainer/Settings/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_safip")
+text = "space"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Settings"]
 visible = false
 layout_mode = 0
-offset_left = 491.0
-offset_top = 57.0
-offset_right = 987.0
-offset_bottom = 128.0
+offset_left = 482.0
+offset_top = 48.0
+offset_right = 978.0
+offset_bottom = 119.0
 theme_override_constants/separation = 74
 
-[node name="Label" type="Label" parent="TabContainer/Settings/Panel/HBoxContainer"]
+[node name="Label" type="Label" parent="TabContainer/Settings/HBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 50
 text = "Language"
 
-[node name="OptionButton" type="OptionButton" parent="TabContainer/Settings/Panel/HBoxContainer"]
+[node name="OptionButton" type="OptionButton" parent="TabContainer/Settings/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
@@ -362,143 +548,94 @@ popup/item_1/text = "Deutsch"
 popup/item_1/id = 1
 script = ExtResource("5_8q5ut")
 
-[node name="GridContainer" type="GridContainer" parent="TabContainer/Settings/Panel"]
-layout_direction = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings"]
+visible = false
 layout_mode = 0
-offset_left = 480.0
-offset_top = 47.0
-offset_right = 1698.0
-offset_bottom = 856.0
-theme_override_constants/h_separation = 785
-theme_override_constants/v_separation = 23
-columns = 2
+offset_left = 482.0
+offset_top = 16.0
+offset_right = 1178.0
+offset_bottom = 296.0
+theme_override_constants/separation = 6
+script = ExtResource("6_ghnlw")
 
-[node name="MoveUp" type="Label" parent="TabContainer/Settings/Panel/GridContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_ijo36")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
-text = "Move up"
-vertical_alignment = 1
+size_flags_vertical = 3
+theme_override_constants/separation = 44
 
-[node name="W" type="Label" parent="TabContainer/Settings/Panel/GridContainer"]
+[node name="Music" type="Label" parent="TabContainer/Settings/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_safip")
-text = "W"
+theme_override_font_sizes/font_size = 50
+text = "Music"
 
-[node name="MoveDown" type="Label" parent="TabContainer/Settings/Panel/GridContainer"]
+[node name="Button_MusicL" type="Button" parent="TabContainer/Settings/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_ijo36")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
-text = "Move down"
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j3pu0")
+icon = ExtResource("6_pmovl")
+flat = true
 
-[node name="S" type="Label" parent="TabContainer/Settings/Panel/GridContainer"]
+[node name="Button_MusicM" type="Button" parent="TabContainer/Settings/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_ijo36")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
-text = "S"
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ghnlw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ghnlw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ghnlw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b85bu")
+icon = ExtResource("7_ghnlw")
+flat = true
 
-[node name="MoveLeft" type="Label" parent="TabContainer/Settings/Panel/GridContainer"]
+[node name="HSlider_Music" type="HSlider" parent="TabContainer/Settings/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_ijo36")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
-text = "Move left"
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = SubResource("Theme_cm8sp")
+theme_override_styles/slider = SubResource("StyleBoxLine_pmovl")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_8hd3w")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_8hd3w")
+value = 50.0
 
-[node name="A" type="Label" parent="TabContainer/Settings/Panel/GridContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_ijo36")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
-text = "A"
+size_flags_vertical = 3
+theme_override_constants/separation = 39
 
-[node name="MoveRight" type="Label" parent="TabContainer/Settings/Panel/GridContainer"]
+[node name="Sound" type="Label" parent="TabContainer/Settings/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
-text = "Move right"
+theme_override_font_sizes/font_size = 50
+text = "Sound"
 
-[node name="D" type="Label" parent="TabContainer/Settings/Panel/GridContainer"]
+[node name="Button_SoundL" type="Button" parent="TabContainer/Settings/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_ijo36")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
-text = "D"
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jwi3x")
+icon = ExtResource("6_pmovl")
+flat = true
 
-[node name="MoveDown2" type="Label" parent="TabContainer/Settings/Panel/GridContainer"]
+[node name="Button_SoundM" type="Button" parent="TabContainer/Settings/VBoxContainer/HBoxContainer2"]
+visible = false
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_ijo36")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
-text = "Run"
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ghnlw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ghnlw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ghnlw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_safip")
+icon = ExtResource("7_ghnlw")
+flat = true
 
-[node name="space2" type="Label" parent="TabContainer/Settings/Panel/GridContainer"]
+[node name="HSlider_Sound" type="HSlider" parent="TabContainer/Settings/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_ijo36")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_safip")
-text = "shift"
-
-[node name="Interact" type="Label" parent="TabContainer/Settings/Panel/GridContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_ijo36")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
-text = "Interact/ Pick up"
-
-[node name="E" type="Label" parent="TabContainer/Settings/Panel/GridContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_ijo36")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
-text = "E"
-
-[node name="Hotbar" type="Label" parent="TabContainer/Settings/Panel/GridContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_ijo36")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
-text = "Hotbar slots"
-
-[node name="number" type="Label" parent="TabContainer/Settings/Panel/GridContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_ijo36")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
-text = "1, 2, 3, 4"
-
-[node name="Exit" type="Label" parent="TabContainer/Settings/Panel/GridContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_ijo36")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
-text = "Exit game"
-
-[node name="esc" type="Label" parent="TabContainer/Settings/Panel/GridContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_ijo36")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
-text = "esc"
-
-[node name="Dialogue" type="Label" parent="TabContainer/Settings/Panel/GridContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_ijo36")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_j3pu0")
-text = "Dialogue"
-
-[node name="space" type="Label" parent="TabContainer/Settings/Panel/GridContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_ijo36")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_safip")
-text = "space"
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxLine_pmovl")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_b85bu")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_b85bu")
+value = 50.0
 
 [node name="CloseButton" type="Button" parent="."]
 process_mode = 3
@@ -521,4 +658,11 @@ icon_alignment = 1
 
 [connection signal="pressed" from="TabContainer/Settings/Panel/VBoxContainer/Controls" to="TabContainer/Settings" method="_on_controls_pressed"]
 [connection signal="pressed" from="TabContainer/Settings/Panel/VBoxContainer/Graphics" to="TabContainer/Settings" method="_on_graphics_pressed"]
+[connection signal="pressed" from="TabContainer/Settings/Panel/VBoxContainer/Sound" to="TabContainer/Settings" method="_on_sound_pressed"]
+[connection signal="pressed" from="TabContainer/Settings/VBoxContainer/HBoxContainer/Button_MusicL" to="TabContainer/Settings/VBoxContainer" method="_on_button_music_l_pressed"]
+[connection signal="pressed" from="TabContainer/Settings/VBoxContainer/HBoxContainer/Button_MusicM" to="TabContainer/Settings/VBoxContainer" method="_on_button_music_m_pressed"]
+[connection signal="value_changed" from="TabContainer/Settings/VBoxContainer/HBoxContainer/HSlider_Music" to="TabContainer/Settings/VBoxContainer" method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="TabContainer/Settings/VBoxContainer/HBoxContainer2/Button_SoundL" to="TabContainer/Settings/VBoxContainer" method="_on_button_sound_l_pressed"]
+[connection signal="pressed" from="TabContainer/Settings/VBoxContainer/HBoxContainer2/Button_SoundM" to="TabContainer/Settings/VBoxContainer" method="_on_button_sound_m_pressed"]
+[connection signal="value_changed" from="TabContainer/Settings/VBoxContainer/HBoxContainer2/HSlider_Sound" to="TabContainer/Settings/VBoxContainer" method="_on_h_slider_2_value_changed"]
 [connection signal="pressed" from="CloseButton" to="TabContainer/Settings" method="_on_close_button_pressed"]
