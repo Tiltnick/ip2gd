@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://y5kct0mr503d"]
+[gd_scene load_steps=26 format=3 uid="uid://y5kct0mr503d"]
 
+[ext_resource type="Script" uid="uid://c7mgrddxx8c0t" path="res://scripts/menu/GameMenu/menuClose.gd" id="1_jpjjb"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_xn7nl"]
 [ext_resource type="Script" uid="uid://ccwcwotgnlcg2" path="res://scripts/menu/GameMenu/diary_menu.gd" id="2_yqnfc"]
 [ext_resource type="Texture2D" uid="uid://7s3ow47xlbrq" path="res://assets/sprites/ui/icons8-left-arrow-50.png" id="3_fk2nq"]
@@ -121,6 +122,8 @@ corner_radius_bottom_left = 62
 [node name="CanvasLayer" type="CanvasLayer"]
 process_mode = 3
 layer = 0
+visible = false
+script = ExtResource("1_jpjjb")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
