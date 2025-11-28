@@ -191,9 +191,9 @@ corner_radius_bottom_left = 62
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6icie"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="SettingsLayer" type="CanvasLayer"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -201,7 +201,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.14509805, 0.14509805, 0.14509805, 0.88235295)
 
-[node name="TabContainer" type="TabContainer" parent="."]
+[node name="SettingsTabs" type="TabContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -223,13 +223,13 @@ theme_override_styles/tab_selected = SubResource("StyleBoxFlat_8q5ut")
 tab_alignment = 1
 current_tab = 0
 
-[node name="Settings" type="TabBar" parent="TabContainer"]
+[node name="Settings" type="TabBar" parent="SettingsTabs"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 script = ExtResource("1_dt6qk")
 metadata/_tab_index = 0
 
-[node name="Panel" type="Panel" parent="TabContainer/Settings"]
+[node name="Panel" type="Panel" parent="SettingsTabs/Settings"]
 layout_mode = 0
 offset_left = -9.0
 offset_top = -9.0
@@ -237,7 +237,7 @@ offset_right = 410.0
 offset_bottom = 867.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qhma1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/Panel"]
+[node name="SideMenu" type="VBoxContainer" parent="SettingsTabs/Settings/Panel"]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 41.0
@@ -245,25 +245,25 @@ offset_right = 411.0
 offset_bottom = 192.0
 theme_override_constants/separation = 27
 
-[node name="Button" type="Button" parent="TabContainer/Settings/Panel/VBoxContainer"]
+[node name="ControlsButton" type="Button" parent="SettingsTabs/Settings/Panel/SideMenu"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 53
 theme_override_styles/normal = SubResource("StyleBoxFlat_pmovl")
-text = "Controls"
+text = "UI_CONTROLS"
 alignment = 0
 
-[node name="Sound" type="Button" parent="TabContainer/Settings/Panel/VBoxContainer"]
+[node name="LanguageButton" type="Button" parent="SettingsTabs/Settings/Panel/SideMenu"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 53
 theme_override_styles/normal = SubResource("StyleBoxFlat_pmovl")
-text = "Options"
+text = "UI_OPTIONS"
 alignment = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Settings/Panel"]
+[node name="ControlsPanel" type="MarginContainer" parent="SettingsTabs/Settings/Panel"]
 visible = false
 layout_mode = 0
 offset_left = 410.0
@@ -272,14 +272,14 @@ offset_bottom = 856.0
 theme_override_constants/margin_left = 70
 theme_override_constants/margin_top = 47
 
-[node name="GridContainer" type="GridContainer" parent="TabContainer/Settings/Panel/MarginContainer"]
+[node name="GridContainer" type="GridContainer" parent="SettingsTabs/Settings/Panel/ControlsPanel"]
 layout_direction = 2
 layout_mode = 2
 theme_override_constants/h_separation = 785
 theme_override_constants/v_separation = 23
 columns = 2
 
-[node name="MoveUp" type="Label" parent="TabContainer/Settings/Panel/MarginContainer/GridContainer"]
+[node name="MoveUp" type="Label" parent="SettingsTabs/Settings/Panel/ControlsPanel/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
@@ -287,126 +287,126 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
 text = "Move up"
 vertical_alignment = 1
 
-[node name="W" type="Label" parent="TabContainer/Settings/Panel/MarginContainer/GridContainer"]
+[node name="W" type="Label" parent="SettingsTabs/Settings/Panel/ControlsPanel/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_safip")
 text = "W"
 
-[node name="MoveDown" type="Label" parent="TabContainer/Settings/Panel/MarginContainer/GridContainer"]
+[node name="MoveDown" type="Label" parent="SettingsTabs/Settings/Panel/ControlsPanel/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
 text = "Move down"
 
-[node name="S" type="Label" parent="TabContainer/Settings/Panel/MarginContainer/GridContainer"]
+[node name="S" type="Label" parent="SettingsTabs/Settings/Panel/ControlsPanel/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
 text = "S"
 
-[node name="MoveLeft" type="Label" parent="TabContainer/Settings/Panel/MarginContainer/GridContainer"]
+[node name="MoveLeft" type="Label" parent="SettingsTabs/Settings/Panel/ControlsPanel/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
 text = "Move left"
 
-[node name="A" type="Label" parent="TabContainer/Settings/Panel/MarginContainer/GridContainer"]
+[node name="A" type="Label" parent="SettingsTabs/Settings/Panel/ControlsPanel/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
 text = "A"
 
-[node name="MoveRight" type="Label" parent="TabContainer/Settings/Panel/MarginContainer/GridContainer"]
+[node name="MoveRight" type="Label" parent="SettingsTabs/Settings/Panel/ControlsPanel/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
 text = "Move right"
 
-[node name="D" type="Label" parent="TabContainer/Settings/Panel/MarginContainer/GridContainer"]
+[node name="D" type="Label" parent="SettingsTabs/Settings/Panel/ControlsPanel/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
 text = "D"
 
-[node name="MoveDown2" type="Label" parent="TabContainer/Settings/Panel/MarginContainer/GridContainer"]
+[node name="MoveDown2" type="Label" parent="SettingsTabs/Settings/Panel/ControlsPanel/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
 text = "Run"
 
-[node name="space2" type="Label" parent="TabContainer/Settings/Panel/MarginContainer/GridContainer"]
+[node name="space2" type="Label" parent="SettingsTabs/Settings/Panel/ControlsPanel/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_safip")
 text = "shift"
 
-[node name="Interact" type="Label" parent="TabContainer/Settings/Panel/MarginContainer/GridContainer"]
+[node name="Interact" type="Label" parent="SettingsTabs/Settings/Panel/ControlsPanel/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
 text = "Interact/ Pick up"
 
-[node name="E" type="Label" parent="TabContainer/Settings/Panel/MarginContainer/GridContainer"]
+[node name="E" type="Label" parent="SettingsTabs/Settings/Panel/ControlsPanel/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
 text = "E"
 
-[node name="Hotbar" type="Label" parent="TabContainer/Settings/Panel/MarginContainer/GridContainer"]
+[node name="Hotbar" type="Label" parent="SettingsTabs/Settings/Panel/ControlsPanel/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
 text = "Hotbar slots"
 
-[node name="number" type="Label" parent="TabContainer/Settings/Panel/MarginContainer/GridContainer"]
+[node name="number" type="Label" parent="SettingsTabs/Settings/Panel/ControlsPanel/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
 text = "1, 2, 3, 4"
 
-[node name="Exit" type="Label" parent="TabContainer/Settings/Panel/MarginContainer/GridContainer"]
+[node name="Exit" type="Label" parent="SettingsTabs/Settings/Panel/ControlsPanel/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
 text = "Exit game"
 
-[node name="esc" type="Label" parent="TabContainer/Settings/Panel/MarginContainer/GridContainer"]
+[node name="esc" type="Label" parent="SettingsTabs/Settings/Panel/ControlsPanel/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
 text = "esc"
 
-[node name="Dialogue" type="Label" parent="TabContainer/Settings/Panel/MarginContainer/GridContainer"]
+[node name="Dialogue" type="Label" parent="SettingsTabs/Settings/Panel/ControlsPanel/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_j3pu0")
 text = "Dialogue"
 
-[node name="space" type="Label" parent="TabContainer/Settings/Panel/MarginContainer/GridContainer"]
+[node name="space" type="Label" parent="SettingsTabs/Settings/Panel/ControlsPanel/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_safip")
 text = "space"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Settings/Panel"]
+[node name="LanguagePanel" type="HBoxContainer" parent="SettingsTabs/Settings/Panel"]
 layout_mode = 0
 offset_left = 491.0
 offset_top = 57.0
@@ -414,13 +414,13 @@ offset_right = 1379.0
 offset_bottom = 128.0
 theme_override_constants/separation = 74
 
-[node name="Label" type="Label" parent="TabContainer/Settings/Panel/HBoxContainer"]
+[node name="Label" type="Label" parent="SettingsTabs/Settings/Panel/LanguagePanel"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 50
-text = "Language"
+text = "SETTINGS_LANGUAGE"
 
-[node name="OptionButton" type="OptionButton" parent="TabContainer/Settings/Panel/HBoxContainer"]
+[node name="OptionButton" type="OptionButton" parent="SettingsTabs/Settings/Panel/LanguagePanel"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("3_k0ysv")
@@ -463,5 +463,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_6icie")
 icon = ExtResource("2_dt6qk")
 icon_alignment = 1
 
-[connection signal="pressed" from="TabContainer/Settings/Panel/VBoxContainer/Sound" to="TabContainer/Settings" method="_on_sound_pressed"]
-[connection signal="pressed" from="CloseButton" to="TabContainer/Settings" method="_on_close_button_pressed"]
+[connection signal="pressed" from="SettingsTabs/Settings/Panel/SideMenu/ControlsButton" to="SettingsTabs/Settings" method="_on_ControlsButton_pressed"]
+[connection signal="pressed" from="SettingsTabs/Settings/Panel/SideMenu/LanguageButton" to="SettingsTabs/Settings" method="_on_LanguageButton_pressed"]
+[connection signal="item_selected" from="SettingsTabs/Settings/Panel/LanguagePanel/OptionButton" to="SettingsTabs/Settings" method="_on_OptionButton_item_selected"]
+[connection signal="pressed" from="CloseButton" to="SettingsTabs/Settings" method="_on_CloseButton_pressed"]
