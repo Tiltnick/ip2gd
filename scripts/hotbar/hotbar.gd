@@ -26,7 +26,7 @@ func _unhandled_input(event):
 # Item ID aus Hotbar/Inventar
 func update_slots():
 	for i in range(slots.size()):
-		var item_id = hotbarglobal.items[i]
+		var item_id = hotbarglobal.hotbar_items[i]
 		if item_id:
 			slots[i].set_item_icon(item_id)
 		else:
@@ -56,7 +56,7 @@ func _update_selected_visuals():
 
 
 func use_slot(slot_index: int):
-	var item_id = hotbarglobal.items[slot_index]
+	var item_id = hotbarglobal.hotbar_items[slot_index]
 	if not item_id:
 		return
 

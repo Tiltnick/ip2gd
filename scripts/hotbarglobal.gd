@@ -1,39 +1,68 @@
 extends Node
 class_name Hotbarglobal
 
-var items = [null, null, null, null]  
+# 4 Hotbar-Slots
+var hotbar_items = [null, null, null, null]
+
+# 16 Inventory-Slots (4x4)
+var inventory_items = [
+	null, null, null, null,
+	null, null, null, null,
+	null, null, null, null,
+	null, null, null, null
+]
+
 var hotbar: Control
 var inventory: Control
 
-func add_item(item_id: String) -> void:
-	for i in range(items.size()):
-		if items[i] == null:
-			items[i] = item_id
-			if hotbar:
-				hotbar.update_slots()
-				
-			if inventory:
-				inventory.update_slots()
-			print("Item added to slot ", i)
-			return
-	print("Keine freien Hotbar-Slots!")
 
-
-func add_item_to_slot(slot: int, item_id: String):
-	if slot >= 0 and slot < items.size():
-		items[slot] = item_id
-
-
-func activate_slot(slot: int) -> void:
-	var item_id = items[slot]
-	if not item_id:
-		return
-
-	print("Using item from slot %d: %s" % [slot, item_id])
+#func add_item(item_id: String) -> void:
+	## 1) Versuche zuerst Hotbar zu füllen
+	#for i in range(hotbar_items.size()):
+		#if hotbar_items[i] == null:
+			#hotbar_items[i] = item_id
+			#update_ui()
+			#print("Hotbar item added to slot ", i)
+			#return
+#
+	## 2) Hotbar voll → Inventory benutzen
+	#for i in range(inventory_items.size()):
+		#if inventory_items[i] == null:
+			#inventory_items[i] = item_id
+			#update_ui()
+			#print("Inventory item added to slot ", i)
+			#return
+#
+	#print("Kein Platz im Hotbar und Inventory!")
 	
-	if item_id == "photo":
-		var photo_scene = preload("res://scenes/interactables/objects/photo.tscn")
-		var photo = photo_scene.instantiate()
-		get_tree().current_scene.add_child(photo)
-		photo.meta_slot_index = slot
-		photo.hotbar_activate()
+func add_item(item_id: String) -> void:
+	# Hotbar füllen
+	for i in range(hotbar_items.size()):
+		if hotbar_items[i] == null:
+			hotbar_items[i] = item_id
+			break
+
+	# Inventory füllen
+	for i in range(inventory_items.size()):
+		if inventory_items[i] == null:
+			inventory_items[i] = item_id
+			break
+
+	update_ui()
+
+
+
+func update_ui():
+	if hotbar:
+		hotbar.update_slots()
+
+	if inventory:
+		inventory.update_slots()
+
+
+func get_item_from_hotbar(slot: int) -> String:
+	return hotbar_items[slot] if slot < hotbar_items.size() else null
+
+
+func get_inventory_item(slot: int) -> String:
+	return inventory_items[slot] if slot < inventory_items.size() else null
