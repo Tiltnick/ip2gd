@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://y5kct0mr503d"]
+[gd_scene load_steps=24 format=3 uid="uid://y5kct0mr503d"]
 
 [ext_resource type="Script" uid="uid://bxjsc3ungryxn" path="res://scripts/menu/settings_menu.gd" id="1_dt6qk"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_ijo36"]
 [ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="2_dt6qk"]
 [ext_resource type="Texture2D" uid="uid://cyl6ywrrigfxv" path="res://assets/sprites/ui/pfeil-nach-unten-zum-navigieren 1.png" id="3_g0y5o"]
 [ext_resource type="Theme" uid="uid://bajhsetnb0nx6" path="res://assets/themes/new_theme.tres" id="3_k0ysv"]
+[ext_resource type="Script" uid="uid://c68im6fl78a81" path="res://scripts/menu/option_button.gd" id="5_8q5ut"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0ysv"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -121,6 +122,7 @@ bg_color = Color(0.105882354, 0.25882354, 0.25882354, 1)
 border_width_left = 8
 border_width_top = 8
 border_width_right = 8
+border_width_bottom = 8
 border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
@@ -410,7 +412,7 @@ text = "space"
 layout_mode = 0
 offset_left = 491.0
 offset_top = 57.0
-offset_right = 1379.0
+offset_right = 987.0
 offset_bottom = 128.0
 theme_override_constants/separation = 74
 
@@ -422,6 +424,7 @@ text = "Language"
 
 [node name="OptionButton" type="OptionButton" parent="TabContainer/Settings/Panel/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
 theme = ExtResource("3_k0ysv")
 theme_override_constants/h_separation = 3
@@ -435,7 +438,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_g0y5o")
 theme_override_constants/arrow_margin = 20
 theme_override_constants/modulate_arrow = 0
 theme_override_icons/arrow = ExtResource("3_g0y5o")
-icon_alignment = 1
 selected = 0
 fit_to_longest_item = false
 item_count = 2
@@ -443,6 +445,7 @@ popup/item_0/text = "English"
 popup/item_0/id = 0
 popup/item_1/text = "Deutsch"
 popup/item_1/id = 1
+script = ExtResource("5_8q5ut")
 
 [node name="CloseButton" type="Button" parent="."]
 process_mode = 3
