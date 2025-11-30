@@ -1,6 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://dghu8l1p7spw3"]
 
-[ext_resource type="Script" uid="uid://d6x3wc4mchrs" path="res://scripts/audio/world_audio_manager.gd" id="1_hulml"]
+[ext_resource type="Script" uid="uid://d6x3wc4mchrs" path="res://scripts/audio/world_audio_manager.gd" id="1_orjkx"]
 
 [node name="WorldAudioManager" type="Node2D"]
-script = ExtResource("1_hulml")
+script = ExtResource("1_orjkx")
+
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
