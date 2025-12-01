@@ -44,7 +44,11 @@ corner_radius_bottom_left = 12
 [node name="Slot" type="Control"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 3
-anchors_preset = 0
+anchor_right = 0.033
+anchor_bottom = 0.059000004
+offset_right = -63.36
+offset_bottom = -63.720005
+mouse_default_cursor_shape = 2
 script = ExtResource("1_3csin")
 
 [node name="Icon" type="TextureRect" parent="."]
