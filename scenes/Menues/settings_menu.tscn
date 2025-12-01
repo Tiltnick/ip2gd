@@ -1,11 +1,11 @@
 [gd_scene load_steps=41 format=3 uid="uid://y5kct0mr503d"]
 
-[ext_resource type="Script" uid="uid://bxjsc3ungryxn" path="res://scripts/menu/settings_menu.gd" id="1_dt6qk"]
+[ext_resource type="Script" uid="uid://bxjsc3ungryxn" path="res://scripts/menu/settings/settings_menu.gd" id="1_dt6qk"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_ijo36"]
 [ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="2_dt6qk"]
 [ext_resource type="Texture2D" uid="uid://cyl6ywrrigfxv" path="res://assets/sprites/ui/pfeil-nach-unten-zum-navigieren 1.png" id="3_g0y5o"]
 [ext_resource type="Theme" uid="uid://bajhsetnb0nx6" path="res://assets/themes/new_theme.tres" id="3_k0ysv"]
-[ext_resource type="Script" uid="uid://c68im6fl78a81" path="res://scripts/menu/option_button.gd" id="5_8q5ut"]
+[ext_resource type="Script" uid="uid://c68im6fl78a81" path="res://scripts/menu/settings/option_button.gd" id="5_8q5ut"]
 [ext_resource type="Script" uid="uid://cxlvnj5ow5ltm" path="res://scripts/menu/settings/v_box_container.gd" id="6_ghnlw"]
 [ext_resource type="Texture2D" uid="uid://bklvnm5csnt2e" path="res://assets/sprites/ui/lautstarke-erhohen (1).png" id="6_pmovl"]
 [ext_resource type="Texture2D" uid="uid://brynadvskwckv" path="res://assets/sprites/ui/lautstarke-runter 1.png" id="7_ghnlw"]
@@ -260,6 +260,7 @@ corner_radius_bottom_left = 62
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6icie"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15

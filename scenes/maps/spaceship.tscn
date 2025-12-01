@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://csejhruust020"]
+[gd_scene load_steps=28 format=4 uid="uid://csejhruust020"]
 
 [ext_resource type="Texture2D" uid="uid://kxs6kkm0ut6w" path="res://assets/sprites/map/Spaceship/background.png" id="1_krvlx"]
 [ext_resource type="Texture2D" uid="uid://bbwtu422q5q3t" path="res://assets/sprites/map/Spaceship/foreground_pipes.png" id="2_elrx7"]
@@ -6,9 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://kfintc48fnii" path="res://assets/sprites/map/Spaceship/props.png" id="4_g0lot"]
 [ext_resource type="Texture2D" uid="uid://muw3551a68sd" path="res://assets/sprites/map/Spaceship/tileset.png" id="5_2km4p"]
 [ext_resource type="Texture2D" uid="uid://dh4gcjmn2qfyh" path="res://assets/sprites/selfmade/spaceship_door_locked.png" id="6_o77e3"]
+[ext_resource type="Texture2D" uid="uid://qpyr384203kn" path="res://assets/sprites/photos/Photo_Front.jpg" id="8_ep5ux"]
 [ext_resource type="PackedScene" uid="uid://cn5jhs1qws61g" path="res://scenes/interactables/objects/photo.tscn" id="9_g0lot"]
 [ext_resource type="PackedScene" uid="uid://bo5pcx0bd2gfx" path="res://scenes/interactables/objects/diary.tscn" id="10_2km4p"]
 [ext_resource type="PackedScene" uid="uid://dhyl0rqmojucp" path="res://scenes/interactables/doors/door.tscn" id="10_172bc"]
+[ext_resource type="Texture2D" uid="uid://cjdbq7hs0se5g" path="res://assets/sprites/selfmade/waldgeist-32x (8).png" id="10_khykm"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="10_o77e3"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="11_1oksb"]
 [ext_resource type="Script" uid="uid://btvvee8ehjidi" path="res://scripts/riddles/spaceship_door/spaceship_door_door.gd" id="11_emg07"]
@@ -16,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://c7pwwu6560hy4" path="res://assets/sprites/selfmade/spaceship_door_open.png" id="13_b8ov6"]
 [ext_resource type="PackedScene" uid="uid://bpvneidk4xerj" path="res://scenes/Riddles/Spaceship/spaceship_door_riddle.tscn" id="14_1oksb"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="15_emg07"]
+[ext_resource type="PackedScene" uid="uid://dnkkw646t7d07" path="res://scenes/UI/testBtn/test.tscn" id="17_8o1ua"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oegse"]
 texture = ExtResource("1_krvlx")
@@ -1244,7 +1247,7 @@ sources/5 = SubResource("TileSetAtlasSource_2km4p")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_emg07"]
 shader = ExtResource("11_1oksb")
 shader_parameter/outline_size = 2.0
-shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_color = Vector4(1, 1, 1, 1)
 
 [node name="Spaceship" type="Node2D"]
 
@@ -1281,6 +1284,7 @@ polygon = PackedVector2Array(-112, -75, 59, -77, 58, -42, 135, -42, 135, -78, 30
 
 [node name="Photo" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("9_g0lot")]
 position = Vector2(16, 8)
+item_icon = ExtResource("8_ep5ux")
 e_popup_node = NodePath("Press_E_Popup_Photo")
 
 [node name="Press_E_Popup_Photo" parent="Objects/Photo" instance=ExtResource("10_o77e3")]
@@ -1293,6 +1297,7 @@ scale = Vector2(1.6, 1.6)
 
 [node name="Diary" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("10_2km4p")]
 position = Vector2(177, 104)
+item_icon = ExtResource("10_khykm")
 e_popup_node = NodePath("Press_E_Popup_Diary")
 
 [node name="Press_E_Popup_Diary" parent="Objects/Diary" instance=ExtResource("10_o77e3")]
@@ -1353,3 +1358,5 @@ zoom = Vector2(3, 3)
 layer = 0
 
 [node name="Hotbar" parent="Hotbar" instance=ExtResource("15_emg07")]
+
+[node name="Test" parent="." instance=ExtResource("17_8o1ua")]

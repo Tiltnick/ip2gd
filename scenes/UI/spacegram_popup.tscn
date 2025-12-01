@@ -135,11 +135,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_dn4hv")
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel"]
-position = Vector2(16.500015, 16.10003)
-scale = Vector2(0.087136924, 0.087136924)
-texture = ExtResource("1_p3422")
-
 [node name="Label" type="Label" parent="CanvasLayer/Panel"]
 layout_mode = 0
 offset_left = 35.0
@@ -151,8 +146,11 @@ theme_override_colors/font_color = Color(0.105882354, 0.25882354, 0.25882354, 1)
 theme_override_constants/line_spacing = -32
 theme_override_fonts/font = ExtResource("2_dn4hv")
 theme_override_font_sizes/font_size = 128
-text = "Use Spacegram to
-solve this riddle!"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel"]
+position = Vector2(18.137207, 16.046967)
+scale = Vector2(0.087136924, 0.087136924)
+texture = ExtResource("1_p3422")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

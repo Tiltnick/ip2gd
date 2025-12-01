@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c43osb4yewrwo"]
 
-[ext_resource type="Script" uid="uid://dlex8u5yrmfmy" path="res://scripts/menu/settings_button.gd" id="1_21ea7"]
+[ext_resource type="Script" uid="uid://dlex8u5yrmfmy" path="res://scripts/menu/settings/settings_button.gd" id="1_21ea7"]
 [ext_resource type="Texture2D" uid="uid://cgmo1vfleetle" path="res://assets/sprites/ui/settings 1.png" id="2_xf7nn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qiev"]

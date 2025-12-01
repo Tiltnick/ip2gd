@@ -29,6 +29,7 @@ hotbarglobal="*res://scripts/hotbarglobal.gd"
 DialogManager="*res://scenes/dialog/dialog_manager.tscn"
 SettingsButton="*res://scenes/Menues/settings_button.tscn"
 SettingsMenu="*res://scenes/Menues/settings_menu.tscn"
+PopupManager="*res://scripts/UI/PopupManager.gd"
 
 [dialogic]
 
