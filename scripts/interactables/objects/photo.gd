@@ -1,5 +1,6 @@
 extends Interactable
 class_name Photo
+#icon for itemfound popup in inspector
 @export var item_icon: Texture2D 
 @export var spawned_from_hotbar: bool = false
 # Spätere Slots
@@ -40,6 +41,7 @@ func _store_in_hotbar():
 	# Photo als aufgehoben markieren
 	if not spawned_from_hotbar and not GameState.picked_items.has("photo_1"):
 		GameState.picked_items.append("photo_1")
+		#Item Found popup
 		PopupManager.popup_item("Photo",item_icon)
 
 	# Nicht nochmal in hotbar speichern

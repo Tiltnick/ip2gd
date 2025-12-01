@@ -1,8 +1,8 @@
 extends Control
 
 @onready var anim := $AnimationPlayer
-@onready var icon: Sprite2D = $CanvasLayer/Panel/Sprite2D
 @onready var label: Label = $CanvasLayer/Panel/Label
+@onready var icon: TextureRect = $CanvasLayer/Panel/TextureRect
 
 func _ready():
 	visible = false
