@@ -3,25 +3,29 @@ class_name HotbarSlot
 
 @onready var icon := $Icon
 @onready var key_label := $"Label for Keys"
+
 @export var show_shadow: bool = true
 @export var show_key_label := true
 
-
 var slot_index := -1
-signal pressed(slot_index)
+var click_callback: Callable = Callable()
 
-# Maximalgröße des Icons im Slot
 const SLOT_ICON_SIZE = Vector2(64, 64)
 
 func _ready():
 	if not show_shadow:
 		_disable_shadow()
-		
+
 func _gui_input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		emit_signal("pressed", slot_index)
+		if click_callback:
+			click_callback.call(slot_index)
 
-		
+# Wird con hotbar u. iventory gesetzt
+func set_click_callback(func_ref):
+	click_callback = func_ref
+
+
 func set_item_icon(item_id: String):
 	if not icon or item_id == null:
 		clear_icon()
@@ -57,8 +61,7 @@ func _disable_shadow():
 		new_style.shadow_size = 0
 		new_style.shadow_color = Color(0,0,0,0)
 		$Background.set("theme_override_styles/panel", new_style)
-		
-		
+
 func set_slot_index(i: int):
 	slot_index = i
 
