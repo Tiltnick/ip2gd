@@ -2,7 +2,10 @@ extends Control
 class_name HotbarSlot
 
 @onready var icon := $Icon
+@onready var key_label := $"Label for Keys"
 @export var show_shadow: bool = true
+@export var show_key_label := true
+
 
 var slot_index := -1
 signal pressed(slot_index)
@@ -17,8 +20,6 @@ func _ready():
 func _gui_input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		emit_signal("pressed", slot_index)
-
-
 
 		
 func set_item_icon(item_id: String):
@@ -44,7 +45,6 @@ func set_item_icon(item_id: String):
 		clear_icon()
 
 
-
 func clear_icon():
 	if icon:
 		icon.texture = null
@@ -57,3 +57,13 @@ func _disable_shadow():
 		new_style.shadow_size = 0
 		new_style.shadow_color = Color(0,0,0,0)
 		$Background.set("theme_override_styles/panel", new_style)
+		
+		
+func set_slot_index(i: int):
+	slot_index = i
+
+	if show_key_label and key_label:
+		key_label.text = str(i + 1)
+	else:
+		if key_label:
+			key_label.visible = false

@@ -1,5 +1,8 @@
 extends Control
 
+@export var show_key_label := false
+
+
 var slots = []
 
 func _ready():
@@ -14,15 +17,11 @@ func _ready():
 	# Slots indizieren & Signale verbinden
 	for i in range(slots.size()):
 		if slots[i].has_method("set_item_icon"):
-			slots[i].slot_index = i
+			#slots[i].slot_index = i
+			slots[i].set_slot_index(i)
 			slots[i].connect("pressed", Callable(self, "_on_slot_pressed"))
 
 	update_slots()
-
-
-
-
-
 
 func update_slots():
 	for i in range(slots.size()):
