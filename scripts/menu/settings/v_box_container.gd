@@ -9,8 +9,10 @@ extends VBoxContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	if GameState.music_setting != null:
+		slider_music.value = GameState.music_setting
+	if GameState.sound_setting != null:
+		slider_sound.value = GameState.sound_setting
 
 #music gets muted
 func _on_button_music_l_pressed() -> void:
@@ -31,14 +33,14 @@ func _on_button_sound_l_pressed() -> void:
 	button_soundL.hide()
 	button_soundM.show()
 	slider_sound.value = -80
-	WorldAudioManager.set_sfx_volume(slider_sound.value)
+	WorldAudioManager.set_sound_volume(slider_sound.value)
  
 # sfx gets unmuted
 func _on_button_sound_m_pressed() -> void:
 	button_soundL.show()
 	button_soundM.hide()
 	slider_sound.value = 0
-	WorldAudioManager.set_sfx_volume(slider_sound.value)
+	WorldAudioManager.set_sound_volume(slider_sound.value)
 
 
 func _on_h_slider_2_value_changed(value: float) -> void:

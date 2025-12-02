@@ -21,8 +21,8 @@ var picked_items: Array = []
 # Puzzle-Items (Fix für deinen New Game Fehler)
 var puzzle_items: Array = []
 
-var sound_settings: Array = []
-
+var sound_setting: float
+var music_setting: float
 
 # Funktion -> Dic wird geupdated
 func to_dict() -> Dictionary:
@@ -35,7 +35,8 @@ func to_dict() -> Dictionary:
 		},
 		"picked_items": picked_items,
 		"puzzle_items": puzzle_items,
-		"sound_settings": sound_settings
+		"music_setting":music_setting,
+		"sound_setting":sound_setting
 	}
 	
 
@@ -59,5 +60,7 @@ func from_dict(data: Dictionary) -> void:
 	if data.has("puzzle_items"):
 		puzzle_items = data["puzzle_items"]
 		
-	if data.has("sound_settings"):
-		sound_settings = data["sound_settings"]
+	if data.has("sound_setting"):
+		sound_setting = data["sound_setting"]
+	if data.has("music_setting"):
+		music_setting = data["music_setting"]

@@ -10,6 +10,8 @@ func _ready():
 	bgm_musicplayer.bus = "Music"
 	sfx_musicplayer.bus = "SFX"
 	
+	
+	
 func play_bgm(stream: AudioStreamInteractive):
 	bgm_musicplayer.stream = stream
 	bgm_musicplayer.play()
@@ -26,8 +28,12 @@ func set_music_volume(percent: float):
 	percent = clamp(percent, 0, 100)
 	var db = lerp(MIN_VOLUME_DB, MAX_VOLUME_DB, percent / 100.0)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), db)
+	GameState.music_setting = db
+	SaveSystem.save_game()
 	
 func set_sound_volume(percent: float):
 	percent = clamp(percent, 0, 100)
 	var db = lerp(MIN_VOLUME_DB, MAX_VOLUME_DB, percent / 100.0)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), db)
+	GameState.sound_setting = db
+	SaveSystem.save_game()
