@@ -13,11 +13,12 @@ func _ready():
 
 	popup.visible = false
 
-
+#use insta popup
 func popup_show():
 	popup.show_popup("Use Spacegram to 
 	solve this riddle!", load("res://assets/sprites/selfmade/Spacegram_Logo.png") as Texture2D)
 	
+#found item popup
 func popup_item(item: String, icon: Texture2D):
 	popup.show_popup("Item found: 
 		" + item, icon)

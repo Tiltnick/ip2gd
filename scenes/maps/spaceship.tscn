@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://csejhruust020"]
+[gd_scene load_steps=27 format=4 uid="uid://csejhruust020"]
 
 [ext_resource type="Texture2D" uid="uid://kxs6kkm0ut6w" path="res://assets/sprites/map/Spaceship/background.png" id="1_krvlx"]
 [ext_resource type="Texture2D" uid="uid://bbwtu422q5q3t" path="res://assets/sprites/map/Spaceship/foreground_pipes.png" id="2_elrx7"]
@@ -18,7 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://c7pwwu6560hy4" path="res://assets/sprites/selfmade/spaceship_door_open.png" id="13_b8ov6"]
 [ext_resource type="PackedScene" uid="uid://bpvneidk4xerj" path="res://scenes/Riddles/Spaceship/spaceship_door_riddle.tscn" id="14_1oksb"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="15_emg07"]
-[ext_resource type="PackedScene" uid="uid://dnkkw646t7d07" path="res://scenes/UI/testBtn/test.tscn" id="17_8o1ua"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oegse"]
 texture = ExtResource("1_krvlx")
@@ -1358,5 +1357,3 @@ zoom = Vector2(3, 3)
 layer = 0
 
 [node name="Hotbar" parent="Hotbar" instance=ExtResource("15_emg07")]
-
-[node name="Test" parent="." instance=ExtResource("17_8o1ua")]

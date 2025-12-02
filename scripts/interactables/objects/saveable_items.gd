@@ -20,4 +20,5 @@ func _ready() -> void:
 func mark_collected() -> void:
 	if save_id != "":
 		GameState.puzzle_state[save_id] = true
+		#found item popup
 		PopupManager.popup_item(save_id, item_icon)
