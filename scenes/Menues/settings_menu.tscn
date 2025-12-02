@@ -596,7 +596,7 @@ theme = SubResource("Theme_cm8sp")
 theme_override_styles/slider = SubResource("StyleBoxLine_pmovl")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_8hd3w")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_8hd3w")
-value = 50.0
+value = 100.0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
@@ -635,7 +635,7 @@ size_flags_vertical = 4
 theme_override_styles/slider = SubResource("StyleBoxLine_pmovl")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_b85bu")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_b85bu")
-value = 50.0
+value = 100.0
 
 [node name="CloseButton" type="Button" parent="."]
 process_mode = 3

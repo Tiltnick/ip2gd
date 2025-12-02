@@ -15,6 +15,9 @@ func _on_close_button_pressed() -> void:
 	Visibility_Button.update_visibility(path)
 	SettingsButton.show()
 	SettingsMenu.hide()
+	WorldAudioManager.play_sfx(load("res://assets/sound/sfx/ButtonClick.wav"))
+
+
 
 func _on_controls_pressed() -> void:
 	control_menu.show()
@@ -22,7 +25,7 @@ func _on_controls_pressed() -> void:
 	sound_menu.hide()
 	graphics.set_pressed_no_signal(false)
 	sound.set_pressed_no_signal(false)
-
+	WorldAudioManager.play_sfx(load("res://assets/sound/sfx/ButtonClick.wav"))
 
 func _on_graphics_pressed() -> void:
 	graphics_menu.show()
@@ -30,11 +33,12 @@ func _on_graphics_pressed() -> void:
 	sound_menu.hide()
 	controls.set_pressed_no_signal(false)
 	sound.set_pressed_no_signal(false)
-
+	WorldAudioManager.play_sfx(load("res://assets/sound/sfx/ButtonClick.wav"))
 func _on_sound_pressed() -> void:
 	sound_menu.show()
 	graphics_menu.hide()
 	control_menu.hide()
 	controls.set_pressed_no_signal(false)
 	graphics.set_pressed_no_signal(false)
+	WorldAudioManager.play_sfx(load("res://assets/sound/sfx/ButtonClick.wav"))
 	
