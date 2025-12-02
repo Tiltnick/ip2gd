@@ -17,9 +17,11 @@ func _ready():
 		_disable_shadow()
 
 func _gui_input(event):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if event is InputEventMouseButton and event.pressed:
+		print("Slot", slot_index, "hat Klick bekommen")
 		if click_callback:
 			click_callback.call(slot_index)
+
 
 # Wird con hotbar u. iventory gesetzt
 func set_click_callback(func_ref):
