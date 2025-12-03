@@ -260,6 +260,7 @@ corner_radius_bottom_left = 62
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6icie"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
