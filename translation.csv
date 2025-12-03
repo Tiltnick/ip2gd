@@ -1,15 +1,15 @@
 keys,en,de
-SETTINGS,Settings,Einstellungen
+SETTINGS,SETTINGS,EINSTELLUNGEN
 CONTROLS,Controls,Steuerung
 GRAPHICS,Graphics,Grafik
 SOUND,Sound,Audio
-MOVE_UP,Move up,Nach oben bewegen
-MOVE_DOWN,Move down,Nach unten bewegen
-MOVE_LEFT,Move left,Nach links bewegen
-MOVE_RIGHT,Move right,Nach rechts bewegen
+MOVE_UP,Move up,Nach oben
+MOVE_DOWN,Move down,Nach unten
+MOVE_LEFT,Move left,Nach links
+MOVE_RIGHT,Move right,Nach rechts
 RUN,Run,Rennen
 INTERACT_PICKUP,Interact / Pick up,Interagieren / Aufheben
-HOTBAR_SLOTS,Hotbar slots,Schnellzugriffsplätze
+HOTBAR_SLOTS,Hotbar slots,Hotbar slots
 EXIT_GAME,Exit game,Spiel beenden
 DIALOGUE,Dialogue,Dialog
 LANGUAGE,Language,Sprache
