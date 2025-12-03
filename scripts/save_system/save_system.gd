@@ -3,6 +3,29 @@ extends Node
 # Speicherort
 const SAVE_PATH := "user://savegame.json"
 
+# Autosave Time
+const AUTOSAVE_INTERVAL := 120.0
+var autosave_timer: Timer
+
+
+func _ready() -> void:
+	# Timer für autosaves
+	autosave_timer = Timer.new()
+	autosave_timer.wait_time = AUTOSAVE_INTERVAL
+	autosave_timer.one_shot = false
+	autosave_timer.autostart = true
+	add_child(autosave_timer)
+	autosave_timer.timeout.connect(_on_autosave_timeout)
+
+
+func _on_autosave_timeout() -> void:
+	# Nur im Spiel speichern wenn player da ist
+	var players := get_tree().get_nodes_in_group("player")
+	if players.is_empty():
+		return
+
+	save_game()
+	print("Autosave durchgeführt")
 
 # Daten werden aus GameState geladen
 func save_game() -> void:
@@ -20,7 +43,7 @@ func save_game() -> void:
 		return
 
 	file.store_string(JSON.stringify(data))
-	# Besitzt Speicherstand
+	# Bestätigt Speicherstand
 	GameState.has_save = true
 
 

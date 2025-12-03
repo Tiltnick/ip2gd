@@ -34,6 +34,7 @@ func _on_exit_button_pressed() -> void:
 
 	# Spielstand speichern
 	SaveSystem.save_game()
+	print("Spiel gespeichert")
 	GameState.has_save = true
 
 	# Spiel wieder "entpausen" für Main menu
