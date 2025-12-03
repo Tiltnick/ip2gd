@@ -175,7 +175,7 @@ hotbar_4={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://translations/strings.de.translation", "res://translations/strings.en.translation")
+locale/translations=PackedStringArray("res://translation.de.translation", "res://translation.en.translation")
 locale/test="de"
 config/name="IP2GameDevelopment"
 run/main_scene="uid://cc86xpvrn37so"

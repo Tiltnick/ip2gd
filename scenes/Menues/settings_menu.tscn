@@ -293,6 +293,7 @@ tab_alignment = 1
 current_tab = 0
 
 [node name="Settings" type="TabBar" parent="TabContainer"]
+process_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 script = ExtResource("1_dt6qk")
@@ -330,7 +331,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_fv0be")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8q5ut")
 toggle_mode = true
 button_pressed = true
-text = "Controls"
+text = "CONTROLS"
 alignment = 0
 
 [node name="Graphics" type="Button" parent="TabContainer/Settings/Panel/VBoxContainer"]
@@ -348,7 +349,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_g0ydb")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0mqfy")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qhma1")
 toggle_mode = true
-text = "Graphics"
+text = "LANGUAGE"
 alignment = 0
 
 [node name="Sound" type="Button" parent="TabContainer/Settings/Panel/VBoxContainer"]
@@ -366,8 +367,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_g0ydb")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0mqfy")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qhma1")
 toggle_mode = true
-text = "Sound
-"
+text = "SOUND"
 alignment = 0
 
 [node name="GridContainer" type="GridContainer" parent="TabContainer/Settings"]
@@ -386,7 +386,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
-text = "Move up"
+text = "MOVE_UP"
 vertical_alignment = 1
 
 [node name="W" type="Label" parent="TabContainer/Settings/GridContainer"]
@@ -401,7 +401,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
-text = "Move down"
+text = "MOVE_DOWN"
 
 [node name="S" type="Label" parent="TabContainer/Settings/GridContainer"]
 layout_mode = 2
@@ -415,7 +415,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
-text = "Move left"
+text = "MOVE_LEFT"
 
 [node name="A" type="Label" parent="TabContainer/Settings/GridContainer"]
 layout_mode = 2
@@ -429,7 +429,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
-text = "Move right"
+text = "MOVE_RIGHT"
 
 [node name="D" type="Label" parent="TabContainer/Settings/GridContainer"]
 layout_mode = 2
@@ -443,7 +443,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
-text = "Run"
+text = "RUN"
 
 [node name="space2" type="Label" parent="TabContainer/Settings/GridContainer"]
 layout_mode = 2
@@ -457,7 +457,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
-text = "Interact/ Pick up"
+text = "INTERACT_PICKUP"
 
 [node name="E" type="Label" parent="TabContainer/Settings/GridContainer"]
 layout_mode = 2
@@ -471,7 +471,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
-text = "Hotbar slots"
+text = "HOTBAR_SLOTS"
 
 [node name="number" type="Label" parent="TabContainer/Settings/GridContainer"]
 layout_mode = 2
@@ -485,7 +485,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
-text = "Exit game"
+text = "EXIT_GAME"
 
 [node name="esc" type="Label" parent="TabContainer/Settings/GridContainer"]
 layout_mode = 2
@@ -499,7 +499,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_j3pu0")
-text = "Dialogue"
+text = "DIALOGUE"
 
 [node name="space" type="Label" parent="TabContainer/Settings/GridContainer"]
 layout_mode = 2
@@ -522,7 +522,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 50
-text = "Language"
+text = "LANGUAGE"
 
 [node name="OptionButton" type="OptionButton" parent="TabContainer/Settings/HBoxContainer"]
 layout_mode = 2
@@ -569,7 +569,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 50
-text = "Music"
+text = "MUSIC"
 
 [node name="Button_MusicL" type="Button" parent="TabContainer/Settings/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -609,7 +609,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 50
-text = "Sound"
+text = "SOUND_EFFECTS"
 
 [node name="Button_SoundL" type="Button" parent="TabContainer/Settings/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
