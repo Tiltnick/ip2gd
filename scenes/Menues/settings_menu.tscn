@@ -372,17 +372,24 @@ alignment = 0
 
 [node name="GridContainer" type="GridContainer" parent="TabContainer/SETTINGS"]
 layout_direction = 2
-layout_mode = 0
-offset_left = 471.0
-offset_top = 38.0
-offset_right = 1689.0
-offset_bottom = 847.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.26500002
+anchor_top = 0.047000002
+anchor_right = 0.975
+anchor_bottom = 0.95100003
+offset_left = 20.49997
+offset_top = -2.3260002
+offset_right = -7.5
+offset_bottom = -7.958008
+grow_horizontal = 2
 theme_override_constants/h_separation = 785
 theme_override_constants/v_separation = 23
 columns = 2
 
 [node name="MoveUp" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
@@ -398,6 +405,7 @@ text = "W"
 
 [node name="MoveDown" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
@@ -412,6 +420,7 @@ text = "S"
 
 [node name="MoveLeft" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
@@ -426,6 +435,7 @@ text = "A"
 
 [node name="MoveRight" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
@@ -440,6 +450,7 @@ text = "D"
 
 [node name="MoveDown2" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
@@ -454,6 +465,7 @@ text = "shift"
 
 [node name="Interact" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
@@ -468,6 +480,7 @@ text = "E"
 
 [node name="Hotbar" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
@@ -482,6 +495,7 @@ text = "1, 2, 3, 4"
 
 [node name="Exit" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
@@ -496,6 +510,7 @@ text = "esc"
 
 [node name="Dialogue" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_j3pu0")
