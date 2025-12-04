@@ -568,4 +568,5 @@ icon_alignment = 1
 
 [connection signal="pressed" from="TabContainer/DIARY/Panel/PrevButton" to="TabContainer/DIARY" method="_on_prev_button_pressed"]
 [connection signal="pressed" from="TabContainer/DIARY/Panel2/NextButton" to="TabContainer/DIARY" method="_on_next_button_pressed"]
+[connection signal="visibility_changed" from="TabContainer/INVENTORY" to="TabContainer/INVENTORY" method="_on_visibility_changed"]
 [connection signal="pressed" from="CloseButton" to="TabContainer/DIARY" method="_on_close_button_pressed"]

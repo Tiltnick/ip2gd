@@ -41,6 +41,11 @@ func update_ui():
 	if inventory:
 		inventory.update_slots()
 
+		if inventory.is_visible_in_tree():
+			inventory._select_first_item()
+
+
+
 
 func get_item_from_hotbar(slot: int) -> String:
 	return hotbar_items[slot] if slot < hotbar_items.size() else null
