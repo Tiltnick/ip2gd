@@ -11,14 +11,17 @@ func _ready() -> void:
 
 
 func _on_new_g_button_pressed() -> void:
+	play_button_sound()
 	pop_up.open(
 		"New Game?",
 		func(): start_new_game()
+		
 	)
 	
 
 
 func _on_resume_button_pressed() -> void:
+	play_button_sound()
 	# Speicherstand aus GameState
 	var loaded := SaveSystem.load_game()
 	if loaded and GameState.has_save:
@@ -30,6 +33,7 @@ func _on_resume_button_pressed() -> void:
 
 
 func _on_exit_button_pressed() -> void:
+	play_button_sound()
 	pop_up.open(
 		"Exit Game?",
 		func(): exit_game()
@@ -37,10 +41,12 @@ func _on_exit_button_pressed() -> void:
 
 
 func _on_insta_button_pressed() -> void:
+	play_button_sound()
 	OS.shell_open("https://www.instagram.com/oris.is.here?igsh=MXUxNGN5NDc0YTlybQ%3D%3D&utm_source=qr")
 
 
 func _on_discord_button_pressed() -> void:
+	play_button_sound()
 	OS.shell_open("https://discord.gg/jRj5tqUYKx")
 
 
@@ -69,4 +75,8 @@ func start_new_game() -> void:
 
 
 func exit_game() -> void:
+	play_button_sound()
 	get_tree().quit()
+
+func play_button_sound():
+	WorldAudioManager.play_sfx(load("res://assets/sound/sfx/ui_sound.mp3"))
