@@ -40,6 +40,7 @@ func start_dialog(json_path: String) -> void:
 		box.show_line(speaker, text, portrait_path)
 
 		await box.continue_pressed
+		WorldAudioManager.play_sfx(load("res://assets/sound/sfx/ui_sound.mp3"))
 
 		if runtime.is_last_line_in_node() and runtime.has_choices_for_current_node():
 			

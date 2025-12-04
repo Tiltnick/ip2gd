@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://iiffpttjx2ah"
+path="res://.godot/imported/Strange Worlds.wav-2a7b6dee1cc7f3ad84444a2f0f76a8a9.sample"
+
+[deps]
+
+source_file="res://assets/sound/Cozy Tunes (Pro) v1.4/Cozy Tunes (Pro)/Audio/wav/Tracks/Strange Worlds.wav"
+dest_files=["res://.godot/imported/Strange Worlds.wav-2a7b6dee1cc7f3ad84444a2f0f76a8a9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

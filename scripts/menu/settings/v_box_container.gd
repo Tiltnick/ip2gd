@@ -6,61 +6,52 @@ extends VBoxContainer
 @onready var slider_music: HSlider = $HBoxContainer/HSlider_Music
 @onready var slider_sound: HSlider = $HBoxContainer2/HSlider_Sound
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if GameState.music_setting != null:
-		slider_music.value = GameState.music_setting
+		push_warning(GameState.music_setting)
+		slider_music.set_value_no_signal(GameState.music_setting)
 	if GameState.sound_setting != null:
-		slider_sound.value = GameState.sound_setting
+		push_warning(GameState.sound_setting)
+		slider_sound.set_value_no_signal(GameState.sound_setting)
 
-#music gets muted
 func _on_button_music_l_pressed() -> void:
 	button_musicL.hide()
 	button_musicM.show()
 	slider_music.value = 0
-	WorldAudioManager.set_music_volume(slider_music.value)
+	WorldAudioManager.set_music_volume(0)
 
-#music gets unmuted
 func _on_button_music_m_pressed() -> void:
 	button_musicL.show()
 	button_musicM.hide()
-	slider_music.value = 0
-	WorldAudioManager.set_music_volume(slider_music.value)
+	slider_music.value = 100
+	WorldAudioManager.set_music_volume(100)
 
-# sfx gets muted
 func _on_button_sound_l_pressed() -> void:
 	button_soundL.hide()
 	button_soundM.show()
-	slider_sound.value = -80
-	WorldAudioManager.set_sound_volume(slider_sound.value)
- 
-# sfx gets unmuted
+	slider_sound.value = 0
+	WorldAudioManager.set_sound_volume(0)
+
 func _on_button_sound_m_pressed() -> void:
 	button_soundL.show()
 	button_soundM.hide()
-	slider_sound.value = 0
-	WorldAudioManager.set_sound_volume(slider_sound.value)
-
+	slider_sound.value = 100
+	WorldAudioManager.set_sound_volume(100)
 
 func _on_h_slider_2_value_changed(value: float) -> void:
 	if value == 0:
 		button_soundL.hide()
 		button_soundM.show()
-		WorldAudioManager.set_sound_volume(slider_sound.value)
 	else:
 		button_soundL.show()
 		button_soundM.hide()
-		WorldAudioManager.set_sound_volume(slider_sound.value)
-
+	WorldAudioManager.set_sound_volume(value)
 
 func _on_h_slider_value_changed(value: float) -> void:
 	if value == 0:
 		button_musicL.hide()
 		button_musicM.show()
-		WorldAudioManager.set_music_volume(slider_music.value)
 	else:
 		button_musicL.show()
 		button_musicM.hide()
-		WorldAudioManager.set_music_volume(slider_music.value)
-		
+	WorldAudioManager.set_music_volume(value)
