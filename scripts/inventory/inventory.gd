@@ -60,7 +60,7 @@ func _on_slot_clicked(index: int):
 	# slot ist leer
 	if not item_id:
 		$Description/Title.text = "Empty Slot"
-		$Description/Text.text = "Oops, this slot has not been filled with anything yet. Set out to find more items!"
+		$Description/Text.text = "Oops, this slot has not been filled with anything yet. Nothing to see here, just an empty slot!"
 		
 		# Icon anzeigen für "empty"
 		$Description/Slot17.set_item_icon("empty")
