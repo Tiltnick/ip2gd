@@ -48,3 +48,6 @@ func get_item_from_hotbar(slot: int) -> String:
 
 func get_inventory_item(slot: int) -> String:
 	return inventory_items[slot] if slot < inventory_items.size() else null
+
+func get_hotbar_index_of_item(item_id: String) -> int:
+	return hotbar_items.find(item_id)

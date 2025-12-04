@@ -5,6 +5,7 @@ extends Control
 var slots: Array = []
 var selected_slot := -1
 
+
 func _ready():
 	var display = find_child("Display", true, false)
 	if display:
@@ -25,6 +26,8 @@ func _ready():
 			slot.set_click_callback(_on_slot_clicked)
 
 	update_slots()
+	# _select_first_item() NICHT mehr hier aufrufen – das macht jetzt update_slots()
+
 
 
 func update_slots():
@@ -37,6 +40,10 @@ func update_slots():
 			slots[i].clear_icon()
 
 	_update_selected_visuals()
+
+	if selected_slot == -1:
+		_select_first_item()
+
 
 
 func _on_slot_clicked(index: int):
@@ -52,13 +59,22 @@ func _on_slot_clicked(index: int):
 		return
 
 	var data = ItemDatabase.DATA[item_id]
-	print("Item ID:", item_id)
-	print("Aus Datenbank geladen:", data)
 
-
+	# Titel & Beschreibung setzen
 	$Description/Title.text = data.get("name", "Unknown")
 	$Description/Text.text = data.get("description", "Keine Beschreibung")
+
+	# Icon setzen
 	$Description/Slot17.set_item_icon(item_id)
+
+	# Hotbar-Key anzeigen (1–4), falls Item in Hotbar ist
+	var hotbar_index = hotbarglobal.hotbar_items.find(item_id)
+
+	if hotbar_index != -1:
+		$Description/Slot17/"Label for Keys".text = str(hotbar_index + 1)
+	else:
+		$Description/Slot17/"Label for Keys".text = ""
+
 
 
 func _update_selected_visuals():
@@ -71,3 +87,11 @@ func _update_selected_visuals():
 			border.self_modulate = Color(1, 1, 1, 1)    # aktiv
 		else:
 			border.self_modulate = Color(0.6, 0.6, 0.6) # inaktiv
+
+
+
+func _select_first_item():
+	for i in range(hotbarglobal.inventory_items.size()):
+		if hotbarglobal.inventory_items[i] != null:
+			_on_slot_clicked(i)  # setzt selected_slot & UI selbst
+			return

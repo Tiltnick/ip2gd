@@ -105,3 +105,5 @@ func use_slot(slot_index: int):
 		active_item = photo  
 		photo.hotbar_scale = Vector2(0.5, 0.5)
 		photo.hotbar_activate()
+		
+		
