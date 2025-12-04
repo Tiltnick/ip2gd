@@ -293,6 +293,7 @@ tab_alignment = 1
 current_tab = 0
 
 [node name="Settings" type="TabBar" parent="TabContainer"]
+process_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 script = ExtResource("1_dt6qk")
