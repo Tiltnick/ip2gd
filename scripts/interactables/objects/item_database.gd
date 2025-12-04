@@ -15,7 +15,7 @@ var DATA := {
 	"empty": {
 	"name": "Empty Slot",
 	"description": "Oops, this slot has not been filled with anything yet. Nothing to see here, just an empty slot!",
-	"icon": "res://assets/sprites/ui/EmptySlot.png",
+	"icon": "res://assets/sprites/selfmade/EmptySlot.png",
 	"icon_size": Vector2(55, 55)
 }
 
