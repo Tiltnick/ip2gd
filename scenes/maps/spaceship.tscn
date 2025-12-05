@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bpvneidk4xerj" path="res://scenes/Riddles/Spaceship/spaceship_door_riddle.tscn" id="14_1oksb"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="15_emg07"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oegse"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b8ov6"]
 texture = ExtResource("1_krvlx")
 0:0/0 = 0
 1:0/0 = 0
@@ -136,7 +136,7 @@ texture = ExtResource("1_krvlx")
 11:8/0 = 0
 12:8/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_krvlx"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8o1ua"]
 texture = ExtResource("2_elrx7")
 1:0/0 = 0
 2:0/0 = 0
@@ -224,7 +224,7 @@ texture = ExtResource("2_elrx7")
 10:11/0 = 0
 11:11/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_elrx7"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_khykm"]
 texture = ExtResource("3_ikcf1")
 1:0/0 = 0
 4:0/0 = 0
@@ -337,7 +337,7 @@ texture = ExtResource("3_ikcf1")
 1:14/0 = 0
 4:14/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ikcf1"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ep5ux"]
 texture = ExtResource("4_g0lot")
 0:0/0 = 0
 1:0/0 = 0
@@ -679,7 +679,7 @@ texture = ExtResource("4_g0lot")
 19:14/0 = 0
 20:14/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g0lot"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4s1gq"]
 texture = ExtResource("5_2km4p")
 0:0/0 = 0
 1:0/0 = 0
@@ -1223,7 +1223,7 @@ texture = ExtResource("5_2km4p")
 23:24/0 = 0
 24:24/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2km4p"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4nltl"]
 texture = ExtResource("6_o77e3")
 0:0/0 = 0
 1:0/0 = 0
@@ -1234,12 +1234,12 @@ texture = ExtResource("6_o77e3")
 
 [sub_resource type="TileSet" id="TileSet_2km4p"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_oegse")
-sources/1 = SubResource("TileSetAtlasSource_krvlx")
-sources/2 = SubResource("TileSetAtlasSource_elrx7")
-sources/3 = SubResource("TileSetAtlasSource_ikcf1")
-sources/4 = SubResource("TileSetAtlasSource_g0lot")
-sources/5 = SubResource("TileSetAtlasSource_2km4p")
+sources/0 = SubResource("TileSetAtlasSource_b8ov6")
+sources/1 = SubResource("TileSetAtlasSource_8o1ua")
+sources/2 = SubResource("TileSetAtlasSource_khykm")
+sources/3 = SubResource("TileSetAtlasSource_ep5ux")
+sources/4 = SubResource("TileSetAtlasSource_4s1gq")
+sources/5 = SubResource("TileSetAtlasSource_4nltl")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_emg07"]
 shader = ExtResource("11_1oksb")
