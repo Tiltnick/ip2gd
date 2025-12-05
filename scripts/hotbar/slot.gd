@@ -18,7 +18,7 @@ func _ready():
 
 func _gui_input(event):
 	if event is InputEventMouseButton and event.pressed:
-		print("Slot", slot_index, "hat Klick bekommen")
+		print("Slot", slot_index, "wurrde angeklickt")
 		if click_callback:
 			click_callback.call(slot_index)
 
