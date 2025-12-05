@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fgqcatidwwyp"
-path="res://.godot/imported/MrBlob.png-c6844c64f6d52db3e847875cbded719c.ctex"
+uid="uid://cuj8wmgs1padd"
+path="res://.godot/imported/MrBlobs.png-f92b70837a57839d262b3b5681ea6665.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/portrait/MrBlob.png"
-dest_files=["res://.godot/imported/MrBlob.png-c6844c64f6d52db3e847875cbded719c.ctex"]
+source_file="res://assets/sprites/portrait/MrBlobs.png"
+dest_files=["res://.godot/imported/MrBlobs.png-f92b70837a57839d262b3b5681ea6665.ctex"]
 
 [params]
 
