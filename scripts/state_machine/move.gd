@@ -1,11 +1,13 @@
 extends State
 class_name Move
 
-@export var footstep_interval := 0.3
+@export var footstep_interval := 0.5
 var footstep_timer := 0.0
 
+const FOOTSTEP_SOUND := preload("res://assets/sound/Free Footsteps Pack/Concrete 1.wav")
+
 func Enter(_prev: State) -> void:
-	footstep_timer = 0.0
+	pass
 
 func PhysicsUpdate(delta: float) -> void:
 	var input_vector := Vector2(
@@ -22,12 +24,9 @@ func PhysicsUpdate(delta: float) -> void:
 	if input_vector != Vector2.ZERO:
 		footstep_timer -= delta
 		if footstep_timer <= 0.0:
-			WorldAudioManager.play_sfx(load("res://assets/sound/Free Footsteps Pack/Concrete 1.wav"))
+			WorldAudioManager.play_sfx(FOOTSTEP_SOUND)
 			footstep_timer = footstep_interval
-
-
-
-	if input_vector == Vector2.ZERO:
+	else:
 		TransitionTo("idle")
 		return
 
