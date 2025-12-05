@@ -1,7 +1,7 @@
 {
   "id": "mr_blob_intro",
   "characters": {
-	"Mr. Blob": "res://assets/sprites/portrait/mr_blob.png",
+	"Mr. Blob": "res://assets/sprites/portrait/mr_blob.png", #bild einfügen 
 	"Oris": "res://assets/sprites/portrait/oris.png"
   },
 
