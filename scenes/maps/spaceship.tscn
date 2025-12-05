@@ -1244,7 +1244,7 @@ sources/5 = SubResource("TileSetAtlasSource_2km4p")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_emg07"]
 shader = ExtResource("11_1oksb")
 shader_parameter/outline_size = 2.0
-shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_color = Vector4(1, 1, 1, 1)
 
 [node name="Spaceship" type="Node2D"]
 

@@ -7,8 +7,7 @@ extends Control
 func _ready() -> void:
 	# Prüft ob es eine Save-Datei gibt -> Nein = button.disabled
 	resume_button.disabled = not FileAccess.file_exists(SaveSystem.SAVE_PATH)
-	
-
+	WorldAudioManager.play_bgm(load("res://assets/sound/Cozy Tunes (Pro) v1.4/Cozy Tunes (Pro)/Audio/wav/Tracks/Forgotten Biomes.wav"))
 
 func _on_new_g_button_pressed() -> void:
 	play_button_sound()

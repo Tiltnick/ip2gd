@@ -4,7 +4,7 @@ class_name Move
 @export var footstep_interval := 0.5
 var footstep_timer := 0.0
 
-const FOOTSTEP_SOUND := preload("res://assets/sound/Free Footsteps Pack/Concrete 1.wav")
+const FOOTSTEP_SOUND := preload("res://assets/sound/Free Footsteps Pack/Concrete 2.wav")
 
 func Enter(_prev: State) -> void:
 	pass

@@ -14,7 +14,7 @@ func _ready():
 	if GameState.sound_setting != null:
 		set_sound_volume(GameState.sound_setting)
 
-func play_bgm(stream: AudioStreamInteractive):
+func play_bgm(stream: AudioStream):
 	bgm_musicplayer.stream = stream
 	bgm_musicplayer.play()
 
@@ -39,3 +39,4 @@ func set_sound_volume(percent: float):
 	var db = lerp(MIN_VOLUME_DB, MAX_VOLUME_DB, percent / 100.0)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), db)
 	SaveSystem.save_game()
+	

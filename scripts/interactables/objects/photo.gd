@@ -27,6 +27,7 @@ func _ready():
 
 
 func interact():
+	WorldAudioManager.play_sfx((load("res://assets/sound/sfx/ButtonClick.wav")))
 	if not is_zoomed:
 		_zoom_in()
 	elif is_front:

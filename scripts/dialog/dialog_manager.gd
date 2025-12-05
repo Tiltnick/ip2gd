@@ -57,6 +57,7 @@ func start_dialog(json_path: String) -> void:
 				var chosen_id: String = String(chosen.get("id", ""))
 
 				choice_made.emit(chosen_id)
+				WorldAudioManager.play_sfx(load("res://assets/sound/sfx/ui_sound.mp3"))
 				Choice_Store.add_choice_id(chosen_id)
 
 			runtime.choose(selected_index)
