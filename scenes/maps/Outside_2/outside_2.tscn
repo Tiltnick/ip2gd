@@ -2457,16 +2457,18 @@ debug_color = Color(0.9414573, 8.759796e-06, 0.6127085, 0.41960785)
 z_index = 1
 position = Vector2(-672, -624)
 target_scene_path = "uid://bont32rcfqekr"
-e_popup_node = NodePath(".")
+e_popup_node = NodePath("Press_E_Popup_DoorOutside")
 
 [node name="Sprite2D" type="Sprite2D" parent="Door"]
 texture = ExtResource("8_3r0bj")
 
 [node name="Outline" type="Sprite2D" parent="Door"]
+visible = false
 material = SubResource("ShaderMaterial_60fd3")
 texture = ExtResource("8_3r0bj")
 
 [node name="Press_E_Popup_DoorOutside" parent="Door" instance=ExtResource("10_exwp3")]
+visible = false
 z_index = 10
 offset_left = -10.0
 offset_top = -60.0
