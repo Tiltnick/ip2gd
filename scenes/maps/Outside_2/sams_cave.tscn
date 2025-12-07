@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://bont32rcfqekr"]
+[gd_scene load_steps=8 format=4 uid="uid://cbsuctc5xrvkk"]
 
 [ext_resource type="Texture2D" uid="uid://b6keejiu00fdc" path="res://assets/sprites/map/Outside_2/sams_cave/Ground.png" id="1_b510g"]
 [ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="2_tm0c0"]
 [ext_resource type="Texture2D" uid="uid://c0wnpeb24xggh" path="res://assets/sprites/selfmade/light.png" id="3_esekf"]
-[ext_resource type="PackedScene" uid="uid://dkd72f1p1hem2" path="res://scenes/interactables/objects/note.tscn" id="4_esekf"]
+[ext_resource type="PackedScene" uid="uid://bdqvh5ss8a2t4" path="res://scenes/interactables/objects/note.tscn" id="4_esekf"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="5_vquj5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5bvjp"]
@@ -328,17 +328,6 @@ build_mode = 1
 polygon = PackedVector2Array(-720, 128, 751, 128, 753, -781, -723, -781)
 metadata/_edit_lock_ = true
 
-[node name="Character" parent="." instance=ExtResource("2_tm0c0")]
-z_index = 1
-position = Vector2(49, -527)
-
-[node name="PointLight2D" type="PointLight2D" parent="Character"]
-position = Vector2(-1, -11)
-blend_mode = 2
-texture = ExtResource("3_esekf")
-texture_scale = 2.41
-metadata/_edit_lock_ = true
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
 color = Color(0.101960786, 0.101960786, 0.101960786, 1)
@@ -358,3 +347,12 @@ offset_bottom = -39.0
 
 [node name="from_outside" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(-49, 107)
+
+[node name="Character2" parent="." instance=ExtResource("2_tm0c0")]
+position = Vector2(29, -519)
+
+[node name="PointLight2D" type="PointLight2D" parent="Character2"]
+position = Vector2(0, -8)
+blend_mode = 2
+texture = ExtResource("3_esekf")
+texture_scale = 2.41
