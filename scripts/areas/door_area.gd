@@ -25,3 +25,4 @@ func _on_body_entered(body: Node2D) -> void:
 
 	# Szenenwechsel über den SceneManager
 	SceneManager.goto_scene(target_scene_path, target_spawn_id)
+	

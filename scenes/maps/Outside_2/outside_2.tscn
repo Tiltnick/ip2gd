@@ -1,6 +1,6 @@
-[gd_scene load_steps=38 format=4 uid="uid://chb4fo2dp60ho"]
+[gd_scene load_steps=39 format=4 uid="uid://chb4fo2dp60ho"]
 
-[ext_resource type="Script" path="res://scripts/scene_manager/outside_2.gd" id="1_7t2bs"]
+[ext_resource type="Script" uid="uid://f7c56kdptn0k" path="res://scripts/scene_manager/outside_2.gd" id="1_7t2bs"]
 [ext_resource type="Texture2D" uid="uid://djxhqmxg4i62w" path="res://assets/sprites/map/Pixel Crawler - Desert/Pixel Crawler - Desert/Assets/Ground.png" id="1_pj7n5"]
 [ext_resource type="Texture2D" uid="uid://d2ipyfv1dy5j0" path="res://assets/sprites/map/Pixel Crawler - Desert/Pixel Crawler - Desert/Assets/Props.png" id="2_2emao"]
 [ext_resource type="Texture2D" uid="uid://bnlvecgwqacg2" path="res://assets/sprites/map/Pixel Crawler - Desert/Pixel Crawler - Desert/Assets/Sand.png" id="3_7t2bs"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dfkefy5ckqrq3" path="res://scenes/interactables/objects/stones.tscn" id="12_qarrx"]
 [ext_resource type="PackedScene" uid="uid://dd6hsxt7i8tci" path="res://scenes/interactables/objects/sams_spaceship.tscn" id="13_qarrx"]
 [ext_resource type="PackedScene" uid="uid://1uf4f4pkdxpx" path="res://scenes/interactables/objects/treasure.tscn" id="14_hiyfs"]
+[ext_resource type="PackedScene" path="res://scenes/maps/transition_area_fade.tscn" id="17_ew4ox"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r53rl"]
 texture = ExtResource("1_pj7n5")
@@ -2569,3 +2570,5 @@ target_spawn_id = "from_outside2"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea"]
 position = Vector2(-11, 0)
 shape = SubResource("RectangleShape2D_7t2bs")
+
+[node name="TransitionAreaFade2" parent="." instance=ExtResource("17_ew4ox")]
