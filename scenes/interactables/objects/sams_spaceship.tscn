@@ -12,8 +12,9 @@ shader_parameter/outline_color = Vector4(1, 1, 1, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s3dfi"]
 size = Vector2(136, 112)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_flo2d"]
-radius = 38.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hi8wp"]
+radius = 42.0
+height = 118.0
 
 [node name="Sams_Spaceship" type="Node2D"]
 script = ExtResource("1_hi8wp")
@@ -35,5 +36,5 @@ shape = SubResource("RectangleShape2D_s3dfi")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 3)
-shape = SubResource("CircleShape2D_flo2d")
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_hi8wp")
