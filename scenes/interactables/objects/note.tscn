@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkd72f1p1hem2"]
+[gd_scene load_steps=6 format=3 uid="uid://bdqvh5ss8a2t4"]
 
-[ext_resource type="Script" uid="uid://du8wlbbsx7ucu" path="res://scripts/interactables/objects/note.gd" id="1_q8bvt"]
+[ext_resource type="Script" path="res://scripts/interactables/objects/note.gd" id="1_q8bvt"]
 [ext_resource type="Texture2D" uid="uid://cmjj585e7yq5p" path="res://assets/sprites/selfmade/note.png" id="2_h7x0p"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="3_q8bvt"]
 
