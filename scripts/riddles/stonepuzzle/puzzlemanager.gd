@@ -6,7 +6,6 @@ var solved = false
 
 func check_puzzle():
 	var slots = get_tree().get_nodes_in_group("puzzle_slots")
-	
 	for slot in slots:
 		if not slot.is_correct():
 			return

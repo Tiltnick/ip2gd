@@ -2,14 +2,7 @@
 
 [ext_resource type="Script" uid="uid://tw85iqpjjvhe" path="res://scripts/riddles/stonepuzzle/pieces.gd" id="1_op5i6"]
 
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="TextureRect2" type="TextureRect"]
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_op5i6")
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0

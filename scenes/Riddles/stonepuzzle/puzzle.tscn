@@ -1,29 +1,30 @@
-[gd_scene load_steps=15 format=3 uid="uid://1gjnalxntxuw"]
+[gd_scene load_steps=16 format=3 uid="uid://1gjnalxntxuw"]
 
 [ext_resource type="Script" uid="uid://dkhi3k2codxm4" path="res://scripts/riddles/stonepuzzle/puzzlemanager.gd" id="1_h324o"]
-[ext_resource type="Texture2D" uid="uid://cepp6ag8b82sd" path="res://assets/sprites/selfmade/stonepanelpic.png" id="2_2jmxu"]
+[ext_resource type="Texture2D" uid="uid://d2dhafm8sjg5u" path="res://assets/sprites/selfmade/ stonepanel.png" id="2_a3vcf"]
 [ext_resource type="PackedScene" uid="uid://cn2y0847375x0" path="res://scenes/Riddles/stonepuzzle/slot.tscn" id="2_w7ar3"]
-[ext_resource type="Texture2D" uid="uid://dokhqm3lhmyqj" path="res://assets/sprites/selfmade/Piece3.png" id="3_2jmxu"]
 [ext_resource type="PackedScene" uid="uid://mfi04kgorw4j" path="res://scenes/Riddles/stonepuzzle/pieces.tscn" id="3_imsnv"]
-[ext_resource type="Texture2D" uid="uid://cmobxnag0vw6" path="res://assets/sprites/selfmade/Piece4.png" id="4_a3vcf"]
-[ext_resource type="Texture2D" uid="uid://ckasjeqqioe1u" path="res://assets/sprites/selfmade/Piece2.png" id="5_pwhx3"]
-[ext_resource type="Texture2D" uid="uid://43wf8qfb83yu" path="res://assets/sprites/selfmade/Piece5.png" id="6_u54ty"]
-[ext_resource type="Texture2D" uid="uid://d1bgyo2pv8te3" path="res://assets/sprites/selfmade/Piece1.png" id="7_yqnux"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bag6g"]
-size = Vector2(365, 141)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfya4"]
-size = Vector2(192, 600)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1goe"]
-size = Vector2(157, 464.5)
+[ext_resource type="Texture2D" uid="uid://d1bgyo2pv8te3" path="res://assets/sprites/selfmade/Piece1.png" id="5_pwhx3"]
+[ext_resource type="Texture2D" uid="uid://dqakeapwrhy2x" path="res://assets/sprites/selfmade/Piece2.png" id="6_u54ty"]
+[ext_resource type="Texture2D" uid="uid://dokhqm3lhmyqj" path="res://assets/sprites/selfmade/Piece3.png" id="7_yqnux"]
+[ext_resource type="Texture2D" uid="uid://cmobxnag0vw6" path="res://assets/sprites/selfmade/Piece4.png" id="8_bag6g"]
+[ext_resource type="Texture2D" uid="uid://43wf8qfb83yu" path="res://assets/sprites/selfmade/Piece5.png" id="9_qfya4"]
+[ext_resource type="Texture2D" uid="uid://cq3lsm46obs7n" path="res://assets/sprites/selfmade/Piece6.png" id="10_j1goe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d58ip"]
-size = Vector2(201, 225)
+size = Vector2(118, 282.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dlkxu"]
-size = Vector2(329, 326.5)
+size = Vector2(254, 117)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0nwa"]
+size = Vector2(264, 130.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohw0l"]
+size = Vector2(310, 250.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxghu"]
+size = Vector2(348, 184)
 
 [node name="Puzzle" type="Control"]
 layout_mode = 3
@@ -47,41 +48,50 @@ offset_right = 780.0
 offset_bottom = 884.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_2jmxu")
+texture = ExtResource("2_a3vcf")
 
 [node name="Slots" type="Node2D" parent="."]
 
 [node name="slots" parent="Slots" groups=["puzzle_slots"] instance=ExtResource("2_w7ar3")]
+required_piece_id = "piece_1"
 
-[node name="CollisionShape2D" parent="Slots/slots/slot" index="0"]
-position = Vector2(696, 304)
-shape = SubResource("RectangleShape2D_bag6g")
+[node name="CollisionShape2D" parent="Slots/slots" index="0"]
+position = Vector2(692, 261.5)
 
 [node name="slots2" parent="Slots" groups=["puzzle_slots"] instance=ExtResource("2_w7ar3")]
+required_piece_id = "piece_3"
 
-[node name="CollisionShape2D" parent="Slots/slots2/slot" index="0"]
-position = Vector2(984, 540)
-shape = SubResource("RectangleShape2D_qfya4")
-
-[node name="slots3" parent="Slots" groups=["puzzle_slots"] instance=ExtResource("2_w7ar3")]
-
-[node name="CollisionShape2D" parent="Slots/slots3/slot" index="0"]
-position = Vector2(593.5, 624.25)
-shape = SubResource("RectangleShape2D_j1goe")
-
-[node name="slots4" parent="Slots" groups=["puzzle_slots"] instance=ExtResource("2_w7ar3")]
-
-[node name="CollisionShape2D" parent="Slots/slots4/slot" index="0"]
-position = Vector2(780.5, 744.5)
+[node name="CollisionShape2D" parent="Slots/slots2" index="0"]
+position = Vector2(589, 578.75)
 shape = SubResource("RectangleShape2D_d58ip")
 
-[node name="slots5" parent="Slots" groups=["puzzle_slots"] instance=ExtResource("2_w7ar3")]
+[node name="slots3" parent="Slots" groups=["puzzle_slots"] instance=ExtResource("2_w7ar3")]
+required_piece_id = "piece_2"
 
-[node name="CollisionShape2D" parent="Slots/slots5/slot" index="0"]
-position = Vector2(1248, 396.75)
+[node name="CollisionShape2D" parent="Slots/slots3" index="0"]
+position = Vector2(857, 448)
 shape = SubResource("RectangleShape2D_dlkxu")
 
+[node name="slots4" parent="Slots" groups=["puzzle_slots"] instance=ExtResource("2_w7ar3")]
+required_piece_id = "piece_4"
+
+[node name="CollisionShape2D" parent="Slots/slots4" index="0"]
+position = Vector2(812, 793.25)
+shape = SubResource("RectangleShape2D_k0nwa")
+
+[node name="slots5" parent="Slots" groups=["puzzle_slots"] instance=ExtResource("2_w7ar3")]
+required_piece_id = "piece_5"
+
+[node name="CollisionShape2D" parent="Slots/slots5" index="0"]
+position = Vector2(1243, 426.75)
+shape = SubResource("RectangleShape2D_ohw0l")
+
 [node name="slots6" parent="Slots" instance=ExtResource("2_w7ar3")]
+required_piece_id = "piece_6"
+
+[node name="CollisionShape2D" parent="Slots/slots6" index="0"]
+position = Vector2(1216, 764)
+shape = SubResource("RectangleShape2D_pxghu")
 
 [node name="Pieces" type="Control" parent="."]
 anchors_preset = 0
@@ -90,63 +100,57 @@ offset_bottom = 40.0
 
 [node name="Piece1" parent="Pieces" instance=ExtResource("3_imsnv")]
 layout_mode = 0
-offset_left = 1544.0
-offset_top = 40.0
-offset_right = 2157.5999
-offset_bottom = 217.0
-
-[node name="TextureRect2" parent="Pieces/Piece1" index="0"]
-offset_right = 613.6
-offset_bottom = 177.0
-texture = ExtResource("7_yqnux")
+offset_left = 1624.0
+offset_top = 656.0
+offset_right = 2264.0
+offset_bottom = 833.0
+texture = ExtResource("5_pwhx3")
+piece_id = "piece_1"
 
 [node name="Piece2" parent="Pieces" instance=ExtResource("3_imsnv")]
 layout_mode = 0
-offset_left = 1592.0
-offset_top = 240.0
-offset_right = 2401.255
-offset_bottom = 856.0
-
-[node name="TextureRect2" parent="Pieces/Piece2" index="0"]
-offset_right = 809.255
-offset_bottom = 616.0
-texture = ExtResource("5_pwhx3")
+offset_left = -48.0
+offset_top = 32.0
+offset_right = 368.0
+offset_bottom = 458.0
+texture = ExtResource("6_u54ty")
+piece_id = "piece_2"
 
 [node name="Piece3" parent="Pieces" instance=ExtResource("3_imsnv")]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 520.0
-offset_right = 256.0
-offset_bottom = 1072.0
-
-[node name="TextureRect2" parent="Pieces/Piece3" index="0"]
-offset_right = 216.0
-offset_bottom = 552.0
-texture = ExtResource("3_2jmxu")
+offset_left = 1608.0
+offset_top = 48.0
+offset_right = 1824.0
+offset_bottom = 600.0
+texture = ExtResource("7_yqnux")
+piece_id = "piece_3"
 
 [node name="Piece4" parent="Pieces" instance=ExtResource("3_imsnv")]
 layout_mode = 0
-offset_left = 1488.0
-offset_top = 832.0
-offset_right = 1992.0
-offset_bottom = 1144.0
-
-[node name="TextureRect2" parent="Pieces/Piece4" index="0"]
-offset_right = 504.0
-offset_bottom = 312.0
-texture = ExtResource("4_a3vcf")
+offset_left = -120.0
+offset_top = 320.0
+offset_right = 384.0
+offset_bottom = 632.0
+texture = ExtResource("8_bag6g")
+piece_id = "piece_4"
 
 [node name="Piece5" parent="Pieces" instance=ExtResource("3_imsnv")]
 layout_mode = 0
-offset_left = -104.0
-offset_top = 40.0
-offset_right = 336.0
-offset_bottom = 480.0
+offset_left = -144.0
+offset_top = 536.0
+offset_right = 264.0
+offset_bottom = 976.0
+texture = ExtResource("9_qfya4")
+piece_id = "piece_5"
 
-[node name="TextureRect2" parent="Pieces/Piece5" index="0"]
-offset_right = 440.0
-offset_bottom = 440.0
-texture = ExtResource("6_u54ty")
+[node name="Piece6" parent="Pieces" instance=ExtResource("3_imsnv")]
+layout_mode = 0
+offset_left = 1456.0
+offset_top = 768.0
+offset_right = 1976.0
+offset_bottom = 1164.0
+texture = ExtResource("10_j1goe")
+piece_id = "piece_6"
 
 [editable path="Slots/slots"]
 [editable path="Slots/slots2"]
@@ -159,3 +163,4 @@ texture = ExtResource("6_u54ty")
 [editable path="Pieces/Piece3"]
 [editable path="Pieces/Piece4"]
 [editable path="Pieces/Piece5"]
+[editable path="Pieces/Piece6"]
