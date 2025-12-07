@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn2y0847375x0"]
+
+[ext_resource type="Script" uid="uid://bs63h0eiiflfx" path="res://scripts/riddles/stonepuzzle/slot.gd" id="1_870bs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_awkyo"]
+
+[node name="slots" type="Node2D"]
+script = ExtResource("1_870bs")
+
+[node name="slot" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="slot"]
+shape = SubResource("RectangleShape2D_awkyo")

@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://mfi04kgorw4j"]
+[gd_scene load_steps=2 format=3 uid="uid://mfi04kgorw4j"]
 
-[ext_resource type="Script" uid="uid://bihubij1yelih" path="res://scripts/riddles/stonepuzzle/pieces.gd" id="1_op5i6"]
+[ext_resource type="Script" uid="uid://tw85iqpjjvhe" path="res://scripts/riddles/stonepuzzle/pieces.gd" id="1_op5i6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n102s"]
-
-[node name="Pieces" type="Area2D"]
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 script = ExtResource("1_op5i6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_n102s")
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
