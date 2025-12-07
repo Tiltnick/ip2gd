@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjdbq7hs0se5g"
-path="res://.godot/imported/waldgeist-32x (8).png-2b540958d6c736b107bc38e98700c39d.ctex"
+path="res://.godot/imported/diary.png-1c6ecaa2f08134a167ce697d8231c879.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/selfmade/waldgeist-32x (8).png"
-dest_files=["res://.godot/imported/waldgeist-32x (8).png-2b540958d6c736b107bc38e98700c39d.ctex"]
+source_file="res://assets/sprites/selfmade/diary.png"
+dest_files=["res://.godot/imported/diary.png-1c6ecaa2f08134a167ce697d8231c879.ctex"]
 
 [params]
 

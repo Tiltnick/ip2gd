@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://mfi04kgorw4j"]
 
-[ext_resource type="Script" uid="uid://n53cr2evv7m6" path="res://scripts/Riddles/stonepuzzle/pieces.gd" id="1_op5i6"]
+[ext_resource type="Script" uid="uid://bihubij1yelih" path="res://scripts/riddles/stonepuzzle/pieces.gd" id="1_op5i6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n102s"]
 

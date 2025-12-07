@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bo5pcx0bd2gfx"]
 
 [ext_resource type="Script" uid="uid://d3u6au3ypgurn" path="res://scripts/interactables/objects/diary.gd" id="1_1j2xx"]
-[ext_resource type="Texture2D" uid="uid://cjdbq7hs0se5g" path="res://assets/sprites/selfmade/waldgeist-32x (8).png" id="1_4vq8n"]
+[ext_resource type="Texture2D" uid="uid://cjdbq7hs0se5g" path="res://assets/sprites/selfmade/diary.png" id="1_4vq8n"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="3_1j2xx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1j2xx"]

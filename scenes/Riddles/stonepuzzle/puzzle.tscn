@@ -1,4 +1,27 @@
-[gd_scene format=3 uid="uid://1gjnalxntxuw"]
+[gd_scene load_steps=13 format=3 uid="uid://1gjnalxntxuw"]
+
+[ext_resource type="Script" uid="uid://dkhi3k2codxm4" path="res://scripts/riddles/stonepuzzle/puzzlemanager.gd" id="1_h324o"]
+[ext_resource type="Texture2D" uid="uid://d2dhafm8sjg5u" path="res://assets/sprites/selfmade/ stonepanel.png" id="2_2gbiu"]
+[ext_resource type="Texture2D" uid="uid://dkhbdbc6w4pu5" path="res://assets/sprites/selfmade/Piece3.png" id="3_2jmxu"]
+[ext_resource type="Texture2D" uid="uid://b4fwbnnltvacv" path="res://assets/sprites/selfmade/Piece4.png" id="4_a3vcf"]
+[ext_resource type="Texture2D" uid="uid://cvfeerdh4dj52" path="res://assets/sprites/selfmade/Piece2.png" id="5_pwhx3"]
+[ext_resource type="Texture2D" uid="uid://caji3ac66v0w7" path="res://assets/sprites/selfmade/Piece5.png" id="6_u54ty"]
+[ext_resource type="Texture2D" uid="uid://cyn1xf36uuj5k" path="res://assets/sprites/selfmade/Piece1.png" id="7_yqnux"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bag6g"]
+size = Vector2(365, 141)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfya4"]
+size = Vector2(192, 600)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1goe"]
+size = Vector2(157, 464.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d58ip"]
+size = Vector2(201, 225)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlkxu"]
+size = Vector2(329, 326.5)
 
 [node name="Puzzle" type="Control"]
 layout_mode = 3
@@ -7,3 +30,96 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_h324o")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -780.0
+offset_top = -676.0
+offset_right = 780.0
+offset_bottom = 884.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2gbiu")
+
+[node name="Slots" type="Node2D" parent="."]
+
+[node name="Slot1" type="Area2D" parent="Slots"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slots/Slot1"]
+position = Vector2(696, 304)
+shape = SubResource("RectangleShape2D_bag6g")
+
+[node name="Slot2" type="Area2D" parent="Slots"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slots/Slot2"]
+position = Vector2(984, 540)
+shape = SubResource("RectangleShape2D_qfya4")
+
+[node name="Slot3" type="Area2D" parent="Slots"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slots/Slot3"]
+position = Vector2(593.5, 624.25)
+shape = SubResource("RectangleShape2D_j1goe")
+
+[node name="Slot4" type="Area2D" parent="Slots"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slots/Slot4"]
+position = Vector2(780.5, 744.5)
+shape = SubResource("RectangleShape2D_d58ip")
+
+[node name="Slot5" type="Area2D" parent="Slots"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slots/Slot5"]
+position = Vector2(1248, 396.75)
+shape = SubResource("RectangleShape2D_dlkxu")
+
+[node name="Pieces" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Piece3" type="TextureRect" parent="Pieces"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = -128.0
+offset_right = 1856.0
+offset_bottom = 1424.0
+texture = ExtResource("3_2jmxu")
+
+[node name="Piece4" type="TextureRect" parent="Pieces"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = -256.0
+offset_right = 1760.0
+offset_bottom = 1296.0
+texture = ExtResource("4_a3vcf")
+
+[node name="Piece2" type="TextureRect" parent="Pieces"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = -120.0
+offset_right = 1744.0
+offset_bottom = 1432.0
+texture = ExtResource("5_pwhx3")
+
+[node name="Piece5" type="TextureRect" parent="Pieces"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = -88.0
+offset_right = 1616.0
+offset_bottom = 1464.0
+texture = ExtResource("6_u54ty")
+
+[node name="Piece1" type="TextureRect" parent="Pieces"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = -16.0
+offset_right = 1736.0
+offset_bottom = 1536.0
+texture = ExtResource("7_yqnux")
