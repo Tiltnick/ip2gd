@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://mfi04kgorw4j"]
+[gd_scene load_steps=3 format=3 uid="uid://mfi04kgorw4j"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_678q7"]
+[ext_resource type="Script" uid="uid://n53cr2evv7m6" path="res://scripts/Riddles/stonepuzzle/pieces.gd" id="1_op5i6"]
 
-[node name="Pieces" type="Node"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n102s"]
+
+[node name="Pieces" type="Area2D"]
+script = ExtResource("1_op5i6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_678q7")
+shape = SubResource("RectangleShape2D_n102s")
