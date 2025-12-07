@@ -5,10 +5,10 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s257k"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
 border_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
@@ -37,9 +37,9 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 750.0
+offset_left = 710.0
 offset_top = -100.0
-offset_right = -670.0
+offset_right = -710.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_s257k")

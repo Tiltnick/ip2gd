@@ -94,13 +94,12 @@ expand_margin_top = 35.0
 draw_center = false
 border_width_left = 10
 border_width_top = 10
-border_width_right = 10
 border_width_bottom = 10
 border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
 corner_radius_top_left = 10
 expand_margin_left = 21.0
 expand_margin_top = 15.0
-expand_margin_right = 320.0
+expand_margin_right = 250.0
 expand_margin_bottom = 17.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_safip"]
@@ -133,13 +132,12 @@ expand_margin_bottom = 17.0
 draw_center = false
 border_width_left = 10
 border_width_top = 10
-border_width_right = 10
 border_width_bottom = 10
 border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
 corner_radius_bottom_left = 10
 expand_margin_left = 21.0
 expand_margin_top = 15.0
-expand_margin_right = 320.0
+expand_margin_right = 250.0
 expand_margin_bottom = 17.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6icie"]
@@ -268,6 +266,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
 color = Color(0.14509805, 0.14509805, 0.14509805, 0.88235295)
 
 [node name="TabContainer" type="TabContainer" parent="."]
@@ -292,14 +291,14 @@ theme_override_styles/tab_selected = SubResource("StyleBoxFlat_8q5ut")
 tab_alignment = 1
 current_tab = 0
 
-[node name="Settings" type="TabBar" parent="TabContainer"]
+[node name="SETTINGS" type="TabBar" parent="TabContainer"]
 process_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 script = ExtResource("1_dt6qk")
 metadata/_tab_index = 0
 
-[node name="Panel" type="Panel" parent="TabContainer/Settings"]
+[node name="Panel" type="Panel" parent="TabContainer/SETTINGS"]
 layout_mode = 0
 offset_left = -9.0
 offset_top = -9.0
@@ -307,7 +306,7 @@ offset_right = 410.0
 offset_bottom = 867.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qhma1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/SETTINGS/Panel"]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 41.0
@@ -315,7 +314,7 @@ offset_right = 411.0
 offset_bottom = 192.0
 theme_override_constants/separation = 27
 
-[node name="Controls" type="Button" parent="TabContainer/Settings/Panel/VBoxContainer"]
+[node name="Controls" type="Button" parent="TabContainer/SETTINGS/Panel/VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
@@ -331,10 +330,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_fv0be")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8q5ut")
 toggle_mode = true
 button_pressed = true
-text = "Controls"
+text = "CONTROLS"
 alignment = 0
 
-[node name="Graphics" type="Button" parent="TabContainer/Settings/Panel/VBoxContainer"]
+[node name="Graphics" type="Button" parent="TabContainer/SETTINGS/Panel/VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
@@ -349,10 +348,10 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_g0ydb")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0mqfy")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qhma1")
 toggle_mode = true
-text = "Graphics"
+text = "LANGUAGE"
 alignment = 0
 
-[node name="Sound" type="Button" parent="TabContainer/Settings/Panel/VBoxContainer"]
+[node name="Sound" type="Button" parent="TabContainer/SETTINGS/Panel/VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
@@ -367,149 +366,154 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_g0ydb")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0mqfy")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qhma1")
 toggle_mode = true
-text = "Sound
-"
+text = "SOUND"
 alignment = 0
 
-[node name="GridContainer" type="GridContainer" parent="TabContainer/Settings"]
+[node name="GridContainer" type="GridContainer" parent="TabContainer/SETTINGS"]
 layout_direction = 2
-layout_mode = 0
-offset_left = 471.0
-offset_top = 38.0
-offset_right = 1689.0
-offset_bottom = 847.0
-theme_override_constants/h_separation = 785
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.26500002
+anchor_top = 0.037
+anchor_right = 0.95500004
+anchor_bottom = 0.95100003
+offset_left = 74.49997
+offset_top = 8.254
+offset_right = -26.500122
+offset_bottom = -5.958008
+grow_horizontal = 2
+theme_override_constants/h_separation = 700
 theme_override_constants/v_separation = 23
 columns = 2
 
-[node name="MoveUp" type="Label" parent="TabContainer/Settings/GridContainer"]
+[node name="MoveUp" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
-text = "Move up"
+text = "MOVE_UP"
 vertical_alignment = 1
 
-[node name="W" type="Label" parent="TabContainer/Settings/GridContainer"]
+[node name="W" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_safip")
 text = "W"
 
-[node name="MoveDown" type="Label" parent="TabContainer/Settings/GridContainer"]
+[node name="MoveDown" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
-text = "Move down"
+text = "MOVE_DOWN"
 
-[node name="S" type="Label" parent="TabContainer/Settings/GridContainer"]
+[node name="S" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
 text = "S"
 
-[node name="MoveLeft" type="Label" parent="TabContainer/Settings/GridContainer"]
+[node name="MoveLeft" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
-text = "Move left"
+text = "MOVE_LEFT"
 
-[node name="A" type="Label" parent="TabContainer/Settings/GridContainer"]
+[node name="A" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
 text = "A"
 
-[node name="MoveRight" type="Label" parent="TabContainer/Settings/GridContainer"]
+[node name="MoveRight" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
-text = "Move right"
+text = "MOVE_RIGHT"
 
-[node name="D" type="Label" parent="TabContainer/Settings/GridContainer"]
+[node name="D" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
 text = "D"
 
-[node name="MoveDown2" type="Label" parent="TabContainer/Settings/GridContainer"]
+[node name="MoveDown2" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
-text = "Run"
+text = "RUN"
 
-[node name="space2" type="Label" parent="TabContainer/Settings/GridContainer"]
+[node name="space2" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_safip")
 text = "shift"
 
-[node name="Interact" type="Label" parent="TabContainer/Settings/GridContainer"]
+[node name="Interact" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
-text = "Interact/ Pick up"
+text = "INTERACT_PICKUP"
 
-[node name="E" type="Label" parent="TabContainer/Settings/GridContainer"]
+[node name="E" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
 text = "E"
 
-[node name="Hotbar" type="Label" parent="TabContainer/Settings/GridContainer"]
+[node name="Hotbar" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
-text = "Hotbar slots"
+text = "HOTBAR_SLOTS"
 
-[node name="number" type="Label" parent="TabContainer/Settings/GridContainer"]
+[node name="number" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
 text = "1, 2, 3, 4"
 
-[node name="Exit" type="Label" parent="TabContainer/Settings/GridContainer"]
+[node name="Exit" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
-text = "Exit game"
+text = "EXIT_GAME"
 
-[node name="esc" type="Label" parent="TabContainer/Settings/GridContainer"]
+[node name="esc" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
 text = "esc"
 
-[node name="Dialogue" type="Label" parent="TabContainer/Settings/GridContainer"]
+[node name="Dialogue" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_j3pu0")
-text = "Dialogue"
+text = "DIALOGUE"
 
-[node name="space" type="Label" parent="TabContainer/Settings/GridContainer"]
+[node name="space" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_safip")
 text = "space"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Settings"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/SETTINGS"]
 visible = false
 layout_mode = 0
 offset_left = 482.0
@@ -518,14 +522,14 @@ offset_right = 978.0
 offset_bottom = 119.0
 theme_override_constants/separation = 74
 
-[node name="Label" type="Label" parent="TabContainer/Settings/HBoxContainer"]
+[node name="Label" type="Label" parent="TabContainer/SETTINGS/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 50
-text = "Language"
+text = "LANGUAGE"
 
-[node name="OptionButton" type="OptionButton" parent="TabContainer/Settings/HBoxContainer"]
+[node name="OptionButton" type="OptionButton" parent="TabContainer/SETTINGS/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
@@ -550,7 +554,7 @@ popup/item_1/text = "Deutsch"
 popup/item_1/id = 1
 script = ExtResource("5_8q5ut")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/SETTINGS"]
 visible = false
 layout_mode = 0
 offset_left = 482.0
@@ -560,26 +564,27 @@ offset_bottom = 296.0
 theme_override_constants/separation = 6
 script = ExtResource("6_ghnlw")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Settings/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/SETTINGS/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 44
 
-[node name="Music" type="Label" parent="TabContainer/Settings/VBoxContainer/HBoxContainer"]
+[node name="Music" type="Label" parent="TabContainer/SETTINGS/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 50
-text = "Music"
+text = "MUSIC"
 
-[node name="Button_MusicL" type="Button" parent="TabContainer/Settings/VBoxContainer/HBoxContainer"]
+[node name="Button_MusicL" type="Button" parent="TabContainer/SETTINGS/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_j3pu0")
 icon = ExtResource("6_pmovl")
 flat = true
 
-[node name="Button_MusicM" type="Button" parent="TabContainer/Settings/VBoxContainer/HBoxContainer"]
+[node name="Button_MusicM" type="Button" parent="TabContainer/SETTINGS/VBoxContainer/HBoxContainer"]
 visible = false
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -590,7 +595,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_b85bu")
 icon = ExtResource("7_ghnlw")
 flat = true
 
-[node name="HSlider_Music" type="HSlider" parent="TabContainer/Settings/VBoxContainer/HBoxContainer"]
+[node name="HSlider_Music" type="HSlider" parent="TabContainer/SETTINGS/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -598,28 +603,29 @@ theme = SubResource("Theme_cm8sp")
 theme_override_styles/slider = SubResource("StyleBoxLine_pmovl")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_8hd3w")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_8hd3w")
-value = 100.0
+value = 50.0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Settings/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/SETTINGS/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 39
 
-[node name="Sound" type="Label" parent="TabContainer/Settings/VBoxContainer/HBoxContainer2"]
+[node name="Sound" type="Label" parent="TabContainer/SETTINGS/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 50
-text = "Sound"
+text = "SOUND_EFFECTS"
 
-[node name="Button_SoundL" type="Button" parent="TabContainer/Settings/VBoxContainer/HBoxContainer2"]
+[node name="Button_SoundL" type="Button" parent="TabContainer/SETTINGS/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jwi3x")
 icon = ExtResource("6_pmovl")
 flat = true
 
-[node name="Button_SoundM" type="Button" parent="TabContainer/Settings/VBoxContainer/HBoxContainer2"]
+[node name="Button_SoundM" type="Button" parent="TabContainer/SETTINGS/VBoxContainer/HBoxContainer2"]
 visible = false
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -630,14 +636,14 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_safip")
 icon = ExtResource("7_ghnlw")
 flat = true
 
-[node name="HSlider_Sound" type="HSlider" parent="TabContainer/Settings/VBoxContainer/HBoxContainer2"]
+[node name="HSlider_Sound" type="HSlider" parent="TabContainer/SETTINGS/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_styles/slider = SubResource("StyleBoxLine_pmovl")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_b85bu")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_b85bu")
-value = 100.0
+value = 50.0
 
 [node name="CloseButton" type="Button" parent="."]
 process_mode = 3
@@ -658,13 +664,13 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_6icie")
 icon = ExtResource("2_dt6qk")
 icon_alignment = 1
 
-[connection signal="pressed" from="TabContainer/Settings/Panel/VBoxContainer/Controls" to="TabContainer/Settings" method="_on_controls_pressed"]
-[connection signal="pressed" from="TabContainer/Settings/Panel/VBoxContainer/Graphics" to="TabContainer/Settings" method="_on_graphics_pressed"]
-[connection signal="pressed" from="TabContainer/Settings/Panel/VBoxContainer/Sound" to="TabContainer/Settings" method="_on_sound_pressed"]
-[connection signal="pressed" from="TabContainer/Settings/VBoxContainer/HBoxContainer/Button_MusicL" to="TabContainer/Settings/VBoxContainer" method="_on_button_music_l_pressed"]
-[connection signal="pressed" from="TabContainer/Settings/VBoxContainer/HBoxContainer/Button_MusicM" to="TabContainer/Settings/VBoxContainer" method="_on_button_music_m_pressed"]
-[connection signal="value_changed" from="TabContainer/Settings/VBoxContainer/HBoxContainer/HSlider_Music" to="TabContainer/Settings/VBoxContainer" method="_on_h_slider_value_changed"]
-[connection signal="pressed" from="TabContainer/Settings/VBoxContainer/HBoxContainer2/Button_SoundL" to="TabContainer/Settings/VBoxContainer" method="_on_button_sound_l_pressed"]
-[connection signal="pressed" from="TabContainer/Settings/VBoxContainer/HBoxContainer2/Button_SoundM" to="TabContainer/Settings/VBoxContainer" method="_on_button_sound_m_pressed"]
-[connection signal="value_changed" from="TabContainer/Settings/VBoxContainer/HBoxContainer2/HSlider_Sound" to="TabContainer/Settings/VBoxContainer" method="_on_h_slider_2_value_changed"]
-[connection signal="pressed" from="CloseButton" to="TabContainer/Settings" method="_on_close_button_pressed"]
+[connection signal="pressed" from="TabContainer/SETTINGS/Panel/VBoxContainer/Controls" to="TabContainer/SETTINGS" method="_on_controls_pressed"]
+[connection signal="pressed" from="TabContainer/SETTINGS/Panel/VBoxContainer/Graphics" to="TabContainer/SETTINGS" method="_on_graphics_pressed"]
+[connection signal="pressed" from="TabContainer/SETTINGS/Panel/VBoxContainer/Sound" to="TabContainer/SETTINGS" method="_on_sound_pressed"]
+[connection signal="pressed" from="TabContainer/SETTINGS/VBoxContainer/HBoxContainer/Button_MusicL" to="TabContainer/SETTINGS/VBoxContainer" method="_on_button_music_l_pressed"]
+[connection signal="pressed" from="TabContainer/SETTINGS/VBoxContainer/HBoxContainer/Button_MusicM" to="TabContainer/SETTINGS/VBoxContainer" method="_on_button_music_m_pressed"]
+[connection signal="value_changed" from="TabContainer/SETTINGS/VBoxContainer/HBoxContainer/HSlider_Music" to="TabContainer/SETTINGS/VBoxContainer" method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="TabContainer/SETTINGS/VBoxContainer/HBoxContainer2/Button_SoundL" to="TabContainer/SETTINGS/VBoxContainer" method="_on_button_sound_l_pressed"]
+[connection signal="pressed" from="TabContainer/SETTINGS/VBoxContainer/HBoxContainer2/Button_SoundM" to="TabContainer/SETTINGS/VBoxContainer" method="_on_button_sound_m_pressed"]
+[connection signal="value_changed" from="TabContainer/SETTINGS/VBoxContainer/HBoxContainer2/HSlider_Sound" to="TabContainer/SETTINGS/VBoxContainer" method="_on_h_slider_2_value_changed"]
+[connection signal="pressed" from="CloseButton" to="TabContainer/SETTINGS" method="_on_close_button_pressed"]
