@@ -1,17 +1,21 @@
 extends CharacterBody2D
 class_name NPC
 
-@export var move_speed: float = 50.0   
-@export var detect_radius: float = 120.0   
+@export var move_speed: float = 50.0
+@export var detect_radius: float = 120.0
+@export var path_follow: PathFollow2D
 
 @onready var anim: AnimatedSprite2D = $anim
 @onready var outline: AnimatedSprite2D = $Outline
 @onready var detect_area: Area2D = $DetectionArea
 @onready var e_popup_node: Control = $Press_E_Popup_NPC
 
-
 var player_inside := false
 var player: Node2D = null
+
+# Dialog neustarten verhindern
+var dialog_active := false
+
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
@@ -27,22 +31,38 @@ func _process(_delta: float) -> void:
 
 	if player_inside:
 		outline.frame = anim.frame
+		if not dialog_active and Input.is_action_just_pressed("interact"):
+			
+			# Popup ausblenden
+			if e_popup_node:
+				e_popup_node.visible = false
+			
+			# Dialog starten
+			DialogManager.start_dialog("res://dialog/oris_mr_blob.json")
+			
+			# NEU: Dialog läuft → Sperre aktivieren
+			dialog_active = true
 
 
-func _on_body_entered(body):
+func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		player_inside = true
 		outline.visible = true
-		if e_popup_node:
-			e_popup_node.visible = true
-			# Das reicht um einen Dialog zu starten :) 
-			DialogManager.start_dialog("res://dialog/first_level/oris_hex.json")
 
-func _on_body_exited(body):
+		# Nur zeigen, wenn kein Dialog läuft
+		if e_popup_node and not dialog_active:
+			e_popup_node.visible = true
+
+
+func _on_body_exited(body: Node) -> void:
 	if body.is_in_group("player"):
+		# Dialog schließen
 		DialogManager.hide()
+
 		player_inside = false
 		outline.visible = false
+
+		# Popup ausblenden
 		if e_popup_node:
 			e_popup_node.visible = false
-			
+		dialog_active = false

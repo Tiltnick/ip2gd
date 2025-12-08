@@ -23,6 +23,9 @@ var puzzle_items: Array = []
 
 var sound_setting: float
 var music_setting: float
+# Sprache
+var language: String = "en"   
+
 
 # Funktion -> Dic wird geupdated
 func to_dict() -> Dictionary:
@@ -37,6 +40,7 @@ func to_dict() -> Dictionary:
 		"puzzle_items": puzzle_items,
 		"music_setting":music_setting,
 		"sound_setting":sound_setting
+		"language": language,   
 	}
 	
 
@@ -66,3 +70,7 @@ func from_dict(data: Dictionary) -> void:
 	if data.has("music_setting"):
 		music_setting = data["music_setting"]
 		push_warning(music_setting)
+
+	if data.has("language"):                       
+		language = str(data["language"])           
+		TranslationServer.set_locale(language)      

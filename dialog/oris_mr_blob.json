@@ -1,7 +1,7 @@
 {
   "id": "mr_blob_intro",
   "characters": {
-	"Mr. Blob": "res://assets/sprites/portrait/mr_blob.png",
+	"Mr. Blob": "res://assets/sprites/portrait/MrBlobs.png",  
 	"Oris": "res://assets/sprites/portrait/oris.png"
   },
 
@@ -23,7 +23,7 @@
 	  ],
 	  "choices": [
 		{ "id": "oris_meet_1", "text": "Okay, that seems normal!", "next": "oris_meet_1" },
-		{ "id": "oris_meet_2", "text": "Thanks Blobby. What do you want from me though?", "next": "oris_meet_2" }
+		{ "id": "oris_meet_2", "text": "Thanks Blobby.?", "next": "oris_meet_2" }
 	  ]
 	},
 
@@ -34,7 +34,7 @@
 	  ],
 	  "choices": [
 		{ "id": "oris_meet_1", "text": "Okay, that seems normal!", "next": "oris_meet_1" },
-		{ "id": "oris_meet_2", "text": "Thanks Blobby. What do you want from me though?", "next": "oris_meet_2" }
+		{ "id": "oris_meet_2", "text": "Thanks Blobby.", "next": "oris_meet_2" }
 	  ]
 	},
 

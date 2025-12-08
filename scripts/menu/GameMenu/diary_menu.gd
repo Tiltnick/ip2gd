@@ -87,9 +87,6 @@ func _on_next_button_pressed() -> void:
 
 
 func _on_close_button_pressed() -> void:
-	get_tree().paused = false
-	GameMenu.hide()
-	GlobalMenuButton.show()
-	SettingsButton.show()
-	hotbarglobal.hotbar.show()
+	GameMenu.close_menu()
+
 	

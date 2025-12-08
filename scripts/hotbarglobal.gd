@@ -1,35 +1,58 @@
 extends Node
 class_name Hotbarglobal
 
-var items = [null, null, null, null]  
+# 4 Hotbar-Slots
+var hotbar_items = [null, null, null, null]
+
+# 16 Inventory-Slots (4x4)
+var inventory_items = [
+	null, null, null, null,
+	null, null, null, null,
+	null, null, null, null,
+	null, null, null, null
+]
+
 var hotbar: Control
+var inventory: Control
 
+
+# gleichzeitig
 func add_item(item_id: String) -> void:
-	for i in range(items.size()):
-		if items[i] == null:
-			items[i] = item_id
-			if hotbar:
-				hotbar.update_slots()
-			print("Item added to slot ", i)
-			return
-	print("Keine freien Hotbar-Slots!")
+	# Hotbar füllen
+	for i in range(hotbar_items.size()):
+		if hotbar_items[i] == null:
+			hotbar_items[i] = item_id
+			break
+
+	# Inventory füllen
+	for i in range(inventory_items.size()):
+		if inventory_items[i] == null:
+			inventory_items[i] = item_id
+			break
+
+	update_ui()
 
 
-func add_item_to_slot(slot: int, item_id: String):
-	if slot >= 0 and slot < items.size():
-		items[slot] = item_id
+
+func update_ui():
+	if hotbar:
+		hotbar.update_slots()
+
+	if inventory:
+		inventory.update_slots()
+
+		if inventory.is_visible_in_tree():
+			inventory._select_first_item()
 
 
-func activate_slot(slot: int) -> void:
-	var item_id = items[slot]
-	if not item_id:
-		return
 
-	print("Using item from slot %d: %s" % [slot, item_id])
-	
-	if item_id == "photo":
-		var photo_scene = preload("res://scenes/interactables/objects/photo.tscn")
-		var photo = photo_scene.instantiate()
-		get_tree().current_scene.add_child(photo)
-		photo.meta_slot_index = slot
-		photo.hotbar_activate()
+
+func get_item_from_hotbar(slot: int) -> String:
+	return hotbar_items[slot] if slot < hotbar_items.size() else null
+
+
+func get_inventory_item(slot: int) -> String:
+	return inventory_items[slot] if slot < inventory_items.size() else null
+
+func get_hotbar_index_of_item(item_id: String) -> int:
+	return hotbar_items.find(item_id)

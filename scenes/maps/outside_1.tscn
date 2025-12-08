@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://b4r2irdvo1x1b"]
+[gd_scene load_steps=18 format=4 uid="uid://b4r2irdvo1x1b"]
 
 [ext_resource type="Script" uid="uid://ch2sapm3vk3ex" path="res://scripts/scene_manager/outside_1.gd" id="1_ax0hk"]
 [ext_resource type="Texture2D" uid="uid://bfd0d1qqtnli" path="res://assets/sprites/map/Outside_1/Ground.png" id="1_iu6ob"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="7_8xmlc"]
 [ext_resource type="PackedScene" uid="uid://cc56upiuyf8v1" path="res://scenes/Character/npc.tscn" id="8_iqy5x"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="8_myyye"]
+[ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="10_r76a8"]
+[ext_resource type="PackedScene" uid="uid://m8y5i5u6eyka" path="res://scenes/maps/transition_area_fade.tscn" id="11_dkob4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ax0hk"]
 texture = ExtResource("1_iu6ob")
@@ -407,7 +409,16 @@ sources/2 = SubResource("TileSetAtlasSource_iqy5x")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iqy5x"]
 shader = ExtResource("6_8xmlc")
 shader_parameter/outline_size = 2.0
-shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="Curve2D" id="Curve2D_myyye"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 241, -177, 0, 0, 0, 0, 290, -200, 0, 0, 0, 0, 370, -143, 0, 0, 0, 0, 319, -59, 0, 0, 0, 0, 251, -79, 0, 0, 0, 0, 221, -136, 0, 0, 0, 0, 241, -177)
+}
+point_count = 7
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkob4"]
+size = Vector2(219, 20)
 
 [node name="Outside1" type="Node2D"]
 script = ExtResource("1_ax0hk")
@@ -472,11 +483,34 @@ position = Vector2(-63, -30)
 [node name="from_spaceship" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(-120, -31)
 
+[node name="from_outside2" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(287, -247)
+
 [node name="Hotbar" type="CanvasLayer" parent="."]
 layer = 0
 
 [node name="Hotbar" parent="Hotbar" instance=ExtResource("8_myyye")]
 
-[node name="NPC" parent="." instance=ExtResource("8_iqy5x")]
+[node name="NPCPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_myyye")
+
+[node name="NPCPathFollow" type="PathFollow2D" parent="NPCPath"]
+position = Vector2(241, -177)
+rotation = -0.4388593
+
+[node name="NPC" parent="." node_paths=PackedStringArray("path_follow") instance=ExtResource("8_iqy5x")]
 z_index = 1
-position = Vector2(288, -120)
+position = Vector2(288.00003, -120)
+path_follow = NodePath("../NPCPath/NPCPathFollow")
+
+[node name="DoorArea" type="Area2D" parent="."]
+position = Vector2(288, -278)
+script = ExtResource("10_r76a8")
+target_scene_path = "uid://chb4fo2dp60ho"
+target_spawn_id = "from_outside1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea"]
+position = Vector2(-18.5, 0)
+shape = SubResource("RectangleShape2D_dkob4")
+
+[node name="TransitionAreaFade" parent="." instance=ExtResource("11_dkob4")]

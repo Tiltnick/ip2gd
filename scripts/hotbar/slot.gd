@@ -2,22 +2,45 @@ extends Control
 class_name HotbarSlot
 
 @onready var icon := $Icon
+@onready var key_label := $"Label for Keys"
 
-# Maximalgröße des Icons im Slot
+@export var show_shadow: bool = true
+@export var show_key_label := true
+
+var slot_index := -1
+var click_callback: Callable = Callable()
+
 const SLOT_ICON_SIZE = Vector2(64, 64)
 
-func set_item_icon(item_id: String):
-	if not icon:
-		return
-	
-	var path = ""
-	var icon_size = SLOT_ICON_SIZE  
+func _ready():
+	if not show_shadow:
+		_disable_shadow()
 
-	if item_id == "diary":
-		path = "res://assets/sprites/selfmade/waldgeist-32x (8).png"
-	elif item_id == "photo":
-		path = "res://assets/sprites/photos/Photo_Front.jpg"
-		icon_size = Vector2(55, 55)  # Foto extra kleiner
+func _gui_input(event):
+	if event is InputEventMouseButton and event.pressed:
+		print("Slot", slot_index, "wurrde angeklickt")
+		if click_callback:
+			click_callback.call(slot_index)
+
+
+# Wird con hotbar u. iventory gesetzt
+func set_click_callback(func_ref):
+	click_callback = func_ref
+
+
+func set_item_icon(item_id: String):
+	if not icon or item_id == null:
+		clear_icon()
+		return
+
+	if not ItemDatabase.DATA.has(item_id):
+		clear_icon()
+		return
+
+	var data = ItemDatabase.DATA[item_id]
+
+	var path = data.icon
+	var icon_size = data.get("icon_size", SLOT_ICON_SIZE)
 
 	if ResourceLoader.exists(path):
 		icon.texture = load(path)
@@ -31,3 +54,21 @@ func set_item_icon(item_id: String):
 func clear_icon():
 	if icon:
 		icon.texture = null
+
+
+func _disable_shadow():
+	var stylebox: StyleBox = $Background.get("theme_override_styles/panel")
+	if stylebox is StyleBoxFlat:
+		var new_style: StyleBoxFlat = stylebox.duplicate()
+		new_style.shadow_size = 0
+		new_style.shadow_color = Color(0,0,0,0)
+		$Background.set("theme_override_styles/panel", new_style)
+
+func set_slot_index(i: int):
+	slot_index = i
+
+	if show_key_label and key_label:
+		key_label.text = str(i + 1)
+	else:
+		if key_label:
+			key_label.visible = false

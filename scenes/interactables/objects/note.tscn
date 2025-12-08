@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdqvh5ss8a2t4"]
+
+[ext_resource type="Script" path="res://scripts/interactables/objects/note.gd" id="1_q8bvt"]
+[ext_resource type="Texture2D" uid="uid://cmjj585e7yq5p" path="res://assets/sprites/selfmade/note.png" id="2_h7x0p"]
+[ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="3_q8bvt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kcaly"]
+shader = ExtResource("3_q8bvt")
+shader_parameter/outline_size = 2.0
+shader_parameter/outline_color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7x0p"]
+size = Vector2(56, 52)
+
+[node name="Note" type="Node2D"]
+script = ExtResource("1_q8bvt")
+metadata/_custom_type_script = "uid://c6cret5740xna"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_h7x0p")
+
+[node name="Outline" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_kcaly")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_h7x0p")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_h7x0p")
