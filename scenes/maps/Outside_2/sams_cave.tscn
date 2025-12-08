@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bdqvh5ss8a2t4" path="res://scenes/interactables/objects/note.tscn" id="4_esekf"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="5_vquj5"]
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="6_ueyxl"]
+[ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="6_ueyxl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5bvjp"]
 texture = ExtResource("1_b510g")
@@ -370,3 +371,8 @@ position = Vector2(29, -527)
 blend_mode = 2
 texture = ExtResource("3_esekf")
 texture_scale = 2.41
+
+[node name="Hotbar" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Hotbar" parent="Hotbar" instance=ExtResource("6_ueyxl")]
