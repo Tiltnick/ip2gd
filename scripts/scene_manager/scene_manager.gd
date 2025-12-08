@@ -16,6 +16,12 @@ func goto_scene(scene_path: String, spawn_id: String = "start") -> void:
 
 	# Spawn für die nächste scene
 	next_spawn_id = spawn_id
+	
+	# 1. Fade starten
+	TransitionAreaFade.transition()
+
+	# 2. Warten bis der Bildschirm komplett schwarz ist
+	await TransitionAreaFade.transition_finished
 
 	# Deferred laden steht so im docs
 	call_deferred("_deferred_goto_scene", scene_path)
@@ -56,6 +62,7 @@ func _deferred_goto_scene(scene_path: String) -> void:
 
 	# Spieler in der neuen scene spawnen
 	_spawn_player_in_scene(new_scene)
+	
 
 
 func _spawn_player_in_scene(new_scene: Node) -> void:
