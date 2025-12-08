@@ -1,16 +1,17 @@
-[gd_scene load_steps=26 format=4 uid="uid://chb4fo2dp60ho"]
+[gd_scene load_steps=27 format=4 uid="uid://chb4fo2dp60ho"]
 
 [ext_resource type="Script" uid="uid://f7c56kdptn0k" path="res://scripts/scene_manager/outside_2.gd" id="1_7t2bs"]
-[ext_resource type="Texture2D" uid="uid://djxhqmxg4i62w" path="res://assets/sprites/map/Outside_2/Ground.png" id="2_vxisc"]
-[ext_resource type="Texture2D" uid="uid://d2ipyfv1dy5j0" path="res://assets/sprites/map/Outside_2/Props.png" id="3_o6c6f"]
+[ext_resource type="Texture2D" uid="uid://djxhqmxg4i62w" path="res://assets/sprites/map/Pixel Crawler - Desert/Pixel Crawler - Desert/Assets/Ground.png" id="2_vxisc"]
+[ext_resource type="Texture2D" uid="uid://d2ipyfv1dy5j0" path="res://assets/sprites/map/Pixel Crawler - Desert/Pixel Crawler - Desert/Assets/Props.png" id="3_o6c6f"]
 [ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="5_q7d5i"]
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="6_2emao"]
 [ext_resource type="PackedScene" uid="uid://bph2lfcube6e4" path="res://scenes/maps/Outside_2/FadeArea.tscn" id="7_3r0bj"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="10_exwp3"]
+[ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="12_60fd3"]
 [ext_resource type="PackedScene" uid="uid://dfkefy5ckqrq3" path="res://scenes/interactables/objects/stones.tscn" id="12_qarrx"]
 [ext_resource type="PackedScene" uid="uid://dd6hsxt7i8tci" path="res://scenes/interactables/objects/sams_spaceship.tscn" id="13_qarrx"]
 [ext_resource type="PackedScene" uid="uid://1uf4f4pkdxpx" path="res://scenes/interactables/objects/treasure.tscn" id="14_hiyfs"]
-[ext_resource type="PackedScene" path="res://scenes/maps/transition_area_fade.tscn" id="17_ew4ox"]
+[ext_resource type="PackedScene" uid="uid://m8y5i5u6eyka" path="res://scenes/maps/transition_area_fade.tscn" id="17_ew4ox"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r53rl"]
 texture = ExtResource("2_vxisc")
@@ -2168,3 +2169,8 @@ position = Vector2(-11, 0)
 shape = SubResource("RectangleShape2D_7t2bs")
 
 [node name="TransitionAreaFade" parent="." instance=ExtResource("17_ew4ox")]
+
+[node name="Hotbar" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Hotbar" parent="Hotbar" instance=ExtResource("12_60fd3")]

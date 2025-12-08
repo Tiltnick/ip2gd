@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://cbsuctc5xrvkk"]
+[gd_scene load_steps=9 format=4 uid="uid://cbsuctc5xrvkk"]
 
 [ext_resource type="Texture2D" uid="uid://b6keejiu00fdc" path="res://assets/sprites/map/Outside_2/sams_cave/Ground.png" id="1_b510g"]
 [ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="2_tm0c0"]
 [ext_resource type="Texture2D" uid="uid://c0wnpeb24xggh" path="res://assets/sprites/selfmade/light.png" id="3_esekf"]
 [ext_resource type="PackedScene" uid="uid://bdqvh5ss8a2t4" path="res://scenes/interactables/objects/note.tscn" id="4_esekf"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="5_vquj5"]
+[ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="6_ueyxl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5bvjp"]
 texture = ExtResource("1_b510g")
@@ -356,3 +357,8 @@ position = Vector2(0, -8)
 blend_mode = 2
 texture = ExtResource("3_esekf")
 texture_scale = 2.41
+
+[node name="Hotbar" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Hotbar" parent="Hotbar" instance=ExtResource("6_ueyxl")]
