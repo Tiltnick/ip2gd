@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://mfi04kgorw4j"]
+[gd_scene load_steps=3 format=3 uid="uid://mfi04kgorw4j"]
 
 [ext_resource type="Script" uid="uid://tw85iqpjjvhe" path="res://scripts/riddles/stonepuzzle/pieces.gd" id="1_op5i6"]
 
-[node name="TextureRect2" type="TextureRect"]
-offset_right = 40.0
-offset_bottom = 40.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_op5i6"]
+size = Vector2(352, 113)
+
+[node name="Area2D" type="Area2D"]
 script = ExtResource("1_op5i6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_op5i6")

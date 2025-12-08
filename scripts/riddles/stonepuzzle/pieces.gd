@@ -1,40 +1,57 @@
-extends Control
+extends Area2D
+
+signal piece_released
 
 @export var piece_id: String
-@export var rotation_steps = 4
+@export var rotation_steps := 4
 
-var dragging = false
-var drag_offset = Vector2.ZERO #null vector
-var current_slot = null 
+var dragging := false
+var drag_offset := Vector2.ZERO
+var current_slot = null
 
-func _ready() -> void:
-	pass # Replace with function body.
 
-func _gui_input(event: InputEvent) -> void:
+func _ready():
+	input_pickable = true
+
+
+# ✅ Wird NUR beim Klicken auf die Collision ausgelöst
+func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed: #mouse pressed
+		if event.pressed:
 			dragging = true
-			drag_offset = event.position
-		else: #mouse let go
+			drag_offset = global_position - get_global_mouse_position()
+		else:
 			dragging = false
-			assign_to_slot()
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-		rotate_piece()
+			try_assign_to_slot()
+			emit_signal("piece_released")
 
-func assign_to_slot():
-	var overlapping = get_tree().get_nodes_in_group("puzzle_slots")
-	for slot in overlapping:
-		if slot.get_overlapping_areas().has(self):
-			global_position = slot.global_position
-			slot.current_piece = self
-			current_slot = slot
-			return
-		
-	current_slot = null #didn't hit slot
+func try_assign_to_slot():
+	var slots = get_tree().get_nodes_in_group("puzzle_slots")
+	var best_slot: Area2D = null
+	var best_dist := 40  # SNAP-RADIUS (kannst du anpassen)
 
-func rotate_piece():
-	rotation_degrees = (rotation_degrees + (360/rotation_steps)) % 360
+	for slot in slots:
+		var d = global_position.distance_to(slot.global_position)
+		if d < best_dist:
+			best_slot = slot
+			best_dist = d
 
-func _process(delta: float) -> void:
+	# ✅ Wenn schon im richtigen Slot, nichts tun
+	if best_slot == current_slot:
+		return
+
+	# ✅ Alten Slot leeren
+	if current_slot:
+		current_slot.clear()
+		current_slot = null
+
+	# ✅ Neuen Slot setzen
+	if best_slot:
+		best_slot.set_piece(self)
+
+
+
+# ✅ Läuft JEDES Frame → hier passiert das eigentliche Ziehen
+func _process(delta):
 	if dragging:
-		global_position = get_global_mouse_position() - drag_offset
+		global_position = get_global_mouse_position() + drag_offset

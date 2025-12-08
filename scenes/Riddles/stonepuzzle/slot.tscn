@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bs63h0eiiflfx" path="res://scripts/riddles/stonepuzzle/slot.gd" id="1_870bs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awkyo"]
-size = Vector2(348, 117)
+size = Vector2(264, 157)
 
 [node name="slot" type="Area2D"]
 script = ExtResource("1_870bs")

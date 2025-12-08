@@ -108,6 +108,7 @@ window/stretch/mode="canvas_items"
 [global_group]
 
 puzzle_slots=""
+puzzle_pieces=""
 
 [input]
 
