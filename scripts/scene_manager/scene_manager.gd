@@ -109,8 +109,13 @@ func _spawn_player_in_scene(new_scene: Node) -> void:
 			cam.make_current()
 			if new_scene.has_method("configure_camera"):
 				new_scene.call("configure_camera", cam)
+				
+	var point_light := new_scene.get_node_or_null("Field_of_view") as PointLight2D
+	if point_light:
+		point_light.reparent(player, true)
+		point_light.position = Vector2.ZERO
 
-	
+
 	if GameState.should_play_intro_dialog:
 		GameState.should_play_intro_dialog = false
 		DialogManager.start_dialog("res://dialog/spaceship/wakeup.json")

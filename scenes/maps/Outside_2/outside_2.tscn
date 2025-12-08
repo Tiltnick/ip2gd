@@ -1,8 +1,8 @@
 [gd_scene load_steps=26 format=4 uid="uid://chb4fo2dp60ho"]
 
 [ext_resource type="Script" uid="uid://f7c56kdptn0k" path="res://scripts/scene_manager/outside_2.gd" id="1_7t2bs"]
-[ext_resource type="Texture2D" uid="uid://djxhqmxg4i62w" path="res://assets/sprites/map/Outside_2/Ground.png" id="2_vxisc"]
-[ext_resource type="Texture2D" uid="uid://d2ipyfv1dy5j0" path="res://assets/sprites/map/Outside_2/Props.png" id="3_o6c6f"]
+[ext_resource type="Texture2D" uid="uid://djxhqmxg4i62w" path="res://assets/sprites/map/Pixel Crawler - Desert/Pixel Crawler - Desert/Assets/Ground.png" id="2_vxisc"]
+[ext_resource type="Texture2D" uid="uid://d2ipyfv1dy5j0" path="res://assets/sprites/map/Pixel Crawler - Desert/Pixel Crawler - Desert/Assets/Props.png" id="3_o6c6f"]
 [ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="5_q7d5i"]
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="6_2emao"]
 [ext_resource type="PackedScene" uid="uid://bph2lfcube6e4" path="res://scenes/maps/Outside_2/FadeArea.tscn" id="7_3r0bj"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dfkefy5ckqrq3" path="res://scenes/interactables/objects/stones.tscn" id="12_qarrx"]
 [ext_resource type="PackedScene" uid="uid://dd6hsxt7i8tci" path="res://scenes/interactables/objects/sams_spaceship.tscn" id="13_qarrx"]
 [ext_resource type="PackedScene" uid="uid://1uf4f4pkdxpx" path="res://scenes/interactables/objects/treasure.tscn" id="14_hiyfs"]
-[ext_resource type="PackedScene" path="res://scenes/maps/transition_area_fade.tscn" id="17_ew4ox"]
+[ext_resource type="PackedScene" uid="uid://m8y5i5u6eyka" path="res://scenes/maps/transition_area_fade.tscn" id="17_ew4ox"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r53rl"]
 texture = ExtResource("2_vxisc")
@@ -1950,7 +1950,7 @@ a = Vector2(117.75, 3)
 b = Vector2(-119.25, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7t2bs"]
-size = Vector2(132, 20)
+size = Vector2(58, 20)
 
 [node name="Outside2" type="Node2D"]
 script = ExtResource("1_7t2bs")
@@ -2108,7 +2108,7 @@ offset_right = -10.0
 offset_bottom = -54.0
 
 [node name="Stones3" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_qarrx")]
-position = Vector2(-491, -353)
+position = Vector2(-362, -365)
 e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="Objects/Stones3" instance=ExtResource("10_exwp3")]
@@ -2157,6 +2157,9 @@ position = Vector2(1, -10)
 [node name="from_outside1" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(1, 4)
 
+[node name="from_sams_cave" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(-315, -856)
+
 [node name="DoorArea" type="Area2D" parent="."]
 position = Vector2(-345, 297)
 script = ExtResource("6_2emao")
@@ -2168,3 +2171,13 @@ position = Vector2(-11, 0)
 shape = SubResource("RectangleShape2D_7t2bs")
 
 [node name="TransitionAreaFade" parent="." instance=ExtResource("17_ew4ox")]
+
+[node name="DoorArea2" type="Area2D" parent="."]
+position = Vector2(-345, 297)
+script = ExtResource("6_2emao")
+target_scene_path = "uid://cbsuctc5xrvkk"
+target_spawn_id = "from_outside2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea2"]
+position = Vector2(-327, -919)
+shape = SubResource("RectangleShape2D_7t2bs")
