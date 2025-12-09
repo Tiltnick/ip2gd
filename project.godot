@@ -112,6 +112,7 @@ window/stretch/mode="canvas_items"
 
 puzzle_slots=""
 puzzle_pieces=""
+side_slots=""
 
 [input]
 
