@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://cbsuctc5xrvkk"]
+[gd_scene load_steps=11 format=4 uid="uid://cbsuctc5xrvkk"]
 
 [ext_resource type="Texture2D" uid="uid://b6keejiu00fdc" path="res://assets/sprites/map/Outside_2/sams_cave/Ground.png" id="1_b510g"]
 [ext_resource type="Script" uid="uid://j2wrekjoepvn" path="res://scripts/scene_manager/sams_cave.gd" id="1_oqthk"]
 [ext_resource type="Texture2D" uid="uid://c0wnpeb24xggh" path="res://assets/sprites/selfmade/light.png" id="3_esekf"]
 [ext_resource type="PackedScene" uid="uid://bdqvh5ss8a2t4" path="res://scenes/interactables/objects/note.tscn" id="4_esekf"]
+[ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="5_oqthk"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="5_vquj5"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="6_ueyxl"]
 
@@ -357,7 +358,7 @@ position = Vector2(-45, 107)
 
 [node name="DoorArea" type="Area2D" parent="."]
 position = Vector2(-346, 287)
-script = ExtResource("6_ueyxl")
+script = ExtResource("5_oqthk")
 target_scene_path = "uid://chb4fo2dp60ho"
 target_spawn_id = "from_sams_cave"
 
