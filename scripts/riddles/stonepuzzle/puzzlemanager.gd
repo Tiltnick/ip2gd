@@ -1,5 +1,8 @@
 extends Control
-signal puzzle_solved
+
+@onready var solved_puzzle: TextureRect = $TextureRect2
+@onready var pieces: Node2D = $Pieces
+
 
 @export var total_slots := 6
 var solved := false
@@ -30,4 +33,5 @@ func check_puzzle():
 	if not solved:
 		solved = true
 		print(" PUZZLE GELÖST ")
-		emit_signal("puzzle_solved")
+		solved_puzzle.show()
+		pieces.hide()
