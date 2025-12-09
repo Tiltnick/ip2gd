@@ -1,0 +1,51 @@
+{
+  "id": "clue_stone_panel_completion",
+
+  "characters": {
+	"Mr. Blob": "res://assets/sprites/portrait/MrBlobs.png",
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text": "What, you need my help again?" }
+	  ],
+	  "choices": [
+		{ "id": "tablet_yes", "text": "Yeah, I don't understand.", "next": "tablet_yes" },
+		{ "id": "tablet_no", "text": "Not from you.", "next": "end" }
+	  ]
+	},
+
+	"tablet_yes": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text": "Sometimes the whole picture only makes sense when all pieces are in the right place..." }
+	  ],
+	  "choices": [
+		{ "id": "tablet_understand", "text": "Ahh, I understand!", "next": "end" },
+		{ "id": "tablet_dont_get_it", "text": "I don’t get it.", "next": "tablet_dont_get_it" }
+	  ]
+	},
+
+	"tablet_dont_get_it": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "I don’t get it. I need more help." },
+		{ "speaker": "Mr. Blob", "text": "The final placementof the stone pieces should create a picture!" }
+	  ],
+	  "choices": [
+		{ "id": "tablet_realization", "text": "That makes sense.", "next": "panel_realization" }
+	  ]
+	},
+
+	"panel_realization": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Oh, that makes sense!" }
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+	  "lines": []
+	}
+  }
+}
