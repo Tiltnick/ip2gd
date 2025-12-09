@@ -39,7 +39,7 @@ func to_dict() -> Dictionary:
 		"picked_items": picked_items,
 		"puzzle_items": puzzle_items,
 		"music_setting":music_setting,
-		"sound_setting":sound_setting
+		"sound_setting":sound_setting,
 		"language": language,   
 	}
 	

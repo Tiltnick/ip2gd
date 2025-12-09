@@ -1312,17 +1312,17 @@ position = Vector2(240, 176)
 [node name="from_outside" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(272, 116)
 
-[node name="Door" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("10_172bc")]
+[node name="Door" parent="." instance=ExtResource("10_172bc")]
 position = Vector2(272, 72)
 script = ExtResource("11_emg07")
-code_popup_path = NodePath("../SpaceshipDoor")
-puzzle_id = "Spaceship_code"
 target_scene_path = "uid://b4r2irdvo1x1b"
 target_spawn_id = "from_spaceship"
-e_popup_node = NodePath("Press_E_Popup_Door")
+e_popup_node = Object(Control,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":7,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":3,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":-8.000008,"offset_top":-42.000008,"offset_right":11.999992,"offset_bottom":-18.250008,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(0.8, 0.8),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","script":null)
+
+code_popup_path = NodePath("../SpaceshipDoor")
+puzzle_id = "Spaceship_code"
 
 [node name="Press_E_Popup_Door" parent="Door" instance=ExtResource("10_o77e3")]
-visible = false
 z_index = 7
 offset_left = -8.000008
 offset_top = -42.000008
@@ -1336,6 +1336,7 @@ material = SubResource("ShaderMaterial_emg07")
 texture = ExtResource("13_b8ov6")
 
 [node name="Sprite2D" type="Sprite2D" parent="Door"]
+visible = false
 
 [node name="SpaceshipDoor" parent="." instance=ExtResource("14_1oksb")]
 visible = false
