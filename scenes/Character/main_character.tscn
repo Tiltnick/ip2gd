@@ -452,7 +452,7 @@ script = ExtResource("1_3p8r5")
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -16)
+position = Vector2(1, -14)
 sprite_frames = SubResource("SpriteFrames_pnccp")
 animation = &"idle_down"
 autoplay = "idle_down"

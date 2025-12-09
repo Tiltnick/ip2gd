@@ -46,25 +46,32 @@ func _on_discord_button_pressed() -> void:
 
 # Startet ein neues Spiel
 func start_new_game() -> void:
-	# GameState wird gecleart
+	# GameState zurücksetzen
 	GameState.current_area_path = "res://scenes/maps/spaceship.tscn"
 	GameState.puzzle_items = []
 	GameState.puzzle_state = {}
 	GameState.has_save = false
 	GameState.picked_items = []
 
-	# Hotbar-Inhalt zurücksetzen = Feste größe festgelegt in hotbar.gd vorzeitig
-	hotbarglobal.items = [null, null, null, null]
+	# Hotbar + Inventory zurücksetzen
+	hotbarglobal.hotbar_items.fill(null)
+	hotbarglobal.inventory_items.fill(null)
+
+	# UI updaten wenn bereits existiert
 	if hotbarglobal.hotbar:
 		hotbarglobal.hotbar.update_slots()
 
+	if hotbarglobal.inventory:
+		hotbarglobal.inventory.update_slots()
+
 	get_tree().paused = false
 
-	# NEU: Intro-Dialog aktivieren
+	# Intro starten
 	GameState.should_play_intro_dialog = true
 
-	# Scene über SceneManager laden
+	# Szene beginnen
 	SceneManager.goto_scene("res://scenes/maps/spaceship.tscn", "start")
+
 	
 
 

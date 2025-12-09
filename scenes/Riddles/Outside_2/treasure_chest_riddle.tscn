@@ -1,0 +1,169 @@
+[gd_scene load_steps=9 format=3 uid="uid://cxue3cw47klvm"]
+
+[ext_resource type="Script" uid="uid://bwfy1y2qyf3au" path="res://scripts/riddles/treasure_chest/treasure_chest_riddle.gd" id="1_0tp8k"]
+[ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_oso74"]
+[ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="2_0tp8k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vk34"]
+bg_color = Color(0.8804738, 0.6544611, 0.27897492, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.61, 0.419985, 0.06710001, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+shadow_size = 85
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qg3ge"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sltra"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_56wrd"]
+bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tt0ug"]
+
+[node name="TreasureChestRiddle" type="CanvasLayer"]
+script = ExtResource("1_0tp8k")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -553.0
+offset_top = -306.0
+offset_right = 600.0
+offset_bottom = 342.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.34600002
+anchor_top = -0.333
+anchor_right = 1.3670001
+anchor_bottom = 1.3700001
+offset_left = -8.561951
+offset_top = -16.215988
+offset_right = -838.1438
+offset_bottom = -471.76007
+scale = Vector2(1.725, 1.725)
+
+[node name="Panel2" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.141
+anchor_top = 0.15400001
+anchor_right = 0.84800005
+anchor_bottom = 0.82100004
+offset_left = 0.42700195
+offset_top = 0.20799255
+offset_right = 14.75592
+offset_bottom = -0.0079956055
+theme_override_styles/panel = SubResource("StyleBoxFlat_3vk34")
+
+[node name="Label" type="Label" parent="Control/Panel2"]
+layout_mode = 0
+offset_left = 34.5
+offset_top = 47.0
+offset_right = 795.5
+offset_bottom = 119.0
+theme_override_colors/font_color = Color(0.4450618, 0.30112708, 0.037535295, 1)
+theme_override_constants/line_spacing = -13
+theme_override_fonts/font = ExtResource("1_oso74")
+theme_override_font_sizes/font_size = 36
+text = "Um hier zu passieren muss der Spieler die Menge 
+der verschieden Käfer finden, die in der Wüste spazieren!"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel2"]
+layout_mode = 0
+offset_left = 92.999985
+offset_top = 197.0
+offset_right = 467.26898
+offset_bottom = 242.756
+scale = Vector2(1.71, 1.71)
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="Input1" type="LineEdit" parent="Control/Panel2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_oso74")
+alignment = 1
+
+[node name="Input2" type="LineEdit" parent="Control/Panel2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_oso74")
+alignment = 1
+
+[node name="Input3" type="LineEdit" parent="Control/Panel2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_oso74")
+alignment = 1
+
+[node name="EnterButton" type="Button" parent="Control/Panel2"]
+layout_mode = 0
+offset_left = 341.0
+offset_top = 316.0
+offset_right = 482.0
+offset_bottom = 347.0
+theme_override_fonts/font = ExtResource("1_oso74")
+theme_override_font_sizes/font_size = 21
+text = "Verify"
+
+[node name="RoundButtton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -153.0
+offset_top = 40.0
+offset_right = -108.62256
+offset_bottom = 82.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_qg3ge")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sltra")
+theme_override_styles/hover = SubResource("StyleBoxFlat_56wrd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tt0ug")
+icon = ExtResource("2_0tp8k")
+icon_alignment = 1

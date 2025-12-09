@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://dfkefy5ckqrq3"]
+
+[ext_resource type="Script" uid="uid://bdssbm1prbicl" path="res://scripts/interactables/interactable.gd" id="1_hmjdm"]
+[ext_resource type="Texture2D" uid="uid://cb3yev3bevue7" path="res://assets/sprites/map/Outside_2/Stones.png" id="2_dtt1o"]
+[ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="3_0lbwb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7xp05"]
+shader = ExtResource("3_0lbwb")
+shader_parameter/outline_size = 2.0
+shader_parameter/outline_color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmjdm"]
+size = Vector2(71, 70)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hmjdm"]
+radius = 31.016125
+
+[node name="Stones" type="Node2D"]
+script = ExtResource("1_hmjdm")
+metadata/_custom_type_script = "uid://bdssbm1prbicl"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_dtt1o")
+
+[node name="Outline" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_7xp05")
+texture = ExtResource("2_dtt1o")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.5, 2)
+shape = SubResource("RectangleShape2D_hmjdm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_hmjdm")

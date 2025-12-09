@@ -1,10 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://y5kct0mr503d"]
+[gd_scene load_steps=25 format=3 uid="uid://y5kct0mr503d"]
 
+[ext_resource type="Script" uid="uid://c7mgrddxx8c0t" path="res://scripts/menu/GameMenu/menuClose.gd" id="1_jpjjb"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_xn7nl"]
 [ext_resource type="Script" uid="uid://ccwcwotgnlcg2" path="res://scripts/menu/GameMenu/diary_menu.gd" id="2_yqnfc"]
 [ext_resource type="Texture2D" uid="uid://7s3ow47xlbrq" path="res://assets/sprites/ui/icons8-left-arrow-50.png" id="3_fk2nq"]
 [ext_resource type="Texture2D" uid="uid://cld6btb0rssqf" path="res://assets/sprites/ui/icons8-right-arrow-50.png" id="4_c81p2"]
 [ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="5_i2vsb"]
+[ext_resource type="Script" uid="uid://oc34d75xxifh" path="res://scripts/inventory/inventory.gd" id="6_jpjjb"]
+[ext_resource type="PackedScene" uid="uid://bfivg0njs3ku8" path="res://scenes/hotbar/slot.tscn" id="7_d5s1g"]
+[ext_resource type="Shader" uid="uid://bggfs48ys3kc5" path="res://assets/shaders/hide_shadow.gdshader" id="8_5rqpv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0y5o"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -61,6 +65,21 @@ border_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8122"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_82ri6"]
+shader = ExtResource("8_5rqpv")
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b85bu"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
 border_width_left = 4
@@ -103,8 +122,10 @@ corner_radius_bottom_left = 62
 process_mode = 3
 layer = 0
 visible = false
+script = ExtResource("1_jpjjb")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -134,13 +155,13 @@ theme_override_styles/tab_selected = SubResource("StyleBoxFlat_k0ysv")
 tab_alignment = 1
 current_tab = 0
 
-[node name="Diary" type="TabBar" parent="TabContainer"]
+[node name="DIARY" type="TabBar" parent="TabContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 script = ExtResource("2_yqnfc")
 metadata/_tab_index = 0
 
-[node name="Panel" type="Panel" parent="TabContainer/Diary"]
+[node name="Panel" type="Panel" parent="TabContainer/DIARY"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -152,7 +173,7 @@ offset_bottom = 358.5
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2kte2")
 
-[node name="PrevButton" type="Button" parent="TabContainer/Diary/Panel"]
+[node name="PrevButton" type="Button" parent="TabContainer/DIARY/Panel"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -170,7 +191,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_shvcr")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rh350")
 icon = ExtResource("3_fk2nq")
 
-[node name="Header" type="Label" parent="TabContainer/Diary/Panel"]
+[node name="Header" type="Label" parent="TabContainer/DIARY/Panel"]
 layout_mode = 1
 offset_left = 64.0
 offset_top = 28.0
@@ -180,7 +201,7 @@ theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_font_sizes/font_size = 26
 text = "Header"
 
-[node name="Text" type="Label" parent="TabContainer/Diary/Panel"]
+[node name="Text" type="Label" parent="TabContainer/DIARY/Panel"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -196,7 +217,7 @@ text = "Text"
 autowrap_mode = 3
 justification_flags = 162
 
-[node name="Panel2" type="Panel" parent="TabContainer/Diary"]
+[node name="Panel2" type="Panel" parent="TabContainer/DIARY"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -211,7 +232,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8q5ut")
 
-[node name="NextButton" type="Button" parent="TabContainer/Diary/Panel2"]
+[node name="NextButton" type="Button" parent="TabContainer/DIARY/Panel2"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -232,7 +253,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_shvcr")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rh350")
 icon = ExtResource("4_c81p2")
 
-[node name="Text" type="Label" parent="TabContainer/Diary/Panel2"]
+[node name="Text" type="Label" parent="TabContainer/DIARY/Panel2"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -247,7 +268,7 @@ theme_override_font_sizes/font_size = 23
 text = "Text"
 autowrap_mode = 3
 
-[node name="Header" type="Label" parent="TabContainer/Diary/Panel2"]
+[node name="Header" type="Label" parent="TabContainer/DIARY/Panel2"]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 25.0
@@ -256,6 +277,275 @@ offset_bottom = 61.0
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_font_sizes/font_size = 26
 text = "Header"
+
+[node name="INVENTORY" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 21
+script = ExtResource("6_jpjjb")
+metadata/_tab_index = 1
+
+[node name="Display" type="Panel" parent="TabContainer/INVENTORY"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 82.0
+offset_top = -345.5
+offset_right = 922.0
+offset_bottom = 358.5
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_v8122")
+
+[node name="Slot" parent="TabContainer/INVENTORY/Display" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 1
+anchor_left = 0.135
+anchor_top = 0.109000005
+anchor_right = 0.287
+anchor_bottom = 0.282
+offset_left = -0.40000153
+offset_top = -5.236
+offset_right = -64.08
+offset_bottom = -63.028
+scale = Vector2(2, 2)
+
+[node name="Slot2" parent="TabContainer/INVENTORY/Display" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 276.0
+offset_top = 70.5
+offset_right = 340.0
+offset_bottom = 134.5
+scale = Vector2(2, 2)
+
+[node name="Slot3" parent="TabContainer/INVENTORY/Display" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 436.0
+offset_top = 68.5
+offset_right = 500.0
+offset_bottom = 132.5
+scale = Vector2(2, 2)
+
+[node name="Slot4" parent="TabContainer/INVENTORY/Display" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 601.0
+offset_top = 67.5
+offset_right = 665.0
+offset_bottom = 131.5
+scale = Vector2(2, 2)
+
+[node name="Slot5" parent="TabContainer/INVENTORY/Display" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 112.0
+offset_top = 216.5
+offset_right = 176.0
+offset_bottom = 280.5
+scale = Vector2(2, 2)
+
+[node name="Slot6" parent="TabContainer/INVENTORY/Display" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 275.0
+offset_top = 215.5
+offset_right = 339.0
+offset_bottom = 279.5
+scale = Vector2(2, 2)
+
+[node name="Slot7" parent="TabContainer/INVENTORY/Display" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 435.0
+offset_top = 213.5
+offset_right = 499.0
+offset_bottom = 277.5
+scale = Vector2(2, 2)
+
+[node name="Slot8" parent="TabContainer/INVENTORY/Display" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 600.0
+offset_top = 212.5
+offset_right = 664.0
+offset_bottom = 276.5
+scale = Vector2(2, 2)
+
+[node name="Slot9" parent="TabContainer/INVENTORY/Display" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 113.0
+offset_top = 358.5
+offset_right = 177.0
+offset_bottom = 422.5
+scale = Vector2(2, 2)
+
+[node name="Slot10" parent="TabContainer/INVENTORY/Display" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 276.0
+offset_top = 357.5
+offset_right = 340.0
+offset_bottom = 421.5
+scale = Vector2(2, 2)
+
+[node name="Slot11" parent="TabContainer/INVENTORY/Display" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 436.0
+offset_top = 355.5
+offset_right = 500.0
+offset_bottom = 419.5
+scale = Vector2(2, 2)
+
+[node name="Slot12" parent="TabContainer/INVENTORY/Display" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 601.0
+offset_top = 354.5
+offset_right = 665.0
+offset_bottom = 418.5
+scale = Vector2(2, 2)
+
+[node name="Slot13" parent="TabContainer/INVENTORY/Display" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 112.0
+offset_top = 503.5
+offset_right = 176.0
+offset_bottom = 567.5
+scale = Vector2(2, 2)
+
+[node name="Slot14" parent="TabContainer/INVENTORY/Display" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 275.0
+offset_top = 502.5
+offset_right = 339.0
+offset_bottom = 566.5
+scale = Vector2(2, 2)
+
+[node name="Slot15" parent="TabContainer/INVENTORY/Display" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 435.0
+offset_top = 500.5
+offset_right = 499.0
+offset_bottom = 564.5
+scale = Vector2(2, 2)
+
+[node name="Slot16" parent="TabContainer/INVENTORY/Display" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 600.0
+offset_top = 499.5
+offset_right = 664.0
+offset_bottom = 563.5
+scale = Vector2(2, 2)
+
+[node name="Description" type="Panel" parent="TabContainer/INVENTORY"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 978.0
+offset_top = -345.0
+offset_right = 1618.0
+offset_bottom = 359.0
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_v8122")
+
+[node name="Title" type="Label" parent="TabContainer/INVENTORY/Description"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.086
+anchor_right = 0.24400002
+anchor_bottom = 0.15300001
+offset_top = 7.4559975
+offset_right = -0.16000366
+offset_bottom = -3.7120056
+theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_font_sizes/font_size = 26
+text = "Title"
+
+[node name="Text" type="Label" parent="TabContainer/INVENTORY/Description"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = -235.5
+offset_right = 376.0
+offset_bottom = 328.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+theme_override_font_sizes/font_size = 23
+text = "Text"
+autowrap_mode = 3
+justification_flags = 162
+
+[node name="Slot17" parent="TabContainer/INVENTORY/Description" instance=ExtResource("7_d5s1g")]
+material = SubResource("ShaderMaterial_82ri6")
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 416.0
+offset_top = 60.0
+offset_right = 480.0
+offset_bottom = 124.0
+scale = Vector2(2.5, 2.5)
 
 [node name="CloseButton" type="Button" parent="."]
 process_mode = 3
@@ -276,6 +566,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_jwi3x")
 icon = ExtResource("5_i2vsb")
 icon_alignment = 1
 
-[connection signal="pressed" from="TabContainer/Diary/Panel/PrevButton" to="TabContainer/Diary" method="_on_prev_button_pressed"]
-[connection signal="pressed" from="TabContainer/Diary/Panel2/NextButton" to="TabContainer/Diary" method="_on_next_button_pressed"]
-[connection signal="pressed" from="CloseButton" to="TabContainer/Diary" method="_on_close_button_pressed"]
+[connection signal="pressed" from="TabContainer/DIARY/Panel/PrevButton" to="TabContainer/DIARY" method="_on_prev_button_pressed"]
+[connection signal="pressed" from="TabContainer/DIARY/Panel2/NextButton" to="TabContainer/DIARY" method="_on_next_button_pressed"]
+[connection signal="visibility_changed" from="TabContainer/INVENTORY" to="TabContainer/INVENTORY" method="_on_visibility_changed"]
+[connection signal="pressed" from="CloseButton" to="TabContainer/DIARY" method="_on_close_button_pressed"]

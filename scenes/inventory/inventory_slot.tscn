@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://iuoj0p7tw4oi"]
+
+[ext_resource type="Script" uid="uid://cntlmbilgb322" path="res://scripts/hotbar/slot.gd" id="1_u6pog"]
+[ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_c7w7p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0uvgv"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_td8r7"]
+bg_color = Color(0.85, 0.8141584, 0.6545, 0.10980392)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8509804, 0.8156863, 0.654902, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c00wg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="InventorySlot" type="Control"]
+layout_mode = 3
+anchor_right = 0.033
+anchor_bottom = 0.059000004
+offset_right = -63.36
+offset_bottom = -63.720005
+script = ExtResource("1_u6pog")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0uvgv")
+
+[node name="Label for Keys" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 1)
+theme_override_fonts/font = ExtResource("2_c7w7p")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_td8r7")
+text = "1"
+horizontal_alignment = 1
+
+[node name="Border" type="Panel" parent="."]
+z_index = 27
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c00wg")
