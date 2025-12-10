@@ -78,6 +78,10 @@ func dialog_is_finished():
 
 	elif current_dialog_path.contains("outside_2_part_2"):
 		GameState.puzzle_state["blob_revelation_done"] = true
+		
+		
+	elif current_dialog_path.contains("entering_outside_2"):
+		GameState.puzzle_state["outside2_monologue_done"] = true
 
 	current_dialog_path = ""
 

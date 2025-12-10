@@ -1,0 +1,24 @@
+{
+  "id": "oris_discovers_sam",
+
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Oh there's something here..." },
+		{ "speaker": "Oris", "text": "...no, it can't be!" },
+		{ "speaker": "Oris", "text": "Oh my goodness, SAM!" },
+		{ "speaker": "Oris", "text": "No no no, you're... oh no." },
+		{ "speaker": "Oris", "text": "You're gone. How can this be..." }
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+	  "lines": []
+	}
+  }
+}
