@@ -51,9 +51,9 @@ func _process(_delta: float) -> void:
 			
 			var dialog_path: String = ""
 
-			if scene_name == "outside_2":
+			if scene_name == "Outside2":
 				if not GameState.puzzle_state.get("blob_intro_done", false):
-					dialog_path = "res://dialog/dialogueMrBlob/outside_2_part_2.json"
+					dialog_path = "res://dialog/dialogueMrBlob/outside_2_part_1.json"
 				elif not GameState.puzzle_state.get("blob_clue_done", false):
 					dialog_path = "res://dialog/dialogueMrBlob/clue_stone_pile.json"
 				elif not GameState.puzzle_state.get("blob_revelation_done", false):

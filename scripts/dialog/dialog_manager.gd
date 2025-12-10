@@ -19,11 +19,17 @@ func _ready() -> void:
 
 
 func start_dialog(json_path: String) -> void:
+	print("START DIALOG:", json_path)
+
 	is_running = true
 	current_dialog_path = json_path   
 	show()
 	dialog_is_started()
 
+	if not runtime.load_json(json_path):
+		push_error("Dialog konnte nicht geladen werden: " + json_path)
+		dialog_is_finished()
+		return
 
 	# Main loop: show one line, wait for player input -> repeat
 	while not runtime.is_finished():

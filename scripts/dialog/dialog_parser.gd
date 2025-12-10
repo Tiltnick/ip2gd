@@ -11,6 +11,11 @@ var current_node: String = ""
 var line_index: int = 0
 
 func load_json(path: String) -> bool:
+	data = {}
+	portraits = {}
+	current_node = ""
+	line_index = 0
+
 	# Read the JSON file as a string and parse it
 	var json: String = FileAccess.get_file_as_string(path)
 	var parsed: Variant = JSON.parse_string(json)
@@ -47,6 +52,10 @@ func is_finished() -> bool:
 	return current_node == "end"
 
 func get_current_line() -> Dictionary:
+	if not data.has("steps"):
+		push_error("DialogParser: JSON has no 'steps' or was not loaded correctly.")
+		return {}
+
 	if is_finished():
 		return {}
 
@@ -78,6 +87,9 @@ func next() -> void:
 	if is_finished():
 		return
 
+	if not data.has("steps"):
+		return
+
 	var steps: Dictionary = data["steps"] as Dictionary
 	var node: Dictionary  = steps.get(current_node, {}) as Dictionary
 	var lines: Array = []
@@ -92,6 +104,10 @@ func next() -> void:
 func has_choices_for_current_node() -> bool:
 	if is_finished():
 		return false
+
+	if not data.has("steps"):
+		return false
+
 	var steps: Dictionary = data["steps"] as Dictionary
 	var node: Dictionary  = steps.get(current_node, {}) as Dictionary
 	if not node.has("choices"):
@@ -102,6 +118,10 @@ func has_choices_for_current_node() -> bool:
 func get_current_choices() -> Array:
 	if is_finished():
 		return []
+
+	if not data.has("steps"):
+		return []
+
 	var steps: Dictionary = data["steps"] as Dictionary
 	var node: Dictionary  = steps.get(current_node, {}) as Dictionary
 	return node.get("choices", []) as Array
@@ -109,6 +129,10 @@ func get_current_choices() -> Array:
 func is_last_line_in_node() -> bool:
 	if is_finished():
 		return false
+
+	if not data.has("steps"):
+		return true
+
 	var steps: Dictionary = data["steps"] as Dictionary
 	var node: Dictionary  = steps.get(current_node, {}) as Dictionary
 	var lines: Array      = node.get("lines", []) as Array
@@ -119,6 +143,10 @@ func is_last_line_in_node() -> bool:
 func choose(index: int) -> void:
 	if is_finished():
 		return
+
+	if not data.has("steps"):
+		return
+
 	var steps: Dictionary = data["steps"] as Dictionary
 	var node: Dictionary  = steps.get(current_node, {}) as Dictionary
 	if not node.has("choices"):
