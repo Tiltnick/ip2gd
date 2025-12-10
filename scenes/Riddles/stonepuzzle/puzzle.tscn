@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://1gjnalxntxuw"]
+[gd_scene load_steps=31 format=3 uid="uid://1gjnalxntxuw"]
 
 [ext_resource type="Script" uid="uid://dkhi3k2codxm4" path="res://scripts/riddles/stonepuzzle/puzzlemanager.gd" id="1_h324o"]
 [ext_resource type="Texture2D" uid="uid://d2dhafm8sjg5u" path="res://assets/sprites/selfmade/ stonepanel.png" id="2_a3vcf"]
@@ -20,7 +20,7 @@ size = Vector2(373, 128)
 size = Vector2(118, 320)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dlkxu"]
-size = Vector2(327, 309.25)
+size = Vector2(327, 168)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k0nwa"]
 size = Vector2(264, 170.5)
@@ -30,6 +30,36 @@ size = Vector2(310, 336)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pxghu"]
 size = Vector2(293, 216)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u54ty"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vls2"]
+size = Vector2(152, 136)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8ka4"]
+size = Vector2(152, 125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwo7t"]
+size = Vector2(151, 111)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4to0e"]
+size = Vector2(152, 136)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x26ra"]
+size = Vector2(152, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1goe"]
+size = Vector2(152, 136)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3vcf"]
 size = Vector2(248, 183.25)
@@ -45,24 +75,6 @@ size = Vector2(324.25, 336)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bag6g"]
 size = Vector2(433.33325, 235)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1goe"]
-size = Vector2(128, 128)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x26ra"]
-size = Vector2(128, 129)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4to0e"]
-size = Vector2(128, 128)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwo7t"]
-size = Vector2(128, 128)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8ka4"]
-size = Vector2(128, 128)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vls2"]
-size = Vector2(128, 128)
 
 [node name="Puzzle" type="Control"]
 layout_mode = 3
@@ -82,74 +94,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -780.0
+offset_left = -776.0
 offset_top = -676.0
-offset_right = 780.0
+offset_right = 784.0
 offset_bottom = 884.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("2_a3vcf")
 metadata/_edit_lock_ = true
-
-[node name="Slots" type="Node2D" parent="."]
-
-[node name="slots" parent="Slots" groups=["puzzle_slots"] instance=ExtResource("2_w7ar3")]
-position = Vector2(689, 280)
-collision_layer = 2
-input_pickable = false
-required_piece_id = "piece_1"
-
-[node name="CollisionShape2D" parent="Slots/slots" index="0"]
-position = Vector2(1.5, 0)
-shape = SubResource("RectangleShape2D_qfya4")
-
-[node name="slots2" parent="Slots" groups=["puzzle_slots"] instance=ExtResource("2_w7ar3")]
-position = Vector2(586, 571)
-collision_layer = 2
-input_pickable = false
-required_piece_id = "piece_3"
-
-[node name="CollisionShape2D" parent="Slots/slots2" index="0"]
-shape = SubResource("RectangleShape2D_d58ip")
-
-[node name="slots3" parent="Slots" groups=["puzzle_slots"] instance=ExtResource("2_w7ar3")]
-position = Vector2(856, 456)
-collision_layer = 2
-input_pickable = false
-required_piece_id = "piece_2"
-
-[node name="CollisionShape2D" parent="Slots/slots3" index="0"]
-shape = SubResource("RectangleShape2D_dlkxu")
-
-[node name="slots4" parent="Slots" groups=["puzzle_slots"] instance=ExtResource("2_w7ar3")]
-position = Vector2(832, 760)
-collision_layer = 2
-input_pickable = false
-required_piece_id = "piece_4"
-
-[node name="CollisionShape2D" parent="Slots/slots4" index="0"]
-shape = SubResource("RectangleShape2D_k0nwa")
-
-[node name="slots5" parent="Slots" groups=["puzzle_slots"] instance=ExtResource("2_w7ar3")]
-position = Vector2(1224, 400)
-collision_layer = 2
-input_pickable = false
-required_piece_id = "piece_5"
-
-[node name="CollisionShape2D" parent="Slots/slots5" index="0"]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_ohw0l")
-
-[node name="slots6" parent="Slots" groups=["puzzle_slots"] instance=ExtResource("2_w7ar3")]
-position = Vector2(1186, 747)
-collision_layer = 2
-input_pickable = false
-required_piece_id = "piece_6"
-
-[node name="CollisionShape2D" parent="Slots/slots6" index="0"]
-position = Vector2(3.5, 0)
-shape = SubResource("RectangleShape2D_pxghu")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 visible = false
@@ -160,10 +113,173 @@ offset_right = 1407.0
 offset_bottom = 845.0
 texture = ExtResource("4_pwhx3")
 
+[node name="Slots" type="Node2D" parent="."]
+
+[node name="slots" parent="Slots" groups=["puzzle_slots"] instance=ExtResource("2_w7ar3")]
+position = Vector2(696, 283)
+collision_layer = 2
+input_pickable = false
+required_piece_id = "piece_1"
+
+[node name="CollisionShape2D" parent="Slots/slots" index="0"]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_qfya4")
+
+[node name="slots2" parent="Slots" groups=["puzzle_slots"] instance=ExtResource("2_w7ar3")]
+position = Vector2(589, 560)
+collision_layer = 2
+input_pickable = false
+required_piece_id = "piece_3"
+
+[node name="CollisionShape2D" parent="Slots/slots2" index="0"]
+shape = SubResource("RectangleShape2D_d58ip")
+
+[node name="slots3" parent="Slots" groups=["puzzle_slots"] instance=ExtResource("2_w7ar3")]
+position = Vector2(849, 439)
+collision_layer = 2
+input_pickable = false
+required_piece_id = "piece_2"
+
+[node name="CollisionShape2D" parent="Slots/slots3" index="0"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_dlkxu")
+
+[node name="slots4" parent="Slots" groups=["puzzle_slots"] instance=ExtResource("2_w7ar3")]
+position = Vector2(825, 744)
+collision_layer = 2
+input_pickable = false
+required_piece_id = "piece_4"
+
+[node name="CollisionShape2D" parent="Slots/slots4" index="0"]
+shape = SubResource("RectangleShape2D_k0nwa")
+
+[node name="slots5" parent="Slots" groups=["puzzle_slots"] instance=ExtResource("2_w7ar3")]
+position = Vector2(1221, 400)
+collision_layer = 2
+input_pickable = false
+required_piece_id = "piece_5"
+
+[node name="CollisionShape2D" parent="Slots/slots5" index="0"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_ohw0l")
+
+[node name="slots6" parent="Slots" groups=["puzzle_slots"] instance=ExtResource("2_w7ar3")]
+position = Vector2(1185, 732)
+collision_layer = 2
+input_pickable = false
+required_piece_id = "piece_6"
+
+[node name="CollisionShape2D" parent="Slots/slots6" index="0"]
+position = Vector2(1.5, 2)
+shape = SubResource("RectangleShape2D_pxghu")
+
+[node name="SideSlots" type="Node2D" parent="."]
+
+[node name="Panel" type="Panel" parent="SideSlots"]
+offset_left = 104.0
+offset_top = 88.0
+offset_right = 272.0
+offset_bottom = 232.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u54ty")
+
+[node name="Area2D6" type="Area2D" parent="SideSlots/Panel" groups=["side_slots"]]
+position = Vector2(84, 71)
+collision_layer = 2
+script = ExtResource("12_u54ty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Panel/Area2D6"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_0vls2")
+
+[node name="Panel2" type="Panel" parent="SideSlots"]
+offset_left = 104.0
+offset_top = 248.0
+offset_right = 272.0
+offset_bottom = 392.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u54ty")
+
+[node name="Area2D5" type="Area2D" parent="SideSlots/Panel2" groups=["side_slots"]]
+position = Vector2(84, 65)
+collision_layer = 2
+script = ExtResource("12_u54ty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Panel2/Area2D5"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_u8ka4")
+
+[node name="Panel3" type="Panel" parent="SideSlots"]
+offset_left = 104.0
+offset_top = 408.0
+offset_right = 272.0
+offset_bottom = 552.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u54ty")
+
+[node name="Area2D4" type="Area2D" parent="SideSlots/Panel3" groups=["side_slots"]]
+position = Vector2(86, 87)
+collision_layer = 2
+script = ExtResource("12_u54ty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Panel3/Area2D4"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_iwo7t")
+
+[node name="Panel4" type="Panel" parent="SideSlots"]
+offset_left = 104.0
+offset_top = 568.0
+offset_right = 272.0
+offset_bottom = 712.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u54ty")
+
+[node name="Area2D3" type="Area2D" parent="SideSlots/Panel4" groups=["side_slots"]]
+position = Vector2(53, 71)
+collision_layer = 2
+script = ExtResource("12_u54ty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Panel4/Area2D3"]
+shape = SubResource("RectangleShape2D_4to0e")
+
+[node name="Panel5" type="Panel" parent="SideSlots"]
+offset_left = 104.0
+offset_top = 727.0
+offset_right = 272.0
+offset_bottom = 871.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u54ty")
+
+[node name="Area2D2" type="Area2D" parent="SideSlots/Panel5" groups=["side_slots"]]
+position = Vector2(81, 66)
+collision_layer = 2
+script = ExtResource("12_u54ty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Panel5/Area2D2"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_x26ra")
+
+[node name="Panel6" type="Panel" parent="SideSlots"]
+offset_left = 104.0
+offset_top = 889.0
+offset_right = 272.0
+offset_bottom = 1033.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u54ty")
+
+[node name="Area2D" type="Area2D" parent="SideSlots/Panel6" groups=["side_slots"]]
+position = Vector2(90, 76)
+collision_layer = 2
+script = ExtResource("12_u54ty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Panel6/Area2D"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_j1goe")
+
 [node name="Pieces" type="Node2D" parent="."]
 
 [node name="Piece1" parent="Pieces" groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-position = Vector2(1710, 624)
+position = Vector2(158, 641)
 scale = Vector2(0.25, 0.25)
 collision_mask = 2
 side_scale = Vector2(0.25, 0.25)
@@ -179,7 +295,7 @@ texture = ExtResource("5_pwhx3")
 position = Vector2(0, -0.5)
 
 [node name="Piece2" parent="Pieces" groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-position = Vector2(1735, 144)
+position = Vector2(188, 158)
 scale = Vector2(0.25, 0.25)
 collision_mask = 2
 side_scale = Vector2(0.25, 0.25)
@@ -196,7 +312,7 @@ position = Vector2(-2.7120514, 3.625)
 shape = SubResource("RectangleShape2D_a3vcf")
 
 [node name="Piece3" parent="Pieces" groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-position = Vector2(1736, 776)
+position = Vector2(184, 792)
 scale = Vector2(0.25, 0.25)
 collision_mask = 2
 side_scale = Vector2(0.25, 0.25)
@@ -213,7 +329,7 @@ position = Vector2(0.49993896, 0.9998474)
 shape = SubResource("RectangleShape2D_pwhx3")
 
 [node name="Piece4" parent="Pieces" groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-position = Vector2(1736, 952)
+position = Vector2(194, 965)
 scale = Vector2(0.25, 0.25)
 collision_mask = 2
 side_scale = Vector2(0.25, 0.25)
@@ -230,7 +346,7 @@ position = Vector2(0.7692261, 2.9999695)
 shape = SubResource("RectangleShape2D_u54ty")
 
 [node name="Piece5" parent="Pieces" groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-position = Vector2(1733, 296)
+position = Vector2(188, 313)
 scale = Vector2(0.25, 0.25)
 collision_mask = 2
 side_scale = Vector2(0.25, 0.25)
@@ -247,7 +363,7 @@ position = Vector2(2.125, 0)
 shape = SubResource("RectangleShape2D_yqnux")
 
 [node name="Piece6" parent="Pieces" groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-position = Vector2(1736, 472)
+position = Vector2(190, 496)
 scale = Vector2(0.25, 0.25)
 collision_mask = 2
 side_scale = Vector2(0.25, 0.25)
@@ -263,56 +379,111 @@ texture = ExtResource("10_j1goe")
 position = Vector2(0.6668701, -2.499939)
 shape = SubResource("RectangleShape2D_bag6g")
 
-[node name="SideSlots" type="Node2D" parent="."]
+[node name="Piece1" parent="." groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
+visible = false
+position = Vector2(310, 625)
+collision_mask = 2
+side_scale = Vector2(0.25, 0.25)
+piece_id = "piece_1"
+rotation_steps = 0
 
-[node name="Area2D" type="Area2D" parent="SideSlots" groups=["side_slots"]]
-position = Vector2(1728, 944)
-collision_layer = 2
-script = ExtResource("12_u54ty")
+[node name="Sprite2D" parent="Piece1" index="0"]
+position = Vector2(505.99997, -321)
+scale = Vector2(2.9615388, 2.8499997)
+texture = ExtResource("5_pwhx3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Area2D"]
-shape = SubResource("RectangleShape2D_j1goe")
+[node name="CollisionShape2D" parent="Piece1" index="1"]
+visible = false
+position = Vector2(386.00006, -337.5)
 
-[node name="Area2D2" type="Area2D" parent="SideSlots" groups=["side_slots"]]
-position = Vector2(1728, 785)
-collision_layer = 2
-script = ExtResource("12_u54ty")
+[node name="Piece3" parent="." groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
+visible = false
+position = Vector2(591, 556)
+collision_mask = 2
+side_scale = Vector2(0.25, 0.25)
+piece_id = "piece_3"
+rotation_steps = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Area2D2"]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_x26ra")
+[node name="Sprite2D" parent="Piece3" index="0"]
+position = Vector2(25.5, 27.055481)
+scale = Vector2(2.9027774, 2.9027774)
+texture = ExtResource("7_yqnux")
 
-[node name="Area2D3" type="Area2D" parent="SideSlots" groups=["side_slots"]]
-position = Vector2(1728, 624)
-collision_layer = 2
-script = ExtResource("12_u54ty")
+[node name="CollisionShape2D" parent="Piece3" index="1"]
+visible = false
+position = Vector2(0.49993896, 0.9998474)
+shape = SubResource("RectangleShape2D_pwhx3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Area2D3"]
-shape = SubResource("RectangleShape2D_4to0e")
+[node name="Piece4" parent="." groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
+visible = false
+position = Vector2(824, 744)
+collision_mask = 2
+side_scale = Vector2(0.25, 0.25)
+piece_id = "piece_4"
+rotation_steps = 0
 
-[node name="Area2D4" type="Area2D" parent="SideSlots" groups=["side_slots"]]
-position = Vector2(1729, 464)
-collision_layer = 2
-script = ExtResource("12_u54ty")
+[node name="Sprite2D" parent="Piece4" index="0"]
+position = Vector2(-23.230713, -46)
+scale = Vector2(2.9615383, 2.9615386)
+texture = ExtResource("8_bag6g")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Area2D4"]
-shape = SubResource("RectangleShape2D_iwo7t")
+[node name="CollisionShape2D" parent="Piece4" index="1"]
+visible = false
+position = Vector2(1.7692261, -3.0517578e-05)
+shape = SubResource("RectangleShape2D_u54ty")
 
-[node name="Area2D5" type="Area2D" parent="SideSlots" groups=["side_slots"]]
-position = Vector2(1728, 304)
-collision_layer = 2
-script = ExtResource("12_u54ty")
+[node name="Piece5" parent="." groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
+visible = false
+position = Vector2(1216, 400)
+collision_mask = 2
+side_scale = Vector2(0.25, 0.25)
+piece_id = "piece_5"
+rotation_steps = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Area2D5"]
-shape = SubResource("RectangleShape2D_u8ka4")
+[node name="Sprite2D" parent="Piece5" index="0"]
+position = Vector2(-14.249994, 27.749996)
+scale = Vector2(2.8344586, 2.888513)
+texture = ExtResource("9_qfya4")
 
-[node name="Area2D6" type="Area2D" parent="SideSlots" groups=["side_slots"]]
-position = Vector2(1728, 144)
-collision_layer = 2
-script = ExtResource("12_u54ty")
+[node name="CollisionShape2D" parent="Piece5" index="1"]
+visible = false
+position = Vector2(2.125, 0)
+shape = SubResource("RectangleShape2D_yqnux")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Area2D6"]
-shape = SubResource("RectangleShape2D_0vls2")
+[node name="Piece6" parent="." groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
+visible = false
+position = Vector2(1192, 728)
+collision_mask = 2
+side_scale = Vector2(0.25, 0.25)
+piece_id = "piece_6"
+rotation_steps = 0
+
+[node name="Sprite2D" parent="Piece6" index="0"]
+position = Vector2(-37.49994, -73)
+scale = Vector2(2.872222, 2.9481483)
+texture = ExtResource("10_j1goe")
+
+[node name="CollisionShape2D" parent="Piece6" index="1"]
+visible = false
+position = Vector2(0.6668701, 0.50006104)
+shape = SubResource("RectangleShape2D_bag6g")
+
+[node name="Piece2" parent="." groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
+visible = false
+position = Vector2(847, 443)
+collision_mask = 2
+side_scale = Vector2(0.25, 0.25)
+piece_id = "piece_2"
+rotation_steps = 0
+
+[node name="Sprite2D" parent="Piece2" index="0"]
+position = Vector2(-23.712097, 1.25)
+scale = Vector2(3.0189395, 3.0189393)
+texture = ExtResource("6_u54ty")
+
+[node name="CollisionShape2D" parent="Piece2" index="1"]
+position = Vector2(-2.7120514, 3.625)
+shape = SubResource("RectangleShape2D_a3vcf")
 
 [editable path="Slots/slots"]
 [editable path="Slots/slots2"]
@@ -326,3 +497,9 @@ shape = SubResource("RectangleShape2D_0vls2")
 [editable path="Pieces/Piece4"]
 [editable path="Pieces/Piece5"]
 [editable path="Pieces/Piece6"]
+[editable path="Piece1"]
+[editable path="Piece3"]
+[editable path="Piece4"]
+[editable path="Piece5"]
+[editable path="Piece6"]
+[editable path="Piece2"]

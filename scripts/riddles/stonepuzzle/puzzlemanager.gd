@@ -5,7 +5,7 @@ extends Control
 
 @export var total_slots := 6
 
-var solved := false
+var solved = false
 
 func _ready():
 	var pieces = get_tree().get_nodes_in_group("puzzle_pieces")
