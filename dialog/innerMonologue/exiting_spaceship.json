@@ -1,0 +1,22 @@
+{
+  "id": "oris_exits_spaceship",
+
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Thanfully the code worked!" },
+		{ "speaker": "Oris", "text": "Hmm. what an odd planet." },
+		{ "speaker": "Oris", "text": "I should explore my surroundings a little." }
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+	  "lines": []
+	}
+  }
+}
