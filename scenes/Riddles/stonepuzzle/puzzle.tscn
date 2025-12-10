@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://1gjnalxntxuw"]
+[gd_scene load_steps=30 format=3 uid="uid://1gjnalxntxuw"]
 
 [ext_resource type="Script" uid="uid://dkhi3k2codxm4" path="res://scripts/riddles/stonepuzzle/puzzlemanager.gd" id="1_h324o"]
 [ext_resource type="Texture2D" uid="uid://d2dhafm8sjg5u" path="res://assets/sprites/selfmade/ stonepanel.png" id="2_a3vcf"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cmobxnag0vw6" path="res://assets/sprites/selfmade/Piece4.png" id="8_bag6g"]
 [ext_resource type="Texture2D" uid="uid://43wf8qfb83yu" path="res://assets/sprites/selfmade/Piece5.png" id="9_qfya4"]
 [ext_resource type="Texture2D" uid="uid://cq3lsm46obs7n" path="res://assets/sprites/selfmade/Piece6.png" id="10_j1goe"]
+[ext_resource type="Script" uid="uid://d2oyrfw11wpds" path="res://scripts/riddles/stonepuzzle/side_slots.gd" id="12_u54ty"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfya4"]
 size = Vector2(373, 128)
@@ -45,6 +46,24 @@ size = Vector2(324.25, 336)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bag6g"]
 size = Vector2(433.33325, 235)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1goe"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x26ra"]
+size = Vector2(128, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4to0e"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwo7t"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8ka4"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vls2"]
+size = Vector2(128, 128)
+
 [node name="Puzzle" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -54,6 +73,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_h324o")
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -70,6 +90,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("2_a3vcf")
+metadata/_edit_lock_ = true
 
 [node name="Slots" type="Node2D" parent="."]
 
@@ -142,8 +163,10 @@ texture = ExtResource("4_pwhx3")
 [node name="Pieces" type="Node2D" parent="."]
 
 [node name="Piece1" parent="Pieces" groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-position = Vector2(184, 104)
+position = Vector2(1710, 624)
+scale = Vector2(0.25, 0.25)
 collision_mask = 2
+side_scale = Vector2(0.25, 0.25)
 piece_id = "piece_1"
 rotation_steps = 0
 
@@ -156,8 +179,10 @@ texture = ExtResource("5_pwhx3")
 position = Vector2(0, -0.5)
 
 [node name="Piece2" parent="Pieces" groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-position = Vector2(1736, 192)
+position = Vector2(1735, 144)
+scale = Vector2(0.25, 0.25)
 collision_mask = 2
+side_scale = Vector2(0.25, 0.25)
 piece_id = "piece_2"
 rotation_steps = 0
 
@@ -171,8 +196,10 @@ position = Vector2(-2.7120514, 3.625)
 shape = SubResource("RectangleShape2D_a3vcf")
 
 [node name="Piece3" parent="Pieces" groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-position = Vector2(167, 680)
+position = Vector2(1736, 776)
+scale = Vector2(0.25, 0.25)
 collision_mask = 2
+side_scale = Vector2(0.25, 0.25)
 piece_id = "piece_3"
 rotation_steps = 0
 
@@ -186,8 +213,10 @@ position = Vector2(0.49993896, 0.9998474)
 shape = SubResource("RectangleShape2D_pwhx3")
 
 [node name="Piece4" parent="Pieces" groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-position = Vector2(128, 312)
+position = Vector2(1736, 952)
+scale = Vector2(0.25, 0.25)
 collision_mask = 2
+side_scale = Vector2(0.25, 0.25)
 piece_id = "piece_4"
 rotation_steps = 0
 
@@ -201,8 +230,10 @@ position = Vector2(0.7692261, 2.9999695)
 shape = SubResource("RectangleShape2D_u54ty")
 
 [node name="Piece5" parent="Pieces" groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-position = Vector2(1792, 576)
+position = Vector2(1733, 296)
+scale = Vector2(0.25, 0.25)
 collision_mask = 2
+side_scale = Vector2(0.25, 0.25)
 piece_id = "piece_5"
 rotation_steps = 0
 
@@ -216,8 +247,10 @@ position = Vector2(2.125, 0)
 shape = SubResource("RectangleShape2D_yqnux")
 
 [node name="Piece6" parent="Pieces" groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-position = Vector2(1816, 984)
+position = Vector2(1736, 472)
+scale = Vector2(0.25, 0.25)
 collision_mask = 2
+side_scale = Vector2(0.25, 0.25)
 piece_id = "piece_6"
 rotation_steps = 0
 
@@ -229,6 +262,57 @@ texture = ExtResource("10_j1goe")
 [node name="CollisionShape2D" parent="Pieces/Piece6" index="1"]
 position = Vector2(0.6668701, -2.499939)
 shape = SubResource("RectangleShape2D_bag6g")
+
+[node name="SideSlots" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="SideSlots" groups=["side_slots"]]
+position = Vector2(1728, 944)
+collision_layer = 2
+script = ExtResource("12_u54ty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Area2D"]
+shape = SubResource("RectangleShape2D_j1goe")
+
+[node name="Area2D2" type="Area2D" parent="SideSlots" groups=["side_slots"]]
+position = Vector2(1728, 785)
+collision_layer = 2
+script = ExtResource("12_u54ty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Area2D2"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_x26ra")
+
+[node name="Area2D3" type="Area2D" parent="SideSlots" groups=["side_slots"]]
+position = Vector2(1728, 624)
+collision_layer = 2
+script = ExtResource("12_u54ty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Area2D3"]
+shape = SubResource("RectangleShape2D_4to0e")
+
+[node name="Area2D4" type="Area2D" parent="SideSlots" groups=["side_slots"]]
+position = Vector2(1729, 464)
+collision_layer = 2
+script = ExtResource("12_u54ty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Area2D4"]
+shape = SubResource("RectangleShape2D_iwo7t")
+
+[node name="Area2D5" type="Area2D" parent="SideSlots" groups=["side_slots"]]
+position = Vector2(1728, 304)
+collision_layer = 2
+script = ExtResource("12_u54ty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Area2D5"]
+shape = SubResource("RectangleShape2D_u8ka4")
+
+[node name="Area2D6" type="Area2D" parent="SideSlots" groups=["side_slots"]]
+position = Vector2(1728, 144)
+collision_layer = 2
+script = ExtResource("12_u54ty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Area2D6"]
+shape = SubResource("RectangleShape2D_0vls2")
 
 [editable path="Slots/slots"]
 [editable path="Slots/slots2"]
