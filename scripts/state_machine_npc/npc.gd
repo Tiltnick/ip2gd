@@ -10,6 +10,13 @@ class_name NPC
 @onready var detect_area: Area2D = $DetectionArea
 @onready var e_popup_node: Control = $Press_E_Popup_NPC
 
+# Szene → Dialogdatei
+const DIALOG_BY_SCENE := {
+	"Outside1": "res://dialog/dialogueMrBlob/outside_1.json",
+	"Outside2": "res://dialog/dialogueMrBlob/outside_2.json",
+	
+}
+
 var player_inside := false
 var player: Node2D = null
 
@@ -36,12 +43,23 @@ func _process(_delta: float) -> void:
 			# Popup ausblenden
 			if e_popup_node:
 				e_popup_node.visible = false
+
+			# aktuelle szene rausfinden
+			var scene: Node = get_tree().current_scene
+			var scene_name: String = scene.name if scene != null else ""
+
 			
-			# Dialog starten
-			DialogManager.start_dialog("res://dialog/dialogueMrBlob/outside_1.json")
-			
-			# NEU: Dialog läuft → Sperre aktivieren
-			dialog_active = true
+			var dialog_path: String = ""
+
+			if DIALOG_BY_SCENE.has(scene_name):
+				dialog_path = DIALOG_BY_SCENE[scene_name]
+			else:
+				dialog_path = "res://dialog/dialogueMrBlob/outside_1.json"
+
+			if dialog_path != "":
+				DialogManager.start_dialog(dialog_path)
+				dialog_active = true
+
 
 
 func _on_body_entered(body: Node) -> void:
