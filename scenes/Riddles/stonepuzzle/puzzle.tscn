@@ -116,10 +116,11 @@ texture = ExtResource("4_pwhx3")
 [node name="Slots" type="Node2D" parent="."]
 
 [node name="slots" parent="Slots" groups=["puzzle_slots"] instance=ExtResource("2_w7ar3")]
-position = Vector2(696, 283)
+position = Vector2(696, 285)
 collision_layer = 2
 input_pickable = false
 required_piece_id = "piece_1"
+required_rotation = 2
 
 [node name="CollisionShape2D" parent="Slots/slots" index="0"]
 position = Vector2(1.5, 0)
@@ -130,6 +131,7 @@ position = Vector2(589, 560)
 collision_layer = 2
 input_pickable = false
 required_piece_id = "piece_3"
+required_rotation = 2
 
 [node name="CollisionShape2D" parent="Slots/slots2" index="0"]
 shape = SubResource("RectangleShape2D_d58ip")
@@ -183,10 +185,11 @@ offset_bottom = 232.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_u54ty")
 
-[node name="Area2D6" type="Area2D" parent="SideSlots/Panel" groups=["side_slots"]]
+[node name="Area2D6" type="Area2D" parent="SideSlots/Panel" node_paths=PackedStringArray("start_piece") groups=["side_slots"]]
 position = Vector2(84, 71)
 collision_layer = 2
 script = ExtResource("12_u54ty")
+start_piece = NodePath("../../../Pieces/Piece2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Panel/Area2D6"]
 position = Vector2(0, 1)
@@ -200,10 +203,11 @@ offset_bottom = 392.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_u54ty")
 
-[node name="Area2D5" type="Area2D" parent="SideSlots/Panel2" groups=["side_slots"]]
+[node name="Area2D5" type="Area2D" parent="SideSlots/Panel2" node_paths=PackedStringArray("start_piece") groups=["side_slots"]]
 position = Vector2(84, 65)
 collision_layer = 2
 script = ExtResource("12_u54ty")
+start_piece = NodePath("../../../Pieces/Piece5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Panel2/Area2D5"]
 position = Vector2(0, -0.5)
@@ -217,10 +221,11 @@ offset_bottom = 552.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_u54ty")
 
-[node name="Area2D4" type="Area2D" parent="SideSlots/Panel3" groups=["side_slots"]]
+[node name="Area2D4" type="Area2D" parent="SideSlots/Panel3" node_paths=PackedStringArray("start_piece") groups=["side_slots"]]
 position = Vector2(86, 87)
 collision_layer = 2
 script = ExtResource("12_u54ty")
+start_piece = NodePath("../../../Pieces/Piece6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Panel3/Area2D4"]
 position = Vector2(0.5, -0.5)
@@ -234,10 +239,11 @@ offset_bottom = 712.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_u54ty")
 
-[node name="Area2D3" type="Area2D" parent="SideSlots/Panel4" groups=["side_slots"]]
-position = Vector2(53, 71)
+[node name="Area2D3" type="Area2D" parent="SideSlots/Panel4" node_paths=PackedStringArray("start_piece") groups=["side_slots"]]
+position = Vector2(115, 71)
 collision_layer = 2
 script = ExtResource("12_u54ty")
+start_piece = NodePath("../../../Pieces/Piece1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Panel4/Area2D3"]
 shape = SubResource("RectangleShape2D_4to0e")
@@ -250,10 +256,11 @@ offset_bottom = 871.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_u54ty")
 
-[node name="Area2D2" type="Area2D" parent="SideSlots/Panel5" groups=["side_slots"]]
+[node name="Area2D2" type="Area2D" parent="SideSlots/Panel5" node_paths=PackedStringArray("start_piece") groups=["side_slots"]]
 position = Vector2(81, 66)
 collision_layer = 2
 script = ExtResource("12_u54ty")
+start_piece = NodePath("../../../Pieces/Piece3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Panel5/Area2D2"]
 position = Vector2(0, -1.5)
@@ -267,10 +274,11 @@ offset_bottom = 1033.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_u54ty")
 
-[node name="Area2D" type="Area2D" parent="SideSlots/Panel6" groups=["side_slots"]]
+[node name="Area2D" type="Area2D" parent="SideSlots/Panel6" node_paths=PackedStringArray("start_piece") groups=["side_slots"]]
 position = Vector2(90, 76)
 collision_layer = 2
 script = ExtResource("12_u54ty")
+start_piece = NodePath("../../../Pieces/Piece4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Panel6/Area2D"]
 position = Vector2(0, 2)
@@ -279,12 +287,12 @@ shape = SubResource("RectangleShape2D_j1goe")
 [node name="Pieces" type="Node2D" parent="."]
 
 [node name="Piece1" parent="Pieces" groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-position = Vector2(158, 641)
+position = Vector2(219, 641)
+rotation = -3.1415927
 scale = Vector2(0.25, 0.25)
 collision_mask = 2
 side_scale = Vector2(0.25, 0.25)
 piece_id = "piece_1"
-rotation_steps = 0
 
 [node name="Sprite2D" parent="Pieces/Piece1" index="0"]
 position = Vector2(123.99996, 13.5)
@@ -379,112 +387,6 @@ texture = ExtResource("10_j1goe")
 position = Vector2(0.6668701, -2.499939)
 shape = SubResource("RectangleShape2D_bag6g")
 
-[node name="Piece1" parent="." groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-visible = false
-position = Vector2(310, 625)
-collision_mask = 2
-side_scale = Vector2(0.25, 0.25)
-piece_id = "piece_1"
-rotation_steps = 0
-
-[node name="Sprite2D" parent="Piece1" index="0"]
-position = Vector2(505.99997, -321)
-scale = Vector2(2.9615388, 2.8499997)
-texture = ExtResource("5_pwhx3")
-
-[node name="CollisionShape2D" parent="Piece1" index="1"]
-visible = false
-position = Vector2(386.00006, -337.5)
-
-[node name="Piece3" parent="." groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-visible = false
-position = Vector2(591, 556)
-collision_mask = 2
-side_scale = Vector2(0.25, 0.25)
-piece_id = "piece_3"
-rotation_steps = 0
-
-[node name="Sprite2D" parent="Piece3" index="0"]
-position = Vector2(25.5, 27.055481)
-scale = Vector2(2.9027774, 2.9027774)
-texture = ExtResource("7_yqnux")
-
-[node name="CollisionShape2D" parent="Piece3" index="1"]
-visible = false
-position = Vector2(0.49993896, 0.9998474)
-shape = SubResource("RectangleShape2D_pwhx3")
-
-[node name="Piece4" parent="." groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-visible = false
-position = Vector2(824, 744)
-collision_mask = 2
-side_scale = Vector2(0.25, 0.25)
-piece_id = "piece_4"
-rotation_steps = 0
-
-[node name="Sprite2D" parent="Piece4" index="0"]
-position = Vector2(-23.230713, -46)
-scale = Vector2(2.9615383, 2.9615386)
-texture = ExtResource("8_bag6g")
-
-[node name="CollisionShape2D" parent="Piece4" index="1"]
-visible = false
-position = Vector2(1.7692261, -3.0517578e-05)
-shape = SubResource("RectangleShape2D_u54ty")
-
-[node name="Piece5" parent="." groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-visible = false
-position = Vector2(1216, 400)
-collision_mask = 2
-side_scale = Vector2(0.25, 0.25)
-piece_id = "piece_5"
-rotation_steps = 0
-
-[node name="Sprite2D" parent="Piece5" index="0"]
-position = Vector2(-14.249994, 27.749996)
-scale = Vector2(2.8344586, 2.888513)
-texture = ExtResource("9_qfya4")
-
-[node name="CollisionShape2D" parent="Piece5" index="1"]
-visible = false
-position = Vector2(2.125, 0)
-shape = SubResource("RectangleShape2D_yqnux")
-
-[node name="Piece6" parent="." groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-visible = false
-position = Vector2(1192, 728)
-collision_mask = 2
-side_scale = Vector2(0.25, 0.25)
-piece_id = "piece_6"
-rotation_steps = 0
-
-[node name="Sprite2D" parent="Piece6" index="0"]
-position = Vector2(-37.49994, -73)
-scale = Vector2(2.872222, 2.9481483)
-texture = ExtResource("10_j1goe")
-
-[node name="CollisionShape2D" parent="Piece6" index="1"]
-visible = false
-position = Vector2(0.6668701, 0.50006104)
-shape = SubResource("RectangleShape2D_bag6g")
-
-[node name="Piece2" parent="." groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-visible = false
-position = Vector2(847, 443)
-collision_mask = 2
-side_scale = Vector2(0.25, 0.25)
-piece_id = "piece_2"
-rotation_steps = 0
-
-[node name="Sprite2D" parent="Piece2" index="0"]
-position = Vector2(-23.712097, 1.25)
-scale = Vector2(3.0189395, 3.0189393)
-texture = ExtResource("6_u54ty")
-
-[node name="CollisionShape2D" parent="Piece2" index="1"]
-position = Vector2(-2.7120514, 3.625)
-shape = SubResource("RectangleShape2D_a3vcf")
-
 [editable path="Slots/slots"]
 [editable path="Slots/slots2"]
 [editable path="Slots/slots3"]
@@ -497,9 +399,3 @@ shape = SubResource("RectangleShape2D_a3vcf")
 [editable path="Pieces/Piece4"]
 [editable path="Pieces/Piece5"]
 [editable path="Pieces/Piece6"]
-[editable path="Piece1"]
-[editable path="Piece3"]
-[editable path="Piece4"]
-[editable path="Piece5"]
-[editable path="Piece6"]
-[editable path="Piece2"]

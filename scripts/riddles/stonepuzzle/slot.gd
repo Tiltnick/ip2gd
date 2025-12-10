@@ -16,12 +16,25 @@ func set_piece(piece: Area2D):
 	current_piece = piece
 	piece.current_slot = self
 	piece.global_position = global_position
-	piece.rotation_degrees = required_rotation
 
 
 func is_correct() -> bool:
 	if current_piece == null:
 		return false
+
 	var correct_piece = current_piece.piece_id == required_piece_id
-	var correct_rot = snappedf(current_piece.rotation_degrees, 90) == required_rotation
+
+	var steps: int = int(current_piece.rotation_steps)
+	var step_angle: float = 360.0 / steps
+
+	# ✅ NUR eine saubere Rundung, kein snappedf-Chaos
+	var current_step: int = int(round(current_piece.rotation_degrees / step_angle)) % steps
+
+	var correct_rot := current_step == required_rotation
+
+	# 🔍 DEBUG (WICHTIG!)
+	print("ROT:", current_piece.rotation_degrees,
+		  " STEP:", current_step,
+		  " REQUIRED:", required_rotation)
+
 	return correct_piece and correct_rot

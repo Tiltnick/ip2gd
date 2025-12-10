@@ -6,6 +6,8 @@ signal piece_released
 @export var piece_id: String
 @export var rotation_steps := 4
 
+var rotation_step_degrees := 90
+var current_step: int = 0 
 static var active_drag_piece: Area2D = null
 var dragging := false
 var drag_offset := Vector2.ZERO
@@ -15,13 +17,18 @@ var current_slot = null
 func _ready():
 	input_pickable = true
 	scale = side_scale
+	rotation_step_degrees = 360.0 / rotation_steps
 
 
 func _input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+		rotate_piece()
+		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			if active_drag_piece != null:
 				return
+			
 			active_drag_piece = self
 			z_index = 1
 			scale = puzzle_scale  
@@ -35,6 +42,11 @@ func _input_event(viewport, event, shape_idx):
 			try_assign_to_slot()
 			emit_signal("piece_released")
 
+func rotate_piece():
+	if current_slot != null:
+		return
+	rotation_degrees += rotation_step_degrees
+	rotation_degrees = snappedf(rotation_degrees, rotation_step_degrees)
 
 func try_assign_to_slot():
 	var puzzle_slots = get_tree().get_nodes_in_group("puzzle_slots")
