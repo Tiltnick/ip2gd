@@ -23,7 +23,7 @@
 	  ],
 	  "choices": [
 		{ "id": "oris_meet_1", "text": "Okay, that seems normal!", "next": "oris_meet_1" },
-		{ "id": "oris_meet_2", "text": "Thanks Blobby.?", "next": "oris_meet_2" }
+		{ "id": "oris_meet_2", "text": "Thanks Blobby?", "next": "oris_meet_2" }
 	  ]
 	},
 

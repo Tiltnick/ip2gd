@@ -1,0 +1,23 @@
+{
+  "id": "oris_discovers_sams_ship",
+
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Huh, what an interesting area." },
+		{ "speaker": "Oris", "text": "It looks and feels so dry." },
+		{ "speaker": "Oris", "text": "Oh, I see something... is that... Sam's ship?" },
+		{ "speaker": "Oris", "text": "Oh, thank goodness. That means he must be nearby!" }
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+	  "lines": []
+	}
+  }
+}

@@ -118,4 +118,4 @@ func _spawn_player_in_scene(new_scene: Node) -> void:
 
 	if GameState.should_play_intro_dialog:
 		GameState.should_play_intro_dialog = false
-		DialogManager.start_dialog("res://dialog/spaceship/wakeup.json")
+		DialogManager.start_dialog("res://dialog/innerMonologue/wakeup.json")
