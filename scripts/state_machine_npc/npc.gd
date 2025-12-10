@@ -38,7 +38,7 @@ func _process(_delta: float) -> void:
 				e_popup_node.visible = false
 			
 			# Dialog starten
-			DialogManager.start_dialog("res://dialog/dialogueMrBlob/oris_mr_blob.json")
+			DialogManager.start_dialog("res://dialog/dialogueMrBlob/outside_1.json")
 			
 			# NEU: Dialog läuft → Sperre aktivieren
 			dialog_active = true

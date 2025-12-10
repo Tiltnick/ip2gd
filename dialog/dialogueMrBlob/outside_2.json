@@ -1,0 +1,154 @@
+{
+  "id": "mr_blob_revelation",
+
+  "characters": {
+	"Mr. Blob": "res://assets/sprites/portrait/MrBlobs.png",
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "I found Sam… beneath one of the stone piles." },
+		{ "speaker": "Mr. Blob", "text": "…" },
+		{ "speaker": "Oris", "text": "I cannot believe it. He's gone! I can't save him anymore because he's GONE!" }
+	  ],
+	  "choices": [
+		{ "id": "reveal_1", "text": "You knew.", "next": "reveal_1" },
+		{ "id": "reveal_2", "text": "Why not tell me?", "next": "reveal_2" }
+	  ]
+	},
+
+	"reveal_1": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "You knew it from the start and you DIDN'T think to tell me? You led me on this wild goose chase to...to what? " },
+		{ "speaker": "Mr. Blob", "text": "Look, I get it. You're upset." }
+	  ],
+	  "choices": [
+		{ "id": "reveal_angry", "text": "I'm angry.", "next": "reveal_angry" },
+		{ "id": "reveal_hurt", "text": "How could you?", "next": "reveal_hurt" }
+	  ]
+	},
+
+	"reveal_2": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Why didn’t you tell me the truth from the beginning?" },
+		{ "speaker": "Mr. Blob", "text": "Because you weren't ready to hear it yet." }
+	  ],
+	  "choices": [
+		{ "id": "reveal_angry", "text": "No excuse.", "next": "reveal_angry" },
+		{ "id": "reveal_hurt", "text": "How dare you?", "next": "reveal_hurt" }
+	  ]
+	},
+
+	"reveal_angry": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "I'm angry! You let me chase a ghost!" },
+		{ "speaker": "Mr. Blob", "text": "I let you chase hope." }
+	  ],
+	  "next": "flower_intro"
+	},
+
+	"reveal_hurt": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "How could you? You could’ve spared me this pain…" },
+		{ "speaker": "Mr. Blob", "text": "But see it this way, now you know and you can overcome it!" }
+	  ],
+	  "next": "flower_intro"
+	},
+
+	"flower_intro": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text": "Sam did not come here just to explore." },
+		{ "speaker": "Mr. Blob", "text": "He searched for a flower… one that could heal even what seems beyond saving." },
+		{ "speaker": "Oris", "text": "A healing flower?" }
+	  ],
+	  "choices": [
+		{ "id": "flower_more", "text": "Tell me more.", "next": "flower_more" },
+		{ "id": "flower_why", "text": "What? Why?", "next": "flower_why" }
+	  ]
+	},
+
+	"flower_more": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text": "It grows only where the sun can't reach." },
+		{ "speaker": "Mr. Blob", "text": "Its petals can mend any wound." }
+	  ],
+	  "next": "flower_reason"
+	},
+
+	"flower_why": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text": "Because Sam feared loss more than death." },
+		{ "speaker": "Mr. Blob", "text": "He wanted to bring the flower back to your world." }
+	  ],
+	  "next": "flower_reason"
+	},
+
+	"flower_reason": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "So saving others… was his real mission." },
+		{ "speaker": "Mr. Blob", "text": "His greatest wish." }
+	  ],
+	  "choices": [
+		{ "id": "promise", "text": "I'll finish it.", "next": "promise" },
+		{ "id": "doubt", "text": "It's too late.", "next": "doubt" }
+	  ]
+	},
+
+	"promise": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "I'll finish it. I won’t let this be for nothing." },
+		{ "speaker": "Mr. Blob", "text": "Then your path is only beginning." }
+	  ],
+	  "next": "cave_intro"
+	},
+
+	"doubt": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "It's too late. This won’t bring Sam back…will it?" },
+		{ "speaker": "Mr. Blob", "text": "No. But it may save those you haven’t yet lost." }
+	  ],
+	  "next": "cave_intro"
+	},
+
+	"cave_intro": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text": "Before he vanished, Sam worked nearby." },
+		{ "speaker": "Mr. Blob", "text": "He stored his research inside a cavern system close to here." },
+		{ "speaker": "Oris", "text": "You mean there’s more of his notes?" }
+	  ],
+	  "choices": [
+		{ "id": "cave_where", "text": "Where is it?", "next": "cave_where" },
+		{ "id": "cave_why", "text": "Why now?", "next": "cave_why" }
+	  ]
+	},
+
+	"cave_where": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text": "Look closely into the unseaming paths and places. You might be surprised what lays beyond closed paths." }
+	  ],
+	  "next": "final_push"
+	},
+
+	"cave_why": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text": "Because now you are ready to choose the right option. The option Sam would've wanted for you: to find the flower and save so many people with it." }
+	  ],
+	  "next": "final_push"
+	},
+
+	"final_push": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "If Sam already searched for this flower, he must have stored his aquired information somewhere." },
+		{ "speaker": "Oris", "text": "A cave system yous said? Then that’s where I’ll go." },
+		{ "speaker": "Mr. Blob", "text": "I will help you find the flower when the time comes." }
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+	  "lines": []
+	}
+  }
+}
