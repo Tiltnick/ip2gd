@@ -11,9 +11,9 @@ class_name NPC
 @onready var e_popup_node: Control = $Press_E_Popup_NPC
 
 # Szene → Dialogdatei
-#const DIALOG_BY_SCENE := {
-	#"Outside1": "res://dialog/dialogueMrBlob/outside_1.json",
-	#"Outside2": "res://dialog/dialogueMrBlob/outside_2_part_1.json",
+const DIALOG_BY_SCENE := {
+	"Outside1": "res://dialog/dialogueMrBlob/outside_1.json",
+	"Outside2": "res://dialog/dialogueMrBlob/outside_2_part_1.json",
 	
 }
 
