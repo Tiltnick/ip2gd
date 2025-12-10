@@ -32,6 +32,7 @@ SettingsMenu="*res://scenes/Menues/settings_menu.tscn"
 ItemDatabase="*res://scripts/interactables/objects/item_database.gd"
 LanguageManager="*res://scripts/language/language_manager.gd"
 TransitionAreaFade="*res://scenes/maps/transition_area_fade.tscn"
+PopupManager="*res://scripts/UI/PopupManager.gd"
 
 [dialogic]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cbsuctc5xrvkk"]
+[gd_scene load_steps=12 format=4 uid="uid://cbsuctc5xrvkk"]
 
 [ext_resource type="Texture2D" uid="uid://b6keejiu00fdc" path="res://assets/sprites/map/Outside_2/sams_cave/Ground.png" id="1_b510g"]
 [ext_resource type="Script" uid="uid://j2wrekjoepvn" path="res://scripts/scene_manager/sams_cave.gd" id="1_oqthk"]
@@ -336,11 +336,10 @@ polygon = PackedVector2Array(-720, 128, 751, 128, 753, -781, -723, -781)
 metadata/_edit_lock_ = true
 
 [node name="Dark" type="CanvasModulate" parent="."]
-color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+color = Color(0, 0, 0, 1)
 
-[node name="Note" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("4_esekf")]
+[node name="Note" parent="." instance=ExtResource("4_esekf")]
 position = Vector2(114, -604)
-e_popup_node = NodePath("Press_E_Popup2")
 
 [node name="Press_E_Popup2" parent="Note" instance=ExtResource("5_vquj5")]
 visible = false
