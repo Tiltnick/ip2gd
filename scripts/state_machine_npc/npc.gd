@@ -11,9 +11,9 @@ class_name NPC
 @onready var e_popup_node: Control = $Press_E_Popup_NPC
 
 # Szene → Dialogdatei
-const DIALOG_BY_SCENE := {
-	"Outside1": "res://dialog/dialogueMrBlob/outside_1.json",
-	"Outside2": "res://dialog/dialogueMrBlob/outside_2.json",
+#const DIALOG_BY_SCENE := {
+	#"Outside1": "res://dialog/dialogueMrBlob/outside_1.json",
+	#"Outside2": "res://dialog/dialogueMrBlob/outside_2_part_1.json",
 	
 }
 
@@ -51,10 +51,21 @@ func _process(_delta: float) -> void:
 			
 			var dialog_path: String = ""
 
-			if DIALOG_BY_SCENE.has(scene_name):
-				dialog_path = DIALOG_BY_SCENE[scene_name]
+			if scene_name == "outside_2":
+				if not GameState.puzzle_state.get("blob_intro_done", false):
+					dialog_path = "res://dialog/dialogueMrBlob/outside_2_part_2.json"
+				elif not GameState.puzzle_state.get("blob_clue_done", false):
+					dialog_path = "res://dialog/dialogueMrBlob/clue_stone_pile.json"
+				elif not GameState.puzzle_state.get("blob_revelation_done", false):
+					dialog_path = "res://dialog/dialogueMrBlob/outside_2_part_2.json"
+				else:
+					dialog_path = "res://dialog/dialogueMrBlob/generic_hint.json"
 			else:
-				dialog_path = "res://dialog/dialogueMrBlob/outside_1.json"
+				if DIALOG_BY_SCENE.has(scene_name):
+					dialog_path = DIALOG_BY_SCENE[scene_name]
+				else:
+					dialog_path = "res://dialog/dialogueMrBlob/outside_1.json"
+
 
 			if dialog_path != "":
 				DialogManager.start_dialog(dialog_path)

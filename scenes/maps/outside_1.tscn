@@ -501,6 +501,8 @@ rotation = -0.4388593
 [node name="NPC" parent="." node_paths=PackedStringArray("path_follow") instance=ExtResource("8_iqy5x")]
 z_index = 1
 position = Vector2(288.00003, -120)
+move_speed = null
+detect_radius = null
 path_follow = NodePath("../NPCPath/NPCPathFollow")
 
 [node name="DoorArea" type="Area2D" parent="."]

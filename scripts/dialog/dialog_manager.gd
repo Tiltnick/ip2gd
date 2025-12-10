@@ -6,6 +6,8 @@ signal dialog_started
 
 @onready var box: DialogBox = $DialogBox
 
+var current_dialog_path: String = ""
+
 # Initialize my DialogParser
 var runtime: DialogParser = DialogParser.new()
 
@@ -17,15 +19,11 @@ func _ready() -> void:
 
 
 func start_dialog(json_path: String) -> void:
-	is_running = true  # NEU
+	is_running = true
+	current_dialog_path = json_path   
 	show()
-	# Load the JSON. 
-	# If Loading fails -> PANIC
-	#signal 
 	dialog_is_started()
-	if not runtime.load_json(json_path):
-		is_running = false  # NEU
-		return
+
 
 	# Main loop: show one line, wait for player input -> repeat
 	while not runtime.is_finished():
@@ -66,10 +64,23 @@ func start_dialog(json_path: String) -> void:
 	
 
 func dialog_is_finished():
+	if current_dialog_path.contains("outside_2_part_1"):
+		GameState.puzzle_state["blob_intro_done"] = true
+
+	elif current_dialog_path.contains("clue_stone_pile"):
+		GameState.puzzle_state["blob_clue_done"] = true
+
+	elif current_dialog_path.contains("outside_2_part_2"):
+		GameState.puzzle_state["blob_revelation_done"] = true
+
+	current_dialog_path = ""
+
+
 	box.hide()
 	emit_signal("dialog_finished")
-	is_running = false # NEU
+	is_running = false
 	hide()
+
 	
 func dialog_is_started():
 	emit_signal("dialog_started")
