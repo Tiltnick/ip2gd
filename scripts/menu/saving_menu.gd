@@ -1,25 +1,51 @@
 extends CanvasLayer
 
+func _ready() -> void:
+	hide()   # Menü beim Start verstecken
+
+
 func resume():
 	get_tree().paused = false
 	hide()
-	DialogManager.show()
-	hotbarglobal.hotbar.show()
+
+	# Dialog wieder einblenden nur wenn er existiert
+	if Engine.has_singleton("DialogManager"):
+		DialogManager.show()
+
+	# Hotbar wieder zeigen wenn sie existiert
+	if hotbarglobal.hotbar:
+		hotbarglobal.hotbar.show()
 		
+
 func pause():
 	get_tree().paused = true
 	show()
-	DialogManager.hide()
-	hotbarglobal.hotbar.hide()
+
+	# Dialog versteckenfalls vorhanden
+	if Engine.has_singleton("DialogManager"):
+		DialogManager.hide()
+
+	# Hotbar verstecken falls vorhanden
+	if hotbarglobal.hotbar:
+		hotbarglobal.hotbar.hide()
 	
 
 
-func esc():
-	if Input.is_action_just_pressed("esc") and get_tree().paused == false:
+func toggle_pause():
+	if get_tree().paused == false:
 		pause()
-		
-	elif Input.is_action_just_pressed("esc") and get_tree().paused == true:
+	else:
 		resume()
+
+
+func esc():
+	# ESC toggelt einfach das Menü
+	var current_scene := get_tree().current_scene
+	if current_scene and current_scene.name == "MainMenu":
+		return
+
+	if Input.is_action_just_pressed("esc"):
+		toggle_pause()
 
 
 func _on_continue_button_pressed() -> void:
@@ -37,8 +63,15 @@ func _on_exit_button_pressed() -> void:
 	print("Spiel gespeichert")
 	GameState.has_save = true
 
+	# Laufenden Dialog  beenden
+	if Engine.has_singleton("DialogManager"):
+		DialogManager.force_close()
+
 	# Spiel wieder "entpausen" für Main menu
 	get_tree().paused = false
+
+	# Menü direkt ausblenden, damit es im Hauptmenü nicht sichtbar bleibt
+	hide()
 
 	# Zur MainMenu scene wechseln
 	SceneManager.goto_main_menu()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c43osb4yewrwo"]
+[gd_scene load_steps=9 format=3 uid="uid://c43osb4yewrwo"]
 
 [ext_resource type="Script" uid="uid://dlex8u5yrmfmy" path="res://scripts/menu/settings/settings_button.gd" id="1_21ea7"]
 [ext_resource type="Texture2D" uid="uid://cgmo1vfleetle" path="res://assets/sprites/ui/settings 1.png" id="2_xf7nn"]
 [ext_resource type="Texture2D" uid="uid://8xw1rynjimwk" path="res://assets/sprites/ui/tur-offen-groß.png" id="3_xf7nn"]
+[ext_resource type="Script" uid="uid://dx1j0y7mn3sh8" path="res://scripts/menu/escape_button.gd" id="4_7qiev"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qiev"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -90,7 +91,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ce35c")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4dauv")
 icon = ExtResource("3_xf7nn")
 icon_alignment = 1
-script = ExtResource("1_21ea7")
+script = ExtResource("4_7qiev")
 
 [connection signal="pressed" from="Control/SettingsButton2" to="Control/SettingsButton2" method="_on_pressed"]
 [connection signal="pressed" from="Control/EscapeButton" to="Control/EscapeButton" method="_on_pressed"]
