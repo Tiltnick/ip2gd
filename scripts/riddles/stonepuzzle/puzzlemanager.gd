@@ -1,6 +1,7 @@
 extends Control
 
-@onready var solved_puzzle: TextureRect = $TextureRect2
+
+@onready var solved_puzzle: TextureRect = $solvedPuzzle
 @onready var pieces: Node2D = $Pieces
 
 @export var total_slots := 6
@@ -22,5 +23,6 @@ func check_puzzle():
 			return
 	if not solved:
 		solved = true
-		solved_puzzle.show()
-		pieces.hide()
+		$AnimationPlayer.play("solved_animation")
+		#solved_puzzle.show()
+		#pieces.hide()

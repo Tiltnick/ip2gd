@@ -1,10 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://1gjnalxntxuw"]
+[gd_scene load_steps=34 format=3 uid="uid://1gjnalxntxuw"]
 
 [ext_resource type="Script" uid="uid://dkhi3k2codxm4" path="res://scripts/riddles/stonepuzzle/puzzlemanager.gd" id="1_h324o"]
 [ext_resource type="Texture2D" uid="uid://d2dhafm8sjg5u" path="res://assets/sprites/selfmade/ stonepanel.png" id="2_a3vcf"]
 [ext_resource type="PackedScene" uid="uid://cn2y0847375x0" path="res://scenes/Riddles/stonepuzzle/slot.tscn" id="2_w7ar3"]
 [ext_resource type="PackedScene" uid="uid://mfi04kgorw4j" path="res://scenes/Riddles/stonepuzzle/pieces.tscn" id="3_imsnv"]
-[ext_resource type="Texture2D" uid="uid://dvnttcrb8g2or" path="res://assets/sprites/selfmade/ChatGPT Image 2. Dez. 2025, 15_35_04 (1) (4) (2).png" id="4_pwhx3"]
+[ext_resource type="Texture2D" uid="uid://dvnttcrb8g2or" path="res://assets/sprites/selfmade/solved.png" id="4_pwhx3"]
 [ext_resource type="Texture2D" uid="uid://d1bgyo2pv8te3" path="res://assets/sprites/selfmade/Piece1.png" id="5_pwhx3"]
 [ext_resource type="Texture2D" uid="uid://dqakeapwrhy2x" path="res://assets/sprites/selfmade/Piece2.png" id="6_u54ty"]
 [ext_resource type="Texture2D" uid="uid://dokhqm3lhmyqj" path="res://assets/sprites/selfmade/Piece3.png" id="7_yqnux"]
@@ -76,6 +76,66 @@ size = Vector2(324.25, 336)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bag6g"]
 size = Vector2(433.33325, 235)
 
+[sub_resource type="Animation" id="Animation_bag6g"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pieces:modulate:a")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("solvedPuzzle:modulate:a")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_yqnux"]
+resource_name = "solved_animation"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pieces:modulate:a")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.48235294, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("solvedPuzzle:modulate:a")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.49019608, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qfya4"]
+_data = {
+&"RESET": SubResource("Animation_bag6g"),
+&"solved_animation": SubResource("Animation_yqnux")
+}
+
 [node name="Puzzle" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -87,7 +147,7 @@ mouse_filter = 2
 script = ExtResource("1_h324o")
 metadata/_edit_lock_ = true
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="StonePanel" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -103,15 +163,6 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("2_a3vcf")
 metadata/_edit_lock_ = true
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 511.88464
-offset_top = 216.0
-offset_right = 1407.0
-offset_bottom = 845.0
-texture = ExtResource("4_pwhx3")
 
 [node name="Slots" type="Node2D" parent="."]
 
@@ -381,6 +432,20 @@ texture = ExtResource("10_j1goe")
 [node name="CollisionShape2D" parent="Pieces/Piece6" index="1"]
 position = Vector2(0.6668701, -2.499939)
 shape = SubResource("RectangleShape2D_bag6g")
+
+[node name="solvedPuzzle" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 511.88464
+offset_top = 216.0
+offset_right = 1407.0
+offset_bottom = 845.0
+texture = ExtResource("4_pwhx3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qfya4")
+}
 
 [editable path="Slots/slots"]
 [editable path="Slots/slots2"]
