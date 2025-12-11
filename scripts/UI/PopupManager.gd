@@ -20,5 +20,4 @@ func popup_show():
 	
 #found item popup
 func popup_item(item: String, icon: Texture2D):
-	popup.show_popup("Item found: 
-		" + item, icon)
+	popup.show_popup("Item found :" + item, icon)
