@@ -7,12 +7,13 @@ extends VBoxContainer
 @onready var slider_sound: HSlider = $HBoxContainer2/HSlider_Sound
 
 func _ready() -> void:
-	if GameState.music_setting != null:
-		push_warning(GameState.music_setting)
-		slider_music.set_value_no_signal(GameState.music_setting)
-	if GameState.sound_setting != null:
-		push_warning(GameState.sound_setting)
-		slider_sound.set_value_no_signal(GameState.sound_setting)
+	pass
+	#if GameState.music_setting != null:
+		#push_warning(GameState.music_setting)
+		#slider_music.set_value_no_signal(GameState.music_setting)
+	#if GameState.sound_setting != null:
+		#push_warning(GameState.sound_setting)
+		#slider_sound.set_value_no_signal(GameState.sound_setting)
 
 func _on_button_music_l_pressed() -> void:
 	button_musicL.hide()

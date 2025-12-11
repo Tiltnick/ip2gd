@@ -8,11 +8,11 @@ extends Node2D
 func _ready():
 	bgm_musicplayer.bus = "Music"
 	sfx_musicplayer.bus = "SFX"
-	push_warning(GameState.music_setting)
-	if GameState.music_setting != null:
-		set_music_volume(GameState.music_setting)
-	if GameState.sound_setting != null:
-		set_sound_volume(GameState.sound_setting)
+	#push_warning(GameState.music_setting)
+	#if GameState.music_setting != null:
+		#set_music_volume(GameState.music_setting)
+	#if GameState.sound_setting != null:
+		#set_sound_volume(GameState.sound_setting)
 
 func play_bgm(stream: AudioStream):
 	bgm_musicplayer.stream = stream

@@ -18,8 +18,6 @@ func _on_close_button_pressed() -> void:
 	SettingsMenu.hide()
 	play_button_sound()
 
-
-
 func _on_controls_pressed() -> void:
 	control_menu.show()
 	graphics_menu.hide()
@@ -35,6 +33,7 @@ func _on_graphics_pressed() -> void:
 	controls.set_pressed_no_signal(false)
 	sound.set_pressed_no_signal(false)
 	play_button_sound()
+	
 func _on_sound_pressed() -> void:
 	sound_menu.show()
 	graphics_menu.hide()

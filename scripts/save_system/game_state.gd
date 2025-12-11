@@ -67,6 +67,7 @@ func from_dict(data: Dictionary) -> void:
 	if data.has("sound_setting"):
 		sound_setting = data["sound_setting"]
 		push_warning(sound_setting)
+		
 	if data.has("music_setting"):
 		music_setting = data["music_setting"]
 		push_warning(music_setting)

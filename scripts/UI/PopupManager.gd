@@ -19,5 +19,8 @@ func popup_show():
 	solve this riddle!", load("res://assets/sprites/selfmade/Spacegram_Logo.png") as Texture2D)
 	
 #found item popup
-func popup_item(item: String, icon: Texture2D):
-	popup.show_popup("Item found :" + item, icon)
+func popup_item_de(item: String, icon: Texture2D):
+	popup.show_popup("Item gefunden : " + item, icon)
+	
+func popup_item_en(item: String, icon: Texture2D):
+	popup.show_popup("Item found : " + item, icon)

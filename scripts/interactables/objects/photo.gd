@@ -39,11 +39,15 @@ func interact():
 
 
 func _store_in_hotbar():
+	var lang = TranslationServer.get_locale().substr(0, 2)
 	# Photo als aufgehoben markieren
 	if not spawned_from_hotbar and not GameState.picked_items.has("photo_1"):
 		GameState.picked_items.append("photo_1")
 		#Item Found popup
-		PopupManager.popup_item("Photo",item_icon)
+		if lang == "de":
+			PopupManager.popup_item_de("Foto",item_icon)
+		elif lang == "en":
+			PopupManager.popup_item_en("Photo",item_icon)
 
 	# Nicht nochmal in hotbar speichern
 	if spawned_from_hotbar:

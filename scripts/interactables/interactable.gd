@@ -1,10 +1,8 @@
 extends Node2D
 class_name Interactable
 
-
 @onready var outline := $Outline
 @onready var area := $Area2D
-
 
 @export var e_popup_node: Node  
 var player_in_area := false
