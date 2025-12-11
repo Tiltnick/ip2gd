@@ -21,6 +21,9 @@ func _ready() -> void:
 func start_dialog(json_path: String) -> void:
 	print("START DIALOG:", json_path)
 
+	# Falls noch ein alter Dialog läuft dann abbrechen
+	force_close()
+
 	is_running = true
 	current_dialog_path = json_path   
 	show()
@@ -28,11 +31,12 @@ func start_dialog(json_path: String) -> void:
 
 	if not runtime.load_json(json_path):
 		push_error("Dialog konnte nicht geladen werden: " + json_path)
-		dialog_is_finished()
+		# Direkt hart abbrechen, keine Flags setzen
+		force_close()
 		return
 
 	# Main loop: show one line, wait for player input -> repeat
-	while not runtime.is_finished():
+	while is_running and not runtime.is_finished():
 		var line: Dictionary = runtime.get_current_line()
 		if line.is_empty():
 			break
@@ -45,6 +49,10 @@ func start_dialog(json_path: String) -> void:
 
 		await box.continue_pressed
 
+		# Wenn während des Wartens abgebrochen wurde (force_close)
+		if not is_running:
+			break
+
 		if runtime.is_last_line_in_node() and runtime.has_choices_for_current_node():
 			
 			var choice_texts: Array[String] = []
@@ -53,6 +61,9 @@ func start_dialog(json_path: String) -> void:
 
 			box.show_choices(choice_texts)
 			var selected_index: int = await box.choice_selected
+
+			if not is_running:
+				break
 
 			var choices_array: Array = runtime.get_current_choices()
 			if selected_index >= 0 and selected_index < choices_array.size():
@@ -66,10 +77,17 @@ func start_dialog(json_path: String) -> void:
 			continue
 
 		runtime.next()
+
 	dialog_is_finished()
 	
 
 func dialog_is_finished():
+	# Wenn  per force_close() beendet dqnn keine Flags setzen
+	if not is_running:
+		box.hide()
+		hide()
+		return
+
 	if current_dialog_path.contains("outside_2_part_1"):
 		GameState.puzzle_state["blob_intro_done"] = true
 
@@ -85,7 +103,6 @@ func dialog_is_finished():
 
 	current_dialog_path = ""
 
-
 	box.hide()
 	emit_signal("dialog_finished")
 	is_running = false
@@ -94,3 +111,17 @@ func dialog_is_finished():
 	
 func dialog_is_started():
 	emit_signal("dialog_started")
+
+
+#Dialog  abbrechen bei save&exi
+func force_close() -> void:
+	if not is_running:
+		return
+
+	is_running = false
+	current_dialog_path = ""
+	# Parser zurücksetzen, damit kein alter Zustand übrig bleibt
+	runtime = DialogParser.new()
+
+	box.hide()
+	hide()

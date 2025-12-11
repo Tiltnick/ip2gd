@@ -9,8 +9,8 @@ func resume():
 	hide()
 
 	# Dialog wieder einblenden nur wenn er existiert
-	if Engine.has_singleton("DialogManager"):
-		DialogManager.show()
+	# (DialogManager ist ein Autoload → direkt nutzbar)
+	DialogManager.show()
 
 	# Hotbar wieder zeigen wenn sie existiert
 	if hotbarglobal.hotbar:
@@ -22,8 +22,7 @@ func pause():
 	show()
 
 	# Dialog versteckenfalls vorhanden
-	if Engine.has_singleton("DialogManager"):
-		DialogManager.hide()
+	DialogManager.hide()
 
 	# Hotbar verstecken falls vorhanden
 	if hotbarglobal.hotbar:
@@ -40,6 +39,7 @@ func toggle_pause():
 
 func esc():
 	# ESC toggelt einfach das Menü
+	# Startmenü ausnehmen (Name ggf. anpassen, falls deine MainScene anders heißt)
 	var current_scene := get_tree().current_scene
 	if current_scene and current_scene.name == "MainMenu":
 		return
@@ -64,8 +64,7 @@ func _on_exit_button_pressed() -> void:
 	GameState.has_save = true
 
 	# Laufenden Dialog  beenden
-	if Engine.has_singleton("DialogManager"):
-		DialogManager.force_close()
+	DialogManager.force_close()
 
 	# Spiel wieder "entpausen" für Main menu
 	get_tree().paused = false
