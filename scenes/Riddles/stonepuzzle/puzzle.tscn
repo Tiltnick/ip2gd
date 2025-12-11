@@ -120,7 +120,6 @@ position = Vector2(696, 285)
 collision_layer = 2
 input_pickable = false
 required_piece_id = "piece_1"
-required_rotation = 2
 
 [node name="CollisionShape2D" parent="Slots/slots" index="0"]
 position = Vector2(1.5, 0)
@@ -131,7 +130,6 @@ position = Vector2(589, 560)
 collision_layer = 2
 input_pickable = false
 required_piece_id = "piece_3"
-required_rotation = 2
 
 [node name="CollisionShape2D" parent="Slots/slots2" index="0"]
 shape = SubResource("RectangleShape2D_d58ip")
@@ -204,7 +202,7 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_u54ty")
 
 [node name="Area2D5" type="Area2D" parent="SideSlots/Panel2" node_paths=PackedStringArray("start_piece") groups=["side_slots"]]
-position = Vector2(84, 65)
+position = Vector2(88, 74)
 collision_layer = 2
 script = ExtResource("12_u54ty")
 start_piece = NodePath("../../../Pieces/Piece5")
@@ -308,7 +306,6 @@ scale = Vector2(0.25, 0.25)
 collision_mask = 2
 side_scale = Vector2(0.25, 0.25)
 piece_id = "piece_2"
-rotation_steps = 0
 
 [node name="Sprite2D" parent="Pieces/Piece2" index="0"]
 position = Vector2(-23.712097, 1.25)
@@ -321,11 +318,11 @@ shape = SubResource("RectangleShape2D_a3vcf")
 
 [node name="Piece3" parent="Pieces" groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
 position = Vector2(184, 792)
+rotation = 3.1415927
 scale = Vector2(0.25, 0.25)
 collision_mask = 2
 side_scale = Vector2(0.25, 0.25)
 piece_id = "piece_3"
-rotation_steps = 0
 
 [node name="Sprite2D" parent="Pieces/Piece3" index="0"]
 position = Vector2(25.5, 27.055481)
@@ -342,7 +339,6 @@ scale = Vector2(0.25, 0.25)
 collision_mask = 2
 side_scale = Vector2(0.25, 0.25)
 piece_id = "piece_4"
-rotation_steps = 0
 
 [node name="Sprite2D" parent="Pieces/Piece4" index="0"]
 position = Vector2(-23.230713, -46)
@@ -354,12 +350,12 @@ position = Vector2(0.7692261, 2.9999695)
 shape = SubResource("RectangleShape2D_u54ty")
 
 [node name="Piece5" parent="Pieces" groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-position = Vector2(188, 313)
+position = Vector2(192, 322)
+rotation = -3.1415927
 scale = Vector2(0.25, 0.25)
 collision_mask = 2
 side_scale = Vector2(0.25, 0.25)
 piece_id = "piece_5"
-rotation_steps = 0
 
 [node name="Sprite2D" parent="Pieces/Piece5" index="0"]
 position = Vector2(-14.249994, 27.749996)
@@ -376,7 +372,6 @@ scale = Vector2(0.25, 0.25)
 collision_mask = 2
 side_scale = Vector2(0.25, 0.25)
 piece_id = "piece_6"
-rotation_steps = 0
 
 [node name="Sprite2D" parent="Pieces/Piece6" index="0"]
 position = Vector2(-26.499939, -79)

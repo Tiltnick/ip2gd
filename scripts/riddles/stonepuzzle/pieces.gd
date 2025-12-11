@@ -4,7 +4,7 @@ signal piece_released
 @export var puzzle_scale := Vector2(1, 1)
 @export var side_scale := Vector2(0.5, 0.5)
 @export var piece_id: String
-@export var rotation_steps := 4
+
 
 var rotation_step_degrees := 90
 var current_step: int = 0 
@@ -17,7 +17,7 @@ var current_slot = null
 func _ready():
 	input_pickable = true
 	scale = side_scale
-	rotation_step_degrees = 360.0 / rotation_steps
+
 
 
 func _input_event(viewport, event, shape_idx):
