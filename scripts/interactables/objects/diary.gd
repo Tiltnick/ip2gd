@@ -3,6 +3,8 @@ extends SaveableItem
 func _ready() -> void:
 # Jedes Item braucht eine ID
 	save_id = "spaceship_diary"
+	item_name = "Diary"
+	
 # _ready func von Interactable wird aufgerufen -> queue_free() wenn es eingesammelt ist
 	super._ready()  
 

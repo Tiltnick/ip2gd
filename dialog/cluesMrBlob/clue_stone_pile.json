@@ -1,0 +1,51 @@
+{
+  "id": "clue_stone_pile",
+
+  "characters": {
+	"Mr. Blob": "res://assets/sprites/portrait/MrBlobs.png",
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text": "Ohhh, you're stuck already? How unfortunate…" }
+	  ],
+	  "choices": [
+		{ "id": "hint_yes", "text": "Yes, please help me.", "next": "hint_yes" },
+		{ "id": "hint_no", "text": "No, I’ll manage.", "next": "end" }
+	  ]
+	},
+
+	"hint_yes": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text": "Sometimes you just need to dig a little deeper..." }
+	  ],
+	  "choices": [
+		{ "id": "understand", "text": "Ahh, I understand!", "next": "end" },
+		{ "id": "dont_get_it", "text": "I don't get it.", "next": "dont_get_it" }
+	  ]
+	},
+
+	"dont_get_it": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "I don't get it. Can you explain it better?" },
+		{ "speaker": "Mr. Blob", "text": "You really don't like using your brain that much, huh? Have you ever dug something up? I assume yes. Did you not need a tool for that...?" }
+	  ],
+	  "choices": [
+		{ "id": "realization", "text": "Oh, you're right.", "next": "realization" }
+	  ]
+	},
+
+	"realization": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Oh, you're right. I must find something like a shovel!" }
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+	  "lines": []
+	}
+  }
+}

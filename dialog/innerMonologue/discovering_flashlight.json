@@ -1,0 +1,22 @@
+{
+  "id": "oris_discovers_flashlight",
+
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Oh, look here..." },
+		{ "speaker": "Oris", "text": "A flashlight!" },
+		{ "speaker": "Oris", "text": "I'm sure this will come in handy." }
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+	  "lines": []
+	}
+  }
+}

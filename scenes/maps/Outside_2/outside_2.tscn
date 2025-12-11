@@ -1,16 +1,19 @@
-[gd_scene load_steps=26 format=4 uid="uid://chb4fo2dp60ho"]
+[gd_scene load_steps=30 format=4 uid="uid://chb4fo2dp60ho"]
 
 [ext_resource type="Script" uid="uid://f7c56kdptn0k" path="res://scripts/scene_manager/outside_2.gd" id="1_7t2bs"]
-[ext_resource type="Texture2D" uid="uid://djxhqmxg4i62w" path="res://assets/sprites/map/Outside_2/Ground.png" id="2_vxisc"]
-[ext_resource type="Texture2D" uid="uid://d2ipyfv1dy5j0" path="res://assets/sprites/map/Outside_2/Props.png" id="3_o6c6f"]
+[ext_resource type="Texture2D" uid="uid://djxhqmxg4i62w" path="res://assets/sprites/map/Pixel Crawler - Desert/Pixel Crawler - Desert/Assets/Ground.png" id="2_vxisc"]
+[ext_resource type="Texture2D" uid="uid://d2ipyfv1dy5j0" path="res://assets/sprites/map/Pixel Crawler - Desert/Pixel Crawler - Desert/Assets/Props.png" id="3_o6c6f"]
 [ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="5_q7d5i"]
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="6_2emao"]
 [ext_resource type="PackedScene" uid="uid://bph2lfcube6e4" path="res://scenes/maps/Outside_2/FadeArea.tscn" id="7_3r0bj"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="10_exwp3"]
+[ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="12_60fd3"]
 [ext_resource type="PackedScene" uid="uid://dfkefy5ckqrq3" path="res://scenes/interactables/objects/stones.tscn" id="12_qarrx"]
+[ext_resource type="PackedScene" uid="uid://cc56upiuyf8v1" path="res://scenes/Character/npc.tscn" id="13_hiyfs"]
 [ext_resource type="PackedScene" uid="uid://dd6hsxt7i8tci" path="res://scenes/interactables/objects/sams_spaceship.tscn" id="13_qarrx"]
 [ext_resource type="PackedScene" uid="uid://1uf4f4pkdxpx" path="res://scenes/interactables/objects/treasure.tscn" id="14_hiyfs"]
-[ext_resource type="PackedScene" path="res://scenes/maps/transition_area_fade.tscn" id="17_ew4ox"]
+[ext_resource type="PackedScene" uid="uid://dfa4ga2b2k76f" path="res://scenes/Menues/saving_menu.tscn" id="14_vxisc"]
+[ext_resource type="PackedScene" uid="uid://m8y5i5u6eyka" path="res://scenes/maps/transition_area_fade.tscn" id="17_ew4ox"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r53rl"]
 texture = ExtResource("2_vxisc")
@@ -1950,7 +1953,13 @@ a = Vector2(117.75, 3)
 b = Vector2(-119.25, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7t2bs"]
-size = Vector2(132, 20)
+size = Vector2(58, 20)
+
+[sub_resource type="Curve2D" id="Curve2D_hiyfs"]
+_data = {
+"points": PackedVector2Array(11.075592, -52.626648, 0, 0, 381.6104, -49, 0, 0, 0, 0, 320.97836, -14, 0, 0, 0, 0, 149.40259, 7, 0, 0, 0, 0, 135.85715, -105, -11.4258585, 36.868446, 11.4258585, -36.868446, 128.11688, -262, 0, 0, 0, 0, 149.40259, -172, 0, 0, 0, 0, 184.23376, -102, 0, 0, 0, 0, 252.60608, -132, 0, 0, 0, 0, 260.99133, -249, 0, 0, 0, 0, 285.5022, -261, 0, 0, 0, 0, 344.84418, -232, 0, 0, 0, 0, 382.25543, -131, 0, 0, 0, 0, 388.70563, -74, 0, 0, 0, 0, 381.6104, -49)
+}
+point_count = 14
 
 [node name="Outside2" type="Node2D"]
 script = ExtResource("1_7t2bs")
@@ -2108,7 +2117,7 @@ offset_right = -10.0
 offset_bottom = -54.0
 
 [node name="Stones3" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_qarrx")]
-position = Vector2(-491, -353)
+position = Vector2(-362, -365)
 e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="Objects/Stones3" instance=ExtResource("10_exwp3")]
@@ -2157,6 +2166,9 @@ position = Vector2(1, -10)
 [node name="from_outside1" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(1, 4)
 
+[node name="from_sams_cave" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(-315, -856)
+
 [node name="DoorArea" type="Area2D" parent="."]
 position = Vector2(-345, 297)
 script = ExtResource("6_2emao")
@@ -2168,3 +2180,35 @@ position = Vector2(-11, 0)
 shape = SubResource("RectangleShape2D_7t2bs")
 
 [node name="TransitionAreaFade" parent="." instance=ExtResource("17_ew4ox")]
+
+[node name="DoorArea2" type="Area2D" parent="."]
+position = Vector2(-345, 297)
+script = ExtResource("6_2emao")
+target_scene_path = "uid://cbsuctc5xrvkk"
+target_spawn_id = "from_outside2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea2"]
+position = Vector2(-327, -919)
+shape = SubResource("RectangleShape2D_7t2bs")
+
+[node name="Hotbar" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Hotbar" parent="Hotbar" instance=ExtResource("12_60fd3")]
+
+[node name="NPC" parent="." node_paths=PackedStringArray("path_follow") instance=ExtResource("13_hiyfs")]
+position = Vector2(-375, 38)
+move_speed = 2000.0
+path_follow = NodePath("../NPCPath/NPCPathFollow")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("14_vxisc")]
+visible = false
+
+[node name="NPCPath" type="Path2D" parent="."]
+position = Vector2(-793.62415, 222)
+scale = Vector2(1.5503355, 1)
+curve = SubResource("Curve2D_hiyfs")
+
+[node name="NPCPathFollow" type="PathFollow2D" parent="NPCPath"]
+position = Vector2(381.6104, -49)
+rotation = 2.6180673

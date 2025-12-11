@@ -1,0 +1,22 @@
+{
+  "id": "oris_fails_a_riddle",
+
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Oh no, that didn't work!" },
+		{ "speaker": "Oris", "text": "I should try again!" },
+		{ "speaker": "Oris", "text": "Maybe a hint would help." }
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+	  "lines": []
+	}
+  }
+}
