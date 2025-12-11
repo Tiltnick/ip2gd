@@ -44,6 +44,9 @@ func _on_button_pressed() -> void:
 		title_label.text = "Code Verified"
 		title_label.modulate = Color.CHARTREUSE
 		
+		GameState.puzzle_state["ship_exit_monologue_pending"] = true
+
+		
 		await get_tree().create_timer(1.5).timeout
 		code_solved = true
 		emit_signal("code_verified", true)

@@ -1,0 +1,22 @@
+{
+  "id": "oris_opens_treasure_chest",
+
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Wow, I managed to open it!" },
+		{ "speaker": "Oris", "text": "Oh, a shovel..." },
+		{ "speaker": "Oris", "text": "This must be what I need to get rid of the stone piles!" }
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+	  "lines": []
+	}
+  }
+}

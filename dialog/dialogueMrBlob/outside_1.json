@@ -1,0 +1,281 @@
+{
+  "id": "mr_blob_intro",
+  "characters": {
+	"Mr. Blob": "res://assets/sprites/portrait/MrBlobs.png",  
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text": "Hello there strange creature! Who might you be?" }
+	  ],
+	  "choices": [
+		{ "id": "oris_intro_1", "text": "Oh...hi? I’m Oris.", "next": "oris_intro_1" },
+		{ "id": "oris_intro_2", "text": "I’m Oris?", "next": "oris_intro_2" }
+	  ]
+	},
+
+	"oris_intro_1": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Oh...hi? I’m Oris." },
+		{ "speaker": "Mr. Blob", "text": "Ah, welcome to my humble home Oris. I’m Mr. Blob but my friends call me Blobby." }
+	  ],
+	  "choices": [
+		{ "id": "oris_meet_1", "text": "Okay, that seems normal!", "next": "oris_meet_1" },
+		{ "id": "oris_meet_2", "text": "Thanks Blobby?", "next": "oris_meet_2" }
+	  ]
+	},
+
+	"oris_intro_2": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "I’m Oris? The better question is who are you?" },
+		{ "speaker": "Mr. Blob", "text": "Ah, welcome to my humble home Oris. I’m Mr. Blob but my friends call me Blobby." }
+	  ],
+	  "choices": [
+		{ "id": "oris_meet_1", "text": "Okay, that seems normal!", "next": "oris_meet_1" },
+		{ "id": "oris_meet_2", "text": "Thanks Blobby.", "next": "oris_meet_2" }
+	  ]
+	},
+
+	"oris_meet_1": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Okay, that seems normal! Nice to meet you Blobby." },
+		{ "speaker": "Mr. Blob", "text": "I said my friends call me Blobby. It’s Mr. Blob for strangers like yourself. I wanted to see for myself who landed on my beautiful planet…and why." }
+	  ],
+	  "choices": [
+		{ "id": "oris_reason_1", "text": "Oh, my bad then.", "next": "oris_reason_1" },
+		{ "id": "oris_reason_2", "text": "Sure, whatever you say Blobby.", "next": "oris_reason_2" }
+	  ]
+	},
+
+	"oris_meet_2": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Thanks Blobby. What do you want from me though?" },
+		{ "speaker": "Mr. Blob", "text": "I said my friends call me Blobby. It’s Mr. Blob for strangers like yourself. I wanted to see for myself who landed on my beautiful planet…and why." }
+	  ],
+	  "choices": [
+		{ "id": "oris_reason_1", "text": "Oh, my bad then.", "next": "oris_reason_1" },
+		{ "id": "oris_reason_2", "text": "Sure, whatever you say Blobby.", "next": "oris_reason_2" }
+	  ]
+	},
+
+	"oris_reason_1": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Oh, my bad then. Well, Mr. Blob, as you can probably tell I crashed here. I’ve lost a part of my memories but I know I came here because I’m looking for my friend…Sam?" },
+		{ "speaker": "Mr. Blob", "text": "Interesting…how do you know that this human of yours… Sam you said? How do you know he’s here on this planet?" }
+	  ],
+	  "choices": [
+		{ "id": "oris_question_1", "text": "I found a clue.", "next": "oris_question_1" },
+		{ "id": "oris_question_2", "text": "You’re asking a lot.", "next": "oris_question_2" }
+	  ]
+	},
+
+	"oris_reason_2": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Sure, whatever you say Blobby. As you can clearly tell I crashed here. I don’t remember much, just that I came here looking for my friend Sam." },
+		{ "speaker": "Mr. Blob", "text": "Interesting…how do you know that this human of yours… Sam you said? How do you know he’s here on this planet?" }
+	  ],
+	  "choices": [
+		{ "id": "oris_question_1", "text": "I found a clue.", "next": "oris_question_1" },
+		{ "id": "oris_question_2", "text": "You’re asking a lot.", "next": "oris_question_2" }
+	  ]
+	},
+
+	"oris_question_1": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "I found a clue about it in my diary." },
+		{ "speaker": "Mr. Blob", "text": "Uhm…well this was a nice conversation, I’ll leave now, bye!" }
+	  ],
+	  "choices": [
+		{ "id": "oris_stop_1", "text": "Wait!", "next": "oris_stop_1" },
+		{ "id": "oris_stop_2", "text": "You’re suspicious.", "next": "oris_stop_2" }
+	  ]
+	},
+
+	"oris_question_2": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "You’re asking an awful lot of questions." },
+		{ "speaker": "Mr. Blob", "text": "Uhm…well this was a nice conversation, I’ll leave now, bye!" }
+	  ],
+	  "choices": [
+		{ "id": "oris_stop_1", "text": "Wait!", "next": "oris_stop_1" },
+		{ "id": "oris_stop_2", "text": "You’re suspicious.", "next": "oris_stop_2" }
+	  ]
+	},
+
+	"oris_stop_1": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Wait! Can’t you help me find him? You must’ve seen him crash too? Please!" },
+		{ "speaker": "Mr. Blob", "text": "Ugh, fine. I did see him crash and I also talked to him." }
+	  ],
+	  "choices": [
+		{ "id": "oris_react_1", "text": "Omg, was he ok?", "next": "oris_react_1" },
+		{ "id": "oris_react_2", "text": "I knew it!", "next": "oris_react_2" }
+	  ]
+	},
+
+	"oris_stop_2": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "You’re behaving very suspiciously, I must say. You can actually help me find him. I mean, you must’ve seen him crash here as well…" },
+		{ "speaker": "Mr. Blob", "text": "Ugh, fine. I did see him crash and I also talked to him." }
+	  ],
+	  "choices": [
+		{ "id": "oris_react_1", "text": "Omg, was he ok?", "next": "oris_react_1" },
+		{ "id": "oris_react_2", "text": "I knew it!", "next": "oris_react_2" }
+	  ]
+	},
+
+	"oris_react_1": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Omg, was he okay? Where is he? Can you take me to him?" },
+		{ "speaker": "Mr. Blob", "text": "Woow, wow, let’s calm down a bit. I talked to him once after his ship crashed. He was fine, just a little rumpled." }
+	  ],
+	  "choices": [
+		{ "id": "oris_detail_1", "text": "Oh, he must’ve been scared!", "next": "oris_detail_1" },
+		{ "id": "oris_detail_2", "text": "Aha, sure.", "next": "oris_detail_2" }
+	  ]
+	},
+
+	"oris_react_2": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "I knew it! Take me to him! Now!" },
+		{ "speaker": "Mr. Blob", "text": "Woow, wow, let’s calm down a bit. I talked to him once after his ship crashed. He was fine, just a little rumpled." }
+	  ],
+	  "choices": [
+		{ "id": "oris_detail_1", "text": "Oh, he must’ve been scared!", "next": "oris_detail_1" },
+		{ "id": "oris_detail_2", "text": "Aha, sure.", "next": "oris_detail_2" }
+	  ]
+	},
+
+	"oris_detail_1": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Oh, he must’ve been scared out of his mind! Did he say anything?" },
+		{ "speaker": "Mr. Blob", "text": "Not really. He kept asking me about the nature of this planet… healing properties… documenting things… I told him to document everything since it might be the last time he sees anything nice… I mean…" }
+	  ],
+	  "choices": [
+		{ "id": "oris_doc_1", "text": "Okay, that sounds ominous.", "next": "oris_doc_1" },
+		{ "id": "oris_doc_2", "text": "Why the last time?", "next": "oris_doc_2" }
+	  ]
+	},
+
+	"oris_detail_2": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Aha, sure. Well did he say anything important?" },
+		{ "speaker": "Mr. Blob", "text": "Not really. He kept asking me about the nature of this planet… healing properties… documenting things… I told him to document everything since it might be the last time he sees anything nice… I mean…" }
+	  ],
+	  "choices": [
+		{ "id": "oris_doc_1", "text": "Okay, that sounds ominous.", "next": "oris_doc_1" },
+		{ "id": "oris_doc_2", "text": "Why the last time?", "next": "oris_doc_2" }
+	  ]
+	},
+
+	"oris_doc_1": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Okay, that sounds ominous. But how would he document anything?" },
+		{ "speaker": "Mr. Blob", "text": "Oh, just over this human app… Space… something. The second part rhymes with clam." }
+	  ],
+	  "choices": [
+		{ "id": "oris_app_1", "text": "Wait, that sounds...", "next": "oris_app_1" },
+		{ "id": "oris_app_2", "text": "Clam? Oh wait…", "next": "oris_app_2" }
+	  ]
+	},
+
+	"oris_doc_2": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Why would it be his last time? Also document sightings how exactly?" },
+		{ "speaker": "Mr. Blob", "text": "Oh, just over this human app… Space… something. The second part rhymes with clam." }
+	  ],
+	  "choices": [
+		{ "id": "oris_app_1", "text": "Wait, that sounds...", "next": "oris_app_1" },
+		{ "id": "oris_app_2", "text": "Clam? Oh wait…", "next": "oris_app_2" }
+	  ]
+	},
+
+	"oris_app_1": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Wait, that sounds kind of familiar… Space… Space… SPACEGRAM!" },
+		{ "speaker": "Mr. Blob", "text": "Yes, that. I’m sure you can find his journey there." }
+	  ],
+	  "choices": [
+		{ "id": "oris_user_1", "text": "But how find username?", "next": "oris_user_1" },
+		{ "id": "oris_user_2", "text": "I'd need his username.", "next": "oris_user_2" }
+	  ]
+	},
+
+	"oris_app_2": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Clam? Oh wait… that rings a bell… You mean Spacegram?" },
+		{ "speaker": "Mr. Blob", "text": "Yes, that. I’m sure you can find his journey there." }
+	  ],
+	  "choices": [
+		{ "id": "oris_user_1", "text": "But how find username?", "next": "oris_user_1" },
+		{ "id": "oris_user_2", "text": "I'd need his username.", "next": "oris_user_2" }
+	  ]
+	},
+
+	"oris_user_1": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Oh, but how am I going to figure out his username?" },
+		{ "speaker": "Mr. Blob", "text": "Use your tiny— I mean amazing brain. Didn’t you find a clue in your humongous ship?" }
+	  ],
+	  "choices": [
+		{ "id": "oris_clue_1", "text": "Hmm… oh right!", "next": "oris_clue_1" },
+		{ "id": "oris_clue_2", "text": "What did you say?", "next": "oris_clue_2" }
+	  ]
+	},
+
+	"oris_user_2": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "I'd need to know his username for that, silly." },
+		{ "speaker": "Mr. Blob", "text": "Use your tiny— I mean amazing brain. Didn’t you find a clue in your humongous ship?" }
+	  ],
+	  "choices": [
+		{ "id": "oris_clue_1", "text": "Hmm… oh right!", "next": "oris_clue_1" },
+		{ "id": "oris_clue_2", "text": "What did you say?", "next": "oris_clue_2" }
+	  ]
+	},
+
+	"oris_clue_1": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Hmm… Oh, you're right! I found a picture in the ship of Sam and me. The back had the handle @oris.is.here. Since I'm Oris, that must be my username!" },
+		{ "speaker": "Mr. Blob", "text": "Mhm, sure. Can I go now, or..." }
+	  ],
+	  "choices": [
+		{ "id": "oris_final_1", "text": "And if Sam was my friend…", "next": "oris_final_1" },
+		{ "id": "oris_final_2", "text": "Sam was my friend…", "next": "oris_final_2" }
+	  ]
+	},
+
+	"oris_clue_2": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Wait, what did you say about my brain? Nevermind. I found a picture of Sam and me with @oris.is.here on the back. Must be my username." },
+		{ "speaker": "Mr. Blob", "text": "Mhm, sure. Can I go now, or..." }
+	  ],
+	  "choices": [
+		{ "id": "oris_final_1", "text": "And if Sam was my friend…", "next": "oris_final_1" },
+		{ "id": "oris_final_2", "text": "Sam was my friend…", "next": "oris_final_2" }
+	  ]
+	},
+
+	"oris_final_1": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "And if Sam was my friend, then I surely followed him on Spacegram! I must be able to find him through my own account." },
+		{ "speaker": "Mr. Blob", "text": "Yeah, no problem. Go check Spacegram and find your little friend. I’m sure we’ll meet again… Good luck on your journey, @oris.is.here…" }
+	  ],
+	  "next": "end"
+	},
+
+	"oris_final_2": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Sam was my friend so I probably follow him on Spacegram. I guess I can find him that way." },
+		{ "speaker": "Mr. Blob", "text": "Yeah, no problem. Go check Spacegram and find your little friend. I’m sure we’ll meet again… Good luck on your journey, @oris.is.here…" }
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+	  "lines": []
+	}
+  }
+}

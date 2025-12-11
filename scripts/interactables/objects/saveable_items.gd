@@ -2,12 +2,17 @@ extends Interactable
 # für die Interaktion
 class_name SaveableItem
 
-# Eindeutige ID zugewiesen
+# Eindeutige ID zugewiesen + Namen
 var save_id: String = ""
+var item_name: String = ""
+
+@export var item_icon: Texture2D 
 
 func _ready() -> void:
 # super._ready() -> ready Funktion von Interactable
 	super._ready()
+
+	add_to_group("collectible_items")
 
 # Check im GameState
 	if save_id != "" and GameState.puzzle_state.get(save_id, false):
@@ -17,3 +22,5 @@ func _ready() -> void:
 func mark_collected() -> void:
 	if save_id != "":
 		GameState.puzzle_state[save_id] = true
+		#found item popup
+		PopupManager.popup_item(item_name, item_icon)

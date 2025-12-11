@@ -20,6 +20,7 @@ config/icon="res://assets/sprites/icon.svg"
 Choice_Store="*res://scripts/dialog/choice_store.gd"
 Diary="*res://scripts/menu/GameMenu/diary.gd"
 GlobalMenuButton="*res://scenes/Menues/GameMenu/menu_button.tscn"
+WorldAudioManager="*res://scenes/audio/world_audio_manager.tscn"
 Visibility_Button="*res://scripts/menu/GameMenu/menu_button.gd"
 GameMenu="*res://scenes/Menues/GameMenu/diary_menu.tscn"
 GameState="*res://scripts/save_system/game_state.gd"
@@ -32,6 +33,8 @@ SettingsMenu="*res://scenes/Menues/settings_menu.tscn"
 ItemDatabase="*res://scripts/interactables/objects/item_database.gd"
 LanguageManager="*res://scripts/language/language_manager.gd"
 TransitionAreaFade="*res://scenes/maps/transition_area_fade.tscn"
+PopupManager="*res://scripts/UI/PopupManager.gd"
+SavingMenu="*res://scenes/Menues/saving_menu.tscn"
 
 [dialogic]
 

@@ -1,0 +1,22 @@
+{
+  "id": "oris_crash_intro",
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Oris", "text": "Ugh… my head… What happened…?" },
+		{ "speaker": "Oris", "text": "…Where am I?" },
+		{ "speaker": "Oris", "text": "Think… think… Come on, Oris. You must remember something." },
+		{ "speaker": "Oris", "text": "…Nothing. Great. Just great." },
+		{ "speaker": "Oris", "text": "Alright… panicking won’t help. I should take a look around. Maybe I’ll find a clue… or someone who can tell me what the heck is going on." }
+	  ],
+	  "choices": [
+		{ "id": "oris_crash_continue", "text": "Look around", "next": "end" }
+	  ]
+	},
+
+	"end": { "lines": [] }
+  }
+}

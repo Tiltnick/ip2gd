@@ -21,6 +21,8 @@ var picked_items: Array = []
 # Puzzle-Items (Fix für deinen New Game Fehler)
 var puzzle_items: Array = []
 
+var sound_setting: float
+var music_setting: float
 # Sprache
 var language: String = "en"   
 
@@ -36,8 +38,11 @@ func to_dict() -> Dictionary:
 		},
 		"picked_items": picked_items,
 		"puzzle_items": puzzle_items,
+		"music_setting":music_setting,
+		"sound_setting":sound_setting,
 		"language": language,   
 	}
+	
 
 
 # Liest die geupdateten Daten aus
@@ -58,6 +63,13 @@ func from_dict(data: Dictionary) -> void:
 
 	if data.has("puzzle_items"):
 		puzzle_items = data["puzzle_items"]
+		
+	if data.has("sound_setting"):
+		sound_setting = data["sound_setting"]
+		push_warning(sound_setting)
+	if data.has("music_setting"):
+		music_setting = data["music_setting"]
+		push_warning(music_setting)
 
 	if data.has("language"):                       
 		language = str(data["language"])           

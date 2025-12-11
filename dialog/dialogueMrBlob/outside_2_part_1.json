@@ -1,0 +1,27 @@
+{
+  "id": "outside_2_part_1",
+
+  "characters": {
+	"Mr. Blob": "res://assets/sprites/portrait/MrBlobs.png",
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text": "Oh… you’re here too?" },
+		{ "speaker": "Oris", "text": "Yeah. Did you follow me?" },
+		{ "speaker": "Mr. Blob", "text": "Whaaat? No, of course not." },
+		{ "speaker": "Oris", "text": "Aha. Well… I’m looking for Sam. That spaceship over there is probably his, right?" },
+		{ "speaker": "Mr. Blob", "text": "Mhm… yeah." },
+		{ "speaker": "Oris", "text": "Then he must be somewhere nearby, right?" },
+		{ "speaker": "Mr. Blob", "text": "Yeeah… exactly. There sure are a lot of stone piles around here, don’t you think?" }
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+	  "lines": []
+	}
+  }
+}
