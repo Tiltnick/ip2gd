@@ -1,0 +1,24 @@
+{
+	"id": "porcini_riddle",
+
+	"characters": {
+		"Porcini": ""
+},
+
+ "steps": {
+
+	"sections": {
+		"lines": [
+			{"speaker": "Porcini","text_en": "I bear the traces of every soul, that walks, that gives, that loses hold.
+												Only those who honor, not possess, may rest where new life begins to bless.",
+									"text_de": "Ich trag’ die Spuren aller Seelen, die wandeln, geben, manchmal fehlen.
+												Nur wer mich achtet, nicht besitzt, darf ruh’n, wo neues Leben sitzt." 
+			}
+		],
+		"next": "end"
+	},
+	"end": {
+	  "lines": []
+	}
+  }
+}

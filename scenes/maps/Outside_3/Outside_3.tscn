@@ -3596,3 +3596,4 @@ position = Vector2(386, -68)
 
 [node name="NPC_champignon" parent="." instance=ExtResource("9_kbu53")]
 position = Vector2(464, 134)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
