@@ -10,7 +10,8 @@ var DATA := {
 		"description_en": "An old photo of Oris' and Sam's mission back in august.",
 		"description_de": "Ein altes Foto von Oris’ und Sams Mission im August.",
 		"icon": "res://assets/sprites/photos/Photo_Front.jpg",
-		"icon_size": Vector2(55, 55)
+		"icon_size": Vector2(55, 55),
+		"world_scene": "res://scenes/interactables/objects/photo.tscn"
 	},
 	
 	
