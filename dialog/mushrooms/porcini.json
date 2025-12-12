@@ -2,7 +2,7 @@
 	"id": "porcini_riddle",
 
 	"characters": {
-		"Porcini": ""
+		"Porcini": "res://assets/sprites/portrait/porcini.png"
 },
 
  "steps": {

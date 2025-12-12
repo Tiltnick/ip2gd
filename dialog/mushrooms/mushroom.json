@@ -2,9 +2,9 @@
 	"id": "mushroom_riddle",
 
 	"characters": {
-		"Champi": "",
-		"Truffle": "",
-		"Porcini": "",
+		"Champi": "res://assets/sprites/portrait/champignon.png",
+		"Truffle": "res://assets/sprites/portrait/truffle.png",
+		"Porcini": "res://assets/sprites/portrait/porcini.png",
 		"Oris": "res://assets/sprites/portrait/oris.png",
 },
 

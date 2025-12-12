@@ -2,7 +2,7 @@
 	"id": "truffle_riddle",
 
 	"characters": {
-		"Truffle": ""
+		"Truffle": "res://assets/sprites/portrait/truffle.png"
 },
 
  "steps": {

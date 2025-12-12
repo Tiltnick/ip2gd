@@ -2,7 +2,7 @@
 	"id": "champi_riddle",
 
 	"characters": {
-		"Champi": ""
+		"Champi": "res://assets/sprites/portrait/champignon.png"
 },
 
  "steps": {

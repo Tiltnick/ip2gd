@@ -2,7 +2,7 @@
 	"id": "porcini_begin",
 
 	"characters": {
-		"Porcini": ""
+		"Porcini": "res://assets/sprites/portrait/porcini.png"
 },
 
  "steps": {
