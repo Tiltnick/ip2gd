@@ -6,14 +6,21 @@
   "steps": {
 	"sections": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "Ugh… my head… What happened…?" },
-		{ "speaker": "Oris", "text": "…Where am I?" },
-		{ "speaker": "Oris", "text": "Think… think… Come on, Oris. You must remember something." },
-		{ "speaker": "Oris", "text": "…Nothing. Great. Just great." },
-		{ "speaker": "Oris", "text": "Alright… panicking won’t help. I should take a look around. Maybe I’ll find a clue… or someone who can tell me what the heck is going on." }
+		{ "speaker": "Oris", "text_en": "Ugh… my head… What happened…?"
+							,"text_de": "Uff …mein Kopf …Was ist passiert …?" },
+		{ "speaker": "Oris", "text_en": "…Where am I?"
+							,"text_de": "…Wo bin ich?" },
+		{ "speaker": "Oris", "text_en": "Think… think… Come on, Oris. You must remember something."
+							,"text_de": "Denk nach… Denk nach… Komm schon Oris. Du musst dich doch an irgendetwas erinnern."},
+		{ "speaker": "Oris", "text_en": "…Nothing. Great. Just great."
+							,"text_de": "…An nichts. Einfach an gar nichts." },
+		{ "speaker": "Oris", "text_en": "Alright… panicking won’t help. I should take a look around. Maybe I’ll find a clue…"
+							,"text_de": "Na gut… Panik hilft nicht weiter. Ich sollte mich hier umsehen. Vielleicht finde ich einen Hinweis…"}
 	  ],
 	  "choices": [
-		{ "id": "oris_crash_continue", "text": "Look around", "next": "end" }
+		{ "id": "oris_crash_continue", "text_en": "Look around"
+										, "text_de":"Schau dich um",
+		 "next": "end" }
 	  ]
 	},
 

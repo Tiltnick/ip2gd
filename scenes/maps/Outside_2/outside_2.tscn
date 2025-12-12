@@ -2198,7 +2198,6 @@ layer = 0
 
 [node name="NPC" parent="." node_paths=PackedStringArray("path_follow") instance=ExtResource("13_hiyfs")]
 position = Vector2(-375, 38)
-move_speed = 2000.0
 path_follow = NodePath("../NPCPath/NPCPathFollow")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("14_vxisc")]

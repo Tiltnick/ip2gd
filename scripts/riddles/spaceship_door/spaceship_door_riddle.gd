@@ -33,6 +33,7 @@ func _on_text_changed(new_text: String, input: LineEdit) -> void:
 
 
 func _on_button_pressed() -> void:
+	var lang = TranslationServer.get_locale().substr(0, 2)
 	if code_solved:
 		return
 
@@ -40,8 +41,12 @@ func _on_button_pressed() -> void:
 	for input in inputs:
 		entered.append(input.text)
 
-	if entered == code:
+	if entered == code and lang == "en":
 		title_label.text = "Code Verified"
+		title_label.modulate = Color.CHARTREUSE
+	
+	elif entered == code and lang == "de":
+		title_label.text = "Code verifiziert"
 		title_label.modulate = Color.CHARTREUSE
 		
 		GameState.puzzle_state["ship_exit_monologue_pending"] = true
@@ -54,6 +59,7 @@ func _on_button_pressed() -> void:
 		title_label.text = "Error"
 		title_label.modulate = Color.BLACK
 		emit_signal("code_verified", false)
+		
 
 
 func _on_exit_pressed() -> void:

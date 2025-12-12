@@ -19,3 +19,6 @@ CLOSE,Close,Schließen
 MUSIC,Music,Musik
 SOUND_EFFECTS,Sound effects,Soundeffekte
 ITEM_FOUND,Item Found :, Item gefunden :
+SPACE_CONTINUE,Press Space to continue, Drücke Leertaste zum Fortfahren
+ENTER_CODE, Enter Code to Exit, Code eingeben zum Verlassen
+VERIFY, Verify, Überprüfen

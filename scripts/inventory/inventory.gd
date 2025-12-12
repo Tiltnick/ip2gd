@@ -51,6 +51,8 @@ func _on_slot_clicked(index: int):
 	selected_slot = index
 	_update_selected_visuals()
 
+	var lang = TranslationServer.get_locale().substr(0, 2)
+	
 	var item_id = hotbarglobal.inventory_items[index]
 
 	# Wwelcher slot wurde geklickt
@@ -59,10 +61,15 @@ func _on_slot_clicked(index: int):
 
 	# slot ist leer
 	if not item_id:
-		$Description/Title.text = "Empty Slot"
-		$Description/Text.text = "Oops, this slot has not been filled with anything yet. Nothing to see here, just an empty slot!"
+		if lang == "en":
+			$Description/Title.text = "Empty Slot"
+			$Description/Text.text = "Oops, this slot has not been filled with anything yet. Nothing to see here, just an empty slot!"
+		elif lang == "de":
+			$Description/Title.text = "Leerer Slot"
+			$Description/Text.text = "Ups, dieser Slot wurde noch mit nichts gefüllt. Hier gibt es nichts zu sehen, nur ein leerer Slot!"
 		
 		# Icon anzeigen für "empty"
+		
 		$Description/Slot17.set_item_icon("empty")
 
 		# Slot number anzeigen
@@ -77,11 +84,16 @@ func _on_slot_clicked(index: int):
 		return
 
 	var data = ItemDatabase.DATA[item_id]
+	
 
 	# Titel & Beschreibung setzen
-	$Description/Title.text = data.get("name", "Unknown")
-	$Description/Text.text = data.get("description", "Keine Beschreibung")
-
+	if data:
+		if lang == "en":
+			$Description/Title.text = data.get("name_en", "Unknown")
+			$Description/Text.text = data.get("description_en", "Keine Beschreibung")
+		elif lang == "de":
+			$Description/Title.text = data.get("name_de", "Unknown")
+			$Description/Text.text = data.get("description_de", "Keine Beschreibung")
 	# Icon setzen
 	$Description/Slot17.set_item_icon(item_id)
 

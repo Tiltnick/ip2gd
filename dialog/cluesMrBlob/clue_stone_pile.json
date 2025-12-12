@@ -9,37 +9,52 @@
   "steps": {
 	"sections": {
 	  "lines": [
-		{ "speaker": "Mr. Blob", "text": "Ohhh, you're stuck already? How unfortunate…" }
+		{ "speaker": "Mr. Blob", "text_en": "Ohhh, you're stuck already? How unfortunate…"
+								 ,"text_de": "Ohhh, du hängst schon fest? Wie schade..."}
 	  ],
 	  "choices": [
-		{ "id": "hint_yes", "text": "Yes, please help me.", "next": "hint_yes" },
-		{ "id": "hint_no", "text": "No, I’ll manage.", "next": "end" }
+		{ "id": "hint_yes", "text_en": "Yes, please help me."
+							,"text_de": "Ja, bitte hilf mir." 
+							,"next": "hint_yes" },
+		{ "id": "hint_no", "text_en": "No, I’ll manage."
+							,"text_de": "Ich komme klar." 
+							,"next": "end" }
 	  ]
 	},
 
 	"hint_yes": {
 	  "lines": [
-		{ "speaker": "Mr. Blob", "text": "Sometimes you just need to dig a little deeper..." }
+		{ "speaker": "Mr. Blob", "text_en": "Sometimes you just need to dig a little deeper..."
+								,"text_de": "Manchmal musst du ein bisschen tiefer graben..." }
 	  ],
 	  "choices": [
-		{ "id": "understand", "text": "Ahh, I understand!", "next": "end" },
-		{ "id": "dont_get_it", "text": "I don't get it.", "next": "dont_get_it" }
+		{ "id": "understand", "text_en": "Ahh, I understand!"
+								,"text_de": "Ahh, ich verstehe!" 
+								,"next": "end" },
+		{ "id": "dont_get_it", "text_en": "I don't get it."
+								,"text_de": "Ich check nichts." 
+								,"next": "dont_get_it" }
 	  ]
 	},
 
 	"dont_get_it": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "I don't get it. Can you explain it better?" },
-		{ "speaker": "Mr. Blob", "text": "You really don't like using your brain that much, huh? Have you ever dug something up? I assume yes. Did you not need a tool for that...?" }
+		{ "speaker": "Oris", "text_en": "I don't get it. Can you explain it better?"
+							,"text_de": "Ich checke garnichts mehr. Kannst du das bitte näher erläutern?" },
+		{ "speaker": "Mr. Blob", "text_en": "You really don't like using your brain that much, huh? Have you ever dug something up? I assume yes. Did you not need a tool for that...?"
+								,"text_de": "Du benutzt wirklich nicht gerne dein Gehirn, oder? Hast du schon einmal etwas ausgegraben? Ich nehme an, ja. Hast du nicht ein Werzeug dafür benutzt...?" }
 	  ],
 	  "choices": [
-		{ "id": "realization", "text": "Oh, you're right.", "next": "realization" }
+		{ "id": "realization", "text_en": "Oh, you're right."
+								,"text_de": "Hast recht." 
+								,"next": "realization" }
 	  ]
 	},
 
 	"realization": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "Oh, you're right. I must find something like a shovel!" }
+		{ "speaker": "Oris", "text_en": "Oh, you're right. I must find something like a shovel!"
+							,"text_de": "Oh, du hast recht. Ich muss so etwas wie eine Schaufel finden!" }
 	  ],
 	  "next": "end"
 	},

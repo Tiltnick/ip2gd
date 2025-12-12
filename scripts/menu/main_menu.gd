@@ -77,8 +77,6 @@ func start_new_game() -> void:
 	# Szene beginnen
 	SceneManager.goto_scene("res://scenes/maps/spaceship.tscn", "start")
 
-	
-
 
 func exit_game() -> void:
 	play_button_sound()

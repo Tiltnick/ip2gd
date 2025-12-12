@@ -52,6 +52,7 @@ func is_finished() -> bool:
 	return current_node == "end"
 
 func get_current_line() -> Dictionary:
+	var lang = TranslationServer.get_locale().substr(0, 2)
 	if not data.has("steps"):
 		push_error("DialogParser: JSON has no 'steps' or was not loaded correctly.")
 		return {}
@@ -73,11 +74,18 @@ func get_current_line() -> Dictionary:
 		if portraits.has(sp):
 			portrait_path = String(portraits[sp])
 
-		return {
-			"speaker": sp,
-			"text": String(ld.get("text", "")),
-			"portrait": portrait_path
-		}
+		if lang == "en":
+			return {
+				"speaker": sp,
+				"text": String(ld.get("text_en", "")),
+				"portrait": portrait_path
+			}
+		elif lang == "de":
+			return {
+				"speaker": sp,
+				"text": String(ld.get("text_de", "")),
+				"portrait": portrait_path
+			}
 
 	return {}
 
@@ -104,7 +112,7 @@ func next() -> void:
 func has_choices_for_current_node() -> bool:
 	if is_finished():
 		return false
-
+ 
 	if not data.has("steps"):
 		return false
 
@@ -122,9 +130,34 @@ func get_current_choices() -> Array:
 	if not data.has("steps"):
 		return []
 
+	var lang = TranslationServer.get_locale().substr(0, 2)
+
 	var steps: Dictionary = data["steps"] as Dictionary
 	var node: Dictionary  = steps.get(current_node, {}) as Dictionary
-	return node.get("choices", []) as Array
+	var raw_choices: Array = node.get("choices", []) as Array
+	
+	var result: Array = []
+	
+	for choice in raw_choices:
+		if typeof(choice) != TYPE_DICTIONARY:
+			continue
+
+		var text := ""
+		if lang == "en":
+			text = choice.get("text_en", "")
+		elif lang == "de":
+			text = choice.get("text_de", "")
+		else:
+			# fallback
+			text = choice.get("text_en", "")
+
+		result.append({
+			"id": choice.get("id", ""),
+			"text": text,
+			"next": choice.get("next", "")
+		})
+		
+	return result
 
 func is_last_line_in_node() -> bool:
 	if is_finished():

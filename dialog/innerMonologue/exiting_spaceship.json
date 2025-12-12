@@ -8,9 +8,12 @@
   "steps": {
 	"sections": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "Thanfully the code worked!" },
-		{ "speaker": "Oris", "text": "Hmm. what an odd planet." },
-		{ "speaker": "Oris", "text": "I should explore my surroundings a little." }
+		{ "speaker": "Oris", "text_en": "Thankfully the code worked!"
+							,"text_de": "Zum Glück hat der Code funktioniert!" },
+		{ "speaker": "Oris", "text_en": "Hmm. What an odd planet."
+							,"text_de": "Hmm. Was ein seltsamer Planet." },
+		{ "speaker": "Oris", "text_en": "I should explore my surroundings a little."
+							,"text_de": "Ich sollte wohl ein bisschen die Gegend erkunden." }
 	  ],
 	  "next": "end"
 	},
