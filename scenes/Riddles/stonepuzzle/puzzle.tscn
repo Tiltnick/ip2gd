@@ -175,19 +175,11 @@ corner_radius_bottom_left = 62
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d58ip"]
 
-[node name="Puzzle" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="Puzzle" type="CanvasLayer"]
 script = ExtResource("1_h324o")
 metadata/_edit_lock_ = true
 
 [node name="StonePanel" type="TextureRect" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -474,7 +466,6 @@ shape = SubResource("RectangleShape2D_bag6g")
 
 [node name="solvedPuzzle" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)
-layout_mode = 0
 offset_left = 511.88464
 offset_top = 216.0
 offset_right = 1407.0
@@ -487,7 +478,6 @@ libraries = {
 }
 
 [node name="RoundButtton" type="Button" parent="."]
-layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -504,6 +494,13 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_j1goe")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_d58ip")
 icon = ExtResource("13_yqnux")
 icon_alignment = 1
+
+[node name="rightclick_hint" type="Label" parent="."]
+offset_left = 744.0
+offset_top = 912.0
+offset_right = 1112.0
+offset_bottom = 1008.0
+text = "rotate with right click"
 
 [editable path="Slots/slots"]
 [editable path="Slots/slots2"]
