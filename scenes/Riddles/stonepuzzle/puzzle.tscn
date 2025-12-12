@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://1gjnalxntxuw"]
+[gd_scene load_steps=39 format=3 uid="uid://1gjnalxntxuw"]
 
 [ext_resource type="Script" uid="uid://dkhi3k2codxm4" path="res://scripts/riddles/stonepuzzle/puzzlemanager.gd" id="1_h324o"]
 [ext_resource type="Texture2D" uid="uid://d2dhafm8sjg5u" path="res://assets/sprites/selfmade/ stonepanel.png" id="2_a3vcf"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://43wf8qfb83yu" path="res://assets/sprites/selfmade/Piece5.png" id="9_qfya4"]
 [ext_resource type="Texture2D" uid="uid://cq3lsm46obs7n" path="res://assets/sprites/selfmade/Piece6.png" id="10_j1goe"]
 [ext_resource type="Script" uid="uid://d2oyrfw11wpds" path="res://scripts/riddles/stonepuzzle/side_slots.gd" id="12_u54ty"]
+[ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="13_yqnux"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfya4"]
 size = Vector2(373, 128)
@@ -135,6 +136,44 @@ _data = {
 &"RESET": SubResource("Animation_bag6g"),
 &"solved_animation": SubResource("Animation_yqnux")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bag6g"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfya4"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1goe"]
+bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d58ip"]
 
 [node name="Puzzle" type="Control"]
 layout_mode = 3
@@ -306,13 +345,13 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_u54ty")
 
 [node name="Area2D2" type="Area2D" parent="SideSlots/Panel5" node_paths=PackedStringArray("start_piece") groups=["side_slots"]]
-position = Vector2(81, 66)
+position = Vector2(80, 79)
 collision_layer = 2
 script = ExtResource("12_u54ty")
 start_piece = NodePath("../../../Pieces/Piece3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SideSlots/Panel5/Area2D2"]
-position = Vector2(0, -1.5)
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_x26ra")
 
 [node name="Panel6" type="Panel" parent="SideSlots"]
@@ -368,7 +407,7 @@ position = Vector2(-2.7120514, 3.625)
 shape = SubResource("RectangleShape2D_a3vcf")
 
 [node name="Piece3" parent="Pieces" groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-position = Vector2(184, 792)
+position = Vector2(184, 806)
 rotation = 3.1415927
 scale = Vector2(0.25, 0.25)
 collision_mask = 2
@@ -446,6 +485,25 @@ texture = ExtResource("4_pwhx3")
 libraries = {
 &"": SubResource("AnimationLibrary_qfya4")
 }
+
+[node name="RoundButtton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -344.0
+offset_top = 32.0
+offset_right = -288.0
+offset_bottom = 85.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_bag6g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qfya4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_j1goe")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d58ip")
+icon = ExtResource("13_yqnux")
+icon_alignment = 1
 
 [editable path="Slots/slots"]
 [editable path="Slots/slots2"]

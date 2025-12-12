@@ -3588,3 +3588,7 @@ material = SubResource("ShaderMaterial_kbu53")
 position = Vector2(605, -1127.5)
 scale = Vector2(0.51660156, 0.51660156)
 texture = ExtResource("7_pcjji")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
