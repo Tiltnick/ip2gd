@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsel3ssf442rx"
-path="res://.godot/imported/blue-shroomie-sprite-sheet.png-fd0e0601ca75aee1db7536495a2c7f53.ctex"
+path="res://.godot/imported/truffle.png-b03d2f8bd7240bbdd37b8e743acb5c62.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/character/blue-shroomie-sprite-sheet.png"
-dest_files=["res://.godot/imported/blue-shroomie-sprite-sheet.png-fd0e0601ca75aee1db7536495a2c7f53.ctex"]
+source_file="res://assets/sprites/character/truffle.png"
+dest_files=["res://.godot/imported/truffle.png-b03d2f8bd7240bbdd37b8e743acb5c62.ctex"]
 
 [params]
 
