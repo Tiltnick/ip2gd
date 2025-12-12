@@ -1,20 +1,20 @@
 extends NPC
-class_name NpcDialogProcessChampignon
+class_name NpcDialogProcessTruffle
 
 # Szene → Dialogdatei
 const DIALOG_BY_SCENE := {
-	"Outside3": "res://dialog/mushrooms/mushroom.json",
+	"Outside3": "res://dialog/mushrooms/truffle.json",
 }
 
 # Reihenfolge wichtig
 const OUTSIDE3_FLOW := [
 	{
 		"flag": "mushroom_dialog_done",
-		"path": "res://dialog/mushrooms/mushroom.json",
+		"path": "res://dialog/mushrooms/begin_truffle.json",
 	},
 ]
 
-const OUTSIDE3_END := "res://dialog/mushrooms/champignon.json"
+const OUTSIDE3_END := "res://dialog/mushrooms/truffle.json"
 const DEFAULT_DIALOG := "Kein Dialog gefunden"
 
 func _ready() -> void:

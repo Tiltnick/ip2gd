@@ -1,0 +1,22 @@
+{
+	"id": "truffle_begin",
+
+	"characters": {
+		"Truffle": ""
+},
+
+ "steps": {
+
+	"sections": {
+		"lines": [
+			{"speaker": "Truffle", "text_en": "Talk to Champi first!",
+										"text_de": "Sprich zuerst mit Champi!"
+			}
+		],
+		"next": "end"
+	},
+	"end": {
+	  "lines": []
+	}
+  }
+}

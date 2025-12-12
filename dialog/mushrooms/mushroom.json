@@ -2,7 +2,7 @@
 	"id": "mushroom_riddle",
 
 	"characters": {
-		"Champignon": "",
+		"Champi": "",
 		"Truffle": "",
 		"Porcini": "",
 		"Oris": "res://assets/sprites/portrait/oris.png",
@@ -12,7 +12,7 @@
 
 	"sections": {
 		"lines": [
-		{ "speaker": "Champignon", "text_en": "Stop, not every step deserves the space beyond. The plant beyond the depths can heal, yet it demands more than what is taken from it.",
+		{ "speaker": "Champi", "text_en": "Stop, not every step deserves the space beyond. The plant beyond the depths can heal, yet it demands more than what is taken from it.",
 								 "text_de": "Halt, nicht jeder schritt verdient den Raum dahinter. Die Pflanze jenseits der Tiefe heilt, doch fordert sie mehr, als man ihr entreißt."
 		}
 			],
@@ -47,7 +47,7 @@
 	},
 	"give": {
 		"lines": [
-			{"speaker": "Champignon", "text_en": " If you bring us only what benefits you, the bridge will remain silent. But if you bring us what you truly need, it will begin to listen.",
+			{"speaker": "Champi", "text_en": " If you bring us only what benefits you, the bridge will remain silent. But if you bring us what you truly need, it will begin to listen.",
 										"text_de": "Bringst du uns nur, was dir nützt, bleibt die Brücke stumm. Bringst du uns, was du brauchst, beginnt sie zu hören."
 			}
 		],
@@ -74,7 +74,7 @@
 
 	"sun": {
 		"lines": [
-			{"speaker": "Champignon", "text_en": " I am the flame that weaves all life, a golden circle, drifting through time. I wake the land with morning light, yet never hide within the deepest night.",
+			{"speaker": "Champi", "text_en": " I am the flame that weaves all life, a golden circle, drifting through time. I wake the land with morning light, yet never hide within the deepest night.",
 									"text_de": "Ich bin die Glut, die Leben webt, im gold'nen Kreis, der ewig schwebt. Ich wach’ das Land im Morgenlicht, doch birg mich nie in tiefster Nacht."
 			}
 		],

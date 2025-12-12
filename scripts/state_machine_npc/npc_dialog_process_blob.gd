@@ -1,33 +1,59 @@
 extends NPC
-class_name npc_dialog_process_blob
+class_name NpcDialogProcessBlob
 
 # Szene → Dialogdatei
 const DIALOG_BY_SCENE := {
 	"Outside1": "res://dialog/dialogueMrBlob/outside_1.json",
-	"Outside2": "res://dialog/dialogueMrBlob/outside_2_part_1.json",
 }
 
-# Called when the node enters the scene tree for the first time.
+const OUTSIDE1_FLOW := [
+	{
+		"flag": "",
+		"path": "",
+	}
+]
+
+const OUTSIDE1_END := ""
+
+# Reihenfolge wichtig
+const OUTSIDE2_FLOW := [
+	{
+		"flag": "blob_intro_done",
+		"path": "res://dialog/dialogueMrBlob/outside_2_part_1.json",
+	},
+	{
+		"flag": "blob_clue_done",
+		"path": "res://dialog/cluesMrBlob/clue_stone_pile.json",
+	},
+	{
+		"flag": "blob_revelation_done",
+		"path": "res://dialog/dialogueMrBlob/outside_2_part_2.json",
+	},
+]
+
+const OUTSIDE2_END := "res://dialog/dialogueMrBlob/end_dialog_outside2_blob.json"
+const DEFAULT_DIALOG := "Kein Dialog gefunden"
+
 func _ready() -> void:
-	super._ready() 
+	super._ready()
 
-
-# Szene → Dialogdatei (überschreibt Hook aus NPC.gd)
+# Szene → Dialogdatei
 func get_dialog_path(scene_name: String) -> String:
-	var dialog_path: String = ""
+	if scene_name == "Outside1":
+		return _get_outside1_dialog()
+	elif scene_name == "Outside2":
+		return _get_outside2_dialog()
 
-	if scene_name == "Outside2":
-		if not GameState.puzzle_state.get("blob_intro_done", false):
-			dialog_path = "res://dialog/dialogueMrBlob/outside_2_part_1.json"
-		elif not GameState.puzzle_state.get("blob_clue_done", false):
-			dialog_path = "res://dialog/cluesMrBlob/clue_stone_pile.json"
-		elif not GameState.puzzle_state.get("blob_revelation_done", false):
-			dialog_path = "res://dialog/dialogueMrBlob/outside_2_part_2.json"
-
-	else:
-		if DIALOG_BY_SCENE.has(scene_name):
-			dialog_path = DIALOG_BY_SCENE[scene_name]
-		else:
-			dialog_path = "res://dialog/dialogueMrBlob/outside_1.json"
-
-	return dialog_path
+	return DIALOG_BY_SCENE.get(scene_name, DEFAULT_DIALOG)
+	
+func _get_outside1_dialog() -> String:
+	for step in OUTSIDE1_FLOW:
+		if not GameState.puzzle_state.get(step["flag"], false):
+			return step["path"]
+	return OUTSIDE1_END
+	
+func _get_outside2_dialog() -> String:
+	for step in OUTSIDE2_FLOW:
+		if not GameState.puzzle_state.get(step["flag"], false):
+			return step["path"]
+	return OUTSIDE2_END

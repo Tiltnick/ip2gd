@@ -102,7 +102,7 @@ func dialog_is_finished():
 	elif current_dialog_path.contains("entering_outside_2"):
 		GameState.puzzle_state["outside2_monologue_done"] = true
 		
-	elif current_dialog_path.contains("mushroom"):
+	elif current_dialog_path.contains("res://dialog/mushrooms/mushroom.json"):
 		GameState.puzzle_state["mushroom_dialog_done"] = true
 		
 	current_dialog_path = ""

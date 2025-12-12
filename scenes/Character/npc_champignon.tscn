@@ -44,7 +44,7 @@ shader_parameter/outline_color = Vector4(1, 1, 1, 1)
 size = Vector2(16, 8)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5dfqd"]
-radius = 87.005745
+radius = 64.0
 
 [node name="NPC_champignon" type="CharacterBody2D"]
 script = ExtResource("1_i4s7v")

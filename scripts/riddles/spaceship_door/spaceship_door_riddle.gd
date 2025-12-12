@@ -44,17 +44,19 @@ func _on_button_pressed() -> void:
 	if entered == code and lang == "en":
 		title_label.text = "Code Verified"
 		title_label.modulate = Color.CHARTREUSE
-	
-	elif entered == code and lang == "de":
-		title_label.text = "Code verifiziert"
-		title_label.modulate = Color.CHARTREUSE
-		
 		GameState.puzzle_state["ship_exit_monologue_pending"] = true
-
-		
 		await get_tree().create_timer(1.5).timeout
 		code_solved = true
 		emit_signal("code_verified", true)
+		
+	elif entered == code and lang == "de":
+		title_label.text = "Code verifiziert"
+		title_label.modulate = Color.CHARTREUSE
+		GameState.puzzle_state["ship_exit_monologue_pending"] = true
+		await get_tree().create_timer(1.5).timeout
+		code_solved = true
+		emit_signal("code_verified", true)
+		
 	else:
 		title_label.text = "Error"
 		title_label.modulate = Color.BLACK

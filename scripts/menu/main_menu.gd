@@ -22,7 +22,6 @@ func _on_new_g_button_pressed() -> void:
 			"Neues Spiel?",
 			func(): start_new_game()
 		)
-	
 
 
 func _on_resume_button_pressed() -> void:
@@ -38,11 +37,18 @@ func _on_resume_button_pressed() -> void:
 
 
 func _on_exit_button_pressed() -> void:
+	var lang = TranslationServer.get_locale().substr(0, 2)
 	play_button_sound()
-	pop_up.open(
-		"Exit Game?",
-		func(): exit_game()
-	)
+	if lang == "en":
+		pop_up.open(
+			"Exit Game?",
+			func(): exit_game()
+		)
+	elif lang == "de":
+		pop_up.open(
+			"Spiel verlassen?",
+			func(): exit_game()
+		)
 
 
 func _on_insta_button_pressed() -> void:

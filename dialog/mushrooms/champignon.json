@@ -2,18 +2,15 @@
 	"id": "champi_riddle",
 
 	"characters": {
-		"Champignon": ""
+		"Champi": ""
 },
 
  "steps": {
 
 	"sections": {
 		"lines": [
-			{"speaker": "Champignon", "text_en": "I am the flame that weaves all life, a golden circle, drifting through time.
-													I wake the land with morning light, yet never hide within the deepest night. ",
-									"text_de": "Ich bin die Glut, die Leben webt,
-												im gold'nen Kreis, der ewig schwebt.
-												Ich wach’ das Land im Morgenlicht, doch birg mich nie in tiefster Nacht."
+			{"speaker": "Champi", "text_en": "I am the flame that weaves all life, a golden circle, drifting through time. I wake the land with morning light, yet never hide within the deepest night. ",
+									"text_de": "Ich bin die Glut, die Leben webt, im gold'nen Kreis, der ewig schwebt. Ich wach’ das Land im Morgenlicht, doch birg mich nie in tiefster Nacht."
 			}
 		],
 		"next": "end"

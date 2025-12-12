@@ -1,0 +1,22 @@
+{
+	"id": "porcini_begin",
+
+	"characters": {
+		"Porcini": ""
+},
+
+ "steps": {
+
+	"sections": {
+		"lines": [
+			{"speaker": "Porcini", "text_en": "Talk to Champi first!",
+										"text_de": "Sprich zuerst mit Champi!"
+			}
+		],
+		"next": "end"
+	},
+	"end": {
+	  "lines": []
+	}
+  }
+}
