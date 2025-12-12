@@ -5,7 +5,6 @@ class_name npc_dialog_process_blob
 const DIALOG_BY_SCENE := {
 	"Outside1": "res://dialog/dialogueMrBlob/outside_1.json",
 	"Outside2": "res://dialog/dialogueMrBlob/outside_2_part_1.json",
-	"Outside3": "",
 }
 
 # Called when the node enters the scene tree for the first time.

@@ -5,17 +5,15 @@
 		"Champignon": "",
 		"Truffle": "",
 		"Porcini": "",
-		"Oris": "",
+		"Oris": "res://assets/sprites/portrait/oris.png",
 },
 
  "steps": {
 
 	"sections": {
 		"lines": [
-		{ "speaker": "Champignon", "text_en": "Stop, not every step deserves the space beyond.
-												The plant beyond the depths can heal, yet it demands more than what is taken from it.",
-								 "text_de": "Halt, nicht jeder schritt verdient den Raum dahinter. 
-								Die Pflanze jenseits der Tiefe heilt, doch fordert sie mehr, als man ihr entreißt."
+		{ "speaker": "Champignon", "text_en": "Stop, not every step deserves the space beyond. The plant beyond the depths can heal, yet it demands more than what is taken from it.",
+								 "text_de": "Halt, nicht jeder schritt verdient den Raum dahinter. Die Pflanze jenseits der Tiefe heilt, doch fordert sie mehr, als man ihr entreißt."
 		}
 			],
 	  "next": "dialogue_2"
@@ -23,12 +21,8 @@
 
 	"dialogue_2": {
 		"lines": [
-		{ "speaker": "Truffle", "text_en": "Whoever takes only to survive will never understand its path.
-											You seek healing beyond this bridge.
-											But every step toward it demands a price.",
-									"text_de": "Wer nur nimmt, um selbst zu bestehen, wird niemals ihren Pfad verstehen.
-													Du suchst Heilung jenseits dieser Brücke.
-													Doch jeder Schritt dorthin fordert einen Preis."
+		{ "speaker": "Truffle", "text_en": "Whoever takes only to survive will never understand its path. You seek healing beyond this bridge. But every step toward it demands a price.",
+									"text_de": "Wer nur nimmt, um selbst zu bestehen, wird niemals ihren Pfad verstehen. Du suchst Heilung jenseits dieser Brücke. Doch jeder Schritt dorthin fordert einen Preis."
 		}
 		],
 		"next": "dialogue_3"
@@ -36,10 +30,8 @@
 
 	"dialogue_3": {
 		"lines": [
-			{ "speaker": "Porcini", "text_en": "Not knowledge, not strength, but sacrifice weighs heavy here.
-												What you need is not always what you are allowed to keep.",
-										"text_de": "Nicht Wissen, nicht Stärke, sondern Verzicht wiegt hier schwer.
-													Was du brauchst, ist nicht immer das, was du behalten darfst."
+			{ "speaker": "Porcini", "text_en": "Not knowledge, not strength, but sacrifice weighs heavy here. What you need is not always what you are allowed to keep.",
+										"text_de": "Nicht Wissen, nicht Stärke, sondern Verzicht wiegt hier schwer. Was du brauchst, ist nicht immer das, was du behalten darfst."
 			}
 		],
 		"next": "giving"
@@ -55,10 +47,8 @@
 	},
 	"give": {
 		"lines": [
-			{"speaker": "Champignon", "text_en": " If you bring us only what benefits you, the bridge will remain silent. 
-													But if you bring us what you truly need, it will begin to listen.",
-										"text_de": "Bringst du uns nur, was dir nützt, bleibt die Brücke stumm.
-													Bringst du uns, was du brauchst, beginnt sie zu hören."
+			{"speaker": "Champignon", "text_en": " If you bring us only what benefits you, the bridge will remain silent. But if you bring us what you truly need, it will begin to listen.",
+										"text_de": "Bringst du uns nur, was dir nützt, bleibt die Brücke stumm. Bringst du uns, was du brauchst, beginnt sie zu hören."
 			}
 		],
 		"next": "mushrooms"
@@ -84,11 +74,8 @@
 
 	"sun": {
 		"lines": [
-			{"speaker": "Champignon", "text_en": " I am the flame that weaves all life, a golden circle, drifting through time.
-													I wake the land with morning light, yet never hide within the deepest night.",
-									"text_de": "Ich bin die Glut, die Leben webt,
-												im gold'nen Kreis, der ewig schwebt.
-												Ich wach’ das Land im Morgenlicht, doch birg mich nie in tiefster Nacht."
+			{"speaker": "Champignon", "text_en": " I am the flame that weaves all life, a golden circle, drifting through time. I wake the land with morning light, yet never hide within the deepest night.",
+									"text_de": "Ich bin die Glut, die Leben webt, im gold'nen Kreis, der ewig schwebt. Ich wach’ das Land im Morgenlicht, doch birg mich nie in tiefster Nacht."
 			}
 		],
 		"next": "moon"
@@ -96,10 +83,8 @@
 
 	"moon": {
 		"lines": [
-			{"speaker": "Truffle", "text_en": "I part the waters, shape the flow of time, in quiet stillness, truth will shine.
-												But those who carry me driven by lust for power, will see my mirror darken in the night.",
-									"text_de": "Ich teil’ das Wasser, führ’ die Zeit, im Stillen liegt die Wahrheit breit.
-												Doch wer mich trägt aus Gier nach Macht, dem wird mein Spiegel schwarz bei Nacht."
+			{"speaker": "Truffle", "text_en": "I part the waters, shape the flow of time, in quiet stillness, truth will shine. But those who carry me driven by lust for power, will see my mirror darken in the night.",
+									"text_de": "Ich teil’ das Wasser, führ’ die Zeit, im Stillen liegt die Wahrheit breit. Doch wer mich trägt aus Gier nach Macht, dem wird mein Spiegel schwarz bei Nacht."
 			}
 		],
 		"next": "planet"
@@ -107,10 +92,8 @@
 
 	"planet": {
 		"lines": [
-			{"speaker": "Porcini","text_en": " I bear the traces of every soul, that walks, that gives, that loses hold.
-												Only those who honor, not possess, may rest where new life begins to bless.",
-									"text_de": "Ich trag’ die Spuren aller Seelen, die wandeln, geben, manchmal fehlen.
-												Nur wer mich achtet, nicht besitzt, darf ruh’n, wo neues Leben sitzt." 
+			{"speaker": "Porcini","text_en": " I bear the traces of every soul, that walks, that gives, that loses hold. Only those who honor, not possess, may rest where new life begins to bless.",
+									"text_de": "Ich trag’ die Spuren aller Seelen, die wandeln, geben, manchmal fehlen. Nur wer mich achtet, nicht besitzt, darf ruh’n, wo neues Leben sitzt." 
 			}
 		],
 		"next": "end"

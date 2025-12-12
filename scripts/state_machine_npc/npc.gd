@@ -53,7 +53,7 @@ func _process(_delta: float) -> void:
 				dialog_active = true
 
 
-# Szene → Dialogdatei (Hook für Child-Klassen)
+
 func get_dialog_path(scene_name: String) -> String:
 	return ""
 
