@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lgnhylh8mo8g"
-path="res://.godot/imported/porcini.png-f5732908043a249ccac57c8d953ae4b4.ctex"
+uid="uid://db0b1pgo4krve"
+path="res://.godot/imported/porcini_spritesheet.png-019566014420066d5c43264d4812140c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/character/porcini.png"
-dest_files=["res://.godot/imported/porcini.png-f5732908043a249ccac57c8d953ae4b4.ctex"]
+source_file="res://assets/sprites/character/porcini_spritesheet.png"
+dest_files=["res://.godot/imported/porcini_spritesheet.png-019566014420066d5c43264d4812140c.ctex"]
 
 [params]
 

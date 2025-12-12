@@ -3603,7 +3603,7 @@ texture = ExtResource("7_pcjji")
 position = Vector2(386, -68)
 
 [node name="NPC_champignon" parent="." instance=ExtResource("9_kbu53")]
-position = Vector2(506, 114)
+position = Vector2(572, 119)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
@@ -3626,7 +3626,7 @@ position = Vector2(799, -358)
 shape = SubResource("RectangleShape2D_tfmda")
 
 [node name="NPC_porcini" parent="." instance=ExtResource("13_sj13r")]
-position = Vector2(353, 141)
+position = Vector2(482, 164)
 
 [node name="NPC_truffle" parent="." instance=ExtResource("14_wk4ve")]
-position = Vector2(657, 146)
+position = Vector2(659, 162)

@@ -1,8 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://dflp4q827pupx"]
+[gd_scene load_steps=18 format=3 uid="uid://dflp4q827pupx"]
 
 [ext_resource type="Script" uid="uid://bjjohap0dojkf" path="res://scripts/state_machine_npc/npc_dialog_process_champignon.gd" id="1_i4s7v"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="2_12g4h"]
-[ext_resource type="Texture2D" uid="uid://73q40ucqxh4y" path="res://icon.svg" id="3_i4s7v"]
+[ext_resource type="Texture2D" uid="uid://c03bbu0pd2dxh" path="res://assets/sprites/character/champignon_spritesheet.png" id="3_i4s7v"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="4_jk5bh"]
 [ext_resource type="Script" uid="uid://bag4u47y1hlnx" path="res://scripts/state_machine_npc/state_machine_npc.gd" id="5_q07yi"]
 [ext_resource type="Script" uid="uid://bj3wge2cd2so2" path="res://scripts/state_machine_npc/npc_idle.gd" id="6_b2vda"]
@@ -10,29 +10,57 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_12g4h"]
 atlas = ExtResource("3_i4s7v")
-region = Rect2(0, 0, 128, 128)
+region = Rect2(2, 32, 31, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2cdhs"]
 atlas = ExtResource("3_i4s7v")
-region = Rect2(0, 0, 128, 128)
+region = Rect2(33, 32, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk5bh"]
+atlas = ExtResource("3_i4s7v")
+region = Rect2(2, 64, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q07yi"]
+atlas = ExtResource("3_i4s7v")
+region = Rect2(33, 64, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2vda"]
+atlas = ExtResource("3_i4s7v")
+region = Rect2(64, 64, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1dvm"]
+atlas = ExtResource("3_i4s7v")
+region = Rect2(95, 64, 31, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_eprow"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_12g4h")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
 }, {
-"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2cdhs")
 }],
 "loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk5bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q07yi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2vda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1dvm")
+}],
+"loop": true,
 "name": &"move",
-"speed": 5.0
+"speed": 4.0
 }]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kwd6m"]
@@ -41,10 +69,10 @@ shader_parameter/outline_size = 2.0
 shader_parameter/outline_color = Vector4(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q33tr"]
-size = Vector2(16, 8)
+size = Vector2(16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5dfqd"]
-radius = 64.0
+radius = 40.0
 
 [node name="NPC_champignon" type="CharacterBody2D"]
 script = ExtResource("1_i4s7v")
@@ -58,31 +86,35 @@ offset_right = -10.0
 offset_bottom = -35.0
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.375, 0.375)
+position = Vector2(0, -16)
+scale = Vector2(1.0322582, 1)
 sprite_frames = SubResource("SpriteFrames_eprow")
-animation = &"move"
-autoplay = "move"
+animation = &"idle"
+autoplay = "idle"
 
 [node name="Outline" type="AnimatedSprite2D" parent="."]
 visible = false
 z_index = 4
 material = SubResource("ShaderMaterial_kwd6m")
-position = Vector2(0, -8)
-scale = Vector2(0.75, 0.75)
+position = Vector2(0, -16)
+scale = Vector2(1.032258, 1)
 sprite_frames = SubResource("SpriteFrames_eprow")
 animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_q33tr")
 
 [node name="DetectionArea" type="Area2D" parent="."]
+position = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_5dfqd")
 
 [node name="stateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("5_q07yi")
-initial_state = NodePath("move")
+initial_state = NodePath("idle")
 
 [node name="idle" type="Node" parent="stateMachine"]
 script = ExtResource("6_b2vda")

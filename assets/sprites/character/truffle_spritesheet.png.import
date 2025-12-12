@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3hddv1d851hw"
-path="res://.godot/imported/champi.png-7c5bd51470a151169d67ea99443074dc.ctex"
+uid="uid://bn8g7cbtng77g"
+path="res://.godot/imported/truffle_spritesheet.png-69e435121a9f145a951e4d57376fbf7e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/character/champi.png"
-dest_files=["res://.godot/imported/champi.png-7c5bd51470a151169d67ea99443074dc.ctex"]
+source_file="res://assets/sprites/character/truffle_spritesheet.png"
+dest_files=["res://.godot/imported/truffle_spritesheet.png-69e435121a9f145a951e4d57376fbf7e.ctex"]
 
 [params]
 

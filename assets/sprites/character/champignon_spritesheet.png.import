@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsel3ssf442rx"
-path="res://.godot/imported/truffle.png-b03d2f8bd7240bbdd37b8e743acb5c62.ctex"
+uid="uid://c03bbu0pd2dxh"
+path="res://.godot/imported/champignon_spritesheet.png-5baca13ea23e8b85c73d0582830d5234.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/character/truffle.png"
-dest_files=["res://.godot/imported/truffle.png-b03d2f8bd7240bbdd37b8e743acb5c62.ctex"]
+source_file="res://assets/sprites/character/champignon_spritesheet.png"
+dest_files=["res://.godot/imported/champignon_spritesheet.png-5baca13ea23e8b85c73d0582830d5234.ctex"]
 
 [params]
 
