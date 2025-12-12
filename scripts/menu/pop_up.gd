@@ -2,7 +2,7 @@ extends Control
 @onready var color_rect: ColorRect = $ColorRect
 @onready var yes_button: Button = $ColorRect/Panel/VBoxContainer3/HBoxContainer/YesButton
 @onready var no_button: Button = $ColorRect/Panel/VBoxContainer3/HBoxContainer/NoButton
-@onready var header: Label = $ColorRect/Panel/VBoxContainer3/Label
+@onready var header: Label = $ColorRect/Panel/VBoxContainer3/START_GAME
 
 var yes_callback: Callable = Callable()
 var no_callback: Callable = Callable()

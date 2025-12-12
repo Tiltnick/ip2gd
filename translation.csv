@@ -22,3 +22,12 @@ ITEM_FOUND,Item Found :, Item gefunden :
 SPACE_CONTINUE,Press Space to continue, Drücke Leertaste zum Fortfahren
 ENTER_CODE, Enter Code to Exit, Code eingeben zum Verlassen
 VERIFY, Verify, Überprüfen
+NEW_GAME, New Game, Neues Spiel
+RESUME, Resume, Fortsetzen
+EXIT, Exit, Beenden
+START_GAME, Start new game?, Neues Spiel starten?
+YES, Yes, Ja
+NO, No, Nein
+SAVE_AND_EXIT, Save and Exit, Speichern und Beenden
+CONTINUE, Continue, Fortsetzen
+SAVE_GAME, Save Game?, Spiel speichern?

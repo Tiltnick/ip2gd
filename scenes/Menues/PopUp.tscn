@@ -108,12 +108,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="ColorRect/Panel/VBoxContainer3"]
+[node name="START_GAME" type="Label" parent="ColorRect/Panel/VBoxContainer3"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_fonts/font = ExtResource("2_mugek")
 theme_override_font_sizes/font_size = 38
-text = "Start new game ?"
+text = "START_GAME"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/Panel/VBoxContainer3"]
@@ -137,7 +137,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_dfdmi")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_pncru")
 theme_override_styles/hover = SubResource("StyleBoxFlat_yn554")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_iexew")
-text = "Yes"
+text = "YES"
 
 [node name="NoButton" type="Button" parent="ColorRect/Panel/VBoxContainer3/HBoxContainer"]
 layout_mode = 2
@@ -155,7 +155,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_dfdmi")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_pncru")
 theme_override_styles/hover = SubResource("StyleBoxFlat_yn554")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_iexew")
-text = "No"
+text = "NO"
 
 [connection signal="pressed" from="ColorRect/Panel/VBoxContainer3/HBoxContainer/YesButton" to="." method="_on_yes_button_pressed"]
 [connection signal="pressed" from="ColorRect/Panel/VBoxContainer3/HBoxContainer/NoButton" to="." method="_on_no_button_pressed"]

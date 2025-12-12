@@ -171,7 +171,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_bqqt6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_l6cm7")
-text = "New Game"
+text = "NEW_GAME"
 
 [node name="ResumeButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -190,7 +190,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_l6cm7")
 disabled = true
-text = "Resume"
+text = "RESUME"
 
 [node name="ExitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -207,7 +207,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_bqqt6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_l6cm7")
-text = "Exit"
+text = "EXIT"
 
 [node name="Logo" type="TextureRect" parent="."]
 layout_mode = 1

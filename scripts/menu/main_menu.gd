@@ -10,12 +10,18 @@ func _ready() -> void:
 	WorldAudioManager.play_bgm(load("res://assets/sound/Cozy Tunes (Pro) v1.4/Cozy Tunes (Pro)/Audio/wav/Tracks/Forgotten Biomes.wav"))
 
 func _on_new_g_button_pressed() -> void:
+	var lang = TranslationServer.get_locale().substr(0, 2)
 	play_button_sound()
-	pop_up.open(
-		"New Game?",
-		func(): start_new_game()
-		
-	)
+	if lang == "en":
+		pop_up.open(
+			"New Game?",
+			func(): start_new_game()
+		)
+	elif lang == "de":
+		pop_up.open(
+			"Neues Spiel?",
+			func(): start_new_game()
+		)
 	
 
 
