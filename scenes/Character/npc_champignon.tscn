@@ -1,0 +1,91 @@
+[gd_scene load_steps=14 format=3 uid="uid://dflp4q827pupx"]
+
+[ext_resource type="Script" uid="uid://bjjohap0dojkf" path="res://scripts/state_machine_npc/npc_dialog_process_champignon.gd" id="1_i4s7v"]
+[ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="2_12g4h"]
+[ext_resource type="Texture2D" uid="uid://73q40ucqxh4y" path="res://icon.svg" id="3_i4s7v"]
+[ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="4_jk5bh"]
+[ext_resource type="Script" uid="uid://bag4u47y1hlnx" path="res://scripts/state_machine_npc/state_machine_npc.gd" id="5_q07yi"]
+[ext_resource type="Script" uid="uid://bj3wge2cd2so2" path="res://scripts/state_machine_npc/npc_idle.gd" id="6_b2vda"]
+[ext_resource type="Script" uid="uid://pxcfgc747h2m" path="res://scripts/state_machine_npc/npc_move.gd" id="7_j1dvm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12g4h"]
+atlas = ExtResource("3_i4s7v")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cdhs"]
+atlas = ExtResource("3_i4s7v")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eprow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12g4h")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cdhs")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kwd6m"]
+shader = ExtResource("4_jk5bh")
+shader_parameter/outline_size = 2.0
+shader_parameter/outline_color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q33tr"]
+size = Vector2(16, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5dfqd"]
+radius = 87.005745
+
+[node name="NPC_champignon" type="CharacterBody2D"]
+script = ExtResource("1_i4s7v")
+
+[node name="Press_E_Popup_NPC" parent="." instance=ExtResource("2_12g4h")]
+visible = false
+z_index = 10
+offset_left = -10.0
+offset_top = -35.0
+offset_right = -10.0
+offset_bottom = -35.0
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.375, 0.375)
+sprite_frames = SubResource("SpriteFrames_eprow")
+animation = &"move"
+autoplay = "move"
+
+[node name="Outline" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 4
+material = SubResource("ShaderMaterial_kwd6m")
+position = Vector2(0, -8)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_eprow")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_q33tr")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_5dfqd")
+
+[node name="stateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("5_q07yi")
+initial_state = NodePath("move")
+
+[node name="idle" type="Node" parent="stateMachine"]
+script = ExtResource("6_b2vda")
+
+[node name="move" type="Node" parent="stateMachine"]
+script = ExtResource("7_j1dvm")

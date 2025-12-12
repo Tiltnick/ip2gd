@@ -10,13 +10,6 @@ class_name NPC
 @onready var detect_area: Area2D = $DetectionArea
 @onready var e_popup_node: Control = $Press_E_Popup_NPC
 
-# Szene → Dialogdatei
-const DIALOG_BY_SCENE := {
-	"Outside1": "res://dialog/dialogueMrBlob/outside_1.json",
-	"Outside2": "res://dialog/dialogueMrBlob/outside_2_part_1.json",
-	
-}
-
 var player_inside := false
 var player: Node2D = null
 
@@ -26,20 +19,22 @@ var dialog_active := false
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
-	
+
 	outline.visible = false
 
 	detect_area.body_entered.connect(_on_body_entered)
 	detect_area.body_exited.connect(_on_body_exited)
 
 
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	outline.visible = player_inside
 
 	if player_inside:
 		outline.frame = anim.frame
+
 		if not dialog_active and Input.is_action_just_pressed("interact"):
-			
+
 			# Popup ausblenden
 			if e_popup_node:
 				e_popup_node.visible = false
@@ -48,28 +43,19 @@ func _process(_delta: float) -> void:
 			var scene: Node = get_tree().current_scene
 			var scene_name: String = scene.name if scene != null else ""
 
-			
 			var dialog_path: String = ""
 
-			if scene_name == "Outside2":
-				if not GameState.puzzle_state.get("blob_intro_done", false):
-					dialog_path = "res://dialog/dialogueMrBlob/outside_2_part_1.json"
-				elif not GameState.puzzle_state.get("blob_clue_done", false):
-					dialog_path = "res://dialog/cluesMrBlob/clue_stone_pile.json"
-				elif not GameState.puzzle_state.get("blob_revelation_done", false):
-					dialog_path = "res://dialog/dialogueMrBlob/outside_2_part_2.json"
-				
-			else:
-				if DIALOG_BY_SCENE.has(scene_name):
-					dialog_path = DIALOG_BY_SCENE[scene_name]
-				else:
-					dialog_path = "res://dialog/dialogueMrBlob/outside_1.json"
-
+			# Szene → Dialogdatei
+			dialog_path = get_dialog_path(scene_name)
 
 			if dialog_path != "":
 				DialogManager.start_dialog(dialog_path)
 				dialog_active = true
 
+
+# Szene → Dialogdatei (Hook für Child-Klassen)
+func get_dialog_path(scene_name: String) -> String:
+	return ""
 
 
 func _on_body_entered(body: Node) -> void:

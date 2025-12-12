@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dlsjgc5i7yt81"]
+[gd_scene load_steps=20 format=4 uid="uid://dlsjgc5i7yt81"]
 
 [ext_resource type="Texture2D" uid="uid://dtxi3laerm24l" path="res://assets/sprites/map/Outside_3/Ground.png" id="1_oc04w"]
 [ext_resource type="Texture2D" uid="uid://665addkd4j7g" path="res://assets/sprites/map/Outside_3/Water+.png" id="2_4bq6r"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://fos4g6vi8gia" path="res://assets/sprites/map/Outside_3/Props.png" id="5_yfq04"]
 [ext_resource type="Texture2D" uid="uid://ce42qqeabhjsv" path="res://assets/sprites/selfmade/ChatGPT Image 2. Dez. 2025, 13_40_39 (2) (1).png" id="7_pcjji"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="8_pfoid"]
+[ext_resource type="PackedScene" uid="uid://dflp4q827pupx" path="res://scenes/Character/npc_champignon.tscn" id="9_kbu53"]
+[ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="10_3rchf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4bq6r"]
 texture = ExtResource("1_oc04w")
@@ -3588,3 +3590,9 @@ material = SubResource("ShaderMaterial_kbu53")
 position = Vector2(605, -1127.5)
 scale = Vector2(0.51660156, 0.51660156)
 texture = ExtResource("7_pcjji")
+
+[node name="Character" parent="." instance=ExtResource("10_3rchf")]
+position = Vector2(386, -68)
+
+[node name="NPC_champignon" parent="." instance=ExtResource("9_kbu53")]
+position = Vector2(464, 134)
