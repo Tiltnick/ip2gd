@@ -49,8 +49,15 @@ func hotbar_activate():
 	outline.visible = false
 	outline_locked = true
 
-	var cam := get_viewport().get_camera_2d()
-	global_position = cam.global_position if cam else Vector2.ZERO
+
+	# items zoomen aus hotbar raus in die mitte des screens, nicht mehr abgängig von der player position 
+	var vp := get_viewport()
+	var screen_center := vp.get_visible_rect().size * 0.5
+	global_position = vp.get_canvas_transform().affine_inverse() * screen_center
+
+
+	#var cam := get_viewport().get_camera_2d()
+	#global_position = cam.global_position if cam else Vector2.ZERO
 
 	scale = hotbar_scale
 	start_scale = scale
