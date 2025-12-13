@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://hat61xbehvh6" path="res://assets/sprites/map/Outside_3/Gemini_Generated_Image_tv57d1tv57d1tv57-removebg-preview.png" id="4_kbu53"]
 [ext_resource type="Texture2D" uid="uid://61ayccey45a" path="res://assets/sprites/map/Outside_3/Bridges.png" id="4_pcjji"]
 [ext_resource type="Texture2D" uid="uid://fos4g6vi8gia" path="res://assets/sprites/map/Outside_3/Props.png" id="5_yfq04"]
-[ext_resource type="Texture2D" uid="uid://ce42qqeabhjsv" path="res://assets/sprites/selfmade/ChatGPT Image 2. Dez. 2025, 13_40_39 (2) (1).png" id="7_pcjji"]
+[ext_resource type="Texture2D" uid="uid://ce42qqeabhjsv" path="res://assets/sprites/selfmade/stone.png" id="7_pcjji"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="8_pfoid"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4bq6r"]
