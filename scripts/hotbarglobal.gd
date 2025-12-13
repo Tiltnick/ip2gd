@@ -69,6 +69,20 @@ func update_ui():
 		if inventory.is_visible_in_tree():
 			inventory._select_first_item()
 
+func remove_item(item_id: String) -> void:
+	# remove from inventory
+	for i in range(inventory_items.size()):
+		if inventory_items[i] == item_id:
+			inventory_items[i] = null
+			return
+
+	# remove from hotbar
+	for i in range(hotbar_items.size()):
+		if hotbar_items[i] == item_id:
+			hotbar_items[i] = null
+			return
+
+
 func get_item_from_hotbar(slot: int) -> String:
 	return hotbar_items[slot] if slot < hotbar_items.size() else null
 

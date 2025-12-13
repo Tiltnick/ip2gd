@@ -37,8 +37,8 @@ func open_puzzle():
 
 func check_pieces():
 	for i in range(1, 7):
-		var id := "stone_piece_%d" % i
-		var node := $Pieces.get_node("Piece%d" % i)
+		var id = "stone_piece_%d" % i
+		var node = $Pieces.get_node("Piece%d" % i)
 		node.visible = hotbarglobal.has_item(id)
 
 func check_puzzle():
@@ -49,11 +49,20 @@ func check_puzzle():
 		var ok = slot.is_correct()
 		if not ok:
 			return
+
 	if not solved:
 		if puzzle_id != "":
 			GameState.puzzle_state[puzzle_id] = true
 		solved = true
 		solved_animation.play("solved_animation")
+		for i in range(1, 7):
+			var id = "stone_piece_%d" % i
+			var stonepanel: String = "stonepanel"
+			hotbarglobal.remove_item(id)
+			hotbarglobal.remove_item(stonepanel)
+			GameState.puzzle_state[id] = false
+		
+		hotbarglobal.update_ui()
 		
 
 func _on_close_button_pressed() -> void:

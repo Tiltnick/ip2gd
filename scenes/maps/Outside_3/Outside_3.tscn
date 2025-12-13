@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://dlsjgc5i7yt81"]
+[gd_scene load_steps=26 format=4 uid="uid://dlsjgc5i7yt81"]
 
 [ext_resource type="Texture2D" uid="uid://dtxi3laerm24l" path="res://assets/sprites/map/Outside_3/Ground.png" id="1_oc04w"]
 [ext_resource type="Script" uid="uid://dtgxpdt7b80mw" path="res://scripts/scene_manager/outside_3.gd" id="1_tfmda"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="14_ny1p2"]
 [ext_resource type="PackedScene" uid="uid://dri71srb6nfk1" path="res://scenes/Character/npc_truffle.tscn" id="14_wk4ve"]
 [ext_resource type="PackedScene" uid="uid://1gjnalxntxuw" path="res://scenes/Riddles/stonepuzzle/puzzle.tscn" id="15_wk4ve"]
+[ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="16_ny1p2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4bq6r"]
 texture = ExtResource("1_oc04w")
@@ -3628,3 +3629,10 @@ offset_right = -27.500036
 offset_bottom = -58.74992
 
 [node name="Puzzle" parent="." instance=ExtResource("15_wk4ve")]
+
+[node name="Hotbar" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Hotbar" parent="Hotbar" instance=ExtResource("16_ny1p2")]
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
