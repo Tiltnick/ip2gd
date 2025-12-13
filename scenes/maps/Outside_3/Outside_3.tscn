@@ -7,13 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://hat61xbehvh6" path="res://assets/sprites/map/Outside_3/Gemini_Generated_Image_tv57d1tv57d1tv57-removebg-preview.png" id="4_kbu53"]
 [ext_resource type="Texture2D" uid="uid://61ayccey45a" path="res://assets/sprites/map/Outside_3/Bridges.png" id="4_pcjji"]
 [ext_resource type="Texture2D" uid="uid://fos4g6vi8gia" path="res://assets/sprites/map/Outside_3/Props.png" id="5_yfq04"]
-[ext_resource type="Texture2D" uid="uid://ce42qqeabhjsv" path="res://assets/sprites/selfmade/stone.png" id="7_pcjji"]
-[ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="8_pfoid"]
 [ext_resource type="PackedScene" uid="uid://dflp4q827pupx" path="res://scenes/Character/npc_champignon.tscn" id="9_kbu53"]
 [ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="10_3rchf"]
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="11_3rchf"]
 [ext_resource type="PackedScene" uid="uid://58ehm0hl8qlg" path="res://scenes/Character/npc_porcini.tscn" id="13_sj13r"]
+[ext_resource type="PackedScene" uid="uid://cxc57w1npotjm" path="res://scenes/interactables/objects/stone_panel.tscn" id="13_wk4ve"]
+[ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="14_ny1p2"]
 [ext_resource type="PackedScene" uid="uid://dri71srb6nfk1" path="res://scenes/Character/npc_truffle.tscn" id="14_wk4ve"]
+[ext_resource type="PackedScene" uid="uid://1gjnalxntxuw" path="res://scenes/Riddles/stonepuzzle/puzzle.tscn" id="15_wk4ve"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4bq6r"]
 texture = ExtResource("1_oc04w")
@@ -3550,11 +3551,6 @@ sources/6 = SubResource("TileSetAtlasSource_wk4ve")
 sources/10 = SubResource("TileSetAtlasSource_ny1p2")
 sources/12 = SubResource("TileSetAtlasSource_2sw55")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kbu53"]
-shader = ExtResource("8_pfoid")
-shader_parameter/outline_size = 2.0
-shader_parameter/outline_color = Vector4(1, 1, 1, 1)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tfmda"]
 size = Vector2(20, 107)
 
@@ -3587,18 +3583,6 @@ tile_set = SubResource("TileSet_yfq04")
 tile_map_data = PackedByteArray("AAAUANn/AAAAAAkAAAAUANr/AAAAAAoAAAAUANv/AAAAAAoAAAAUANz/AAAAAAsAAAAUAN3/AAAAAAwAAAAUAN7/AAAAAA0AAAAVANf/AAABAAgAAAAVAN7/AAABAA0AAAAVAN//AAABAA4AAAAWAN//AAAAABEAAAAWAOD/AAAAABIAAAAXAN//AAABAA0AAAAXAOD/AAABAA4AAAAYAOD/AAAAABEAAAAYAOH/AAAAABIAAAAZAOD/AAAGAAoAAAAaAOD/AAAHAAoAAAAbAOD/AAAIAAoAAAAcAOD/AAAJAAoAAAAdAOD/AAAAABEAAAAdAOH/AAAAABIAAAAeAN//AAAEAA0AAAAeAOD/AAAEAA4AAAAfAN//AAAAABEAAAAfAOD/AAAAABIAAAAgANf/AAAEAAgAAAAgAN7/AAAEAA0AAAAgAN//AAAEAA4AAAAhANn/AAAFAAoAAAAhANr/AAAFAAoAAAAhANv/AAAFAAoAAAAhANz/AAAFAAsAAAAhAN3/AAAFAAwAAAAhAN7/AAAFAA0AAAAUANf/AAABAAcAAAAUANj/AAAAAAoAAAAVANX/AAABAAcAAAAVANb/AAAAAAkAAAAVANz/AAABAAsAAAAVAN3/AAABAAwAAAAWANX/AAACAAcAAAAWAN3/AAAAAA8AAAAWAN7/AAAAABAAAAAXANX/AAADAAcAAAAXAN3/AAABAAsAAAAXAN7/AAABAAwAAAAYANX/AAACAAcAAAAYAN7/AAAAAA8AAAAYAN//AAAAABAAAAAZANX/AAADAAcAAAAZAN7/AAAGAAgAAAAZAN//AAAGAAkAAAAaANX/AAACAAcAAAAaAN7/AAAHAAgAAAAaAN//AAAHAAkAAAAbANX/AAADAAcAAAAbAN7/AAAIAAgAAAAbAN//AAAIAAkAAAAcANX/AAACAAcAAAAcAN7/AAAJAAgAAAAcAN//AAAJAAkAAAAdANX/AAADAAcAAAAdAN7/AAAAAA8AAAAdAN//AAAAABAAAAAeANX/AAACAAcAAAAeAN3/AAAEAAsAAAAeAN7/AAAEAAwAAAAfANX/AAACAAcAAAAfAN3/AAAAAA8AAAAfAN7/AAAAABAAAAAgANX/AAAEAAcAAAAgANb/AAAFAAkAAAAgANz/AAAEAAsAAAAgAN3/AAAEAAwAAAAhANf/AAAEAAcAAAAhANj/AAAFAAkAAAA=")
 tile_set = SubResource("TileSet_yfq04")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(352, -656)
-scale = Vector2(0.71875, 0.71875)
-texture = ExtResource("7_pcjji")
-
-[node name="Outline" type="Sprite2D" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_kbu53")
-position = Vector2(605, -1127.5)
-scale = Vector2(0.51660156, 0.51660156)
-texture = ExtResource("7_pcjji")
-
 [node name="Character" parent="." instance=ExtResource("10_3rchf")]
 position = Vector2(386, -68)
 
@@ -3630,3 +3614,17 @@ position = Vector2(482, 164)
 
 [node name="NPC_truffle" parent="." instance=ExtResource("14_wk4ve")]
 position = Vector2(659, 162)
+
+[node name="StonePanel" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("13_wk4ve")]
+position = Vector2(344, -656.00006)
+scale = Vector2(0.6, 0.6)
+e_popup_node = NodePath("Press_E_Popup")
+
+[node name="Press_E_Popup" parent="StonePanel" instance=ExtResource("14_ny1p2")]
+visible = false
+offset_left = -27.500036
+offset_top = -58.74992
+offset_right = -27.500036
+offset_bottom = -58.74992
+
+[node name="Puzzle" parent="." instance=ExtResource("15_wk4ve")]

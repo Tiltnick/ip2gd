@@ -93,7 +93,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("solvedPuzzle:modulate:a")
+tracks/1/path = NodePath("solved_Puzzle:modulate:a")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -121,7 +121,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("solvedPuzzle:modulate:a")
+tracks/1/path = NodePath("solved_Puzzle:modulate:a")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -178,6 +178,16 @@ corner_radius_bottom_left = 62
 [node name="Puzzle" type="CanvasLayer"]
 script = ExtResource("1_h324o")
 metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.14509805, 0.14509805, 0.14509805, 0.88235295)
 
 [node name="StonePanel" type="TextureRect" parent="."]
 anchors_preset = 8
@@ -464,7 +474,7 @@ texture = ExtResource("10_j1goe")
 position = Vector2(0.6668701, -2.499939)
 shape = SubResource("RectangleShape2D_bag6g")
 
-[node name="solvedPuzzle" type="TextureRect" parent="."]
+[node name="solved_Puzzle" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)
 offset_left = 511.88464
 offset_top = 216.0
@@ -472,12 +482,12 @@ offset_right = 1407.0
 offset_bottom = 845.0
 texture = ExtResource("4_pwhx3")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="solved_Animation" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_qfya4")
 }
 
-[node name="RoundButtton" type="Button" parent="."]
+[node name="close_button" type="Button" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -501,6 +511,8 @@ offset_top = 912.0
 offset_right = 1112.0
 offset_bottom = 1008.0
 text = "rotate with right click"
+
+[connection signal="pressed" from="close_button" to="." method="_on_close_button_pressed"]
 
 [editable path="Slots/slots"]
 [editable path="Slots/slots2"]

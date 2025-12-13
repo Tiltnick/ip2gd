@@ -5,6 +5,8 @@ extends CanvasLayer
 @onready var pieces: Node2D = $Pieces
 @export var puzzle_id: String = "stone_puzzle"  
 @export var total_slots := 6
+@onready var puzzle: CanvasLayer = $"."
+
 
 var solved = false
 
@@ -33,3 +35,7 @@ func check_puzzle():
 		solved = true
 		$AnimationPlayer.play("solved_animation")
 		
+
+
+func _on_close_button_pressed() -> void:
+	puzzle.hide()
