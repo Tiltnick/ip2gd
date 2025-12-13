@@ -1,17 +1,45 @@
-extends Control
+extends CanvasLayer
 
-
-@onready var solved_puzzle: TextureRect = $solvedPuzzle
-@onready var pieces: Node2D = $Pieces
-
+@export var puzzle_id: String = "stone_puzzle"  
 @export var total_slots := 6
+@onready var puzzle: CanvasLayer = $"."
+@onready var solved_animation: AnimationPlayer = $solved_Animation
+
+@onready var piece_1: Area2D = $Pieces/Piece1
+@onready var piece_2: Area2D = $Pieces/Piece2
+@onready var piece_3: Area2D = $Pieces/Piece3
+@onready var piece_4: Area2D = $Pieces/Piece4
+@onready var piece_5: Area2D = $Pieces/Piece5
+@onready var piece_6: Area2D = $Pieces/Piece6
+
+@onready var solved_puzzle: TextureRect = $solved_Puzzle2
+@onready var pieces: Node2D = $Pieces
 
 var solved = false
 
 func _ready():
-	var pieces = get_tree().get_nodes_in_group("puzzle_pieces")
-	for piece in pieces:
-		piece.piece_released.connect(check_puzzle)
+	pass
+
+func open_puzzle():
+	puzzle.show()
+	
+	if not GameState.puzzle_state.get(puzzle_id, false) and solved == false:
+		var puzzle_pieces = get_tree().get_nodes_in_group("puzzle_pieces")
+		for piece in puzzle_pieces:
+			piece.piece_released.connect(check_puzzle)
+		check_pieces()
+	elif GameState.puzzle_state.get(puzzle_id, true):
+			solved_puzzle.show()
+			pieces.hide()
+			solved = true
+		
+		
+
+func check_pieces():
+	for i in range(1, 7):
+		var id := "stone_piece_%d" % i
+		var node := $Pieces.get_node("Piece%d" % i)
+		node.visible = hotbarglobal.has_item(id)
 
 func check_puzzle():
 	var slots = get_tree().get_nodes_in_group("puzzle_slots")
@@ -22,7 +50,11 @@ func check_puzzle():
 		if not ok:
 			return
 	if not solved:
+		if puzzle_id != "":
+			GameState.puzzle_state[puzzle_id] = true
 		solved = true
-		$AnimationPlayer.play("solved_animation")
-		#solved_puzzle.show()
-		#pieces.hide()
+		solved_animation.play("solved_animation")
+		
+
+func _on_close_button_pressed() -> void:
+	puzzle.hide()

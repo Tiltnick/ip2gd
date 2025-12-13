@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://cc56upiuyf8v1"]
 
-[ext_resource type="Script" uid="uid://dw1iv6dgjbatq" path="res://scripts/state_machine_npc/npc.gd" id="1_jpar3"]
+[ext_resource type="Script" uid="uid://cr63i71n61e0h" path="res://scripts/state_machine_npc/npc_dialog_process_blob.gd" id="1_kwd6m"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="3_5dfqd"]
 [ext_resource type="Texture2D" uid="uid://bb2re0fysk6u" path="res://assets/sprites/character/Blobfish Spritesheet2.png" id="3_kwd6m"]
 [ext_resource type="Script" uid="uid://bag4u47y1hlnx" path="res://scripts/state_machine_npc/state_machine_npc.gd" id="3_li0y0"]
@@ -124,7 +124,7 @@ size = Vector2(16, 8)
 radius = 87.005745
 
 [node name="NPC" type="CharacterBody2D"]
-script = ExtResource("1_jpar3")
+script = ExtResource("1_kwd6m")
 
 [node name="Press_E_Popup_NPC" parent="." instance=ExtResource("7_kwd6m")]
 visible = false

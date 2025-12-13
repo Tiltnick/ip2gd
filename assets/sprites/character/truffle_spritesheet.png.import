@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce42qqeabhjsv"
-path="res://.godot/imported/ChatGPT Image 2. Dez. 2025, 13_40_39 (2) (1).png-1161482e5e3ed11a532d82d0b5cb57c9.ctex"
+uid="uid://bn8g7cbtng77g"
+path="res://.godot/imported/truffle_spritesheet.png-69e435121a9f145a951e4d57376fbf7e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/selfmade/ChatGPT Image 2. Dez. 2025, 13_40_39 (2) (1).png"
-dest_files=["res://.godot/imported/ChatGPT Image 2. Dez. 2025, 13_40_39 (2) (1).png-1161482e5e3ed11a532d82d0b5cb57c9.ctex"]
+source_file="res://assets/sprites/character/truffle_spritesheet.png"
+dest_files=["res://.godot/imported/truffle_spritesheet.png-69e435121a9f145a951e4d57376fbf7e.ctex"]
 
 [params]
 

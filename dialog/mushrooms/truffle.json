@@ -1,0 +1,22 @@
+{
+	"id": "truffle_riddle",
+
+	"characters": {
+		"Truffle": "res://assets/sprites/portrait/truffle.png"
+},
+
+ "steps": {
+
+	"sections": {
+		"lines": [
+			{"speaker": "Truffle", "text_en": "I part the waters, shape the flow of time, in quiet stillness, truth will shine. But those who carry me driven by lust for power, will see my mirror darken in the night.",
+									"text_de": "Ich teil’ das Wasser, führ’ die Zeit, im Stillen liegt die Wahrheit breit. Doch wer mich trägt aus Gier nach Macht, dem wird mein Spiegel schwarz bei Nacht."
+			}
+		],
+		"next": "end"
+	},
+	"end": {
+	  "lines": []
+	}
+  }
+}

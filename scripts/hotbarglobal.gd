@@ -77,3 +77,6 @@ func get_inventory_item(slot: int) -> String:
 
 func get_hotbar_index_of_item(item_id: String) -> int:
 	return hotbar_items.find(item_id)
+
+func has_item(item_id: String) -> bool:
+	return inventory_items.has(item_id) or hotbar_items.has(item_id)
