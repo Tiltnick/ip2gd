@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-
-
 @export var puzzle_id: String = "stone_puzzle"  
 @export var total_slots := 6
 @onready var puzzle: CanvasLayer = $"."
@@ -14,26 +12,23 @@ extends CanvasLayer
 @onready var piece_5: Area2D = $Pieces/Piece5
 @onready var piece_6: Area2D = $Pieces/Piece6
 
-@onready var solved_puzzle: TextureRect = $solved_Puzzle
+@onready var solved_puzzle: TextureRect = $solved_Puzzle2
 @onready var pieces: Node2D = $Pieces
 
 var solved = false
 
 func _ready():
-	GameState.puzzle_state[puzzle_id] = false
+	pass
 
 func open_puzzle():
 	puzzle.show()
 	
-	#if puzzle_id != "" and GameState.puzzle_state.has(puzzle_id):
-		#print("ich bin im ersten if")
-	if not GameState.puzzle_state.get(puzzle_id, false):
+	if not GameState.puzzle_state.get(puzzle_id, false) and solved == false:
 		var puzzle_pieces = get_tree().get_nodes_in_group("puzzle_pieces")
 		for piece in puzzle_pieces:
 			piece.piece_released.connect(check_puzzle)
 		check_pieces()
-	elif GameState.puzzle_state.get(puzzle_id, false):
-			print("ich bin im zweiten if")
+	elif GameState.puzzle_state.get(puzzle_id, true):
 			solved_puzzle.show()
 			pieces.hide()
 			solved = true
@@ -57,10 +52,9 @@ func check_puzzle():
 	if not solved:
 		if puzzle_id != "":
 			GameState.puzzle_state[puzzle_id] = true
-			
 		solved = true
 		solved_animation.play("solved_animation")
-		print("puzzle_state jetzt:", GameState.puzzle_state)
+		
 
 func _on_close_button_pressed() -> void:
 	puzzle.hide()
