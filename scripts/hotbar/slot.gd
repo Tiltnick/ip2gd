@@ -3,6 +3,7 @@ class_name HotbarSlot
 
 @onready var icon := $Icon
 @onready var key_label := $"Label for Keys"
+@onready var count_label := get_node_or_null("CountLabel") 
 
 @export var show_shadow: bool = true
 @export var show_key_label := true
@@ -16,6 +17,11 @@ func _ready():
 	if not show_shadow:
 		_disable_shadow()
 
+	# Counter standardmäßig aus
+	if count_label:
+		count_label.visible = false
+
+
 func _gui_input(event):
 	if event is InputEventMouseButton and event.pressed:
 		print("Slot", slot_index, "wurrde angeklickt")
@@ -23,7 +29,7 @@ func _gui_input(event):
 			click_callback.call(slot_index)
 
 
-# Wird con hotbar u. iventory gesetzt
+# Wird von hotbar u. inventory gesetzt
 func set_click_callback(func_ref):
 	click_callback = func_ref
 
@@ -44,6 +50,7 @@ func set_item_icon(item_id: String):
 
 	if ResourceLoader.exists(path):
 		icon.texture = load(path)
+		
 		icon.size = icon_size
 		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		icon.position = (size - icon_size) / 2
@@ -51,9 +58,25 @@ func set_item_icon(item_id: String):
 		clear_icon()
 
 
+
 func clear_icon():
 	if icon:
 		icon.texture = null
+
+	# Wenn Icon weg ist, Counter auch weg
+	set_stack_count(0)
+
+
+# Counter setzen (sichtbar nur bei > 1)
+func set_stack_count(count: int) -> void:
+	if not count_label:
+		return
+
+	if count > 1:
+		count_label.text = str(count)
+		count_label.visible = true
+	else:
+		count_label.visible = false
 
 
 func _disable_shadow():
@@ -63,6 +86,7 @@ func _disable_shadow():
 		new_style.shadow_size = 0
 		new_style.shadow_color = Color(0,0,0,0)
 		$Background.set("theme_override_styles/panel", new_style)
+
 
 func set_slot_index(i: int):
 	slot_index = i
