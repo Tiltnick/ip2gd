@@ -4,7 +4,7 @@ class_name Move
 @export var footstep_interval := 0.5
 var footstep_timer := 0.0
 
-const FOOTSTEP_SOUND := preload("res://assets/sound/Free Footsteps Pack/Concrete 2.wav")
+#const FOOTSTEP_SOUND := preload("res://assets/sound/Free Footsteps Pack/Concrete 2.wav")
 
 func Enter(_prev: State) -> void:
 	pass
@@ -24,7 +24,7 @@ func PhysicsUpdate(delta: float) -> void:
 	if input_vector != Vector2.ZERO:
 		footstep_timer -= delta
 		if footstep_timer <= 0.0:
-			WorldAudioManager.play_sfx(FOOTSTEP_SOUND)
+#			WorldAudioManager.play_sfx(FOOTSTEP_SOUND)
 			footstep_timer = footstep_interval
 	else:
 		TransitionTo("idle")

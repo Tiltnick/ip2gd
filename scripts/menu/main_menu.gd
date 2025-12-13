@@ -7,11 +7,11 @@ extends Control
 func _ready() -> void:
 	# Prüft ob es eine Save-Datei gibt -> Nein = button.disabled
 	resume_button.disabled = not FileAccess.file_exists(SaveSystem.SAVE_PATH)
-	WorldAudioManager.play_bgm(load("res://assets/sound/Cozy Tunes (Pro) v1.4/Cozy Tunes (Pro)/Audio/wav/Tracks/Forgotten Biomes.wav"))
-
+	BgmPlayer.bgm_main_menu()
+	play_click_sound()
 func _on_new_g_button_pressed() -> void:
 	var lang = TranslationServer.get_locale().substr(0, 2)
-	play_button_sound()
+	play_click_sound()
 	if lang == "en":
 		pop_up.open(
 			"New Game?",
@@ -23,10 +23,8 @@ func _on_new_g_button_pressed() -> void:
 			func(): start_new_game()
 		)
 	
-
-
-func _on_resume_button_pressed() -> void:
-	play_button_sound()
+func _on_resume_button_pressed() -> void: 
+	play_click_sound()
 	# Speicherstand aus GameState
 	var loaded := SaveSystem.load_game()
 	if loaded and GameState.has_save:
@@ -38,7 +36,7 @@ func _on_resume_button_pressed() -> void:
 
 
 func _on_exit_button_pressed() -> void:
-	play_button_sound()
+	play_click_sound()
 	pop_up.open(
 		"Exit Game?",
 		func(): exit_game()
@@ -46,12 +44,12 @@ func _on_exit_button_pressed() -> void:
 
 
 func _on_insta_button_pressed() -> void:
-	play_button_sound()
+	play_click_sound()
 	OS.shell_open("https://www.instagram.com/oris.is.here?igsh=MXUxNGN5NDc0YTlybQ%3D%3D&utm_source=qr")
 
 
 func _on_discord_button_pressed() -> void:
-	play_button_sound()
+	play_click_sound()
 	OS.shell_open("https://discord.gg/jRj5tqUYKx")
 
 
@@ -85,8 +83,9 @@ func start_new_game() -> void:
 
 
 func exit_game() -> void:
-	play_button_sound()
+	play_click_sound()
 	get_tree().quit()
+	
 
-func play_button_sound():
-	WorldAudioManager.play_sfx(load("res://assets/sound/sfx/ui_sound.mp3"))
+func play_click_sound(): 
+	SfxPlayer.ui_click_sound()

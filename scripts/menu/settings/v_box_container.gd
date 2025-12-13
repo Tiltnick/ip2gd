@@ -56,3 +56,7 @@ func _on_h_slider_value_changed(value: float) -> void:
 		button_musicL.show()
 		button_musicM.hide()
 	WorldAudioManager.set_music_volume(value)
+
+
+func _on_h_slider_sound_drag_ended() -> void:
+	SfxPlayer.ui_click_sound()

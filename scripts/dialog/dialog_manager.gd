@@ -48,7 +48,7 @@ func start_dialog(json_path: String) -> void:
 		box.show_line(speaker, text, portrait_path)
 
 		await box.continue_pressed
-		WorldAudioManager.play_sfx(load("res://assets/sound/sfx/ui_sound.mp3"))
+		SfxPlayer.ui_click_sound()
 
 		# Wenn während des Wartens abgebrochen wurde (force_close)
 		if not is_running:
@@ -72,7 +72,7 @@ func start_dialog(json_path: String) -> void:
 				var chosen_id: String = String(chosen.get("id", ""))
 
 				choice_made.emit(chosen_id)
-				WorldAudioManager.play_sfx(load("res://assets/sound/sfx/ui_sound.mp3"))
+				SfxPlayer.ui_click_sound()
 				Choice_Store.add_choice_id(chosen_id)
 
 			runtime.choose(selected_index)

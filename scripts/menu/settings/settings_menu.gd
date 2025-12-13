@@ -16,7 +16,7 @@ func _on_close_button_pressed() -> void:
 	Visibility_Button.update_visibility(path)
 	SettingsButton.show()
 	SettingsMenu.hide()
-	play_button_sound()
+	SfxPlayer.ui_click_sound()
 
 func _on_controls_pressed() -> void:
 	control_menu.show()
@@ -24,7 +24,7 @@ func _on_controls_pressed() -> void:
 	sound_menu.hide()
 	graphics.set_pressed_no_signal(false)
 	sound.set_pressed_no_signal(false)
-	play_button_sound()
+	SfxPlayer.ui_click_sound()
 
 func _on_graphics_pressed() -> void:
 	graphics_menu.show()
@@ -32,7 +32,7 @@ func _on_graphics_pressed() -> void:
 	sound_menu.hide()
 	controls.set_pressed_no_signal(false)
 	sound.set_pressed_no_signal(false)
-	play_button_sound()
+	SfxPlayer.ui_click_sound()
 	
 func _on_sound_pressed() -> void:
 	sound_menu.show()
@@ -40,7 +40,11 @@ func _on_sound_pressed() -> void:
 	control_menu.hide()
 	controls.set_pressed_no_signal(false)
 	graphics.set_pressed_no_signal(false)
-	play_button_sound()
+	SfxPlayer.ui_click_sound()
 	
-func play_button_sound():
-	WorldAudioManager.play_sfx(load("res://assets/sound/sfx/ui_sound.mp3"))
+
+
+
+func _on_h_slider_sound_drag_ended(value_changed: bool) -> void:
+	if value_changed:
+		SfxPlayer.ui_click_sound()
