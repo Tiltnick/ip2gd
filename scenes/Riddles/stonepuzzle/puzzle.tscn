@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://1gjnalxntxuw"]
+[gd_scene load_steps=40 format=3 uid="uid://1gjnalxntxuw"]
 
 [ext_resource type="Script" uid="uid://dkhi3k2codxm4" path="res://scripts/riddles/stonepuzzle/puzzlemanager.gd" id="1_h324o"]
 [ext_resource type="Texture2D" uid="uid://d2dhafm8sjg5u" path="res://assets/sprites/selfmade/ stonepanel.png" id="2_a3vcf"]
@@ -11,8 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://cmobxnag0vw6" path="res://assets/sprites/selfmade/Piece4.png" id="8_bag6g"]
 [ext_resource type="Texture2D" uid="uid://43wf8qfb83yu" path="res://assets/sprites/selfmade/Piece5.png" id="9_qfya4"]
 [ext_resource type="Texture2D" uid="uid://cq3lsm46obs7n" path="res://assets/sprites/selfmade/Piece6.png" id="10_j1goe"]
-[ext_resource type="Script" uid="uid://dbljrlak0ireo" path="res://scripts/riddles/stonepuzzle/side_slots.gd" id="12_u54ty"]
+[ext_resource type="Script" uid="uid://d2oyrfw11wpds" path="res://scripts/riddles/stonepuzzle/side_slots.gd" id="12_u54ty"]
 [ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="13_yqnux"]
+[ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="14_bag6g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfya4"]
 size = Vector2(373, 128)
@@ -176,7 +177,6 @@ corner_radius_bottom_left = 62
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d58ip"]
 
 [node name="Puzzle" type="CanvasLayer"]
-visible = false
 script = ExtResource("1_h324o")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -504,10 +504,13 @@ icon = ExtResource("13_yqnux")
 icon_alignment = 1
 
 [node name="rightclick_hint" type="Label" parent="."]
-offset_left = 744.0
-offset_top = 912.0
-offset_right = 1112.0
-offset_bottom = 1008.0
+offset_left = 823.0
+offset_top = 86.0
+offset_right = 1159.0
+offset_bottom = 182.0
+theme_override_colors/font_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
+theme_override_fonts/font = ExtResource("14_bag6g")
+theme_override_font_sizes/font_size = 36
 text = "rotate with right click"
 
 [node name="solved_Puzzle2" type="TextureRect" parent="."]
