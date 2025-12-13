@@ -24,18 +24,18 @@ var DATA := {
 	},
 
 	"stone_piece_1": {
-		"name_de": "Steinpanel-Stück",
-		"name_en": "Stone panel piece",
+		"name_de": "Stück 1",
+		"name_en": "Piece 1",
 		"description_de": "Ein Teil des Steinpanels.",
 		"description_en": "A piece of the stone panel.",
 		"icon": "res://assets/sprites/selfmade/Piece1.png",
-		"icon_size": Vector2(55,55),
+		"icon_size": Vector2(15,15),
 		"world_scene": "res://scenes/interactables/obj/stone_piece_1.tscn"
 	},
 	
 	"stone_piece_2": {
-		"name_de": "Steinpanel-Stück",
-		"name_en": "Stone panel piece",
+		"name_de": "Stück 2",
+		"name_en": "Piece 2",
 		"description_de": "Ein Teil des Steinpanels.",
 		"description_en": "A piece of the stone panel.",
 		"icon": "res://assets/sprites/selfmade/Piece2.png",
@@ -44,8 +44,8 @@ var DATA := {
 	},
 	
 	"stone_piece_3": {
-		"name_de": "Steinpanel-Stück",
-		"name_en": "Stone panel piece",
+		"name_de": "Stück 3",
+		"name_en": "Piece 3",
 		"description_de": "Ein Teil des Steinpanels.",
 		"description_en": "A piece of the stone panel.",
 		"icon": "res://assets/sprites/selfmade/Piece3.png",
@@ -54,32 +54,32 @@ var DATA := {
 	},
 	
 	"stone_piece_4": {
-		"name_de": "Steinpanel-Stück",
-		"name_en": "Stone panel piece",
+		"name_de": "Stück 4",
+		"name_en": "Piece 4",
 		"description_de": "Ein Teil des Steinpanels.",
 		"description_en": "A piece of the stone panel.",
 		"icon": "res://assets/sprites/selfmade/Piece4.png",
-		"icon_size": Vector2(55,55),
+		"icon_size": Vector2(25,25),
 		"world_scene": "res://scenes/interactables/obj/stone_piece_4.tscn"
 	},
 	
 	"stone_piece_5": {
-		"name_de": "Steinpanel-Stück",
-		"name_en": "Stone panel piece",
+		"name_de": "Stück 5",
+		"name_en": "Piece 5",
 		"description_de": "Ein Teil des Steinpanels.",
 		"description_en": "A piece of the stone panel.",
 		"icon": "res://assets/sprites/selfmade/Piece5.png",
-		"icon_size": Vector2(55,55),
+		"icon_size": Vector2(45,45),
 		"world_scene": "res://scenes/interactables/obj/stone_piece_5.tscn"
 	},
 	
 	"stone_piece_6": {
-		"name_de": "Steinpanel-Stück",
-		"name_en": "Stone panel piece",
+		"name_de": "Stück 6",
+		"name_en": "Piece 6",
 		"description_de": "Ein Teil des Steinpanels.",
 		"description_en": "A piece of the stone panel.",
 		"icon": "res://assets/sprites/selfmade/Piece6.png",
-		"icon_size": Vector2(55,55),
+		"icon_size": Vector2(25,25),
 		"world_scene": "res://scenes/interactables/obj/stone_piece_6.tscn"
 	},
 

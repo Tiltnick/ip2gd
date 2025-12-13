@@ -3,7 +3,7 @@ class_name HotbarSlot
 
 @onready var icon := $Icon
 @onready var key_label := $"Label for Keys"
-@onready var count_label := get_node_or_null("CountLabel") # NEU
+@onready var count_label := get_node_or_null("CountLabel") 
 
 @export var show_shadow: bool = true
 @export var show_key_label := true
@@ -51,21 +51,11 @@ func set_item_icon(item_id: String):
 	if ResourceLoader.exists(path):
 		icon.texture = load(path)
 		
-		#icon.set_anchors_preset(Control.PRESET_TOP_LEFT)
-		#icon.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-		#icon.size_flags_vertical = Control.SIZE_SHRINK_CENTER
-		#icon.custom_minimum_size = icon_size
-		
 		icon.size = icon_size
 		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		icon.position = (size - icon_size) / 2
 	else:
 		clear_icon()
-
-#func _notification(what):
-	#if what == NOTIFICATION_RESIZED:
-		#if icon and icon.texture:
-			#icon.position = (size - icon.size) / 2
 
 
 
