@@ -2,8 +2,6 @@ extends Node2D
 
 @export var MAX_VOLUME_DB := -6.0
 @export var MIN_VOLUME_DB := -80.0
-@onready var bgm_musicplayer: AudioStreamPlayer = $bgm_musicplayer
-@onready var sfx_musicplayer: AudioStreamPlayer = $sfx_musicplayer
 
 
 func set_music_volume(percent: float):
