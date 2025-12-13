@@ -62,8 +62,6 @@ func check_puzzle():
 			hotbarglobal.remove_item(stonepanel)
 			GameState.puzzle_state[id] = false
 		
-		hotbarglobal.update_ui()
-		
 
 func _on_close_button_pressed() -> void:
 	puzzle.hide()

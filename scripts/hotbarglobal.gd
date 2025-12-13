@@ -81,6 +81,7 @@ func remove_item(item_id: String) -> void:
 		if hotbar_items[i] == item_id:
 			hotbar_items[i] = null
 			return
+	update_ui()
 
 
 func get_item_from_hotbar(slot: int) -> String:
