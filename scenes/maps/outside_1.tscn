@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://b4r2irdvo1x1b"]
+[gd_scene load_steps=19 format=4 uid="uid://b4r2irdvo1x1b"]
 
 [ext_resource type="Script" uid="uid://ch2sapm3vk3ex" path="res://scripts/scene_manager/outside_1.gd" id="1_ax0hk"]
 [ext_resource type="Texture2D" uid="uid://bfd0d1qqtnli" path="res://assets/sprites/map/Outside_1/Ground.png" id="1_iu6ob"]
@@ -11,8 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="8_myyye"]
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="10_r76a8"]
 [ext_resource type="PackedScene" uid="uid://m8y5i5u6eyka" path="res://scenes/maps/transition_area_fade.tscn" id="11_dkob4"]
-[ext_resource type="PackedScene" uid="uid://eghgox4suvdf" path="res://scenes/interactables/objects/stone pieces/stone_piece_1.tscn" id="12_qv8vl"]
-[ext_resource type="PackedScene" uid="uid://cuyfkctafkxe1" path="res://scenes/interactables/objects/stone pieces/stone_piece_2.tscn" id="13_8xlm2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ax0hk"]
 texture = ExtResource("1_iu6ob")
@@ -422,6 +420,9 @@ point_count = 7
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dkob4"]
 size = Vector2(219, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qv8vl"]
+size = Vector2(137, 20)
+
 [node name="Outside1" type="Node2D"]
 script = ExtResource("1_ax0hk")
 
@@ -488,6 +489,9 @@ position = Vector2(-120, -31)
 [node name="from_outside2" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(287, -247)
 
+[node name="from_outside3" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(74, -260)
+
 [node name="Hotbar" type="CanvasLayer" parent="."]
 layer = 0
 
@@ -505,38 +509,23 @@ z_index = 1
 position = Vector2(288.00003, -120)
 path_follow = NodePath("../NPCPath/NPCPathFollow")
 
-[node name="DoorArea" type="Area2D" parent="."]
+[node name="DoorAreaOutside2" type="Area2D" parent="."]
 position = Vector2(288, -278)
 script = ExtResource("10_r76a8")
 target_scene_path = "uid://chb4fo2dp60ho"
 target_spawn_id = "from_outside1"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorAreaOutside2"]
 position = Vector2(-18.5, 0)
 shape = SubResource("RectangleShape2D_dkob4")
 
 [node name="TransitionAreaFade" parent="." instance=ExtResource("11_dkob4")]
 
-[node name="Objects" type="Node2D" parent="."]
+[node name="DoorAreaOutside3" type="Area2D" parent="."]
+script = ExtResource("10_r76a8")
+target_scene_path = "uid://dlsjgc5i7yt81"
+target_spawn_id = "from_outside1"
 
-[node name="StonePiece1" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_qv8vl")]
-position = Vector2(-40, -96)
-e_popup_node = NodePath("Press_E_Popup")
-
-[node name="Press_E_Popup" parent="Objects/StonePiece1" instance=ExtResource("7_8xmlc")]
-visible = false
-offset_left = -11.0
-offset_top = -32.0
-offset_right = -11.0
-offset_bottom = -32.0
-
-[node name="StonePiece2" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("13_8xlm2")]
-position = Vector2(128, -127)
-e_popup_node = NodePath("Press_E_Popup")
-
-[node name="Press_E_Popup" parent="Objects/StonePiece2" instance=ExtResource("7_8xmlc")]
-visible = false
-offset_left = -11.0
-offset_top = -31.0
-offset_right = -11.0
-offset_bottom = -31.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorAreaOutside3"]
+position = Vector2(74, -285)
+shape = SubResource("RectangleShape2D_qv8vl")

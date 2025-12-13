@@ -1,0 +1,122 @@
+[gd_scene load_steps=18 format=3 uid="uid://dri71srb6nfk1"]
+
+[ext_resource type="Script" uid="uid://dxe04ai8lc1a7" path="res://scripts/state_machine_npc/npc_dialog_process_truffle.gd" id="1_mt00b"]
+[ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="2_0oew2"]
+[ext_resource type="Texture2D" uid="uid://bn8g7cbtng77g" path="res://assets/sprites/character/truffle_spritesheet.png" id="3_mt00b"]
+[ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="4_l2leq"]
+[ext_resource type="Script" uid="uid://bag4u47y1hlnx" path="res://scripts/state_machine_npc/state_machine_npc.gd" id="5_ks268"]
+[ext_resource type="Script" uid="uid://bj3wge2cd2so2" path="res://scripts/state_machine_npc/npc_idle.gd" id="6_85kim"]
+[ext_resource type="Script" uid="uid://pxcfgc747h2m" path="res://scripts/state_machine_npc/npc_move.gd" id="7_nd27d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0oew2"]
+atlas = ExtResource("3_mt00b")
+region = Rect2(2, 32, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pimq7"]
+atlas = ExtResource("3_mt00b")
+region = Rect2(33, 32, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mt00b"]
+atlas = ExtResource("3_mt00b")
+region = Rect2(2, 64, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2leq"]
+atlas = ExtResource("3_mt00b")
+region = Rect2(33, 64, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ks268"]
+atlas = ExtResource("3_mt00b")
+region = Rect2(64, 64, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85kim"]
+atlas = ExtResource("3_mt00b")
+region = Rect2(95, 64, 31, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eprow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0oew2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pimq7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt00b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2leq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ks268")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85kim")
+}],
+"loop": true,
+"name": &"move",
+"speed": 4.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kwd6m"]
+shader = ExtResource("4_l2leq")
+shader_parameter/outline_size = 2.0
+shader_parameter/outline_color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q33tr"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5dfqd"]
+radius = 40.0
+
+[node name="NPC_truffle" type="CharacterBody2D"]
+script = ExtResource("1_mt00b")
+
+[node name="Press_E_Popup_NPC" parent="." instance=ExtResource("2_0oew2")]
+visible = false
+z_index = 10
+offset_left = -10.0
+offset_top = -35.0
+offset_right = -10.0
+offset_bottom = -35.0
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(1.032258, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_eprow")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Outline" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 4
+material = SubResource("ShaderMaterial_kwd6m")
+position = Vector2(0, -16)
+scale = Vector2(1.032258, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_eprow")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_q33tr")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+position = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_5dfqd")
+
+[node name="stateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("5_ks268")
+initial_state = NodePath("move")
+
+[node name="idle" type="Node" parent="stateMachine"]
+script = ExtResource("6_85kim")
+
+[node name="move" type="Node" parent="stateMachine"]
+script = ExtResource("7_nd27d")
