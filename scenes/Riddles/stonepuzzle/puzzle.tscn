@@ -511,7 +511,7 @@ offset_bottom = 182.0
 theme_override_colors/font_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
 theme_override_fonts/font = ExtResource("14_bag6g")
 theme_override_font_sizes/font_size = 36
-text = "rotate with right click"
+text = "CLICK_RIGHT"
 
 [node name="solved_Puzzle2" type="TextureRect" parent="."]
 visible = false
