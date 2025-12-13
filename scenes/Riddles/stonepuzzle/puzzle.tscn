@@ -178,7 +178,6 @@ corner_radius_bottom_left = 62
 [node name="Puzzle" type="CanvasLayer"]
 visible = false
 script = ExtResource("1_h324o")
-metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -203,7 +202,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("2_a3vcf")
-metadata/_edit_lock_ = true
 
 [node name="Slots" type="Node2D" parent="."]
 
@@ -377,7 +375,6 @@ shape = SubResource("RectangleShape2D_j1goe")
 [node name="Pieces" type="Node2D" parent="."]
 
 [node name="Piece1" parent="Pieces" groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-visible = false
 position = Vector2(219, 641)
 rotation = -3.1415927
 scale = Vector2(0.25, 0.25)
@@ -394,7 +391,6 @@ texture = ExtResource("5_pwhx3")
 position = Vector2(0, -0.5)
 
 [node name="Piece2" parent="Pieces" groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-visible = false
 position = Vector2(188, 158)
 scale = Vector2(0.25, 0.25)
 collision_mask = 2
@@ -411,7 +407,6 @@ position = Vector2(-2.7120514, 3.625)
 shape = SubResource("RectangleShape2D_a3vcf")
 
 [node name="Piece3" parent="Pieces" groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-visible = false
 position = Vector2(184, 806)
 rotation = 3.1415927
 scale = Vector2(0.25, 0.25)
@@ -429,7 +424,6 @@ position = Vector2(0.49993896, 0.9998474)
 shape = SubResource("RectangleShape2D_pwhx3")
 
 [node name="Piece4" parent="Pieces" groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-visible = false
 position = Vector2(194, 965)
 scale = Vector2(0.25, 0.25)
 collision_mask = 2
@@ -446,7 +440,6 @@ position = Vector2(0.7692261, 2.9999695)
 shape = SubResource("RectangleShape2D_u54ty")
 
 [node name="Piece5" parent="Pieces" groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-visible = false
 position = Vector2(192, 322)
 rotation = -3.1415927
 scale = Vector2(0.25, 0.25)
@@ -464,7 +457,6 @@ position = Vector2(2.125, 0)
 shape = SubResource("RectangleShape2D_yqnux")
 
 [node name="Piece6" parent="Pieces" groups=["puzzle_pieces"] instance=ExtResource("3_imsnv")]
-visible = false
 position = Vector2(190, 496)
 scale = Vector2(0.25, 0.25)
 collision_mask = 2

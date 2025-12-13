@@ -6,4 +6,4 @@ extends Interactable
 func _ready() -> void:
 	super ._ready()
 func interact():
-	puzzle.show()
+	puzzle.open_puzzle()
