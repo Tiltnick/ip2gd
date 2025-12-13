@@ -37,8 +37,13 @@ func update_slots():
 
 		if item_id:
 			slots[i].set_item_icon(item_id)
+			if slots[i].has_method("set_stack_count"):
+				var count: int = int(hotbarglobal.hotbar_counts.get(item_id, 0))
+				slots[i].set_stack_count(count)
 		else:
 			slots[i].clear_icon()
+			if slots[i].has_method("set_stack_count"):
+				slots[i].set_stack_count(0)
 
 		# Border färben
 		var border := slots[i].get_node("Border")
@@ -92,9 +97,15 @@ func use_slot(slot_index: int):
 	var data = ItemDatabase.DATA[item_id]
 	var scene_path: String = data.get("world_scene", "")
 
-	if scene_path == "" or not ResourceLoader.exists(scene_path):
-		print("Hotbar: Kein gültiges world_scene für:", item_id, " path:", scene_path)
+	# Wenn kein world_scene dann nichts spawnen (z.B. Stack-Items wie stonepanel)
+	if scene_path == "":
+		print("Hotbar: Item hat kein world_scene (ok):", item_id)
 		return
+
+	if not ResourceLoader.exists(scene_path):
+		print("Hotbar: world_scene existiert nicht für:", item_id, " path:", scene_path)
+		return
+
 
 	# Instanzieren 
 	var scene: PackedScene = load(scene_path)

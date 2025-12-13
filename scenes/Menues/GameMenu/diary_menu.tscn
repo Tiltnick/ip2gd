@@ -537,6 +537,7 @@ justification_flags = 162
 
 [node name="Slot17" parent="TabContainer/INVENTORY/Description" instance=ExtResource("7_d5s1g")]
 material = SubResource("ShaderMaterial_82ri6")
+clip_contents = true
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
