@@ -672,5 +672,6 @@ icon_alignment = 1
 [connection signal="value_changed" from="TabContainer/SETTINGS/VBoxContainer/HBoxContainer/HSlider_Music" to="TabContainer/SETTINGS/VBoxContainer" method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="TabContainer/SETTINGS/VBoxContainer/HBoxContainer2/Button_SoundL" to="TabContainer/SETTINGS/VBoxContainer" method="_on_button_sound_l_pressed"]
 [connection signal="pressed" from="TabContainer/SETTINGS/VBoxContainer/HBoxContainer2/Button_SoundM" to="TabContainer/SETTINGS/VBoxContainer" method="_on_button_sound_m_pressed"]
+[connection signal="drag_ended" from="TabContainer/SETTINGS/VBoxContainer/HBoxContainer2/HSlider_Sound" to="TabContainer/SETTINGS" method="_on_h_slider_sound_drag_ended"]
 [connection signal="value_changed" from="TabContainer/SETTINGS/VBoxContainer/HBoxContainer2/HSlider_Sound" to="TabContainer/SETTINGS/VBoxContainer" method="_on_h_slider_2_value_changed"]
 [connection signal="pressed" from="CloseButton" to="TabContainer/SETTINGS" method="_on_close_button_pressed"]
