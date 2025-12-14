@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready() -> void:
+	BgmPlayer.bgm_outside1()
 	# Einmaliger innerer Monolog direkt nach dem Verlassen des Raumschiffs
 	if GameState.puzzle_state.get("ship_exit_monologue_pending", false):
 		# Flag sofort verbr, damit es nur einmal passiert

@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=4 uid="uid://cbsuctc5xrvkk"]
 
 [ext_resource type="Texture2D" uid="uid://b6keejiu00fdc" path="res://assets/sprites/map/Outside_2/sams_cave/Ground.png" id="1_b510g"]
-[ext_resource type="Script" uid="uid://j2wrekjoepvn" path="res://scripts/scene_manager/sams_cave.gd" id="1_oqthk"]
+[ext_resource type="Script" path="res://scripts/scene_manager/sams_cave.gd" id="1_oqthk"]
 [ext_resource type="Texture2D" uid="uid://c0wnpeb24xggh" path="res://assets/sprites/selfmade/light.png" id="3_esekf"]
 [ext_resource type="PackedScene" uid="uid://bdqvh5ss8a2t4" path="res://scenes/interactables/objects/note.tscn" id="4_esekf"]
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="5_oqthk"]

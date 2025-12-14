@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=4 uid="uid://chb4fo2dp60ho"]
 
-[ext_resource type="Script" path="res://scripts/scene_manager/outside_2.gd" id="1_7t2bs"]
+[ext_resource type="Script" uid="uid://f7c56kdptn0k" path="res://scripts/scene_manager/outside_2.gd" id="1_7t2bs"]
 [ext_resource type="Texture2D" uid="uid://djxhqmxg4i62w" path="res://assets/sprites/map/Pixel Crawler - Desert/Pixel Crawler - Desert/Assets/Ground.png" id="2_vxisc"]
 [ext_resource type="Texture2D" uid="uid://d2ipyfv1dy5j0" path="res://assets/sprites/map/Pixel Crawler - Desert/Pixel Crawler - Desert/Assets/Props.png" id="3_o6c6f"]
 [ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="5_q7d5i"]
