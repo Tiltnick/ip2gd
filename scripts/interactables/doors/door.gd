@@ -9,8 +9,12 @@ var target_spawn_id: String = "start"   # Name des Spawnpoints in der Zielszene
 
 
 func interact() -> void:
-	open_door()  # Die Tür „öffnet sich“ beim Interagieren
-
+	
+	if hotbarglobal.inventory_items.has("fluxomat"):
+		open_door()
+		DialogManager.start_dialog("res://dialog/spaceship/door_opened.json")
+	else:
+		DialogManager.start_dialog("res://dialog/spaceship/door_locked.json")
 
 # Diese Methode kann auch von Subklassen wie DoorWithCode aufgerufen werden
 func open_door() -> void:

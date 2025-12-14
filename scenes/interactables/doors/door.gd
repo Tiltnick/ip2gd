@@ -14,11 +14,7 @@ func _ready():
 
 func interact() -> void:
 	#check if item 
-	if hotbarglobal.inventory_items.has("fluxomat"):
-		door_open()
-		DialogManager.start_dialog("res://dialog/spaceship/door_opened.json")
-	else:
-		DialogManager.start_dialog("res://dialog/spaceship/door_locked.json")
+
 
 func door_locked():
 	var texture = load('res://assets/sprites/selfmade/spaceship_door_locked.png')

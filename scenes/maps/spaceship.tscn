@@ -15,12 +15,11 @@
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="11_1oksb"]
 [ext_resource type="Script" uid="uid://btvvee8ehjidi" path="res://scripts/riddles/spaceship_door/spaceship_door_door.gd" id="11_emg07"]
 [ext_resource type="PackedScene" uid="uid://dfa4ga2b2k76f" path="res://scenes/Menues/saving_menu.tscn" id="11_o77e3"]
-[ext_resource type="PackedScene" uid="uid://i0736j8r38e8" path="res://scenes/interactables/doors/door_broken.tscn" id="12_4s1gq"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/doors/door_broken.tscn" id="12_4s1gq"]
 [ext_resource type="Script" uid="uid://dge528a6i2b6f" path="res://scripts/interactables/doors/door.gd" id="13_4nltl"]
 [ext_resource type="Texture2D" uid="uid://c7pwwu6560hy4" path="res://assets/sprites/selfmade/spaceship_door_open.png" id="13_b8ov6"]
 [ext_resource type="PackedScene" uid="uid://bpvneidk4xerj" path="res://scenes/Riddles/Spaceship/spaceship_door_riddle.tscn" id="14_1oksb"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="15_emg07"]
-[ext_resource type="Script" uid="uid://cbeechlj7jf24" path="res://scenes/interactables/doors/door.gd" id="16_4s1gq"]
 [ext_resource type="PackedScene" uid="uid://m8y5i5u6eyka" path="res://scenes/maps/transition_area_fade.tscn" id="17_8o1ua"]
 [ext_resource type="PackedScene" uid="uid://eghgox4suvdf" path="res://scenes/interactables/objects/stone pieces/stone_piece_1.tscn" id="20_7rixv"]
 [ext_resource type="PackedScene" uid="uid://cuyfkctafkxe1" path="res://scenes/interactables/objects/stone pieces/stone_piece_2.tscn" id="21_k18lp"]
@@ -1374,26 +1373,6 @@ material = SubResource("ShaderMaterial_emg07")
 texture = ExtResource("13_b8ov6")
 
 [node name="Sprite2D" type="Sprite2D" parent="Door"]
-
-[node name="Door2" parent="." instance=ExtResource("10_172bc")]
-position = Vector2(-113, 152)
-script = ExtResource("16_4s1gq")
-
-[node name="Press_E_Popup_Door" parent="Door2" instance=ExtResource("10_o77e3")]
-visible = false
-z_index = 7
-offset_left = -8.000008
-offset_top = -42.000008
-offset_right = 11.999992
-offset_bottom = -18.250008
-scale = Vector2(0.8, 0.8)
-
-[node name="Outline" type="Sprite2D" parent="Door2"]
-visible = false
-material = SubResource("ShaderMaterial_emg07")
-texture = ExtResource("13_b8ov6")
-
-[node name="Sprite2D" type="Sprite2D" parent="Door2"]
 
 [node name="SpaceshipDoor" parent="." instance=ExtResource("14_1oksb")]
 visible = false
