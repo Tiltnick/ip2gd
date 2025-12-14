@@ -18,7 +18,6 @@ func _store_in_hotbar():
 	if spawned_from_hotbar:
 		queue_free()
 		return
-
 	mark_collected()
 	hotbarglobal.add_piece(save_id, hotbar_type_id)
 	queue_free()

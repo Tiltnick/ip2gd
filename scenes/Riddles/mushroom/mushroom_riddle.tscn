@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmlmv2sismu3p"]
+
+[ext_resource type="Script" uid="uid://84l52vybteo" path="res://scripts/riddles/mushroom/mushrooms.gd" id="1_epusd"]
+[ext_resource type="Texture2D" uid="uid://csefim0704ll6" path="res://assets/sprites/selfmade/mushrooms/blue_mush.png" id="2_givhc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgsub"]
+size = Vector2(32, 32)
+
+[node name="MushroomRiddle" type="Area2D"]
+script = ExtResource("1_epusd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_givhc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bgsub")
