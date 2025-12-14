@@ -1,0 +1,29 @@
+{
+  "id": "oris_finds_fluxomat",
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+  "steps": {
+	"sections": {
+	  "lines": [
+		{
+  "speaker": "Oris",
+  "text_en": "Huh… what’s this thing? It’s humming in a very repair-y way.",
+  "text_de": "Hm… was ist das denn? Es summt irgendwie… reparierend."
+},
+{
+  "speaker": "Oris",
+  "text_en": "Fluxomat, huh? That sounds important.",
+  "text_de": "Fluxomat, hm? Klingt wichtig."
+},
+{
+  "speaker": "Oris",
+  "text_en": "I have no idea how it works, but I’m pretty sure the ship needs it.",
+  "text_de": "Ich habe keine Ahnung, wie es funktioniert, aber das Schiff braucht es bestimmt."
+},
+]
+},
+
+	"end": { "lines": [] }
+  }
+}

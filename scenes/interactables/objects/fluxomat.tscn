@@ -12,6 +12,7 @@ shader_parameter/outline_color = Vector4(1, 1, 1, 1)
 [sub_resource type="CircleShape2D" id="CircleShape2D_6peuh"]
 
 [node name="Fluxomat" type="Node2D"]
+z_index = 100
 script = ExtResource("1_lt2jv")
 
 [node name="Fluxomat" type="Sprite2D" parent="."]
@@ -20,6 +21,7 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_6peuh")
 
 [node name="Outline" type="Sprite2D" parent="."]
+visible = false
 z_index = 4
 material = SubResource("ShaderMaterial_wq0ar")
 scale = Vector2(0.7, 0.7)

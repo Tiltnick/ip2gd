@@ -2155,14 +2155,14 @@ offset_right = -10.0
 offset_bottom = -34.0
 
 [node name="Fluxomat" parent="Objects" instance=ExtResource("9_vxisc")]
-position = Vector2(-139, -87)
+position = Vector2(-139, -76)
 
 [node name="Character" parent="." instance=ExtResource("5_q7d5i")]
 z_index = 1
 position = Vector2(-387, -303)
 
 [node name="SpawnPoints" type="Node2D" parent="."]
-position = Vector2(-356, 265)
+position = Vector2(-356, 267)
 
 [node name="start" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(1, -10)

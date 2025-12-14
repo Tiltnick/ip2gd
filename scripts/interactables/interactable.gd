@@ -29,7 +29,8 @@ func _on_exit(body):
 			e_popup_node.visible = false
 
 func interact():
-	print(name, " interacted but has no special interact() function!")
+	pass
+	
 
 func _process(_delta):
 	if player_in_area and Input.is_action_just_pressed("interact"):
