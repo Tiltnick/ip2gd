@@ -6,6 +6,7 @@ class_name SaveableItem
 var save_id: String = ""
 var item_name_de: String = ""
 var item_name_en: String = ""
+var item_id: String = ""
 
 @export var item_icon: Texture2D 
 

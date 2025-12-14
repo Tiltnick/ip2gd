@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://oc34d75xxifh" path="res://scripts/inventory/inventory.gd" id="1_msrby"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_tvok8"]
-[ext_resource type="Script" uid="uid://bxjsc3ungryxn" path="res://scripts/menu/settings_menu.gd" id="3_bxceu"]
+[ext_resource type="Script" uid="uid://bxjsc3ungryxn" path="res://scripts/menu/settings/settings_menu.gd" id="3_bxceu"]
 [ext_resource type="PackedScene" uid="uid://iuoj0p7tw4oi" path="res://scenes/inventory/inventory_slot.tscn" id="3_tvok8"]
 [ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="4_v8e04"]
 [ext_resource type="PackedScene" uid="uid://bfivg0njs3ku8" path="res://scenes/hotbar/slot.tscn" id="5_v8e04"]
@@ -351,6 +351,9 @@ scale = Vector2(2, 2)
 
 [node name="Slot" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("5_v8e04")]
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 113.0
 offset_top = 71.5
 offset_right = 177.0
@@ -359,6 +362,9 @@ scale = Vector2(2, 2)
 
 [node name="Slot2" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("5_v8e04")]
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 276.0
 offset_top = 70.5
 offset_right = 340.0
@@ -367,6 +373,9 @@ scale = Vector2(2, 2)
 
 [node name="Slot3" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("5_v8e04")]
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 436.0
 offset_top = 68.5
 offset_right = 500.0
@@ -375,6 +384,9 @@ scale = Vector2(2, 2)
 
 [node name="Slot4" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("5_v8e04")]
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 601.0
 offset_top = 67.5
 offset_right = 665.0
@@ -383,6 +395,9 @@ scale = Vector2(2, 2)
 
 [node name="Slot5" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("5_v8e04")]
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 112.0
 offset_top = 216.5
 offset_right = 176.0
@@ -391,6 +406,9 @@ scale = Vector2(2, 2)
 
 [node name="Slot6" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("5_v8e04")]
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 275.0
 offset_top = 215.5
 offset_right = 339.0
@@ -399,6 +417,9 @@ scale = Vector2(2, 2)
 
 [node name="Slot7" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("5_v8e04")]
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 435.0
 offset_top = 213.5
 offset_right = 499.0
@@ -407,6 +428,9 @@ scale = Vector2(2, 2)
 
 [node name="Slot8" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("5_v8e04")]
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 600.0
 offset_top = 212.5
 offset_right = 664.0
@@ -415,6 +439,9 @@ scale = Vector2(2, 2)
 
 [node name="Slot9" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("5_v8e04")]
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 113.0
 offset_top = 358.5
 offset_right = 177.0
@@ -423,6 +450,9 @@ scale = Vector2(2, 2)
 
 [node name="Slot10" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("5_v8e04")]
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 276.0
 offset_top = 357.5
 offset_right = 340.0
@@ -431,6 +461,9 @@ scale = Vector2(2, 2)
 
 [node name="Slot11" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("5_v8e04")]
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 436.0
 offset_top = 355.5
 offset_right = 500.0
@@ -439,6 +472,9 @@ scale = Vector2(2, 2)
 
 [node name="Slot12" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("5_v8e04")]
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 601.0
 offset_top = 354.5
 offset_right = 665.0
@@ -447,6 +483,9 @@ scale = Vector2(2, 2)
 
 [node name="Slot13" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("5_v8e04")]
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 112.0
 offset_top = 503.5
 offset_right = 176.0
@@ -455,6 +494,9 @@ scale = Vector2(2, 2)
 
 [node name="Slot14" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("5_v8e04")]
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 275.0
 offset_top = 502.5
 offset_right = 339.0
@@ -463,6 +505,9 @@ scale = Vector2(2, 2)
 
 [node name="Slot15" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("5_v8e04")]
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 435.0
 offset_top = 500.5
 offset_right = 499.0
@@ -471,6 +516,9 @@ scale = Vector2(2, 2)
 
 [node name="Slot16" parent="TabContainer/INVENTORY/Panel" instance=ExtResource("5_v8e04")]
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 600.0
 offset_top = 499.5
 offset_right = 664.0
@@ -530,6 +578,9 @@ scale = Vector2(2.7, 2.7)
 
 [node name="Slot" parent="TabContainer/INVENTORY/Description" instance=ExtResource("5_v8e04")]
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 416.0
 offset_top = 60.0
 offset_right = 480.0

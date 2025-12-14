@@ -37,7 +37,7 @@ func _on_resume_button_pressed() -> void:
 
 func _on_exit_button_pressed() -> void:
 	var lang = TranslationServer.get_locale().substr(0, 2)
-	play_button_sound()
+	play_click_sound()
 	if lang == "en":
 		pop_up.open(
 			"Exit Game?",
