@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7amjsaj2vw3u"]
+
+[ext_resource type="Script" uid="uid://bxov3mwsslfyc" path="res://scripts/interactables/objects/flashlight.gd" id="1_gp728"]
+[ext_resource type="Texture2D" uid="uid://y1ycd6wvvjvy" path="res://assets/sprites/selfmade/flashlight.png" id="1_qwc0l"]
+[ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="2_gp728"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ybjn"]
+shader = ExtResource("2_gp728")
+shader_parameter/outline_size = 2.0
+shader_parameter/outline_color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jbdkp"]
+radius = 24.0
+
+[node name="Flashlight" type="Node2D"]
+z_index = 50
+script = ExtResource("1_gp728")
+item_icon = ExtResource("1_qwc0l")
+
+[node name="Flashlight" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_qwc0l")
+
+[node name="Outline" type="Sprite2D" parent="."]
+visible = false
+z_index = 100
+material = SubResource("ShaderMaterial_8ybjn")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_qwc0l")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_jbdkp")

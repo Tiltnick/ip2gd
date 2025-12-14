@@ -14,7 +14,7 @@
 		{ "speaker": "Mr. Blob", "text_en": "..."
 								,"text_de": "..." },
 		{ "speaker": "Oris", "text_en": "I cannot believe it. He's... gone! I can't save him anymore because he's GONE!"
-							,"text_de": "I kann es kaum fassen. Er ist... tot! I kann ihn nicht mehr retten weil er weg vom Fenster ist!" }
+							,"text_de": "Ich kann es kaum fassen. Er ist... tot! Ich kann ihn nicht mehr retten weil er weg vom Fenster ist!" }
 	  ],
 	  "choices": [
 		{ "id": "reveal_1", "text_en": "You knew."

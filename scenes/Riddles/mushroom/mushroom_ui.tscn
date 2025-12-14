@@ -1,0 +1,120 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhoaqyfoiwhbt"]
+
+[ext_resource type="Texture2D" uid="uid://bjdmx8cqqg1hd" path="res://assets/sprites/selfmade/mushroom_socket.png" id="1_qtjm1"]
+[ext_resource type="Texture2D" uid="uid://c8duqp050wk8w" path="res://assets/sprites/portrait/champignon.png" id="2_57f4l"]
+[ext_resource type="Texture2D" uid="uid://cup6ld87y6681" path="res://assets/sprites/portrait/truffle.png" id="3_i6yk3"]
+[ext_resource type="Texture2D" uid="uid://b61lext8uvybb" path="res://assets/sprites/portrait/porcini.png" id="4_6j8d4"]
+
+[node name="MushroomUi" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.14509805, 0.14509805, 0.14509805, 0.88235295)
+
+[node name="sun" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -632.0
+offset_top = -473.0
+offset_right = -64.0
+offset_bottom = 231.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="champi_socket" type="TextureRect" parent="sun"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -352.0
+offset_top = -579.0
+offset_right = 352.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_qtjm1")
+
+[node name="champi" type="TextureRect" parent="sun"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -92.0
+offset_top = 16.0
+offset_right = 92.0
+offset_bottom = 200.0
+grow_horizontal = 2
+texture = ExtResource("2_57f4l")
+
+[node name="moon" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="truffle" type="TextureRect" parent="moon"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 848.0
+offset_top = 80.0
+offset_right = 1032.0
+offset_bottom = 264.0
+grow_horizontal = 2
+texture = ExtResource("3_i6yk3")
+
+[node name="truffle_socket" type="TextureRect" parent="moon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 588.0
+offset_top = 168.0
+offset_right = 1292.0
+offset_bottom = 872.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qtjm1")
+
+[node name="planet" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="porcini_socket" type="TextureRect" parent="planet"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = 171.0
+offset_right = 660.0
+offset_bottom = 875.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("1_qtjm1")
+
+[node name="porcini" type="TextureRect" parent="planet"]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 87.0
+offset_right = 436.0
+offset_bottom = 271.0
+texture = ExtResource("4_6j8d4")

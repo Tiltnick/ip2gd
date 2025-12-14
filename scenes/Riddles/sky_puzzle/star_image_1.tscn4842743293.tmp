@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1cu26niebyeg"]
+
+[ext_resource type="Script" uid="uid://cjg5on222r4b6" path="res://scripts/riddles/sky_riddle/sky_search.gd" id="1_qu80m"]
+[ext_resource type="Texture2D" uid="uid://d4mjnjid4r8od" path="res://assets/sprites/selfmade/sun_symbol.png" id="1_uk73g"]
+[ext_resource type="Shader" uid="uid://cr8lvuipwnypl" path="res://scripts/riddles/sky_riddle/light_sky.gdshader" id="3_avp80"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1kk46"]
+shader = ExtResource("3_avp80")
+shader_parameter/light_pos = Vector2(200, 200)
+shader_parameter/radius = 140.0
+shader_parameter/softness = 80.0
+shader_parameter/darkness_alpha = 1.0
+
+[node name="star_image_1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qu80m")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1466.0
+offset_top = 72.0
+offset_right = -130.99268
+offset_bottom = -803.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_uk73g")
+
+[node name="Dark" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_1kk46")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

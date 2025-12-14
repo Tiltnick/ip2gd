@@ -107,6 +107,7 @@ func _spawn_player_in_scene(new_scene: Node) -> void:
 		var cam := player.get_node_or_null("Camera2D")
 		if cam:
 			cam.make_current()
+			print("KAMERA DA!!")
 			if new_scene.has_method("configure_camera"):
 				new_scene.call("configure_camera", cam)
 				

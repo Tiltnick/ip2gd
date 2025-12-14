@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://i0736j8r38e8"]
+
+[ext_resource type="Texture2D" uid="uid://b7lxe3dbw6enk" path="res://assets/sprites/selfmade/spaceship_door_destroyed.png" id="1_xaf03"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xaf03"]
+
+[node name="Door_broken" type="Sprite2D"]
+texture = ExtResource("1_xaf03")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_xaf03")
+debug_color = Color(0.9941378, 0, 0.23401481, 0.41960785)

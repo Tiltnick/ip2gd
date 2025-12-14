@@ -6,8 +6,8 @@ class_name StonePiece
 
 func _ready() -> void:
 	save_id = piece_save_id
-	item_name_de = "Stück"
-	item_name_en = "Piece"
+	item_name_de = "Stück Stein"
+	item_name_en = "Piece of Stone"
 
 	# hotbar_id hier nicht entscheidend, wir nutzen add_piece()
 	hotbar_id = hotbar_type_id

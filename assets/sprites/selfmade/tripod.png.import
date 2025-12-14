@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6orkev0j1us6"
-path="res://.godot/imported/Stone1.png-e78cc24ed2139e77a614c3515bb0b3c8.ctex"
+uid="uid://dl3uy4dydh6u7"
+path="res://.godot/imported/tripod.png-380a153184984c412c54e80248d5df38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/selfmade/Stone1.png"
-dest_files=["res://.godot/imported/Stone1.png-e78cc24ed2139e77a614c3515bb0b3c8.ctex"]
+source_file="res://assets/sprites/selfmade/tripod.png"
+dest_files=["res://.godot/imported/tripod.png-380a153184984c412c54e80248d5df38.ctex"]
 
 [params]
 

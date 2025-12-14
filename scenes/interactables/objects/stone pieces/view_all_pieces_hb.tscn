@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://da403qe2pap0d"]
+
+[ext_resource type="Script" uid="uid://bse4vohvuwb4u" path="res://scripts/interactables/objects/stone pieces/view_all_pieces_hb.gd" id="1_urxrk"]
+
+[node name="ViewAllPiecesHb" type="Node2D"]
+script = ExtResource("1_urxrk")
+zoom_multiplier = 3.0
+spacing = 20.0
+piece_scale = Vector2(0.2, 0.2)
+
+[node name="PiecesContainer" type="Node2D" parent="."]

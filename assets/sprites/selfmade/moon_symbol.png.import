@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce42qqeabhjsv"
-path="res://.godot/imported/ChatGPT Image 2. Dez. 2025, 13_40_39 (2) (1).png-1161482e5e3ed11a532d82d0b5cb57c9.ctex"
+uid="uid://r7u8p5foqfh8"
+path="res://.godot/imported/moon_symbol.png-d7a60e17dbf04f735ad84536441b831b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/selfmade/ChatGPT Image 2. Dez. 2025, 13_40_39 (2) (1).png"
-dest_files=["res://.godot/imported/ChatGPT Image 2. Dez. 2025, 13_40_39 (2) (1).png-1161482e5e3ed11a532d82d0b5cb57c9.ctex"]
+source_file="res://assets/sprites/selfmade/moon_symbol.png"
+dest_files=["res://.godot/imported/moon_symbol.png-d7a60e17dbf04f735ad84536441b831b.ctex"]
 
 [params]
 

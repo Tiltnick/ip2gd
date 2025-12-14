@@ -22,6 +22,8 @@ func _ready():
 		if GameState.puzzle_state[puzzle_id] == true:
 			code_solved = true
 			change_sprite()
+	print("LOAD CHECK stone_puzzle =", GameState.puzzle_state.get("stone_puzzle", false))
+
 
 
 func interact() -> void:
