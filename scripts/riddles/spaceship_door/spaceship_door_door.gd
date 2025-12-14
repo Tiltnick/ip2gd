@@ -28,7 +28,7 @@ func _ready():
 
 func interact() -> void:
 	if code_solved:
-		WorldAudioManager.play_sfx((load("res://assets/sound/sfx/ButtonClick.wav")))
+		#WorldAudioManager.play_sfx((load("res://assets/sound/sfx/ButtonClick.wav")))
 	
 		open_door()
 		return
