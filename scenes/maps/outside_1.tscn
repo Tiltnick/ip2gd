@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://b4r2irdvo1x1b"]
+[gd_scene load_steps=19 format=4 uid="uid://b4r2irdvo1x1b"]
 
 [ext_resource type="Script" uid="uid://ch2sapm3vk3ex" path="res://scripts/scene_manager/outside_1.gd" id="1_ax0hk"]
 [ext_resource type="Texture2D" uid="uid://bfd0d1qqtnli" path="res://assets/sprites/map/Outside_1/Ground.png" id="1_iu6ob"]
@@ -419,11 +419,8 @@ _data = {
 }
 point_count = 7
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkob4"]
-size = Vector2(161, 35)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qv8vl"]
-size = Vector2(137, 20)
+size = Vector2(162, 27)
 
 [node name="Outside1" type="Node2D"]
 script = ExtResource("1_ax0hk")
@@ -489,10 +486,7 @@ position = Vector2(-63, -30)
 position = Vector2(-120, -31)
 
 [node name="from_outside2" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(97, -238)
-
-[node name="from_outside3" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(74, -260)
+position = Vector2(93, -264)
 
 [node name="Hotbar" type="CanvasLayer" parent="."]
 layer = 0
@@ -511,26 +505,17 @@ z_index = 1
 position = Vector2(288.00003, -120)
 path_follow = NodePath("../NPCPath/NPCPathFollow")
 
-[node name="DoorArea" type="Area2D" parent="."]
-position = Vector2(96, -283)
-script = ExtResource("10_r76a8")
-target_scene_path = "uid://chb4fo2dp60ho"
-target_spawn_id = "from_outside1"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea"]
-position = Vector2(-3.5, -7.5)
-shape = SubResource("RectangleShape2D_dkob4")
-
 [node name="TransitionAreaFade" parent="." instance=ExtResource("11_dkob4")]
-
-[node name="DoorAreaOutside3" type="Area2D" parent="."]
-script = ExtResource("10_r76a8")
-target_scene_path = "uid://dlsjgc5i7yt81"
-target_spawn_id = "from_outside1"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorAreaOutside3"]
-position = Vector2(74, -285)
-shape = SubResource("RectangleShape2D_qv8vl")
 
 [node name="tripod" parent="." instance=ExtResource("12_qv8vl")]
 position = Vector2(-328, -183)
+
+[node name="DoorAreaOutside2" type="Area2D" parent="."]
+script = ExtResource("10_r76a8")
+target_scene_path = "uid://chb4fo2dp60ho"
+target_spawn_id = "from_outside1"
+metadata/_custom_type_script = "uid://omi26xfafgx0"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorAreaOutside2"]
+position = Vector2(92, -294.5)
+shape = SubResource("RectangleShape2D_qv8vl")

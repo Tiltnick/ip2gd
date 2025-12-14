@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://dlsjgc5i7yt81"]
+[gd_scene load_steps=33 format=4 uid="uid://dlsjgc5i7yt81"]
 
 [ext_resource type="Script" uid="uid://dliaffanr7vt" path="res://scripts/scene_manager/outside_3.gd" id="1_3rchf"]
 [ext_resource type="Texture2D" uid="uid://dtxi3laerm24l" path="res://assets/sprites/map/Outside_3/Ground.png" id="1_oc04w"]
@@ -8,14 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://61ayccey45a" path="res://assets/sprites/map/Outside_3/Bridges.png" id="4_pcjji"]
 [ext_resource type="Texture2D" uid="uid://c5nswmymhb533" path="res://assets/sprites/map/Outside_3/Ground_Water.png" id="5_pfoid"]
 [ext_resource type="Texture2D" uid="uid://fos4g6vi8gia" path="res://assets/sprites/map/Outside_3/Props.png" id="5_yfq04"]
-[ext_resource type="PackedScene" path="res://scenes/Character/npc_champignon.tscn" id="9_kbu53"]
-[ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="10_3rchf"]
+[ext_resource type="PackedScene" uid="uid://dflp4q827pupx" path="res://scenes/Character/npc_champignon.tscn" id="9_kbu53"]
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="11_3rchf"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/objects/mushroom_socket.tscn" id="12_cfq5h"]
-[ext_resource type="PackedScene" path="res://scenes/Character/npc_porcini.tscn" id="13_sj13r"]
+[ext_resource type="PackedScene" uid="uid://bqck2a15x4s5n" path="res://scenes/interactables/objects/mushroom_socket.tscn" id="12_cfq5h"]
+[ext_resource type="PackedScene" uid="uid://58ehm0hl8qlg" path="res://scenes/Character/npc_porcini.tscn" id="13_sj13r"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/objects/stone_panel.tscn" id="13_wk4ve"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="14_ny1p2"]
-[ext_resource type="PackedScene" path="res://scenes/Character/npc_truffle.tscn" id="14_wk4ve"]
+[ext_resource type="PackedScene" uid="uid://dri71srb6nfk1" path="res://scenes/Character/npc_truffle.tscn" id="14_wk4ve"]
 [ext_resource type="PackedScene" uid="uid://1gjnalxntxuw" path="res://scenes/Riddles/stonepuzzle/puzzle.tscn" id="15_wk4ve"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="16_ny1p2"]
 [ext_resource type="PackedScene" uid="uid://cqrdpr4q6mgg7" path="res://scenes/interactables/objects/mushrooms/blue_mush.tscn" id="18_cfewm"]
@@ -517,51 +516,6 @@ texture = ExtResource("2_4bq6r")
 6:4/animation_frame_0/duration = 1.0
 6:4/animation_frame_1/duration = 1.0
 6:4/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ny1p2"]
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2sw55"]
 texture = ExtResource("4_kbu53")
@@ -3922,7 +3876,6 @@ sources/1 = SubResource("TileSetAtlasSource_kbu53")
 sources/2 = SubResource("TileSetAtlasSource_o3u18")
 sources/5 = SubResource("TileSetAtlasSource_sj13r")
 sources/6 = SubResource("TileSetAtlasSource_wk4ve")
-sources/10 = SubResource("TileSetAtlasSource_ny1p2")
 sources/12 = SubResource("TileSetAtlasSource_2sw55")
 sources/4 = SubResource("TileSetAtlasSource_3rchf")
 
@@ -3960,20 +3913,17 @@ tile_set = SubResource("TileSet_yfq04")
 tile_map_data = PackedByteArray("AAAUANn/AAAAAAkAAAAUANr/AAAAAAoAAAAUANv/AAAAAAoAAAAUANz/AAAAAAsAAAAUAN3/AAAAAAwAAAAUAN7/AAAAAA0AAAAVANf/AAABAAgAAAAVAN7/AAABAA0AAAAVAN//AAABAA4AAAAWAN//AAAAABEAAAAWAOD/AAAAABIAAAAXAN//AAABAA0AAAAXAOD/AAABAA4AAAAYAOD/AAAAABEAAAAYAOH/AAAAABIAAAAZAOD/AAAGAAoAAAAaAOD/AAAHAAoAAAAbAOD/AAAIAAoAAAAcAOD/AAAJAAoAAAAdAOD/AAAAABEAAAAdAOH/AAAAABIAAAAeAN//AAAEAA0AAAAeAOD/AAAEAA4AAAAfAN//AAAAABEAAAAfAOD/AAAAABIAAAAgANf/AAAEAAgAAAAgAN7/AAAEAA0AAAAgAN//AAAEAA4AAAAhANn/AAAFAAoAAAAhANr/AAAFAAoAAAAhANv/AAAFAAoAAAAhANz/AAAFAAsAAAAhAN3/AAAFAAwAAAAhAN7/AAAFAA0AAAAUANf/AAABAAcAAAAUANj/AAAAAAoAAAAVANX/AAABAAcAAAAVANb/AAAAAAkAAAAVANz/AAABAAsAAAAVAN3/AAABAAwAAAAWANX/AAACAAcAAAAWAN3/AAAAAA8AAAAWAN7/AAAAABAAAAAXANX/AAADAAcAAAAXAN3/AAABAAsAAAAXAN7/AAABAAwAAAAYANX/AAACAAcAAAAYAN7/AAAAAA8AAAAYAN//AAAAABAAAAAZANX/AAADAAcAAAAZAN7/AAAGAAgAAAAZAN//AAAGAAkAAAAaANX/AAACAAcAAAAaAN7/AAAHAAgAAAAaAN//AAAHAAkAAAAbANX/AAADAAcAAAAbAN7/AAAIAAgAAAAbAN//AAAIAAkAAAAcANX/AAACAAcAAAAcAN7/AAAJAAgAAAAcAN//AAAJAAkAAAAdANX/AAADAAcAAAAdAN7/AAAAAA8AAAAdAN//AAAAABAAAAAeANX/AAACAAcAAAAeAN3/AAAEAAsAAAAeAN7/AAAEAAwAAAAfANX/AAACAAcAAAAfAN3/AAAAAA8AAAAfAN7/AAAAABAAAAAgANX/AAAEAAcAAAAgANb/AAAFAAkAAAAgANz/AAAEAAsAAAAgAN3/AAAEAAwAAAAhANf/AAAEAAcAAAAhANj/AAAFAAkAAAA=")
 tile_set = SubResource("TileSet_yfq04")
 
-[node name="Character" parent="." instance=ExtResource("10_3rchf")]
-position = Vector2(386, -68)
-
 [node name="SpawnPoints" type="Node2D" parent="."]
 
 [node name="start" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(751, -359)
 
-[node name="from_outside1" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(751, -359)
+[node name="from_outside2" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(763, -359)
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("11_3rchf")
-target_scene_path = "uid://b4r2irdvo1x1b"
+target_scene_path = "uid://chb4fo2dp60ho"
 target_spawn_id = "from_outside3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -4082,6 +4032,3 @@ visible = false
 position = Vector2(802, -30)
 build_mode = 1
 polygon = PackedVector2Array(-770, -705, -2, -705, -1, -451, 27, -450, 28, -242, -2, -242, -6, 332, -186, 333, -186, 354, -235, 353, -235.14958, 332.00003, -771, 332)
-
-[node name="Character2" parent="." instance=ExtResource("10_3rchf")]
-position = Vector2(461, -41)
