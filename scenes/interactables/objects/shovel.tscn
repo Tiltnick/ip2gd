@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://eb6l6mv15te6"]
+
+[ext_resource type="Texture2D" uid="uid://0lew6wpubj0y" path="res://assets/sprites/selfmade/shovel.png" id="1_44k3y"]
+[ext_resource type="Script" uid="uid://cxxx2ytrkisb1" path="res://scripts/interactables/objects/shovel.gd" id="1_m0vtt"]
+[ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="2_m0vtt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_awcrp"]
+shader = ExtResource("2_m0vtt")
+shader_parameter/outline_size = 2.0
+shader_parameter/outline_color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mb41h"]
+radius = 24.0
+
+[node name="Shovel" type="Node2D"]
+z_index = 50
+script = ExtResource("1_m0vtt")
+item_icon = ExtResource("1_44k3y")
+
+[node name="Shovel" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_44k3y")
+
+[node name="Outline" type="Sprite2D" parent="."]
+visible = false
+z_index = 100
+material = SubResource("ShaderMaterial_awcrp")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_44k3y")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_mb41h")

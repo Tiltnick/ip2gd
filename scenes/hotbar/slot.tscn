@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfivg0njs3ku8"]
+[gd_scene load_steps=7 format=3 uid="uid://bfivg0njs3ku8"]
 
 [ext_resource type="Script" uid="uid://cntlmbilgb322" path="res://scripts/hotbar/slot.gd" id="1_3csin"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_tikhg"]
@@ -35,11 +35,23 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.2623, 0.61, 0.57522994, 1)
+border_color = Color(0.2627451, 0.6117647, 0.5764706, 1)
 corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qc3tp"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8509804, 0.8156863, 0.654902, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [node name="Slot" type="Control"]
 custom_minimum_size = Vector2(64, 64)
@@ -98,3 +110,25 @@ theme_override_fonts/font = ExtResource("2_tikhg")
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_4ee74")
 horizontal_alignment = 1
+
+[node name="CountLabel" type="Label" parent="."]
+z_index = 21
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.078
+anchor_top = 0.094000004
+anchor_right = 0.303
+anchor_bottom = 0.319
+offset_left = 0.007999897
+offset_top = -0.01600027
+offset_right = 9.608
+offset_bottom = 9.584
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 1)
+theme_override_fonts/font = ExtResource("2_tikhg")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_qc3tp")
+horizontal_alignment = 1
+vertical_alignment = 1
