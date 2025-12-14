@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dakq1ess2te3x"]
+
+[ext_resource type="Script" uid="uid://do2ajkyvbjef3" path="res://scripts/interactables/objects/mushrooms.gd" id="1_5rbf7"]
+[ext_resource type="Texture2D" uid="uid://cyxgbccyi3vl1" path="res://assets/sprites/selfmade/mushrooms/green_mush.png" id="2_01eki"]
+[ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="3_dsnhi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xa6g0"]
+shader = ExtResource("3_dsnhi")
+shader_parameter/outline_size = 2.0
+shader_parameter/outline_color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i0lmv"]
+radius = 40.0
+
+[node name="GreenMush" type="Node2D"]
+script = ExtResource("1_5rbf7")
+metadata/_custom_type_script = "uid://ok3vdggq8k0a"
+
+[node name="mushroom" type="Sprite2D" parent="."]
+texture = ExtResource("2_01eki")
+
+[node name="Outline" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_xa6g0")
+texture = ExtResource("2_01eki")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_i0lmv")

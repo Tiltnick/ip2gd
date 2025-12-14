@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://dlsjgc5i7yt81"]
+[gd_scene load_steps=34 format=4 uid="uid://dlsjgc5i7yt81"]
 
 [ext_resource type="Texture2D" uid="uid://dtxi3laerm24l" path="res://assets/sprites/map/Outside_3/Ground.png" id="1_oc04w"]
 [ext_resource type="Script" uid="uid://dtgxpdt7b80mw" path="res://scripts/scene_manager/outside_3.gd" id="1_tfmda"]
@@ -10,12 +10,20 @@
 [ext_resource type="PackedScene" uid="uid://dflp4q827pupx" path="res://scenes/Character/npc_champignon.tscn" id="9_kbu53"]
 [ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="10_3rchf"]
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="11_3rchf"]
+[ext_resource type="PackedScene" uid="uid://bqck2a15x4s5n" path="res://scenes/interactables/objects/mushroom_socket.tscn" id="12_cfq5h"]
 [ext_resource type="PackedScene" uid="uid://58ehm0hl8qlg" path="res://scenes/Character/npc_porcini.tscn" id="13_sj13r"]
 [ext_resource type="PackedScene" uid="uid://cxc57w1npotjm" path="res://scenes/interactables/objects/stone_panel.tscn" id="13_wk4ve"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="14_ny1p2"]
 [ext_resource type="PackedScene" uid="uid://dri71srb6nfk1" path="res://scenes/Character/npc_truffle.tscn" id="14_wk4ve"]
 [ext_resource type="PackedScene" uid="uid://1gjnalxntxuw" path="res://scenes/Riddles/stonepuzzle/puzzle.tscn" id="15_wk4ve"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="16_ny1p2"]
+[ext_resource type="PackedScene" uid="uid://cqrdpr4q6mgg7" path="res://scenes/interactables/objects/mushrooms/blue_mush.tscn" id="18_cfewm"]
+[ext_resource type="Texture2D" uid="uid://csefim0704ll6" path="res://assets/sprites/selfmade/mushrooms/blue_mush.png" id="19_cfewm"]
+[ext_resource type="PackedScene" uid="uid://cwmmh4c5quydk" path="res://scenes/interactables/objects/mushrooms/brown_mush.tscn" id="20_cfewm"]
+[ext_resource type="PackedScene" uid="uid://dakq1ess2te3x" path="res://scenes/interactables/objects/mushrooms/green_mush.tscn" id="21_0fq4m"]
+[ext_resource type="PackedScene" uid="uid://cds8mp6jqlmrk" path="res://scenes/interactables/objects/mushrooms/orange_mush.tscn" id="22_1k6v6"]
+[ext_resource type="PackedScene" uid="uid://h8yjacx3dw73" path="res://scenes/interactables/objects/mushrooms/red_mush.tscn" id="23_3h5uc"]
+[ext_resource type="PackedScene" uid="uid://cbquy1j63ujkx" path="res://scenes/interactables/objects/mushrooms/yellow_mush.tscn" id="24_54y3o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4bq6r"]
 texture = ExtResource("1_oc04w")
@@ -3610,6 +3618,30 @@ position = Vector2(536, 120)
 [node name="NPC_porcini" parent="." instance=ExtResource("13_sj13r")]
 position = Vector2(640, 120)
 
+[node name="champi_socket" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_cfq5h")]
+position = Vector2(576, 0)
+scale = Vector2(0.3, 0.3)
+e_popup_node = NodePath("Press_E_Popup")
+
+[node name="Press_E_Popup" parent="champi_socket" instance=ExtResource("14_ny1p2")]
+visible = false
+
+[node name="porcini_socket" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_cfq5h")]
+position = Vector2(504, 0)
+scale = Vector2(0.3, 0.3)
+e_popup_node = NodePath("Press_E_Popup")
+
+[node name="Press_E_Popup" parent="porcini_socket" instance=ExtResource("14_ny1p2")]
+visible = false
+
+[node name="truffle_socket" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_cfq5h")]
+position = Vector2(648, 0)
+scale = Vector2(0.3, 0.3)
+e_popup_node = NodePath("Press_E_Popup")
+
+[node name="Press_E_Popup" parent="truffle_socket" instance=ExtResource("14_ny1p2")]
+visible = false
+
 [node name="NPC_truffle" parent="." instance=ExtResource("14_wk4ve")]
 position = Vector2(592, 208)
 
@@ -3633,3 +3665,56 @@ layer = 0
 [node name="Hotbar" parent="Hotbar" instance=ExtResource("16_ny1p2")]
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="BlueMush" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("18_cfewm")]
+position = Vector2(776, -656)
+scale = Vector2(0.4, 0.4)
+hotbar_id = "blue_mush"
+save_id = "blue_mush"
+item_name_de = "blauer Pilz"
+item_name_en = "blue Mushroom"
+item_icon = ExtResource("19_cfewm")
+e_popup_node = NodePath("Press_E_Popup")
+
+[node name="Press_E_Popup" parent="BlueMush" instance=ExtResource("14_ny1p2")]
+visible = false
+
+[node name="BrownMush" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("20_cfewm")]
+position = Vector2(736, -112)
+scale = Vector2(0.4, 0.4)
+e_popup_node = NodePath("Press_E_Popup")
+
+[node name="Press_E_Popup" parent="BrownMush" instance=ExtResource("14_ny1p2")]
+visible = false
+
+[node name="GreenMush" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("21_0fq4m")]
+position = Vector2(192, -408)
+scale = Vector2(0.4, 0.4)
+e_popup_node = NodePath("Press_E_Popup")
+
+[node name="Press_E_Popup" parent="GreenMush" instance=ExtResource("14_ny1p2")]
+visible = false
+
+[node name="OrangeMush" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("22_1k6v6")]
+position = Vector2(528, -256)
+scale = Vector2(0.4, 0.4)
+e_popup_node = NodePath("Press_E_Popup")
+
+[node name="Press_E_Popup" parent="OrangeMush" instance=ExtResource("14_ny1p2")]
+visible = false
+
+[node name="RedMush" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("23_3h5uc")]
+position = Vector2(632, -400)
+scale = Vector2(0.4, 0.4)
+e_popup_node = NodePath("Press_E_Popup")
+
+[node name="Press_E_Popup" parent="RedMush" instance=ExtResource("14_ny1p2")]
+visible = false
+
+[node name="YellowMush" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("24_54y3o")]
+position = Vector2(55.999996, -664)
+scale = Vector2(0.4, 0.4)
+e_popup_node = NodePath("Press_E_Popup")
+
+[node name="Press_E_Popup" parent="YellowMush" instance=ExtResource("14_ny1p2")]
+visible = false
