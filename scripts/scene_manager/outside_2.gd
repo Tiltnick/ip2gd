@@ -12,4 +12,4 @@ func configure_camera(cam: Camera2D) -> void:
 	cam.limit_left = -755
 	cam.limit_right = -1
 	cam.limit_top = -700
-	cam.limit_bottom = 300
+	cam.limit_bottom = 350
