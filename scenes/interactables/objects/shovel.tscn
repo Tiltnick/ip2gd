@@ -15,6 +15,7 @@ radius = 24.0
 [node name="Shovel" type="Node2D"]
 z_index = 50
 script = ExtResource("1_m0vtt")
+item_icon = ExtResource("1_44k3y")
 
 [node name="Shovel" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
