@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://d2ipyfv1dy5j0" path="res://assets/sprites/map/Pixel Crawler - Desert/Pixel Crawler - Desert/Assets/Props.png" id="3_o6c6f"]
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="6_2emao"]
 [ext_resource type="PackedScene" uid="uid://bph2lfcube6e4" path="res://scenes/maps/Outside_2/FadeArea.tscn" id="7_3r0bj"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/objects/flashlight.tscn" id="9_vxisc"]
+[ext_resource type="PackedScene" uid="uid://c7amjsaj2vw3u" path="res://scenes/interactables/objects/flashlight.tscn" id="9_vxisc"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="10_exwp3"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/objects/shovel.tscn" id="10_o6c6f"]
+[ext_resource type="PackedScene" uid="uid://eb6l6mv15te6" path="res://scenes/interactables/objects/shovel.tscn" id="10_o6c6f"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="12_60fd3"]
 [ext_resource type="PackedScene" uid="uid://dfkefy5ckqrq3" path="res://scenes/interactables/objects/stones.tscn" id="12_qarrx"]
 [ext_resource type="PackedScene" uid="uid://cc56upiuyf8v1" path="res://scenes/Character/npc.tscn" id="13_hiyfs"]
@@ -2229,7 +2229,7 @@ target_spawn_id = "from_outside2"
 metadata/_custom_type_script = "uid://omi26xfafgx0"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorAreaOutside1"]
-position = Vector2(-359.5, 336)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_o6c6f")
 
 [node name="DoorAreaOutside3" type="Area2D" parent="."]
