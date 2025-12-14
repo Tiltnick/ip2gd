@@ -10,7 +10,7 @@ class_name ViewAllPiecesHB
 @onready var pieces_container: Node2D = $PiecesContainer
 
 @export var piece_scale: Vector2 = Vector2(0.25, 0.25)
-
+@export var extra_gap: float = 20.0
 
 var is_zoomed := false
 var start_scale: Vector2
@@ -59,7 +59,9 @@ func _build_row():
 
 	piece_ids.sort()
 
-	var x := 0.0
+	var textures: Array[Texture2D] = []
+	var widths: Array[float] = []
+
 	for pid in piece_ids:
 		if not ItemDatabase.DATA.has(pid):
 			continue
@@ -67,16 +69,28 @@ func _build_row():
 		if path == "" or not ResourceLoader.exists(path):
 			continue
 
+		var tex: Texture2D = load(path)
+		textures.append(tex)
+		widths.append(float(tex.get_width()) * piece_scale.x)
+
+	var count := textures.size()
+	if count == 0:
+		return
+
+	var total_width := 0.0
+	for w in widths:
+		total_width += w
+	total_width += float(count - 1) * extra_gap
+
+	var x := -total_width * 0.5
+
+	for i in range(count):
 		var spr := Sprite2D.new()
-		spr.texture = load(path)
+		spr.texture = textures[i]
 		spr.scale = piece_scale
-		spr.position = Vector2(x, 0)
+		spr.position = Vector2(x + widths[i] * 0.5, 0)
 		pieces_container.add_child(spr)
 
-		x += spacing
+		x += widths[i] + extra_gap
 
-
-		x += spacing
-
-	if piece_ids.size() > 0:
-		pieces_container.position.x = -((piece_ids.size() - 1) * spacing) / 2.0
+	pieces_container.position = Vector2.ZERO
