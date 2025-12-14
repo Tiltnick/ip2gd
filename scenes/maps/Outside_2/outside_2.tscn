@@ -1,14 +1,14 @@
-[gd_scene load_steps=33 format=4 uid="uid://chb4fo2dp60ho"]
+[gd_scene load_steps=34 format=4 uid="uid://34ylk7jtx176"]
 
 [ext_resource type="Script" uid="uid://f7c56kdptn0k" path="res://scripts/scene_manager/outside_2.gd" id="1_7t2bs"]
 [ext_resource type="Texture2D" uid="uid://djxhqmxg4i62w" path="res://assets/sprites/map/Pixel Crawler - Desert/Pixel Crawler - Desert/Assets/Ground.png" id="2_vxisc"]
 [ext_resource type="Texture2D" uid="uid://d2ipyfv1dy5j0" path="res://assets/sprites/map/Pixel Crawler - Desert/Pixel Crawler - Desert/Assets/Props.png" id="3_o6c6f"]
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="6_2emao"]
 [ext_resource type="PackedScene" uid="uid://bph2lfcube6e4" path="res://scenes/maps/Outside_2/FadeArea.tscn" id="7_3r0bj"]
-[ext_resource type="PackedScene" uid="uid://eekwl3ufnpv7" path="res://scenes/interactables/objects/fluxomat.tscn" id="9_vxisc"]
-[ext_resource type="PackedScene" uid="uid://c7amjsaj2vw3u" path="res://scenes/interactables/objects/flashlight.tscn" id="9_vxisc"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/objects/flashlight.tscn" id="9_vxisc"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="10_exwp3"]
-[ext_resource type="PackedScene" uid="uid://eb6l6mv15te6" path="res://scenes/interactables/objects/shovel.tscn" id="10_o6c6f"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/objects/shovel.tscn" id="10_o6c6f"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/objects/fluxomat.tscn" id="11_o6c6f"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="12_60fd3"]
 [ext_resource type="PackedScene" uid="uid://dfkefy5ckqrq3" path="res://scenes/interactables/objects/stones.tscn" id="12_qarrx"]
 [ext_resource type="PackedScene" uid="uid://cc56upiuyf8v1" path="res://scenes/Character/npc.tscn" id="13_hiyfs"]
@@ -2162,23 +2162,6 @@ offset_top = -34.0
 offset_right = -10.0
 offset_bottom = -34.0
 
-[node name="Fluxomat" parent="Objects" instance=ExtResource("9_vxisc")]
-position = Vector2(-139, -87)
-
-[node name="Press_E_Popup" parent="Objects/Fluxomat" instance=ExtResource("10_exwp3")]
-visible = false
-z_index = 3
-offset_left = -10.0
-offset_top = -34.0
-offset_right = -10.0
-offset_bottom = -34.0
-
-[node name="Character" parent="." instance=ExtResource("5_q7d5i")]
-z_index = 1
-position = Vector2(-387, -303)
-
-[node name="SpawnPoints" type="Node2D" parent="."]
-position = Vector2(-356, 265)
 [node name="Flashlight" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("9_vxisc")]
 position = Vector2(-713, 172)
 e_popup_node = NodePath("Press_E_Popup")
@@ -2200,6 +2183,9 @@ offset_left = -10.0
 offset_top = -40.0
 offset_right = -10.0
 offset_bottom = -40.0
+
+[node name="Fluxomat" parent="Objects" instance=ExtResource("11_o6c6f")]
+position = Vector2(-143, -86)
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 position = Vector2(-360, 262)
