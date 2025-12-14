@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://b4r2irdvo1x1b"]
+[gd_scene load_steps=20 format=4 uid="uid://b4r2irdvo1x1b"]
 
 [ext_resource type="Script" uid="uid://ch2sapm3vk3ex" path="res://scripts/scene_manager/outside_1.gd" id="1_ax0hk"]
 [ext_resource type="Texture2D" uid="uid://bfd0d1qqtnli" path="res://assets/sprites/map/Outside_1/Ground.png" id="1_iu6ob"]
@@ -11,12 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="8_myyye"]
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="10_r76a8"]
 [ext_resource type="PackedScene" uid="uid://m8y5i5u6eyka" path="res://scenes/maps/transition_area_fade.tscn" id="11_dkob4"]
-[ext_resource type="PackedScene" uid="uid://eghgox4suvdf" path="res://scenes/interactables/objects/stone pieces/stone_piece_1.tscn" id="12_8xlm2"]
-[ext_resource type="PackedScene" uid="uid://cuyfkctafkxe1" path="res://scenes/interactables/objects/stone pieces/stone_piece_2.tscn" id="13_vb0ej"]
-[ext_resource type="PackedScene" uid="uid://q14hqjnanl46" path="res://scenes/interactables/objects/stone pieces/stone_piece_3.tscn" id="14_qal2u"]
-[ext_resource type="PackedScene" uid="uid://dkl4wilu1mavv" path="res://scenes/interactables/objects/stone pieces/stone_piece_4.tscn" id="15_udm3g"]
-[ext_resource type="PackedScene" uid="uid://cg8acpjft0f2m" path="res://scenes/interactables/objects/stone pieces/stone_piece_5.tscn" id="16_o0px2"]
-[ext_resource type="PackedScene" uid="uid://3je85k2bk5gy" path="res://scenes/interactables/objects/stone pieces/stone_piece_6.tscn" id="17_txwvo"]
+[ext_resource type="PackedScene" uid="uid://ch3mxlgsh3het" path="res://scenes/interactables/objects/tripod.tscn" id="12_qv8vl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ax0hk"]
 texture = ExtResource("1_iu6ob")
@@ -536,20 +531,5 @@ target_spawn_id = "from_outside1"
 position = Vector2(74, -285)
 shape = SubResource("RectangleShape2D_qv8vl")
 
-[node name="StonePiece1" parent="." instance=ExtResource("12_8xlm2")]
-position = Vector2(81, -97)
-
-[node name="StonePiece2" parent="." instance=ExtResource("13_vb0ej")]
-position = Vector2(-49, -133)
-
-[node name="StonePiece3" parent="." instance=ExtResource("14_qal2u")]
-position = Vector2(137, -95)
-
-[node name="StonePiece4" parent="." instance=ExtResource("15_udm3g")]
-position = Vector2(71, -168)
-
-[node name="StonePiece5" parent="." instance=ExtResource("16_o0px2")]
-position = Vector2(18, -116)
-
-[node name="StonePiece6" parent="." instance=ExtResource("17_txwvo")]
-position = Vector2(33, -61)
+[node name="tripod" parent="." instance=ExtResource("12_qv8vl")]
+position = Vector2(-328, -183)

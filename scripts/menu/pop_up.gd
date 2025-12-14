@@ -35,4 +35,4 @@ func _on_no_button_pressed() -> void:
 
 
 func play_ui_sound():
-	WorldAudioManager.play_sfx(load("res://assets/sound/sfx/ui_sound.mp3"))
+	SfxPlayer.ui_click_sound()

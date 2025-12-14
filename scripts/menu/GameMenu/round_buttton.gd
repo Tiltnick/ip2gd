@@ -6,3 +6,4 @@ func _on_pressed() -> void:
 	SettingsButton.hide()
 	GameMenu.show()
 	hotbarglobal.hotbar.hide()
+	SfxPlayer.ui_click_sound()

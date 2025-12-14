@@ -87,6 +87,7 @@ func _on_next_button_pressed() -> void:
 
 
 func _on_close_button_pressed() -> void:
+	
 	GameMenu.close_menu()
 
 	

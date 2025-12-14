@@ -4,7 +4,7 @@ class_name ZoomFlipStoreItem
 var is_front := true
 
 func interact() -> void:
-	WorldAudioManager.play_sfx(load("res://assets/sound/sfx/ButtonClick.wav"))
+#	WorldAudioManager.play_sfx(load("res://assets/sound/sfx/ButtonClick.wav"))
 
 	if not is_zoomed:
 		_zoom_in()

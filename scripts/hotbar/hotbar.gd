@@ -36,7 +36,8 @@ func update_slots():
 		var item_id = hotbarglobal.hotbar_items[i]
 
 		if item_id:
-			slots[i].set_item_icon(item_id)
+			var display_id: String = hotbarglobal.get_hotbar_display_item_id(item_id) if hotbarglobal.has_method("get_hotbar_display_item_id") else item_id
+			slots[i].set_item_icon(display_id)
 			if slots[i].has_method("set_stack_count"):
 				var count: int = int(hotbarglobal.hotbar_counts.get(item_id, 0))
 				slots[i].set_stack_count(count)

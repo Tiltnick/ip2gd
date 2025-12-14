@@ -16,6 +16,7 @@ radius = 24.0
 z_index = 100
 script = ExtResource("1_lwjre")
 piece_save_id = "stone_piece_3"
+item_icon = ExtResource("1_akoxl")
 
 [node name="Piece3" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)

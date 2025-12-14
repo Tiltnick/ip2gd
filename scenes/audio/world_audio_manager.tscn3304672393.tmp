@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://dghu8l1p7spw3"]
+
+[ext_resource type="Script" uid="uid://d6x3wc4mchrs" path="res://scripts/audio/world_audio_manager.gd" id="1_orjkx"]
+[ext_resource type="Script" uid="uid://bi4fq2mstbm8n" path="res://scenes/audio/bgm_musicplayer.gd" id="2_yrap8"]
+[ext_resource type="Script" uid="uid://bn3p3cdfqpf6w" path="res://scenes/audio/sfx_musicplayer.gd" id="3_o5bt4"]
+
+[sub_resource type="AudioStream" id="AudioStream_yrap8"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_o5bt4"]
+fade_time = 1.0
+stream_count = 2
+stream_0 = SubResource("AudioStream_yrap8")
+
+[sub_resource type="AudioStream" id="AudioStream_g4cbb"]
+
+[node name="WorldAudioManager" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_orjkx")
+
+[node name="bgm_musicplayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPlaylist_o5bt4")
+volume_db = -20.0
+autoplay = true
+bus = &"Music"
+script = ExtResource("2_yrap8")
+
+[node name="sfx_musicplayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_g4cbb")
+script = ExtResource("3_o5bt4")

@@ -28,7 +28,7 @@ func _ready():
 
 func interact() -> void:
 	if code_solved:
-		WorldAudioManager.play_sfx((load("res://assets/sound/sfx/ButtonClick.wav")))
+		#WorldAudioManager.play_sfx((load("res://assets/sound/sfx/ButtonClick.wav")))
 	
 		open_door()
 		return
@@ -53,7 +53,7 @@ func interact() -> void:
 
 func _on_code_verified(result: bool) -> void:
 	if result:
-		WorldAudioManager.play_sfx((load("res://assets/sound/sfx/Success.wav")))
+		#WorldAudioManager.play_sfx((load("res://assets/sound/sfx/Success.wav")))
 		code_solved = true
 
 		if puzzle_id != "":

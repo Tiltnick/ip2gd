@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://cvxugkjd186sr"]
+
+[ext_resource type="Script" uid="uid://bfdlktyh7g8s3" path="res://scripts/interactables/objects/color_lamp.gd" id="1_4ap05"]
+[ext_resource type="Texture2D" uid="uid://1pucgbmyiond" path="res://assets/sprites/map/Spaceship/color_lamp_spritesheet.png" id="1_4o7y8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ap05"]
+atlas = ExtResource("1_4o7y8")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpkow"]
+atlas = ExtResource("1_4o7y8")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0oaj"]
+atlas = ExtResource("1_4o7y8")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ea7rb"]
+atlas = ExtResource("1_4o7y8")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8x2f"]
+atlas = ExtResource("1_4o7y8")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4jyu"]
+atlas = ExtResource("1_4o7y8")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4j50x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ap05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpkow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0oaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ea7rb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8x2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4jyu")
+}],
+"loop": false,
+"name": &"states",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4j50x"]
+size = Vector2(15, 27)
+
+[node name="ColorLamp" type="Node2D"]
+script = ExtResource("1_4ap05")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4j50x")
+animation = &"states"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_4j50x")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://y5kct0mr503d"]
+[gd_scene load_steps=26 format=3 uid="uid://y5kct0mr503d"]
 
 [ext_resource type="Script" uid="uid://c7mgrddxx8c0t" path="res://scripts/menu/GameMenu/menuClose.gd" id="1_jpjjb"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_xn7nl"]
@@ -22,16 +22,26 @@ corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2vsb"]
+content_margin_left = 25.0
+bg_color = Color(0.043854304, 0.078759484, 0.094863884, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_color = Color(0.11676168, 0.30328256, 0.27695188, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 10
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0ysv"]
 content_margin_left = 30.0
 content_margin_top = 13.0
 content_margin_right = 30.0
 content_margin_bottom = 5.0
-bg_color = Color(0.043137256, 0.13333334, 0.14509805, 1)
+bg_color = Color(0.062405042, 0.17003301, 0.18407518, 1)
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
-border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+border_color = Color(0.27979478, 0.6114242, 0.56369495, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 
@@ -145,11 +155,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_selected_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
 theme_override_colors/font_hovered_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
-theme_override_colors/font_unselected_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_unselected_color = Color(0.45, 0.435, 0.35999998, 1)
 theme_override_constants/side_margin = 8
 theme_override_fonts/font = ExtResource("1_xn7nl")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/panel = SubResource("StyleBoxFlat_g0y5o")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_i2vsb")
 theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_k0ysv")
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_k0ysv")
 tab_alignment = 1
