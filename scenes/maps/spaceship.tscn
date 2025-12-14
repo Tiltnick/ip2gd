@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://csejhruust020"]
+[gd_scene load_steps=34 format=4 uid="uid://csejhruust020"]
 
 [ext_resource type="Texture2D" uid="uid://kxs6kkm0ut6w" path="res://assets/sprites/map/Spaceship/background.png" id="1_krvlx"]
 [ext_resource type="Texture2D" uid="uid://bbwtu422q5q3t" path="res://assets/sprites/map/Spaceship/foreground_pipes.png" id="2_elrx7"]
@@ -10,15 +10,21 @@
 [ext_resource type="PackedScene" uid="uid://cn5jhs1qws61g" path="res://scenes/interactables/objects/photo.tscn" id="9_g0lot"]
 [ext_resource type="PackedScene" uid="uid://bo5pcx0bd2gfx" path="res://scenes/interactables/objects/diary.tscn" id="10_2km4p"]
 [ext_resource type="PackedScene" uid="uid://dhyl0rqmojucp" path="res://scenes/interactables/doors/door.tscn" id="10_172bc"]
-[ext_resource type="Texture2D" uid="uid://cjdbq7hs0se5g" path="res://assets/sprites/selfmade/waldgeist-32x (8).png" id="10_khykm"]
+[ext_resource type="Texture2D" uid="uid://cjdbq7hs0se5g" path="res://assets/sprites/selfmade/diary.png" id="10_khykm"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="10_o77e3"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="11_1oksb"]
 [ext_resource type="Script" uid="uid://btvvee8ehjidi" path="res://scripts/riddles/spaceship_door/spaceship_door_door.gd" id="11_emg07"]
 [ext_resource type="PackedScene" uid="uid://dfa4ga2b2k76f" path="res://scenes/Menues/saving_menu.tscn" id="11_o77e3"]
+[ext_resource type="PackedScene" uid="uid://eghgox4suvdf" path="res://scenes/interactables/objects/stone pieces/stone_piece_1.tscn" id="12_w60i3"]
 [ext_resource type="Texture2D" uid="uid://c7pwwu6560hy4" path="res://assets/sprites/selfmade/spaceship_door_open.png" id="13_b8ov6"]
+[ext_resource type="PackedScene" uid="uid://cuyfkctafkxe1" path="res://scenes/interactables/objects/stone pieces/stone_piece_2.tscn" id="13_t3dqs"]
 [ext_resource type="PackedScene" uid="uid://bpvneidk4xerj" path="res://scenes/Riddles/Spaceship/spaceship_door_riddle.tscn" id="14_1oksb"]
+[ext_resource type="PackedScene" uid="uid://q14hqjnanl46" path="res://scenes/interactables/objects/stone pieces/stone_piece_3.tscn" id="14_7rixv"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="15_emg07"]
+[ext_resource type="PackedScene" uid="uid://dkl4wilu1mavv" path="res://scenes/interactables/objects/stone pieces/stone_piece_4.tscn" id="15_k18lp"]
+[ext_resource type="PackedScene" uid="uid://cg8acpjft0f2m" path="res://scenes/interactables/objects/stone pieces/stone_piece_5.tscn" id="16_lrb48"]
 [ext_resource type="PackedScene" uid="uid://m8y5i5u6eyka" path="res://scenes/maps/transition_area_fade.tscn" id="17_8o1ua"]
+[ext_resource type="PackedScene" uid="uid://3je85k2bk5gy" path="res://scenes/interactables/objects/stone pieces/stone_piece_6.tscn" id="17_pdq6o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oegse"]
 texture = ExtResource("1_krvlx")
@@ -1307,6 +1313,40 @@ offset_top = -31.000008
 offset_right = 12.000008
 offset_bottom = -7.2500076
 scale = Vector2(0.8, 0.8)
+
+[node name="StonePiece1" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_w60i3")]
+position = Vector2(162, 199)
+e_popup_node = NodePath("Press_E_Popup")
+
+[node name="Press_E_Popup" parent="Objects/StonePiece1" instance=ExtResource("10_o77e3")]
+visible = false
+offset_left = -10.0
+offset_top = -31.0
+offset_right = -10.0
+offset_bottom = -31.0
+
+[node name="StonePiece2" parent="Objects" instance=ExtResource("13_t3dqs")]
+position = Vector2(16, 192)
+
+[node name="StonePiece3" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("14_7rixv")]
+position = Vector2(256, 192)
+e_popup_node = NodePath("Press_E_Popup")
+
+[node name="Press_E_Popup" parent="Objects/StonePiece3" instance=ExtResource("10_o77e3")]
+visible = false
+offset_left = -9.0
+offset_top = -33.0
+offset_right = -9.0
+offset_bottom = -33.0
+
+[node name="StonePiece4" parent="Objects" instance=ExtResource("15_k18lp")]
+position = Vector2(264, 133)
+
+[node name="StonePiece5" parent="Objects" instance=ExtResource("16_lrb48")]
+position = Vector2(24, 133)
+
+[node name="StonePiece6" parent="Objects" instance=ExtResource("17_pdq6o")]
+position = Vector2(80, 196)
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 

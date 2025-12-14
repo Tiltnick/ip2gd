@@ -11,6 +11,7 @@ var inventory_items = [
 ]
 
 var hotbar_counts: Dictionary = {}
+var hotbar_icon_override: Dictionary = {}
 
 var hotbar: Control
 var inventory: Control
@@ -57,8 +58,14 @@ func add_piece(piece_id: String, hotbar_type_id: String) -> void:
 				break
 
 	hotbar_counts[hotbar_type_id] = hotbar_counts.get(hotbar_type_id, 0) + 1
+	
+	#hotbar icon auf das zuletzt eingesammelte setzen
+	hotbar_icon_override[hotbar_type_id] = piece_id
 
 	update_ui()
+
+func get_hotbar_display_item_id(item_id: String) -> String:
+	return hotbar_icon_override.get(item_id, item_id)
 
 func update_ui():
 	if hotbar:

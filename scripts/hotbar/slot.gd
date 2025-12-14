@@ -29,7 +29,7 @@ func _gui_input(event):
 			click_callback.call(slot_index)
 
 
-# Wird von hotbar u. inventory gesetzt
+# Wird von hotbar und inventory gesetzt
 func set_click_callback(func_ref):
 	click_callback = func_ref
 
@@ -38,6 +38,11 @@ func set_item_icon(item_id: String):
 	if not icon or item_id == null:
 		clear_icon()
 		return
+		
+	# hotbar override für die stone pieces
+	if hotbarglobal and hotbarglobal.has_method("get_hotbar_display_item_id"):
+		item_id = hotbarglobal.get_hotbar_display_item_id(item_id)
+
 
 	if not ItemDatabase.DATA.has(item_id):
 		clear_icon()

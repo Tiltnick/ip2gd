@@ -28,8 +28,8 @@ var DATA := {
 		"name_en": "Piece 1",
 		"description_de": "Oh, ein Steinstück! Wie spannend!",
 		"description_en": "Oh, a piece of a stone panel! How exciting!",
-		"icon": "res://assets/sprites/selfmade/Piece1.png",
-		"icon_size": Vector2(15,15),
+		"icon": "res://assets/sprites/selfmade/stonesForInven/Piece1.png",
+		"icon_size": Vector2(55,55),
 		"world_scene": "res://scenes/interactables/obj/stone_piece_1.tscn"
 	},
 	
@@ -58,8 +58,8 @@ var DATA := {
 		"name_en": "Piece 4",
 		"description_de": "Oh, ein Steinstück! Wie spannend!",
 		"description_en": "Oh, a piece of a stone panel! How exciting!",
-		"icon": "res://assets/sprites/selfmade/Piece4.png",
-		"icon_size": Vector2(25,25),
+		"icon": "res://assets/sprites/selfmade/stonesForInven/Piece4.png",
+		"icon_size": Vector2(55,55),
 		"world_scene": "res://scenes/interactables/obj/stone_piece_4.tscn"
 	},
 	
@@ -69,7 +69,7 @@ var DATA := {
 		"description_de": "Oh, ein Steinstück! Wie spannend!",
 		"description_en": "Oh, a piece of a stone panel! How exciting!",
 		"icon": "res://assets/sprites/selfmade/Piece5.png",
-		"icon_size": Vector2(45,45),
+		"icon_size": Vector2(55,55),
 		"world_scene": "res://scenes/interactables/obj/stone_piece_5.tscn"
 	},
 	
@@ -78,8 +78,8 @@ var DATA := {
 		"name_en": "Piece 6",
 		"description_de": "Oh, ein Steinstück! Wie spannend!",
 		"description_en": "Oh, a piece of a stone panel! How exciting!",
-		"icon": "res://assets/sprites/selfmade/Piece6.png",
-		"icon_size": Vector2(25,25),
+		"icon": "res://assets/sprites/selfmade/stonesForInven/Piece6.png",
+		"icon_size": Vector2(55,55),
 		"world_scene": "res://scenes/interactables/obj/stone_piece_6.tscn"
 	},
 
