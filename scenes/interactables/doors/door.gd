@@ -11,8 +11,9 @@ func _ready():
 
 func interact() -> void:
 	#check if item 
-	if GameState.picked_items.has("Fluxomat"):
+	if hotbarglobal.inventory_items.has("fluxomat"):
 		door_open()
+		DialogManager.start_dialog("res://dialog/spaceship/door_opened.json")
 	else:
 		DialogManager.start_dialog("res://dialog/spaceship/door_locked.json")
 

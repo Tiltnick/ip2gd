@@ -10,6 +10,7 @@ shader_parameter/outline_size = 2.0
 shader_parameter/outline_color = Vector4(1, 1, 1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6peuh"]
+radius = 7.0
 
 [node name="Fluxomat" type="Node2D"]
 z_index = 100
