@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://b4r2irdvo1x1b"]
+[gd_scene load_steps=20 format=4 uid="uid://b4r2irdvo1x1b"]
 
 [ext_resource type="Script" uid="uid://ch2sapm3vk3ex" path="res://scripts/scene_manager/outside_1.gd" id="1_ax0hk"]
 [ext_resource type="Texture2D" uid="uid://bfd0d1qqtnli" path="res://assets/sprites/map/Outside_1/Ground.png" id="1_iu6ob"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="8_myyye"]
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="10_r76a8"]
 [ext_resource type="PackedScene" uid="uid://m8y5i5u6eyka" path="res://scenes/maps/transition_area_fade.tscn" id="11_dkob4"]
+[ext_resource type="PackedScene" uid="uid://ch3mxlgsh3het" path="res://scenes/interactables/objects/tripod.tscn" id="12_qv8vl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ax0hk"]
 texture = ExtResource("1_iu6ob")
@@ -529,3 +530,6 @@ target_spawn_id = "from_outside1"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorAreaOutside3"]
 position = Vector2(74, -285)
 shape = SubResource("RectangleShape2D_qv8vl")
+
+[node name="tripod" parent="." instance=ExtResource("12_qv8vl")]
+position = Vector2(-328, -183)

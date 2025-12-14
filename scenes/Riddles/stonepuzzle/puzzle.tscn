@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cmobxnag0vw6" path="res://assets/sprites/selfmade/Piece4.png" id="8_bag6g"]
 [ext_resource type="Texture2D" uid="uid://43wf8qfb83yu" path="res://assets/sprites/selfmade/Piece5.png" id="9_qfya4"]
 [ext_resource type="Texture2D" uid="uid://cq3lsm46obs7n" path="res://assets/sprites/selfmade/Piece6.png" id="10_j1goe"]
-[ext_resource type="Script" uid="uid://d2oyrfw11wpds" path="res://scripts/riddles/stonepuzzle/side_slots.gd" id="12_u54ty"]
+[ext_resource type="Script" uid="uid://dbljrlak0ireo" path="res://scripts/riddles/stonepuzzle/side_slots.gd" id="12_u54ty"]
 [ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="13_yqnux"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="14_bag6g"]
 

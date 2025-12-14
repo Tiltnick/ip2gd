@@ -117,5 +117,15 @@ var DATA := {
 		"world_scene": "res://scenes/interactables/objects/shovel.tscn"
 },
 
+	"telescope": {
+		"name_de": "Teleskop",
+		"name_en": "Telescope",
+		"description_en": "TEST",
+		"description_de": "TEST",
+		"icon": "res://assets/sprites/selfmade/telescope.png",
+		"icon_size": Vector2(55,55),
+		"world_scene": "res://scenes/interactables/objects/telescope.tscn"
+},
+
 
 }

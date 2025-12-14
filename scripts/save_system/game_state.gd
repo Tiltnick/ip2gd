@@ -8,6 +8,8 @@ var should_play_intro_dialog: bool = false
 # Zustände speichern
 var puzzle_state: Dictionary = {}
 
+var return_scene_path: String = ""
+
 var has_save: bool = false
 
 # Letzte Spielerposition
