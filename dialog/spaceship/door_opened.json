@@ -1,0 +1,18 @@
+{
+  "id": "oris_locked_door",
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "Oh nice the Fluxomat fluxated and now the door is open!"
+							,"text_de": "Oh der Fluxomat hat fluxiert und nun ist die Tür offen!" },
+
+
+	  ]
+	},
+
+	"end": { "lines": [] }
+  }
+}

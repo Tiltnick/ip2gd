@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://eekwl3ufnpv7"]
+
+[ext_resource type="Texture2D" uid="uid://b3awiueoenjoq" path="res://assets/sprites/selfmade/Fluxomat.png" id="1_6peuh"]
+[ext_resource type="Script" uid="uid://dtag5xkbmxard" path="res://scenes/interactables/objects/fluxomat.gd" id="1_lt2jv"]
+[ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="2_lt2jv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wq0ar"]
+shader = ExtResource("2_lt2jv")
+shader_parameter/outline_size = 2.0
+shader_parameter/outline_color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6peuh"]
+radius = 7.0
+
+[node name="Fluxomat" type="Node2D"]
+z_index = 100
+script = ExtResource("1_lt2jv")
+
+[node name="Fluxomat" type="Sprite2D" parent="."]
+z_index = 1
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_6peuh")
+
+[node name="Outline" type="Sprite2D" parent="."]
+visible = false
+z_index = 4
+material = SubResource("ShaderMaterial_wq0ar")
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_6peuh")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_6peuh")

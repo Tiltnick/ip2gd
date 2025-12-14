@@ -149,6 +149,16 @@ var DATA := {
 		"icon_size": Vector2(55,55),
 		"world_scene": "res://scenes/interactables/obj/stone_piece_6.tscn"
 	},
+	
+	"fluxomat": {
+		"name_de": "Fluxomat",
+		"name_en": "Fluxomat",
+		"description_de": "Der Fluxomat synchronisiert oszillierende Schiffszustände über quantenähnliche Umwege und repariert das Schiff – irgendwie.",
+		"description_en": "The Fluxomat synchronizes oscillating ship states via quantum-like detours, leaving the ship fully repaired afterward.",
+		"icon": "res://assets/sprites/selfmade/Fluxomat.png",
+		"icon_size": Vector2(32,32),
+		"world_scene": "res://scenes/interactables/objects/fluxomat.tscn"
+	},
 
 	
 	"empty": {
