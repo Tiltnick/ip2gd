@@ -20,7 +20,9 @@ var DATA := {
 		"name_de": "Steinpanel",
 		"name_en": "Stone Panel",
 		"icon": "res://assets/sprites/selfmade/Piece2.png",
-		"icon_size": Vector2(55,55)
+		"icon_size": Vector2(55,55),
+		"world_scene": "res://scenes/interactables/objects/stone pieces/view_all_pieces_hb.tscn"
+
 	},
 
 	"stone_piece_1": {
