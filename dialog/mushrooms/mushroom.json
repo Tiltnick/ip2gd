@@ -47,8 +47,8 @@
 	},
 	"give": {
 		"lines": [
-			{"speaker": "Champi", "text_en": " If you bring us only what benefits you, the bridge will remain silent. But if you bring us what you truly need, it will begin to listen.",
-										"text_de": "Bringst du uns nur, was dir nützt, bleibt die Brücke stumm. Bringst du uns, was du brauchst, beginnt sie zu hören."
+			{"speaker": "Champi", "text_en": " The bridge permits only those with a pure heart. But if you bring us what you truly need, it will begin to listen.",
+										"text_de": "Die Brücke lässt nur Wesen reines Herzens durch. Bringst du uns, was du brauchst, beginnt sie zu hören."
 			}
 		],
 		"next": "mushrooms"
@@ -65,8 +65,8 @@
 
 	"riddle": {
 		"lines": [
-			{"speaker": "Truffle", "text_en": "Three voices. three fields. Three paths of giving.",
-									"text_de": "Drei Stimmen. Drei Felder. Drei Wege des Gebens."
+			{"speaker": "Truffle", "text_en": "Three voices. three fields. Three possibilities to give.",
+									"text_de": "Drei Stimmen. Drei Felder. Drei Möglichkeiten etwas zu Gebens."
 			}
 		],
 		"next": "sun"
@@ -98,6 +98,8 @@
 		],
 		"next": "end"
 	},
+	
+	
 	"end": {
 	  "lines": []
 	}

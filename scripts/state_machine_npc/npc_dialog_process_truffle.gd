@@ -1,6 +1,9 @@
 extends NPC
 class_name NpcDialogProcessTruffle
 
+var fleeing := false
+var flee_target := Vector2.ZERO
+@export var npc_id: String = "truffle"
 # Szene → Dialogdatei
 const DIALOG_BY_SCENE := {
 	"Outside3": "res://dialog/mushrooms/truffle.json",
@@ -19,8 +22,15 @@ const DEFAULT_DIALOG := "Kein Dialog gefunden"
 
 func _ready() -> void:
 	super._ready()
+	
+	var npc_pos = "npc_pos_" + npc_id
+	#proving if position saved in game state right
+	if GameState.puzzle_state.has(npc_pos):
+		var d = GameState.puzzle_state[npc_pos]
+		if typeof(d) == TYPE_DICTIONARY and d.has("x") and d.has("y"):
+			global_position = Vector2(d["x"], d["y"])
 
-# Szene → Dialogdatei
+
 func get_dialog_path(scene_name: String) -> String:
 	if scene_name == "Outside3":
 		return _get_outside3_dialog()
@@ -32,3 +42,31 @@ func _get_outside3_dialog() -> String:
 		if not GameState.puzzle_state.get(step["flag"], false):
 			return step["path"]
 	return OUTSIDE3_END
+
+
+func _physics_process(delta: float) -> void:
+	if fleeing:
+		var dir = (flee_target - global_position)
+		if dir.length() < 8.0:
+			fleeing = false
+			# save position
+			GameState.puzzle_state["npc_pos_" + npc_id] = {
+				"x": global_position.x,
+				"y": global_position.y,
+			}
+
+			dialog_active = false 
+			return
+
+		velocity = dir.normalized() * move_speed * 3.0
+		move_and_slide()
+
+
+func run_away_to(pos: Vector2) -> void:
+	fleeing = true
+	flee_target = pos
+	dialog_active = true # blocks interaction afterwards
+	if e_popup_node:
+		e_popup_node.visible = false
+	player_inside = false
+	outline.visible = false

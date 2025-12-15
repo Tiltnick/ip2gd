@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 @export var puzzle_id: String = "stone_puzzle"  
-@export var total_slots := 6
 @onready var puzzle: CanvasLayer = $"."
 @onready var solved_animation: AnimationPlayer = $solved_Animation
 
@@ -17,22 +16,21 @@ extends CanvasLayer
 
 var solved = false
 
-func _ready():
-	pass
 
 func open_puzzle():
 	puzzle.show()
-	
+	#checks if puzzle pieces are on right spot when released
 	if not GameState.puzzle_state.get(puzzle_id, false) and solved == false:
 		var puzzle_pieces = get_tree().get_nodes_in_group("puzzle_pieces")
 		for piece in puzzle_pieces:
 			piece.piece_released.connect(check_puzzle)
 		check_pieces()
-	elif GameState.puzzle_state.get(puzzle_id, true):
+	#puzzle already solved ?
+	elif GameState.puzzle_state.get(puzzle_id, false):
 			solved_puzzle.show()
 			pieces.hide()
 			solved = true
-		
+			
 		
 
 func check_pieces():
@@ -43,8 +41,7 @@ func check_pieces():
 
 func check_puzzle():
 	var slots = get_tree().get_nodes_in_group("puzzle_slots")
-	if slots.size() != total_slots:
-		return
+
 	for slot in slots:
 		var ok = slot.is_correct()
 		if not ok:
@@ -60,7 +57,7 @@ func check_puzzle():
 			var stonepanel: String = "stonepanel"
 			hotbarglobal.remove_item(id)
 			hotbarglobal.remove_item(stonepanel)
-			GameState.puzzle_state[id] = false
+
 		
 
 func _on_close_button_pressed() -> void:
