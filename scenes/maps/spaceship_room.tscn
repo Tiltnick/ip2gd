@@ -1,6 +1,7 @@
-[gd_scene load_steps=31 format=4 uid="uid://n5pfeqsgykkm"]
+[gd_scene load_steps=33 format=4 uid="uid://n5pfeqsgykkm"]
 
 [ext_resource type="Texture2D" uid="uid://kxs6kkm0ut6w" path="res://assets/sprites/map/Spaceship/background.png" id="1_4dxd0"]
+[ext_resource type="Script" uid="uid://6h2ivu8hvxck" path="res://scripts/scene_manager/spaceship_room.gd" id="1_ht0yc"]
 [ext_resource type="Texture2D" uid="uid://bbwtu422q5q3t" path="res://assets/sprites/map/Spaceship/foreground_pipes.png" id="2_xhx4c"]
 [ext_resource type="Texture2D" uid="uid://vuf15hf1msvt" path="res://assets/sprites/map/Spaceship/props-Sheet.png" id="3_o77xa"]
 [ext_resource type="Texture2D" uid="uid://kfintc48fnii" path="res://assets/sprites/map/Spaceship/props.png" id="4_rgnjo"]
@@ -9,10 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://3l23nmt7q36i" path="res://assets/sprites/map/Spaceship/puzzle.png" id="7_o77xa"]
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="8_o77xa"]
 [ext_resource type="Script" uid="uid://bi8iy7l3nq3mj" path="res://scripts/riddles/color_lamp/color_manager.gd" id="9_1kkv4"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/objects/cabinet.tscn" id="9_rgnjo"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/objects/color_lamp.tscn" id="11_8nj6b"]
+[ext_resource type="PackedScene" uid="uid://dr167tapmrqxf" path="res://scenes/interactables/objects/cabinet.tscn" id="9_rgnjo"]
+[ext_resource type="PackedScene" uid="uid://cvxugkjd186sr" path="res://scenes/interactables/objects/color_lamp.tscn" id="11_8nj6b"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="12_8nj6b"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/objects/telescope.tscn" id="13_w1hi5"]
+[ext_resource type="PackedScene" uid="uid://bs5gotlfi2v6e" path="res://scenes/interactables/objects/telescope.tscn" id="13_w1hi5"]
+[ext_resource type="Texture2D" uid="uid://bbkysrm140l12" path="res://assets/sprites/selfmade/background_sky.png" id="14_vqt5a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8nj6b"]
 texture = ExtResource("1_4dxd0")
@@ -2499,6 +2501,7 @@ sources/6 = SubResource("TileSetAtlasSource_l4scq")
 size = Vector2(94, 20)
 
 [node name="Spaceship_Room" type="Node2D"]
+script = ExtResource("1_ht0yc")
 
 [node name="Ground" type="TileMapLayer" parent="."]
 z_index = -1
@@ -2574,4 +2577,15 @@ layer = 0
 [node name="Hotbar" parent="Hotbar" instance=ExtResource("12_8nj6b")]
 
 [node name="telescope" parent="." instance=ExtResource("13_w1hi5")]
+visible = false
 position = Vector2(-338, -407)
+script = null
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -4
+offset_left = -1051.0
+offset_top = -604.0
+offset_right = 97.44446
+offset_bottom = 42.0
+texture = ExtResource("14_vqt5a")
+expand_mode = 1

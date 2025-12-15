@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dd6hsxt7i8tci"]
 
 [ext_resource type="Texture2D" uid="uid://dqoxkjxdkwqgu" path="res://assets/sprites/map/Outside_2/spaceship.png" id="1_flo2d"]
-[ext_resource type="Script" uid="uid://bdssbm1prbicl" path="res://scripts/interactables/interactable.gd" id="1_hi8wp"]
+[ext_resource type="Script" uid="uid://by4n4gp6qwena" path="res://scripts/interactables/objects/sams_spaceship.gd" id="1_hi8wp"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="2_hi8wp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bw4ch"]

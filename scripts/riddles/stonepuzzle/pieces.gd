@@ -73,6 +73,6 @@ func try_assign_to_slot():
 		next_side_slot.set_piece(self)
 		scale = side_scale
 
-func _process(delta):
+func _process(_delta):
 	if dragging:
 		global_position = get_global_mouse_position() + drag_offset
