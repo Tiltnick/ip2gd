@@ -15,7 +15,7 @@ size = Vector2(71, 70)
 [sub_resource type="CircleShape2D" id="CircleShape2D_hmjdm"]
 radius = 31.016125
 
-[node name="Stones" type="Node2D"]
+[node name="Stones" type="Node2D" groups=["stones"]]
 script = ExtResource("1_hmjdm")
 metadata/_custom_type_script = "uid://bdssbm1prbicl"
 
