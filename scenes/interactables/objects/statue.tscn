@@ -1,43 +1,32 @@
 [gd_scene load_steps=6 format=3 uid="uid://bwhu76fxy1g07"]
 
-[ext_resource type="Texture2D" uid="uid://bhoi41yqueod1" path="res://assets/sprites/map/Outside_2/test_sprite_statue.png" id="1_47ob8"]
+[ext_resource type="Texture2D" uid="uid://wf62axv6d23q" path="res://assets/sprites/selfmade/Statue.png" id="1_47ob8"]
+[ext_resource type="Script" uid="uid://p3wh8r0cl3pf" path="res://scripts/interactables/objects/statue.gd" id="1_bh5bs"]
+[ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="2_gdmuu"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gdmuu"]
-atlas = ExtResource("1_47ob8")
-region = Rect2(0, 0, 32, 128)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bh5bs"]
+shader = ExtResource("2_gdmuu")
+shader_parameter/outline_size = 2.0
+shader_parameter/outline_color = Vector4(1, 1, 1, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bh5bs"]
-atlas = ExtResource("1_47ob8")
-region = Rect2(32, 0, 32, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1q73n"]
-atlas = ExtResource("1_47ob8")
-region = Rect2(64, 0, 32, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_m2xe5"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gdmuu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bh5bs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1q73n")
-}],
-"loop": true,
-"name": &"default",
-"speed": 2.0
-}]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gdmuu"]
+size = Vector2(40, 64)
 
 [node name="statue" type="Node2D"]
+script = ExtResource("1_bh5bs")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_m2xe5")
-frame = 1
-frame_progress = 0.6890593
+[node name="statue" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
+texture = ExtResource("1_47ob8")
+
+[node name="Outline" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_bh5bs")
+position = Vector2(0, -64)
+texture = ExtResource("1_47ob8")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -19)
+shape = SubResource("RectangleShape2D_gdmuu")

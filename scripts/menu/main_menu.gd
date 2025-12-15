@@ -1,5 +1,6 @@
 extends Control
-
+class_name main_menu
+	
 @onready var pop_up = $PopUp
 
 @onready var resume_button: Button = $VBoxContainer/ResumeButton
@@ -9,6 +10,7 @@ func _ready() -> void:
 	resume_button.disabled = not FileAccess.file_exists(SaveSystem.SAVE_PATH)
 	BgmPlayer.bgm_main_menu()
 	play_click_sound()
+	
 func _on_new_g_button_pressed() -> void:
 	var lang = TranslationServer.get_locale().substr(0, 2)
 	play_click_sound()

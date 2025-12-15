@@ -14,10 +14,12 @@ func _ready() -> void:
 func interact() -> void:
 	SfxPlayer.ui_click_sound()
 
-	if not is_zoomed:
+	if not is_zoomed and hotbar_id not in ["telescope", "fluxomat"]:
 		_zoom_in()
 	else:
 		_store_in_hotbar()
+
+
 
 func _zoom_in():
 	is_zoomed = true
@@ -40,7 +42,8 @@ func _store_in_hotbar():
 	if hotbar_id != "":
 		hotbarglobal.add_item(hotbar_id)
 
-	queue_free()
+	if hotbar_id not in ["telescope", "fluxomat"]:
+		queue_free()
 
 func hotbar_activate():
 	spawned_from_hotbar = true

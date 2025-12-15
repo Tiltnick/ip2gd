@@ -1,4 +1,5 @@
 extends Control
+
 @onready var color_rect: ColorRect = $ColorRect
 @onready var yes_button: Button = $ColorRect/Panel/VBoxContainer3/HBoxContainer/YesButton
 @onready var no_button: Button = $ColorRect/Panel/VBoxContainer3/HBoxContainer/NoButton
