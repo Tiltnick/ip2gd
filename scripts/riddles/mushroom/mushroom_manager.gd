@@ -1,10 +1,12 @@
 extends CanvasLayer
 
 @export var puzzle_id: String = ""  
-@onready var mushroom_ui: CanvasLayer = $"."
 
+@onready var mushroom_ui: CanvasLayer = $"."
+@onready var champi: TextureRect = $sun/champi
+@onready var truffle: TextureRect = $moon/truffle
+@onready var porcini: TextureRect = $planet/porcini
 @onready var mushrooms: Node2D = $mushrooms
-@onready var orange: Area2D = $mushrooms/orange_mush
 
 @onready var mush_nodes := {
 	"green_mush":  $mushrooms/green_mush,
@@ -14,21 +16,14 @@ extends CanvasLayer
 	"orange_mush": $mushrooms/orange_mush,
 	"brown_mush":  $mushrooms/brown_mush,
 }
+@onready var porcini_solved: Texture2D = preload("res://assets/sprites/portrait/porcini.png")
+@onready var champi_solved: Texture2D = preload("res://assets/sprites/portrait/champignon.png")
+@onready var truffle_solved: Texture2D = preload("res://assets/sprites/portrait/truffle.png")
 
 var solved = false
 var fill_order: Array = []
 
-#func open_socket():
-	#mushroom_ui.show()
-	#for slot in get_tree().get_nodes_in_group("socket"):
-		#slot.manager = self
-	#if not GameState.puzzle_state.get(puzzle_id, false) and solved == false:
-		#var mushrooms = get_tree().get_nodes_in_group("mushrooms")
-		#for piece in mushrooms:
-			#piece.mush_released.connect(check_puzzle)
-		#check_mush()
-	#elif GameState.puzzle_state.get(puzzle_id, false):
-			#solved = true
+
 func open_socket():
 	mushroom_ui.show()
 
@@ -37,6 +32,9 @@ func open_socket():
 
 	if GameState.puzzle_state.get(puzzle_id, false):
 		solved = true
+		print("has saved")
+		is_solved()
+		solved_layout()
 		return
 
 	check_mush()
@@ -49,7 +47,6 @@ func check_mush():
 		mush_nodes[id].visible = hotbarglobal.has_item(id)
 
 func on_slot_filled(slot):
-	# nur beim ersten Mal in die Reihenfolge
 	if not fill_order.has(slot):
 		fill_order.append(slot)
 
@@ -69,22 +66,51 @@ func check_puzzle():
 
 	for slot in slots:
 		if not slot.is_correct():
-			print("falscher socket")
 			return
 
 	if not solved:
 		if puzzle_id != "":
 			GameState.puzzle_state[puzzle_id] = true
 		solved = true
+		is_solved()
 		print("gelöst")
 		for id in mush_nodes.keys():
 			mush_nodes[id].visible = hotbarglobal.has_item(id)
-			@warning_ignore("shadowed_variable")
-			var mushrooms: String = "mushrooms"
+			var mushrooms_id: String = "mushrooms"
 			hotbarglobal.remove_item(id)
-			hotbarglobal.remove_item(mushrooms)
+			hotbarglobal.remove_item(mushrooms_id)
 			GameState.puzzle_state[id] = false
-		
 
-#func _on_close_button_pressed() -> void:
-#	puzzle.hide()
+func is_solved():
+	porcini.texture = porcini_solved
+	champi.texture = champi_solved
+	truffle.texture = truffle_solved
+
+
+func solved_layout():
+	# set mushrooms when solved 
+	for slot in get_tree().get_nodes_in_group("socket"):
+		var piece := find_piece_by_id(slot.required_piece_id)
+		if piece:
+			piece.scale = piece.sockel_scale
+			slot.set_piece(piece)
+			piece.visible = true
+			piece.input_pickable = false
+
+	# hide other mushrooms
+	for piece in get_tree().get_nodes_in_group("mushrooms"):
+		var in_socket = piece.current_slot != null and piece.current_slot.is_in_group("socket")
+		if not in_socket:
+			piece.visible = false
+			piece.input_pickable = false
+
+
+func find_piece_by_id(id: String) -> Area2D:
+	for piece in get_tree().get_nodes_in_group("mushrooms"):
+		if piece.piece_id == id:
+			return piece
+	return null
+
+
+func _on_close_button_pressed() -> void:
+	mushroom_ui.hide()

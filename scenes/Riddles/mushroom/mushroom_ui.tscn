@@ -1,18 +1,19 @@
-[gd_scene load_steps=17 format=3 uid="uid://bhoaqyfoiwhbt"]
+[gd_scene load_steps=22 format=3 uid="uid://bhoaqyfoiwhbt"]
 
 [ext_resource type="Texture2D" uid="uid://bjdmx8cqqg1hd" path="res://assets/sprites/selfmade/mushroom_socket.png" id="1_qtjm1"]
 [ext_resource type="Script" uid="uid://ccctnac4jc6w1" path="res://scripts/riddles/mushroom/mushroom_manager.gd" id="1_t74yn"]
-[ext_resource type="Texture2D" uid="uid://c8duqp050wk8w" path="res://assets/sprites/portrait/champignon.png" id="2_57f4l"]
-[ext_resource type="Texture2D" uid="uid://cup6ld87y6681" path="res://assets/sprites/portrait/truffle.png" id="3_i6yk3"]
-[ext_resource type="Texture2D" uid="uid://b61lext8uvybb" path="res://assets/sprites/portrait/porcini.png" id="4_6j8d4"]
+[ext_resource type="Texture2D" uid="uid://bp7inxvxgiugt" path="res://assets/sprites/selfmade/mushrooms/champi_sad2.png" id="3_lp2tr"]
 [ext_resource type="Script" uid="uid://k4v42hh3hpwx" path="res://scripts/riddles/mushroom/socket.gd" id="4_lp2tr"]
 [ext_resource type="Script" uid="uid://d2oyrfw11wpds" path="res://scripts/riddles/stonepuzzle/side_slots.gd" id="5_fpcnq"]
+[ext_resource type="Texture2D" uid="uid://5ufda2ybf4h2" path="res://assets/sprites/selfmade/mushrooms/truffle_sad.png" id="5_j3ps3"]
 [ext_resource type="PackedScene" uid="uid://dmlmv2sismu3p" path="res://scenes/Riddles/mushroom/mushroom_riddle.tscn" id="6_2g3uk"]
+[ext_resource type="Texture2D" uid="uid://b0frwpghotq7a" path="res://assets/sprites/selfmade/mushrooms/porcini_sad.png" id="6_3fi4c"]
 [ext_resource type="Texture2D" uid="uid://beoqid1gce0on" path="res://assets/sprites/selfmade/mushrooms/brown_mush.png" id="7_t74yn"]
 [ext_resource type="Texture2D" uid="uid://cyxgbccyi3vl1" path="res://assets/sprites/selfmade/mushrooms/green_mush.png" id="8_lp2tr"]
 [ext_resource type="Texture2D" uid="uid://dlvaqnsna4p72" path="res://assets/sprites/selfmade/mushrooms/orange_mush.png" id="9_j3ps3"]
 [ext_resource type="Texture2D" uid="uid://dbc0av5uwgs40" path="res://assets/sprites/selfmade/mushrooms/red_mush.png" id="10_3fi4c"]
 [ext_resource type="Texture2D" uid="uid://nchvm24n38yo" path="res://assets/sprites/selfmade/mushrooms/yellow_mush.png" id="11_elwv7"]
+[ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="14_lp2tr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fpcnq"]
 radius = 210.44714
@@ -32,8 +33,47 @@ corner_radius_bottom_left = 12
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k621n"]
 size = Vector2(128, 128)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3ps3"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fi4c"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_elwv7"]
+bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_my2ui"]
+
 [node name="MushroomUi" type="CanvasLayer"]
 script = ExtResource("1_t74yn")
+puzzle_id = "mushroom_riddle"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -86,7 +126,7 @@ offset_right = 67.0
 offset_bottom = 156.0
 grow_horizontal = 2
 mouse_filter = 2
-texture = ExtResource("2_57f4l")
+texture = ExtResource("3_lp2tr")
 
 [node name="Area2D" type="Area2D" parent="sun" groups=["socket"]]
 position = Vector2(280, 366)
@@ -124,7 +164,7 @@ offset_right = 73.0
 offset_bottom = 156.0
 grow_horizontal = 2
 mouse_filter = 2
-texture = ExtResource("3_i6yk3")
+texture = ExtResource("5_j3ps3")
 
 [node name="truffle_socket" type="TextureRect" parent="moon"]
 layout_mode = 1
@@ -183,7 +223,7 @@ offset_top = 87.0
 offset_right = 342.0
 offset_bottom = 227.0
 mouse_filter = 2
-texture = ExtResource("4_6j8d4")
+texture = ExtResource("6_3fi4c")
 
 [node name="Area2D" type="Area2D" parent="planet" groups=["socket"]]
 position = Vector2(281, 432)
@@ -358,7 +398,26 @@ piece_id = "yellow_mush"
 [node name="Sprite2D" parent="mushrooms/yellow_mush" index="0"]
 texture = ExtResource("11_elwv7")
 
+[node name="close_button" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -192.0
+offset_top = 72.0
+offset_right = -136.0
+offset_bottom = 125.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_j3ps3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3fi4c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_elwv7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_my2ui")
+icon = ExtResource("14_lp2tr")
+icon_alignment = 1
+
 [connection signal="mush_released" from="mushrooms/blue_mush" to="mushrooms/green_mush" method="_on_blue_mush_mush_released"]
+[connection signal="pressed" from="close_button" to="." method="_on_close_button_pressed"]
 
 [editable path="mushrooms/blue_mush"]
 [editable path="mushrooms/brown_mush"]
