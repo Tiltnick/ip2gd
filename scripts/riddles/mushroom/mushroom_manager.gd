@@ -72,19 +72,20 @@ func check_puzzle():
 		if puzzle_id != "":
 			GameState.puzzle_state[puzzle_id] = true
 		solved = true
-		is_solved()
 		print("gelöst")
 		for id in mush_nodes.keys():
-			mush_nodes[id].visible = hotbarglobal.has_item(id)
+			
 			var mushrooms_id: String = "mushrooms"
 			hotbarglobal.remove_item(id)
 			hotbarglobal.remove_item(mushrooms_id)
-			GameState.puzzle_state[id] = false
+
+		is_solved()
 
 func is_solved():
 	porcini.texture = porcini_solved
 	champi.texture = champi_solved
 	truffle.texture = truffle_solved
+	solved_layout()
 
 
 func solved_layout():
@@ -95,14 +96,14 @@ func solved_layout():
 			piece.scale = piece.sockel_scale
 			slot.set_piece(piece)
 			piece.visible = true
-			piece.input_pickable = false
+
 
 	# hide other mushrooms
-	for piece in get_tree().get_nodes_in_group("mushrooms"):
-		var in_socket = piece.current_slot != null and piece.current_slot.is_in_group("socket")
+	for mush in get_tree().get_nodes_in_group("mushrooms"):
+		var in_socket = mush.current_slot != null and mush.current_slot.is_in_group("socket")
 		if not in_socket:
-			piece.visible = false
-			piece.input_pickable = false
+			mush.hide()
+
 
 
 func find_piece_by_id(id: String) -> Area2D:

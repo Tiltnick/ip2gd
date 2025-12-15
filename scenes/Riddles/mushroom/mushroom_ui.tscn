@@ -289,7 +289,7 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_k621n")
 
 [node name="Slot4" type="Panel" parent="Slots"]
-offset_left = 1016.0
+offset_left = 1024.0
 offset_top = 832.0
 offset_right = 1152.0
 offset_bottom = 960.0
@@ -302,7 +302,7 @@ script = ExtResource("5_fpcnq")
 start_piece = NodePath("../../../mushrooms/green_mush")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Slots/Slot4/Area2D"]
-position = Vector2(0, -1)
+position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_k621n")
 
 [node name="Slot5" type="Panel" parent="Slots"]
@@ -359,7 +359,7 @@ piece_id = "brown_mush"
 texture = ExtResource("7_t74yn")
 
 [node name="green_mush" parent="mushrooms" groups=["mushrooms"] instance=ExtResource("6_2g3uk")]
-position = Vector2(1080, 896)
+position = Vector2(1088, 896.00006)
 scale = Vector2(3, 3)
 sockel_scale = Vector2(7, 7)
 side_scale = Vector2(3, 3)

@@ -57,7 +57,7 @@ func check_puzzle():
 			var stonepanel: String = "stonepanel"
 			hotbarglobal.remove_item(id)
 			hotbarglobal.remove_item(stonepanel)
-			GameState.puzzle_state[id] = false
+
 		
 
 func _on_close_button_pressed() -> void:

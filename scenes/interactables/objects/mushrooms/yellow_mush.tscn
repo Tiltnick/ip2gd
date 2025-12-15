@@ -10,7 +10,7 @@ shader_parameter/outline_size = 2.0
 shader_parameter/outline_color = Vector4(1, 1, 1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ynqx4"]
-radius = 40.0
+radius = 48.0
 
 [node name="YellowMush" type="Node2D"]
 script = ExtResource("1_067il")

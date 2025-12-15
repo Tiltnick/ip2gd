@@ -3945,7 +3945,7 @@ position = Vector2(536, 120)
 position = Vector2(640, 120)
 
 [node name="champi_socket" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_cfq5h")]
-position = Vector2(576, 0)
+position = Vector2(376, 208)
 scale = Vector2(0.3, 0.3)
 e_popup_node = NodePath("Press_E_Popup")
 
@@ -3953,7 +3953,7 @@ e_popup_node = NodePath("Press_E_Popup")
 visible = false
 
 [node name="porcini_socket" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_cfq5h")]
-position = Vector2(504, 0)
+position = Vector2(328.00003, 208)
 scale = Vector2(0.3, 0.3)
 e_popup_node = NodePath("Press_E_Popup")
 
@@ -3961,7 +3961,7 @@ e_popup_node = NodePath("Press_E_Popup")
 visible = false
 
 [node name="truffle_socket" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_cfq5h")]
-position = Vector2(648, 0)
+position = Vector2(424, 208.00002)
 scale = Vector2(0.3, 0.3)
 e_popup_node = NodePath("Press_E_Popup")
 
@@ -3993,7 +3993,7 @@ mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="BlueMush" parent="." instance=ExtResource("18_cfewm")]
-position = Vector2(480, -344.00012)
+position = Vector2(656, -648)
 scale = Vector2(0.4, 0.4)
 piece_save_id = "blue_mush"
 hotbar_type_id = "mushrooms"
@@ -4003,7 +4003,7 @@ item_icon = ExtResource("19_6swy0")
 visible = false
 
 [node name="BrownMush" parent="." instance=ExtResource("20_cfewm")]
-position = Vector2(512, -144.00002)
+position = Vector2(152.00003, -152)
 scale = Vector2(0.4, 0.4)
 piece_save_id = "brown_mush"
 hotbar_type_id = "mushrooms"
@@ -4011,9 +4011,13 @@ item_icon = ExtResource("21_qu0jh")
 
 [node name="Press_E_Popup" parent="BrownMush" instance=ExtResource("14_ny1p2")]
 visible = false
+offset_left = -10.000076
+offset_top = -42.5
+offset_right = -10.000076
+offset_bottom = -42.5
 
 [node name="GreenMush" parent="." instance=ExtResource("21_0fq4m")]
-position = Vector2(192, -408)
+position = Vector2(189.00002, -404.00003)
 scale = Vector2(0.4, 0.4)
 piece_save_id = "green_mush"
 hotbar_type_id = "mushrooms"
@@ -4021,9 +4025,13 @@ item_icon = ExtResource("23_1r8i8")
 
 [node name="Press_E_Popup" parent="GreenMush" instance=ExtResource("14_ny1p2")]
 visible = false
+offset_left = -10.0
+offset_top = -42.5
+offset_right = -10.0
+offset_bottom = -42.5
 
 [node name="OrangeMush" parent="." instance=ExtResource("22_1k6v6")]
-position = Vector2(528, -256)
+position = Vector2(510.00003, -251.00002)
 scale = Vector2(0.4, 0.4)
 piece_save_id = "orange_mush"
 hotbar_type_id = "mushrooms"
@@ -4031,6 +4039,10 @@ item_icon = ExtResource("25_aqews")
 
 [node name="Press_E_Popup" parent="OrangeMush" instance=ExtResource("14_ny1p2")]
 visible = false
+offset_left = -10.0
+offset_top = -42.5
+offset_right = -10.0
+offset_bottom = -42.5
 
 [node name="RedMush" parent="." instance=ExtResource("23_3h5uc")]
 position = Vector2(632, -400)
@@ -4041,9 +4053,13 @@ item_icon = ExtResource("27_d675f")
 
 [node name="Press_E_Popup" parent="RedMush" instance=ExtResource("14_ny1p2")]
 visible = false
+offset_left = -10.0
+offset_top = -42.5
+offset_right = -10.0
+offset_bottom = -42.5
 
 [node name="YellowMush" parent="." instance=ExtResource("24_54y3o")]
-position = Vector2(319.99997, -352.00012)
+position = Vector2(218.00003, -633.00006)
 scale = Vector2(0.4, 0.4)
 piece_save_id = "yellow_mush"
 hotbar_type_id = "mushrooms"
@@ -4051,8 +4067,13 @@ item_icon = ExtResource("29_1tv65")
 
 [node name="Press_E_Popup" parent="YellowMush" instance=ExtResource("14_ny1p2")]
 visible = false
+offset_left = -10.000076
+offset_top = -40.0
+offset_right = -10.000076
+offset_bottom = -40.0
 
 [node name="MapBounds" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MapBounds"]
 position = Vector2(802, -30)
