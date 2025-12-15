@@ -3957,11 +3957,11 @@ e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="champi_socket" instance=ExtResource("14_ny1p2")]
 visible = false
-offset_left = -13.333282
-offset_top = -90.0
-offset_right = -13.333282
-offset_bottom = -90.0
-scale = Vector2(1.5, 1.5)
+offset_left = -19.999878
+offset_top = -100.0
+offset_right = -19.999878
+offset_bottom = -100.0
+scale = Vector2(2, 2)
 
 [node name="porcini_socket" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_cfq5h")]
 position = Vector2(344.00003, 208)
@@ -4084,7 +4084,7 @@ offset_bottom = -40.0
 [node name="MapBounds" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MapBounds"]
-position = Vector2(802, -30)
+position = Vector2(800, -32)
 build_mode = 1
 polygon = PackedVector2Array(-770, -705, -2, -705, -1, -451, 27, -450, 28, -242, -2, -242, -6, 332, -186, 333, -186, 354, -235, 353, -235.14958, 332.00003, -771, 332)
 

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bjdmx8cqqg1hd" path="res://assets/sprites/selfmade/mushroom_socket.png" id="2_7oed5"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="3_7oed5"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_igphv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7oed5"]
 shader = ExtResource("3_7oed5")
 shader_parameter/outline_size = 2.0
 shader_parameter/outline_color = Vector4(1, 1, 1, 1)
@@ -24,7 +24,7 @@ texture = ExtResource("2_7oed5")
 
 [node name="Outline" type="Sprite2D" parent="."]
 visible = false
-material = SubResource("ShaderMaterial_igphv")
+material = SubResource("ShaderMaterial_7oed5")
 texture = ExtResource("2_7oed5")
 
 [node name="Area2D" type="Area2D" parent="."]
