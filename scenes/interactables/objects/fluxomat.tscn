@@ -13,6 +13,8 @@ radius = 7.0
 
 [node name="Fluxomat" type="Node2D"]
 z_index = 100
+script = ExtResource("1_lt2jv")
+item_icon = ExtResource("1_6peuh")
 
 [node name="Fluxomat" type="Sprite2D" parent="."]
 z_index = 1

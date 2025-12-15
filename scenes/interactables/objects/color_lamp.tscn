@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvxugkjd186sr"]
+[gd_scene load_steps=13 format=3 uid="uid://cvxugkjd186sr"]
 
-[ext_resource type="Script" uid="uid://bfdlktyh7g8s3" path="res://scripts/interactables/objects/color_lamp.gd" id="1_4ap05"]
+[ext_resource type="Script" path="res://scripts/interactables/objects/color_lamp.gd" id="1_4ap05"]
 [ext_resource type="Texture2D" uid="uid://1pucgbmyiond" path="res://assets/sprites/map/Spaceship/color_lamp_spritesheet.png" id="1_4o7y8"]
+[ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="3_lpkow"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ap05"]
 atlas = ExtResource("1_4o7y8")
@@ -53,6 +54,11 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s0oaj"]
+shader = ExtResource("3_lpkow")
+shader_parameter/outline_size = 2.0
+shader_parameter/outline_color = Vector4(1, 1, 1, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4j50x"]
 size = Vector2(15, 27)
 
@@ -60,6 +66,12 @@ size = Vector2(15, 27)
 script = ExtResource("1_4ap05")
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4j50x")
+animation = &"states"
+
+[node name="Outline" type="AnimatedSprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_s0oaj")
 sprite_frames = SubResource("SpriteFrames_4j50x")
 animation = &"states"
 

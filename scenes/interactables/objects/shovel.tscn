@@ -25,7 +25,7 @@ texture = ExtResource("1_44k3y")
 visible = false
 z_index = 100
 material = SubResource("ShaderMaterial_awcrp")
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_44k3y")
 
 [node name="Area2D" type="Area2D" parent="."]

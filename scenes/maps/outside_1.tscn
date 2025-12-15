@@ -454,6 +454,10 @@ tile_set = SubResource("TileSet_myyye")
 build_mode = 1
 polygon = PackedVector2Array(-448, -287, -447, 219, 430, 218, 429, -288, 172.56549, -287.7076, 173, -309, 11, -309, 11.124176, -287.52353)
 
+[node name="CollisionShape2D_Tripod_Tower" type="CollisionPolygon2D" parent="MapBounds"]
+position = Vector2(-163.4, -327.5)
+polygon = PackedVector2Array(-167, 142, -171, 147, -159, 147, -164, 142)
+
 [node name="Door" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("5_ax0hk")]
 position = Vector2(-160, 0)
 target_scene_path = "uid://csejhruust020"
@@ -507,9 +511,17 @@ path_follow = NodePath("../NPCPath/NPCPathFollow")
 
 [node name="TransitionAreaFade" parent="." instance=ExtResource("11_dkob4")]
 
-[node name="tripod_bottom" parent="." instance=ExtResource("12_qv8vl")]
-position = Vector2(-328, -183)
+[node name="tripod_bottom" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_qv8vl")]
+position = Vector2(-328.4, -183.5)
 sky_scene_path = "uid://c1cu26niebyeg"
+e_popup_node = NodePath("Press_E_Popup")
+
+[node name="Press_E_Popup" parent="tripod_bottom" instance=ExtResource("7_8xmlc")]
+visible = false
+offset_left = -10.0
+offset_top = -27.0
+offset_right = -10.0
+offset_bottom = -27.0
 
 [node name="DoorAreaOutside2" type="Area2D" parent="."]
 script = ExtResource("10_r76a8")
