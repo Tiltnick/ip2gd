@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://dlsjgc5i7yt81"]
+[gd_scene load_steps=43 format=4 uid="uid://dlsjgc5i7yt81"]
 
 [ext_resource type="Script" uid="uid://dliaffanr7vt" path="res://scripts/scene_manager/outside_3.gd" id="1_3rchf"]
 [ext_resource type="Texture2D" uid="uid://dtxi3laerm24l" path="res://assets/sprites/map/Outside_3/Ground.png" id="1_oc04w"]
@@ -18,18 +18,15 @@
 [ext_resource type="PackedScene" uid="uid://1gjnalxntxuw" path="res://scenes/Riddles/stonepuzzle/puzzle.tscn" id="15_wk4ve"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="16_ny1p2"]
 [ext_resource type="PackedScene" uid="uid://cqrdpr4q6mgg7" path="res://scenes/interactables/objects/mushrooms/blue_mush.tscn" id="18_cfewm"]
-[ext_resource type="Texture2D" uid="uid://csefim0704ll6" path="res://assets/sprites/selfmade/mushrooms/blue_mush.png" id="19_6swy0"]
 [ext_resource type="PackedScene" uid="uid://cwmmh4c5quydk" path="res://scenes/interactables/objects/mushrooms/brown_mush.tscn" id="20_cfewm"]
 [ext_resource type="PackedScene" uid="uid://dakq1ess2te3x" path="res://scenes/interactables/objects/mushrooms/green_mush.tscn" id="21_0fq4m"]
-[ext_resource type="Texture2D" uid="uid://beoqid1gce0on" path="res://assets/sprites/selfmade/mushrooms/brown_mush.png" id="21_qu0jh"]
 [ext_resource type="PackedScene" uid="uid://cds8mp6jqlmrk" path="res://scenes/interactables/objects/mushrooms/orange_mush.tscn" id="22_1k6v6"]
-[ext_resource type="Texture2D" uid="uid://cyxgbccyi3vl1" path="res://assets/sprites/selfmade/mushrooms/green_mush.png" id="23_1r8i8"]
 [ext_resource type="PackedScene" uid="uid://h8yjacx3dw73" path="res://scenes/interactables/objects/mushrooms/red_mush.tscn" id="23_3h5uc"]
 [ext_resource type="PackedScene" uid="uid://cbquy1j63ujkx" path="res://scenes/interactables/objects/mushrooms/yellow_mush.tscn" id="24_54y3o"]
 [ext_resource type="PackedScene" uid="uid://bhoaqyfoiwhbt" path="res://scenes/Riddles/mushroom/mushroom_ui.tscn" id="25_0fq4m"]
-[ext_resource type="Texture2D" uid="uid://dlvaqnsna4p72" path="res://assets/sprites/selfmade/mushrooms/orange_mush.png" id="25_aqews"]
-[ext_resource type="Texture2D" uid="uid://dbc0av5uwgs40" path="res://assets/sprites/selfmade/mushrooms/red_mush.png" id="27_d675f"]
-[ext_resource type="Texture2D" uid="uid://nchvm24n38yo" path="res://assets/sprites/selfmade/mushrooms/yellow_mush.png" id="29_1tv65"]
+[ext_resource type="PackedScene" uid="uid://cc56upiuyf8v1" path="res://scenes/Character/npc.tscn" id="25_1k6v6"]
+[ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="26_1k6v6"]
+[ext_resource type="PackedScene" uid="uid://c0vonwkvy4jaa" path="res://scenes/interactables/objects/mushrooms/fire_mush.tscn" id="27_3h5uc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4bq6r"]
 texture = ExtResource("1_oc04w")
@@ -3889,6 +3886,24 @@ sources/4 = SubResource("TileSetAtlasSource_3rchf")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tfmda"]
 size = Vector2(20, 107)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3h5uc"]
+load_path = "res://.godot/imported/blue_mush.png-541e2b0614a2ab2f88589d7e64b63cec.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_54y3o"]
+load_path = "res://.godot/imported/brown_mush.png-56a86e7615692de1465198e084c66247.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_14c1k"]
+load_path = "res://.godot/imported/green_mush.png-0e868692af850671e75ed17b6a8a9006.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lsrtm"]
+load_path = "res://.godot/imported/orange_mush.png-2cedfecc298bd7cdf02a9ac3c536206f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6swy0"]
+load_path = "res://.godot/imported/red_mush.png-1fd1fc366c04ae44ccbaffab70a747cf.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qu0jh"]
+load_path = "res://.godot/imported/yellow_mush.png-1d6b415f1ae976ced9fe433e7b9b4b67.ctex"
+
 [node name="Outside3" type="Node2D"]
 script = ExtResource("1_3rchf")
 
@@ -3999,7 +4014,9 @@ position = Vector2(400.00012, -160.00008)
 scale = Vector2(0.4, 0.4)
 piece_save_id = "blue_mush"
 hotbar_type_id = "mushrooms"
-item_icon = ExtResource("19_6swy0")
+mush_name_de = "Pilz"
+mush_name_en = "mushroom"
+item_icon = SubResource("CompressedTexture2D_3h5uc")
 e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="BlueMush" instance=ExtResource("14_ny1p2")]
@@ -4010,7 +4027,9 @@ position = Vector2(288, -152.00002)
 scale = Vector2(0.4, 0.4)
 piece_save_id = "brown_mush"
 hotbar_type_id = "mushrooms"
-item_icon = ExtResource("21_qu0jh")
+mush_name_de = "Pilz"
+mush_name_en = "mushroom"
+item_icon = SubResource("CompressedTexture2D_54y3o")
 e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="BrownMush" instance=ExtResource("14_ny1p2")]
@@ -4025,7 +4044,9 @@ position = Vector2(189.00002, -404.00003)
 scale = Vector2(0.4, 0.4)
 piece_save_id = "green_mush"
 hotbar_type_id = "mushrooms"
-item_icon = ExtResource("23_1r8i8")
+mush_name_de = "Pilz"
+mush_name_en = "mushroom"
+item_icon = SubResource("CompressedTexture2D_14c1k")
 e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="GreenMush" instance=ExtResource("14_ny1p2")]
@@ -4040,7 +4061,9 @@ position = Vector2(510.00003, -251.00002)
 scale = Vector2(0.4, 0.4)
 piece_save_id = "orange_mush"
 hotbar_type_id = "mushrooms"
-item_icon = ExtResource("25_aqews")
+mush_name_de = "Pilz"
+mush_name_en = "mushroom"
+item_icon = SubResource("CompressedTexture2D_lsrtm")
 e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="OrangeMush" instance=ExtResource("14_ny1p2")]
@@ -4055,7 +4078,9 @@ position = Vector2(632, -400)
 scale = Vector2(0.4, 0.4)
 piece_save_id = "red_mush"
 hotbar_type_id = "mushrooms"
-item_icon = ExtResource("27_d675f")
+mush_name_de = "Pilz"
+mush_name_en = "mushroom"
+item_icon = SubResource("CompressedTexture2D_6swy0")
 e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="RedMush" instance=ExtResource("14_ny1p2")]
@@ -4070,7 +4095,9 @@ position = Vector2(338, -161.00012)
 scale = Vector2(0.4, 0.4)
 piece_save_id = "yellow_mush"
 hotbar_type_id = "mushrooms"
-item_icon = ExtResource("29_1tv65")
+mush_name_de = "Pilz"
+mush_name_en = "mushroom"
+item_icon = SubResource("CompressedTexture2D_qu0jh")
 e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="YellowMush" instance=ExtResource("14_ny1p2")]
@@ -4089,3 +4116,15 @@ polygon = PackedVector2Array(-770, -705, -2, -705, -1, -451, 27, -450, 28, -242,
 
 [node name="MushroomUi" parent="." instance=ExtResource("25_0fq4m")]
 visible = false
+
+[node name="NPC" parent="." instance=ExtResource("25_1k6v6")]
+position = Vector2(544, -368)
+
+[node name="Character" parent="." instance=ExtResource("26_1k6v6")]
+position = Vector2(416, -208)
+
+[node name="FireMush" parent="." instance=ExtResource("27_3h5uc")]
+mush_name_de = "Feuerpilz"
+mush_name_en = "fire mushroom"
+
+[editable path="NPC"]

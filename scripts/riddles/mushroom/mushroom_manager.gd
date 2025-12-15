@@ -2,12 +2,14 @@ extends CanvasLayer
 
 @export var puzzle_id: String = ""  
 @onready var npc_porcini: NpcDialogProcessPorcini = $"../NPC_porcini"
+@onready var fire_mush: FireMushroom = $"../FireMush"
 
 @onready var mushroom_ui: CanvasLayer = $"."
 @onready var champi: TextureRect = $sun/champi
 @onready var truffle: TextureRect = $moon/truffle
 @onready var porcini: TextureRect = $planet/porcini
 @onready var mushrooms: Node2D = $mushrooms
+
 
 @onready var mush_nodes := {
 	"green_mush":  $mushrooms/green_mush,
@@ -127,8 +129,15 @@ func _on_close_button_pressed() -> void:
 	GameState.puzzle_state[key] = true
 	DialogManager.start_dialog("res://dialog/mushrooms/solved_riddle.json")
 	DialogManager.dialog_finished.connect(_on_solved_dialog_finished, CONNECT_ONE_SHOT)
-	
+
+
+
 func _on_solved_dialog_finished():
 	for npc in get_tree().get_nodes_in_group("mushroom_npc"):
-		# Zielposition z.B. nach rechts aus dem Bildschirm
+		# final position npc
 		npc.run_away_to(npc.global_position + Vector2(0,-190))
+	
+	fire_mush.get_mush()
+	var key = puzzle_id + "_fire_mush_given"
+	GameState.puzzle_state[key] = true
+	

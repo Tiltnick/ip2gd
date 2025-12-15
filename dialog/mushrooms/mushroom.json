@@ -83,8 +83,8 @@
 
 	"moon": {
 		"lines": [
-			{"speaker": "Truffle", "text_en": "I part the waters, shape the flow of time, in quiet stillness, truth will shine. But those who carry me driven by lust for power, will see my mirror darken in the night.",
-									"text_de": "Ich teil’ das Wasser, führ’ die Zeit, im Stillen liegt die Wahrheit breit. Doch wer mich trägt aus Gier nach Macht, dem wird mein Spiegel schwarz bei Nacht."
+			{"speaker": "Truffle", "text_en": "I pull the oceans with unseen hands and paint the night in shifting shapes whole, I am broken, yet never gone forever circling, never staying.",
+									"text_de": "Mit unsichtbaren Händen ziehe ich die Meere und male die Nacht in wandelnden Formen. Mal bin ich ganz, mal bin ich gebrochen, doch niemals fort, ewig kreisend, nie verweilend."
 			}
 		],
 		"next": "planet"

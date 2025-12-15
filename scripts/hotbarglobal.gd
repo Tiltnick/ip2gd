@@ -21,6 +21,7 @@ func add_item(item_id: String) -> bool:
 		return false
 
 	if hotbar_items.has(item_id) or inventory_items.has(item_id):
+		print("has id in add item")
 		update_ui()
 		return true
 
@@ -69,6 +70,7 @@ func get_hotbar_display_item_id(item_id: String) -> String:
 
 func update_ui():
 	if hotbar:
+		print("test2")
 		hotbar.update_slots()
 
 	if inventory:

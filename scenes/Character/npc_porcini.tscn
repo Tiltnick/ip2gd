@@ -68,8 +68,9 @@ shader = ExtResource("4_tls4u")
 shader_parameter/outline_size = 2.0
 shader_parameter/outline_color = Vector4(1, 1, 1, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q33tr"]
-size = Vector2(16, 12)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1u0wy"]
+radius = 13.0
+height = 26.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5dfqd"]
 radius = 24.0
@@ -106,8 +107,8 @@ animation = &"idle"
 frame_progress = 0.04933625
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6)
-shape = SubResource("RectangleShape2D_q33tr")
+position = Vector2(-1, -12)
+shape = SubResource("CapsuleShape2D_1u0wy")
 
 [node name="DetectionArea" type="Area2D" parent="."]
 position = Vector2(0, -8)

@@ -14,6 +14,16 @@ var DATA := {
 		"world_scene": "res://scenes/interactables/objects/photo.tscn"
 	},
 	
+	"fire_mush": {
+		"name_de": "Feuerpilz",
+		"name_en": "fire mushroom",
+		"description_de": "Ein feuriger Pilz. Achtung, sehr heiß, lass dich nicht verführen.",
+		"description_en": "A fire mushroom. Be cautious, it's very hot, don't let yourself be seduced.",
+		"icon":"res://assets/sprites/selfmade/mushrooms/fire_mush.png",
+		"icon_size": Vector2(55,55),
+		"world_scene": "res://scenes/interactables/objects/mushrooms/fire_mush.tscn"
+	},
+	
 	"mushrooms": {      # used for the hotbar
 		"name_de": "Pilze",
 		"name_en": "mushrooms",
