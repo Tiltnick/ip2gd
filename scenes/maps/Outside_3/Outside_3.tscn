@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://dlsjgc5i7yt81"]
+[gd_scene load_steps=40 format=4 uid="uid://dlsjgc5i7yt81"]
 
 [ext_resource type="Script" uid="uid://dliaffanr7vt" path="res://scripts/scene_manager/outside_3.gd" id="1_3rchf"]
 [ext_resource type="Texture2D" uid="uid://dtxi3laerm24l" path="res://assets/sprites/map/Outside_3/Ground.png" id="1_oc04w"]
@@ -26,7 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://cyxgbccyi3vl1" path="res://assets/sprites/selfmade/mushrooms/green_mush.png" id="23_1r8i8"]
 [ext_resource type="PackedScene" uid="uid://h8yjacx3dw73" path="res://scenes/interactables/objects/mushrooms/red_mush.tscn" id="23_3h5uc"]
 [ext_resource type="PackedScene" uid="uid://cbquy1j63ujkx" path="res://scenes/interactables/objects/mushrooms/yellow_mush.tscn" id="24_54y3o"]
-[ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="24_cfewm"]
 [ext_resource type="PackedScene" uid="uid://bhoaqyfoiwhbt" path="res://scenes/Riddles/mushroom/mushroom_ui.tscn" id="25_0fq4m"]
 [ext_resource type="Texture2D" uid="uid://dlvaqnsna4p72" path="res://assets/sprites/selfmade/mushrooms/orange_mush.png" id="25_aqews"]
 [ext_resource type="Texture2D" uid="uid://dbc0av5uwgs40" path="res://assets/sprites/selfmade/mushrooms/red_mush.png" id="27_d675f"]
@@ -4087,9 +4086,6 @@ offset_bottom = -40.0
 position = Vector2(800, -32)
 build_mode = 1
 polygon = PackedVector2Array(-770, -705, -2, -705, -1, -451, 27, -450, 28, -242, -2, -242, -6, 332, -186, 333, -186, 354, -235, 353, -235.14958, 332.00003, -771, 332)
-
-[node name="Character" parent="." instance=ExtResource("24_cfewm")]
-position = Vector2(424, -216)
 
 [node name="MushroomUi" parent="." instance=ExtResource("25_0fq4m")]
 visible = false
