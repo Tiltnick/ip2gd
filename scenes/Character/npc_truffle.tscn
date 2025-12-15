@@ -72,7 +72,7 @@ shader_parameter/outline_color = Vector4(1, 1, 1, 1)
 size = Vector2(16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5dfqd"]
-radius = 40.0
+radius = 24.0
 
 [node name="NPC_truffle" type="CharacterBody2D"]
 script = ExtResource("1_mt00b")
@@ -80,10 +80,11 @@ script = ExtResource("1_mt00b")
 [node name="Press_E_Popup_NPC" parent="." instance=ExtResource("2_0oew2")]
 visible = false
 z_index = 10
-offset_left = -10.0
-offset_top = -35.0
-offset_right = -10.0
-offset_bottom = -35.0
+offset_left = -8.0
+offset_top = -45.000004
+offset_right = -8.0
+offset_bottom = -45.000004
+scale = Vector2(0.8, 0.8)
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)

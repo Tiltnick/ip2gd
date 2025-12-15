@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @export var puzzle_id: String = ""  
+@onready var npc_porcini: NpcDialogProcessPorcini = $"../NPC_porcini"
 
 @onready var mushroom_ui: CanvasLayer = $"."
 @onready var champi: TextureRect = $sun/champi
@@ -105,7 +106,6 @@ func solved_layout():
 			mush.hide()
 
 
-
 func find_piece_by_id(id: String) -> Area2D:
 	for piece in get_tree().get_nodes_in_group("mushrooms"):
 		if piece.piece_id == id:
@@ -115,3 +115,20 @@ func find_piece_by_id(id: String) -> Area2D:
 
 func _on_close_button_pressed() -> void:
 	mushroom_ui.hide()
+
+	var riddle_solved = solved or GameState.puzzle_state.get(puzzle_id, false)
+	if not riddle_solved:
+		return
+
+	var key = puzzle_id + "_solved_dialog_shown"
+	if GameState.puzzle_state.get(key, false):
+		return
+
+	GameState.puzzle_state[key] = true
+	DialogManager.start_dialog("res://dialog/mushrooms/solved_riddle.json")
+	DialogManager.dialog_finished.connect(_on_solved_dialog_finished, CONNECT_ONE_SHOT)
+	
+func _on_solved_dialog_finished():
+	for npc in get_tree().get_nodes_in_group("mushroom_npc"):
+		# Zielposition z.B. nach rechts aus dem Bildschirm
+		npc.run_away_to(npc.global_position + Vector2(0,-190))

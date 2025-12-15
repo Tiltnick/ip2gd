@@ -20,6 +20,7 @@ func interact() -> void:
 		_store_in_hotbar()
 
 func _zoom_in():
+	z_index= 100
 	is_zoomed = true
 	outline.visible = false
 	outline_locked = true
@@ -34,7 +35,7 @@ func _store_in_hotbar():
 	if spawned_from_hotbar:
 		queue_free()
 		return
-
+	z_index = 0
 	mark_collected()
 
 	if hotbar_id != "":
