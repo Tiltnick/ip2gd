@@ -1,0 +1,21 @@
+{
+  "id": "oris_discovers_shovel",
+
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+   "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "A shovel! Might become handy..."
+							,"text_de": "Eine Schaufel! Die kann ich sicher gebrauchen..." }
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+	  "lines": []
+	}
+  }
+}

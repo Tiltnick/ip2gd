@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="8_myyye"]
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="10_r76a8"]
 [ext_resource type="PackedScene" uid="uid://m8y5i5u6eyka" path="res://scenes/maps/transition_area_fade.tscn" id="11_dkob4"]
-[ext_resource type="PackedScene" uid="uid://ch3mxlgsh3het" path="res://scenes/interactables/objects/tripod.tscn" id="12_qv8vl"]
+[ext_resource type="PackedScene" uid="uid://bnjx4jljcdw2x" path="res://scenes/interactables/objects/tripod.tscn" id="12_qv8vl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ax0hk"]
 texture = ExtResource("1_iu6ob")
@@ -453,10 +453,6 @@ tile_set = SubResource("TileSet_myyye")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MapBounds"]
 build_mode = 1
 polygon = PackedVector2Array(-448, -287, -447, 219, 430, 218, 429, -288, 172.56549, -287.7076, 173, -309, 11, -309, 11.124176, -287.52353)
-
-[node name="CollisionShape2D_Tripod_Tower" type="CollisionPolygon2D" parent="MapBounds"]
-position = Vector2(-163.4, -327.5)
-polygon = PackedVector2Array(-167, 142, -171, 147, -159, 147, -164, 142)
 
 [node name="Door" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("5_ax0hk")]
 position = Vector2(-160, 0)
