@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dfkefy5ckqrq3"]
 
-[ext_resource type="Script" uid="uid://bdssbm1prbicl" path="res://scripts/interactables/interactable.gd" id="1_hmjdm"]
+[ext_resource type="Script" uid="uid://yn3xukhpicr7" path="res://scripts/interactables/objects/stones.gd" id="1_hmjdm"]
 [ext_resource type="Texture2D" uid="uid://cb3yev3bevue7" path="res://assets/sprites/map/Outside_2/Stones.png" id="2_dtt1o"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="3_0lbwb"]
 
