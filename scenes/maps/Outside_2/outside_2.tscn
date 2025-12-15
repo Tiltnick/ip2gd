@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://34ylk7jtx176"]
+[gd_scene load_steps=37 format=4 uid="uid://34ylk7jtx176"]
 
 [ext_resource type="Script" uid="uid://f7c56kdptn0k" path="res://scripts/scene_manager/outside_2.gd" id="1_7t2bs"]
 [ext_resource type="Texture2D" uid="uid://djxhqmxg4i62w" path="res://assets/sprites/map/Pixel Crawler - Desert/Pixel Crawler - Desert/Assets/Ground.png" id="2_vxisc"]
@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://dgxcraqxfqci7" path="res://scenes/Riddles/riddle_statue/riddle_statue.tscn" id="18_l2mbr"]
 [ext_resource type="PackedScene" uid="uid://bnjx4jljcdw2x" path="res://scenes/interactables/objects/tripod.tscn" id="19_on5tc"]
 [ext_resource type="Script" path="res://scripts/riddles/sky_riddle/tripod_middle.gd" id="20_f8agi"]
-[ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="21_3tmc5"]
 [ext_resource type="Script" path="res://scripts/riddles/sky_riddle/tripod_top.gd" id="21_bk0mb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r53rl"]
@@ -2294,6 +2293,3 @@ offset_left = -10.0
 offset_top = -27.0
 offset_right = -10.0
 offset_bottom = -27.0
-
-[node name="Character" parent="." instance=ExtResource("21_3tmc5")]
-position = Vector2(-207, 135)
