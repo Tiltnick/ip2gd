@@ -13,5 +13,7 @@ func interact() -> void:
 	Diary.unlock_entry("entry_3")
 	print(Diary.unlocked_entries)
 	
+	GameState.puzzle_state[save_id] = true
+	
 	mark_collected()
 	queue_free()
