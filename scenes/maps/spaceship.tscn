@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://csejhruust020"]
+[gd_scene load_steps=36 format=4 uid="uid://csejhruust020"]
 
 [ext_resource type="Texture2D" uid="uid://kxs6kkm0ut6w" path="res://assets/sprites/map/Spaceship/background.png" id="1_krvlx"]
 [ext_resource type="Texture2D" uid="uid://bbwtu422q5q3t" path="res://assets/sprites/map/Spaceship/foreground_pipes.png" id="2_elrx7"]
@@ -14,7 +14,7 @@
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="11_1oksb"]
 [ext_resource type="Script" uid="uid://btvvee8ehjidi" path="res://scripts/riddles/spaceship_door/spaceship_door_door.gd" id="11_emg07"]
 [ext_resource type="PackedScene" uid="uid://dfa4ga2b2k76f" path="res://scenes/Menues/saving_menu.tscn" id="11_o77e3"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/doors/door_broken.tscn" id="12_4s1gq"]
+[ext_resource type="PackedScene" uid="uid://i0736j8r38e8" path="res://scenes/interactables/doors/door_broken.tscn" id="12_4s1gq"]
 [ext_resource type="Script" uid="uid://dge528a6i2b6f" path="res://scripts/interactables/doors/door.gd" id="13_4nltl"]
 [ext_resource type="Texture2D" uid="uid://c7pwwu6560hy4" path="res://assets/sprites/selfmade/spaceship_door_open.png" id="13_b8ov6"]
 [ext_resource type="PackedScene" uid="uid://bpvneidk4xerj" path="res://scenes/Riddles/Spaceship/spaceship_door_riddle.tscn" id="14_1oksb"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://dkl4wilu1mavv" path="res://scenes/interactables/objects/stone pieces/stone_piece_4.tscn" id="23_pdq6o"]
 [ext_resource type="PackedScene" uid="uid://cg8acpjft0f2m" path="res://scenes/interactables/objects/stone pieces/stone_piece_5.tscn" id="24_y0v3n"]
 [ext_resource type="PackedScene" uid="uid://3je85k2bk5gy" path="res://scenes/interactables/objects/stone pieces/stone_piece_6.tscn" id="25_7ixao"]
+[ext_resource type="Texture2D" uid="uid://bbkysrm140l12" path="res://assets/sprites/selfmade/background_sky.png" id="27_7rixv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oegse"]
 texture = ExtResource("1_krvlx")
@@ -1383,7 +1384,7 @@ layer = 2
 visible = false
 
 [node name="SceneCamera" type="Camera2D" parent="."]
-position = Vector2(135, 108)
+position = Vector2(85, 81)
 scale = Vector2(1.4704298, 0.9683421)
 zoom = Vector2(3, 3)
 
@@ -1411,3 +1412,12 @@ layer = 0
 [node name="Hotbar" parent="Hotbar" instance=ExtResource("15_emg07")]
 
 [node name="TransitionAreaFade" parent="." instance=ExtResource("17_8o1ua")]
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -3
+offset_left = -312.0
+offset_top = -148.0
+offset_right = 496.88892
+offset_bottom = 307.0
+texture = ExtResource("27_7rixv")
+expand_mode = 1

@@ -20,7 +20,7 @@ var use_saved_position: bool = false
 # Aufgehobene Items speichern
 var picked_items: Array = []
 
-# Puzzle-Items (Fix für deinen New Game Fehler)
+# Puzzle-Items
 var puzzle_items: Array = []
 
 var sound_setting: float
@@ -45,7 +45,6 @@ func to_dict() -> Dictionary:
 		"language": language,   
 	}
 	
-
 
 # Liest die geupdateten Daten aus
 func from_dict(data: Dictionary) -> void:

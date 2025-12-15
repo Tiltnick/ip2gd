@@ -24,7 +24,6 @@ texture = ExtResource("1_rwsc4")
 
 [node name="Outline" type="Sprite2D" parent="."]
 visible = false
-z_index = 100
 material = SubResource("ShaderMaterial_nvdxs")
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_rwsc4")
