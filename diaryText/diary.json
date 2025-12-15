@@ -1,26 +1,26 @@
 {
   "entries": {
-    "entry_1":{
-      "header": "30.03.2152",
-      "text":
+	"entry_1":{
+	  "header": "30.03.2152",
+	  "text":
       "Dear Diary,
       It’s been a full month since Sam took off.
       At first, everything felt normal.
       We exchanged messages every day, sometimes twice a day.
       He told me about the view, the stars, the hum of the engines, the weird freeze-dried meals he hated. I laughed. He always made things feel less lonely. But a week ago, everything stopped. No messages. No calls. No updates on Spacegram and Sam always posts something, even if it’s just a blurry picture of a moon rock. I keep checking his feed every few hours, hoping something new shows up… but it never does. I’m trying not to panic, but the silence feels wrong."
-    },
-    "entry_2": {
-      "header": "14.04.2152",
-      "text":
-      " Now it’s been two whole weeks since I last heard from him. I keep replaying our last conversation in my head, looking for anything I might’ve missed, a hint, a clue, anything that would tell me what’s going on. Nothing. I can’t sit here anymore. I can’t keep pretending this is fine. So… I made a decision.
+	},
+	"entry_2": {
+	  "header": "14.04.2152",
+	  "text":
+      "Now it’s been two whole weeks since I last heard from him. I keep replaying our last conversation in my head, looking for anything I might’ve missed, a hint, a clue, anything that would tell me what’s going on. Nothing. I can’t sit here anymore. I can’t keep pretending this is fine. So… I made a decision.
       I talked to Command, filed the request, got the clearance, packed my gear, and told my parents I’d be away “for a while.” They didn’t ask questions. I think they saw the fear in my eyes and understood. Tomorrow, I’m leaving. My first mission in two years.
       I don’t know what I’m going to find out there. I don’t know if Sam is okay. I don’t even know if he’s still alive.
       But I have to try. I have to find him. For the promise we made, that neither of us would ever disappear into the void without the other. Wish me luck, Diary. I might need more than that."
-    },
-    "entry_3": {
-      "header": "23.04.2152",
-      "text":
-      "HALLOOOO TEST TEST"
-    }
+	},
+	"entry_3": {
+	  "header": "15.02.2151",
+	  "text":
+      "Big Research Update: \n \nA few days ago I finally got a hold of the thing I came to this planet for. The flower which is said to heal every wound and cure every sickness. I am spending a few more days here to complete the final stages of documentation on the flower. There are still a few observations that need to be recorded before I can conclude my research. After that, I will head back home and bring the flower to Earth."
+	}
   }
 }

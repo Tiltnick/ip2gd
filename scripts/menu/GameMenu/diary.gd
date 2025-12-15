@@ -2,6 +2,7 @@ extends Control
 
 var all_entries: Dictionary = {}
 var unlocked_entries: Array[String] = []
+signal entry_unlocked
 
 func _ready() -> void:
 	load_diary_data()
@@ -20,6 +21,7 @@ func load_diary_data():
 func unlock_entry(id: String):
 	if not unlocked_entries.has(id) and all_entries.has(id):
 		unlocked_entries.append(id)
+		emit_signal("entry_unlocked")
 
 func is_unlocked(id: String) -> bool:
 	return unlocked_entries.has(id)

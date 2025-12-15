@@ -11,9 +11,9 @@ var pages = []
 @onready var next_button: Button = $Panel2/NextButton
 
 func _ready() -> void:
+	Diary.entry_unlocked.connect(_on_entry_unlocked)
 	pages = build_all_pages()
 	update_pages()
-
 
 func open_entries():
 	pages = build_all_pages()
@@ -87,7 +87,11 @@ func _on_next_button_pressed() -> void:
 
 
 func _on_close_button_pressed() -> void:
-	
 	GameMenu.close_menu()
+
+func _on_entry_unlocked():
+	pages = build_all_pages()
+	current_page = 0
+	update_pages()
 
 	
