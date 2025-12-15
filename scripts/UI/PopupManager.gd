@@ -14,13 +14,23 @@ func _ready():
 	popup.visible = false
 
 #use insta popup
-func popup_show():
-	popup.show_popup("Use Spacegram to 
-	solve this riddle!", load("res://assets/sprites/selfmade/Spacegram_Logo.png") as Texture2D)
-	
+func popup_spacegram_de():
+	popup.show_popup("Nutze Spacegram um das Rätsel zu lösen!", load("res://assets/sprites/selfmade/Spacegram_Logo.png") as Texture2D)
+
+func popup_spacegram_en():
+	popup.show_popup("Use Spacegram to solve this riddle!", 
+	load("res://assets/sprites/selfmade/Spacegram_Logo.png") as Texture2D)
+
 #found item popup
 func popup_item_de(item: String, icon: Texture2D):
 	popup.show_popup("Item gefunden : " + item, icon)
 	
 func popup_item_en(item: String, icon: Texture2D):
 	popup.show_popup("Item found : " + item, icon)
+
+#found note popup
+func popup_diary_en():
+	popup.show_popup("New Diary entry!", load("res://assets/sprites/selfmade/note.png") as Texture2D)
+
+func popup_diary_de():
+	popup.show_popup("Neuer Tagebucheintrag!", load("res://assets/sprites/selfmade/note.png") as Texture2D)

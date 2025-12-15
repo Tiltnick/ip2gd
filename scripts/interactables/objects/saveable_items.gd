@@ -17,7 +17,14 @@ func _ready() -> void:
 
 func mark_collected() -> void:
 	var lang = TranslationServer.get_locale().substr(0, 2)
-	if save_id != "":
+	if save_id == "cave_note":
+		GameState.puzzle_state[save_id] = true
+		if lang == "de":
+			PopupManager.popup_diary_de()
+		elif lang == "en":
+			PopupManager.popup_diary_en()
+
+	if save_id != "cave_note":
 		GameState.puzzle_state[save_id] = true
 		if lang == "de":
 			PopupManager.popup_item_de(item_name_de, item_icon)

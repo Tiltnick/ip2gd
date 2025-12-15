@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bdqvh5ss8a2t4"]
 
-[ext_resource type="Script" path="res://scripts/interactables/objects/note.gd" id="1_q8bvt"]
+[ext_resource type="Script" uid="uid://du8wlbbsx7ucu" path="res://scripts/interactables/objects/note.gd" id="1_q8bvt"]
 [ext_resource type="Texture2D" uid="uid://cmjj585e7yq5p" path="res://assets/sprites/selfmade/note.png" id="2_h7x0p"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="3_q8bvt"]
 
@@ -14,6 +14,10 @@ size = Vector2(56, 52)
 
 [node name="Note" type="Node2D"]
 script = ExtResource("1_q8bvt")
+save_id = "cave_note"
+item_name_de = "Notiz"
+item_name_en = "Note"
+item_icon = ExtResource("2_h7x0p")
 metadata/_custom_type_script = "uid://c6cret5740xna"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -21,6 +25,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_h7x0p")
 
 [node name="Outline" type="Sprite2D" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_kcaly")
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_h7x0p")
