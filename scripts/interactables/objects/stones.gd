@@ -9,7 +9,7 @@ func interact() -> void:
 		if hotbarglobal.inventory_items.has("shovel"):
 			remove_stones()
 		else:
-			DialogManager.start_dialog("res://dialog/outside2/no_shovel.json")
+			DialogManager.start_dialog("res://dialog/innerMonologue/no_shovel.json")
 			
 	elif not is_in_group("stones"):
 		remove_stones()

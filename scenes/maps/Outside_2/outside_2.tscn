@@ -2111,6 +2111,7 @@ polygon = PackedVector2Array(-16, -11, -16, 15, -13, 15, -13, 20, -16, 20, -16, 
 
 [node name="Stones" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_qarrx")]
 position = Vector2(-103, 123)
+replace_object_scene = "uid://c7amjsaj2vw3u"
 e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="Objects/Stones" instance=ExtResource("10_exwp3")]
