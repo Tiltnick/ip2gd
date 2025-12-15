@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="8_myyye"]
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="10_r76a8"]
 [ext_resource type="PackedScene" uid="uid://m8y5i5u6eyka" path="res://scenes/maps/transition_area_fade.tscn" id="11_dkob4"]
-[ext_resource type="PackedScene" uid="uid://bnjx4jljcdw2x" path="res://scenes/interactables/objects/tripod.tscn" id="12_qv8vl"]
+[ext_resource type="PackedScene" uid="uid://ch3mxlgsh3het" path="res://scenes/interactables/objects/tripod.tscn" id="12_qv8vl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ax0hk"]
 texture = ExtResource("1_iu6ob")
@@ -521,7 +521,7 @@ offset_bottom = -27.0
 
 [node name="DoorAreaOutside2" type="Area2D" parent="."]
 script = ExtResource("10_r76a8")
-target_scene_path = "uid://34ylk7jtx176"
+target_scene_path = "uid://chb4fo2dp60ho"
 target_spawn_id = "from_outside1"
 metadata/_custom_type_script = "uid://omi26xfafgx0"
 
