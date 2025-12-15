@@ -14,7 +14,7 @@
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="11_1oksb"]
 [ext_resource type="Script" uid="uid://btvvee8ehjidi" path="res://scripts/riddles/spaceship_door/spaceship_door_door.gd" id="11_emg07"]
 [ext_resource type="PackedScene" uid="uid://dfa4ga2b2k76f" path="res://scenes/Menues/saving_menu.tscn" id="11_o77e3"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/doors/door_broken.tscn" id="12_4s1gq"]
+[ext_resource type="PackedScene" uid="uid://i0736j8r38e8" path="res://scenes/interactables/doors/door_broken.tscn" id="12_4s1gq"]
 [ext_resource type="Script" uid="uid://dge528a6i2b6f" path="res://scripts/interactables/doors/door.gd" id="13_4nltl"]
 [ext_resource type="Texture2D" uid="uid://c7pwwu6560hy4" path="res://assets/sprites/selfmade/spaceship_door_open.png" id="13_b8ov6"]
 [ext_resource type="PackedScene" uid="uid://bpvneidk4xerj" path="res://scenes/Riddles/Spaceship/spaceship_door_riddle.tscn" id="14_1oksb"]

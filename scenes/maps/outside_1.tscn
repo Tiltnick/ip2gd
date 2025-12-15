@@ -507,8 +507,9 @@ path_follow = NodePath("../NPCPath/NPCPathFollow")
 
 [node name="TransitionAreaFade" parent="." instance=ExtResource("11_dkob4")]
 
-[node name="tripod" parent="." instance=ExtResource("12_qv8vl")]
+[node name="tripod_bottom" parent="." instance=ExtResource("12_qv8vl")]
 position = Vector2(-328, -183)
+sky_scene_path = "uid://c1cu26niebyeg"
 
 [node name="DoorAreaOutside2" type="Area2D" parent="."]
 script = ExtResource("10_r76a8")

@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="11_3rchf"]
 [ext_resource type="PackedScene" uid="uid://bqck2a15x4s5n" path="res://scenes/interactables/objects/mushroom_socket.tscn" id="12_cfq5h"]
 [ext_resource type="PackedScene" uid="uid://58ehm0hl8qlg" path="res://scenes/Character/npc_porcini.tscn" id="13_sj13r"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/objects/stone_panel.tscn" id="13_wk4ve"]
+[ext_resource type="PackedScene" uid="uid://cxc57w1npotjm" path="res://scenes/interactables/objects/stone_panel.tscn" id="13_wk4ve"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="14_ny1p2"]
 [ext_resource type="PackedScene" uid="uid://dri71srb6nfk1" path="res://scenes/Character/npc_truffle.tscn" id="14_wk4ve"]
 [ext_resource type="PackedScene" uid="uid://1gjnalxntxuw" path="res://scenes/Riddles/stonepuzzle/puzzle.tscn" id="15_wk4ve"]
@@ -3976,6 +3976,7 @@ offset_right = -27.500036
 offset_bottom = -58.74992
 
 [node name="Puzzle" parent="." instance=ExtResource("15_wk4ve")]
+visible = false
 
 [node name="Hotbar" type="CanvasLayer" parent="."]
 layer = 0
