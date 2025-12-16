@@ -1,6 +1,7 @@
-[gd_scene load_steps=33 format=4 uid="uid://n5pfeqsgykkm"]
+[gd_scene load_steps=34 format=4 uid="uid://n5pfeqsgykkm"]
 
 [ext_resource type="Texture2D" uid="uid://kxs6kkm0ut6w" path="res://assets/sprites/map/Spaceship/background.png" id="1_4dxd0"]
+[ext_resource type="Script" uid="uid://6h2ivu8hvxck" path="res://scripts/scene_manager/spaceship_room.gd" id="1_mc6u0"]
 [ext_resource type="Texture2D" uid="uid://bbwtu422q5q3t" path="res://assets/sprites/map/Spaceship/foreground_pipes.png" id="2_xhx4c"]
 [ext_resource type="Texture2D" uid="uid://vuf15hf1msvt" path="res://assets/sprites/map/Spaceship/props-Sheet.png" id="3_o77xa"]
 [ext_resource type="Texture2D" uid="uid://kfintc48fnii" path="res://assets/sprites/map/Spaceship/props.png" id="4_rgnjo"]
@@ -2501,6 +2502,7 @@ sources/6 = SubResource("TileSetAtlasSource_l4scq")
 size = Vector2(94, 20)
 
 [node name="Spaceship_Room" type="Node2D"]
+script = ExtResource("1_mc6u0")
 
 [node name="Ground" type="TileMapLayer" parent="."]
 z_index = -1

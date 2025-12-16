@@ -41,7 +41,7 @@ func interact() -> void:
 			door_open()
 
 			open_door()
-			DialogManager.start_dialog("res://dialog/spaceship/door_opened.json")
+			
 		else:
 			DialogManager.start_dialog("res://dialog/spaceship/door_locked.json")
 			

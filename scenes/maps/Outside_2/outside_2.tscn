@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://m8y5i5u6eyka" path="res://scenes/maps/transition_area_fade.tscn" id="17_ew4ox"]
 [ext_resource type="PackedScene" uid="uid://bwhu76fxy1g07" path="res://scenes/interactables/objects/statue.tscn" id="17_l2mbr"]
 [ext_resource type="PackedScene" uid="uid://dgxcraqxfqci7" path="res://scenes/Riddles/riddle_statue/riddle_statue.tscn" id="18_l2mbr"]
-[ext_resource type="PackedScene" uid="uid://ch3mxlgsh3het" path="res://scenes/interactables/objects/tripod.tscn" id="19_on5tc"]
+[ext_resource type="PackedScene" uid="uid://bnjx4jljcdw2x" path="res://scenes/interactables/objects/tripod.tscn" id="19_on5tc"]
 [ext_resource type="Script" uid="uid://bkmuaqelrfjke" path="res://scripts/riddles/sky_riddle/tripod_middle.gd" id="20_f8agi"]
 [ext_resource type="Script" uid="uid://dr1kl8nrqtby" path="res://scripts/riddles/sky_riddle/tripod_top.gd" id="21_bk0mb"]
 
