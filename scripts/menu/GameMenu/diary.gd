@@ -30,4 +30,5 @@ func get_header(id: String) -> String:
 	return all_entries[id].get("header", "")
 
 func get_text(id: String) -> String:
-	return all_entries[id].get("text", "")
+	
+	return all_entries[id].get("text_de", "")

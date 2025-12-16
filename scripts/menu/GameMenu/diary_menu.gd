@@ -35,8 +35,7 @@ func update_pages():
 		$Panel2.hide()
 	prev_button.disabled = current_page == 0
 	next_button.disabled = current_page + 2 >= pages.size()
-	print(pages.size())
-	print(current_page + 2)
+
 
 func _split_into_pages(text: String, max_chars_per_page: int) -> Array[String]:
 	var result: Array[String] = []
@@ -61,8 +60,9 @@ func _split_into_pages(text: String, max_chars_per_page: int) -> Array[String]:
 func build_all_pages():
 	var combined_pages = []
 	var max_chars = 750
-	
+
 	for id in Diary.unlocked_entries:
+		
 		var header = Diary.get_header(id)
 		var full_text = Diary.get_text(id)
 		var auto_pages = _split_into_pages(full_text, max_chars)
