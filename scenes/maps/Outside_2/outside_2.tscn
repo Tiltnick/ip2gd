@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://34ylk7jtx176"]
+[gd_scene load_steps=44 format=4 uid="uid://34ylk7jtx176"]
 
 [ext_resource type="Script" uid="uid://f7c56kdptn0k" path="res://scripts/scene_manager/outside_2.gd" id="1_7t2bs"]
 [ext_resource type="Texture2D" uid="uid://dqoxkjxdkwqgu" path="res://assets/sprites/map/Outside_2/spaceship.png" id="2_f8agi"]
@@ -19,10 +19,11 @@
 [ext_resource type="PackedScene" uid="uid://bwhu76fxy1g07" path="res://scenes/interactables/objects/statue.tscn" id="17_l2mbr"]
 [ext_resource type="PackedScene" uid="uid://dgxcraqxfqci7" path="res://scenes/Riddles/riddle_statue/riddle_statue.tscn" id="18_l2mbr"]
 [ext_resource type="PackedScene" uid="uid://bnjx4jljcdw2x" path="res://scenes/interactables/objects/tripod.tscn" id="19_on5tc"]
-[ext_resource type="Script" path="res://scripts/riddles/sky_riddle/tripod_middle.gd" id="20_f8agi"]
+[ext_resource type="Script" uid="uid://bkmuaqelrfjke" path="res://scripts/riddles/sky_riddle/tripod_middle.gd" id="20_f8agi"]
 [ext_resource type="PackedScene" uid="uid://dkl4wilu1mavv" path="res://scenes/interactables/objects/stone pieces/stone_piece_4.tscn" id="21_3tmc5"]
-[ext_resource type="Script" path="res://scripts/riddles/sky_riddle/tripod_top.gd" id="21_bk0mb"]
+[ext_resource type="Script" uid="uid://dr1kl8nrqtby" path="res://scripts/riddles/sky_riddle/tripod_top.gd" id="21_bk0mb"]
 [ext_resource type="PackedScene" uid="uid://cg8acpjft0f2m" path="res://scenes/interactables/objects/stone pieces/stone_piece_5.tscn" id="22_pkhcj"]
+[ext_resource type="PackedScene" uid="uid://cxue3cw47klvm" path="res://scenes/Riddles/Outside_2/treasure_chest_riddle.tscn" id="24_iaftu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bk0mb"]
 texture = ExtResource("2_f8agi")
@@ -2166,7 +2167,7 @@ scale = Vector2(11.960439, -8.005182)
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-position = Vector2(16, 9)
+position = Vector2(5, 5)
 build_mode = 1
 polygon = PackedVector2Array(-772, -705, -2, -705, -6, 332, -305, 334, -305, 365, -422, 365, -422, 332, -771, 332, -772, -529, -799, -529, -798, -623, -773, -623)
 
@@ -2262,9 +2263,6 @@ material = SubResource("ShaderMaterial_h3v21")
 visible = false
 z_index = 2
 position = Vector2(-617, -283)
-
-[node name="Shovel2" parent="Objects" instance=ExtResource("10_o6c6f")]
-position = Vector2(-198, 119)
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 position = Vector2(-360, 262)
@@ -2403,5 +2401,6 @@ offset_top = -20.0
 offset_right = -5.0
 offset_bottom = -20.0
 scale = Vector2(0.5, 0.5)
-[node name="TreasureChestRiddle" parent="." instance=ExtResource("21_3tmc5")]
+
+[node name="TreasureChestRiddle" parent="." instance=ExtResource("24_iaftu")]
 visible = false
