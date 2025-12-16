@@ -3930,7 +3930,7 @@ position = Vector2(763, -359)
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("11_3rchf")
-target_scene_path = "uid://34ylk7jtx176"
+target_scene_path = "uid://chb4fo2dp60ho"
 target_spawn_id = "from_outside3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
