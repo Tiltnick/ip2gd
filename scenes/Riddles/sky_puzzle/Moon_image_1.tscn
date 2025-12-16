@@ -7,7 +7,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1kk46"]
 shader = ExtResource("4_sfosv")
-shader_parameter/light_pos = Vector2(200, 200)
+shader_parameter/light_uv = Vector2(0.5, 0.5)
 shader_parameter/radius = 140.0
 shader_parameter/softness = 80.0
 shader_parameter/darkness_alpha = 1.0

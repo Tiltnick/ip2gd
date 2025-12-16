@@ -8,7 +8,6 @@ extends Control
 @export var darkness_alpha := 1.0
 
 func _ready() -> void:
-	# Damit die Maus sichtbar bleibt (optional)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 	mat.set_shader_parameter("radius", radius)
@@ -16,16 +15,9 @@ func _ready() -> void:
 	mat.set_shader_parameter("darkness_alpha", darkness_alpha)
 
 func _process(_delta: float) -> void:
-	# Mausposition in SCREEN-Pixeln
 	var mpos: Vector2 = get_viewport().get_mouse_position()
-	mat.set_shader_parameter("light_pos", mpos)
+	var vsize: Vector2 = get_viewport().get_visible_rect().size
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"): # ESC
-		# verhindert, dass dein normales ESC-Menü noch reagiert
-		get_viewport().set_input_as_handled()
-
-		if GameState.return_scene_path != "":
-			SceneManager.goto_scene(GameState.return_scene_path, "start")
-		else:
-			print("Kein return_scene_path gesetzt!")
+	# UV (0..1)
+	var muv := mpos / vsize
+	mat.set_shader_parameter("light_uv", muv)
