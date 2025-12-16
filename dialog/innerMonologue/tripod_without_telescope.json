@@ -1,0 +1,24 @@
+{
+  "id": "tripod_without_telescope",
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "Mhh..."
+							,"text_de": "Mhh..." },
+							
+		{ "speaker": "Oris", "text_en": "This is a tripod. But I don't have anything for it..."
+							,"text_de": "Das ist ein Stativ. Aber ich habe nichts dafür..." },
+							
+		{ "speaker": "Oris", "text_en": "Maybe I'll find something else and can use it later."
+							,"text_de": "Vielleicht finde ich noch etwas und kann es später benutzen."},
+							
+
+	  ]
+	},
+
+	"end": { "lines": [] }
+  }
+}

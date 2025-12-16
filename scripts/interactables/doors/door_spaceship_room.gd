@@ -39,7 +39,6 @@ func interact() -> void:
 
 			# Tür optisch öffnen + Zustand merken
 			door_open()
-
 			open_door()
 			
 		else:

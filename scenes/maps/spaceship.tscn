@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://csejhruust020"]
+[gd_scene load_steps=31 format=4 uid="uid://csejhruust020"]
 
 [ext_resource type="Script" uid="uid://dkosu7fsxv5uu" path="res://scripts/scene_manager/spaceship.gd" id="1_k18lp"]
 [ext_resource type="Texture2D" uid="uid://kxs6kkm0ut6w" path="res://assets/sprites/map/Spaceship/background.png" id="1_krvlx"]

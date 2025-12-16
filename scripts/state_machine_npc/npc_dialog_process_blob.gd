@@ -13,7 +13,7 @@ const OUTSIDE1_FLOW := [
 	}
 ]
 
-const OUTSIDE1_END := ""
+const OUTSIDE1_END := "res://dialog/dialogueMrBlob/outside_1_end.json"
 
 # Reihenfolge wichtig
 const OUTSIDE2_FLOW := [

@@ -1,0 +1,16 @@
+{
+  "id": "mr_blob_intro_end",
+  "characters": {
+	"Mr. Blob": "res://assets/sprites/portrait/MrBlobs.png",
+  },
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text_en": "Go check Spacegram and find your little friend. I’m sure we’ll meet again… Good luck on your journey, @oris.is.here…"
+								,"text_de": "Geh auf Spacegram und finde deinen kleinen Freund. Ich bin sicher, wir sehen uns wieder… Viel Glück auf deiner Reise, @oris.is.here…" },
+	  ]
+	},
+
+	"end": { "lines": [] }
+  }
+}
