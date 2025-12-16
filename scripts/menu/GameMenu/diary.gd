@@ -30,5 +30,11 @@ func get_header(id: String) -> String:
 	return all_entries[id].get("header", "")
 
 func get_text(id: String) -> String:
-	
-	return all_entries[id].get("text_de", "")
+	print(TranslationServer.get_locale().substr(0, 2))
+	var lang = TranslationServer.get_locale().substr(0, 2)
+	if lang == "en":
+		return all_entries[id].get("text_en", "")
+	elif lang == "de":
+		return all_entries[id].get("text_de", "")
+	else:
+		return all_entries[id].get("text_de", "")
