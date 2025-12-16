@@ -1,9 +1,5 @@
 extends ZoomStoreItem
-class_name telescopeItem
-
-#@onready var anim: AnimatedSprite2D = $anim
-
-#var opened := false
+class_name TelescopeItem
 
 func _ready() -> void:
 	save_id = "telescope1"
@@ -12,6 +8,16 @@ func _ready() -> void:
 	item_name_de = "Teleskop"
 	item_name_en = "Telescope"
 	super._ready()
+
+func interact() -> void:
+	# In der Welt: direkt einsammeln, kein Zoom
+	if not spawned_from_hotbar:
+		_store_in_hotbar()
+		return
+
+	# Aus der Hotbar: normale Zoom-Logik
+	super.interact()
+
 
 	## Falls schon geöffnet gespeichert:
 	#if save_id != "" and GameState.puzzle_state.get(save_id, false):
