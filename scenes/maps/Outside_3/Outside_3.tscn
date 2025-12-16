@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://fos4g6vi8gia" path="res://assets/sprites/map/Outside_3/Props.png" id="5_yfq04"]
 [ext_resource type="PackedScene" uid="uid://dflp4q827pupx" path="res://scenes/Character/npc_champignon.tscn" id="9_kbu53"]
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="11_3rchf"]
-[ext_resource type="PackedScene" uid="uid://bqck2a15x4s5n" path="res://scenes/interactables/objects/mushroom_socket.tscn" id="12_cfq5h"]
+[ext_resource type="PackedScene" uid="uid://bqck2a15x4s5n" path="res://scenes/Riddles/mushroom/mushroom_socket.tscn" id="12_cfq5h"]
 [ext_resource type="PackedScene" uid="uid://58ehm0hl8qlg" path="res://scenes/Character/npc_porcini.tscn" id="13_sj13r"]
 [ext_resource type="PackedScene" uid="uid://cxc57w1npotjm" path="res://scenes/interactables/objects/stone_panel.tscn" id="13_wk4ve"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="14_ny1p2"]
@@ -24,8 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://h8yjacx3dw73" path="res://scenes/interactables/objects/mushrooms/red_mush.tscn" id="23_3h5uc"]
 [ext_resource type="PackedScene" uid="uid://cbquy1j63ujkx" path="res://scenes/interactables/objects/mushrooms/yellow_mush.tscn" id="24_54y3o"]
 [ext_resource type="PackedScene" uid="uid://bhoaqyfoiwhbt" path="res://scenes/Riddles/mushroom/mushroom_ui.tscn" id="25_0fq4m"]
-[ext_resource type="PackedScene" uid="uid://cc56upiuyf8v1" path="res://scenes/Character/npc.tscn" id="25_1k6v6"]
 [ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="26_1k6v6"]
+[ext_resource type="PackedScene" uid="uid://3je85k2bk5gy" path="res://scenes/interactables/objects/stone pieces/stone_piece_6.tscn" id="26_3h5uc"]
 [ext_resource type="PackedScene" uid="uid://c0vonwkvy4jaa" path="res://scenes/interactables/objects/mushrooms/fire_mush.tscn" id="27_3h5uc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4bq6r"]
@@ -3965,27 +3965,27 @@ position = Vector2(544, 232)
 move_speed = 30.0
 
 [node name="champi_socket" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_cfq5h")]
-position = Vector2(391.99997, 208)
+position = Vector2(439.99994, 208)
 scale = Vector2(0.3, 0.3)
-e_popup_node = NodePath("Press_E_Popup")
-
-[node name="Press_E_Popup" parent="champi_socket" instance=ExtResource("14_ny1p2")]
-visible = false
-offset_left = -19.999878
-offset_top = -100.0
-offset_right = -19.999878
-offset_bottom = -100.0
-scale = Vector2(2, 2)
+e_popup_node = NodePath("../truffle_socket/Press_E_Popup")
 
 [node name="porcini_socket" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_cfq5h")]
 position = Vector2(344.00003, 208)
 scale = Vector2(0.3, 0.3)
-e_popup_node = NodePath("../champi_socket/Press_E_Popup")
+e_popup_node = NodePath("../truffle_socket/Press_E_Popup")
 
 [node name="truffle_socket" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_cfq5h")]
-position = Vector2(439.99997, 208)
+position = Vector2(391.99997, 208)
 scale = Vector2(0.3, 0.3)
-e_popup_node = NodePath("../champi_socket/Press_E_Popup")
+e_popup_node = NodePath("Press_E_Popup")
+
+[node name="Press_E_Popup" parent="truffle_socket" instance=ExtResource("14_ny1p2")]
+visible = false
+offset_left = 140.0
+offset_top = -100.0
+offset_right = 140.0
+offset_bottom = -100.0
+scale = Vector2(2, 2)
 
 [node name="StonePanel" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("13_wk4ve")]
 position = Vector2(344, -656.00006)
@@ -4010,7 +4010,7 @@ mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="BlueMush" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("18_cfewm")]
-position = Vector2(400.00012, -160.00008)
+position = Vector2(739.0002, -651)
 scale = Vector2(0.4, 0.4)
 piece_save_id = "blue_mush"
 hotbar_type_id = "mushrooms"
@@ -4021,9 +4021,13 @@ e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="BlueMush" instance=ExtResource("14_ny1p2")]
 visible = false
+offset_left = -10.0
+offset_top = -42.5
+offset_right = -10.0
+offset_bottom = -42.5
 
 [node name="BrownMush" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("20_cfewm")]
-position = Vector2(288, -152.00002)
+position = Vector2(56.00007, -136.00005)
 scale = Vector2(0.4, 0.4)
 piece_save_id = "brown_mush"
 hotbar_type_id = "mushrooms"
@@ -4091,7 +4095,7 @@ offset_right = -10.0
 offset_bottom = -42.5
 
 [node name="YellowMush" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("24_54y3o")]
-position = Vector2(338, -161.00012)
+position = Vector2(211.0001, -642.00006)
 scale = Vector2(0.4, 0.4)
 piece_save_id = "yellow_mush"
 hotbar_type_id = "mushrooms"
@@ -4103,9 +4107,9 @@ e_popup_node = NodePath("Press_E_Popup")
 [node name="Press_E_Popup" parent="YellowMush" instance=ExtResource("14_ny1p2")]
 visible = false
 offset_left = -10.000076
-offset_top = -40.0
+offset_top = -42.5
 offset_right = -10.000076
-offset_bottom = -40.0
+offset_bottom = -42.5
 
 [node name="MapBounds" type="StaticBody2D" parent="."]
 
@@ -4117,14 +4121,26 @@ polygon = PackedVector2Array(-770, -705, -2, -705, -1, -451, 27, -450, 28, -242,
 [node name="MushroomUi" parent="." instance=ExtResource("25_0fq4m")]
 visible = false
 
-[node name="NPC" parent="." instance=ExtResource("25_1k6v6")]
-position = Vector2(544, -368)
-
 [node name="Character" parent="." instance=ExtResource("26_1k6v6")]
 position = Vector2(416, -208)
 
-[node name="FireMush" parent="." instance=ExtResource("27_3h5uc")]
-mush_name_de = "Feuerpilz"
-mush_name_en = "fire mushroom"
+[node name="StonePiece6" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("26_3h5uc")]
+z_index = 0
+position = Vector2(96, 96)
+e_popup_node = NodePath("Press_E_Popup")
 
-[editable path="NPC"]
+[node name="Press_E_Popup" parent="StonePiece6" instance=ExtResource("14_ny1p2")]
+visible = false
+offset_left = -5.0
+offset_top = -15.0
+offset_right = -5.0
+offset_bottom = -15.0
+scale = Vector2(0.5, 0.5)
+
+[node name="FireMush" parent="." instance=ExtResource("27_3h5uc")]
+visible = false
+position = Vector2(339.0602, -345.28543)
+
+[editable path="champi_socket"]
+[editable path="porcini_socket"]
+[editable path="truffle_socket"]

@@ -10,6 +10,13 @@ extends CanvasLayer
 @onready var porcini: TextureRect = $planet/porcini
 @onready var mushrooms: Node2D = $mushrooms
 
+@onready var truffle_socket: Sprite2D = $"../truffle_socket/mushroom_socket"
+@onready var porcini_socket: Sprite2D = $"../porcini_socket/mushroom_socket"
+@onready var champi_socket: Sprite2D = $"../champi_socket/mushroom_socket"
+
+@onready var truffle_solved_tex: Texture2D = preload("res://assets/sprites/selfmade/mushrooms/solved_truffle.png")
+@onready var champi_solved_tex: Texture2D = preload("res://assets/sprites/selfmade/mushrooms/solved_champi.png")
+@onready var porcini_solved_tex: Texture2D = preload("res://assets/sprites/selfmade/mushrooms/solved_porcini.png")
 
 @onready var mush_nodes := {
 	"green_mush":  $mushrooms/green_mush,
@@ -26,6 +33,12 @@ extends CanvasLayer
 var solved = false
 var fill_order: Array = []
 
+func _ready() -> void:
+	if GameState.puzzle_state.get(puzzle_id, false):
+		solved = true
+		is_solved()
+		solved_layout()
+	
 
 func open_socket():
 	mushroom_ui.show()
@@ -35,7 +48,6 @@ func open_socket():
 
 	if GameState.puzzle_state.get(puzzle_id, false):
 		solved = true
-		print("has saved")
 		is_solved()
 		solved_layout()
 		return
@@ -88,6 +100,11 @@ func is_solved():
 	porcini.texture = porcini_solved
 	champi.texture = champi_solved
 	truffle.texture = truffle_solved
+	
+	truffle_socket.texture = truffle_solved_tex
+	porcini_socket.texture = porcini_solved_tex
+	champi_socket.texture = champi_solved_tex
+	
 	solved_layout()
 
 
@@ -129,7 +146,6 @@ func _on_close_button_pressed() -> void:
 	GameState.puzzle_state[key] = true
 	DialogManager.start_dialog("res://dialog/mushrooms/solved_riddle.json")
 	DialogManager.dialog_finished.connect(_on_solved_dialog_finished, CONNECT_ONE_SHOT)
-
 
 
 func _on_solved_dialog_finished():

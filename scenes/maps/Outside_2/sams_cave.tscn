@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cbsuctc5xrvkk"]
+[gd_scene load_steps=13 format=4 uid="uid://cbsuctc5xrvkk"]
 
 [ext_resource type="Texture2D" uid="uid://b6keejiu00fdc" path="res://assets/sprites/map/Outside_2/sams_cave/Ground.png" id="1_b510g"]
 [ext_resource type="Script" uid="uid://j2wrekjoepvn" path="res://scripts/scene_manager/sams_cave.gd" id="1_oqthk"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="5_vquj5"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="6_ueyxl"]
 [ext_resource type="PackedScene" uid="uid://dfa4ga2b2k76f" path="res://scenes/Menues/saving_menu.tscn" id="7_oqthk"]
+[ext_resource type="PackedScene" uid="uid://q14hqjnanl46" path="res://scenes/interactables/objects/stone pieces/stone_piece_3.tscn" id="9_h0b43"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5bvjp"]
 texture = ExtResource("1_b510g")
@@ -335,6 +336,7 @@ build_mode = 1
 polygon = PackedVector2Array(-721, 209, 751, 209, 753, -781, -723, -781)
 
 [node name="Dark" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Note" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("4_esekf")]
@@ -379,3 +381,16 @@ layer = 0
 
 [node name="CanvasLayer" parent="." instance=ExtResource("7_oqthk")]
 visible = false
+
+[node name="StonePiece3" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("9_h0b43")]
+z_index = 0
+position = Vector2(175, -285)
+e_popup_node = NodePath("Press_E_Popup")
+
+[node name="Press_E_Popup" parent="StonePiece3" instance=ExtResource("5_vquj5")]
+visible = false
+offset_left = -5.0
+offset_top = -20.0
+offset_right = -5.0
+offset_bottom = -20.0
+scale = Vector2(0.5, 0.5)

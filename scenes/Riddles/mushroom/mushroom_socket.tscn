@@ -9,8 +9,9 @@ shader = ExtResource("3_7oed5")
 shader_parameter/outline_size = 2.0
 shader_parameter/outline_color = Vector4(1, 1, 1, 1)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_igphv"]
-radius = 72.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_atghx"]
+radius = 64.0
+height = 448.81
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aseld"]
 radius = 48.0
@@ -30,7 +31,8 @@ texture = ExtResource("2_7oed5")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_igphv")
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_atghx")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

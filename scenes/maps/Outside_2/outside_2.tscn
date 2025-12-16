@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://34ylk7jtx176"]
+[gd_scene load_steps=41 format=4 uid="uid://34ylk7jtx176"]
 
 [ext_resource type="Script" uid="uid://f7c56kdptn0k" path="res://scripts/scene_manager/outside_2.gd" id="1_7t2bs"]
 [ext_resource type="Texture2D" uid="uid://dqoxkjxdkwqgu" path="res://assets/sprites/map/Outside_2/spaceship.png" id="2_f8agi"]
@@ -18,8 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://bwhu76fxy1g07" path="res://scenes/interactables/objects/statue.tscn" id="17_l2mbr"]
 [ext_resource type="PackedScene" uid="uid://dgxcraqxfqci7" path="res://scenes/Riddles/riddle_statue/riddle_statue.tscn" id="18_l2mbr"]
 [ext_resource type="PackedScene" uid="uid://bnjx4jljcdw2x" path="res://scenes/interactables/objects/tripod.tscn" id="19_on5tc"]
-[ext_resource type="Script" uid="uid://bkmuaqelrfjke" path="res://scripts/riddles/sky_riddle/tripod_middle.gd" id="20_f8agi"]
-[ext_resource type="Script" uid="uid://dr1kl8nrqtby" path="res://scripts/riddles/sky_riddle/tripod_top.gd" id="21_bk0mb"]
+[ext_resource type="Script" path="res://scripts/riddles/sky_riddle/tripod_middle.gd" id="20_f8agi"]
+[ext_resource type="PackedScene" uid="uid://dkl4wilu1mavv" path="res://scenes/interactables/objects/stone pieces/stone_piece_4.tscn" id="21_3tmc5"]
+[ext_resource type="Script" path="res://scripts/riddles/sky_riddle/tripod_top.gd" id="21_bk0mb"]
+[ext_resource type="PackedScene" uid="uid://cg8acpjft0f2m" path="res://scenes/interactables/objects/stone pieces/stone_piece_5.tscn" id="22_pkhcj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bk0mb"]
 texture = ExtResource("2_f8agi")
@@ -2359,3 +2361,29 @@ offset_left = -10.0
 offset_top = -27.0
 offset_right = -10.0
 offset_bottom = -27.0
+
+[node name="StonePiece4" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("21_3tmc5")]
+z_index = 0
+position = Vector2(-720, -112)
+e_popup_node = NodePath("Press_E_Popup")
+
+[node name="Press_E_Popup" parent="StonePiece4" instance=ExtResource("10_exwp3")]
+visible = false
+offset_left = -4.0
+offset_top = -16.0
+offset_right = -4.0
+offset_bottom = -16.0
+scale = Vector2(0.5, 0.5)
+
+[node name="StonePiece5" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("22_pkhcj")]
+z_index = 0
+position = Vector2(-384, -480)
+e_popup_node = NodePath("Press_E_Popup")
+
+[node name="Press_E_Popup" parent="StonePiece5" instance=ExtResource("10_exwp3")]
+visible = false
+offset_left = -5.0
+offset_top = -20.0
+offset_right = -5.0
+offset_bottom = -20.0
+scale = Vector2(0.5, 0.5)
