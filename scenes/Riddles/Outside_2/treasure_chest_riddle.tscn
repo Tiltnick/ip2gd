@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxue3cw47klvm"]
+[gd_scene load_steps=12 format=3 uid="uid://cxue3cw47klvm"]
 
 [ext_resource type="Script" uid="uid://bwfy1y2qyf3au" path="res://scripts/riddles/treasure_chest/treasure_chest_riddle.gd" id="1_0tp8k"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_oso74"]
 [ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="2_0tp8k"]
+[ext_resource type="Texture2D" uid="uid://cmhod2lje4vul" path="res://assets/sprites/map/Outside_2/Bug1.png" id="3_sltra"]
+[ext_resource type="Texture2D" uid="uid://cj5uhiref5lb0" path="res://assets/sprites/map/Outside_2/Bug2.png" id="4_56wrd"]
+[ext_resource type="Texture2D" uid="uid://21x18duwnoy1" path="res://assets/sprites/map/Outside_2/Bug3.png" id="5_tt0ug"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vk34"]
 bg_color = Color(0.8804738, 0.6544611, 0.27897492, 1)
@@ -81,10 +84,10 @@ anchor_left = -0.34600002
 anchor_top = -0.333
 anchor_right = 1.3670001
 anchor_bottom = 1.3700001
-offset_left = -8.561951
-offset_top = -16.215988
-offset_right = -838.1438
-offset_bottom = -471.76007
+offset_left = -8.061951
+offset_top = -21.216003
+offset_right = -837.6438
+offset_bottom = -476.76007
 scale = Vector2(1.725, 1.725)
 
 [node name="Panel2" type="Panel" parent="Control"]
@@ -114,12 +117,34 @@ text = "Um hier zu passieren muss der Spieler die Menge
 der verschieden Käfer finden, die in der Wüste spazieren!"
 horizontal_alignment = 1
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Panel2"]
+layout_mode = 0
+offset_left = 0.9999996
+offset_top = 144.0
+offset_right = 533.9032
+offset_bottom = 192.0
+scale = Vector2(1.55, 1.55)
+theme_override_constants/separation = 21
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel2/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("3_sltra")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/Panel2/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("4_56wrd")
+
+[node name="TextureRect3" type="TextureRect" parent="Control/Panel2/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("5_tt0ug")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel2"]
 layout_mode = 0
 offset_left = 92.999985
-offset_top = 197.0
+offset_top = 232.0
 offset_right = 467.26898
-offset_bottom = 242.756
+offset_bottom = 277.75598
 scale = Vector2(1.71, 1.71)
 theme_override_constants/separation = 14
 alignment = 1
@@ -139,16 +164,6 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_oso74")
 alignment = 1
 
-[node name="EnterButton" type="Button" parent="Control/Panel2"]
-layout_mode = 0
-offset_left = 341.0
-offset_top = 316.0
-offset_right = 482.0
-offset_bottom = 347.0
-theme_override_fonts/font = ExtResource("1_oso74")
-theme_override_font_sizes/font_size = 21
-text = "Verify"
-
 [node name="RoundButtton" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = 1
@@ -167,3 +182,5 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_56wrd")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tt0ug")
 icon = ExtResource("2_0tp8k")
 icon_alignment = 1
+
+[connection signal="pressed" from="Control/RoundButtton" to="." method="_on_round_buttton_pressed"]
