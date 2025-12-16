@@ -74,3 +74,5 @@ func hotbar_activate():
 	z_index = 100
 
 	_zoom_in()
+	
+	
