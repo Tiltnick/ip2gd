@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://v21ssku3qit5"]
+
+[ext_resource type="Texture2D" uid="uid://vuf15hf1msvt" path="res://assets/sprites/map/Spaceship/props-Sheet.png" id="3_r3mwv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aeyaq"]
+atlas = ExtResource("3_r3mwv")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8khok"]
+atlas = ExtResource("3_r3mwv")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0ebl"]
+atlas = ExtResource("3_r3mwv")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxqx5"]
+atlas = ExtResource("3_r3mwv")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g1n1c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aeyaq")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8khok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0ebl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxqx5")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="cabinet" type="Node2D"]
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_g1n1c")
+animation = &"open"

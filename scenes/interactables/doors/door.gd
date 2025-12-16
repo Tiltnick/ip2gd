@@ -14,6 +14,7 @@ func _ready():
 
 func interact() -> void:
 	#check if item 
+	pass
 
 
 func door_locked():

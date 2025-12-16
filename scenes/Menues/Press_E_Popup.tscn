@@ -3,11 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://dh34ug5pqv358" path="res://assets/sprites/selfmade/Popup_E.png" id="1_80jwv"]
 
 [node name="Press_E_Popup" type="Control"]
-z_index = 5
 layout_mode = 3
 anchors_preset = 0
 
 [node name="E" type="TextureRect" parent="."]
+z_index = 10
 layout_mode = 0
 offset_top = 1.0
 offset_right = 25.5

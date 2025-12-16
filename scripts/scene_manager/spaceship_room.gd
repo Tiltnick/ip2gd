@@ -1,7 +1,9 @@
 extends Node2D
 
 func _ready() -> void:
-	pass
+	if not GameState.puzzle_state.get("spaceship_room_done", false):
+		GameState.puzzle_state["spaceship_room_done"] = true
+		DialogManager.start_dialog("res://dialog/spaceship/door_opened.json")
 
 
 func configure_camera(cam: Camera2D) -> void:

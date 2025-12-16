@@ -1,18 +1,19 @@
 shader_type canvas_item;
 
-uniform vec2  light_pos = vec2(200.0, 200.0);
+uniform vec2  light_uv = vec2(0.5, 0.5);
 uniform float radius    = 140.0;
-uniform float softness  = 80.0;
+uniform float softness  = 80.0;    
 uniform float darkness_alpha = 1.0;
 
 void fragment() {
-    // Pixelposition dieses Fragments im Screen
-    vec2 frag_pos = SCREEN_UV * vec2(SCREEN_PIXEL_SIZE.x > 0.0 ? 1.0 / SCREEN_PIXEL_SIZE.x : 0.0,
-                                     SCREEN_PIXEL_SIZE.y > 0.0 ? 1.0 / SCREEN_PIXEL_SIZE.y : 0.0);
+    vec2 viewport_size = 1.0 / SCREEN_PIXEL_SIZE;
 
-    float d = distance(frag_pos, light_pos);
+    // in Pixel umrechnen
+    vec2 frag_px  = SCREEN_UV * viewport_size;
+    vec2 light_px = light_uv   * viewport_size;
+
+    float d = distance(frag_px, light_px);
     float t = smoothstep(radius, radius + softness, d);
 
-    // Außen schwarz, innen transparent
     COLOR = vec4(0.0, 0.0, 0.0, darkness_alpha * t);
 }

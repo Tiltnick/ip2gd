@@ -30,6 +30,12 @@ func _zoom_in():
 	if e_popup_node:
 		e_popup_node.visible = false
 
+	# items in mitte des screens zoomen
+	var vp := get_viewport()
+	var screen_center := vp.get_visible_rect().size * 0.5
+	global_position = vp.get_canvas_transform().affine_inverse() * screen_center
+
+	
 	var t := create_tween()
 	t.tween_property(self, "scale", start_scale * 7, 0.2)
 
@@ -68,3 +74,5 @@ func hotbar_activate():
 	z_index = 100
 
 	_zoom_in()
+	
+	

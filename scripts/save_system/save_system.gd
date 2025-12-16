@@ -73,5 +73,9 @@ func load_game() -> bool:
 	# beim nächsten Szenenwechsel gespeicherte Position benutzen
 	GameState.use_saved_position = true
 
+	# Sprache nach dem Laden erneut anwenden
+	if has_node("/root/LanguageManager"):
+		get_node("/root/LanguageManager").apply_language()
+
 	print("Spiel geladen von: ", SAVE_PATH)
 	return true

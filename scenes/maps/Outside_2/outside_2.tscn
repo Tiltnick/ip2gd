@@ -2031,9 +2031,9 @@ shader_parameter/outline_color = Vector4(1, 1, 1, 1)
 
 [sub_resource type="Curve2D" id="Curve2D_hiyfs"]
 _data = {
-"points": PackedVector2Array(11.075592, -52.626648, 0, 0, 381.6104, -49, 0, 0, 0, 0, 320.97836, -14, 0, 0, 0, 0, 149.40259, 7, 0, 0, 0, 0, 135.85715, -105, -11.4258585, 36.868446, 11.4258585, -36.868446, 128.11688, -262, 0, 0, 0, 0, 149.40259, -172, 0, 0, 0, 0, 184.23376, -102, 0, 0, 0, 0, 252.60608, -132, 0, 0, 0, 0, 260.99133, -249, 0, 0, 0, 0, 285.5022, -261, 0, 0, 0, 0, 344.84418, -232, 0, 0, 0, 0, 382.25543, -131, 0, 0, 0, 0, 388.70563, -74, 0, 0, 0, 0, 381.6104, -49)
+"points": PackedVector2Array(11.075592, -52.626648, 0, 0, 291.30737, -66, 0, 0, 0, 0, 279.69696, -8, 0, 0, 0, 0, 149.40259, 7, 0, 0, 0, 0, 135.85715, -105, -11.4258585, 36.868446, 11.4258585, -36.868446, 128.11688, -262, 0, 0, 0, 0, 149.40259, -172, 0, 0, 0, 0, 184.23376, -102, 0, 0, 0, 0, 252.60608, -132, 0, 0, 0, 0, 260.99133, -249, 0, 0, 0, 0, 285.5022, -261, 0, 0, 0, 0, 344.84418, -232, 0, 0, 0, 0, 342.2641, -173, 0, 0, 0, 0, 308.07794, -121)
 }
-point_count = 14
+point_count = 13
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6c6f"]
 size = Vector2(117, 20)
@@ -2165,7 +2165,7 @@ scale = Vector2(11.960439, -8.005182)
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-position = Vector2(3, 3)
+position = Vector2(16, 9)
 build_mode = 1
 polygon = PackedVector2Array(-772, -705, -2, -705, -6, 332, -305, 334, -305, 365, -422, 365, -422, 332, -771, 332, -772, -529, -799, -529, -798, -623, -773, -623)
 
@@ -2210,9 +2210,9 @@ offset_right = -10.0
 offset_bottom = -54.0
 
 [node name="Stones3" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_qarrx")]
-position = Vector2(-233, 182)
+position = Vector2(-165, 205)
 replace_object_scene = "uid://blwv84km7lh04"
-save_id = "stones_2"
+save_id = "stones_3"
 e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="Objects/Stones3" instance=ExtResource("10_exwp3")]
@@ -2263,7 +2263,7 @@ z_index = 2
 position = Vector2(-617, -283)
 
 [node name="Shovel2" parent="Objects" instance=ExtResource("10_o6c6f")]
-position = Vector2(-337, 231)
+position = Vector2(-198, 119)
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 position = Vector2(-360, 262)
@@ -2288,7 +2288,7 @@ layer = 0
 [node name="Hotbar" parent="Hotbar" instance=ExtResource("12_60fd3")]
 
 [node name="NPC" parent="." node_paths=PackedStringArray("path_follow") instance=ExtResource("13_hiyfs")]
-position = Vector2(-375, 38)
+position = Vector2(-542, 230)
 path_follow = NodePath("../NPCPath/NPCPathFollow")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("14_vxisc")]
@@ -2300,8 +2300,8 @@ scale = Vector2(1.5503355, 1)
 curve = SubResource("Curve2D_hiyfs")
 
 [node name="NPCPathFollow" type="PathFollow2D" parent="NPCPath"]
-position = Vector2(381.6104, -49)
-rotation = 2.6180673
+position = Vector2(291.30737, -66)
+rotation = 1.7683645
 
 [node name="DoorAreaOutside1" type="Area2D" parent="."]
 position = Vector2(-359, 335)

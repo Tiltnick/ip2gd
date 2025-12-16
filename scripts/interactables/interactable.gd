@@ -33,8 +33,17 @@ func _on_exit(body):
 
 func interact():
 	pass
-	
 
 func _process(_delta):
-	if player_in_area and Input.is_action_just_pressed("interact"):
-		interact()
+	if Input.is_action_just_pressed("interact"):
+		var allow := player_in_area
+
+		# wenn das Objekt "is_zoomed" hat und gerade gezoomt istdann erlauben, auch ohne player_in_area
+		if not allow:
+			for p in get_property_list():
+				if p.name == "is_zoomed":
+					allow = bool(get("is_zoomed"))
+					break
+
+		if allow:
+			interact()
