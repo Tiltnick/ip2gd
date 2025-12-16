@@ -368,6 +368,7 @@ position = Vector2(0, 14)
 shape = SubResource("RectangleShape2D_oqthk")
 
 [node name="Field_of_view" type="PointLight2D" parent="."]
+visible = false
 position = Vector2(29, -527)
 blend_mode = 2
 texture = ExtResource("3_esekf")
