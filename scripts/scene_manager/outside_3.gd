@@ -4,6 +4,11 @@ func _ready() -> void:
 	if not GameState.puzzle_state.get("outside3_monologue_done", false):
 		GameState.puzzle_state["outside3_monologue_done"] = true
 		DialogManager.start_dialog("res://dialog/mushrooms/outside_3_begin.json")
+	var lang = TranslationServer.get_locale().substr(0, 2)
+	if lang == "en":
+		PopupManager.popup_spacegram_en()
+	elif lang == "de":
+		PopupManager.popup_spacegram_de()
 
 func configure_camera(cam: Camera2D) -> void:
 	# Cam Limits

@@ -205,8 +205,8 @@ var DATA := {
 	"telescope": {
 		"name_de": "Teleskop",
 		"name_en": "Telescope",
-		"description_en": "TEST",
-		"description_de": "TEST",
+		"description_en": "A telescope... but it's a bit too heavy to hold by hand. Maybe I can put it somewhere and then use it to observe the constellations.",
+		"description_de": "Ein Teleskop... aber um es alleine in der Hand zu halten ist es etwas zu schwer. Vielleicht kann ich es irgendwo reinsetzen und damit dann die Sternenbilder betrachten.",
 		"icon": "res://assets/sprites/selfmade/telescope.png",
 		"icon_size": Vector2(55,55),
 		"world_scene": "res://scenes/interactables/objects/telescope.tscn"

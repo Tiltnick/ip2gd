@@ -8,10 +8,22 @@ signal dialog_started
 
 var current_dialog_path: String = ""
 
-# Initialize my DialogParser
 var runtime: DialogParser = DialogParser.new()
 
-var is_running: bool = false # NEU
+var is_running: bool = false 
+
+
+const PUZZLE_FLAG_BY_DIALOG_PATH: Dictionary = {
+	"res://dialog/dialogueMrBlob/outside_1.json": "outside1_done",
+	"res://dialog/dialogueMrBlob/outside_2_part_1.json": "blob_intro_done",
+	"res://dialog/cluesMrBlob/clue_stone_pile.json": "blob_clue_done",
+	"res://dialog/dialogueMrBlob/outside_2_part_2.json": "blob_revelation_done",
+	"res://dialog/dialogueMrBlob/entering_outside_2.json": "outside2_monologue_done",
+	"res://dialog/mushrooms/mushroom.json": "mushroom_dialog_done",
+	"res://dialog/cluesMrBlob/clue_mushroom_1.json": "blob_clue1_done",
+	"res://dialog/cluesMrBlob/clue_mushroom_2.json": "blob_clue2_done",
+	"res://dialog/innerMonologue/tripod_without_telescope.json": "tripod_no_telescope_seen",
+}
 
 
 func _ready() -> void:
@@ -25,17 +37,20 @@ func start_dialog(json_path: String) -> void:
 	force_close()
 
 	is_running = true
-	current_dialog_path = json_path   
+	current_dialog_path = json_path
 	show()
 	dialog_is_started()
 
+	
+	GameState.start_dialog(current_dialog_path)
+
 	if not runtime.load_json(json_path):
 		push_error("Dialog konnte nicht geladen werden: " + json_path)
-		# Direkt hart abbrechen, keine Flags setzen
+		# Direkt abbrechen keine Flags setzen
 		force_close()
 		return
 
-	# Main loop: show one line, wait for player input -> repeat
+
 	while is_running and not runtime.is_finished():
 		var line: Dictionary = runtime.get_current_line()
 		if line.is_empty():
@@ -50,12 +65,10 @@ func start_dialog(json_path: String) -> void:
 		await box.continue_pressed
 		SfxPlayer.ui_click_sound()
 
-		# Wenn während des Wartens abgebrochen wurde (force_close)
 		if not is_running:
 			break
 
 		if runtime.is_last_line_in_node() and runtime.has_choices_for_current_node():
-			
 			var choice_texts: Array[String] = []
 			for c in runtime.get_current_choices():
 				choice_texts.append(String(c.get("text", "")))
@@ -81,49 +94,37 @@ func start_dialog(json_path: String) -> void:
 		runtime.next()
 
 	dialog_is_finished()
-	
 
-func dialog_is_finished():
-	# Wenn  per force_close() beendet dqnn keine Flags setzen
+
+func dialog_is_finished() -> void:
 	if not is_running:
 		box.hide()
 		hide()
 		return
-#document name NOT ID
-	if current_dialog_path.contains("outside_2_part_1"):
-		GameState.puzzle_state["blob_intro_done"] = true
 
-	elif current_dialog_path.contains("clue_stone_pile"):
-		GameState.puzzle_state["blob_clue_done"] = true
+	# Dialog-State speichern
+	GameState.finish_dialog(current_dialog_path)
 
-	elif current_dialog_path.contains("outside_2_part_2"):
-		GameState.puzzle_state["blob_revelation_done"] = true
-		
-	elif current_dialog_path.contains("entering_outside_2"):
-		GameState.puzzle_state["outside2_monologue_done"] = true
-		
-	elif current_dialog_path.contains("res://dialog/mushrooms/mushroom.json"):
-		GameState.puzzle_state["mushroom_dialog_done"] = true
-		
-	elif current_dialog_path.contains("clue_mushroom_1"):
-		GameState.puzzle_state["blob_clue1_done"] = true
-	
-	elif current_dialog_path.contains("clue_mushroom_2"):
-		GameState.puzzle_state["blob_clue2_done"] = true
-	
-	elif current_dialog_path.contains("outside_1"):
-		GameState.puzzle_state["outside1_done"] = true
-		
+	# Puzzle-Flag setzen
+	_apply_puzzle_flag_for_dialog(current_dialog_path)
+
 	current_dialog_path = ""
 
 	box.hide()
-	emit_signal("dialog_finished")
+	dialog_finished.emit()
 	is_running = false
 	hide()
 
-	
-func dialog_is_started():
-	emit_signal("dialog_started")
+
+func _apply_puzzle_flag_for_dialog(dialog_path: String) -> void:
+	var flag: String = PUZZLE_FLAG_BY_DIALOG_PATH.get(dialog_path, "")
+	if flag == "":
+		return
+	GameState.puzzle_state[flag] = true
+
+
+func dialog_is_started() -> void:
+	dialog_started.emit()
 
 
 #Dialog  abbrechen bei save&exi
@@ -133,7 +134,7 @@ func force_close() -> void:
 
 	is_running = false
 	current_dialog_path = ""
-	# Parser zurücksetzen, damit kein alter Zustand übrig bleibt
+	# Parser zurücksetzen
 	runtime = DialogParser.new()
 
 	box.hide()

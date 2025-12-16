@@ -8,6 +8,8 @@ var should_play_intro_dialog: bool = false
 # Zustände speichern
 var puzzle_state: Dictionary = {}
 
+var dialog_state: Dictionary = {}
+
 var return_scene_path: String = ""
 
 var has_save: bool = false
@@ -26,7 +28,21 @@ var puzzle_items: Array = []
 var sound_setting: float
 var music_setting: float
 # Sprache
-var language: String = "en"   
+var language: String = "en"
+
+
+func start_dialog(dialog_id: String) -> void:
+	# Dialog existiert
+	if not dialog_state.has(dialog_id):
+		dialog_state[dialog_id] = false
+
+
+func finish_dialog(dialog_id: String) -> void:
+	dialog_state[dialog_id] = true
+
+
+func is_dialog_finished(dialog_id: String) -> bool:
+	return dialog_state.get(dialog_id, false)
 
 
 # Funktion -> Dic wird geupdated
@@ -34,17 +50,18 @@ func to_dict() -> Dictionary:
 	return {
 		"current_area_path": current_area_path,
 		"puzzle_state": puzzle_state,
+		"dialog_state": dialog_state,
 		"player_position": {
 			"x": player_position.x,
 			"y": player_position.y,
 		},
 		"picked_items": picked_items,
 		"puzzle_items": puzzle_items,
-		"music_setting":music_setting,
-		"sound_setting":sound_setting,
-		"language": language,   
+		"music_setting": music_setting,
+		"sound_setting": sound_setting,
+		"language": language,
 	}
-	
+
 
 # Liest die geupdateten Daten aus
 func from_dict(data: Dictionary) -> void:
@@ -53,6 +70,9 @@ func from_dict(data: Dictionary) -> void:
 
 	if data.has("puzzle_state"):
 		puzzle_state = data["puzzle_state"]
+
+	if data.has("dialog_state"):
+		dialog_state = data["dialog_state"]
 
 	if data.has("player_position"):
 		var p = data["player_position"]
@@ -64,15 +84,15 @@ func from_dict(data: Dictionary) -> void:
 
 	if data.has("puzzle_items"):
 		puzzle_items = data["puzzle_items"]
-		
+
 	if data.has("sound_setting"):
 		sound_setting = data["sound_setting"]
 		push_warning(sound_setting)
-		
+
 	if data.has("music_setting"):
 		music_setting = data["music_setting"]
 		push_warning(music_setting)
 
-	if data.has("language"):                       
-		language = str(data["language"])           
-		TranslationServer.set_locale(language)      
+	if data.has("language"):
+		language = str(data["language"])
+		TranslationServer.set_locale(language)
