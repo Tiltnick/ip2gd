@@ -8,13 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://61ayccey45a" path="res://assets/sprites/map/Outside_3/Bridges.png" id="4_pcjji"]
 [ext_resource type="Texture2D" uid="uid://c5nswmymhb533" path="res://assets/sprites/map/Outside_3/Ground_Water.png" id="5_pfoid"]
 [ext_resource type="Texture2D" uid="uid://fos4g6vi8gia" path="res://assets/sprites/map/Outside_3/Props.png" id="5_yfq04"]
-[ext_resource type="PackedScene" uid="uid://dflp4q827pupx" path="res://scenes/Character/npc_champignon.tscn" id="9_kbu53"]
+[ext_resource type="PackedScene" path="res://scenes/Character/npc_champignon.tscn" id="9_kbu53"]
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="11_3rchf"]
 [ext_resource type="PackedScene" uid="uid://bqck2a15x4s5n" path="res://scenes/Riddles/mushroom/mushroom_socket.tscn" id="12_cfq5h"]
 [ext_resource type="PackedScene" uid="uid://58ehm0hl8qlg" path="res://scenes/Character/npc_porcini.tscn" id="13_sj13r"]
 [ext_resource type="PackedScene" uid="uid://cxc57w1npotjm" path="res://scenes/interactables/objects/stone_panel.tscn" id="13_wk4ve"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="14_ny1p2"]
-[ext_resource type="PackedScene" uid="uid://dri71srb6nfk1" path="res://scenes/Character/npc_truffle.tscn" id="14_wk4ve"]
+[ext_resource type="PackedScene" path="res://scenes/Character/npc_truffle.tscn" id="14_wk4ve"]
 [ext_resource type="PackedScene" uid="uid://1gjnalxntxuw" path="res://scenes/Riddles/stonepuzzle/puzzle.tscn" id="15_wk4ve"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="16_ny1p2"]
 [ext_resource type="PackedScene" uid="uid://cqrdpr4q6mgg7" path="res://scenes/interactables/objects/mushrooms/blue_mush.tscn" id="18_cfewm"]
@@ -4114,7 +4114,8 @@ offset_bottom = -42.5
 [node name="MapBounds" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MapBounds"]
-position = Vector2(800, -32)
+visible = false
+position = Vector2(801, -28)
 build_mode = 1
 polygon = PackedVector2Array(-770, -705, -2, -705, -1, -451, 27, -450, 28, -242, -2, -242, -6, 332, -186, 333, -186, 354, -235, 353, -235.14958, 332.00003, -771, 332)
 

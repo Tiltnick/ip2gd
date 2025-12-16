@@ -15,10 +15,10 @@ func _ready():
 
 #use insta popup
 func popup_spacegram_de():
-	popup.show_popup("Nutze Spacegram um das Rätsel zu lösen!", load("res://assets/sprites/selfmade/Spacegram_Logo.png") as Texture2D)
+	popup.show_popup("Nutze Spacegram!", load("res://assets/sprites/selfmade/Spacegram_Logo.png") as Texture2D)
 
 func popup_spacegram_en():
-	popup.show_popup("Use Spacegram to solve this riddle!", 
+	popup.show_popup("Use Spacegram!", 
 	load("res://assets/sprites/selfmade/Spacegram_Logo.png") as Texture2D)
 
 #found item popup

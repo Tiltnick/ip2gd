@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bph2lfcube6e4" path="res://scenes/maps/Outside_2/FadeArea.tscn" id="7_3r0bj"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="10_exwp3"]
 [ext_resource type="PackedScene" uid="uid://eb6l6mv15te6" path="res://scenes/interactables/objects/shovel.tscn" id="10_o6c6f"]
+[ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="11_iaftu"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="12_60fd3"]
 [ext_resource type="PackedScene" uid="uid://dfkefy5ckqrq3" path="res://scenes/interactables/objects/stones.tscn" id="12_qarrx"]
 [ext_resource type="PackedScene" uid="uid://cc56upiuyf8v1" path="res://scenes/Character/npc.tscn" id="13_hiyfs"]
@@ -2024,11 +2025,16 @@ sources/2 = SubResource("TileSetAtlasSource_q7d5i")
 a = Vector2(117.75, 3)
 b = Vector2(-119.25, 2)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h3v21"]
+shader = ExtResource("11_iaftu")
+shader_parameter/outline_size = 2.0
+shader_parameter/outline_color = Vector4(1, 1, 1, 1)
+
 [sub_resource type="Curve2D" id="Curve2D_hiyfs"]
 _data = {
-"points": PackedVector2Array(11.075592, -52.626648, 0, 0, 381.6104, -49, 0, 0, 0, 0, 320.97836, -14, 0, 0, 0, 0, 149.40259, 7, 0, 0, 0, 0, 135.85715, -105, -11.4258585, 36.868446, 11.4258585, -36.868446, 128.11688, -262, 0, 0, 0, 0, 149.40259, -172, 0, 0, 0, 0, 184.23376, -102, 0, 0, 0, 0, 252.60608, -132, 0, 0, 0, 0, 260.99133, -249, 0, 0, 0, 0, 285.5022, -261, 0, 0, 0, 0, 344.84418, -232, 0, 0, 0, 0, 382.25543, -131, 0, 0, 0, 0, 388.70563, -74, 0, 0, 0, 0, 381.6104, -49)
+"points": PackedVector2Array(11.075592, -52.626648, 0, 0, 291.30737, -66, 0, 0, 0, 0, 279.69696, -8, 0, 0, 0, 0, 149.40259, 7, 0, 0, 0, 0, 135.85715, -105, -11.4258585, 36.868446, 11.4258585, -36.868446, 128.11688, -262, 0, 0, 0, 0, 149.40259, -172, 0, 0, 0, 0, 184.23376, -102, 0, 0, 0, 0, 252.60608, -132, 0, 0, 0, 0, 260.99133, -249, 0, 0, 0, 0, 285.5022, -261, 0, 0, 0, 0, 344.84418, -232, 0, 0, 0, 0, 342.2641, -173, 0, 0, 0, 0, 308.07794, -121)
 }
-point_count = 14
+point_count = 13
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6c6f"]
 size = Vector2(117, 20)
@@ -2157,9 +2163,10 @@ position = Vector2(-648.00006, -268)
 scale = Vector2(11.960439, -8.005182)
 
 [node name="Area2D" type="StaticBody2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-position = Vector2(8, 0)
+position = Vector2(16, 9)
 build_mode = 1
 polygon = PackedVector2Array(-772, -705, -2, -705, -6, 332, -305, 334, -305, 365, -422, 365, -422, 332, -771, 332, -772, -529, -799, -529, -798, -623, -773, -623)
 
@@ -2176,8 +2183,9 @@ polygon = PackedVector2Array(-16, -11, -16, 15, -13, 15, -13, 20, -16, 20, -16, 
 [node name="Objects" type="Node" parent="."]
 
 [node name="Stones" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_qarrx")]
-position = Vector2(-103, 123)
+position = Vector2(-680, 213)
 replace_object_scene = "uid://c7amjsaj2vw3u"
+save_id = "stones_1"
 e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="Objects/Stones" instance=ExtResource("10_exwp3")]
@@ -2189,8 +2197,9 @@ offset_right = -10.0
 offset_bottom = -54.0
 
 [node name="Stones2" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_qarrx")]
-position = Vector2(-688, 221)
+position = Vector2(-493, -357)
 replace_object_scene = "uid://cuyfkctafkxe1"
+save_id = "stones_2"
 e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="Objects/Stones2" instance=ExtResource("10_exwp3")]
@@ -2202,7 +2211,9 @@ offset_right = -10.0
 offset_bottom = -54.0
 
 [node name="Stones3" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_qarrx")]
-position = Vector2(-362, -365)
+position = Vector2(-165, 205)
+replace_object_scene = "uid://blwv84km7lh04"
+save_id = "stones_3"
 e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="Objects/Stones3" instance=ExtResource("10_exwp3")]
@@ -2227,7 +2238,10 @@ offset_right = -10.0
 offset_bottom = -69.0
 
 [node name="Treasure" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("14_hiyfs")]
-position = Vector2(-648, -297)
+position = Vector2(-648, -291)
+code_popup_path = NodePath("../../TreasureChestRiddle")
+puzzle_id = "treasure_chest_code"
+shovel_path = NodePath("../Shovel")
 e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="Objects/Treasure" instance=ExtResource("10_exwp3")]
@@ -2238,16 +2252,19 @@ offset_top = -34.0
 offset_right = -10.0
 offset_bottom = -34.0
 
-[node name="Shovel" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("10_o6c6f")]
-position = Vector2(-230, 78)
-e_popup_node = NodePath("Press_E_Popup")
+[node name="Sprite2D" type="Sprite2D" parent="Objects/Treasure"]
 
-[node name="Press_E_Popup" parent="Objects/Shovel" instance=ExtResource("10_exwp3")]
+[node name="Outline" type="Sprite2D" parent="Objects/Treasure"]
 visible = false
-offset_left = -10.0
-offset_top = -40.0
-offset_right = -10.0
-offset_bottom = -40.0
+material = SubResource("ShaderMaterial_h3v21")
+
+[node name="Shovel" parent="Objects" instance=ExtResource("10_o6c6f")]
+visible = false
+z_index = 2
+position = Vector2(-617, -283)
+
+[node name="Shovel2" parent="Objects" instance=ExtResource("10_o6c6f")]
+position = Vector2(-198, 119)
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 position = Vector2(-360, 262)
@@ -2272,7 +2289,7 @@ layer = 0
 [node name="Hotbar" parent="Hotbar" instance=ExtResource("12_60fd3")]
 
 [node name="NPC" parent="." node_paths=PackedStringArray("path_follow") instance=ExtResource("13_hiyfs")]
-position = Vector2(-375, 38)
+position = Vector2(-542, 230)
 path_follow = NodePath("../NPCPath/NPCPathFollow")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("14_vxisc")]
@@ -2284,8 +2301,8 @@ scale = Vector2(1.5503355, 1)
 curve = SubResource("Curve2D_hiyfs")
 
 [node name="NPCPathFollow" type="PathFollow2D" parent="NPCPath"]
-position = Vector2(381.6104, -49)
-rotation = 2.6180673
+position = Vector2(291.30737, -66)
+rotation = 1.7683645
 
 [node name="DoorAreaOutside1" type="Area2D" parent="."]
 position = Vector2(-359, 335)
@@ -2386,3 +2403,5 @@ offset_top = -20.0
 offset_right = -5.0
 offset_bottom = -20.0
 scale = Vector2(0.5, 0.5)
+[node name="TreasureChestRiddle" parent="." instance=ExtResource("21_3tmc5")]
+visible = false

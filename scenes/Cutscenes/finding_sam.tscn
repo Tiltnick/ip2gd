@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://blwv84km7lh04"]
+
+[ext_resource type="Script" uid="uid://dqdtbv56gf233" path="res://scripts/Cutscenes/finding_sam.gd" id="1_qstp0"]
+
+[node name="FindingSam" type="Node2D"]
+script = ExtResource("1_qstp0")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)

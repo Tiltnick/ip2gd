@@ -1,13 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://1uf4f4pkdxpx"]
+[gd_scene load_steps=4 format=3 uid="uid://1uf4f4pkdxpx"]
 
-[ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="1_43tyl"]
 [ext_resource type="Script" uid="uid://ow3hjqlu5ud" path="res://scripts/riddles/treasure_chest/treasure_chest.gd" id="1_rakct"]
-[ext_resource type="Texture2D" uid="uid://dk1jkqhrv26j1" path="res://assets/sprites/map/Outside_2/Treasure.png" id="1_y5mk2"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rakct"]
-shader = ExtResource("1_43tyl")
-shader_parameter/outline_size = 2.0
-shader_parameter/outline_color = Vector4(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kn0s4"]
 size = Vector2(71, 70)
@@ -17,15 +10,9 @@ size = Vector2(28, 21)
 
 [node name="Treasure" type="Node2D"]
 script = ExtResource("1_rakct")
+code_popup_path = null
+puzzle_id = null
 metadata/_custom_type_script = "uid://bdssbm1prbicl"
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_y5mk2")
-
-[node name="Outline" type="Sprite2D" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_rakct")
-texture = ExtResource("1_y5mk2")
 
 [node name="Area2D" type="Area2D" parent="."]
 

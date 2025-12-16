@@ -120,6 +120,7 @@ grow_horizontal = 0
 script = ExtResource("1_v51nl")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 5000
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 anchors_preset = 1
