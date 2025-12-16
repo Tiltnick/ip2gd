@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://34ylk7jtx176"]
+[gd_scene load_steps=46 format=4 uid="uid://34ylk7jtx176"]
 
 [ext_resource type="Script" uid="uid://f7c56kdptn0k" path="res://scripts/scene_manager/outside_2.gd" id="1_7t2bs"]
 [ext_resource type="Texture2D" uid="uid://dqoxkjxdkwqgu" path="res://assets/sprites/map/Outside_2/spaceship.png" id="2_f8agi"]
@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://eb6l6mv15te6" path="res://scenes/interactables/objects/shovel.tscn" id="10_o6c6f"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="11_iaftu"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="12_60fd3"]
+[ext_resource type="PackedScene" uid="uid://c7amjsaj2vw3u" path="res://scenes/interactables/objects/flashlight.tscn" id="12_g73bm"]
 [ext_resource type="PackedScene" uid="uid://dfkefy5ckqrq3" path="res://scenes/interactables/objects/stones.tscn" id="12_qarrx"]
+[ext_resource type="PackedScene" uid="uid://cuyfkctafkxe1" path="res://scenes/interactables/objects/stone pieces/stone_piece_2.tscn" id="13_es6jy"]
 [ext_resource type="PackedScene" uid="uid://cc56upiuyf8v1" path="res://scenes/Character/npc.tscn" id="13_hiyfs"]
 [ext_resource type="PackedScene" uid="uid://dd6hsxt7i8tci" path="res://scenes/interactables/objects/sams_spaceship.tscn" id="13_qarrx"]
 [ext_resource type="PackedScene" uid="uid://1uf4f4pkdxpx" path="res://scenes/interactables/objects/treasure.tscn" id="14_hiyfs"]
@@ -19,10 +21,11 @@
 [ext_resource type="PackedScene" uid="uid://bwhu76fxy1g07" path="res://scenes/interactables/objects/statue.tscn" id="17_l2mbr"]
 [ext_resource type="PackedScene" uid="uid://dgxcraqxfqci7" path="res://scenes/Riddles/riddle_statue/riddle_statue.tscn" id="18_l2mbr"]
 [ext_resource type="PackedScene" uid="uid://bnjx4jljcdw2x" path="res://scenes/interactables/objects/tripod.tscn" id="19_on5tc"]
-[ext_resource type="Script" path="res://scripts/riddles/sky_riddle/tripod_middle.gd" id="20_f8agi"]
+[ext_resource type="Script" uid="uid://bkmuaqelrfjke" path="res://scripts/riddles/sky_riddle/tripod_middle.gd" id="20_f8agi"]
 [ext_resource type="PackedScene" uid="uid://dkl4wilu1mavv" path="res://scenes/interactables/objects/stone pieces/stone_piece_4.tscn" id="21_3tmc5"]
-[ext_resource type="Script" path="res://scripts/riddles/sky_riddle/tripod_top.gd" id="21_bk0mb"]
+[ext_resource type="Script" uid="uid://dr1kl8nrqtby" path="res://scripts/riddles/sky_riddle/tripod_top.gd" id="21_bk0mb"]
 [ext_resource type="PackedScene" uid="uid://cg8acpjft0f2m" path="res://scenes/interactables/objects/stone pieces/stone_piece_5.tscn" id="22_pkhcj"]
+[ext_resource type="PackedScene" uid="uid://cxue3cw47klvm" path="res://scenes/Riddles/Outside_2/treasure_chest_riddle.tscn" id="24_iaftu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bk0mb"]
 texture = ExtResource("2_f8agi")
@@ -2166,7 +2169,7 @@ scale = Vector2(11.960439, -8.005182)
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-position = Vector2(16, 9)
+position = Vector2(5, 4)
 build_mode = 1
 polygon = PackedVector2Array(-772, -705, -2, -705, -6, 332, -305, 334, -305, 365, -422, 365, -422, 332, -771, 332, -772, -529, -799, -529, -798, -623, -773, -623)
 
@@ -2182,10 +2185,10 @@ polygon = PackedVector2Array(-16, -11, -16, 15, -13, 15, -13, 20, -16, 20, -16, 
 
 [node name="Objects" type="Node" parent="."]
 
-[node name="Stones" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_qarrx")]
+[node name="Stones" parent="Objects" node_paths=PackedStringArray("e_popup_node") groups=["stones"] instance=ExtResource("12_qarrx")]
 position = Vector2(-680, 213)
-replace_object_scene = "uid://c7amjsaj2vw3u"
 save_id = "stones_1"
+item_path = NodePath("../Flashlight")
 e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="Objects/Stones" instance=ExtResource("10_exwp3")]
@@ -2196,10 +2199,10 @@ offset_top = -54.0
 offset_right = -10.0
 offset_bottom = -54.0
 
-[node name="Stones2" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_qarrx")]
+[node name="Stones2" parent="Objects" node_paths=PackedStringArray("e_popup_node") groups=["stones"] instance=ExtResource("12_qarrx")]
 position = Vector2(-493, -357)
-replace_object_scene = "uid://cuyfkctafkxe1"
 save_id = "stones_2"
+item_path = NodePath("../StonePiece2")
 e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="Objects/Stones2" instance=ExtResource("10_exwp3")]
@@ -2210,9 +2213,8 @@ offset_top = -54.0
 offset_right = -10.0
 offset_bottom = -54.0
 
-[node name="Stones3" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_qarrx")]
-position = Vector2(-165, 205)
-replace_object_scene = "uid://blwv84km7lh04"
+[node name="Stones3" parent="Objects" node_paths=PackedStringArray("e_popup_node") groups=["stone3"] instance=ExtResource("12_qarrx")]
+position = Vector2(-166, 202)
 save_id = "stones_3"
 e_popup_node = NodePath("Press_E_Popup")
 
@@ -2263,8 +2265,15 @@ visible = false
 z_index = 2
 position = Vector2(-617, -283)
 
-[node name="Shovel2" parent="Objects" instance=ExtResource("10_o6c6f")]
-position = Vector2(-198, 119)
+[node name="Flashlight" parent="Objects" instance=ExtResource("12_g73bm")]
+visible = false
+z_index = 1
+position = Vector2(-680, 213)
+
+[node name="StonePiece2" parent="Objects" instance=ExtResource("13_es6jy")]
+visible = false
+z_index = 1
+position = Vector2(-493, -356)
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 position = Vector2(-360, 262)
@@ -2403,5 +2412,6 @@ offset_top = -20.0
 offset_right = -5.0
 offset_bottom = -20.0
 scale = Vector2(0.5, 0.5)
-[node name="TreasureChestRiddle" parent="." instance=ExtResource("21_3tmc5")]
+
+[node name="TreasureChestRiddle" parent="." instance=ExtResource("24_iaftu")]
 visible = false

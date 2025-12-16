@@ -120,6 +120,8 @@ puzzle_pieces=""
 side_slots=""
 socket=""
 mushrooms=""
+stones=""
+stone3=""
 
 [input]
 
