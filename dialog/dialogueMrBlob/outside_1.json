@@ -1,275 +1,416 @@
 {
   "id": "mr_blob_intro",
   "characters": {
-	"Mr. Blob": "res://assets/sprites/portrait/MrBlobs.png",  
+	"Mr. Blob": "res://assets/sprites/portrait/MrBlobs.png",
 	"Oris": "res://assets/sprites/portrait/oris.png"
   },
 
   "steps": {
 	"sections": {
 	  "lines": [
-		{ "speaker": "Mr. Blob", "text": "Hello there strange creature! Who might you be?" }
+		{ "speaker": "Mr. Blob", "text_en": "Hello there strange creature! Who might you be?"
+								,"text_de": "Hallo du seltsame Kreatur! Wer magst du wohl sein?" }
 	  ],
 	  "choices": [
-		{ "id": "oris_intro_1", "text": "Oh...hi? I’m Oris.", "next": "oris_intro_1" },
-		{ "id": "oris_intro_2", "text": "I’m Oris?", "next": "oris_intro_2" }
+		{ "id": "oris_intro_1", "text_en": "Oh...hi? I’m Oris."
+								,"text_de": "Oh... hi? Ich bin Oris."
+								,"next": "oris_intro_1" },
+		{ "id": "oris_intro_2", "text_en": "I’m Oris?"
+								,"text_de": "Ich bin Oris?"
+								,"next": "oris_intro_2" }
 	  ]
 	},
 
 	"oris_intro_1": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "Oh...hi? I’m Oris." },
-		{ "speaker": "Mr. Blob", "text": "Ah, welcome to my humble home Oris. I’m Mr. Blob but my friends call me Blobby." }
+		{ "speaker": "Oris", "text_en": "Oh...hi? I’m Oris."
+								,"text_de": "Oh... hi? Ich bin Oris." },
+		{ "speaker": "Mr. Blob", "text_en": "Ah, welcome to my humble home Oris. I’m Mr. Blob but my friends call me Blobby."
+								,"text_de": "Ah, willkommen in meinem bescheidenen Zuhause, Oris. Ich bin Mr. Blob, aber meine Freunde nennen mich Blobby." }
 	  ],
 	  "choices": [
-		{ "id": "oris_meet_1", "text": "Okay, that seems normal!", "next": "oris_meet_1" },
-		{ "id": "oris_meet_2", "text": "Thanks Blobby?", "next": "oris_meet_2" }
+		{ "id": "oris_meet_1", "text_en": "Okay, that seems normal!"
+								,"text_de": "Okay, das wirkt ganz normal!"
+								,"next": "oris_meet_1" },
+		{ "id": "oris_meet_2", "text_en": "Thanks Blobby?"
+								,"text_de": "Danke, Blobby?"
+								,"next": "oris_meet_2" }
 	  ]
 	},
 
 	"oris_intro_2": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "I’m Oris? The better question is who are you?" },
-		{ "speaker": "Mr. Blob", "text": "Ah, welcome to my humble home Oris. I’m Mr. Blob but my friends call me Blobby." }
+		{ "speaker": "Oris", "text_en": "I’m Oris? The better question is who are you?"
+								,"text_de": "Ich bin Oris? Die bessere Frage ist: Wer bist du?" },
+		{ "speaker": "Mr. Blob", "text_en": "Ah, welcome to my humble home Oris. I’m Mr. Blob but my friends call me Blobby."
+								,"text_de": "Ah, willkommen in meinem bescheidenen Zuhause, Oris. Ich bin Mr. Blob, aber meine Freunde nennen mich Blobby." }
 	  ],
 	  "choices": [
-		{ "id": "oris_meet_1", "text": "Okay, that seems normal!", "next": "oris_meet_1" },
-		{ "id": "oris_meet_2", "text": "Thanks Blobby.", "next": "oris_meet_2" }
+		{ "id": "oris_meet_1", "text_en": "Okay, that seems normal!"
+								,"text_de": "Okay, das wirkt ganz normal!"
+								,"next": "oris_meet_1" },
+		{ "id": "oris_meet_2", "text_en": "Thanks Blobby."
+								,"text_de": "Danke, Blobby."
+								,"next": "oris_meet_2" }
 	  ]
 	},
 
 	"oris_meet_1": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "Okay, that seems normal! Nice to meet you Blobby." },
-		{ "speaker": "Mr. Blob", "text": "I said my friends call me Blobby. It’s Mr. Blob for strangers like yourself. I wanted to see for myself who landed on my beautiful planet…and why." }
+		{ "speaker": "Oris", "text_en": "Okay, that seems normal! Nice to meet you Blobby."
+								,"text_de": "Okay, das wirkt ganz normal! Schön, dich kennenzulernen, Blobby." },
+		{ "speaker": "Mr. Blob", "text_en": "I said my friends call me Blobby. It’s Mr. Blob for strangers like yourself. I wanted to see for myself who landed on my beautiful planet…and why."
+								,"text_de": "Ich sagte, meine Freunde nennen mich Blobby. Für Fremde wie dich heißt es Mr. Blob. Ich wollte mit eigenen Augen sehen, wer auf meinem wunderschönen Planeten gelandet ist… und warum." }
 	  ],
 	  "choices": [
-		{ "id": "oris_reason_1", "text": "Oh, my bad then.", "next": "oris_reason_1" },
-		{ "id": "oris_reason_2", "text": "Sure, whatever you say Blobby.", "next": "oris_reason_2" }
+		{ "id": "oris_reason_1", "text_en": "Oh, my bad then."
+								,"text_de": "Oh, mein Fehler."
+								,"next": "oris_reason_1" },
+		{ "id": "oris_reason_2", "text_en": "Sure, whatever you say Blobby."
+								,"text_de": "Klar, wie du meinst, Blobby."
+								,"next": "oris_reason_2" }
 	  ]
 	},
 
 	"oris_meet_2": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "Thanks Blobby. What do you want from me though?" },
-		{ "speaker": "Mr. Blob", "text": "I said my friends call me Blobby. It’s Mr. Blob for strangers like yourself. I wanted to see for myself who landed on my beautiful planet…and why." }
+		{ "speaker": "Oris", "text_en": "Thanks Blobby. What do you want from me though?"
+								,"text_de": "Danke, Blobby. Aber was willst du eigentlich von mir?" },
+		{ "speaker": "Mr. Blob", "text_en": "I said my friends call me Blobby. It’s Mr. Blob for strangers like yourself. I wanted to see for myself who landed on my beautiful planet…and why."
+								,"text_de": "Ich sagte, meine Freunde nennen mich Blobby. Für Fremde wie dich heißt es Mr. Blob. Ich wollte mit eigenen Augen sehen, wer auf meinem wunderschönen Planeten gelandet ist… und warum." }
 	  ],
 	  "choices": [
-		{ "id": "oris_reason_1", "text": "Oh, my bad then.", "next": "oris_reason_1" },
-		{ "id": "oris_reason_2", "text": "Sure, whatever you say Blobby.", "next": "oris_reason_2" }
+		{ "id": "oris_reason_1", "text_en": "Oh, my bad then."
+								,"text_de": "Oh, mein Fehler."
+								,"next": "oris_reason_1" },
+		{ "id": "oris_reason_2", "text_en": "Sure, whatever you say Blobby."
+								,"text_de": "Klar, wie du meinst, Blobby."
+								,"next": "oris_reason_2" }
 	  ]
 	},
 
 	"oris_reason_1": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "Oh, my bad then. Well, Mr. Blob, as you can probably tell I crashed here. I’ve lost a part of my memories but I know I came here because I’m looking for my friend…Sam?" },
-		{ "speaker": "Mr. Blob", "text": "Interesting…how do you know that this human of yours… Sam you said? How do you know he’s here on this planet?" }
+		{ "speaker": "Oris", "text_en": "Oh, my bad then. Well, Mr. Blob, as you can probably tell I crashed here. I’ve lost a part of my memories but I know I came here because I’m looking for my friend…Sam?"
+								,"text_de": "Oh, mein Fehler. Nun ja, Mr. Blob, wie du wahrscheinlich sehen kannst, bin ich hier abgestürzt. Ich habe einen Teil meiner Erinnerungen verloren, aber ich weiß, dass ich hierhergekommen bin, weil ich nach meinem Freund suche… Sam?" },
+		{ "speaker": "Mr. Blob", "text_en": "Interesting…how do you know that this human of yours… Sam you said? How do you know he’s here on this planet?"
+								,"text_de": "Interessant… woher weißt du, dass dieser Mensch von dir… Sam, sagtest du? Woher weißt du, dass er auf diesem Planeten ist?" }
 	  ],
 	  "choices": [
-		{ "id": "oris_question_1", "text": "I found a clue.", "next": "oris_question_1" },
-		{ "id": "oris_question_2", "text": "You’re asking a lot.", "next": "oris_question_2" }
+		{ "id": "oris_question_1", "text_en": "I found a clue."
+								,"text_de": "Ich habe einen Hinweis."
+								,"next": "oris_question_1" },
+		{ "id": "oris_question_2", "text_en": "You’re asking a lot."
+								,"text_de": "Du stellst viele Fragen."
+								,"next": "oris_question_2" }
 	  ]
 	},
 
 	"oris_reason_2": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "Sure, whatever you say Blobby. As you can clearly tell I crashed here. I don’t remember much, just that I came here looking for my friend Sam." },
-		{ "speaker": "Mr. Blob", "text": "Interesting…how do you know that this human of yours… Sam you said? How do you know he’s here on this planet?" }
+		{ "speaker": "Oris", "text_en": "Sure, whatever you say Blobby. As you can clearly tell I crashed here. I don’t remember much, just that I came here looking for my friend Sam."
+								,"text_de": "Klar, wie du meinst, Blobby. Wie du deutlich sehen kannst, bin ich hier abgestürzt. Ich erinnere mich nicht an viel, nur daran, dass ich hierherkam, um meinen Freund Sam zu suchen." },
+		{ "speaker": "Mr. Blob", "text_en": "Interesting…how do you know that this human of yours… Sam you said? How do you know he’s here on this planet?"
+								,"text_de": "Interessant… woher weißt du, dass dieser Mensch von dir… Sam, sagtest du? Woher weißt du, dass er auf diesem Planeten ist?" }
 	  ],
 	  "choices": [
-		{ "id": "oris_question_1", "text": "I found a clue.", "next": "oris_question_1" },
-		{ "id": "oris_question_2", "text": "You’re asking a lot.", "next": "oris_question_2" }
+		{ "id": "oris_question_1", "text_en": "I found a clue."
+								,"text_de": "Ich habe einen Hinweis gefunden."
+								,"next": "oris_question_1" },
+		{ "id": "oris_question_2", "text_en": "You’re asking a lot."
+								,"text_de": "Du stellst ganz schön viele Fragen."
+								,"next": "oris_question_2" }
 	  ]
 	},
 
 	"oris_question_1": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "I found a clue about it in my diary." },
-		{ "speaker": "Mr. Blob", "text": "Uhm…well this was a nice conversation, I’ll leave now, bye!" }
+		{ "speaker": "Oris", "text_en": "I found a clue about it in my diary."
+								,"text_de": "Ich habe dazu einen Hinweis in meinem Tagebuch gefunden." },
+		{ "speaker": "Mr. Blob", "text_en": "Uhm…well this was a nice conversation, I’ll leave now, bye!"
+								,"text_de": "Ähm… na ja, das war ein nettes Gespräch. Ich gehe dann mal, tschüss!" }
 	  ],
 	  "choices": [
-		{ "id": "oris_stop_1", "text": "Wait!", "next": "oris_stop_1" },
-		{ "id": "oris_stop_2", "text": "You’re suspicious.", "next": "oris_stop_2" }
+		{ "id": "oris_stop_1", "text_en": "Wait!"
+								,"text_de": "Warte!"
+								,"next": "oris_stop_1" },
+		{ "id": "oris_stop_2", "text_en": "You’re suspicious."
+								,"text_de": "Du bist verdächtig."
+								,"next": "oris_stop_2" }
 	  ]
 	},
 
 	"oris_question_2": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "You’re asking an awful lot of questions." },
-		{ "speaker": "Mr. Blob", "text": "Uhm…well this was a nice conversation, I’ll leave now, bye!" }
+		{ "speaker": "Oris", "text_en": "You’re asking an awful lot of questions."
+								,"text_de": "Du stellst wirklich verdammt viele Fragen." },
+		{ "speaker": "Mr. Blob", "text_en": "Uhm…well this was a nice conversation, I’ll leave now, bye!"
+								,"text_de": "Ähm… na ja, das war ein nettes Gespräch. Ich gehe dann mal, tschüss!" }
 	  ],
 	  "choices": [
-		{ "id": "oris_stop_1", "text": "Wait!", "next": "oris_stop_1" },
-		{ "id": "oris_stop_2", "text": "You’re suspicious.", "next": "oris_stop_2" }
+		{ "id": "oris_stop_1", "text_en": "Wait!"
+								,"text_de": "Warte!"
+								,"next": "oris_stop_1" },
+		{ "id": "oris_stop_2", "text_en": "You’re suspicious."
+								,"text_de": "Du bist verdächtig."
+								,"next": "oris_stop_2" }
 	  ]
 	},
 
 	"oris_stop_1": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "Wait! Can’t you help me find him? You must’ve seen him crash too? Please!" },
-		{ "speaker": "Mr. Blob", "text": "Ugh, fine. I did see him crash and I also talked to him." }
+		{ "speaker": "Oris", "text_en": "Wait! Can’t you help me find him? You must’ve seen him crash too? Please!"
+								,"text_de": "Warte! Kannst du mir nicht helfen, ihn zu finden? Du musst doch auch gesehen haben, wie er abgestürzt ist, oder? Bitte!" },
+		{ "speaker": "Mr. Blob", "text_en": "Ugh, fine. I did see him crash and I also talked to him."
+								,"text_de": "Ugh, na gut. Ich habe ihn tatsächlich abstürzen sehen und ich habe auch mit ihm gesprochen." }
 	  ],
 	  "choices": [
-		{ "id": "oris_react_1", "text": "Omg, was he ok?", "next": "oris_react_1" },
-		{ "id": "oris_react_2", "text": "I knew it!", "next": "oris_react_2" }
+		{ "id": "oris_react_1", "text_en": "Omg, was he ok?"
+								,"text_de": "Oh mein Gott, war er okay?"
+								,"next": "oris_react_1" },
+		{ "id": "oris_react_2", "text_en": "I knew it!"
+								,"text_de": "Ich wusste es!"
+								,"next": "oris_react_2" }
 	  ]
 	},
 
 	"oris_stop_2": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "You’re behaving very suspiciously, I must say. You can actually help me find him. I mean, you must’ve seen him crash here as well…" },
-		{ "speaker": "Mr. Blob", "text": "Ugh, fine. I did see him crash and I also talked to him." }
+		{ "speaker": "Oris", "text_en": "You’re behaving very suspiciously, I must say. You can actually help me find him. I mean, you must’ve seen him crash here as well…"
+								,"text_de": "Du verhältst dich wirklich sehr verdächtig, muss ich sagen. Du kannst mir definitiv helfen, ihn zu finden. Ich meine, du musst doch auch gesehen haben, wie er hier abgestürzt ist…" },
+		{ "speaker": "Mr. Blob", "text_en": "Ugh, fine. I did see him crash and I also talked to him."
+								,"text_de": "Ugh, na gut. Ich habe ihn tatsächlich abstürzen sehen und ich habe auch mit ihm gesprochen." }
 	  ],
 	  "choices": [
-		{ "id": "oris_react_1", "text": "Omg, was he ok?", "next": "oris_react_1" },
-		{ "id": "oris_react_2", "text": "I knew it!", "next": "oris_react_2" }
+		{ "id": "oris_react_1", "text_en": "Omg, was he ok?"
+								,"text_de": "Oh mein Gott, war er okay?"
+								,"next": "oris_react_1" },
+		{ "id": "oris_react_2", "text_en": "I knew it!"
+								,"text_de": "Ich wusste es!"
+								,"next": "oris_react_2" }
 	  ]
 	},
 
 	"oris_react_1": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "Omg, was he okay? Where is he? Can you take me to him?" },
-		{ "speaker": "Mr. Blob", "text": "Woow, wow, let’s calm down a bit. I talked to him once after his ship crashed. He was fine, just a little rumpled." }
+		{ "speaker": "Oris", "text_en": "Omg, was he okay? Where is he? Can you take me to him?"
+								,"text_de": "Oh mein Gott, war er okay? Wo ist er? Kannst du mich zu ihm bringen?" },
+		{ "speaker": "Mr. Blob", "text_en": "Woow, wow, let’s calm down a bit. I talked to him once after his ship crashed. He was fine, just a little rumpled."
+								,"text_de": "Woow, wow, beruhigen wir uns mal kurz. Ich habe einmal mit ihm gesprochen, nachdem sein Schiff abgestürzt ist. Es ging ihm gut, er war nur ein bisschen zerzaust." }
 	  ],
 	  "choices": [
-		{ "id": "oris_detail_1", "text": "Oh, he must’ve been scared!", "next": "oris_detail_1" },
-		{ "id": "oris_detail_2", "text": "Aha, sure.", "next": "oris_detail_2" }
+		{ "id": "oris_detail_1", "text_en": "Oh, he must’ve been scared!"
+								,"text_de": "Er muss sich erschreckt haben!"
+								,"next": "oris_detail_1" },
+		{ "id": "oris_detail_2", "text_en": "Aha, sure."
+								,"text_de": "Aha, klar."
+								,"next": "oris_detail_2" }
 	  ]
 	},
 
 	"oris_react_2": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "I knew it! Take me to him! Now!" },
-		{ "speaker": "Mr. Blob", "text": "Woow, wow, let’s calm down a bit. I talked to him once after his ship crashed. He was fine, just a little rumpled." }
+		{ "speaker": "Oris", "text_en": "I knew it! Take me to him! Now!"
+								,"text_de": "Ich wusste es! Bring mich zu ihm! Sofort!" },
+		{ "speaker": "Mr. Blob", "text_en": "Woow, wow, let’s calm down a bit. I talked to him once after his ship crashed. He was fine, just a little rumpled."
+								,"text_de": "Woow, wow, beruhigen wir uns mal kurz. Ich habe einmal mit ihm gesprochen, nachdem sein Schiff abgestürzt ist. Es ging ihm gut, er war nur ein bisschen zerzaust." }
 	  ],
 	  "choices": [
-		{ "id": "oris_detail_1", "text": "Oh, he must’ve been scared!", "next": "oris_detail_1" },
-		{ "id": "oris_detail_2", "text": "Aha, sure.", "next": "oris_detail_2" }
+		{ "id": "oris_detail_1", "text_en": "Oh, he must’ve been scared!"
+								,"text_de": "Oh, er muss sich total erschreckt haben!"
+								,"next": "oris_detail_1" },
+		{ "id": "oris_detail_2", "text_en": "Aha, sure."
+								,"text_de": "Aha, klar."
+								,"next": "oris_detail_2" }
 	  ]
 	},
 
 	"oris_detail_1": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "Oh, he must’ve been scared out of his mind! Did he say anything?" },
-		{ "speaker": "Mr. Blob", "text": "Not really. He kept asking me about the nature of this planet… healing properties… documenting things… I told him to document everything since it might be the last time he sees anything nice… I mean…" }
+		{ "speaker": "Oris", "text_en": "Oh, he must’ve been scared out of his mind! Did he say anything?"
+								,"text_de": "Oh, er muss sich zu Tode erschreckt haben! Hat er irgendwas gesagt?" },
+		{ "speaker": "Mr. Blob", "text_en": "Not really. He kept asking me about the nature of this planet… healing properties… documenting things… I told him to document everything since it might be the last time he sees anything nice… I mean…"
+								,"text_de": "Nicht wirklich. Er hat mich ständig nach der Natur dieses Planeten gefragt… nach heilenden Eigenschaften… danach, Dinge zu dokumentieren… Ich sagte ihm, er solle alles dokumentieren, weil es vielleicht das letzte Mal ist, dass er etwas Schönes sieht… ich meine…" }
 	  ],
 	  "choices": [
-		{ "id": "oris_doc_1", "text": "Okay, that sounds ominous.", "next": "oris_doc_1" },
-		{ "id": "oris_doc_2", "text": "Why the last time?", "next": "oris_doc_2" }
+		{ "id": "oris_doc_1", "text_en": "Okay, that sounds ominous."
+								,"text_de": "Okay, das klingt unheilvoll."
+								,"next": "oris_doc_1" },
+		{ "id": "oris_doc_2", "text_en": "Why the last time?"
+								,"text_de": "Wieso das letzte Mal?"
+								,"next": "oris_doc_2" }
 	  ]
 	},
 
 	"oris_detail_2": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "Aha, sure. Well did he say anything important?" },
-		{ "speaker": "Mr. Blob", "text": "Not really. He kept asking me about the nature of this planet… healing properties… documenting things… I told him to document everything since it might be the last time he sees anything nice… I mean…" }
+		{ "speaker": "Oris", "text_en": "Aha, sure. Well did he say anything important?"
+								,"text_de": "Aha, klar. Na gut, hat er irgendwas Wichtiges gesagt?" },
+		{ "speaker": "Mr. Blob", "text_en": "Not really. He kept asking me about the nature of this planet… healing properties… documenting things… I told him to document everything since it might be the last time he sees anything nice… I mean…"
+								,"text_de": "Nicht wirklich. Er hat mich ständig nach der Natur dieses Planeten gefragt… nach heilenden Eigenschaften… danach, Dinge zu dokumentieren… Ich sagte ihm, er solle alles dokumentieren, weil es vielleicht das letzte Mal ist, dass er etwas Schönes sieht… ich meine…" }
 	  ],
 	  "choices": [
-		{ "id": "oris_doc_1", "text": "Okay, that sounds ominous.", "next": "oris_doc_1" },
-		{ "id": "oris_doc_2", "text": "Why the last time?", "next": "oris_doc_2" }
+		{ "id": "oris_doc_1", "text_en": "Okay, that sounds ominous."
+								,"text_de": "Okay, das klingt unheilvoll."
+								,"next": "oris_doc_1" },
+		{ "id": "oris_doc_2", "text_en": "Why the last time?"
+								,"text_de": "Wieso das letzte Mal?"
+								,"next": "oris_doc_2" }
 	  ]
 	},
 
 	"oris_doc_1": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "Okay, that sounds ominous. But how would he document anything?" },
-		{ "speaker": "Mr. Blob", "text": "Oh, just over this human app… Space… something. The second part rhymes with clam." }
+		{ "speaker": "Oris", "text_en": "Okay, that sounds ominous. But how would he document anything?"
+								,"text_de": "Okay, das klingt unheilvoll. Aber wie sollte er überhaupt irgendwas dokumentieren?" },
+		{ "speaker": "Mr. Blob", "text_en": "Oh, just over this human app… Space… something. The second part rhymes with clam."
+								,"text_de": "Oh, einfach über diese menschliche App… Space… irgendwas. Der zweite Teil reimt sich auf „Clam“." }
 	  ],
 	  "choices": [
-		{ "id": "oris_app_1", "text": "Wait, that sounds...", "next": "oris_app_1" },
-		{ "id": "oris_app_2", "text": "Clam? Oh wait…", "next": "oris_app_2" }
+		{ "id": "oris_app_1", "text_en": "Wait, that sounds..."
+								,"text_de": "Warte, das klingt..."
+								,"next": "oris_app_1" },
+		{ "id": "oris_app_2", "text_en": "Clam? Oh wait…"
+								,"text_de": "Clam? Oh warte…"
+								,"next": "oris_app_2" }
 	  ]
 	},
 
 	"oris_doc_2": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "Why would it be his last time? Also document sightings how exactly?" },
-		{ "speaker": "Mr. Blob", "text": "Oh, just over this human app… Space… something. The second part rhymes with clam." }
+		{ "speaker": "Oris", "text_en": "Why would it be his last time? Also document sightings how exactly?"
+								,"text_de": "Wieso sollte es das letzte Mal sein? Und wie genau sollte er Sichtungen dokumentieren?" },
+		{ "speaker": "Mr. Blob", "text_en": "Oh, just over this human app… Space… something. The second part rhymes with clam."
+								,"text_de": "Oh, einfach über diese menschliche App… Space… irgendwas. Der zweite Teil reimt sich auf „Clam“." }
 	  ],
 	  "choices": [
-		{ "id": "oris_app_1", "text": "Wait, that sounds...", "next": "oris_app_1" },
-		{ "id": "oris_app_2", "text": "Clam? Oh wait…", "next": "oris_app_2" }
+		{ "id": "oris_app_1", "text_en": "Wait, that sounds..."
+								,"text_de": "Warte, das klingt..."
+								,"next": "oris_app_1" },
+		{ "id": "oris_app_2", "text_en": "Clam? Oh wait…"
+								,"text_de": "Clam? Oh warte…"
+								,"next": "oris_app_2" }
 	  ]
 	},
 
 	"oris_app_1": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "Wait, that sounds kind of familiar… Space… Space… SPACEGRAM!" },
-		{ "speaker": "Mr. Blob", "text": "Yes, that. I’m sure you can find his journey there." }
+		{ "speaker": "Oris", "text_en": "Wait, that sounds kind of familiar… Space… Space… SPACEGRAM!"
+								,"text_de": "Warte, das kommt mir irgendwie bekannt vor… Space… Space… SPACEGRAM!" },
+		{ "speaker": "Mr. Blob", "text_en": "Yes, that. I’m sure you can find his journey there."
+								,"text_de": "Ja, genau das. Ich bin sicher, du kannst dort seine Reise finden." }
 	  ],
 	  "choices": [
-		{ "id": "oris_user_1", "text": "But how find username?", "next": "oris_user_1" },
-		{ "id": "oris_user_2", "text": "I'd need his username.", "next": "oris_user_2" }
+		{ "id": "oris_user_1", "text_en": "But how find username?"
+								,"text_de": "Benutzername finden?"
+								,"next": "oris_user_1" },
+		{ "id": "oris_user_2", "text_en": "I'd need his username."
+								,"text_de": "Ähh... Benutzernamen?"
+								,"next": "oris_user_2" }
 	  ]
 	},
 
 	"oris_app_2": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "Clam? Oh wait… that rings a bell… You mean Spacegram?" },
-		{ "speaker": "Mr. Blob", "text": "Yes, that. I’m sure you can find his journey there." }
+		{ "speaker": "Oris", "text_en": "Clam? Oh wait… that rings a bell… You mean Spacegram?"
+								,"text_de": "Clam? Oh warte… das sagt mir was… Du meinst Spacegram?" },
+		{ "speaker": "Mr. Blob", "text_en": "Yes, that. I’m sure you can find his journey there."
+								,"text_de": "Ja, genau das. Ich bin sicher, du kannst dort seine Reise finden." }
 	  ],
 	  "choices": [
-		{ "id": "oris_user_1", "text": "But how find username?", "next": "oris_user_1" },
-		{ "id": "oris_user_2", "text": "I'd need his username.", "next": "oris_user_2" }
+		{ "id": "oris_user_1", "text_en": "But how find username?"
+								,"text_de": "Aber wie finde ich den Benutzernamen?"
+								,"next": "oris_user_1" },
+		{ "id": "oris_user_2", "text_en": "I'd need his username."
+								,"text_de": "Dafür bräuchte ich seinen Benutzernamen."
+								,"next": "oris_user_2" }
 	  ]
 	},
 
 	"oris_user_1": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "Oh, but how am I going to figure out his username?" },
-		{ "speaker": "Mr. Blob", "text": "Use your tiny— I mean amazing brain. Didn’t you find a clue in your humongous ship?" }
+		{ "speaker": "Oris", "text_en": "Oh, but how am I going to figure out his username?"
+								,"text_de": "Oh, aber wie soll ich denn seinen Benutzernamen herausfinden?" },
+		{ "speaker": "Mr. Blob", "text_en": "Use your tiny— I mean amazing brain. Didn’t you find a clue in your humongous ship?"
+								,"text_de": "Benutz dein winzi— ich meine dein großartiges Gehirn. Hast du nicht einen Hinweis in deinem riesigen Schiff gefunden?" }
 	  ],
 	  "choices": [
-		{ "id": "oris_clue_1", "text": "Hmm… oh right!", "next": "oris_clue_1" },
-		{ "id": "oris_clue_2", "text": "What did you say?", "next": "oris_clue_2" }
+		{ "id": "oris_clue_1", "text_en": "Hmm… oh right!"
+								,"text_de": "Hmm… oh stimmt!"
+								,"next": "oris_clue_1" },
+		{ "id": "oris_clue_2", "text_en": "What did you say?"
+								,"text_de": "Was hast du gerade gesagt?"
+								,"next": "oris_clue_2" }
 	  ]
 	},
 
 	"oris_user_2": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "I'd need to know his username for that, silly." },
-		{ "speaker": "Mr. Blob", "text": "Use your tiny— I mean amazing brain. Didn’t you find a clue in your humongous ship?" }
+		{ "speaker": "Oris", "text_en": "I'd need to know his username for that, silly."
+								,"text_de": "Dafür müsste ich seinen Benutzernamen kennen, Dummerchen." },
+		{ "speaker": "Mr. Blob", "text_en": "Use your tiny— I mean amazing brain. Didn’t you find a clue in your humongous ship?"
+								,"text_de": "Benutz dein winzi— ich meine dein großartiges Gehirn. Hast du nicht einen Hinweis in deinem riesigen Schiff gefunden?" }
 	  ],
 	  "choices": [
-		{ "id": "oris_clue_1", "text": "Hmm… oh right!", "next": "oris_clue_1" },
-		{ "id": "oris_clue_2", "text": "What did you say?", "next": "oris_clue_2" }
+		{ "id": "oris_clue_1", "text_en": "Hmm… oh right!"
+								,"text_de": "Hmm… oh stimmt!"
+								,"next": "oris_clue_1" },
+		{ "id": "oris_clue_2", "text_en": "What did you say?"
+								,"text_de": "Was hast du gerade gesagt?"
+								,"next": "oris_clue_2" }
 	  ]
 	},
 
 	"oris_clue_1": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "Hmm… Oh, you're right! I found a picture in the ship of Sam and me. The back had the handle @oris.is.here. Since I'm Oris, that must be my username!" },
-		{ "speaker": "Mr. Blob", "text": "Mhm, sure. Can I go now, or..." }
+		{ "speaker": "Oris", "text_en": "Hmm… Oh, you're right! I found a picture in the ship of Sam and me. The back had the handle @oris.is.here. Since I'm Oris, that must be my username!"
+								,"text_de": "Hmm… Oh, du hast recht! Ich habe im Schiff ein Bild von Sam und mir gefunden. Auf der Rückseite stand der Handle @oris.is.here. Da ich Oris bin, muss das mein Benutzername sein!" },
+		{ "speaker": "Mr. Blob", "text_en": "Mhm, sure. Can I go now, or..."
+								,"text_de": "Mhm, klar. Kann ich jetzt gehen, oder..." }
 	  ],
 	  "choices": [
-		{ "id": "oris_final_1", "text": "And if Sam was my friend…", "next": "oris_final_1" },
-		{ "id": "oris_final_2", "text": "Sam was my friend…", "next": "oris_final_2" }
+		{ "id": "oris_final_1", "text_en": "And if Sam was my friend…"
+								,"text_de": "Wenn Sam mein Freund war…"
+								,"next": "oris_final_1" },
+		{ "id": "oris_final_2", "text_en": "Sam was my friend…"
+								,"text_de": "Sam war mein Freund…"
+								,"next": "oris_final_2" }
 	  ]
 	},
 
 	"oris_clue_2": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "Wait, what did you say about my brain? Nevermind. I found a picture of Sam and me with @oris.is.here on the back. Must be my username." },
-		{ "speaker": "Mr. Blob", "text": "Mhm, sure. Can I go now, or..." }
+		{ "speaker": "Oris", "text_en": "Wait, what did you say about my brain? Nevermind. I found a picture of Sam and me with @oris.is.here on the back. Must be my username."
+								,"text_de": "Warte, was hast du über mein Gehirn gesagt? Egal. Ich habe ein Bild von Sam und mir gefunden, mit @oris.is.here auf der Rückseite. Das muss mein Benutzername sein." },
+		{ "speaker": "Mr. Blob", "text_en": "Mhm, sure. Can I go now, or..."
+								,"text_de": "Mhm, klar. Kann ich jetzt gehen, oder..." }
 	  ],
 	  "choices": [
-		{ "id": "oris_final_1", "text": "And if Sam was my friend…", "next": "oris_final_1" },
-		{ "id": "oris_final_2", "text": "Sam was my friend…", "next": "oris_final_2" }
+		{ "id": "oris_final_1", "text_en": "And if Sam was my friend…"
+								,"text_de": "Und wenn Sam mein Freund war…"
+								,"next": "oris_final_1" },
+		{ "id": "oris_final_2", "text_en": "Sam was my friend…"
+								,"text_de": "Sam war mein Freund…"
+								,"next": "oris_final_2" }
 	  ]
 	},
 
 	"oris_final_1": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "And if Sam was my friend, then I surely followed him on Spacegram! I must be able to find him through my own account." },
-		{ "speaker": "Mr. Blob", "text": "Yeah, no problem. Go check Spacegram and find your little friend. I’m sure we’ll meet again… Good luck on your journey, @oris.is.here…" }
+		{ "speaker": "Oris", "text_en": "And if Sam was my friend, then I surely followed him on Spacegram! I must be able to find him through my own account."
+								,"text_de": "Und wenn Sam mein Freund war, dann bin ich ihm auf Spacegram bestimmt gefolgt! Ich müsste ihn also über meinen eigenen Account finden können." },
+		{ "speaker": "Mr. Blob", "text_en": "Yeah, no problem. Go check Spacegram and find your little friend. I’m sure we’ll meet again… Good luck on your journey, @oris.is.here…"
+								,"text_de": "Ja, kein Problem. Geh auf Spacegram und finde deinen kleinen Freund. Ich bin sicher, wir sehen uns wieder… Viel Glück auf deiner Reise, @oris.is.here…" }
 	  ],
 	  "next": "end"
 	},
 
 	"oris_final_2": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "Sam was my friend so I probably follow him on Spacegram. I guess I can find him that way." },
-		{ "speaker": "Mr. Blob", "text": "Yeah, no problem. Go check Spacegram and find your little friend. I’m sure we’ll meet again… Good luck on your journey, @oris.is.here…" }
+		{ "speaker": "Oris", "text_en": "Sam was my friend so I probably follow him on Spacegram. I guess I can find him that way."
+								,"text_de": "Sam war mein Freund, also folge ich ihm wahrscheinlich auf Spacegram. Ich schätze, so kann ich ihn finden." },
+		{ "speaker": "Mr. Blob", "text_en": "Yeah, no problem. Go check Spacegram and find your little friend. I’m sure we’ll meet again… Good luck on your journey, @oris.is.here…"
+								,"text_de": "Ja, kein Problem. Geh auf Spacegram und finde deinen kleinen Freund. Ich bin sicher, wir sehen uns wieder… Viel Glück auf deiner Reise, @oris.is.here…" }
 	  ],
 	  "next": "end"
 	},

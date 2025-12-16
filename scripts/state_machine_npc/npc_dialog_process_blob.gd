@@ -8,8 +8,8 @@ const DIALOG_BY_SCENE := {
 
 const OUTSIDE1_FLOW := [
 	{
-		"flag": "",
-		"path": "",
+		"flag": "outside1_done",
+		"path": "res://dialog/dialogueMrBlob/outside_1.json",
 	}
 ]
 

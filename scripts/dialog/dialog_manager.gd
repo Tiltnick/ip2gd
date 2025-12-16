@@ -105,6 +105,9 @@ func dialog_is_finished():
 	elif current_dialog_path.contains("res://dialog/mushrooms/mushroom.json"):
 		GameState.puzzle_state["mushroom_dialog_done"] = true
 		
+	elif current_dialog_path.contains("outside_1"):
+		GameState.puzzle_state["outside1_done"] = true
+		
 	current_dialog_path = ""
 
 	box.hide()
