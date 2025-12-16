@@ -78,3 +78,5 @@ func _on_code_verified(result: bool) -> void:
 			shovel.visible = true
 
 		code_popup.visible = false
+		
+		ShovelItem.new().found()

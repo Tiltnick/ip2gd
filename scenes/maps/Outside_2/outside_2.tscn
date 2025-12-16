@@ -2184,6 +2184,7 @@ polygon = PackedVector2Array(-16, -11, -16, 15, -13, 15, -13, 20, -16, 20, -16, 
 [node name="Stones" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_qarrx")]
 position = Vector2(-680, 213)
 replace_object_scene = "uid://c7amjsaj2vw3u"
+save_id = "stones_1"
 e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="Objects/Stones" instance=ExtResource("10_exwp3")]
@@ -2197,6 +2198,7 @@ offset_bottom = -54.0
 [node name="Stones2" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_qarrx")]
 position = Vector2(-493, -357)
 replace_object_scene = "uid://cuyfkctafkxe1"
+save_id = "stones_2"
 e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="Objects/Stones2" instance=ExtResource("10_exwp3")]
@@ -2208,8 +2210,9 @@ offset_right = -10.0
 offset_bottom = -54.0
 
 [node name="Stones3" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_qarrx")]
-position = Vector2(-129, 124)
+position = Vector2(-233, 182)
 replace_object_scene = "uid://blwv84km7lh04"
+save_id = "stones_2"
 e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="Objects/Stones3" instance=ExtResource("10_exwp3")]
@@ -2258,6 +2261,9 @@ material = SubResource("ShaderMaterial_h3v21")
 visible = false
 z_index = 2
 position = Vector2(-617, -283)
+
+[node name="Shovel2" parent="Objects" instance=ExtResource("10_o6c6f")]
+position = Vector2(-337, 231)
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 position = Vector2(-360, 262)

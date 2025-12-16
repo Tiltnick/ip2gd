@@ -9,3 +9,6 @@ func _ready() -> void:
 	item_name_en = "Shovel"
 
 	super._ready()
+
+func found():
+	DialogManager.start_dialog("res://dialog/innerMonologue/discovering_shovel.json")

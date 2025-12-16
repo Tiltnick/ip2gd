@@ -3,10 +3,12 @@ extends Interactable
 @export_file("*.tscn") 
 var replace_object_scene: String = ""
 
+@export var save_id: String = ""
 
 func interact() -> void:
 	if is_in_group("stones"):
 		if hotbarglobal.inventory_items.has("shovel"):
+			GameState.puzzle_state[save_id] = true
 			remove_stones()
 		else:
 			DialogManager.start_dialog("res://dialog/innerMonologue/no_shovel.json")

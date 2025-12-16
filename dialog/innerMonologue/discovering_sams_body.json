@@ -8,11 +8,36 @@
   "steps": {
 	"sections": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "Oh there's something here..." },
-		{ "speaker": "Oris", "text": "...no, it can't be!" },
-		{ "speaker": "Oris", "text": "Oh my goodness, SAM!" },
-		{ "speaker": "Oris", "text": "No no no, you're... oh no." },
-		{ "speaker": "Oris", "text": "You're gone. How can this be..." }
+		{ 
+			"speaker": "Oris", 
+			"text_en": "Oh, there's something here...",
+			"text_de": "Oh, hier liegt etwas..."
+		 },
+		{ 
+			"speaker": "Oris", 
+			"text_en": "...no, it can't be!",
+			"text_de": "...nein, das kann nicht sein!"
+		 },
+		{ 
+			"speaker": "Oris", 
+			"text_en": "...",
+			"text_de": "..."
+		 },
+		{ 
+			"speaker": "Oris", 
+			"text_en": "Oh my goodness... SAM!",
+			"text_de": "Oh mein Gott... SAM!"
+		 },
+		{ 
+			"speaker": "Oris", 
+			"text_en": "No, no, no, you're... oh no.",
+			"text_de": "Nein, nein, nein, du bist... oh nein."
+		 },
+		{ 
+			"speaker": "Oris", 
+			"text_en": "You're gone. How can this be...",
+			"text_de": "Du bist... fort. Wie kann das sein..."
+		 },
 	  ],
 	  "next": "end"
 	},

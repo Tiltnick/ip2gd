@@ -113,8 +113,6 @@ theme_override_colors/font_color = Color(0.4450618, 0.30112708, 0.037535295, 1)
 theme_override_constants/line_spacing = -13
 theme_override_fonts/font = ExtResource("1_oso74")
 theme_override_font_sizes/font_size = 36
-text = "Um hier zu passieren muss der Spieler die Menge 
-der verschieden Käfer finden, die in der Wüste spazieren!"
 horizontal_alignment = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/Panel2"]

@@ -2,6 +2,8 @@ extends CanvasLayer
 
 @export var code = ["1", "1", "1"]
 
+@onready var title_label = $Control/Panel2/Label
+
 @onready var inputs = [
 	$Control/Panel2/HBoxContainer/Input1,
 	$Control/Panel2/HBoxContainer/Input2,
@@ -13,10 +15,18 @@ var code_solved := false
 
 
 func _ready():
+	var lang = TranslationServer.get_locale().substr(0, 2)
+	
 	for input in inputs:
 		input.max_length = 1
 		input.virtual_keyboard_type = LineEdit.KEYBOARD_TYPE_NUMBER
 		input.text_changed.connect(_on_text_changed.bind(input))
+		
+		if lang == "de":
+			title_label.text = "Um hier zu passieren muss der Spieler die Menge der \n verschieden Käfer finden, die in der Wüste spazieren!"
+		if lang == "en":
+			title_label.text = "To pass here the player has to guess the amount of bugs \n which are crawling in this desert!"
+		print("Test test")
 
 
 func _on_text_changed(new_text: String, input: LineEdit) -> void:
