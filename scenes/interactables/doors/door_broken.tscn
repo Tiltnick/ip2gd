@@ -4,7 +4,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xaf03"]
 
-[node name="Door_broken" type="Sprite2D"]
+[node name="Sprite2D" type="Sprite2D"]
 texture = ExtResource("1_xaf03")
 
 [node name="Area2D" type="Area2D" parent="."]

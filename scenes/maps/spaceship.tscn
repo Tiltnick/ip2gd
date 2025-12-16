@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://btvvee8ehjidi" path="res://scripts/riddles/spaceship_door/spaceship_door_door.gd" id="11_emg07"]
 [ext_resource type="PackedScene" uid="uid://dfa4ga2b2k76f" path="res://scenes/Menues/saving_menu.tscn" id="11_o77e3"]
 [ext_resource type="PackedScene" uid="uid://i0736j8r38e8" path="res://scenes/interactables/doors/door_broken.tscn" id="12_4s1gq"]
-[ext_resource type="Script" uid="uid://dge528a6i2b6f" path="res://scripts/interactables/doors/door.gd" id="13_4nltl"]
+[ext_resource type="Script" uid="uid://dge528a6i2b6f" path="res://scripts/interactables/doors/door_spaceship_room.gd" id="13_4nltl"]
 [ext_resource type="Texture2D" uid="uid://c7pwwu6560hy4" path="res://assets/sprites/selfmade/spaceship_door_open.png" id="13_b8ov6"]
 [ext_resource type="PackedScene" uid="uid://bpvneidk4xerj" path="res://scenes/Riddles/Spaceship/spaceship_door_riddle.tscn" id="14_1oksb"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="15_emg07"]
@@ -1330,7 +1330,6 @@ position = Vector2(-121, 151)
 script = ExtResource("13_4nltl")
 target_scene_path = "uid://n5pfeqsgykkm"
 target_spawn_id = "from_spaceship"
-e_popup_node = NodePath("Press_E_Popup_Door")
 
 [node name="Press_E_Popup_Door" parent="Door_broken" instance=ExtResource("10_o77e3")]
 visible = false
@@ -1419,5 +1418,6 @@ offset_left = -312.0
 offset_top = -148.0
 offset_right = 496.88892
 offset_bottom = 307.0
+mouse_filter = 2
 texture = ExtResource("27_7rixv")
 expand_mode = 1

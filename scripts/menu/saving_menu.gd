@@ -11,19 +11,31 @@ func resume():
 	# Dialog wieder einblenden nur wenn er existiert
 	# (DialogManager ist ein Autoload → direkt nutzbar)
 	DialogManager.show()
-
+	
 	# Hotbar wieder zeigen wenn sie existiert
 	if hotbarglobal.hotbar:
 		hotbarglobal.hotbar.show()
-		
-
+	
 func pause():
 	get_tree().paused = true
 	show()
 
+	# diary_menu schließen falls vorhanden (nur die instanzierte diary_menu Szene)
+	for node in get_tree().get_nodes_in_group("diary_menu"):
+		# Wenn das diary_menu eine close_menu() Methode hat, nutze sie (macht UI sauber zurück)
+		if node.has_method("close_menu"):
+			node.close_menu()
+		else:
+			node.queue_free()
+
+	# Buttons wieder einblenden, damit sie nicht "weg" bleiben
+	GlobalMenuButton.show()
+	SettingsButton.show()
+
 	# Dialog versteckenfalls vorhanden
 	DialogManager.hide()
 
+		
 	# Hotbar verstecken falls vorhanden
 	if hotbarglobal.hotbar:
 		hotbarglobal.hotbar.hide()
@@ -71,6 +83,17 @@ func _on_exit_button_pressed() -> void:
 
 	# Menü direkt ausblenden, damit es im Hauptmenü nicht sichtbar bleibt
 	hide()
+
+	# diary_menu sicherheitshalber schließen, damit es im Hauptmenü nicht sichtbar bleibt
+	for node in get_tree().get_nodes_in_group("diary_menu"):
+		if node.has_method("close_menu"):
+			node.close_menu()
+		else:
+			node.queue_free()
+
+	# Buttons wieder einblenden, damit sie im MainMenu nicht "weg" bleiben
+	GlobalMenuButton.show()
+	SettingsButton.show()
 
 	# Zur MainMenu scene wechseln
 	SceneManager.goto_main_menu()

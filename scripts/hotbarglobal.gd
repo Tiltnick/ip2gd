@@ -24,48 +24,22 @@ func add_item(item_id: String) -> bool:
 		update_ui()
 		return true
 
-	var hotbar_added := false
+	# (dein restlicher add_item code bleibt wie bei dir)
 	for i in range(hotbar_items.size()):
 		if hotbar_items[i] == null:
 			hotbar_items[i] = item_id
-			hotbar_added = true
-			break
+			update_ui()
+			return true
 
-	var inv_added := false
 	for i in range(inventory_items.size()):
 		if inventory_items[i] == null:
 			inventory_items[i] = item_id
-			inv_added = true
-			break
+			update_ui()
+			return true
 
 	update_ui()
-	return hotbar_added or inv_added
+	return false
 
-func add_piece(piece_id: String, hotbar_type_id: String) -> void:
-	if piece_id == "" or hotbar_type_id == "":
-		return
-
-	if not inventory_items.has(piece_id):
-		for i in range(inventory_items.size()):
-			if inventory_items[i] == null:
-				inventory_items[i] = piece_id
-				break
-
-	if not hotbar_items.has(hotbar_type_id):
-		for i in range(hotbar_items.size()):
-			if hotbar_items[i] == null:
-				hotbar_items[i] = hotbar_type_id
-				break
-
-	hotbar_counts[hotbar_type_id] = hotbar_counts.get(hotbar_type_id, 0) + 1
-	
-	#hotbar icon auf das zuletzt eingesammelte setzen
-	hotbar_icon_override[hotbar_type_id] = piece_id
-
-	update_ui()
-
-func get_hotbar_display_item_id(item_id: String) -> String:
-	return hotbar_icon_override.get(item_id, item_id)
 
 func update_ui():
 	if hotbar:
@@ -76,19 +50,26 @@ func update_ui():
 		if inventory.is_visible_in_tree():
 			inventory._select_first_item()
 
+
 func remove_item(item_id: String) -> void:
+	var removed := false
+
 	# remove from inventory
 	for i in range(inventory_items.size()):
 		if inventory_items[i] == item_id:
 			inventory_items[i] = null
-			return
+			removed = true
+			break
 
 	# remove from hotbar
 	for i in range(hotbar_items.size()):
 		if hotbar_items[i] == item_id:
 			hotbar_items[i] = null
-			return
-	update_ui()
+			removed = true
+			break
+
+	if removed:
+		update_ui()
 
 
 func get_item_from_hotbar(slot: int) -> String:
