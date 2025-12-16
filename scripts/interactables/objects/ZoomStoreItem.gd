@@ -40,6 +40,11 @@ func _zoom_in():
 	t.tween_property(self, "scale", start_scale * 7, 0.2)
 
 func _store_in_hotbar():
+	
+	# schon eingesammelt, dann mach nichts mehr, kein popup oder add_item
+	if save_id != "" and GameState.puzzle_state.get(save_id, false) and not spawned_from_hotbar:
+		return
+	
 	if spawned_from_hotbar:
 		queue_free()
 		return
