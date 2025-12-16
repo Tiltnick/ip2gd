@@ -336,7 +336,6 @@ build_mode = 1
 polygon = PackedVector2Array(-721, 209, 751, 209, 753, -781, -723, -781)
 
 [node name="Dark" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Note" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("4_esekf")]
@@ -361,7 +360,7 @@ position = Vector2(-33, 125)
 [node name="DoorArea" type="Area2D" parent="."]
 position = Vector2(-25, 167)
 script = ExtResource("5_oqthk")
-target_scene_path = "uid://chb4fo2dp60ho"
+target_scene_path = "uid://34ylk7jtx176"
 target_spawn_id = "from_sams_cave"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea"]
