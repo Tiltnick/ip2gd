@@ -2213,7 +2213,7 @@ offset_top = -54.0
 offset_right = -10.0
 offset_bottom = -54.0
 
-[node name="Stones3" parent="Objects" node_paths=PackedStringArray("e_popup_node") groups=["stone3"] instance=ExtResource("12_qarrx")]
+[node name="Stones3" parent="Objects" node_paths=PackedStringArray("e_popup_node") groups=["stone3", "stones"] instance=ExtResource("12_qarrx")]
 position = Vector2(-166, 202)
 save_id = "stones_3"
 e_popup_node = NodePath("Press_E_Popup")
