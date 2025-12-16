@@ -359,7 +359,7 @@ position = Vector2(-33, 125)
 [node name="DoorArea" type="Area2D" parent="."]
 position = Vector2(-25, 167)
 script = ExtResource("5_oqthk")
-target_scene_path = "uid://34ylk7jtx176"
+target_scene_path = "uid://chb4fo2dp60ho"
 target_spawn_id = "from_sams_cave"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea"]
