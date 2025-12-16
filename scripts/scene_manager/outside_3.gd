@@ -1,7 +1,9 @@
 extends Node2D
 
 func _ready() -> void:
-	pass
+	if not GameState.puzzle_state.get("outside3_monologue_done", false):
+		GameState.puzzle_state["outside3_monologue_done"] = true
+		DialogManager.start_dialog("res://dialog/mushrooms/outside_3_begin.json")
 
 func configure_camera(cam: Camera2D) -> void:
 	# Cam Limits

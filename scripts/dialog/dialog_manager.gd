@@ -89,7 +89,7 @@ func dialog_is_finished():
 		box.hide()
 		hide()
 		return
-
+#document name NOT ID
 	if current_dialog_path.contains("outside_2_part_1"):
 		GameState.puzzle_state["blob_intro_done"] = true
 
@@ -105,6 +105,12 @@ func dialog_is_finished():
 	elif current_dialog_path.contains("res://dialog/mushrooms/mushroom.json"):
 		GameState.puzzle_state["mushroom_dialog_done"] = true
 		
+	elif current_dialog_path.contains("clue_mushroom_1"):
+		GameState.puzzle_state["blob_clue1_done"] = true
+	
+	elif current_dialog_path.contains("clue_mushroom_2"):
+		GameState.puzzle_state["blob_clue2_done"] = true
+	
 	current_dialog_path = ""
 
 	box.hide()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://dlsjgc5i7yt81"]
+[gd_scene load_steps=44 format=4 uid="uid://dlsjgc5i7yt81"]
 
 [ext_resource type="Script" uid="uid://dliaffanr7vt" path="res://scripts/scene_manager/outside_3.gd" id="1_3rchf"]
 [ext_resource type="Texture2D" uid="uid://dtxi3laerm24l" path="res://assets/sprites/map/Outside_3/Ground.png" id="1_oc04w"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://h8yjacx3dw73" path="res://scenes/interactables/objects/mushrooms/red_mush.tscn" id="23_3h5uc"]
 [ext_resource type="PackedScene" uid="uid://cbquy1j63ujkx" path="res://scenes/interactables/objects/mushrooms/yellow_mush.tscn" id="24_54y3o"]
 [ext_resource type="PackedScene" uid="uid://bhoaqyfoiwhbt" path="res://scenes/Riddles/mushroom/mushroom_ui.tscn" id="25_0fq4m"]
+[ext_resource type="PackedScene" uid="uid://cc56upiuyf8v1" path="res://scenes/Character/npc.tscn" id="25_1k6v6"]
 [ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="26_1k6v6"]
 [ext_resource type="PackedScene" uid="uid://3je85k2bk5gy" path="res://scenes/interactables/objects/stone pieces/stone_piece_6.tscn" id="26_3h5uc"]
 [ext_resource type="PackedScene" uid="uid://c0vonwkvy4jaa" path="res://scenes/interactables/objects/mushrooms/fire_mush.tscn" id="27_3h5uc"]
@@ -4140,6 +4141,9 @@ scale = Vector2(0.5, 0.5)
 [node name="FireMush" parent="." instance=ExtResource("27_3h5uc")]
 visible = false
 position = Vector2(339.0602, -345.28543)
+
+[node name="NPC" parent="." instance=ExtResource("25_1k6v6")]
+position = Vector2(296, 176)
 
 [editable path="champi_socket"]
 [editable path="porcini_socket"]

@@ -34,6 +34,20 @@ const OUTSIDE2_FLOW := [
 const OUTSIDE2_END := "res://dialog/dialogueMrBlob/end_dialog_outside2_blob.json"
 const DEFAULT_DIALOG := "Kein Dialog gefunden"
 
+const OUTSIDE3_FLOW := [
+	{
+		"flag": "blob_clue1_done",
+		"path": "res://dialog/cluesMrBlob/clue_mushroom_1.json",
+	},
+	{
+		"flag": "blob_clue2_done",
+		"path": "res://dialog/cluesMrBlob/clue_mushroom_2.json",
+	},
+	
+]
+const OUTSIDE3_END := "res://dialog/dialogueMrBlob/end_dialog_outside3_blob.json"
+
+
 func _ready() -> void:
 	super._ready()
 
@@ -43,7 +57,9 @@ func get_dialog_path(scene_name: String) -> String:
 		return _get_outside1_dialog()
 	elif scene_name == "Outside2":
 		return _get_outside2_dialog()
-
+	elif scene_name == "Outside3":
+		return _get_outside3_dialog()
+	
 	return DIALOG_BY_SCENE.get(scene_name, DEFAULT_DIALOG)
 	
 func _get_outside1_dialog() -> String:
@@ -51,9 +67,15 @@ func _get_outside1_dialog() -> String:
 		if not GameState.puzzle_state.get(step["flag"], false):
 			return step["path"]
 	return OUTSIDE1_END
-	
+
 func _get_outside2_dialog() -> String:
 	for step in OUTSIDE2_FLOW:
 		if not GameState.puzzle_state.get(step["flag"], false):
 			return step["path"]
 	return OUTSIDE2_END
+
+func _get_outside3_dialog() -> String:
+	for step in OUTSIDE3_FLOW:
+		if not GameState.puzzle_state.get(step["flag"], false):
+			return step["path"]
+	return OUTSIDE3_END

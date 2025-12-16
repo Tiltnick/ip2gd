@@ -1,0 +1,41 @@
+{
+  "id": "mushroom_clue_2",
+
+  "characters": {
+	"Mr. Blob": "res://assets/sprites/portrait/MrBlobs.png",
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text_en": "You really can't think on your own?"
+								 ,"text_de": "Du kannst wirklich nicht selbst denken oder?"}
+	  ],
+	  "choices": [
+		{ "id": "hint_yes", "text_en": "Stop being mean and help me."
+							,"text_de": "Sei nett und hilf mir." 
+							,"next": "hint_yes" },
+		{ "id": "hint_no", "text_en": "You're right, I'll manage it on my own."
+							,"text_de": "Hast recht. Ich mach's selbst" 
+							,"next": "end" }
+	  ]
+	},
+
+	"hint_yes": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text_en": "The Mushrooms really like to maintain a specific order with their things."
+								,"text_de": "Pilze haben eine Vorliebe für eine ganz bestimmte Ordnung" }
+	  ],
+	  "choices": [
+		{ "id": "realization", "text_en": "Thats interesting."
+								,"text_de": "Das ist interessant." 
+								,"next": "end" }
+	  ]
+	},
+
+	"end": {
+	  "lines": []
+	}
+  }
+}

@@ -8,11 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://5ufda2ybf4h2" path="res://assets/sprites/selfmade/mushrooms/truffle_sad.png" id="5_j3ps3"]
 [ext_resource type="PackedScene" uid="uid://dmlmv2sismu3p" path="res://scenes/Riddles/mushroom/mushroom_riddle.tscn" id="6_2g3uk"]
 [ext_resource type="Texture2D" uid="uid://b0frwpghotq7a" path="res://assets/sprites/selfmade/mushrooms/porcini_sad.png" id="6_3fi4c"]
-[ext_resource type="Texture2D" uid="uid://beoqid1gce0on" path="res://assets/sprites/selfmade/mushrooms/brown_mush.png" id="7_t74yn"]
-[ext_resource type="Texture2D" uid="uid://cyxgbccyi3vl1" path="res://assets/sprites/selfmade/mushrooms/green_mush.png" id="8_lp2tr"]
-[ext_resource type="Texture2D" uid="uid://dlvaqnsna4p72" path="res://assets/sprites/selfmade/mushrooms/orange_mush.png" id="9_j3ps3"]
-[ext_resource type="Texture2D" uid="uid://dbc0av5uwgs40" path="res://assets/sprites/selfmade/mushrooms/red_mush.png" id="10_3fi4c"]
-[ext_resource type="Texture2D" uid="uid://nchvm24n38yo" path="res://assets/sprites/selfmade/mushrooms/yellow_mush.png" id="11_elwv7"]
 [ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="14_lp2tr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fpcnq"]
@@ -32,6 +27,21 @@ corner_radius_bottom_left = 12
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k621n"]
 size = Vector2(128, 128)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_54y3o"]
+load_path = "res://.godot/imported/brown_mush.png-56a86e7615692de1465198e084c66247.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_14c1k"]
+load_path = "res://.godot/imported/green_mush.png-0e868692af850671e75ed17b6a8a9006.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lsrtm"]
+load_path = "res://.godot/imported/orange_mush.png-2cedfecc298bd7cdf02a9ac3c536206f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6swy0"]
+load_path = "res://.godot/imported/red_mush.png-1fd1fc366c04ae44ccbaffab70a747cf.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qu0jh"]
+load_path = "res://.godot/imported/yellow_mush.png-1d6b415f1ae976ced9fe433e7b9b4b67.ctex"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3ps3"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -356,7 +366,7 @@ side_scale = Vector2(3, 3)
 piece_id = "brown_mush"
 
 [node name="Sprite2D" parent="mushrooms/brown_mush" index="0"]
-texture = ExtResource("7_t74yn")
+texture = SubResource("CompressedTexture2D_54y3o")
 
 [node name="green_mush" parent="mushrooms" groups=["mushrooms"] instance=ExtResource("6_2g3uk")]
 position = Vector2(1088, 896.00006)
@@ -366,7 +376,7 @@ side_scale = Vector2(3, 3)
 piece_id = "green_mush"
 
 [node name="Sprite2D" parent="mushrooms/green_mush" index="0"]
-texture = ExtResource("8_lp2tr")
+texture = SubResource("CompressedTexture2D_14c1k")
 
 [node name="orange_mush" parent="mushrooms" groups=["mushrooms"] instance=ExtResource("6_2g3uk")]
 position = Vector2(832, 896)
@@ -376,7 +386,7 @@ side_scale = Vector2(3, 3)
 piece_id = "orange_mush"
 
 [node name="Sprite2D" parent="mushrooms/orange_mush" index="0"]
-texture = ExtResource("9_j3ps3")
+texture = SubResource("CompressedTexture2D_lsrtm")
 
 [node name="red_mush" parent="mushrooms" groups=["mushrooms"] instance=ExtResource("6_2g3uk")]
 position = Vector2(576, 896)
@@ -386,7 +396,7 @@ side_scale = Vector2(3, 3)
 piece_id = "red_mush"
 
 [node name="Sprite2D" parent="mushrooms/red_mush" index="0"]
-texture = ExtResource("10_3fi4c")
+texture = SubResource("CompressedTexture2D_6swy0")
 
 [node name="yellow_mush" parent="mushrooms" groups=["mushrooms"] instance=ExtResource("6_2g3uk")]
 position = Vector2(320, 896)
@@ -396,7 +406,7 @@ side_scale = Vector2(3, 3)
 piece_id = "yellow_mush"
 
 [node name="Sprite2D" parent="mushrooms/yellow_mush" index="0"]
-texture = ExtResource("11_elwv7")
+texture = SubResource("CompressedTexture2D_qu0jh")
 
 [node name="close_button" type="Button" parent="."]
 anchors_preset = 1

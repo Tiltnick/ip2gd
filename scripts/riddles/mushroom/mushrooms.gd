@@ -37,7 +37,7 @@ func try_assign_to_slot():
 	var socket = get_tree().get_nodes_in_group("socket")
 	var side_slots = get_tree().get_nodes_in_group("side_slots")
 	var next_puzzle_piece: Area2D = null
-	var puzzle_dist = 40.0
+	var puzzle_dist = 100.0
 	var next_side_slot: Area2D= null
 	var side_dist = 40.0
 
