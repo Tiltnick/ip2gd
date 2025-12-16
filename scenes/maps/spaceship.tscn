@@ -1325,7 +1325,7 @@ position = Vector2(272, 116)
 [node name="from_spaceship_room" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(-120, 196)
 
-[node name="Door_broken" parent="." node_paths=PackedStringArray("e_popup_node") groups=["door_broken"] instance=ExtResource("12_4s1gq")]
+[node name="Door_broken" parent="." groups=["door_broken"] instance=ExtResource("12_4s1gq")]
 position = Vector2(-127.96, 152.985)
 script = ExtResource("13_4nltl")
 target_scene_path = "uid://n5pfeqsgykkm"
