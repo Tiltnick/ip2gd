@@ -29,11 +29,13 @@ func _ready():
 func set_texture():
 	var texturee = load('res://assets/sprites/map/Outside_2/Treasure.png')
 	$Sprite2D.texture = texturee
+	var outline = load('res://assets/sprites/map/Outside_2/Treasure.png')
 	$Outline.texture = outline
 	
 func change_sprite():
 	var texturee = load('res://assets/sprites/map/Outside_2/Treasure_open.png')
 	$Sprite2D.texture = texturee
+	var outline = load('res://assets/sprites/map/Outside_2/Treasure_open.png')
 	$Outline.texture = outline
 
 
@@ -41,9 +43,9 @@ func interact() -> void:
 	SfxPlayer.ui_click_sound()
 	
 	var lang = TranslationServer.get_locale().substr(0, 2)
-	if lang == "de":
+	if lang == "de" and GameState.puzzle_state.get(puzzle_id) == false:
 		PopupManager.popup_spacegram_de()
-	elif lang == "en":
+	elif lang == "en" and GameState.puzzle_state.get(puzzle_id) == false:
 		PopupManager.popup_spacegram_de()
 
 	if code_solved:

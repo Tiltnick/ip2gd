@@ -60,6 +60,7 @@ corner_radius_bottom_left = 62
 
 [node name="TreasureChestRiddle" type="CanvasLayer"]
 script = ExtResource("1_0tp8k")
+code = ["5", "3", "4"]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
