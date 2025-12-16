@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c7amjsaj2vw3u"]
 
-[ext_resource type="Script" uid="uid://bxov3mwsslfyc" path="res://scripts/interactables/objects/flashlight.gd" id="1_gp728"]
+[ext_resource type="Script" path="res://scripts/interactables/objects/flashlight.gd" id="1_gp728"]
 [ext_resource type="Texture2D" uid="uid://y1ycd6wvvjvy" path="res://assets/sprites/selfmade/flashlight.png" id="1_qwc0l"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="2_gp728"]
 
@@ -23,7 +23,6 @@ texture = ExtResource("1_qwc0l")
 
 [node name="Outline" type="Sprite2D" parent="."]
 visible = false
-z_index = 100
 material = SubResource("ShaderMaterial_8ybjn")
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_qwc0l")

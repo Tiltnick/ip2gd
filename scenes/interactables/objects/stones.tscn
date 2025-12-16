@@ -16,7 +16,7 @@ size = Vector2(71, 70)
 radius = 31.016125
 
 [node name="Stones" type="Node2D"]
-z_index = 2
+z_index = 1
 script = ExtResource("1_hmjdm")
 metadata/_custom_type_script = "uid://bdssbm1prbicl"
 

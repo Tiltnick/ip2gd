@@ -23,17 +23,26 @@ func interact() -> void:
 			GameState.puzzle_state[save_id] = true
 			item.visible = true
 			remove_stones()
-		elif is_in_group("stone3"):
-			if hotbarglobal.inventory_items.has("shovel"):
-				GameState.puzzle_state[save_id] = true
+		else:
+			DialogManager.start_dialog("res://dialog/innerMonologue/no_shovel.json")
+		
+	if is_in_group("stone3"):
+		if hotbarglobal.inventory_items.has("shovel"):
+			GameState.puzzle_state[save_id] = true
+			TransitionAreaFade.transition()
+			await TransitionAreaFade.transition_finished
+			GameState.return_scene_path = get_tree().current_scene.scene_file_path
 			get_tree().change_scene_to_file("res://scenes/Cutscenes/finding_sam.tscn")
 			remove_stones()
 		else:
 			DialogManager.start_dialog("res://dialog/innerMonologue/no_shovel.json")
-			
-	elif not is_in_group("stones"):
-		remove_stones()
-
-
+		
+	if not is_in_group("stones"):
+		print("not in group stones")
+		#remove_stones()
+#
+#
 func remove_stones():
-		queue_free()
+	TransitionAreaFade.transition()
+	await TransitionAreaFade.transition_finished
+	queue_free()
