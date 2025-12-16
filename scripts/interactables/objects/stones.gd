@@ -10,8 +10,8 @@ func _ready():
 	if item_path != NodePath("") and is_in_group("stones"):
 		item = get_node(item_path) as ZoomStoreItem
 
-	else:
-		push_warning("Kein Code-Popup Pfad gesetzt!")
+#	else:
+#		push_warning("Kein Code-Popup Pfad gesetzt!")
 
 	if GameState.puzzle_state.get(save_id, false):
 		queue_free()
@@ -21,7 +21,7 @@ func interact() -> void:
 	if is_in_group("stones"):
 		if hotbarglobal.inventory_items.has("shovel"):
 			GameState.puzzle_state[save_id] = true
-			item.visible = true
+			#item.visible = true
 			remove_stones()
 		else:
 			DialogManager.start_dialog("res://dialog/innerMonologue/no_shovel.json")

@@ -9,3 +9,11 @@ func _ready() -> void:
 	item_name_en = "Flashlight"
 
 	super._ready()
+	
+
+func interact() -> void:
+	super.interact()
+	if not GameState.puzzle_state.get(save_id, false):
+		DialogManager.start_dialog(
+			"res://dialog/innerMonologue/discovering_flashlight.json"
+		)
