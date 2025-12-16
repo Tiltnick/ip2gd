@@ -522,7 +522,7 @@ offset_bottom = -27.0
 
 [node name="DoorAreaOutside2" type="Area2D" parent="."]
 script = ExtResource("10_r76a8")
-target_scene_path = "uid://34ylk7jtx176"
+target_scene_path = "uid://chb4fo2dp60ho"
 target_spawn_id = "from_outside1"
 metadata/_custom_type_script = "uid://omi26xfafgx0"
 

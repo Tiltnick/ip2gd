@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhyl0rqmojucp"]
 
-[ext_resource type="Script" uid="uid://dge528a6i2b6f" path="res://scripts/interactables/doors/door.gd" id="1_s3e0f"]
+[ext_resource type="Script" uid="uid://dge528a6i2b6f" path="res://scripts/interactables/doors/door_spaceship_room.gd" id="1_s3e0f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s3e0f"]
 

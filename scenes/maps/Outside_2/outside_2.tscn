@@ -2214,8 +2214,7 @@ offset_right = -10.0
 offset_bottom = -54.0
 
 [node name="Sams_Spaceship" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("13_qarrx")]
-visible = false
-z_index = 1
+z_index = 3
 position = Vector2(-160, -16)
 e_popup_node = NodePath("Press_E_Popup")
 

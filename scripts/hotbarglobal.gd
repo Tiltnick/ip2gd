@@ -78,19 +78,63 @@ func update_ui():
 		if inventory.is_visible_in_tree():
 			inventory._select_first_item()
 
+#func remove_item(item_id: String) -> void:
+	## remove from inventory
+	#for i in range(inventory_items.size()):
+		#if inventory_items[i] == item_id:
+			#inventory_items[i] = null
+			#return
+#
+	## remove from hotbar
+	#for i in range(hotbar_items.size()):
+		#if hotbar_items[i] == item_id:
+			#hotbar_items[i] = null
+			#return
+	#update_ui()
+	
+
 func remove_item(item_id: String) -> void:
-	# remove from inventory
+	if item_id == "":
+		return
+
+	var changed := false
+
+	# Inventory erstes Vorkommen löschen
 	for i in range(inventory_items.size()):
 		if inventory_items[i] == item_id:
 			inventory_items[i] = null
-			return
+			changed = true
+			break
 
-	# remove from hotbar
+	# Hotbar erstes Vorkommen löschen
 	for i in range(hotbar_items.size()):
 		if hotbar_items[i] == item_id:
 			hotbar_items[i] = null
-			return
+			changed = true
+			break
+
+	# Nachrücken
+	if changed:
+		hotbar_counts.erase(item_id)
+		hotbar_icon_override.erase(item_id)
+		_compact_array(inventory_items)
+		_compact_array(hotbar_items)
+
 	update_ui()
+
+
+func _compact_array(arr: Array) -> void:
+	var out: Array = []
+	for v in arr:
+		if v != null:
+			out.append(v)
+	while out.size() < arr.size():
+		out.append(null)
+
+	# Inhalte zurückkopieren
+	for i in range(arr.size()):
+		arr[i] = out[i]
+
 
 
 func get_item_from_hotbar(slot: int) -> String:

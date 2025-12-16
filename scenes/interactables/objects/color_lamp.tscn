@@ -1,39 +1,36 @@
 [gd_scene load_steps=13 format=3 uid="uid://cvxugkjd186sr"]
 
-[ext_resource type="Script" path="res://scripts/interactables/objects/color_lamp.gd" id="1_4ap05"]
+[ext_resource type="Script" uid="uid://bfdlktyh7g8s3" path="res://scripts/interactables/objects/color_lamp.gd" id="1_4ap05"]
 [ext_resource type="Texture2D" uid="uid://1pucgbmyiond" path="res://assets/sprites/map/Spaceship/color_lamp_spritesheet.png" id="1_4o7y8"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="3_lpkow"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ap05"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpkow"]
 atlas = ExtResource("1_4o7y8")
 region = Rect2(0, 0, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lpkow"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0oaj"]
 atlas = ExtResource("1_4o7y8")
 region = Rect2(16, 0, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s0oaj"]
-atlas = ExtResource("1_4o7y8")
-region = Rect2(32, 0, 16, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ea7rb"]
-atlas = ExtResource("1_4o7y8")
-region = Rect2(48, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g8x2f"]
 atlas = ExtResource("1_4o7y8")
 region = Rect2(64, 0, 16, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8x2f"]
+atlas = ExtResource("1_4o7y8")
+region = Rect2(32, 0, 16, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_p4jyu"]
+atlas = ExtResource("1_4o7y8")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4j50x"]
 atlas = ExtResource("1_4o7y8")
 region = Rect2(80, 0, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4j50x"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4ap05")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lpkow")
 }, {
@@ -48,6 +45,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p4jyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4j50x")
 }],
 "loop": false,
 "name": &"states",

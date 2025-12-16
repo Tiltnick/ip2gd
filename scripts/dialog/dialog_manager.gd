@@ -111,6 +111,9 @@ func dialog_is_finished():
 	elif current_dialog_path.contains("clue_mushroom_2"):
 		GameState.puzzle_state["blob_clue2_done"] = true
 	
+	elif current_dialog_path.contains("outside_1"):
+		GameState.puzzle_state["outside1_done"] = true
+		
 	current_dialog_path = ""
 
 	box.hide()

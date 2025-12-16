@@ -87,7 +87,11 @@ func _on_next_button_pressed() -> void:
 
 
 func _on_close_button_pressed() -> void:
-	GameMenu.close_menu()
+	var menu := get_tree().get_first_node_in_group("diary_menu")
+	if menu != null and menu.has_method("close_menu"):
+		menu.close_menu()
+
+
 
 func _on_entry_unlocked():
 	pages = build_all_pages()
