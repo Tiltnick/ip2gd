@@ -28,7 +28,8 @@ var DATA := {
 		"name_de": "Pilze",
 		"name_en": "mushrooms",
 		"icon": "res://assets/sprites/selfmade/mushrooms/brown_mush.png",
-		"icon_size": Vector2(55,55)
+		"icon_size": Vector2(55,55),
+		"world_scene": "res://scenes/interactables/objects/mushrooms/view_all_mushrooms_hb.tscn"
 	},
 	
 	"blue_mush": {

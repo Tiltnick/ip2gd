@@ -5,12 +5,14 @@ class_name ViewAllPiecesHB
 @export var hotbar_scale: Vector2 = Vector2(0.5, 0.5)
 @export var zoom_multiplier: float = 7.0
 @export var spacing: float = 90.0
-@export var piece_prefix: String = "stone_piece_"
-
-@onready var pieces_container: Node2D = $PiecesContainer
-
 @export var piece_scale: Vector2 = Vector2(0.25, 0.25)
 @export var extra_gap: float = 20.0
+
+enum FilterMode { PREFIX, SUFFIX }
+@export var filter_mode: FilterMode = FilterMode.PREFIX
+@export var filter_value: String = "stone_piece_"
+
+@onready var pieces_container: Node2D = $PiecesContainer
 
 var is_zoomed := false
 var start_scale: Vector2
@@ -46,6 +48,18 @@ func _zoom_in():
 	var t := create_tween()
 	t.tween_property(self, "scale", start_scale * zoom_multiplier, 0.2)
 
+func _matches_filter(id_str: String) -> bool:
+	if filter_value == "":
+		return false
+
+	match filter_mode:
+		FilterMode.PREFIX:
+			return id_str.begins_with(filter_value)
+		FilterMode.SUFFIX:
+			return id_str.ends_with(filter_value)
+
+	return false
+
 func _build_row():
 	for c in pieces_container.get_children():
 		c.queue_free()
@@ -54,7 +68,7 @@ func _build_row():
 	for id in hotbarglobal.inventory_items:
 		if id != null:
 			var s := String(id)
-			if s.begins_with(piece_prefix):
+			if _matches_filter(s):
 				piece_ids.append(s)
 
 	piece_ids.sort()
