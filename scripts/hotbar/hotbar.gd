@@ -5,6 +5,7 @@ var selected_slot := 0
 
 # Aktuelles aktives Item
 var active_item: Node = null
+var active_slot_index: int = -1
 
 
 func _ready():
@@ -79,16 +80,31 @@ func _update_selected_visuals():
 			border.self_modulate = Color(0.7, 0.7, 0.7, 1)  # inaktiv
 
 
+func _close_active_item():
+	if active_item and is_instance_valid(active_item):
+		
+		active_item.queue_free()
+
+	# sofort freigeben damit neues gespawned werden kann
+	active_item = null
+	active_slot_index = -1
+
+
 func use_slot(slot_index: int):
 	var item_id = hotbarglobal.hotbar_items[slot_index]
 	if not item_id:
 		return
 
 	# Wenn bereits ein aktives Item existiert danninteragieren
+	#gleiches Slot togglet, anderes Slot wechselt
 	if active_item and is_instance_valid(active_item):
-		if active_item.has_method("interact"):
-			active_item.interact()
-		return
+		if slot_index == active_slot_index:
+			if active_item.has_method("interact"):
+				active_item.interact()
+			return
+		else:
+			_close_active_item()
+			
 
 	# Item muss in der Datenbank existieren
 	if not ItemDatabase.DATA.has(item_id):
@@ -98,7 +114,7 @@ func use_slot(slot_index: int):
 	var data = ItemDatabase.DATA[item_id]
 	var scene_path: String = data.get("world_scene", "")
 
-	# Wenn kein world_scene dann nichts spawnen (z.B. Stack-Items wie stonepanel)
+	# Wenn kein world_scene dann nichts spawnen 
 	if scene_path == "":
 		print("Hotbar: Item hat kein world_scene (ok):", item_id)
 		return
@@ -107,30 +123,32 @@ func use_slot(slot_index: int):
 		print("Hotbar: world_scene existiert nicht für:", item_id, " path:", scene_path)
 		return
 
-
-	# Instanzieren 
+	# Instanzieren
 	var scene: PackedScene = load(scene_path)
 	var inst: Node = scene.instantiate()
 
 	# Als Hotbar-Spawn markieren
 	var has_spawned := false
 	for p in inst.get_property_list():
-		if p.name == "spawned_from_hotbar":
+		
+		if p.has("name") and p["name"] == "spawned_from_hotbar":
 			has_spawned = true
 			break
 
 	if has_spawned:
 		inst.set("spawned_from_hotbar", true)
 
-	# Jetzt  in den SceneTree hängen (triggert _ready)
+	# Jetzt  in den SceneTree hängen
 	get_tree().current_scene.add_child(inst)
 
 	active_item = inst
+	active_slot_index = slot_index
 
-	#active_item zurücksetzen wenn es sich selber schließt (queue_free)
+	#active_item zurücksetzen wenn es sich selber schließt
 	inst.tree_exited.connect(func():
 		if active_item == inst:
 			active_item = null
+			active_slot_index = -1
 	)
 
 	# Hotbar Activation (zoom etc.)
