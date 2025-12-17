@@ -33,8 +33,8 @@ var DATA := {
 	},
 	
 	"blue_mush": {
-		"name_de": "blauer Pilz",
-		"name_en": "blue mushroom",
+		"name_de": "Blauer Pilz",
+		"name_en": "Blue mushroom",
 		"description_de": "Ein blauer Pilz.",
 		"description_en": "A blue mushroom.",
 		"icon":"res://assets/sprites/selfmade/mushrooms/blue_mush.png",
@@ -43,18 +43,18 @@ var DATA := {
 	},
 	
 	"brown_mush": {
-		"name_de": "brauner Pilz",
-		"name_en": "brown mushroom",
-		"description_de": "Ein blauer Pilz.",
-		"description_en": "A blue mushroom.",
+		"name_de": "Brauner Pilz",
+		"name_en": "Brown mushroom",
+		"description_de": "Ein brauner Pilz.",
+		"description_en": "A brown mushroom.",
 		"icon":"res://assets/sprites/selfmade/mushrooms/brown_mush.png",
 		"icon_size": Vector2(55,55),
 		"world_scene": "res://scenes/interactables/objects/mushrooms/brown_mush.tscn"
 	},
 	
 	"green_mush": {
-		"name_de": "grüner Pilz",
-		"name_en": "green mushroom",
+		"name_de": "Grüner Pilz",
+		"name_en": "Green mushroom",
 		"description_de": "Ein grüner Pilz.",
 		"description_en": "A green mushroom.",
 		"icon":"res://assets/sprites/selfmade/mushrooms/green_mush.png",
@@ -63,18 +63,18 @@ var DATA := {
 	},
 	
 	"orange_mush": {
-		"name_de": "orangener Pilz",
-		"name_en": "orange mushroom",
-		"description_de": "Ein blauer Pilz.",
-		"description_en": "A blue mushroom.",
+		"name_de": "Orangener Pilz",
+		"name_en": "Orange mushroom",
+		"description_de": "Ein orangener Pilz.",
+		"description_en": "A orangener mushroom.",
 		"icon":"res://assets/sprites/selfmade/mushrooms/orange_mush.png",
 		"icon_size": Vector2(55,55),
 		"world_scene": "res://scenes/interactables/objects/mushrooms/orange_mush.tscn"
 	},
 	
 	"red_mush": {
-		"name_de": "roter Pilz",
-		"name_en": "red mushroom",
+		"name_de": "Roter Pilz",
+		"name_en": "Red mushroom",
 		"description_de": "Ein roter Pilz.",
 		"description_en": "A red mushroom.",
 		"icon":"res://assets/sprites/selfmade/mushrooms/red_mush.png",
@@ -83,8 +83,8 @@ var DATA := {
 	},
 	
 	"yellow_mush": {
-		"name_de": "gelber Pilz",
-		"name_en": "yellow mushroom",
+		"name_de": "Gelber Pilz",
+		"name_en": "Yellow mushroom",
 		"description_de": "Ein gelber Pilz.",
 		"description_en": "A yellow mushroom.",
 		"icon":"res://assets/sprites/selfmade/mushrooms/yellow_mush.png",

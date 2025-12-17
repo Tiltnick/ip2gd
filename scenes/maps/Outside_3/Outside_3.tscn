@@ -3981,11 +3981,11 @@ e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="truffle_socket" instance=ExtResource("14_ny1p2")]
 visible = false
-offset_left = 140.0
-offset_top = -100.0
-offset_right = 140.0
-offset_bottom = -100.0
-scale = Vector2(2, 2)
+offset_left = 133.3335
+offset_top = -109.99998
+offset_right = 133.3335
+offset_bottom = -109.99998
+scale = Vector2(2.5, 2.5)
 
 [node name="StonePanel" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("13_wk4ve")]
 position = Vector2(344, -656.00006)
@@ -3994,10 +3994,11 @@ e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="StonePanel" instance=ExtResource("14_ny1p2")]
 visible = false
-offset_left = -27.500036
-offset_top = -58.74992
-offset_right = -27.500036
-offset_bottom = -58.74992
+offset_left = -16.666656
+offset_top = -88.33319
+offset_right = -16.666656
+offset_bottom = -88.33319
+scale = Vector2(1.5, 1.5)
 
 [node name="Puzzle" parent="." instance=ExtResource("15_wk4ve")]
 visible = false
@@ -4021,10 +4022,11 @@ e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="BlueMush" instance=ExtResource("14_ny1p2")]
 visible = false
-offset_left = -10.0
-offset_top = -42.5
-offset_right = -10.0
-offset_bottom = -42.5
+offset_left = -15.000488
+offset_top = -57.5
+offset_right = -15.000488
+offset_bottom = -57.5
+scale = Vector2(1.5, 1.5)
 
 [node name="BrownMush" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("20_cfewm")]
 position = Vector2(56.00007, -136.00005)
@@ -4038,10 +4040,11 @@ e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="BrownMush" instance=ExtResource("14_ny1p2")]
 visible = false
-offset_left = -10.000076
-offset_top = -42.5
-offset_right = -10.000076
-offset_bottom = -42.5
+offset_left = -15.000172
+offset_top = -54.999878
+offset_right = -15.000172
+offset_bottom = -54.999878
+scale = Vector2(1.5, 1.5)
 
 [node name="GreenMush" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("21_0fq4m")]
 position = Vector2(189.00002, -404.00003)
@@ -4055,10 +4058,11 @@ e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="GreenMush" instance=ExtResource("14_ny1p2")]
 visible = false
-offset_left = -10.0
-offset_top = -42.5
-offset_right = -10.0
-offset_bottom = -42.5
+offset_left = -15.000038
+offset_top = -54.99994
+offset_right = -15.000038
+offset_bottom = -54.99994
+scale = Vector2(1.5, 1.5)
 
 [node name="OrangeMush" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("22_1k6v6")]
 position = Vector2(510.00003, -251.00002)
@@ -4072,10 +4076,11 @@ e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="OrangeMush" instance=ExtResource("14_ny1p2")]
 visible = false
-offset_left = -10.0
-offset_top = -42.5
-offset_right = -10.0
-offset_bottom = -42.5
+offset_left = -15.000061
+offset_top = -55.0
+offset_right = -15.000061
+offset_bottom = -55.0
+scale = Vector2(1.5, 1.5)
 
 [node name="RedMush" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("23_3h5uc")]
 position = Vector2(632, -400)
@@ -4089,10 +4094,11 @@ e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="RedMush" instance=ExtResource("14_ny1p2")]
 visible = false
-offset_left = -10.0
-offset_top = -42.5
-offset_right = -10.0
-offset_bottom = -42.5
+offset_left = -15.0
+offset_top = -55.0
+offset_right = -15.0
+offset_bottom = -55.0
+scale = Vector2(1.5, 1.5)
 
 [node name="YellowMush" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("24_54y3o")]
 position = Vector2(211.0001, -642.00006)
@@ -4106,10 +4112,11 @@ e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="YellowMush" instance=ExtResource("14_ny1p2")]
 visible = false
-offset_left = -10.000076
-offset_top = -42.5
-offset_right = -10.000076
-offset_bottom = -42.5
+offset_left = -15.000267
+offset_top = -54.999878
+offset_right = -15.000267
+offset_bottom = -54.999878
+scale = Vector2(1.5, 1.5)
 
 [node name="MapBounds" type="StaticBody2D" parent="."]
 
@@ -4129,11 +4136,11 @@ e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="StonePiece6" instance=ExtResource("14_ny1p2")]
 visible = false
-offset_left = -5.0
-offset_top = -15.0
-offset_right = -5.0
-offset_bottom = -15.0
-scale = Vector2(0.5, 0.5)
+offset_left = -6.0
+offset_top = -20.0
+offset_right = -6.0
+offset_bottom = -20.0
+scale = Vector2(0.7, 0.7)
 
 [node name="FireMush" parent="." instance=ExtResource("27_3h5uc")]
 visible = false
