@@ -1,45 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://blwv84km7lh04"]
+[gd_scene load_steps=2 format=3 uid="uid://blwv84km7lh04"]
 
 [ext_resource type="Script" uid="uid://dqdtbv56gf233" path="res://scripts/Cutscenes/finding_sam.gd" id="1_qstp0"]
-[ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="2_2a11j"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2a11j"]
-bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 62
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqpml"]
-bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 62
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euajv"]
-bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 62
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pedex"]
 
 [node name="FindingSam" type="Control"]
 layout_mode = 3
@@ -54,20 +15,3 @@ script = ExtResource("1_qstp0")
 
 [node name="CanvasModulate" type="TextureRect" parent="."]
 layout_mode = 0
-
-[node name="close_button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1684.0
-offset_top = 101.0
-offset_right = 1726.0
-offset_bottom = 143.0
-mouse_default_cursor_shape = 2
-theme_override_constants/icon_max_width = 34
-theme_override_styles/normal = SubResource("StyleBoxFlat_2a11j")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_eqpml")
-theme_override_styles/hover = SubResource("StyleBoxFlat_euajv")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_pedex")
-icon = ExtResource("2_2a11j")
-icon_alignment = 1
-
-[connection signal="pressed" from="close_button" to="." method="_on_close_button_pressed"]

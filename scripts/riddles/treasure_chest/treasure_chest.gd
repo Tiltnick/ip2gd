@@ -43,10 +43,10 @@ func interact() -> void:
 	SfxPlayer.ui_click_sound()
 	
 	var lang = TranslationServer.get_locale().substr(0, 2)
-	if lang == "de" and GameState.puzzle_state.get(puzzle_id) == false:
+	if lang == "de" and GameState.puzzle_state.get(puzzle_id) == null:
 		PopupManager.popup_spacegram_de()
-	elif lang == "en" and GameState.puzzle_state.get(puzzle_id) == false:
-		PopupManager.popup_spacegram_de()
+	elif lang == "en" and GameState.puzzle_state.get(puzzle_id) == null:
+		PopupManager.popup_spacegram_en()
 
 	if code_solved:
 		return
