@@ -3,16 +3,16 @@ class_name StateMachine
 
 # Init state = idle
 @export var initial_state: State
-@export var dialog_manager_path: NodePath       # NEU: optionaler Pfad zum DialogManager
+@export var dialog_manager_path: NodePath       
 
 var current_state: State
 var states: Dictionary = {}
 
-var state_before_dialog: State = null           # NEU
+var state_before_dialog: State = null         
 
 
 func _ready() -> void:
-	# Actor ist der Parent (MainCharacter)
+	# Actor ist der Parent
 	var actor: MainCharacter = get_parent() as MainCharacter
 
 	# States einsammeln und registrieren
@@ -23,18 +23,18 @@ func _ready() -> void:
 			child.actor = actor
 			child.state_transition.connect(_on_state_transition)
 
-	# Initiale state = idle (im @export)
+
 	if initial_state:
 		current_state = initial_state
 		current_state.Enter(null)
 
-	# ---------- DialogManager anbinden (NEU) ----------
+	
 	var dm: Node = null
 
-	# Variante 1: DialogManager ist als Autoload registriert (Name: DialogManager)
+
 	if dialog_manager_path == NodePath():  
 		dm = DialogManager
-	# Variante 2: normaler Node in der Szene, Pfad im Inspector gesetzt
+
 	elif has_node(dialog_manager_path):
 		dm = get_node(dialog_manager_path)
 
@@ -44,10 +44,10 @@ func _ready() -> void:
 		if not dm.dialog_finished.is_connected(_on_dialog_finished):
 			dm.dialog_finished.connect(_on_dialog_finished)
 
-		# NEU: falls beim Start schon ein Dialog läuft
+		
 		if dm.is_running:
 			_on_dialog_started()
-	# --------------------------------------------------
+	
 
 
 # Empfang Signal
@@ -71,18 +71,18 @@ func change_state(target: String) -> void:
 	current_state.Enter(prev)
 
 
-# ---------- Dialog-Handling (NEU) ----------
 func _on_dialog_started() -> void:
 	state_before_dialog = current_state
-	change_state("dialog")          # Node-Name muss "dialog" sein
+	change_state("dialog")         
 
 func _on_dialog_finished() -> void:
 	if state_before_dialog != null:
-		change_state(state_before_dialog.name.to_lower())
-		state_before_dialog = null
+		change_state("idle")
 	else:
 		change_state("idle")
-# ------------------------------------------
+		change_state(state_before_dialog.name.to_lower())
+		state_before_dialog = null
+
 
 
 # Eingaben weiterleiten
