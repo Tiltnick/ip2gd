@@ -1345,14 +1345,13 @@ texture = ExtResource("13_b8ov6")
 visible = false
 texture = ExtResource("13_b8ov6")
 
-[node name="Door" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("10_172bc")]
+[node name="Door" parent="." instance=ExtResource("10_172bc")]
 position = Vector2(272, 72)
 script = ExtResource("11_emg07")
 code_popup_path = NodePath("../SpaceshipDoor")
 puzzle_id = "Spaceship_code"
 target_scene_path = "uid://b4r2irdvo1x1b"
 target_spawn_id = "from_spaceship"
-e_popup_node = NodePath("Press_E_Popup_Door")
 
 [node name="Press_E_Popup_Door" parent="Door" instance=ExtResource("10_o77e3")]
 visible = false
