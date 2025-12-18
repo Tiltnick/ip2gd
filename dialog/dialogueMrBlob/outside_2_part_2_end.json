@@ -1,0 +1,16 @@
+{
+  "id": "mr_blob_part_2_shovel_found",
+  "characters": {
+	"Mr. Blob": "res://assets/sprites/portrait/MrBlobs.png",
+  },
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text_en": "I will help you find the flower when the time comes."
+								,"text_de": "Ich werde dir helfen, die Blume zu finden, wenn die Zeit reif ist." },
+	  ]
+	},
+
+	"end": { "lines": [] }
+  }
+}

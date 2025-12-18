@@ -23,6 +23,7 @@ const PUZZLE_FLAG_BY_DIALOG_PATH: Dictionary = {
 	"res://dialog/cluesMrBlob/clue_mushroom_1.json": "blob_clue1_done",
 	"res://dialog/cluesMrBlob/clue_mushroom_2.json": "blob_clue2_done",
 	"res://dialog/innerMonologue/tripod_without_telescope.json": "tripod_no_telescope_seen",
+	
 }
 
 

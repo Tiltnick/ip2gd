@@ -1,0 +1,16 @@
+{
+  "id": "mr_blob_part_2_end",
+  "characters": {
+	"Mr. Blob": "res://assets/sprites/portrait/MrBlobs.png",
+  },
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text_en": "Oh, you found the shovel. Well, now you could use it to dig out the stones..."
+								,"text_de": "Oh du hast die Schaufel gefunden. Naja jetzt könntest du die Steine damit freigraben..." },
+	  ]
+	},
+
+	"end": { "lines": [] }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "clue_stone_pile_end",
+  "characters": {
+	"Mr. Blob": "res://assets/sprites/portrait/MrBlobs.png",
+  },
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text_en": "You should find the right tool somewhere around here."
+								,"text_de": "Irgendwo hier solltest du das passende Werkzeug finden." },
+	  ]
+	},
+
+	"end": { "lines": [] }
+  }
+}

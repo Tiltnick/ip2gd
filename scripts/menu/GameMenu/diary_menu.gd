@@ -97,5 +97,3 @@ func _on_entry_unlocked():
 	pages = build_all_pages()
 	current_page = 0
 	update_pages()
-
-	

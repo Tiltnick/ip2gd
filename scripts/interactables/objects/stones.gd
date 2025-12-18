@@ -33,6 +33,7 @@ func interact() -> void:
 			await TransitionAreaFade.transition_finished
 			GameState.return_scene_path = get_tree().current_scene.scene_file_path
 			get_tree().change_scene_to_file("res://scenes/Cutscenes/finding_sam.tscn")
+			GameState.puzzle_state["outside2_second_unlocked"] = true
 			remove_stones()
 		else:
 			DialogManager.start_dialog("res://dialog/innerMonologue/no_shovel.json")
