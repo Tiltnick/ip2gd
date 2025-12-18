@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bs5gotlfi2v6e"]
+[gd_scene load_steps=4 format=3 uid="uid://bs5gotlfi2v6e"]
 
+[ext_resource type="Script" uid="uid://bprtpeaj0q4x" path="res://scripts/interactables/objects/HotbarCollectZoomItem.gd" id="1_j5ebb"]
 [ext_resource type="Texture2D" uid="uid://cff0rgao01ua0" path="res://assets/sprites/selfmade/telescope.png" id="2_cot1g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5ebb"]
 size = Vector2(12, 11)
 
 [node name="telescope" type="Node2D"]
+script = ExtResource("1_j5ebb")
+save_id = "telescope1"
+item_name_de = "Teleskop"
+item_name_en = "Telescope"
+item_icon = ExtResource("2_cot1g")
 
 [node name="telescope" type="Sprite2D" parent="."]
 texture = ExtResource("2_cot1g")

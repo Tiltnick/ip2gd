@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dd6hsxt7i8tci"]
+[gd_scene load_steps=7 format=3 uid="uid://dd6hsxt7i8tci"]
 
 [ext_resource type="Texture2D" uid="uid://dqoxkjxdkwqgu" path="res://assets/sprites/map/Outside_2/spaceship.png" id="1_flo2d"]
 [ext_resource type="Script" uid="uid://by4n4gp6qwena" path="res://scripts/interactables/objects/sams_spaceship.gd" id="1_hi8wp"]
-[ext_resource type="Texture2D" uid="uid://b3awiueoenjoq" path="res://assets/sprites/selfmade/Fluxomat.png" id="2_bw4ch"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="2_hi8wp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bw4ch"]
@@ -19,7 +18,6 @@ height = 118.0
 
 [node name="Sams_Spaceship" type="Node2D"]
 script = ExtResource("1_hi8wp")
-item_icon = ExtResource("2_bw4ch")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_flo2d")
