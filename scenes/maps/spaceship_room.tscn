@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://n5pfeqsgykkm"]
+[gd_scene load_steps=35 format=4 uid="uid://n5pfeqsgykkm"]
 
 [ext_resource type="Texture2D" uid="uid://kxs6kkm0ut6w" path="res://assets/sprites/map/Spaceship/background.png" id="1_4dxd0"]
 [ext_resource type="Script" uid="uid://6h2ivu8hvxck" path="res://scripts/scene_manager/spaceship_room.gd" id="1_mc6u0"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="12_8nj6b"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="12_vqt5a"]
 [ext_resource type="Texture2D" uid="uid://bbkysrm140l12" path="res://assets/sprites/selfmade/background_sky.png" id="14_vqt5a"]
+[ext_resource type="PackedScene" uid="uid://cc56upiuyf8v1" path="res://scenes/Character/npc.tscn" id="17_7b828"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8nj6b"]
 texture = ExtResource("1_4dxd0")
@@ -2621,3 +2622,6 @@ offset_bottom = 72.0
 mouse_filter = 2
 texture = ExtResource("14_vqt5a")
 expand_mode = 1
+
+[node name="NPC" parent="." instance=ExtResource("17_7b828")]
+position = Vector2(-306, -161)
