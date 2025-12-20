@@ -6,4 +6,26 @@ Interactable
 		
 - Neues Item ohne Flip → extends ZoomStoreItem
 - Neues Item mit Flip → extends ZoomFlipStoreItem
+- Neues Item ohne Zoom → extends HotbarCollectZoomItem
 - Neues Item ohne Hotbar → extends SaveableItem
+
+
+࢐
+⦝⊾⦜∟⊥
+
+└ macht man über Alt+192
+─ macht man über Alt+196
+├ macht man über Alt+195
+║ macht man aber Alt+186
+╚ macht man über Alt+200
+═ macht man über Alt+205
+
+┴ Alt+193
+┼ Alt+197
+┬ Alt+194
+┤ Alt+180
+┌ Alt+218
+┐ Alt+191
+┘ Alt+217
+ 
+↳ Alt+1627
