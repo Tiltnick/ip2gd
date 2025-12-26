@@ -1286,9 +1286,10 @@ polygon = PackedVector2Array(-157, -74, 59, -77, 58, -42, 135, -42, 135, -78, 30
 
 [node name="Objects" type="Node" parent="."]
 
-[node name="Photo" parent="Objects" instance=ExtResource("9_g0lot")]
+[node name="Photo" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("9_g0lot")]
 position = Vector2(16, 8)
 item_icon = null
+e_popup_node = NodePath("Press_E_Popup_Photo")
 
 [node name="Press_E_Popup_Photo" parent="Objects/Photo" instance=ExtResource("10_o77e3")]
 visible = false

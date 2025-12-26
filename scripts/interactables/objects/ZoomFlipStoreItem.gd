@@ -3,7 +3,7 @@ class_name ZoomFlipStoreItem
 
 @export var auto_flip_on_pickup := true
 @export var flip_delay_seconds := 0.5   # Zeit bis Flip
-@export var back_side_seconds := 0.7     # wie lange Rückseite gezeigt wird
+@export var back_side_seconds := 0.8     # wie lange Rückseite gezeigt wird
 
 var is_front := true
 

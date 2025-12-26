@@ -6,7 +6,7 @@ class_name ZoomStoreItem
 
 
 @export var auto_store_on_pickup := true
-@export var auto_store_seconds := 0.7
+@export var auto_store_seconds := 0.8
 
 var _auto_store_timer: SceneTreeTimer = null
 
