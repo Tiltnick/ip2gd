@@ -1,7 +1,8 @@
 Interactable
 └── SaveableItem          (Save-State + Popup + despawn)
 	├── ZoomStoreItem     (Zoom → Store)
-	└── ZoomFlipStoreItem (Zoom → Flip → Store)
+		├── ZoomFlipStoreItem (Zoom → Flip → Store)
+	└── HotbarCollectZoomItem (Store ohne Zoom)
 		 └── Photo
 		
 - Neues Item ohne Flip → extends ZoomStoreItem
