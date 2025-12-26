@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://y5kct0mr503d"]
+[gd_scene load_steps=27 format=3 uid="uid://y5kct0mr503d"]
 
 [ext_resource type="Script" uid="uid://c7mgrddxx8c0t" path="res://scripts/menu/GameMenu/menuClose.gd" id="1_jpjjb"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_xn7nl"]
@@ -44,6 +44,8 @@ border_width_right = 10
 border_color = Color(0.27979478, 0.6114242, 0.56369495, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i2vsb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2kte2"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -162,6 +164,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_g0y5o")
 theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_i2vsb")
 theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_k0ysv")
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_k0ysv")
+theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_i2vsb")
 tab_alignment = 1
 current_tab = 0
 
