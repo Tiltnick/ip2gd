@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://y5kct0mr503d"]
+[gd_scene load_steps=27 format=3 uid="uid://y5kct0mr503d"]
 
 [ext_resource type="Script" uid="uid://c7mgrddxx8c0t" path="res://scripts/menu/GameMenu/menuClose.gd" id="1_jpjjb"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_xn7nl"]
@@ -8,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="5_i2vsb"]
 [ext_resource type="Script" uid="uid://oc34d75xxifh" path="res://scripts/inventory/inventory.gd" id="6_jpjjb"]
 [ext_resource type="PackedScene" uid="uid://bfivg0njs3ku8" path="res://scenes/hotbar/slot.tscn" id="7_d5s1g"]
-[ext_resource type="Shader" uid="uid://bggfs48ys3kc5" path="res://assets/shaders/hide_shadow.gdshader" id="8_5rqpv"]
+[ext_resource type="Shader" path="res://assets/shaders/hide_shadow.gdshader" id="8_5rqpv"]
+[ext_resource type="Script" uid="uid://db47r2w3mqisu" path="res://scripts/quests/quest_ui.gd" id="9_jpjjb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0y5o"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -163,9 +164,10 @@ theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_i2vsb")
 theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_k0ysv")
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_k0ysv")
 tab_alignment = 1
-current_tab = 0
+current_tab = 2
 
 [node name="DIARY" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 script = ExtResource("2_yqnfc")
@@ -556,6 +558,83 @@ offset_top = 60.0
 offset_right = 480.0
 offset_bottom = 124.0
 scale = Vector2(2.5, 2.5)
+
+[node name="QUESTS" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+script = ExtResource("9_jpjjb")
+metadata/_tab_index = 2
+
+[node name="Display" type="Panel" parent="TabContainer/QUESTS"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 91.0
+offset_top = -343.0
+offset_right = 856.0
+offset_bottom = 356.0
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_v8122")
+
+[node name="Header" type="Label" parent="TabContainer/QUESTS/Display"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 67.0
+offset_right = 317.0
+offset_bottom = 103.0
+theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_font_sizes/font_size = 26
+text = "CURRENT_QUESTS"
+
+[node name="Header2" type="Label" parent="TabContainer/QUESTS/Display"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 289.0
+offset_right = 353.0
+offset_bottom = 325.0
+theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_font_sizes/font_size = 26
+text = "COMPLETED_QUESTS"
+
+[node name="Display2" type="Panel" parent="TabContainer/QUESTS"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 912.0
+offset_top = -346.0
+offset_right = 1605.0
+offset_bottom = 358.0
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_v8122")
+
+[node name="Header" type="Label" parent="TabContainer/QUESTS/Display2"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 28.0
+offset_right = 156.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_font_sizes/font_size = 26
+text = "DESCRIPTION"
+
+[node name="Text" type="Label" parent="TabContainer/QUESTS/Display2"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = -275.5
+offset_right = 704.0
+offset_bottom = 288.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+theme_override_font_sizes/font_size = 23
+text = "Text"
+autowrap_mode = 3
+justification_flags = 162
 
 [node name="CloseButton" type="Button" parent="."]
 process_mode = 3

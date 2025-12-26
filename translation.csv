@@ -34,3 +34,7 @@ SAVE_GAME, Save Game?, Spiel speichern?
 CLICK_RIGHT, rotate with right click, rotiere mit Rechtsklick
 DIARY, Diary, Tagebuch
 INVENTORY, Inventory, Inventar
+QUESTS, Quests, Missionen
+CURRENT_QUESTS, Current Quests, Aktuelle Aufträge
+COMPLETED_QUESTS, Completed Quests, Erledigte Aufträge
+DESCRIPTION, Description, Beschreibung
