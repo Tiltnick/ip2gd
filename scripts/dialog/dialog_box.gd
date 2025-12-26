@@ -3,6 +3,11 @@ class_name DialogBox
 
 signal continue_pressed
 signal choice_selected(index: int)
+signal closed
+
+
+@onready var close_button: Button = $NinePatchRect/CloseButton
+
 
 @onready var name_label: Label          = $NinePatchRect/Name
 @onready var dialog_text: RichTextLabel = $NinePatchRect/Dialog
@@ -39,6 +44,9 @@ func _ready() -> void:
 
 	choice2.mouse_entered.connect(_on_choice2_mouse_entered)
 	choice2.mouse_exited.connect(_on_choice2_mouse_exited)
+	
+	close_button.pressed.connect(_on_close_pressed)
+
 
 func show_line(speaker: String, text: String, portrait_path: String = "") -> void:
 	if speaker.strip_edges() == "":
@@ -67,6 +75,9 @@ func show_line(speaker: String, text: String, portrait_path: String = "") -> voi
 	_apply_current_page()
 
 func _unhandled_input(event: InputEvent) -> void:
+	if not visible:
+		return
+
 	if event.is_action_pressed("ui_accept"):
 		if typing:
 			skip = true
@@ -167,3 +178,18 @@ func _split_into_pages(text: String) -> Array[String]:
 	if result.is_empty():
 		result.append("")
 	return result
+
+
+func _on_close_pressed() -> void:
+	close()
+
+func close() -> void:
+	# laufendes Tippen abbrechen
+	typing = false
+	skip = false
+
+	hide_choices()
+	space_to_continue.hide()
+	hide()
+
+	emit_signal("closed")

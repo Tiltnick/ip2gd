@@ -1,10 +1,49 @@
-[gd_scene load_steps=6 format=3 uid="uid://5ro6t5nvfn0w"]
+[gd_scene load_steps=11 format=3 uid="uid://5ro6t5nvfn0w"]
 
 [ext_resource type="Script" uid="uid://c82i8bus3bmy2" path="res://scripts/dialog/dialog_box.gd" id="1_dlq0r"]
 [ext_resource type="Script" uid="uid://bayc27gfeqkkm" path="res://scripts/dialog/dialog_manager.gd" id="1_y2k7g"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_lgn1u"]
 [ext_resource type="Texture2D" uid="uid://snao6awj1ldf" path="res://assets/sprites/ui/UITEST3.png" id="3_y2k7g"]
 [ext_resource type="Texture2D" uid="uid://d1mwf81hjjo48" path="res://assets/sprites/ui/Choices.png" id="5_djrsg"]
+[ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="6_2cd30"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utbwg"]
+bg_color = Color(0.2509804, 0.4509804, 0.40392157, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.6862745, 0.8627451, 0.76862746, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibkss"]
+bg_color = Color(0.20392157, 0.36862746, 0.32941177, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.6862745, 0.8627451, 0.76862746, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8mgu"]
+bg_color = Color(0.20392157, 0.36862746, 0.32941177, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.6862745, 0.8627451, 0.76862746, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j8kxc"]
 
 [node name="DialogManager" type="CanvasLayer"]
 script = ExtResource("1_y2k7g")
@@ -167,10 +206,10 @@ anchor_left = 0.33600003
 anchor_top = 0.149
 anchor_right = 0.33600003
 anchor_bottom = 0.149
-offset_left = 356.42398
-offset_top = -30.677002
-offset_right = 607.5603
-offset_bottom = 14.322998
+offset_left = -307.57602
+offset_top = -27.677002
+offset_right = -56.439667
+offset_bottom = 17.322998
 scale = Vector2(1.1, 1.1)
 mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("2_lgn1u")
@@ -183,3 +222,24 @@ text = "SPACE_CONTINUE"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="DialogBox/NinePatchRect"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -52.0
+offset_top = 15.0
+offset_right = 11.0
+offset_bottom = 78.0
+grow_horizontal = 0
+scale = Vector2(0.6, 0.6)
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_utbwg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ibkss")
+theme_override_styles/hover = SubResource("StyleBoxFlat_x8mgu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j8kxc")
+icon = ExtResource("6_2cd30")
+icon_alignment = 1
