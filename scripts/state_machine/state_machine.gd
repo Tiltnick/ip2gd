@@ -75,13 +75,22 @@ func _on_dialog_started() -> void:
 	state_before_dialog = current_state
 	change_state("dialog")         
 
+
 func _on_dialog_finished() -> void:
 	if state_before_dialog != null:
-		change_state("idle")
-	else:
-		change_state("idle")
 		change_state(state_before_dialog.name.to_lower())
 		state_before_dialog = null
+	else:
+		change_state("idle")
+
+
+#func _on_dialog_finished() -> void:
+	#if state_before_dialog != null:
+		#change_state("idle")
+	#else:
+		#change_state("idle")
+		#change_state(state_before_dialog.name.to_lower())
+		#state_before_dialog = null
 
 
 
