@@ -1,8 +1,6 @@
 extends Node
 class_name Hotbarglobal
 
-var hotbar_items = [null, null, null, null]
-
 var inventory_items = [
 	null, null, null, null,
 	null, null, null, null,
@@ -13,64 +11,75 @@ var inventory_items = [
 var hotbar_counts: Dictionary = {}
 var hotbar_icon_override: Dictionary = {}
 
+# Reihenfolge der Stack-Oberbegriffe in der Hotbar
+var hotbar_stack_order: Array[String] = ["mushrooms", "stonepanel"]
+
 var hotbar: Control
 var inventory: Control
+
+
+func _show_in_hotbar(item_id: String) -> bool:
+	if item_id == "":
+		return false
+	if not ItemDatabase.DATA.has(item_id):
+		return true
+	var data: Dictionary = ItemDatabase.DATA[item_id]
+	return bool(data.get("show_in_hotbar", true))
+
+
+func _get_stack_group(item_id: String) -> String:
+	if item_id == "":
+		return ""
+	if not ItemDatabase.DATA.has(item_id):
+		return ""
+	var data: Dictionary = ItemDatabase.DATA[item_id]
+	return String(data.get("stack_group", ""))
+
 
 func add_item(item_id: String) -> bool:
 	if item_id == "":
 		return false
 
-	if hotbar_items.has(item_id) or inventory_items.has(item_id):
+	# so items aren't saved twice
+	if inventory_items.has(item_id):
 		print("has id in add item")
 		update_ui()
 		return true
 
-	var hotbar_added := false
-	for i in range(hotbar_items.size()):
-		if hotbar_items[i] == null:
-			hotbar_items[i] = item_id
-			hotbar_added = true
-			break
-
-	var inv_added := false
+	# add item to inventory
 	for i in range(inventory_items.size()):
 		if inventory_items[i] == null:
 			inventory_items[i] = item_id
-			inv_added = true
-			break
+			update_ui()
+			return true
 
-	update_ui()
-	return hotbar_added or inv_added
+	return false
+
 
 func add_piece(piece_id: String, hotbar_type_id: String) -> void:
 	if piece_id == "" or hotbar_type_id == "":
 		return
 
+	# piece ins inventory
 	if not inventory_items.has(piece_id):
 		for i in range(inventory_items.size()):
 			if inventory_items[i] == null:
 				inventory_items[i] = piece_id
 				break
 
-	if not hotbar_items.has(hotbar_type_id):
-		for i in range(hotbar_items.size()):
-			if hotbar_items[i] == null:
-				hotbar_items[i] = hotbar_type_id
-				break
-
-	hotbar_counts[hotbar_type_id] = hotbar_counts.get(hotbar_type_id, 0) + 1
-	
-	#hotbar icon auf das zuletzt eingesammelte setzen
+	# Oberbegriff NICHT ins inventory (nur Hotbar!)
+	hotbar_counts[hotbar_type_id] = int(hotbar_counts.get(hotbar_type_id, 0)) + 1
 	hotbar_icon_override[hotbar_type_id] = piece_id
 
 	update_ui()
 
+
 func get_hotbar_display_item_id(item_id: String) -> String:
 	return hotbar_icon_override.get(item_id, item_id)
 
+
 func update_ui():
 	if hotbar:
-		print("test2")
 		hotbar.update_slots()
 
 	if inventory:
@@ -78,47 +87,33 @@ func update_ui():
 		if inventory.is_visible_in_tree():
 			inventory._select_first_item()
 
-#func remove_item(item_id: String) -> void:
-	## remove from inventory
-	#for i in range(inventory_items.size()):
-		#if inventory_items[i] == item_id:
-			#inventory_items[i] = null
-			#return
-#
-	## remove from hotbar
-	#for i in range(hotbar_items.size()):
-		#if hotbar_items[i] == item_id:
-			#hotbar_items[i] = null
-			#return
-	#update_ui()
-	
 
 func remove_item(item_id: String) -> void:
 	if item_id == "":
 		return
 
+	# Wenn ein PIECE entfernt wird, Count der Gruppe mit runter zählen
+	var group := _get_stack_group(item_id)
+	if group != "":
+		var new_count: int = int(hotbar_counts.get(group, 0)) - 1
+		if new_count <= 0:
+			hotbar_counts.erase(group)
+			hotbar_icon_override.erase(group)
+		else:
+			hotbar_counts[group] = new_count
+
 	var changed := false
 
-	# Inventory erstes Vorkommen löschen
+	# remove from inventory
 	for i in range(inventory_items.size()):
 		if inventory_items[i] == item_id:
 			inventory_items[i] = null
 			changed = true
 			break
 
-	# Hotbar erstes Vorkommen löschen
-	for i in range(hotbar_items.size()):
-		if hotbar_items[i] == item_id:
-			hotbar_items[i] = null
-			changed = true
-			break
-
-	# Nachrücken
+	# complete empty slots with next items
 	if changed:
-		hotbar_counts.erase(item_id)
-		hotbar_icon_override.erase(item_id)
 		_compact_array(inventory_items)
-		_compact_array(hotbar_items)
 
 	update_ui()
 
@@ -131,20 +126,61 @@ func _compact_array(arr: Array) -> void:
 	while out.size() < arr.size():
 		out.append(null)
 
-	# Inhalte zurückkopieren
+	# copy content back
 	for i in range(arr.size()):
 		arr[i] = out[i]
 
 
+# Hotbar ist eine VIEW:
+# 1) Stack-Oberbegriffe (wenn count > 0) in fester Reihenfolge
+# 2) Danach normale Inventory-Items, aber:
+#    - pieces (stack_group != "") NICHT direkt in Hotbar anzeigen
+#    - show_in_hotbar=false NICHT anzeigen
+func get_hotbar_item(slot: int) -> Variant:
+	if slot < 0 or slot >= 4:
+		return null
 
-func get_item_from_hotbar(slot: int) -> String:
-	return hotbar_items[slot] if slot < hotbar_items.size() else null
+	var list: Array = []
 
-func get_inventory_item(slot: int) -> String:
-	return inventory_items[slot] if slot < inventory_items.size() else null
+	# 1) Stack-Oberbegriffe
+	for g in hotbar_stack_order:
+		if int(hotbar_counts.get(g, 0)) > 0:
+			list.append(g)
+
+	# 2) Normale Items aus Inventory
+	for v in inventory_items:
+		if v == null:
+			continue
+		var id := String(v)
+
+		# pieces nicht in Hotbar
+		if _get_stack_group(id) != "":
+			continue
+
+		if not _show_in_hotbar(id):
+			continue
+
+		list.append(id)
+
+	return list[slot] if slot < list.size() else null
+
+
+func get_inventory_item(slot: int) -> Variant:
+	return inventory_items[slot] if slot >= 0 and slot < inventory_items.size() else null
+
 
 func get_hotbar_index_of_item(item_id: String) -> int:
-	return hotbar_items.find(item_id)
+	for i in range(4):
+		if get_hotbar_item(i) == item_id:
+			return i
+	return -1
+
 
 func has_item(item_id: String) -> bool:
-	return inventory_items.has(item_id) or hotbar_items.has(item_id)
+	# im Inventory?
+	if inventory_items.has(item_id):
+		return true
+	# oder ist es ein Oberbegriff mit count?
+	if int(hotbar_counts.get(item_id, 0)) > 0:
+		return true
+	return false
