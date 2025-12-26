@@ -11,8 +11,7 @@ var inventory_items = [
 var hotbar_counts: Dictionary = {}
 var hotbar_icon_override: Dictionary = {}
 
-# Reihenfolge der Stack-Oberbegriffe in der Hotbar
-var hotbar_stack_order: Array[String] = ["mushrooms", "stonepanel"]
+
 
 var hotbar: Control
 var inventory: Control
@@ -67,7 +66,7 @@ func add_piece(piece_id: String, hotbar_type_id: String) -> void:
 				inventory_items[i] = piece_id
 				break
 
-	# Oberbegriff NICHT ins inventory (nur Hotbar!)
+	
 	hotbar_counts[hotbar_type_id] = int(hotbar_counts.get(hotbar_type_id, 0)) + 1
 	hotbar_icon_override[hotbar_type_id] = piece_id
 
@@ -92,7 +91,7 @@ func remove_item(item_id: String) -> void:
 	if item_id == "":
 		return
 
-	# Wenn ein PIECE entfernt wird, Count der Gruppe mit runter zählen
+	# if piece gets deleted, lower count
 	var group := _get_stack_group(item_id)
 	if group != "":
 		var new_count: int = int(hotbar_counts.get(group, 0)) - 1
@@ -131,38 +130,41 @@ func _compact_array(arr: Array) -> void:
 		arr[i] = out[i]
 
 
-# Hotbar ist eine VIEW:
-# 1) Stack-Oberbegriffe (wenn count > 0) in fester Reihenfolge
-# 2) Danach normale Inventory-Items, aber:
-#    - pieces (stack_group != "") NICHT direkt in Hotbar anzeigen
-#    - show_in_hotbar=false NICHT anzeigen
 func get_hotbar_item(slot: int) -> Variant:
 	if slot < 0 or slot >= 4:
 		return null
 
 	var list: Array = []
+	var added_groups: Dictionary = {}
 
-	# 1) Stack-Oberbegriffe
-	for g in hotbar_stack_order:
-		if int(hotbar_counts.get(g, 0)) > 0:
-			list.append(g)
-
-	# 2) Normale Items aus Inventory
+	
 	for v in inventory_items:
 		if v == null:
 			continue
-		var id := String(v)
 
-		# pieces nicht in Hotbar
-		if _get_stack_group(id) != "":
+		var id := String(v)
+		var group := _get_stack_group(id)
+
+		
+		if group != "":
+			if not added_groups.has(group) and int(hotbar_counts.get(group, 0)) > 0:
+				list.append(group)
+				added_groups[group] = true
 			continue
 
+		
 		if not _show_in_hotbar(id):
 			continue
 
 		list.append(id)
 
+	# Fallback falls counts gesetzt sind, aber kein Piece
+	for g in hotbar_counts.keys():
+		if int(hotbar_counts.get(g, 0)) > 0 and not added_groups.has(g):
+			list.append(g)
+
 	return list[slot] if slot < list.size() else null
+
 
 
 func get_inventory_item(slot: int) -> Variant:

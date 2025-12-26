@@ -158,9 +158,9 @@ func use_slot(slot_index: int):
 			active_slot_index = -1
 	)
 
-	# Hotbar Activation (zoom etc.)
+	# Hotbar Activation zb. zoom
 	if inst.has_method("hotbar_activate"):
 		inst.hotbar_activate()
 	elif inst.has_method("interact"):
-		# fallback: direkt interact
+		# fallback direkt interact
 		inst.interact()
