@@ -20,6 +20,7 @@ metadata/_custom_type_script = "uid://bdssbm1prbicl"
 shape = SubResource("RectangleShape2D_kn0s4")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 0.5)
