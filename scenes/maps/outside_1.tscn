@@ -407,7 +407,8 @@ texture = ExtResource("3_jlsic")
 2:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_myyye"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_ax0hk")
 sources/2 = SubResource("TileSetAtlasSource_iqy5x")
 
@@ -452,6 +453,7 @@ tile_map_data = PackedByteArray("AAD0//7/AgACAAEAAAD0////AgACAAIAAAD0/wAAAgACAAM
 tile_set = SubResource("TileSet_myyye")
 
 [node name="MapBounds" type="StaticBody2D" parent="."]
+collision_layer = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MapBounds"]
 build_mode = 1
