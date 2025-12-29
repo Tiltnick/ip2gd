@@ -29,7 +29,9 @@ var DATA := {
 		"name_en": "mushrooms",
 		"icon": "res://assets/sprites/selfmade/mushrooms/brown_mush.png",
 		"icon_size": Vector2(55,55),
-		"world_scene": "res://scenes/interactables/objects/mushrooms/view_all_mushrooms_hb.tscn"
+		"world_scene": "res://scenes/interactables/objects/mushrooms/view_all_mushrooms_hb.tscn",
+		"show_in_inventory": false,
+  		"show_in_hotbar": true
 	},
 	
 	"blue_mush": {
@@ -39,7 +41,10 @@ var DATA := {
 		"description_en": "A blue mushroom.",
 		"icon":"res://assets/sprites/selfmade/mushrooms/blue_mush.png",
 		"icon_size": Vector2(55,55),
-		"world_scene": "res://scenes/interactables/objects/mushrooms/blue_mush.tscn"
+		"world_scene": "res://scenes/interactables/objects/mushrooms/blue_mush.tscn",
+		"stack_group": "mushrooms",
+		"show_in_inventory": true,
+		"show_in_hotbar": false
 	},
 	
 	"brown_mush": {
@@ -49,7 +54,10 @@ var DATA := {
 		"description_en": "A brown mushroom.",
 		"icon":"res://assets/sprites/selfmade/mushrooms/brown_mush.png",
 		"icon_size": Vector2(55,55),
-		"world_scene": "res://scenes/interactables/objects/mushrooms/brown_mush.tscn"
+		"world_scene": "res://scenes/interactables/objects/mushrooms/brown_mush.tscn",
+		"stack_group": "mushrooms",
+		"show_in_inventory": true,
+		"show_in_hotbar": false
 	},
 	
 	"green_mush": {
@@ -59,7 +67,10 @@ var DATA := {
 		"description_en": "A green mushroom.",
 		"icon":"res://assets/sprites/selfmade/mushrooms/green_mush.png",
 		"icon_size": Vector2(55,55),
-		"world_scene": "res://scenes/interactables/objects/mushrooms/green_mush.tscn"
+		"world_scene": "res://scenes/interactables/objects/mushrooms/green_mush.tscn",
+		"stack_group": "mushrooms",
+		"show_in_inventory": true,
+		"show_in_hotbar": false
 	},
 	
 	"orange_mush": {
@@ -69,7 +80,10 @@ var DATA := {
 		"description_en": "A orangener mushroom.",
 		"icon":"res://assets/sprites/selfmade/mushrooms/orange_mush.png",
 		"icon_size": Vector2(55,55),
-		"world_scene": "res://scenes/interactables/objects/mushrooms/orange_mush.tscn"
+		"world_scene": "res://scenes/interactables/objects/mushrooms/orange_mush.tscn",
+		"stack_group": "mushrooms",
+		"show_in_inventory": true,
+		"show_in_hotbar": false
 	},
 	
 	"red_mush": {
@@ -79,7 +93,10 @@ var DATA := {
 		"description_en": "A red mushroom.",
 		"icon":"res://assets/sprites/selfmade/mushrooms/red_mush.png",
 		"icon_size": Vector2(55,55),
-		"world_scene": "res://scenes/interactables/objects/mushrooms/red_mush.tscn"
+		"world_scene": "res://scenes/interactables/objects/mushrooms/red_mush.tscn",
+		"stack_group": "mushrooms",
+		"show_in_inventory": true,
+		"show_in_hotbar": false
 	},
 	
 	"yellow_mush": {
@@ -89,7 +106,10 @@ var DATA := {
 		"description_en": "A yellow mushroom.",
 		"icon":"res://assets/sprites/selfmade/mushrooms/yellow_mush.png",
 		"icon_size": Vector2(55,55),
-		"world_scene": "res://scenes/interactables/objects/mushrooms/yellow_mush.tscn"
+		"world_scene": "res://scenes/interactables/objects/mushrooms/yellow_mush.tscn",
+		"stack_group": "mushrooms",
+		"show_in_inventory": true,
+		"show_in_hotbar": false
 	},
 	
 	"stonepanel": {      # used for the hotbar
@@ -97,7 +117,9 @@ var DATA := {
 		"name_en": "Stone Panel",
 		"icon": "res://assets/sprites/selfmade/Piece2.png",
 		"icon_size": Vector2(55,55),
-		"world_scene": "res://scenes/interactables/objects/stone pieces/view_all_pieces_hb.tscn"
+		"world_scene": "res://scenes/interactables/objects/stone pieces/view_all_pieces_hb.tscn",
+		"show_in_inventory": false,
+  		"show_in_hotbar": true
 
 	},
 
@@ -108,7 +130,10 @@ var DATA := {
 		"description_en": "Oh, a piece of a stone panel! How exciting!",
 		"icon": "res://assets/sprites/selfmade/stonesForInven/Piece1.png",
 		"icon_size": Vector2(55,55),
-		"world_scene": "res://scenes/interactables/obj/stone_piece_1.tscn"
+		"world_scene": "res://scenes/interactables/obj/stone_piece_1.tscn",
+		"stack_group": "stonepanel",
+  		"show_in_inventory": true,
+  		"show_in_hotbar": false
 	},
 	
 	"stone_piece_2": {
@@ -118,7 +143,10 @@ var DATA := {
 		"description_en": "Oh, a piece of a stone panel! How exciting!",
 		"icon": "res://assets/sprites/selfmade/Piece2.png",
 		"icon_size": Vector2(55,55),
-		"world_scene": "res://scenes/interactables/obj/stone_piece_2.tscn"
+		"world_scene": "res://scenes/interactables/obj/stone_piece_2.tscn",
+		"stack_group": "stonepanel",
+  		"show_in_inventory": true,
+  		"show_in_hotbar": false
 	},
 	
 	"stone_piece_3": {
@@ -128,7 +156,10 @@ var DATA := {
 		"description_en": "Oh, a piece of a stone panel! How exciting!",
 		"icon": "res://assets/sprites/selfmade/Piece3.png",
 		"icon_size": Vector2(55,55),
-		"world_scene": "res://scenes/interactables/obj/stone_piece_3.tscn"
+		"world_scene": "res://scenes/interactables/obj/stone_piece_3.tscn",
+		"stack_group": "stonepanel",
+  		"show_in_inventory": true,
+  		"show_in_hotbar": false
 	},
 	
 	"stone_piece_4": {
@@ -138,7 +169,10 @@ var DATA := {
 		"description_en": "Oh, a piece of a stone panel! How exciting!",
 		"icon": "res://assets/sprites/selfmade/stonesForInven/Piece4.png",
 		"icon_size": Vector2(55,55),
-		"world_scene": "res://scenes/interactables/obj/stone_piece_4.tscn"
+		"world_scene": "res://scenes/interactables/obj/stone_piece_4.tscn",
+		"stack_group": "stonepanel",
+  		"show_in_inventory": true,
+  		"show_in_hotbar": false
 	},
 	
 	"stone_piece_5": {
@@ -148,7 +182,10 @@ var DATA := {
 		"description_en": "Oh, a piece of a stone panel! How exciting!",
 		"icon": "res://assets/sprites/selfmade/Piece5.png",
 		"icon_size": Vector2(55,55),
-		"world_scene": "res://scenes/interactables/obj/stone_piece_5.tscn"
+		"world_scene": "res://scenes/interactables/obj/stone_piece_5.tscn",
+		"stack_group": "stonepanel",
+  		"show_in_inventory": true,
+  		"show_in_hotbar": false
 	},
 	
 	"stone_piece_6": {
@@ -158,7 +195,10 @@ var DATA := {
 		"description_en": "Oh, a piece of a stone panel! How exciting!",
 		"icon": "res://assets/sprites/selfmade/stonesForInven/Piece6.png",
 		"icon_size": Vector2(55,55),
-		"world_scene": "res://scenes/interactables/obj/stone_piece_6.tscn"
+		"world_scene": "res://scenes/interactables/obj/stone_piece_6.tscn",
+		"stack_group": "stonepanel",
+  		"show_in_inventory": true,
+  		"show_in_hotbar": false
 	},
 	
 	"fluxomat": {

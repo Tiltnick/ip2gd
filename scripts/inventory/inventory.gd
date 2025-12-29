@@ -97,8 +97,8 @@ func _on_slot_clicked(index: int):
 	# Icon setzen
 	$Description/Slot17.set_item_icon(item_id)
 
-	# Nummer anzeigen (Hotbar-Key falls vorhanden)
-	var hotbar_index = hotbarglobal.hotbar_items.find(item_id)
+	# Hotbarkeys anzeigen
+	var hotbar_index: int = hotbarglobal.get_hotbar_index_of_item(item_id)
 
 	if hotbar_index != -1:
 		# item liegt in der Hotbar → hotbar key anzeigen (1–4)
@@ -106,6 +106,7 @@ func _on_slot_clicked(index: int):
 	else:
 		# item nicht in der Hotbar → Inventar-Slotnummer anzeigen (1–16)
 		$Description/Slot17/"Label for Keys".text = str(slot_number_for_label)
+
 
 
 
