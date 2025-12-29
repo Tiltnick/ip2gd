@@ -3973,8 +3973,6 @@ position = Vector2(751, -359)
 position = Vector2(763, -359)
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 0
 script = ExtResource("11_3rchf")
 target_scene_path = "uid://34ylk7jtx176"
 target_spawn_id = "from_outside3"
@@ -4152,10 +4150,9 @@ scale = Vector2(1.5, 1.5)
 [node name="MapBounds" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MapBounds"]
-visible = false
 position = Vector2(801, -28)
 build_mode = 1
-polygon = PackedVector2Array(-770, -705, -2, -705, -1, -451, 27, -450, 28, -242, -2, -242, -6, 332, -186, 333, -186, 354, -235, 353, -235.14958, 332.00003, -771, 332)
+polygon = PackedVector2Array(-770, -705, -2, -705, -1, -385, 8, -385, 8, -275, -1, -275, 0, 333, -186, 333, -187, 353, -235, 353, -235.14958, 332.00003, -771, 332)
 
 [node name="MushroomUi" parent="." instance=ExtResource("25_0fq4m")]
 visible = false
