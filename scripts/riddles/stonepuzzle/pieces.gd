@@ -11,7 +11,7 @@ static var active_drag_piece: Area2D = null
 var dragging := false
 var drag_offset := Vector2.ZERO
 var current_slot = null
-var z_counter: int = 0
+static var z_counter: int = 0
 
 func _ready():
 	input_pickable = true
@@ -26,7 +26,8 @@ func _input_event(viewport, event, shape_idx):
 			if active_drag_piece != null:
 				return
 			active_drag_piece = self
-			z_index = 1
+			z_counter += 1
+			z_index = z_counter 
 			scale = puzzle_scale  
 			dragging = true
 			drag_offset = global_position - get_global_mouse_position()
@@ -34,13 +35,11 @@ func _input_event(viewport, event, shape_idx):
 			if active_drag_piece == self:
 				active_drag_piece = null
 			dragging = false
-			z_index = 0
+			#z_index = 0
 			try_assign_to_slot()
 			emit_signal("piece_released")
 
 func rotate_piece():
-	if current_slot != null:
-		return
 	rotation_degrees += rotation_step_degrees
 	rotation_degrees = snappedf(rotation_degrees, rotation_step_degrees)
 
