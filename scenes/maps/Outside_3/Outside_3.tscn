@@ -4012,6 +4012,7 @@ scale = Vector2(0.3, 0.3)
 e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="truffle_socket" instance=ExtResource("14_ny1p2")]
+visible = false
 offset_left = -26.666504
 offset_top = -139.99997
 offset_right = -26.666504
@@ -4177,7 +4178,7 @@ visible = false
 position = Vector2(339.0602, -345.28543)
 
 [node name="NPC" parent="." instance=ExtResource("25_1k6v6")]
-position = Vector2(296, 176)
+position = Vector2(368, -464)
 
 [node name="Character" parent="." instance=ExtResource("28_54y3o")]
 position = Vector2(392, -72)
