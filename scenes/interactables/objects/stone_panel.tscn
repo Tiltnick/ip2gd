@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxc57w1npotjm"]
+[gd_scene load_steps=7 format=3 uid="uid://drlrmvj7kttid"]
 
-[ext_resource type="Script" uid="uid://b5c5egst3xnr0" path="res://scripts/riddles/stonepuzzle/stone_panel2.gd" id="1_g24v7"]
+[ext_resource type="Script" path="res://scripts/riddles/stonepuzzle/stone_panel2.gd" id="1_g24v7"]
 [ext_resource type="Texture2D" uid="uid://ce42qqeabhjsv" path="res://assets/sprites/selfmade/stone.png" id="2_6syfk"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="3_um1js"]
 
@@ -33,6 +33,7 @@ texture = ExtResource("2_6syfk")
 shape = SubResource("RectangleShape2D_akews")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-2, -4)
