@@ -250,7 +250,6 @@ corner_radius_bottom_left = 62
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gp37h"]
 
 [node name="riddle_statue" type="CanvasLayer"]
-visible = false
 script = ExtResource("1_tholu")
 
 [node name="ColorRect" type="ColorRect" parent="."]

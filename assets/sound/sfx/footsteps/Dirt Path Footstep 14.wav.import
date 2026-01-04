@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ctq1flcl2memo"
+path="res://.godot/imported/Dirt Path Footstep 14.wav-005ccbc691e59f2632c2b94719701adc.sample"
+
+[deps]
+
+source_file="res://assets/sound/sfx/footsteps/Dirt Path Footstep 14.wav"
+dest_files=["res://.godot/imported/Dirt Path Footstep 14.wav-005ccbc691e59f2632c2b94719701adc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
