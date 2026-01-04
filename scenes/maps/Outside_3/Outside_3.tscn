@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://dlsjgc5i7yt81"]
+[gd_scene load_steps=43 format=4 uid="uid://dlsjgc5i7yt81"]
 
 [ext_resource type="Script" uid="uid://dliaffanr7vt" path="res://scripts/scene_manager/outside_3.gd" id="1_3rchf"]
 [ext_resource type="Texture2D" uid="uid://dtxi3laerm24l" path="res://assets/sprites/map/Outside_3/Ground.png" id="1_oc04w"]
@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="11_3rchf"]
 [ext_resource type="PackedScene" uid="uid://bqck2a15x4s5n" path="res://scenes/Riddles/mushroom/mushroom_socket.tscn" id="12_cfq5h"]
 [ext_resource type="PackedScene" uid="uid://58ehm0hl8qlg" path="res://scenes/Character/npc_porcini.tscn" id="13_sj13r"]
-[ext_resource type="PackedScene" uid="uid://cxc57w1npotjm" path="res://scenes/interactables/objects/stone_panel.tscn" id="13_wk4ve"]
+[ext_resource type="PackedScene" uid="uid://drlrmvj7kttid" path="res://scenes/interactables/objects/stone_panel.tscn" id="13_wk4ve"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="14_ny1p2"]
 [ext_resource type="PackedScene" uid="uid://dri71srb6nfk1" path="res://scenes/Character/npc_truffle.tscn" id="14_wk4ve"]
 [ext_resource type="PackedScene" uid="uid://1gjnalxntxuw" path="res://scenes/Riddles/stonepuzzle/puzzle.tscn" id="15_wk4ve"]
@@ -27,7 +27,6 @@
 [ext_resource type="PackedScene" uid="uid://cc56upiuyf8v1" path="res://scenes/Character/npc.tscn" id="25_1k6v6"]
 [ext_resource type="PackedScene" uid="uid://3je85k2bk5gy" path="res://scenes/interactables/objects/stone pieces/stone_piece_6.tscn" id="26_3h5uc"]
 [ext_resource type="PackedScene" uid="uid://c0vonwkvy4jaa" path="res://scenes/interactables/objects/mushrooms/fire_mush.tscn" id="27_3h5uc"]
-[ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="28_54y3o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4bq6r"]
 texture = ExtResource("1_oc04w")
@@ -4179,9 +4178,6 @@ position = Vector2(339.0602, -345.28543)
 
 [node name="NPC" parent="." instance=ExtResource("25_1k6v6")]
 position = Vector2(368, -464)
-
-[node name="Character" parent="." instance=ExtResource("28_54y3o")]
-position = Vector2(392, -72)
 
 [editable path="champi_socket"]
 [editable path="porcini_socket"]

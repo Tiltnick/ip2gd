@@ -18,8 +18,7 @@ func popup_spacegram_de():
 	popup.show_popup("Nutze Spacegram!", load("res://assets/sprites/selfmade/Spacegram_Logo.png") as Texture2D)
 
 func popup_spacegram_en():
-	popup.show_popup("Use Spacegram!", 
-	load("res://assets/sprites/selfmade/Spacegram_Logo.png") as Texture2D)
+	popup.show_popup("Use Spacegram!", load("res://assets/sprites/selfmade/Spacegram_Logo.png") as Texture2D)
 
 #found item popup
 func popup_item_de(item: String, icon: Texture2D):
