@@ -1,12 +1,18 @@
 Interactable
 └── SaveableItem          (Save-State + Popup + despawn)
 	├── ZoomStoreItem     (Zoom → Store)
-	└── ZoomFlipStoreItem (Zoom → Flip → Store)
+		├── ZoomFlipStoreItem (Zoom → Flip → Store)
+	└── HotbarCollectZoomItem (Store ohne Zoom)
 		 └── Photo
 		
 - Neues Item ohne Flip → extends ZoomStoreItem
 - Neues Item mit Flip → extends ZoomFlipStoreItem
+- Neues Item ohne Zoom → extends HotbarCollectZoomItem
 - Neues Item ohne Hotbar → extends SaveableItem
+
+
+࢐
+⦝⊾⦜∟⊥
 
 └ macht man über Alt+192
 ─ macht man über Alt+196
@@ -22,10 +28,5 @@ Interactable
 ┌ Alt+218
 ┐ Alt+191
 ┘ Alt+217
-tree
-
-projekt/
-├── src/
-│ ├── main.gd
-│ └── util.gd
-└── README.md
+ 
+↳ Alt+1627

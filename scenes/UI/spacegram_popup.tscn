@@ -5,12 +5,12 @@
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_dn4hv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dn4hv"]
-bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+bg_color = Color(0.3764706, 0.6039216, 0.54901963, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
-border_color = Color(0.2627451, 0.6117647, 0.5764706, 1)
+border_color = Color(0.6862745, 0.8627451, 0.76862746, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
@@ -143,7 +143,7 @@ offset_top = 6.0
 offset_right = 800.0
 offset_bottom = 247.0
 scale = Vector2(0.085, 0.085)
-theme_override_colors/font_color = Color(0.2627451, 0.6117647, 0.5764706, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/line_spacing = -32
 theme_override_fonts/font = ExtResource("2_dn4hv")
 theme_override_font_sizes/font_size = 128

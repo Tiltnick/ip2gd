@@ -31,11 +31,10 @@ texture = ExtResource("2_dtt1o")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1.5, 2)
 shape = SubResource("RectangleShape2D_hmjdm")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_hmjdm")

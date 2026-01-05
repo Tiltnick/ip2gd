@@ -31,3 +31,4 @@ func mark_collected() -> void:
 		elif lang == "en":
 			PopupManager.popup_item_en(item_name_en, item_icon)
 	SaveSystem.save_game()
+	print("")

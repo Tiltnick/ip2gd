@@ -56,7 +56,7 @@ func _process(_delta: float) -> void:
 
 
 
-func get_dialog_path(scene_name: String) -> String:
+func get_dialog_path(_scene_name: String) -> String:
 	return ""
 
 

@@ -33,8 +33,16 @@ func _unhandled_input(event):
 
 
 func update_slots():
+	# falls slot in benutzung (item in benutzung) dann nachrücken sobald slot geleert
+	if active_item and is_instance_valid(active_item) and active_slot_index != -1:
+		var still_there = hotbarglobal.get_hotbar_item(active_slot_index)
+		if still_there == null:
+			_close_active_item()
+
 	for i in range(slots.size()):
-		var item_id = hotbarglobal.hotbar_items[i]
+		var item_id = hotbarglobal.get_hotbar_item(i)
+
+
 
 		if item_id:
 			var display_id: String = hotbarglobal.get_hotbar_display_item_id(item_id) if hotbarglobal.has_method("get_hotbar_display_item_id") else item_id
@@ -82,7 +90,6 @@ func _update_selected_visuals():
 
 func _close_active_item():
 	if active_item and is_instance_valid(active_item):
-		
 		active_item.queue_free()
 
 	# sofort freigeben damit neues gespawned werden kann
@@ -91,12 +98,14 @@ func _close_active_item():
 
 
 func use_slot(slot_index: int):
-	var item_id = hotbarglobal.hotbar_items[slot_index]
+	var item_id = hotbarglobal.get_hotbar_item(slot_index)
 	if not item_id:
+		if slot_index == active_slot_index:
+			_close_active_item()
 		return
 
-	# Wenn bereits ein aktives Item existiert danninteragieren
-	#gleiches Slot togglet, anderes Slot wechselt
+	# Wenn bereits ein aktives Item existiert dann interagieren
+	# gleiches Slot togglet, anderes Slot wechselt
 	if active_item and is_instance_valid(active_item):
 		if slot_index == active_slot_index:
 			if active_item.has_method("interact"):
@@ -104,17 +113,16 @@ func use_slot(slot_index: int):
 			return
 		else:
 			_close_active_item()
-			
 
 	# Item muss in der Datenbank existieren
 	if not ItemDatabase.DATA.has(item_id):
 		print("Hotbar: Item nicht in Datenbank:", item_id)
 		return
 
-	var data = ItemDatabase.DATA[item_id]
-	var scene_path: String = data.get("world_scene", "")
+	var data: Dictionary = ItemDatabase.DATA[item_id]
+	var scene_path: String = String(data.get("world_scene", ""))
 
-	# Wenn kein world_scene dann nichts spawnen 
+	# Wenn kein world_scene dann nichts spawnen
 	if scene_path == "":
 		print("Hotbar: Item hat kein world_scene (ok):", item_id)
 		return
@@ -130,7 +138,6 @@ func use_slot(slot_index: int):
 	# Als Hotbar-Spawn markieren
 	var has_spawned := false
 	for p in inst.get_property_list():
-		
 		if p.has("name") and p["name"] == "spawned_from_hotbar":
 			has_spawned = true
 			break
@@ -138,22 +145,22 @@ func use_slot(slot_index: int):
 	if has_spawned:
 		inst.set("spawned_from_hotbar", true)
 
-	# Jetzt  in den SceneTree hängen
+	# Jetzt in den SceneTree hängen
 	get_tree().current_scene.add_child(inst)
 
 	active_item = inst
 	active_slot_index = slot_index
 
-	#active_item zurücksetzen wenn es sich selber schließt
+	# active_item zurücksetzen wenn es sich selber schließt
 	inst.tree_exited.connect(func():
 		if active_item == inst:
 			active_item = null
 			active_slot_index = -1
 	)
 
-	# Hotbar Activation (zoom etc.)
+	# Hotbar Activation zb. zoom
 	if inst.has_method("hotbar_activate"):
 		inst.hotbar_activate()
 	elif inst.has_method("interact"):
-		# fallback: direkt interact
+		# fallback direkt interact
 		inst.interact()
