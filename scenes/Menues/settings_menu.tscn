@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://y5kct0mr503d"]
+[gd_scene load_steps=42 format=3 uid="uid://y5kct0mr503d"]
 
 [ext_resource type="Script" uid="uid://bxjsc3ungryxn" path="res://scripts/menu/settings/settings_menu.gd" id="1_dt6qk"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_ijo36"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cxlvnj5ow5ltm" path="res://scripts/menu/settings/v_box_container.gd" id="6_ghnlw"]
 [ext_resource type="Texture2D" uid="uid://bklvnm5csnt2e" path="res://assets/sprites/ui/lautstarke-erhohen (1).png" id="6_pmovl"]
 [ext_resource type="Texture2D" uid="uid://brynadvskwckv" path="res://assets/sprites/ui/lautstarke-runter 1.png" id="7_ghnlw"]
+[ext_resource type="Script" uid="uid://0s2c82y7mc7w" path="res://scenes/Menues/option_button.gd" id="9_cm8sp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0ysv"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -311,7 +312,7 @@ layout_mode = 0
 offset_left = 3.0
 offset_top = 41.0
 offset_right = 411.0
-offset_bottom = 192.0
+offset_bottom = 473.0
 theme_override_constants/separation = 27
 
 [node name="Controls" type="Button" parent="TabContainer/SETTINGS/Panel/VBoxContainer"]
@@ -333,7 +334,7 @@ button_pressed = true
 text = "CONTROLS"
 alignment = 0
 
-[node name="Graphics" type="Button" parent="TabContainer/SETTINGS/Panel/VBoxContainer"]
+[node name="Language" type="Button" parent="TabContainer/SETTINGS/Panel/VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
@@ -367,6 +368,24 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_0mqfy")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qhma1")
 toggle_mode = true
 text = "SOUND"
+alignment = 0
+
+[node name="Graphics" type="Button" parent="TabContainer/SETTINGS/Panel/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
+theme_override_colors/font_focus_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
+theme_override_colors/font_pressed_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
+theme_override_colors/font_hover_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 53
+theme_override_styles/normal = SubResource("StyleBoxFlat_pmovl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g0ydb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0mqfy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qhma1")
+toggle_mode = true
+text = "GRAPHICS"
 alignment = 0
 
 [node name="GridContainer" type="GridContainer" parent="TabContainer/SETTINGS"]
@@ -645,6 +664,47 @@ theme_override_styles/grabber_area = SubResource("StyleBoxLine_b85bu")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_b85bu")
 value = 50.0
 
+[node name="GraphicsContainer" type="HBoxContainer" parent="TabContainer/SETTINGS"]
+visible = false
+layout_mode = 0
+offset_left = 482.0
+offset_top = 48.0
+offset_right = 1130.0
+offset_bottom = 119.0
+theme_override_constants/separation = 74
+
+[node name="Label" type="Label" parent="TabContainer/SETTINGS/GraphicsContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 50
+text = "DISPLAY MODE"
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/SETTINGS/GraphicsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme = ExtResource("3_k0ysv")
+theme_override_constants/h_separation = 3
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_6icie")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y7bph")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_cm8sp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6qvyw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g0y5o")
+theme_override_constants/arrow_margin = 20
+theme_override_constants/modulate_arrow = 0
+theme_override_icons/arrow = ExtResource("3_g0y5o")
+selected = 0
+fit_to_longest_item = false
+item_count = 2
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Deutsch"
+popup/item_1/id = 1
+script = ExtResource("9_cm8sp")
+
 [node name="CloseButton" type="Button" parent="."]
 process_mode = 3
 anchors_preset = 1
@@ -665,8 +725,9 @@ icon = ExtResource("2_dt6qk")
 icon_alignment = 1
 
 [connection signal="pressed" from="TabContainer/SETTINGS/Panel/VBoxContainer/Controls" to="TabContainer/SETTINGS" method="_on_controls_pressed"]
-[connection signal="pressed" from="TabContainer/SETTINGS/Panel/VBoxContainer/Graphics" to="TabContainer/SETTINGS" method="_on_graphics_pressed"]
+[connection signal="pressed" from="TabContainer/SETTINGS/Panel/VBoxContainer/Language" to="TabContainer/SETTINGS" method="_on_language_pressed"]
 [connection signal="pressed" from="TabContainer/SETTINGS/Panel/VBoxContainer/Sound" to="TabContainer/SETTINGS" method="_on_sound_pressed"]
+[connection signal="pressed" from="TabContainer/SETTINGS/Panel/VBoxContainer/Graphics" to="TabContainer/SETTINGS" method="_on_graphics_pressed"]
 [connection signal="pressed" from="TabContainer/SETTINGS/VBoxContainer/HBoxContainer/Button_MusicL" to="TabContainer/SETTINGS/VBoxContainer" method="_on_button_music_l_pressed"]
 [connection signal="pressed" from="TabContainer/SETTINGS/VBoxContainer/HBoxContainer/Button_MusicM" to="TabContainer/SETTINGS/VBoxContainer" method="_on_button_music_m_pressed"]
 [connection signal="value_changed" from="TabContainer/SETTINGS/VBoxContainer/HBoxContainer/HSlider_Music" to="TabContainer/SETTINGS/VBoxContainer" method="_on_h_slider_value_changed"]
