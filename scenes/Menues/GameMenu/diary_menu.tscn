@@ -46,6 +46,8 @@ border_color = Color(0.27979478, 0.6114242, 0.56369495, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i2vsb"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2kte2"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
 border_width_left = 6
@@ -163,6 +165,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_g0y5o")
 theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_i2vsb")
 theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_k0ysv")
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_k0ysv")
+theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_i2vsb")
 tab_alignment = 1
 current_tab = 2
 

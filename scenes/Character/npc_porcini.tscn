@@ -76,6 +76,8 @@ height = 26.0
 radius = 24.0
 
 [node name="NPC_porcini" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_1u0wy")
 
 [node name="Press_E_Popup_NPC" parent="." instance=ExtResource("2_6fqm2")]
@@ -98,7 +100,6 @@ frame_progress = 0.9370906
 
 [node name="Outline" type="AnimatedSprite2D" parent="."]
 visible = false
-z_index = 4
 material = SubResource("ShaderMaterial_kwd6m")
 position = Vector2(0, -16)
 scale = Vector2(1.032258, 1)

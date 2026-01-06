@@ -609,7 +609,8 @@ texture = ExtResource("3_o6c6f")
 2:20/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_mjrgl"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_r53rl")
 sources/2 = SubResource("TileSetAtlasSource_jeydu")
 sources/0 = SubResource("TileSetAtlasSource_bk0mb")
@@ -2166,6 +2167,7 @@ position = Vector2(-648.00006, -268)
 scale = Vector2(11.960439, -8.005182)
 
 [node name="Area2D" type="StaticBody2D" parent="."]
+collision_layer = 4
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
@@ -2174,7 +2176,6 @@ build_mode = 1
 polygon = PackedVector2Array(-772, -705, -2, -705, -6, 332, -305, 334, -305, 365, -422, 365, -422, 332, -771, 332, -772, -529, -799, -529, -798, -623, -773, -623)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-z_index = 3
 position = Vector2(-647.75, -355)
 shape = SubResource("SegmentShape2D_2emao")
 debug_color = Color(0.9414573, 8.759796e-06, 0.6127085, 0.41960785)
@@ -2278,6 +2279,7 @@ scale = Vector2(0.65, 0.65)
 [node name="Flashlight" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_g73bm")]
 z_index = 0
 position = Vector2(-680, 213)
+scale = Vector2(0.5, 0.5)
 e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="Objects/Flashlight" instance=ExtResource("10_exwp3")]

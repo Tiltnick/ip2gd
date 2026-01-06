@@ -72,15 +72,13 @@ func start_new_game() -> void:
 	GameState.picked_items = []
 
 	# Hotbar + Inventory zurücksetzen
-	hotbarglobal.hotbar_items.fill(null)
 	hotbarglobal.inventory_items.fill(null)
+	hotbarglobal.hotbar_counts.clear()
+	hotbarglobal.hotbar_icon_override.clear()
 
-	# UI updaten wenn bereits existiert
-	if hotbarglobal.hotbar:
-		hotbarglobal.hotbar.update_slots()
+	# UI updaten 
+	hotbarglobal.update_ui()
 
-	if hotbarglobal.inventory:
-		hotbarglobal.inventory.update_slots()
 
 	get_tree().paused = false
 

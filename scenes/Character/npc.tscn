@@ -117,13 +117,16 @@ shader = ExtResource("3_5dfqd")
 shader_parameter/outline_size = 2.0
 shader_parameter/outline_color = Vector4(1, 1, 1, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q33tr"]
-size = Vector2(16, 8)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kwd6m"]
+radius = 6.0
+height = 18.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5dfqd"]
 radius = 48.0
 
 [node name="NPC" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_kwd6m")
 
 [node name="Press_E_Popup_NPC" parent="." instance=ExtResource("7_kwd6m")]
@@ -143,7 +146,6 @@ autoplay = "move"
 
 [node name="Outline" type="AnimatedSprite2D" parent="."]
 visible = false
-z_index = 4
 material = SubResource("ShaderMaterial_kwd6m")
 position = Vector2(0, -8)
 scale = Vector2(0.75, 0.75)
@@ -153,11 +155,15 @@ autoplay = "idle"
 frame_progress = 0.9084463
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_q33tr")
+position = Vector2(0, -2)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_kwd6m")
 
 [node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+visible = false
 shape = SubResource("CircleShape2D_5dfqd")
 
 [node name="stateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
