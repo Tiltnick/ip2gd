@@ -36,6 +36,7 @@ PopupManager="*res://scripts/UI/PopupManager.gd"
 SavingMenu="*res://scenes/Menues/saving_menu.tscn"
 BgmPlayer="*res://scripts/audio/bgm_player.gd"
 SfxPlayer="*res://scripts/audio/sfx_player.gd"
+QuestManager="*res://scripts/quests/quest_manager.gd"
 
 [dialogic]
 

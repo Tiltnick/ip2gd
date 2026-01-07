@@ -34,3 +34,10 @@ func popup_diary_en():
 
 func popup_diary_de():
 	popup.show_popup("Neuer Tagebucheintrag!", load("res://assets/sprites/selfmade/note.png") as Texture2D)
+
+#quest popup
+func popup_quest_en(quest_title: String):
+	popup.show_popup("New Quest: " + quest_title, load("res://assets/Icon.png") as Texture2D)
+
+func popup_quest_de(quest_title: String):
+	popup.show_popup("Neue Quest: " + quest_title, load("res://assets/Icon.png") as Texture2D)

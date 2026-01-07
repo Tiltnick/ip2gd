@@ -35,6 +35,7 @@ CLICK_RIGHT, rotate with right click, rotiere mit Rechtsklick
 DIARY, Diary, Tagebuch
 INVENTORY, Inventory, Inventar
 QUESTS, Quests, Missionen
+QUEST_TITLE, Quest Title, Questtitel
+QUEST_DESCRIPTION, Quest Description, Questbeschreibung
 CURRENT_QUESTS, Current Quests, Aktuelle Aufträge
 COMPLETED_QUESTS, Completed Quests, Erledigte Aufträge
-DESCRIPTION, Description, Beschreibung

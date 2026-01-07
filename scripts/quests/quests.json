@@ -1,0 +1,28 @@
+{
+	"quests": {
+		"quest1": {
+			"quest_title_en": "Exit the Spaceship",
+			"quest_title_de": "Verlasse das Raumschiff",
+			"quest_description_en": "Find a way to escape the Spacehip.",
+			"quest_description_de": "Finde einen Weg um aus dem Raumschiff zu entkommen."
+		},
+		"quest2": {
+			"quest_title_en": "",
+			"quest_title_de": "",
+			"quest_description_en": "",
+			"quest_description_de": ""
+		},
+		"quest3": {
+			"quest_title_en": "",
+			"quest_title_de": "",
+			"quest_description_en": "",
+			"quest_description_de": ""
+		},
+		"quest4": {
+			"quest_title_en": "",
+			"quest_title_de": "",
+			"quest_description_en": "",
+			"quest_description_de": ""
+		}
+	}
+}

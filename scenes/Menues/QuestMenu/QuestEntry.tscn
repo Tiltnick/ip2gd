@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://6t42mrd1edri"]
+
+[ext_resource type="Script" uid="uid://dwwjxul4b0g8o" path="res://scripts/quests/quest_entry.gd" id="1_eflya"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eflya"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="QuestEntry" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 646.0
+offset_bottom = 114.0
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 441.0
+offset_bottom = 76.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_eflya")
+script = ExtResource("1_eflya")
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 14.0
+offset_right = 423.0
+offset_bottom = 62.0
+
+[node name="TextureRect" type="TextureRect" parent="Button"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 13.0
+offset_right = 72.0
+offset_bottom = 64.0
