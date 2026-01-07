@@ -64,7 +64,6 @@ func check_mush():
 func on_slot_filled(slot):
 	if not fill_order.has(slot):
 		fill_order.append(slot)
-
 	check_puzzle()
 
 func on_slot_cleared(slot):
@@ -91,13 +90,11 @@ func check_puzzle():
 		if puzzle_id != "":
 			GameState.puzzle_state[puzzle_id] = true
 		solved = true
-		print("gelöst")
 		for id in mush_nodes.keys():
-			
 			var mushrooms_id: String = "mushrooms"
 			hotbarglobal.remove_item(id)
 			hotbarglobal.remove_item(mushrooms_id)
-
+		SaveSystem.save_game()
 		is_solved()
 
 func reset_all_sockets():
