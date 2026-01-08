@@ -16,7 +16,7 @@
 		{ "id": "hint_yes", "text_en": "I need your help."
 							,"text_de": "Ich brauche deine Hilfe." 
 							,"next": "hint_yes" },
-		{ "id": "hint_no", "text_en": "I thought you were a mushroom."
+		{ "id": "hint_no", "text_en": "Thought you were a mushroom."
 							,"text_de": "Ich dachte du wärst ein Pilz." 
 							,"next": "end" }
 	  ]

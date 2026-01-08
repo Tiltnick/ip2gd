@@ -1,13 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqck2a15x4s5n"]
+[gd_scene load_steps=5 format=3 uid="uid://bqck2a15x4s5n"]
 
 [ext_resource type="Script" uid="uid://dkkn7tbt67etm" path="res://scripts/interactables/objects/mushroom_socket.gd" id="1_11f0n"]
 [ext_resource type="Texture2D" uid="uid://bjdmx8cqqg1hd" path="res://assets/sprites/selfmade/mushroom_socket.png" id="2_7oed5"]
-[ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="3_7oed5"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7oed5"]
-shader = ExtResource("3_7oed5")
-shader_parameter/outline_size = 2.0
-shader_parameter/outline_color = Vector4(1, 1, 1, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_atghx"]
 radius = 80.0
@@ -21,11 +15,6 @@ script = ExtResource("1_11f0n")
 metadata/_custom_type_script = "uid://bdssbm1prbicl"
 
 [node name="mushroom_socket" type="Sprite2D" parent="."]
-texture = ExtResource("2_7oed5")
-
-[node name="Outline" type="Sprite2D" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_7oed5")
 texture = ExtResource("2_7oed5")
 
 [node name="Area2D" type="Area2D" parent="."]

@@ -66,14 +66,9 @@ func _physics_process(delta: float) -> void:
 				"x": global_position.x,
 				"y": global_position.y,
 			}
-			
-
-			dialog_active = false # optional: verschwinden
 			return
-
 		velocity = dir.normalized() * move_speed * 3.0
 		move_and_slide()
-
 
 func run_away_to(pos: Vector2) -> void:
 	fleeing = true

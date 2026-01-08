@@ -1,6 +1,9 @@
 extends NPC
 class_name NpcDialogProcessBlob
 
+var fleeing := false
+var flee_target := Vector2.ZERO
+@export var npc_id: String = "blob"
 @export
 var required_item_id: String = "shovel"
 
@@ -118,3 +121,21 @@ func _get_outside3_second_dialog() -> String:
 		if not bool(GameState.puzzle_state.get(step["flag"], false)):
 			return step["path"]
 	return OUTSIDE3_SECOND_END
+
+func _physics_process(delta: float) -> void:
+	if fleeing:
+		var dir = (flee_target - global_position)
+		if dir.length() < 8.0:
+			fleeing = false
+			# FINAL-Position speichern, damit nach Neustart genau dort steht
+			GameState.puzzle_state["npc_pos_" + npc_id] = {
+				"x": global_position.x,
+				"y": global_position.y,
+			}
+			return
+		velocity = dir.normalized() * move_speed 
+		move_and_slide()
+
+func run_away_to(pos: Vector2) -> void:
+	fleeing = true
+	flee_target = pos
