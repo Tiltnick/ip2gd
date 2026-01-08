@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://cd6aal2ayx2tk"]
+
+[ext_resource type="Texture2D" uid="uid://dvwg0rll8rkyg" path="res://assets/sprites/character/Selfmade Animated Background Sprites/Jumping Fish.png" id="1_idfnw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6ls8"]
+atlas = ExtResource("1_idfnw")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1lpc"]
+atlas = ExtResource("1_idfnw")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lptjy"]
+atlas = ExtResource("1_idfnw")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_077v1"]
+atlas = ExtResource("1_idfnw")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cohat"]
+atlas = ExtResource("1_idfnw")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jep4h"]
+atlas = ExtResource("1_idfnw")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubnqg"]
+atlas = ExtResource("1_idfnw")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ba40"]
+atlas = ExtResource("1_idfnw")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcwtr"]
+atlas = ExtResource("1_idfnw")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wc7b3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6ls8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1lpc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lptjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_077v1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cohat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jep4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubnqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ba40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcwtr")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1up3t"]
+size = Vector2(92, 93.5)
+
+[node name="Fish" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+collision_layer = 4
+collision_mask = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_wc7b3")
+animation = &"move"
+autoplay = "move"
+frame_progress = 0.44553936
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -1.25)
+shape = SubResource("RectangleShape2D_1up3t")
