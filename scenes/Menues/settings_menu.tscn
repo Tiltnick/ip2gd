@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://cxlvnj5ow5ltm" path="res://scripts/menu/settings/v_box_container.gd" id="6_ghnlw"]
 [ext_resource type="Texture2D" uid="uid://bklvnm5csnt2e" path="res://assets/sprites/ui/lautstarke-erhohen (1).png" id="6_pmovl"]
 [ext_resource type="Texture2D" uid="uid://brynadvskwckv" path="res://assets/sprites/ui/lautstarke-runter 1.png" id="7_ghnlw"]
-[ext_resource type="Script" uid="uid://0s2c82y7mc7w" path="res://scenes/Menues/option_button.gd" id="9_cm8sp"]
+[ext_resource type="Script" uid="uid://b51mk8v3mgj5" path="res://scripts/menu/settings/graphics_button.gd" id="9_cm8sp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0ysv"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -698,11 +698,13 @@ theme_override_constants/modulate_arrow = 0
 theme_override_icons/arrow = ExtResource("3_g0y5o")
 selected = 0
 fit_to_longest_item = false
-item_count = 2
-popup/item_0/text = "English"
+item_count = 3
+popup/item_0/text = "Windowed"
 popup/item_0/id = 0
-popup/item_1/text = "Deutsch"
+popup/item_1/text = "Fullscreen"
 popup/item_1/id = 1
+popup/item_2/text = "Borderless"
+popup/item_2/id = 2
 script = ExtResource("9_cm8sp")
 
 [node name="CloseButton" type="Button" parent="."]
