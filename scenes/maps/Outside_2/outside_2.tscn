@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://34ylk7jtx176"]
+[gd_scene load_steps=47 format=4 uid="uid://34ylk7jtx176"]
 
 [ext_resource type="Script" uid="uid://f7c56kdptn0k" path="res://scripts/scene_manager/outside_2.gd" id="1_7t2bs"]
 [ext_resource type="Texture2D" uid="uid://dqoxkjxdkwqgu" path="res://assets/sprites/map/Outside_2/spaceship.png" id="2_f8agi"]
@@ -20,12 +20,13 @@
 [ext_resource type="PackedScene" uid="uid://m8y5i5u6eyka" path="res://scenes/maps/transition_area_fade.tscn" id="17_ew4ox"]
 [ext_resource type="PackedScene" uid="uid://bwhu76fxy1g07" path="res://scenes/interactables/objects/statue.tscn" id="17_l2mbr"]
 [ext_resource type="PackedScene" uid="uid://dgxcraqxfqci7" path="res://scenes/Riddles/riddle_statue/riddle_statue.tscn" id="18_l2mbr"]
-[ext_resource type="PackedScene" uid="uid://bnjx4jljcdw2x" path="res://scenes/interactables/objects/tripod.tscn" id="19_on5tc"]
+[ext_resource type="PackedScene" uid="uid://ch3mxlgsh3het" path="res://scenes/interactables/objects/tripod.tscn" id="19_on5tc"]
 [ext_resource type="Script" uid="uid://bkmuaqelrfjke" path="res://scripts/riddles/sky_riddle/tripod_middle.gd" id="20_f8agi"]
 [ext_resource type="PackedScene" uid="uid://dkl4wilu1mavv" path="res://scenes/interactables/objects/stone pieces/stone_piece_4.tscn" id="21_3tmc5"]
 [ext_resource type="Script" uid="uid://dr1kl8nrqtby" path="res://scripts/riddles/sky_riddle/tripod_top.gd" id="21_bk0mb"]
 [ext_resource type="PackedScene" uid="uid://cg8acpjft0f2m" path="res://scenes/interactables/objects/stone pieces/stone_piece_5.tscn" id="22_pkhcj"]
 [ext_resource type="PackedScene" uid="uid://cxue3cw47klvm" path="res://scenes/Riddles/Outside_2/treasure_chest_riddle.tscn" id="24_iaftu"]
+[ext_resource type="PackedScene" uid="uid://dvjh1essse7y" path="res://scenes/Animations/tumbleweed.tscn" id="27_es6jy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bk0mb"]
 texture = ExtResource("2_f8agi")
@@ -2447,3 +2448,23 @@ scale = Vector2(0.5, 0.5)
 
 [node name="TreasureChestRiddle" parent="." instance=ExtResource("24_iaftu")]
 visible = false
+
+[node name="Tumbleweed" parent="." instance=ExtResource("27_es6jy")]
+position = Vector2(-395, -296)
+scale = Vector2(0.7, 0.7)
+
+[node name="Tumbleweed2" parent="." instance=ExtResource("27_es6jy")]
+position = Vector2(-366, -342)
+scale = Vector2(0.7, 0.7)
+
+[node name="Tumbleweed3" parent="." instance=ExtResource("27_es6jy")]
+position = Vector2(-225, -256)
+scale = Vector2(0.7, 0.7)
+
+[node name="Tumbleweed4" parent="." instance=ExtResource("27_es6jy")]
+position = Vector2(-184, -326)
+scale = Vector2(0.7, 0.7)
+
+[node name="Tumbleweed5" parent="." instance=ExtResource("27_es6jy")]
+position = Vector2(-296, -303)
+scale = Vector2(0.7, 0.7)
