@@ -38,8 +38,8 @@ func _on_item_selected(index: int) -> void:
 
 	if has_node(""):  # dann den richtigen path eintragen
 		get_node("").set_language(locale)  # dann den richtigen path eintragen
-	else:
-		TranslationServer.set_locale(locale)
+	#else:  ## nicht mehr nötig 
+		#TranslationServer.set_locale(locale)
 
 
 	GameState.language = locale
