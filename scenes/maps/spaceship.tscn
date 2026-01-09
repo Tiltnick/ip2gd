@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://csejhruust020"]
+[gd_scene load_steps=35 format=4 uid="uid://csejhruust020"]
 
 [ext_resource type="Script" uid="uid://dkosu7fsxv5uu" path="res://scripts/scene_manager/spaceship.gd" id="1_k18lp"]
 [ext_resource type="Texture2D" uid="uid://kxs6kkm0ut6w" path="res://assets/sprites/map/Spaceship/background.png" id="1_krvlx"]
@@ -21,6 +21,10 @@
 [ext_resource type="PackedScene" uid="uid://bpvneidk4xerj" path="res://scenes/Riddles/Spaceship/spaceship_door_riddle.tscn" id="14_1oksb"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="15_emg07"]
 [ext_resource type="PackedScene" uid="uid://m8y5i5u6eyka" path="res://scenes/maps/transition_area_fade.tscn" id="17_8o1ua"]
+[ext_resource type="PackedScene" uid="uid://c08pj4rdbenhj" path="res://scenes/Animations/grassBrown.tscn" id="23_a5uu7"]
+[ext_resource type="PackedScene" uid="uid://cd6aal2ayx2tk" path="res://scenes/Animations/fish.tscn" id="23_t5k16"]
+[ext_resource type="PackedScene" uid="uid://dvjh1essse7y" path="res://scenes/Animations/tumbleweed.tscn" id="25_w60i3"]
+[ext_resource type="PackedScene" uid="uid://dtr2hps8xd1f8" path="res://scenes/Animations/grass.tscn" id="26_t3dqs"]
 [ext_resource type="Texture2D" uid="uid://bbkysrm140l12" path="res://assets/sprites/selfmade/background_sky.png" id="27_7rixv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oegse"]
@@ -1402,3 +1406,15 @@ offset_bottom = 307.0
 mouse_filter = 2
 texture = ExtResource("27_7rixv")
 expand_mode = 1
+
+[node name="GrassBrown" parent="." instance=ExtResource("23_a5uu7")]
+position = Vector2(41, 177.00002)
+
+[node name="Tumbleweed" parent="." instance=ExtResource("25_w60i3")]
+position = Vector2(8, 196)
+
+[node name="Grass" parent="." instance=ExtResource("26_t3dqs")]
+position = Vector2(16, 153)
+
+[node name="Fish" parent="." instance=ExtResource("23_t5k16")]
+position = Vector2(184, 184)

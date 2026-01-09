@@ -1,12 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://dtr2hps8xd1f8"]
 
-[ext_resource type="Texture2D" path="res://assets/sprites/character/Selfmade Animated Background Sprites/Moving Grass.png" id="1_o3b1j"]
+[ext_resource type="Texture2D" uid="uid://ck3jrodg1bgi3" path="res://assets/sprites/animation/Moving Grass.png" id="1_o3b1j"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5j4e1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3b1j"]
 atlas = ExtResource("1_o3b1j")
 region = Rect2(0, 0, 252, 252)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p0kj3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j4e1"]
 atlas = ExtResource("1_o3b1j")
 region = Rect2(0, 252, 252, 252)
 
@@ -14,10 +14,10 @@ region = Rect2(0, 252, 252, 252)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5j4e1")
+"texture": SubResource("AtlasTexture_o3b1j")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p0kj3")
+"texture": SubResource("AtlasTexture_5j4e1")
 }],
 "loop": true,
 "name": &"move",
