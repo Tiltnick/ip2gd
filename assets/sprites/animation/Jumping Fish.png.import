@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvwg0rll8rkyg"
-path="res://.godot/imported/Jumping Fish.png-ba94cafd534ed24047857b6a28b22a6b.ctex"
+path="res://.godot/imported/Jumping Fish.png-d765ceb383a5786e88cb5eba68b07735.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/character/Selfmade Animated Background Sprites/Jumping Fish.png"
-dest_files=["res://.godot/imported/Jumping Fish.png-ba94cafd534ed24047857b6a28b22a6b.ctex"]
+source_file="res://assets/sprites/animation/Jumping Fish.png"
+dest_files=["res://.godot/imported/Jumping Fish.png-d765ceb383a5786e88cb5eba68b07735.ctex"]
 
 [params]
 

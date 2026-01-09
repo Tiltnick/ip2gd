@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ck3jrodg1bgi3"
-path="res://.godot/imported/Moving Grass.png-a5fd23f3def1785e6fa326ca134815a7.ctex"
+uid="uid://b5lfjjwdpn1eh"
+path="res://.godot/imported/Moving Grass Brown.png-0bb7c5cf406e075b0c1ffd054ae116a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/character/Selfmade Animated Background Sprites/Moving Grass.png"
-dest_files=["res://.godot/imported/Moving Grass.png-a5fd23f3def1785e6fa326ca134815a7.ctex"]
+source_file="res://assets/sprites/animation/Moving Grass Brown.png"
+dest_files=["res://.godot/imported/Moving Grass Brown.png-0bb7c5cf406e075b0c1ffd054ae116a8.ctex"]
 
 [params]
 

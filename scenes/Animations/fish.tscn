@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://cd6aal2ayx2tk"]
 
-[ext_resource type="Texture2D" uid="uid://dvwg0rll8rkyg" path="res://assets/sprites/character/Selfmade Animated Background Sprites/Jumping Fish.png" id="1_idfnw"]
+[ext_resource type="Texture2D" path="res://assets/sprites/character/Selfmade Animated Background Sprites/Jumping Fish.png" id="1_idfnw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s6ls8"]
 atlas = ExtResource("1_idfnw")
