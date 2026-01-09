@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://cps7rwccg7bwu"]
+
+[ext_resource type="Texture2D" uid="uid://chp540pt4j5s2" path="res://assets/sprites/animation/Moving Grass Purple.png" id="1_11d3t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqf7i"]
+atlas = ExtResource("1_11d3t")
+region = Rect2(0, 0, 252, 252)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6ikr"]
+atlas = ExtResource("1_11d3t")
+region = Rect2(0, 252, 252, 252)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wc7b3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqf7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6ikr")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1up3t"]
+size = Vector2(96, 96)
+
+[node name="GrassPurple" type="CharacterBody2D"]
+z_index = 2
+scale = Vector2(0.15, 0.15)
+collision_layer = 4
+collision_mask = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_wc7b3")
+animation = &"move"
+autoplay = "move"
+frame_progress = 0.6819694
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1up3t")
