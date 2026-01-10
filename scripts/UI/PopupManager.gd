@@ -1,17 +1,22 @@
 extends Node
 
-var popup_scene := preload("res://scenes/UI/spacegram_popup.tscn")
+var popup_scene := preload("res://scenes/UI/Popup.tscn")
+var quest_popup_scene := preload("res://scenes/UI/Quest_Popup.tscn")
 var popup: Control
+var quest_popup: Control
 
 func _ready():
 	popup = popup_scene.instantiate()
+	quest_popup = quest_popup_scene.instantiate()
 
 	# In CanvasLayer packen
 	var ui := CanvasLayer.new()
 	get_tree().root.add_child.call_deferred(ui)
 	ui.add_child(popup)
+	ui.add_child(quest_popup)
 
 	popup.visible = false
+	quest_popup.visible = false
 
 #use insta popup
 func popup_spacegram_de():
@@ -37,7 +42,7 @@ func popup_diary_de():
 
 #quest popup
 func popup_quest_en(quest_title: String):
-	popup.show_popup("New Quest: " + quest_title, load("res://assets/Icon.png") as Texture2D)
+	quest_popup.show_popup("New Quest: " + quest_title, load("res://assets/sprites/selfmade/Quest_Icon.png") as Texture2D)
 
 func popup_quest_de(quest_title: String):
-	popup.show_popup("Neue Quest: " + quest_title, load("res://assets/Icon.png") as Texture2D)
+	quest_popup.show_popup("Neue Quest: " + quest_title, load("res://assets/sprites/selfmade/Quest_Icon.png") as Texture2D)

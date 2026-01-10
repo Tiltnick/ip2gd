@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://6t42mrd1edri"]
+[gd_scene load_steps=7 format=3 uid="uid://6t42mrd1edri"]
 
 [ext_resource type="Script" uid="uid://dwwjxul4b0g8o" path="res://scripts/quests/quest_entry.gd" id="1_eflya"]
+[ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_nynjr"]
+[ext_resource type="Texture2D" uid="uid://bedvmaf7g4w7r" path="res://assets/sprites/selfmade/NewIcon.png" id="3_rlj8w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eflya"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -14,30 +16,85 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
-[node name="QuestEntry" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 646.0
-offset_bottom = 114.0
-metadata/_edit_lock_ = true
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rlj8w"]
+bg_color = Color(0.0605, 0.094325, 0.11, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.12941177, 0.3019608, 0.28235295, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_right = 441.0
-offset_bottom = 76.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dedpc"]
+bg_color = Color(0.11372549, 0.18039216, 0.21176471, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.1892, 0.44, 0.41491994, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="QuestEntry" type="Button"]
+custom_minimum_size = Vector2(600, 80)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1_nynjr")
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_eflya")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rlj8w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dedpc")
+alignment = 0
+autowrap_trim_flags = 192
 script = ExtResource("1_eflya")
+metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Button"]
-layout_mode = 0
-offset_left = 78.0
-offset_top = 14.0
-offset_right = 423.0
-offset_bottom = 62.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="Button"]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 13.0
-offset_right = 72.0
-offset_bottom = 64.0
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = -32
+theme_override_fonts/font = ExtResource("1_nynjr")
+theme_override_font_sizes/font_size = 38
+text = "mn mbn"
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_rlj8w")
+stretch_mode = 3

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://y5kct0mr503d"]
+[gd_scene load_steps=29 format=3 uid="uid://y5kct0mr503d"]
 
 [ext_resource type="Script" uid="uid://c7mgrddxx8c0t" path="res://scripts/menu/GameMenu/menuClose.gd" id="1_jpjjb"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_xn7nl"]
@@ -80,10 +80,10 @@ corner_radius_bottom_right = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8122"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 border_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
@@ -92,6 +92,18 @@ corner_radius_bottom_left = 15
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_82ri6"]
 shader = ExtResource("8_5rqpv")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jpjjb"]
+bg_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b85bu"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -580,44 +592,40 @@ grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_v8122")
 
-[node name="Header" type="Label" parent="TabContainer/QUESTS/DisplayLeft"]
-layout_mode = 0
-offset_left = 55.0
-offset_top = 39.0
-offset_right = 308.0
-offset_bottom = 75.0
-theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
-theme_override_font_sizes/font_size = 26
-text = "CURRENT_QUESTS"
-
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/QUESTS/DisplayLeft"]
 layout_mode = 0
 offset_left = 56.0
-offset_top = 97.0
+offset_top = 31.0
 offset_right = 703.0
-offset_bottom = 331.0
+offset_bottom = 685.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/QUESTS/DisplayLeft/ScrollContainer"]
 layout_mode = 2
+theme_override_constants/separation = 6
 
-[node name="Header2" type="Label" parent="TabContainer/QUESTS/DisplayLeft"]
-layout_mode = 0
-offset_left = 57.0
-offset_top = 360.0
-offset_right = 346.0
-offset_bottom = 396.0
+[node name="Header" type="Label" parent="TabContainer/QUESTS/DisplayLeft/ScrollContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
-theme_override_font_sizes/font_size = 26
+theme_override_fonts/font = ExtResource("1_xn7nl")
+theme_override_font_sizes/font_size = 45
+text = "CURRENT_QUESTS"
+
+[node name="current_list" type="VBoxContainer" parent="TabContainer/QUESTS/DisplayLeft/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/QUESTS/DisplayLeft/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+theme_override_styles/separator = SubResource("StyleBoxFlat_jpjjb")
+
+[node name="Header2" type="Label" parent="TabContainer/QUESTS/DisplayLeft/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_fonts/font = ExtResource("1_xn7nl")
+theme_override_font_sizes/font_size = 45
 text = "COMPLETED_QUESTS"
 
-[node name="ScrollContainer2" type="ScrollContainer" parent="TabContainer/QUESTS/DisplayLeft"]
-layout_mode = 0
-offset_left = 55.0
-offset_top = 418.0
-offset_right = 702.0
-offset_bottom = 654.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/QUESTS/DisplayLeft/ScrollContainer2"]
+[node name="completed_list" type="VBoxContainer" parent="TabContainer/QUESTS/DisplayLeft/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="DisplayRight" type="Panel" parent="TabContainer/QUESTS"]
@@ -640,7 +648,8 @@ offset_top = 28.0
 offset_right = 232.0
 offset_bottom = 64.0
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
-theme_override_font_sizes/font_size = 26
+theme_override_fonts/font = ExtResource("1_xn7nl")
+theme_override_font_sizes/font_size = 45
 text = "QUEST_TITLE"
 
 [node name="QuestDescription" type="Label" parent="TabContainer/QUESTS/DisplayRight"]
@@ -649,12 +658,13 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 64.0
-offset_top = -275.5
+offset_top = -246.0
 offset_right = 623.0
 offset_bottom = 288.0
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
-theme_override_font_sizes/font_size = 23
+theme_override_fonts/font = ExtResource("1_xn7nl")
+theme_override_font_sizes/font_size = 35
 text = "QUEST_DESCRIPTION"
 autowrap_mode = 3
 justification_flags = 162
