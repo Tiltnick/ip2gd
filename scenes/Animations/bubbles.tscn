@@ -97,7 +97,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1up3t"]
 size = Vector2(96, 96)
 
-[node name="Grass" type="CharacterBody2D"]
+[node name="Bubbles" type="CharacterBody2D"]
 scale = Vector2(0.15, 0.15)
 collision_layer = 0
 collision_mask = 0
@@ -107,7 +107,7 @@ scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_wc7b3")
 animation = &"move"
 autoplay = "move"
-frame_progress = 0.5571342
+frame_progress = 0.506777
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1up3t")
