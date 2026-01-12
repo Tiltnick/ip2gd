@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://dlsjgc5i7yt81"]
+[gd_scene load_steps=62 format=4 uid="uid://dlsjgc5i7yt81"]
 
 [ext_resource type="Script" uid="uid://dliaffanr7vt" path="res://scripts/scene_manager/outside_3.gd" id="1_3rchf"]
 [ext_resource type="Texture2D" uid="uid://dtxi3laerm24l" path="res://assets/sprites/map/Outside_3/Ground.png" id="1_oc04w"]
@@ -35,6 +35,9 @@
 [ext_resource type="PackedScene" uid="uid://3je85k2bk5gy" path="res://scenes/interactables/objects/stone pieces/stone_piece_6.tscn" id="26_3h5uc"]
 [ext_resource type="PackedScene" uid="uid://c0vonwkvy4jaa" path="res://scenes/interactables/objects/mushrooms/fire_mush.tscn" id="27_3h5uc"]
 [ext_resource type="PackedScene" uid="uid://cps7rwccg7bwu" path="res://scenes/Animations/grassPurple.tscn" id="28_54y3o"]
+[ext_resource type="PackedScene" uid="uid://ofuv67gum1mi" path="res://scenes/Animations/folk_pur_side.tscn" id="36_1tv65"]
+[ext_resource type="PackedScene" uid="uid://bc2bnmdi7g8c2" path="res://scenes/Animations/folk_pur_up.tscn" id="37_cpm51"]
+[ext_resource type="PackedScene" uid="uid://njech6e5ppkr" path="res://scenes/Animations/folk_pur_down.tscn" id="38_4obpn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4bq6r"]
 texture = ExtResource("1_oc04w")
@@ -4721,6 +4724,17 @@ scale = Vector2(0.1, 0.1)
 [node name="GrassPurple15" parent="Purple Grass" instance=ExtResource("28_54y3o")]
 position = Vector2(408, 231.99998)
 scale = Vector2(0.1, 0.1)
+
+[node name="Folk" type="Node" parent="."]
+
+[node name="Purply" parent="Folk" instance=ExtResource("36_1tv65")]
+position = Vector2(382, 24)
+
+[node name="Purply2" parent="Folk" instance=ExtResource("37_cpm51")]
+position = Vector2(416, 48)
+
+[node name="Purply3" parent="Folk" instance=ExtResource("38_4obpn")]
+position = Vector2(417, -8)
 
 [editable path="champi_socket"]
 [editable path="porcini_socket"]
