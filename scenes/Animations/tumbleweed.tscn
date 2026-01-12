@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dvjh1essse7y"]
 
-[ext_resource type="Texture2D" uid="uid://b7xu4g7bg8lj4" path="res://assets/sprites/character/Selfmade Animated Background Sprites/Tumbleweed.png" id="1_e47no"]
+[ext_resource type="Texture2D" uid="uid://b7xu4g7bg8lj4" path="res://assets/sprites/animation/Tumbleweed.png" id="1_e47no"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e11m7"]
 atlas = ExtResource("1_e47no")
@@ -67,7 +67,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xfhpu"]
-radius = 16.03122
+radius = 14.0
 
 [node name="Tumbleweed" type="CharacterBody2D"]
 collision_layer = 4
