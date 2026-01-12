@@ -99,7 +99,7 @@ radius = 53.333332
 height = 213.33333
 
 [node name="Bubbles" type="CharacterBody2D"]
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.25, 0.25)
 collision_layer = 0
 collision_mask = 0
 
@@ -108,7 +108,7 @@ scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_wc7b3")
 animation = &"move"
 autoplay = "move"
-frame_progress = 0.87141025
+frame_progress = 0.10345557
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6.6666718)
