@@ -94,8 +94,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1up3t"]
-size = Vector2(96, 96)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h8ls6"]
+radius = 53.333332
+height = 213.33333
 
 [node name="Bubbles" type="CharacterBody2D"]
 scale = Vector2(0.15, 0.15)
@@ -107,7 +108,8 @@ scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_wc7b3")
 animation = &"move"
 autoplay = "move"
-frame_progress = 0.506777
+frame_progress = 0.87141025
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_1up3t")
+position = Vector2(0, 6.6666718)
+shape = SubResource("CapsuleShape2D_h8ls6")
