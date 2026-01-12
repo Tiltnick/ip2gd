@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://n5pfeqsgykkm"]
+[gd_scene load_steps=36 format=4 uid="uid://n5pfeqsgykkm"]
 
 [ext_resource type="Texture2D" uid="uid://kxs6kkm0ut6w" path="res://assets/sprites/map/Spaceship/background.png" id="1_4dxd0"]
 [ext_resource type="Script" uid="uid://6h2ivu8hvxck" path="res://scripts/scene_manager/spaceship_room.gd" id="1_mc6u0"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="12_vqt5a"]
 [ext_resource type="Texture2D" uid="uid://bbkysrm140l12" path="res://assets/sprites/selfmade/background_sky.png" id="14_vqt5a"]
 [ext_resource type="PackedScene" uid="uid://bmwyil8lbg5aq" path="res://scenes/Animations/fog.tscn" id="17_7b828"]
+[ext_resource type="PackedScene" uid="uid://c3lilldf155p4" path="res://scenes/Animations/bubbles.tscn" id="18_q42qg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8nj6b"]
 texture = ExtResource("1_4dxd0")
@@ -2630,7 +2631,19 @@ expand_mode = 1
 [node name="Fog Container" type="Node" parent="."]
 
 [node name="Fog" parent="Fog Container" instance=ExtResource("17_7b828")]
+visible = false
 position = Vector2(-432, -409)
 
 [node name="Fog2" parent="Fog Container" instance=ExtResource("17_7b828")]
+visible = false
 position = Vector2(-288, -409)
+
+[node name="Bubbles" type="Node" parent="."]
+
+[node name="Bubbles" parent="Bubbles" instance=ExtResource("18_q42qg")]
+position = Vector2(-432, -413)
+scale = Vector2(0.2, 0.2)
+
+[node name="Bubbles2" parent="Bubbles" instance=ExtResource("18_q42qg")]
+position = Vector2(-288, -413)
+scale = Vector2(0.2, 0.2)
