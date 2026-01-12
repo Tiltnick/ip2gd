@@ -1,11 +1,16 @@
 extends Node
 
+var QUEST_ICON := preload("res://assets/sprites/selfmade/Quest_Icon.png")
+
 var popup_scene := preload("res://scenes/UI/Popup.tscn")
 var quest_popup_scene := preload("res://scenes/UI/Quest_Popup.tscn")
 var popup: Control
 var quest_popup: Control
 
 func _ready():
+	QuestManager.quest_added.connect(popup_add_quest)
+	QuestManager.quest_completed.connect(popup_complete_quest)
+
 	popup = popup_scene.instantiate()
 	quest_popup = quest_popup_scene.instantiate()
 
@@ -40,9 +45,17 @@ func popup_diary_en():
 func popup_diary_de():
 	popup.show_popup("Neuer Tagebucheintrag!", load("res://assets/sprites/selfmade/note.png") as Texture2D)
 
-#quest popup
-func popup_quest_en(quest_title: String):
-	quest_popup.show_popup("New Quest: " + quest_title, load("res://assets/sprites/selfmade/Quest_Icon.png") as Texture2D)
 
-func popup_quest_de(quest_title: String):
-	quest_popup.show_popup("Neue Quest: " + quest_title, load("res://assets/sprites/selfmade/Quest_Icon.png") as Texture2D)
+func popup_add_quest(quest: Dictionary):
+	SfxPlayer.notification_sfx()
+	quest_popup.show_popup(
+		tr("QUEST_NEW") + ": " + quest["title"],
+		QUEST_ICON
+	)
+
+func popup_complete_quest(quest: Dictionary):
+	SfxPlayer.notification_sfx()
+	quest_popup.show_popup(
+		tr("QUEST_COMPLETED") + ": " + quest["title"],
+		QUEST_ICON
+	)

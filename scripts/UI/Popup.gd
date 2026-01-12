@@ -5,10 +5,10 @@ extends Control
 @onready var icon: TextureRect = $CanvasLayer/Panel/TextureRect
 
 func _ready():
-	visible = false
+	$CanvasLayer.visible = false
 
 func show_popup(text: String, image: Texture2D = null):
-	visible = true
+	$CanvasLayer.visible = true
 	label.text = text
 	if image != null:
 		icon.texture= image 

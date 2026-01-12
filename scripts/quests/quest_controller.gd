@@ -9,11 +9,13 @@ class_name QuestController
 @export var quest_entry_scene: PackedScene = load("res://scenes/Menues/QuestMenu/QuestEntry.tscn")
 
 func _ready():
-	QuestManager.quest_added.connect(_on_quest_added)
-	QuestManager.quest_completed.connect(_on_quest_completed)
+	QuestManager.quest_added.connect(add_quest)
+	QuestManager.quest_completed.connect(complete_quest)
 	_rebuild_ui()
 
 func _rebuild_ui():
+	QuestManager.quest_added.disconnect(add_quest)
+
 	# Clear old entries
 	for c in current_list.get_children():
 		c.queue_free()
@@ -23,40 +25,35 @@ func _rebuild_ui():
 
 	# Rebuild current quests
 	for quest in QuestManager.current_quests.values():
-		_on_quest_added(quest)
+		add_quest(quest)
 
 	# Rebuild completed quests
 	for quest in QuestManager.completed_quests.values():
-		_on_quest_completed(quest)
+		complete_quest(quest)
 
-
-#func _on_quest_added(quest):
-	#var entry = quest_entry_scene.instantiate()
-	#entry.setup(quest["id"], quest, true, false)
-	#entry.quest_selected.connect(_show_quest)
-	#current_list.add_child(entry)
-
-func _on_quest_added(quest: Dictionary):
+func add_quest(quest: Dictionary):
 	var entry = quest_entry_scene.instantiate()
-	current_list.add_child(entry)   # ✅ ZUERST in den Tree
+	current_list.add_child(entry)
 	entry.setup(quest["id"], quest, true, false)
 	entry.quest_selected.connect(_show_quest)
 
-
-#func _on_quest_completed(quest):
-	#var entry = quest_entry_scene.instantiate()
-	#entry.setup(quest["id"], quest, false, true)
-	#entry.quest_selected.connect(_show_quest)
-	#completed_list.add_child(entry)
-
-func _on_quest_completed(quest: Dictionary):
+func complete_quest(quest: Dictionary):
 	var entry = quest_entry_scene.instantiate()
 	completed_list.add_child(entry)
 	entry.setup(quest["id"], quest, false, true)
 	entry.quest_selected.connect(_show_quest)
 
-
 func _show_quest(quest):
 	quest_title.text = quest["title"]
 	quest_desc.text = quest["description"]
-	print(quest_title.text, quest_desc.text)
+	
+	if quest.get("is_new", false):
+		quest["is_new"] = false
+		GameState.quest_state[quest["id"]]["is_new"] = false
+		_update_entry_icon(quest["id"])
+
+func _update_entry_icon(quest_id: String):
+	for entry in current_list.get_children():
+		if entry.quest_id == quest_id:
+			entry.mark_as_seen()
+			return
