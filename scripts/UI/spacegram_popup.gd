@@ -8,6 +8,7 @@ func _ready():
 	visible = false
 
 func show_popup(text: String, image: Texture2D = null):
+	SfxPlayer.notification_sound()
 	visible = true
 	label.text = text
 	if image != null:

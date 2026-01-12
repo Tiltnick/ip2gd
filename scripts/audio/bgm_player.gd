@@ -6,6 +6,7 @@ const OUTSIDE_1 = "res://assets/sound/bgm/Golden_Gleam.wav"
 const OUTSIDE_2 = "res://assets/sound/bgm/Gymnopedie_No.1.wav"
 const OUTSIDE_3 = "res://assets/sound/bgm/Wanderers_Tale.wav"
 const CAVE = "res://assets/sound/bgm/Polar_Lights.wav"
+
 func _ready() -> void:
 	bus = "Music"
 	

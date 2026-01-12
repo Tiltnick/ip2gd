@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://cbl7mlhr5ox2"
-path="res://.godot/imported/Notification.wav-fc5b84de45e0e3efcd9ea7a7747224c9.sample"
+uid="uid://dssp6nagndtqi"
+path="res://.godot/imported/notification.wav-ab8b1ea184a8435b08cbceb90aad150c.sample"
 
 [deps]
 
-source_file="res://assets/sound/sfx/Notification.wav"
-dest_files=["res://.godot/imported/Notification.wav-fc5b84de45e0e3efcd9ea7a7747224c9.sample"]
+source_file="res://assets/sound/sfx/notification.wav"
+dest_files=["res://.godot/imported/notification.wav-ab8b1ea184a8435b08cbceb90aad150c.sample"]
 
 [params]
 
