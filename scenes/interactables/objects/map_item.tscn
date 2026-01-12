@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8wh573cegrw7"]
+
+[ext_resource type="Script" uid="uid://cprdq3p8ckf02" path="res://scripts/interactables/objects/map_item.gd" id="1_et83h"]
+[ext_resource type="Texture2D" uid="uid://b4khei26ggeuo" path="res://assets/sprites/selfmade/map_item.png" id="2_lxoux"]
+[ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="3_oktc6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_osm6j"]
+shader = ExtResource("3_oktc6")
+shader_parameter/outline_size = 2.0
+shader_parameter/outline_color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fw8p2"]
+size = Vector2(157, 118)
+
+[node name="MapItem" type="Node2D"]
+script = ExtResource("1_et83h")
+hotbar_id = "map"
+
+[node name="Map" type="Sprite2D" parent="."]
+texture = ExtResource("2_lxoux")
+
+[node name="Outline" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_osm6j")
+texture = ExtResource("2_lxoux")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.5, -4)
+shape = SubResource("RectangleShape2D_fw8p2")
