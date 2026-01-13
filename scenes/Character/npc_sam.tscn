@@ -496,14 +496,15 @@ script = ExtResource("1_1ld27")
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1, -14)
+position = Vector2(0, -13)
 sprite_frames = SubResource("SpriteFrames_uvjyr")
-animation = &"move_up"
+animation = &"idle_down"
 autoplay = "idle_down"
 
 [node name="Outline" type="AnimatedSprite2D" parent="."]
+visible = false
 texture_filter = 1
-position = Vector2(1, -14)
+position = Vector2(1, -13)
 sprite_frames = SubResource("SpriteFrames_uvjyr")
 animation = &"move_up"
 autoplay = "idle_down"
