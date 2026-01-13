@@ -9,6 +9,7 @@ func _ready():
 
 func show_popup(text: String, image: Texture2D = null):
 	$CanvasLayer.visible = true
+	SfxPlayer.notification_sound()
 	label.text = text
 	if image != null:
 		icon.texture= image 

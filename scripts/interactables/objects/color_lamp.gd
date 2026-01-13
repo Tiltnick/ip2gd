@@ -23,7 +23,7 @@ func _ready() -> void:
 func interact() -> void:
 	if GameState.puzzle_state.get(puzzle_id, false):
 		return
-
+	SfxPlayer.ui_click_sound()
 	value += 1
 	if value > max_value:
 		value = 0

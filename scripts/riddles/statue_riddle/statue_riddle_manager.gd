@@ -46,6 +46,7 @@ func _is_solution_correct() -> bool:
 	)
 
 func _on_puzzle_solved() -> void:
+	SfxPlayer.puzzle_solved()
 	solved = true
 
 	# In GameState speichern

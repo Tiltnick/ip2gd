@@ -17,6 +17,7 @@ const NO_TELESCOPE_END := "res://dialog/innerMonologue/tripod_without_telescope_
 
 
 func interact() -> void:
+	SfxPlayer.ui_click_sound()
 	if not _has_required_item():
 		var dialog_path := _get_no_telescope_dialog()
 		if dialog_path != "":
