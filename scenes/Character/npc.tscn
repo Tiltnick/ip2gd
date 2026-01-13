@@ -175,3 +175,8 @@ script = ExtResource("4_qklou")
 
 [node name="move" type="Node" parent="stateMachine"]
 script = ExtResource("5_5dfqd")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+scale = Vector2(0.9199999, 1)
+color = Color(0.41568628, 0.41568628, 0.38039216, 1)
+polygon = PackedVector2Array(-11, 3, -11, 4, 11, 4, 11.000001, 3.4850764, 11, 3, 12, 3, 12, 2, 13, 2, 13, 4, 12, 4, 11.956523, 6, 2.1739132, 8, 0, 8, -9.78261, 8, -11.956523, 6, -12, 3)
