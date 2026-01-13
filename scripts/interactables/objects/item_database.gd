@@ -259,7 +259,7 @@ var DATA := {
 		"description_en": "Helps with orientation. Sometimes.",
 		"description_de": "Hilft beim Orientieren. Manchmal.",
 		"icon": "res://assets/sprites/selfmade/map_item.png",
-		"icon_size": Vector2(55,55),
+		"icon_size": Vector2(30,30),
 		"world_scene": "res://scenes/interactables/objects/map_item.tscn"
 },
 
