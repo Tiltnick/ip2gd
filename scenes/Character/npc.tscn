@@ -137,6 +137,12 @@ offset_top = -35.0
 offset_right = -10.0
 offset_bottom = -35.0
 
+[node name="Shadow" type="Polygon2D" parent="."]
+position = Vector2(-36.24999, 0)
+scale = Vector2(1.7499992, 1.4285715)
+color = Color(0, 0, 0, 0.49019608)
+polygon = PackedVector2Array(16, 1, 17, 0, 19, -1, 21, -1, 23, -1, 25, 0, 26, 1, 27, 2, 27, 3, 26, 4, 25, 5, 23, 6, 21, 6, 19, 6, 17, 5, 16, 4, 15, 3, 15, 3, 15, 2)
+
 [node name="anim" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 scale = Vector2(0.75, 0.75)
@@ -175,8 +181,3 @@ script = ExtResource("4_qklou")
 
 [node name="move" type="Node" parent="stateMachine"]
 script = ExtResource("5_5dfqd")
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-scale = Vector2(0.9199999, 1)
-color = Color(0.41568628, 0.41568628, 0.38039216, 1)
-polygon = PackedVector2Array(-11, 3, -11, 4, 11, 4, 11.000001, 3.4850764, 11, 3, 12, 3, 12, 2, 13, 2, 13, 4, 12, 4, 11.956523, 6, 2.1739132, 8, 0, 8, -9.78261, 8, -11.956523, 6, -12, 3)
