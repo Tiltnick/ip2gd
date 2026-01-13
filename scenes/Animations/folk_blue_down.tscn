@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://n0t2p1ky2s5i"]
+
+[ext_resource type="Texture2D" uid="uid://dj41k4tddmpam" path="res://assets/sprites/character/Blue_Shroomling.png" id="1_nupqj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xb4v"]
+atlas = ExtResource("1_nupqj")
+region = Rect2(0, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvsia"]
+atlas = ExtResource("1_nupqj")
+region = Rect2(16, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6abm"]
+atlas = ExtResource("1_nupqj")
+region = Rect2(32, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_286ku"]
+atlas = ExtResource("1_nupqj")
+region = Rect2(48, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y6py"]
+atlas = ExtResource("1_nupqj")
+region = Rect2(64, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ka4a8"]
+atlas = ExtResource("1_nupqj")
+region = Rect2(80, 96, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wc7b3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xb4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvsia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6abm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_286ku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2y6py")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ka4a8")
+}],
+"loop": true,
+"name": &"move",
+"speed": 3.5
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btmav"]
+size = Vector2(8, 10)
+
+[node name="Bluey Down" type="CharacterBody2D"]
+scale = Vector2(1.2, 1.2)
+collision_layer = 0
+collision_mask = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_wc7b3")
+animation = &"move"
+autoplay = "move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_btmav")
