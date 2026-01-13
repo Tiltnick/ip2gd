@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://cc56upiuyf8v1"]
+[gd_scene load_steps=26 format=3 uid="uid://cc56upiuyf8v1"]
 
 [ext_resource type="Script" uid="uid://cr63i71n61e0h" path="res://scripts/state_machine_npc/npc_dialog_process_blob.gd" id="1_kwd6m"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="3_5dfqd"]
+[ext_resource type="PackedScene" uid="uid://bboqbaycemetp" path="res://assets/sprites/selfmade/shadow.tscn" id="3_db3se"]
 [ext_resource type="Texture2D" uid="uid://bb2re0fysk6u" path="res://assets/sprites/character/Blobfish Spritesheet2.png" id="3_kwd6m"]
 [ext_resource type="Script" uid="uid://bag4u47y1hlnx" path="res://scripts/state_machine_npc/state_machine_npc.gd" id="3_li0y0"]
 [ext_resource type="Script" uid="uid://bj3wge2cd2so2" path="res://scripts/state_machine_npc/npc_idle.gd" id="4_qklou"]
@@ -129,6 +130,10 @@ collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_kwd6m")
 
+[node name="Shadow" parent="." instance=ExtResource("3_db3se")]
+position = Vector2(0, 4)
+scale = Vector2(0.45, 0.45)
+
 [node name="Press_E_Popup_NPC" parent="." instance=ExtResource("7_kwd6m")]
 visible = false
 z_index = 10
@@ -136,12 +141,6 @@ offset_left = -10.0
 offset_top = -35.0
 offset_right = -10.0
 offset_bottom = -35.0
-
-[node name="Shadow" type="Polygon2D" parent="."]
-position = Vector2(-36.24999, 0)
-scale = Vector2(1.7499992, 1.4285715)
-color = Color(0, 0, 0, 0.49019608)
-polygon = PackedVector2Array(16, 1, 17, 0, 19, -1, 21, -1, 23, -1, 25, 0, 26, 1, 27, 2, 27, 3, 26, 4, 25, 5, 23, 6, 21, 6, 19, 6, 17, 5, 16, 4, 15, 3, 15, 3, 15, 2)
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)

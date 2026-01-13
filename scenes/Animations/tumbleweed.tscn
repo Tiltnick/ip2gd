@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://dvjh1essse7y"]
+[gd_scene load_steps=13 format=3 uid="uid://dvjh1essse7y"]
 
 [ext_resource type="Texture2D" uid="uid://b7xu4g7bg8lj4" path="res://assets/sprites/animation/Tumbleweed.png" id="1_e47no"]
+[ext_resource type="PackedScene" uid="uid://bboqbaycemetp" path="res://assets/sprites/selfmade/shadow.tscn" id="1_iw3cb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e11m7"]
 atlas = ExtResource("1_e47no")
@@ -73,7 +74,12 @@ radius = 14.0
 collision_layer = 4
 collision_mask = 0
 
+[node name="Shadow" parent="." instance=ExtResource("1_iw3cb")]
+position = Vector2(0, 12)
+scale = Vector2(0.6, 0.6)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.9999999, 0)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_wc7b3")
 animation = &"move"
@@ -81,5 +87,4 @@ autoplay = "move"
 frame_progress = 0.67135847
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -1)
 shape = SubResource("CircleShape2D_xfhpu")
