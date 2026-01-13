@@ -451,6 +451,12 @@ z_index = 2
 collision_mask = 4
 script = ExtResource("1_3p8r5")
 
+[node name="Shadow" type="Polygon2D" parent="."]
+position = Vector2(-22.999998, -5)
+scale = Vector2(1.0937496, 1.4285715)
+color = Color(0, 0, 0, 0.49019608)
+polygon = PackedVector2Array(16, 1, 17, 0, 19, -1, 21, -1, 23, -1, 25, 0, 26, 1, 27, 2, 27, 3, 26, 4, 25, 5, 23, 6, 21, 6, 19, 6, 17, 5, 16, 4, 15, 3, 15, 3, 15, 2)
+
 [node name="anim" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(1, -14)
