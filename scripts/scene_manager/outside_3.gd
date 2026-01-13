@@ -9,6 +9,8 @@ func _ready() -> void:
 		PopupManager.popup_spacegram_en()
 	elif lang == "de":
 		PopupManager.popup_spacegram_de()
+	if not GameState.map_state.get("outside3_map", false):
+		GameState.map_state["outside3_map"] = true
 
 func configure_camera(cam: Camera2D) -> void:
 	# Cam Limits

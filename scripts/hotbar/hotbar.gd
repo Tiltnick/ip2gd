@@ -107,8 +107,7 @@ func use_slot(slot_index: int):
 		# falls gerade ein anderes aktives Item offen ist, schließen
 		if active_item and is_instance_valid(active_item):
 			_close_active_item()
-
-		MiniMap.open()  # dein Autoload-Name
+		MiniMap.map_interact()  
 		return
 
 	# Wenn bereits ein aktives Item existiert dann interagieren

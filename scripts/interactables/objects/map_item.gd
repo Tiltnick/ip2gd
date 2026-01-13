@@ -10,4 +10,4 @@ func _ready() -> void:
 	super._ready()  
 
 func hotbar_activate():
-	MiniMap.open()
+	MiniMap.map_interact()

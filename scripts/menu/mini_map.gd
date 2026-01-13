@@ -1,15 +1,63 @@
 extends CanvasLayer
 
 @onready var mini_map: CanvasLayer = $"."
-
+@onready var map_texture: TextureRect = $MapTexture
+@onready var marker_outside_1: TextureRect = $Markers/Marker_Outside1
+@onready var marker_outside_2: TextureRect = $Markers/Marker_Outside2
+@onready var marker_outside_3: TextureRect = $Markers/Marker_Outside3
+@onready var marker_outside_4: TextureRect = $Markers/Marker_Outside4
+@onready var marker_spaceship: TextureRect = $Markers/Marker_Spaceship
+@onready var markers: Node = $Markers
 
 func _ready() -> void:
 	pass
 
-func open():
+func map_interact():
 	if mini_map.visible:
-		mini_map.hide()
+		close_map()
 		return
 	else:
-		mini_map.show()
+		open_map()
 		return
+
+func open_map():
+	var scene: Node = get_tree().current_scene
+	var scene_name: String = scene.name if scene != null else ""
+	map_texture.texture = _get_map_texture()
+	update_marker(scene_name)
+	mini_map.show()
+
+func close_map():
+	for marker in markers.get_children():
+		marker.hide()
+	mini_map.hide()
+
+func _get_map_texture() -> Texture2D:
+	var outside_2 = GameState.map_state.get("outside2_map", false)
+	var outside_3 = GameState.map_state.get("outside3_map", false)
+	var outside_4 = GameState.map_state.get("outside4_map", false)
+
+	if outside_4:
+		return preload("res://assets/sprites/selfmade/WholeMap.png")
+
+	if outside_3:
+		return preload("res://assets/sprites/selfmade/minimap_3.png")
+
+	if outside_2:
+		return preload("res://assets/sprites/selfmade/minimap_2.png")
+
+	# Fallback (sollte eig nicht passieren)
+	return preload("res://assets/sprites/selfmade/minimap_1.png")
+
+func update_marker(scene_name: String) -> void:
+	match scene_name:
+		"Spaceship":
+			marker_spaceship.show()
+		"Outside1":
+			marker_outside_1.show()
+		"Outside2":
+			marker_outside_2.show()
+		"Outside3":
+			marker_outside_3.show()
+		"Outside4":
+			marker_outside_4.show()
