@@ -9,7 +9,7 @@ func _ready():
 
 func show_popup(text: String, image: Texture2D = null):
 	$CanvasLayer.visible = true
-	SfxPlayer.notification_sound()
+	# SfxPlayer.notification_sound() -> Audio ist im Popupmanager für verschiedene Sounds
 	label.text = text
 	if image != null:
 		icon.texture= image 

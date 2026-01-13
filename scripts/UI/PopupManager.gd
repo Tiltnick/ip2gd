@@ -25,36 +25,42 @@ func _ready():
 
 #use insta popup
 func popup_spacegram_de():
+	SfxPlayer.notification_quest_sound()
 	popup.show_popup("Nutze Spacegram!", load("res://assets/sprites/selfmade/Spacegram_Logo.png") as Texture2D)
 
 func popup_spacegram_en():
+	SfxPlayer.notification_quest_sound()
 	popup.show_popup("Use Spacegram!", 
 	load("res://assets/sprites/selfmade/Spacegram_Logo.png") as Texture2D)
 
 #found item popup
 func popup_item_de(item: String, icon: Texture2D):
+	SfxPlayer.notification_sound()
 	popup.show_popup("Item gefunden : " + item, icon)
 	
 func popup_item_en(item: String, icon: Texture2D):
+	SfxPlayer.notification_sound()
 	popup.show_popup("Item found : " + item, icon)
 
 #found note popup
 func popup_diary_en():
+	SfxPlayer.notification_sound()
 	popup.show_popup("New Diary entry!", load("res://assets/sprites/selfmade/note.png") as Texture2D)
 
 func popup_diary_de():
+	SfxPlayer.notification_sound()
 	popup.show_popup("Neuer Tagebucheintrag!", load("res://assets/sprites/selfmade/note.png") as Texture2D)
 
 
 func popup_add_quest(quest: Dictionary):
-	SfxPlayer.notification_sfx()
+	SfxPlayer.notification_quest_sound()
 	quest_popup.show_popup(
 		tr("QUEST_NEW") + ": " + quest["title"],
 		QUEST_ICON
 	)
 
 func popup_complete_quest(quest: Dictionary):
-	SfxPlayer.notification_sfx()
+	SfxPlayer.notification_quest_sound()
 	quest_popup.show_popup(
 		tr("QUEST_COMPLETED") + ": " + quest["title"],
 		QUEST_ICON
