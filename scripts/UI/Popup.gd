@@ -14,5 +14,5 @@ func show_popup(text: String, image: Texture2D = null):
 	if image != null:
 		icon.texture= image 
 	anim.play("slide_in")
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(4).timeout
 	anim.play("slide_out")

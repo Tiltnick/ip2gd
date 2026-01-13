@@ -36,11 +36,11 @@ func popup_spacegram_en():
 #found item popup
 func popup_item_de(item: String, icon: Texture2D):
 	SfxPlayer.notification_sound()
-	popup.show_popup("Item gefunden : " + item, icon)
+	popup.show_popup("Item gefunden: " + item, icon)
 	
 func popup_item_en(item: String, icon: Texture2D):
 	SfxPlayer.notification_sound()
-	popup.show_popup("Item found : " + item, icon)
+	popup.show_popup("Item found: " + item, icon)
 
 #found note popup
 func popup_diary_en():
