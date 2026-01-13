@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkmitttv2pfa8"]
+
+[ext_resource type="Script" uid="uid://tb4aldxf0b7w" path="res://scripts/SamGhost/replay_recorder.gd" id="1_v7574"]
+
+[node name="ReplayRecorder" type="Node"]
+script = ExtResource("1_v7574")

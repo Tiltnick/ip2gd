@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3 uid="uid://c162olbv1ke10"]
+
+[ext_resource type="Script" uid="uid://c5nhe1guxj343" path="res://scripts/SamGhost/Sam_ghost.gd" id="1_fwt5y"]
+[ext_resource type="Texture2D" uid="uid://73q40ucqxh4y" path="res://icon.svg" id="2_8amfl"]
+[ext_resource type="Script" uid="uid://b5fmikc78un0l" path="res://scripts/SamGhost/ghost_state_machine.gd" id="2_eev8h"]
+[ext_resource type="Script" uid="uid://b3ucf21y37cys" path="res://scripts/SamGhost/ghost_idle.gd" id="3_8x7nv"]
+[ext_resource type="Script" uid="uid://beleiku5sbucf" path="res://scripts/SamGhost/ghost_move.gd" id="4_8x7nv"]
+[ext_resource type="Script" uid="uid://nsu0i0un8mf0" path="res://scripts/SamGhost/ghost_dialog.gd" id="6_l8e1a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxutn"]
+atlas = ExtResource("2_8amfl")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8e1a"]
+atlas = ExtResource("2_8amfl")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1r1co"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxutn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8e1a")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xxutn"]
+
+[node name="SamGhost" type="CharacterBody2D"]
+position = Vector2(0, -14.999999)
+scale = Vector2(0.24000186, 0.24000186)
+script = ExtResource("1_fwt5y")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1r1co")
+animation = &"move"
+
+[node name="outline" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+scale = Vector2(16.813683, 16.813683)
+shape = SubResource("CircleShape2D_xxutn")
+
+[node name="stateMachine" type="Node" parent="."]
+script = ExtResource("2_eev8h")
+
+[node name="idle" type="Node" parent="stateMachine"]
+script = ExtResource("3_8x7nv")
+
+[node name="move" type="Node" parent="stateMachine"]
+script = ExtResource("4_8x7nv")
+
+[node name="dialog" type="Node" parent="stateMachine"]
+script = ExtResource("6_l8e1a")
