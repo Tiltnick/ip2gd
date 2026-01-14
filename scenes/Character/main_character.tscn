@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://tksbpdfoo5l5"]
+[gd_scene load_steps=67 format=3 uid="uid://tksbpdfoo5l5"]
 
 [ext_resource type="Texture2D" uid="uid://b2fxvdjhsvsr7" path="res://assets/sprites/character/Main-Sheet.png" id="1_1h4pq"]
 [ext_resource type="Script" uid="uid://cl15fro08q5tn" path="res://scripts/state_machine/main_character.gd" id="1_3p8r5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://csifdneppbt35" path="res://scripts/state_machine/move.gd" id="5_16h32"]
 [ext_resource type="Script" uid="uid://0nuc1oajnokv" path="res://scripts/state_machine/run.gd" id="6_22e6q"]
 [ext_resource type="Script" uid="uid://yx0tnsse065b" path="res://scripts/state_machine/dialog.gd" id="7_sucdv"]
+[ext_resource type="PackedScene" uid="uid://bboqbaycemetp" path="res://assets/sprites/selfmade/shadow.tscn" id="8_3pigs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_16h32"]
 atlas = ExtResource("1_1h4pq")
@@ -450,6 +451,10 @@ radius = 7.071068
 z_index = 2
 collision_mask = 4
 script = ExtResource("1_3p8r5")
+
+[node name="Shadow" parent="." instance=ExtResource("8_3pigs")]
+position = Vector2(0, -1)
+scale = Vector2(0.3, 0.3)
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
