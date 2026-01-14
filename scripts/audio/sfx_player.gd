@@ -4,6 +4,7 @@ extends AudioStreamPlayer
 @onready var SUCCESS = load("res://assets/sound/sfx/Success.wav")
 @onready var FAIL = load("res://assets/sound/sfx/Wrong.wav")
 @onready var NOTIFICATION = load("res://assets/sound/sfx/notification.wav")
+@onready var NOTIFICATION2 = load("res://assets/sound/sfx/notification2.wav")
 @onready var STONE_GRINDING = load("res://assets/sound/sfx/stone_grinding.wav")
 @onready var FOOTSTEPS := [
 	load("res://assets/sound/sfx/footsteps/Dirt Path Footstep 1.wav"),
@@ -40,6 +41,11 @@ func puzzle_failed():
 func notification_sound():
 	pitch_scale = 1.0
 	stream = NOTIFICATION
+	play()
+
+func notification_quest_sound():
+	pitch_scale = 1.0
+	stream = NOTIFICATION2
 	play()
 
 func stone_grinding():

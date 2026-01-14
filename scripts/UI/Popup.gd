@@ -5,11 +5,11 @@ extends Control
 @onready var icon: TextureRect = $CanvasLayer/Panel/TextureRect
 
 func _ready():
-	visible = false
+	$CanvasLayer.visible = false
 
 func show_popup(text: String, image: Texture2D = null):
-	SfxPlayer.notification_sound()
-	visible = true
+	$CanvasLayer.visible = true
+	# SfxPlayer.notification_sound() -> Audio ist im Popupmanager für verschiedene Sounds
 	label.text = text
 	if image != null:
 		icon.texture= image 

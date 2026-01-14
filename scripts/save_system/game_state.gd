@@ -10,6 +10,8 @@ var puzzle_state: Dictionary = {}
 
 var dialog_state: Dictionary = {}
 
+var quest_state: Dictionary = {}
+
 var return_scene_path: String = ""
 
 var has_save: bool = false
@@ -51,6 +53,7 @@ func to_dict() -> Dictionary:
 		"current_area_path": current_area_path,
 		"puzzle_state": puzzle_state,
 		"dialog_state": dialog_state,
+		"quest_state": quest_state,
 		"player_position": {
 			"x": player_position.x,
 			"y": player_position.y,
@@ -73,6 +76,9 @@ func from_dict(data: Dictionary) -> void:
 
 	if data.has("dialog_state"):
 		dialog_state = data["dialog_state"]
+
+	if data.has("quest_state"):
+		quest_state = data["quest_state"]
 
 	if data.has("player_position"):
 		var p = data["player_position"]
