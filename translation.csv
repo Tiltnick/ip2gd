@@ -37,7 +37,7 @@ INVENTORY, Inventory, Inventar
 QUESTS, Quests, Missionen
 QUEST_TITLE, Quest Title, Questtitel
 QUEST_DESCRIPTION, Quest Description, Questbeschreibung
-CURRENT_QUESTS, Current Quests, Aktuelle Aufträge
-COMPLETED_QUESTS, Completed Quests, Erledigte Aufträge
-QUEST_NEW, New Quest, Neuer Auftrag
-QUEST_COMPLETED, Quest Completed, Auftrag Erfüllt
+CURRENT_QUESTS,Current Quests,Aktuelle Aufträge
+COMPLETED_QUESTS,Completed Quests,Erledigte Aufträge
+QUEST_NEW,New Quest,Neuer Auftrag
+QUEST_COMPLETED,Quest Completed,Auftrag Erfüllt
