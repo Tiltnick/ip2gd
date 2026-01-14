@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://b4r2irdvo1x1b"]
+[gd_scene load_steps=21 format=4 uid="uid://b4r2irdvo1x1b"]
 
 [ext_resource type="Script" uid="uid://ch2sapm3vk3ex" path="res://scripts/scene_manager/outside_1.gd" id="1_ax0hk"]
 [ext_resource type="Texture2D" uid="uid://bfd0d1qqtnli" path="res://assets/sprites/map/Outside_1/Ground.png" id="1_iu6ob"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://ch3mxlgsh3het" path="res://scenes/interactables/objects/tripod.tscn" id="12_qv8vl"]
 [ext_resource type="PackedScene" uid="uid://eghgox4suvdf" path="res://scenes/interactables/objects/stone pieces/stone_piece_1.tscn" id="13_8xlm2"]
 [ext_resource type="PackedScene" uid="uid://dtr2hps8xd1f8" path="res://scenes/Animations/grass.tscn" id="14_vb0ej"]
-[ext_resource type="PackedScene" uid="uid://b7ajruie7dmvq" path="res://scenes/Animations/snail_brown.tscn" id="15_6tf17"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ax0hk"]
 texture = ExtResource("1_iu6ob")
@@ -591,8 +590,3 @@ scale = Vector2(0.1, 0.1)
 [node name="Grass14" parent="Moving Grass" instance=ExtResource("14_vb0ej")]
 position = Vector2(200, 43.000008)
 scale = Vector2(0.1, 0.1)
-
-[node name="Snails" type="Node" parent="."]
-
-[node name="Snail Brown" parent="Snails" instance=ExtResource("15_6tf17")]
-position = Vector2(-95, -165)
