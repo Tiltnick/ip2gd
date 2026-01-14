@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dmkx8cyr3lsa6"]
+[gd_scene load_steps=15 format=4 uid="uid://dmkx8cyr3lsa6"]
 
 [ext_resource type="Texture2D" uid="uid://d3nsg2t6vxtvv" path="res://assets/sprites/map/Outside_4/Ground.png" id="1_n83po"]
 [ext_resource type="Texture2D" uid="uid://dnnyk16u5j1b4" path="res://assets/sprites/map/Outside_4/Water+.png" id="2_1xbv6"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="5_vq5gx"]
 [ext_resource type="PackedScene" uid="uid://c162olbv1ke10" path="res://scenes/Character/sam_ghost.tscn" id="6_1ppeq"]
 [ext_resource type="PackedScene" uid="uid://dkmitttv2pfa8" path="res://scenes/Riddles/temple_riddle/replay_recorder.tscn" id="7_4y2am"]
-[ext_resource type="Script" uid="uid://cmyp2mi4wb5ag" path="res://scripts/SamGhost/sam_path_controller.gd" id="7_s0bbf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5gjwu"]
 texture = ExtResource("1_n83po")
@@ -3354,6 +3353,7 @@ target_spawn_id = "from_temple"
 shape = SubResource("RectangleShape2D_j5sn1")
 
 [node name="ReplayRecorder" parent="." instance=ExtResource("7_4y2am")]
+script = null
 
 [node name="sam_path" type="Path2D" parent="."]
 curve = SubResource("Curve2D_4y2am")
@@ -3362,10 +3362,6 @@ curve = SubResource("Curve2D_4y2am")
 position = Vector2(-59, 211)
 rotation = 2.9026563
 loop = false
-script = ExtResource("7_s0bbf")
 
-[node name="SamGhost" parent="sam_path/sam_follow" node_paths=PackedStringArray("path_follow") instance=ExtResource("6_1ppeq")]
-position = Vector2(-28.911034, -8.071655)
-rotation = -2.9026563
-move_speed = 80.0
-path_follow = NodePath("..")
+[node name="SAM" parent="." instance=ExtResource("6_1ppeq")]
+position = Vector2(-1, 208)
