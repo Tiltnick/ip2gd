@@ -18,13 +18,11 @@ script = ExtResource("1_gp728")
 item_icon = ExtResource("1_qwc0l")
 
 [node name="Flashlight" type="Sprite2D" parent="."]
-scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_qwc0l")
 
 [node name="Outline" type="Sprite2D" parent="."]
 visible = false
 material = SubResource("ShaderMaterial_8ybjn")
-scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_qwc0l")
 
 [node name="Area2D" type="Area2D" parent="."]
