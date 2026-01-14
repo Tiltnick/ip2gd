@@ -5,6 +5,11 @@ class_name AmbientPathNPC
 @export var speed: float = 60.0
 @export var ping_pong: bool = true
 
+
+@export var sprite_faces_right_by_default: bool = true
+
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+
 var _dir := 1.0
 var _len := 0.0
 
@@ -18,10 +23,8 @@ func _physics_process(delta: float) -> void:
 	if path_follow == null or _len <= 0.0:
 		return
 
-	
 	var prev_progress := path_follow.progress
 
-	
 	path_follow.progress += speed * _dir * delta
 
 	if ping_pong:
@@ -34,19 +37,27 @@ func _physics_process(delta: float) -> void:
 	else:
 		path_follow.progress = fposmod(path_follow.progress, _len)
 
-	
+
 	var target_pos := path_follow.global_position
 
-	
 	var move_vec := target_pos - global_position
 	if move_vec.length() < 0.5:
 		velocity = Vector2.ZERO
 		return
 
-	velocity = move_vec.normalized() * speed
-	move_and_slide()  # falls main character im weg von npcs steht, wird er aus dem weg gepusht
-
+	# flippen wenn er nach links läuft
+	if abs(move_vec.x) > abs(move_vec.y) and abs(move_vec.x) > 0.5:
+		var moving_right := move_vec.x > 0.0
+		
+		if sprite_faces_right_by_default:
+			anim.flip_h = not moving_right
+		else:
+			anim.flip_h = moving_right
 	
+
+	velocity = move_vec.normalized() * speed
+	move_and_slide()
+
 	if get_slide_collision_count() > 0:
 		path_follow.progress = prev_progress
 		velocity = Vector2.ZERO

@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=4 uid="uid://dlsjgc5i7yt81"]
+[gd_scene load_steps=72 format=4 uid="uid://dlsjgc5i7yt81"]
 
 [ext_resource type="Script" uid="uid://dliaffanr7vt" path="res://scripts/scene_manager/outside_3.gd" id="1_3rchf"]
 [ext_resource type="Texture2D" uid="uid://dtxi3laerm24l" path="res://assets/sprites/map/Outside_3/Ground.png" id="1_oc04w"]
@@ -4364,6 +4364,12 @@ load_path = "res://.godot/imported/red_mush.png-1fd1fc366c04ae44ccbaffab70a747cf
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qu0jh"]
 load_path = "res://.godot/imported/yellow_mush.png-1d6b415f1ae976ced9fe433e7b9b4b67.ctex"
 
+[sub_resource type="Curve2D" id="Curve2D_1sf08"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 120, 128, 0, 0, 0, 0, 152, 144, 0, 0, 0, 0, 216, 152, 0, 0, 0, 0, 344.7311, 134.77863, 0, 0, 0, 0, 480, 144, 0, 0, 0, 0, 560, 112, 0, 0, 0, 0, 656, 56, 0, 0, 0, 0, 712, 32, 0, 0, 0, 0, 712, 40, 0, 0, 0, 0, 664, 64, 0, 0, 0, 0, 560, 120, 0, 0, 0, 0, 480, 152, 0, 0, 0, 0, 344.7311, 143.08397, 0, 0, 0, 0, 211.55713, 159.69466, 0, 0, 0, 0, 144, 152, 0, 0, 0, 0, 120, 128)
+}
+point_count = 16
+
 [node name="Outside3" type="Node2D"]
 script = ExtResource("1_3rchf")
 
@@ -4736,8 +4742,19 @@ scale = Vector2(0.1, 0.1)
 
 [node name="Folk" type="Node" parent="."]
 
-[node name="Purply Side" parent="Folk" instance=ExtResource("36_1tv65")]
-position = Vector2(400, 12)
+[node name="Purply Side" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("36_1tv65")]
+position = Vector2(120, 118)
+path_follow = NodePath("../Path2D/PathFollow2D")
+speed = 40.0
+
+[node name="Path2D" type="Path2D" parent="Folk"]
+position = Vector2(4.662163, 6.17647)
+scale = Vector2(0.9611486, 0.9632353)
+curve = SubResource("Curve2D_1sf08")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Folk/Path2D"]
+position = Vector2(120, 128)
+rotation = 0.4636476
 
 [node name="Purply Down" parent="Folk" instance=ExtResource("37_cpm51")]
 position = Vector2(389, -8)

@@ -58,8 +58,7 @@ size = Vector2(8, 10)
 
 [node name="Purply Side" type="CharacterBody2D"]
 scale = Vector2(1.2, 1.2)
-collision_layer = 0
-collision_mask = 0
+collision_layer = 4
 script = ExtResource("1_qkg23")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
