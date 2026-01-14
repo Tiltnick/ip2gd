@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dvjh1essse7y"]
+[gd_scene load_steps=15 format=3 uid="uid://dvjh1essse7y"]
 
 [ext_resource type="Texture2D" uid="uid://b7xu4g7bg8lj4" path="res://assets/sprites/animation/Tumbleweed.png" id="1_e47no"]
 [ext_resource type="PackedScene" uid="uid://bboqbaycemetp" path="res://assets/sprites/selfmade/shadow.tscn" id="1_iw3cb"]
+[ext_resource type="Script" uid="uid://da4wtnufw3pik" path="res://scripts/state_machine_npc/simple movement/simple_movement_npc.gd" id="1_vtegb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e11m7"]
 atlas = ExtResource("1_e47no")
@@ -70,9 +71,17 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_xfhpu"]
 radius = 14.0
 
-[node name="Tumbleweed" type="CharacterBody2D"]
+[sub_resource type="Curve2D" id="Curve2D_iw3cb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 172, 0, 0, 0, 0, 0, 1, 1)
+}
+point_count = 3
+
+[node name="Tumbleweed" type="CharacterBody2D" node_paths=PackedStringArray("path_follow")]
 collision_layer = 4
 collision_mask = 0
+script = ExtResource("1_vtegb")
+path_follow = NodePath("Path2D/PathFollow2D")
 
 [node name="Shadow" parent="." instance=ExtResource("1_iw3cb")]
 position = Vector2(0, 12)
@@ -88,3 +97,10 @@ frame_progress = 0.67135847
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xfhpu")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_iw3cb")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(1, 1)
+rotation = -0.0058478867

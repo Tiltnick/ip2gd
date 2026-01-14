@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://csejhruust020"]
+[gd_scene load_steps=34 format=4 uid="uid://csejhruust020"]
 
 [ext_resource type="Script" uid="uid://dkosu7fsxv5uu" path="res://scripts/scene_manager/spaceship.gd" id="1_k18lp"]
 [ext_resource type="Texture2D" uid="uid://kxs6kkm0ut6w" path="res://assets/sprites/map/Spaceship/background.png" id="1_krvlx"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://m8y5i5u6eyka" path="res://scenes/maps/transition_area_fade.tscn" id="17_8o1ua"]
 [ext_resource type="PackedScene" uid="uid://c3lilldf155p4" path="res://scenes/Animations/bubbles.tscn" id="23_a5uu7"]
 [ext_resource type="PackedScene" uid="uid://bmwyil8lbg5aq" path="res://scenes/Animations/fog.tscn" id="24_t5k16"]
+[ext_resource type="PackedScene" uid="uid://dvjh1essse7y" path="res://scenes/Animations/tumbleweed.tscn" id="25_w60i3"]
 [ext_resource type="Texture2D" uid="uid://bbkysrm140l12" path="res://assets/sprites/selfmade/background_sky.png" id="27_7rixv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oegse"]
@@ -1420,3 +1421,6 @@ position = Vector2(-64, 158)
 
 [node name="Fog" parent="Fog Container" instance=ExtResource("24_t5k16")]
 position = Vector2(304, 120)
+
+[node name="Tumbleweed" parent="." instance=ExtResource("25_w60i3")]
+position = Vector2(39, 176)
