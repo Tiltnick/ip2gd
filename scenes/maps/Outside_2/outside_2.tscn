@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://34ylk7jtx176"]
+[gd_scene load_steps=53 format=4 uid="uid://34ylk7jtx176"]
 
 [ext_resource type="Script" uid="uid://f7c56kdptn0k" path="res://scripts/scene_manager/outside_2.gd" id="1_7t2bs"]
 [ext_resource type="Texture2D" uid="uid://dqoxkjxdkwqgu" path="res://assets/sprites/map/Outside_2/spaceship.png" id="2_f8agi"]
@@ -2057,6 +2057,30 @@ _data = {
 }
 point_count = 7
 
+[sub_resource type="Curve2D" id="Curve2D_aamnp"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1.4285889, 1.4285889, 0, 0, 0, 0, 314.2857, -7.142853, 0, 0, 0, 0, 312.85712, -4.2857056, 0, 0, 0, 0, -1.4285889, 4.285736, 0, 0, 0, 0, -1.4285889, 1.4285889)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_hjx37"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 1.4285583, 0, 0, 0, 0, -288.57138, 5.7142944, 0, 0, 0, 0, -288.57138, 8.571442, 0, 0, 0, 0, -1.4285583, 4.2857056, 0, 0, 0, 0, 0, 1.4285583)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_jm4is"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -1.4285583, 0, 0, 0, 0, -372.85712, -1.4285583, 0, 0, 0, 0, -372.85712, 0, 0, 0, 0, 0, -1.4285889, 0, 0, 0, 0, 0, 0, -1.4285583)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_dnlym"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1.4285583, -1.4285583, 0, 0, 0, 0, -257.14282, -7.142853, 0, 0, 0, 0, -257.14282, -4.2857056, 0, 0, 0, 0, 201.42856, 2.8571472, 0, 0, 0, 0, 201.42856, -4.2857056, 0, 0, 0, 0, -1.4285583, -1.4285583)
+}
+point_count = 6
+
 [node name="Outside2" type="Node2D"]
 script = ExtResource("1_7t2bs")
 
@@ -2470,21 +2494,61 @@ curve = SubResource("Curve2D_36lmr")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Tumleweed/Path2D"]
 
-[node name="Tumbleweed2" parent="Tumleweed" instance=ExtResource("27_es6jy")]
+[node name="Tumbleweed2" parent="Tumleweed" node_paths=PackedStringArray("path_follow") instance=ExtResource("27_es6jy")]
 position = Vector2(-366, -342)
 scale = Vector2(0.7, 0.7)
+path_follow = NodePath("../Path2D2/PathFollow2D")
 
-[node name="Tumbleweed3" parent="Tumleweed" instance=ExtResource("27_es6jy")]
+[node name="Path2D2" type="Path2D" parent="Tumleweed"]
+position = Vector2(-366, -342)
+scale = Vector2(0.7, 0.7)
+curve = SubResource("Curve2D_aamnp")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Tumleweed/Path2D2"]
+position = Vector2(-1.4285889, 1.4285889)
+rotation = -0.027142696
+
+[node name="Tumbleweed3" parent="Tumleweed" node_paths=PackedStringArray("path_follow") instance=ExtResource("27_es6jy")]
 position = Vector2(-225, -256)
 scale = Vector2(0.7, 0.7)
+path_follow = NodePath("../Path2D3/PathFollow2D")
 
-[node name="Tumbleweed4" parent="Tumleweed" instance=ExtResource("27_es6jy")]
+[node name="Path2D3" type="Path2D" parent="Tumleweed"]
+position = Vector2(-225, -256)
+scale = Vector2(0.7, 0.7)
+curve = SubResource("Curve2D_hjx37")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Tumleweed/Path2D3"]
+position = Vector2(0, 1.4285583)
+rotation = 3.1267421
+
+[node name="Tumbleweed4" parent="Tumleweed" node_paths=PackedStringArray("path_follow") instance=ExtResource("27_es6jy")]
 position = Vector2(-184, -326)
 scale = Vector2(0.7, 0.7)
+path_follow = NodePath("../Path2D4/PathFollow2D")
 
-[node name="Tumbleweed5" parent="Tumleweed" instance=ExtResource("27_es6jy")]
+[node name="Path2D4" type="Path2D" parent="Tumleweed"]
+position = Vector2(-184, -326)
+scale = Vector2(0.7, 0.7)
+curve = SubResource("Curve2D_jm4is")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Tumleweed/Path2D4"]
+position = Vector2(0, -1.4285583)
+rotation = 3.1415927
+
+[node name="Tumbleweed5" parent="Tumleweed" node_paths=PackedStringArray("path_follow") instance=ExtResource("27_es6jy")]
 position = Vector2(-296, -303)
 scale = Vector2(0.7, 0.7)
+path_follow = NodePath("../Path2D5/PathFollow2D")
+
+[node name="Path2D5" type="Path2D" parent="Tumleweed"]
+position = Vector2(-296, -303)
+scale = Vector2(0.7, 0.7)
+curve = SubResource("Curve2D_dnlym")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Tumleweed/Path2D5"]
+position = Vector2(-1.4285583, -1.4285583)
+rotation = -3.11925
 
 [node name="GrassBrown" type="Node" parent="."]
 
