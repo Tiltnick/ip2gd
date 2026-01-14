@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7ajruie7dmvq"]
+
+[ext_resource type="Texture2D" uid="uid://tky213w87pvv" path="res://assets/sprites/character/Snail_1.png" id="1_avc1f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5bau"]
+atlas = ExtResource("1_avc1f")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sd6e"]
+atlas = ExtResource("1_avc1f")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cep13"]
+atlas = ExtResource("1_avc1f")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjcx1"]
+atlas = ExtResource("1_avc1f")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wc7b3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5bau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sd6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cep13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjcx1")
+}],
+"loop": true,
+"name": &"move",
+"speed": 3.5
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_avc1f"]
+radius = 6.6666665
+height = 13.333333
+
+[node name="Snail Brown" type="CharacterBody2D"]
+scale = Vector2(1.2, 1.2)
+collision_layer = 0
+collision_mask = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_wc7b3")
+animation = &"move"
+autoplay = "move"
+frame_progress = 0.66065025
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_avc1f")

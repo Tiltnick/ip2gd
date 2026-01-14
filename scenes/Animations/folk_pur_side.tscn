@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://ofuv67gum1mi"]
+
+[ext_resource type="Texture2D" uid="uid://dscwajbyk3gns" path="res://assets/sprites/character/Purple_Shroomling.png" id="1_oxdca"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20aj7"]
+atlas = ExtResource("1_oxdca")
+region = Rect2(0, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pag0u"]
+atlas = ExtResource("1_oxdca")
+region = Rect2(16, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tv5oo"]
+atlas = ExtResource("1_oxdca")
+region = Rect2(32, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aubec"]
+atlas = ExtResource("1_oxdca")
+region = Rect2(48, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vwuw"]
+atlas = ExtResource("1_oxdca")
+region = Rect2(64, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7n368"]
+atlas = ExtResource("1_oxdca")
+region = Rect2(80, 160, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wc7b3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20aj7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pag0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tv5oo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aubec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vwuw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7n368")
+}],
+"loop": true,
+"name": &"move",
+"speed": 3.5
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btmav"]
+size = Vector2(8, 10)
+
+[node name="Purply Side" type="CharacterBody2D"]
+scale = Vector2(1.2, 1.2)
+collision_layer = 0
+collision_mask = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_wc7b3")
+animation = &"move"
+autoplay = "move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_btmav")

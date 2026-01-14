@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://dvjh1essse7y"]
+
+[ext_resource type="Texture2D" uid="uid://b7xu4g7bg8lj4" path="res://assets/sprites/animation/Tumbleweed.png" id="1_e47no"]
+[ext_resource type="PackedScene" uid="uid://bboqbaycemetp" path="res://assets/sprites/selfmade/shadow.tscn" id="1_iw3cb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e11m7"]
+atlas = ExtResource("1_e47no")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wc7b3"]
+atlas = ExtResource("1_e47no")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfhpu"]
+atlas = ExtResource("1_e47no")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03nlr"]
+atlas = ExtResource("1_e47no")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e4ba"]
+atlas = ExtResource("1_e47no")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfo8b"]
+atlas = ExtResource("1_e47no")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5b4lc"]
+atlas = ExtResource("1_e47no")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvhc3"]
+atlas = ExtResource("1_e47no")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wc7b3"]
+animations = [{
+"frames": [{
+"duration": 0.61,
+"texture": SubResource("AtlasTexture_e11m7")
+}, {
+"duration": 0.61,
+"texture": SubResource("AtlasTexture_wc7b3")
+}, {
+"duration": 0.61,
+"texture": SubResource("AtlasTexture_xfhpu")
+}, {
+"duration": 0.61,
+"texture": SubResource("AtlasTexture_03nlr")
+}, {
+"duration": 0.61,
+"texture": SubResource("AtlasTexture_7e4ba")
+}, {
+"duration": 0.61,
+"texture": SubResource("AtlasTexture_nfo8b")
+}, {
+"duration": 0.61,
+"texture": SubResource("AtlasTexture_5b4lc")
+}, {
+"duration": 0.61,
+"texture": SubResource("AtlasTexture_kvhc3")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xfhpu"]
+radius = 14.0
+
+[node name="Tumbleweed" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="Shadow" parent="." instance=ExtResource("1_iw3cb")]
+position = Vector2(0, 12)
+scale = Vector2(0.6, 0.6)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.9999999, 0)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_wc7b3")
+animation = &"move"
+autoplay = "move"
+frame_progress = 0.67135847
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xfhpu")

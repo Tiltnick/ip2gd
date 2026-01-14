@@ -1,0 +1,87 @@
+[gd_scene load_steps=12 format=3 uid="uid://bmwyil8lbg5aq"]
+
+[ext_resource type="Texture2D" uid="uid://vks5pnxcr8dy" path="res://assets/sprites/animation/Green Fog.png" id="1_71x41"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2tpr"]
+atlas = ExtResource("1_71x41")
+region = Rect2(0, 0, 383, 572)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5bit"]
+atlas = ExtResource("1_71x41")
+region = Rect2(383, 0, 383, 572)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab2pl"]
+atlas = ExtResource("1_71x41")
+region = Rect2(766, 0, 383, 572)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xoy36"]
+atlas = ExtResource("1_71x41")
+region = Rect2(0, 572, 383, 572)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d24dc"]
+atlas = ExtResource("1_71x41")
+region = Rect2(383, 572, 383, 572)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7o2y"]
+atlas = ExtResource("1_71x41")
+region = Rect2(766, 572, 383, 572)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukqtd"]
+atlas = ExtResource("1_71x41")
+region = Rect2(0, 1144, 383, 572)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntfsf"]
+atlas = ExtResource("1_71x41")
+region = Rect2(383, 1144, 383, 572)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wc7b3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2tpr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5bit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ab2pl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xoy36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d24dc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7o2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukqtd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntfsf")
+}],
+"loop": true,
+"name": &"move",
+"speed": 3.5
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vf33m"]
+radius = 96.0
+height = 320.0
+
+[node name="Fog" type="CharacterBody2D"]
+scale = Vector2(0.12, 0.12)
+collision_layer = 0
+collision_mask = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_wc7b3")
+animation = &"move"
+autoplay = "move"
+frame_progress = 0.31225148
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_vf33m")
