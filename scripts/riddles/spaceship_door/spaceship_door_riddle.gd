@@ -49,6 +49,8 @@ func _on_button_pressed() -> void:
 		code_solved = true
 		emit_signal("code_verified", true)
 		
+		QuestManager.complete_quest("quest1")
+		
 	elif entered == code and lang == "de":
 		title_label.text = "Code verifiziert"
 		title_label.modulate = Color.CHARTREUSE
@@ -56,6 +58,8 @@ func _on_button_pressed() -> void:
 		await get_tree().create_timer(1.5).timeout
 		code_solved = true
 		emit_signal("code_verified", true)
+		
+		QuestManager.complete_quest("quest1")
 		
 	else:
 		title_label.text = "Error"

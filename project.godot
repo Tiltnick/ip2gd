@@ -37,6 +37,7 @@ SavingMenu="*res://scenes/Menues/saving_menu.tscn"
 BgmPlayer="*res://scripts/audio/bgm_player.gd"
 SfxPlayer="*res://scripts/audio/sfx_player.gd"
 MiniMap="*res://scenes/Menues/mini_map.tscn"
+QuestManager="*res://scripts/quests/quest_manager.gd"
 
 [dialogic]
 

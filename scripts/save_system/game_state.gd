@@ -11,6 +11,7 @@ var puzzle_state: Dictionary = {}
 var dialog_state: Dictionary = {}
 
 var map_state: Dictionary = {}
+var quest_state: Dictionary = {}
 
 var return_scene_path: String = ""
 
@@ -55,6 +56,7 @@ func to_dict() -> Dictionary:
 		"puzzle_state": puzzle_state,
 		"dialog_state": dialog_state,
 		"map_state": map_state,
+		"quest_state": quest_state,
 		"player_position": {
 			"x": player_position.x,
 			"y": player_position.y,
@@ -85,6 +87,8 @@ func from_dict(data: Dictionary) -> void:
 	if data.has("display_mode"):
 		display_mode = str(data["display_mode"])
 
+	if data.has("quest_state"):
+		quest_state = data["quest_state"]
 
 	if data.has("player_position"):
 		var p = data["player_position"]
