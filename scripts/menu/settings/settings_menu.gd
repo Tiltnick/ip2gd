@@ -61,8 +61,6 @@ func _on_graphics_pressed() -> void:
 	SfxPlayer.ui_click_sound()
 
 
-
-
 func _on_h_slider_sound_drag_ended(value_changed: bool) -> void:
 	if value_changed:
 		SfxPlayer.ui_click_sound()

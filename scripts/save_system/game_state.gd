@@ -32,6 +32,7 @@ var music_setting: float
 # Sprache
 var language: String = "en"
 
+var screen_mode
 
 func start_dialog(dialog_id: String) -> void:
 	# Dialog existiert

@@ -11,35 +11,31 @@ func _ready() -> void:
 	for i in popup.get_item_count():
 		popup.set_item_indent(i, indent)
 
-	## Verknüpfung der Einträge  ## hier dann statt en und de die richtigen einstellungen verknüpfen
-	#if get_item_count() >= 2:
-		#set_item_metadata(0, "en")
-		#set_item_metadata(1, "de")
+	add_item("Windowed")
+	set_item_metadata(item_count - 1, "windowed")
 
-	_select_current_locale()
+	add_item("Fullscreen")
+	set_item_metadata(item_count - 1, "fullscreen")
+
+	add_item("Borderless")
+	set_item_metadata(item_count - 1, "borderless")
+
+	_select_current_mode()
 	item_selected.connect(_on_item_selected)
 
-func _select_current_locale() -> void:
-	var current: String = ""
-	if has_node(""):  # dann den richtigen path eintragen
-		current = get_node("").get_language() # dann den richtigen path eintragen
+	_select_current_mode()
+	item_selected.connect(_on_item_selected)
 
-	if current == "" or current == "automatic":
-		current = OS.get_locale_language()
-
-	for i in get_item_count():
-		var locale: String = str(get_item_metadata(i))
-		if locale == current:
+func _select_current_mode() -> void:
+	var current = DisplayServer.window_get_mode()
+	for i in item_count:
+#		if int(get_item_metadata(i)) == current:
 			select(i)
 			return
 
 func _on_item_selected(index: int) -> void:
-	var locale: String = str(get_item_metadata(index))
-
-	if has_node(""):  # dann den richtigen path eintragen
-		get_node("").set_language(locale)  # dann den richtigen path eintragen
-	#else:  ## nicht mehr nötig 
-		#TranslationServer.set_locale(locale)
+	var mode = int(get_item_metadata(index))
+	DisplayServer.window_set_mode(mode)
 
 
-	GameState.language = locale
+	#GameState.language = locale
