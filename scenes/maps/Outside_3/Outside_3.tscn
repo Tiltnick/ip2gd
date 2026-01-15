@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=4 uid="uid://dlsjgc5i7yt81"]
+[gd_scene load_steps=70 format=4 uid="uid://dlsjgc5i7yt81"]
 
 [ext_resource type="Script" uid="uid://dliaffanr7vt" path="res://scripts/scene_manager/outside_3.gd" id="1_3rchf"]
 [ext_resource type="Texture2D" uid="uid://dtxi3laerm24l" path="res://assets/sprites/map/Outside_3/Ground.png" id="1_oc04w"]
@@ -36,16 +36,8 @@
 [ext_resource type="PackedScene" uid="uid://c0vonwkvy4jaa" path="res://scenes/interactables/objects/mushrooms/fire_mush.tscn" id="27_3h5uc"]
 [ext_resource type="PackedScene" uid="uid://cps7rwccg7bwu" path="res://scenes/Animations/grassPurple.tscn" id="28_54y3o"]
 [ext_resource type="PackedScene" uid="uid://ofuv67gum1mi" path="res://scenes/Animations/folk_pur_side.tscn" id="36_1tv65"]
-[ext_resource type="PackedScene" uid="uid://bc2bnmdi7g8c2" path="res://scenes/Animations/folk_pur_down.tscn" id="37_cpm51"]
-[ext_resource type="PackedScene" uid="uid://njech6e5ppkr" path="res://scenes/Animations/folk_pur_up.tscn" id="38_4obpn"]
-[ext_resource type="PackedScene" uid="uid://bjnk6gr2ijw3c" path="res://scenes/Animations/folk_blue_up.tscn" id="39_hpan1"]
-[ext_resource type="PackedScene" uid="uid://n0t2p1ky2s5i" path="res://scenes/Animations/folk_blue_down.tscn" id="40_6a113"]
 [ext_resource type="PackedScene" uid="uid://cm7trc2jwfbta" path="res://scenes/Animations/folk_blue_side.tscn" id="41_4wjv5"]
-[ext_resource type="PackedScene" uid="uid://bs233eblupmtc" path="res://scenes/Animations/folk_yell_down.tscn" id="42_8miwm"]
 [ext_resource type="PackedScene" uid="uid://bmvwyu42m7olb" path="res://scenes/Animations/folk_yell_side.tscn" id="43_pyiw6"]
-[ext_resource type="PackedScene" uid="uid://b4oc2gbkirui0" path="res://scenes/Animations/folk_yell_up.tscn" id="44_vdkvf"]
-[ext_resource type="PackedScene" uid="uid://cox01ed8ks4mp" path="res://scenes/Animations/folk_green_up.tscn" id="45_1sf08"]
-[ext_resource type="PackedScene" uid="uid://dwimx8eyhor76" path="res://scenes/Animations/folk_green_down.tscn" id="46_muxi4"]
 [ext_resource type="PackedScene" uid="uid://ctwe3m6wwjdi5" path="res://scenes/Animations/folk_green_side.tscn" id="47_uf0e1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4bq6r"]
@@ -4370,6 +4362,42 @@ _data = {
 }
 point_count = 16
 
+[sub_resource type="Curve2D" id="Curve2D_4obpn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 608, 8, 0, 0, 0, 0, 608, 32, 0, 0, 0, 0, 624, 40, 0, 0, 0, 0, 656, 24, 0, 0, 0, 0, 688, 0, 0, 0, 0, 0, 720, -40, 0, 0, 0, 0, 736, -88, 0, 0, 0, 0, 744, -144, 0, 0, 0, 0, 752, -208, 0, 0, 0, 0, 752, -280, 0, 0, 0, 0, 752, -328, 0, 0, 0, 0, 744, -336, 0, 0, 0, 0, 736, -328, 0, 0, 0, 0, 736, -320, 0, 0, 0, 0, 728, -216, 0, 0, 0, 0, 720, -136, 0, 0, 0, 0, 720, -88, 0, 0, 0, 0, 712, -56, 0, 0, 0, 0, 680, -24, 0, 0, 0, 0, 640, 24, 0, 0, 0, 0, 624, 16, 0, 0, 0, 0, 608, 8)
+}
+point_count = 22
+
+[sub_resource type="Curve2D" id="Curve2D_88yej"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 456, 80, 0, 0, 0, 0, 464, 104, 0, 0, 0, 0, 400, 112, 0, 0, 0, 0, 288, 112, 0, 0, 0, 0, 216, 88, 0, 0, 0, 0, 176, 64, 0, 0, 0, 0, 168, 40, 0, 0, 0, 0, 176, 8, 0, 0, 0, 0, 176, 16, 0, 0, 0, 0, 184, 40, 0, 0, 0, 0, 232, 72, 0, 0, 0, 0, 288, 96, 0, 0, 0, 0, 400, 96, 0, 0, 0, 0, 456, 80)
+}
+point_count = 14
+
+[sub_resource type="Curve2D" id="Curve2D_hpan1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 120, -472, 0, 0, 0, 0, 120, -488, 0, 0, 0, 0, 112, -512, 0, 0, 0, 0, 96, -528, 0, 0, 0, 0, 80, -528, 0, 0, 0, 0, 64, -520, 0, 0, 0, 0, 56, -496, 0, 0, 0, 0, 56, -480, 0, 0, 0, 0, 72, -464, 0, 0, 0, 0, 104, -464, 0, 0, 0, 0, 120, -472)
+}
+point_count = 11
+
+[sub_resource type="Curve2D" id="Curve2D_muxi4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 384, -392, 0, 0, 0, 0, 432, -312, 0, 0, 0, 0, 440, -296, 0, 0, 0, 0, 416, -240, 0, 0, 0, 0, 376, -200, 0, 0, 0, 0, 240, -152, 0, 0, 0, 0, 184, -112, 0, 0, 0, 0, 216, -112, 0, 0, 0, 0, 376, -160, 0, 0, 0, 0, 424, -192, 0, 0, 0, 0, 464, -224, 0, 0, 0, 0, 472, -304, 0, 0, 0, 0, 432, -376, 0, 0, 0, 0, 408, -400, 0, 0, 0, 0, 384, -392)
+}
+point_count = 15
+
+[sub_resource type="Curve2D" id="Curve2D_6a113"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 128, -360, 0, 0, 0, 0, 128, -320, 0, 0, 0, 0, 128, -288, 0, 0, 0, 0, 104, -232, 0, 0, 0, 0, 88, -176, 0, 0, 0, 0, 72, -112, 0, 0, 0, 0, 72, -88, 0, 0, 0, 0, 80, -32, 0, 0, 0, 0, 96, 0, 0, 0, 0, 0, 120, -8, 0, 0, 0, 0, 128, -48, 0, 0, 0, 0, 136, -80, 0, 0, 0, 0, 184, -104, 0, 0, 0, 0, 240, -80, 0, 0, 0, 0, 296, -48, 0, 0, 0, 0, 360, -16, 0, 0, 0, 0, 424, 0, 0, 0, 0, 0, 472, -24, 0, 0, 0, 0, 528, -72, 0, 0, 0, 0, 520, -96, 0, 0, 0, 0, 504, -96, 0, 0, 0, 0, 488, -80, 0, 0, 0, 0, 456, -56, 0, 0, 0, 0, 424, -48, 0, 0, 0, 0, 376, -32, 0, 0, 0, 0, 320, -64, 0, 0, 0, 0, 224, -104, 0, 0, 0, 0, 144, -96, 0, 0, 0, 0, 112, -64, 0, 0, 0, 0, 80, -80, 0, 0, 0, 0, 88, -160, 0, 0, 0, 0, 120, -296, 0, 0, 0, 0, 128, -360)
+}
+point_count = 33
+
+[sub_resource type="Curve2D" id="Curve2D_4wjv5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 488, -120, 0, 0, 0, 0, 488, -152, 0, 0, 0, 0, 464, -168, 0, 0, 0, 0, 424, -168, 0, 0, 0, 0, 400, -152, 0, 0, 0, 0, 392, -104, 0, 0, 0, 0, 424, -96, 0, 0, 0, 0, 472, -96, 0, 0, 0, 0, 488, -120)
+}
+point_count = 9
+
 [node name="Outside3" type="Node2D"]
 script = ExtResource("1_3rchf")
 
@@ -4756,39 +4784,80 @@ curve = SubResource("Curve2D_1sf08")
 position = Vector2(120, 128)
 rotation = 0.4636476
 
-[node name="Purply Down" parent="Folk" instance=ExtResource("37_cpm51")]
-position = Vector2(389, -8)
+[node name="Bluey Side" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("41_4wjv5")]
+position = Vector2(608, 10)
+path_follow = NodePath("../Path2D3/PathFollow2D")
+speed = 40.0
 
-[node name="Purply Up" parent="Folk" instance=ExtResource("38_4obpn")]
-position = Vector2(417, -8)
+[node name="Path2D3" type="Path2D" parent="Folk"]
+curve = SubResource("Curve2D_4obpn")
 
-[node name="Bluey Up" parent="Folk" instance=ExtResource("39_hpan1")]
-position = Vector2(371.77734, 100.8018)
+[node name="PathFollow2D" type="PathFollow2D" parent="Folk/Path2D3"]
+position = Vector2(608, 8)
+rotation = 1.5707964
 
-[node name="Bluey Down" parent="Folk" instance=ExtResource("40_6a113")]
-position = Vector2(406.00003, 112)
-
-[node name="Bluey Side" parent="Folk" instance=ExtResource("41_4wjv5")]
-position = Vector2(399, 85)
-
-[node name="Yelly Down" parent="Folk" instance=ExtResource("42_8miwm")]
-position = Vector2(480, 83)
-scale = Vector2(1.44, 1.44)
-
-[node name="Yelly Side" parent="Folk" instance=ExtResource("43_pyiw6")]
+[node name="Yelly Side" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("43_pyiw6")]
 position = Vector2(459.00003, 76)
+path_follow = NodePath("../Path2D4/PathFollow2D")
+speed = 40.0
 
-[node name="Yelly Up" parent="Folk" instance=ExtResource("44_vdkvf")]
-position = Vector2(461, 97)
+[node name="Path2D4" type="Path2D" parent="Folk"]
+curve = SubResource("Curve2D_88yej")
 
-[node name="Greeny Up" parent="Folk" instance=ExtResource("45_1sf08")]
-position = Vector2(456, 18)
+[node name="PathFollow2D" type="PathFollow2D" parent="Folk/Path2D4"]
+position = Vector2(456, 80)
+rotation = 1.2490457
 
-[node name="Greeny Down" parent="Folk" instance=ExtResource("46_muxi4")]
-position = Vector2(478.6079, 30.247414)
+[node name="Greeny Side" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("47_uf0e1")]
+position = Vector2(119, -464)
+path_follow = NodePath("../Path2D5/PathFollow2D")
+speed = 40.0
 
-[node name="Greeny Side" parent="Folk" instance=ExtResource("47_uf0e1")]
-position = Vector2(479, -2)
+[node name="Path2D5" type="Path2D" parent="Folk"]
+curve = SubResource("Curve2D_hpan1")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Folk/Path2D5"]
+position = Vector2(120, -472)
+rotation = -1.5707964
+
+[node name="Purply Side2" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("36_1tv65")]
+position = Vector2(379.00003, -397)
+path_follow = NodePath("../Path2D2/PathFollow2D")
+speed = 40.0
+
+[node name="Path2D2" type="Path2D" parent="Folk"]
+curve = SubResource("Curve2D_muxi4")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Folk/Path2D2"]
+position = Vector2(384, -392)
+rotation = 1.0303768
+
+[node name="Bluey Side2" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("41_4wjv5")]
+position = Vector2(123.501945, -362.75717)
+path_follow = NodePath("../Path2D6/PathFollow2D")
+speed = 40.0
+
+[node name="Path2D6" type="Path2D" parent="Folk"]
+curve = SubResource("Curve2D_6a113")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Folk/Path2D6"]
+position = Vector2(128, -360)
+rotation = 1.5707964
+
+[node name="Greeny Side2" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("47_uf0e1")]
+position = Vector2(488, -120)
+path_follow = NodePath("../Path2D7/PathFollow2D")
+speed = 40.0
+
+[node name="Path2D7" type="Path2D" parent="Folk"]
+curve = SubResource("Curve2D_4wjv5")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Folk/Path2D7"]
+position = Vector2(488, -120)
+rotation = -1.5707964
+
+[node name="Yelly Side2" parent="Folk" instance=ExtResource("43_pyiw6")]
+position = Vector2(192, -145)
 
 [editable path="champi_socket"]
 [editable path="porcini_socket"]

@@ -5,13 +5,14 @@ class_name AmbientPathNPC
 @export var speed: float = 60.0
 @export var ping_pong: bool = true
 
-
 @export var sprite_faces_right_by_default: bool = true
+@export var dir_deadzone: float = 0.5
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
 var _dir := 1.0
 var _len := 0.0
+var _initial_facing_set := false
 
 func _ready() -> void:
 	if path_follow:
@@ -37,23 +38,20 @@ func _physics_process(delta: float) -> void:
 	else:
 		path_follow.progress = fposmod(path_follow.progress, _len)
 
-
 	var target_pos := path_follow.global_position
-
 	var move_vec := target_pos - global_position
-	if move_vec.length() < 0.5:
+
+	if move_vec.length() < dir_deadzone:
 		velocity = Vector2.ZERO
 		return
 
-	# flippen wenn er nach links läuft
-	if abs(move_vec.x) > abs(move_vec.y) and abs(move_vec.x) > 0.5:
-		var moving_right := move_vec.x > 0.0
-		
-		if sprite_faces_right_by_default:
-			anim.flip_h = not moving_right
-		else:
-			anim.flip_h = moving_right
-	
+	# default sprite zur ersten bewegungsrichtung setzen
+	if not _initial_facing_set:
+		_update_visual(move_vec)
+		_initial_facing_set = true
+
+	# sprite richtung weiter updaten wenn sich bewegungsrichtung ändert
+	_update_visual(move_vec)
 
 	velocity = move_vec.normalized() * speed
 	move_and_slide()
@@ -61,3 +59,28 @@ func _physics_process(delta: float) -> void:
 	if get_slide_collision_count() > 0:
 		path_follow.progress = prev_progress
 		velocity = Vector2.ZERO
+
+func _update_visual(v: Vector2) -> void:
+	
+	if abs(v.x) >= abs(v.y):
+		# für die seitliche bewegung
+		if anim.animation != "move_side":
+			anim.play("move_side")
+
+		var moving_right := v.x > 0.0
+		if sprite_faces_right_by_default:
+			anim.flip_h = not moving_right
+		else:
+			anim.flip_h = moving_right
+	else:
+		#für hoch und runter
+		anim.flip_h = false
+
+		if v.y < 0.0:
+			# hoch
+			if anim.animation != "move_up":
+				anim.play("move_up")
+		else:
+			# runter
+			if anim.animation != "move_down":
+				anim.play("move_down")
