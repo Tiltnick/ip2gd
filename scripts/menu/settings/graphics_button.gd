@@ -11,18 +11,18 @@ func _ready() -> void:
 	for i in popup.get_item_count():
 		popup.set_item_indent(i, indent)
 
-	# Verknüpfung der Einträge
-	if get_item_count() >= 2:
-		set_item_metadata(0, "en")
-		set_item_metadata(1, "de")
+	## Verknüpfung der Einträge  ## hier dann statt en und de die richtigen einstellungen verknüpfen
+	#if get_item_count() >= 2:
+		#set_item_metadata(0, "en")
+		#set_item_metadata(1, "de")
 
 	_select_current_locale()
 	item_selected.connect(_on_item_selected)
 
 func _select_current_locale() -> void:
 	var current: String = ""
-	if has_node("/root/LanguageManager"):  
-		current = get_node("/root/LanguageManager").get_language() 
+	if has_node(""):  # dann den richtigen path eintragen
+		current = get_node("").get_language() # dann den richtigen path eintragen
 
 	if current == "" or current == "automatic":
 		current = OS.get_locale_language()
@@ -36,10 +36,10 @@ func _select_current_locale() -> void:
 func _on_item_selected(index: int) -> void:
 	var locale: String = str(get_item_metadata(index))
 
-	if has_node("/root/LanguageManager"): 
-		get_node("/root/LanguageManager").set_language(locale) 
-	else:
-		TranslationServer.set_locale(locale)
+	if has_node(""):  # dann den richtigen path eintragen
+		get_node("").set_language(locale)  # dann den richtigen path eintragen
+	#else:  ## nicht mehr nötig 
+		#TranslationServer.set_locale(locale)
 
 
 	GameState.language = locale

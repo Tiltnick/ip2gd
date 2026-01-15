@@ -34,3 +34,8 @@ SAVE_GAME, Save Game?, Spiel speichern?
 CLICK_RIGHT, rotate with right click, rotiere mit Rechtsklick
 DIARY, Diary, Tagebuch
 INVENTORY, Inventory, Inventar
+GRAPHICS, Graphics, Grafik
+DISPLAY MODE, Display Mode, Anzeigemodus
+WINDOWED, Windowed, Fenstermodus
+FULLSCREEN, Fullscreen, Vollbild
+BORDERLESS, Borderless, Randlos
