@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=4 uid="uid://dlsjgc5i7yt81"]
+[gd_scene load_steps=82 format=4 uid="uid://dlsjgc5i7yt81"]
 
 [ext_resource type="Script" uid="uid://dliaffanr7vt" path="res://scripts/scene_manager/outside_3.gd" id="1_3rchf"]
 [ext_resource type="Texture2D" uid="uid://dtxi3laerm24l" path="res://assets/sprites/map/Outside_3/Ground.png" id="1_oc04w"]
@@ -36,8 +36,12 @@
 [ext_resource type="PackedScene" uid="uid://c0vonwkvy4jaa" path="res://scenes/interactables/objects/mushrooms/fire_mush.tscn" id="27_3h5uc"]
 [ext_resource type="PackedScene" uid="uid://cps7rwccg7bwu" path="res://scenes/Animations/grassPurple.tscn" id="28_54y3o"]
 [ext_resource type="PackedScene" uid="uid://ofuv67gum1mi" path="res://scenes/Animations/folk_pur_side.tscn" id="36_1tv65"]
+[ext_resource type="PackedScene" uid="uid://bc2bnmdi7g8c2" path="res://scenes/Animations/folk_pur_down.tscn" id="40_4wjv5"]
 [ext_resource type="PackedScene" uid="uid://cm7trc2jwfbta" path="res://scenes/Animations/folk_blue_side.tscn" id="41_4wjv5"]
+[ext_resource type="PackedScene" uid="uid://n0t2p1ky2s5i" path="res://scenes/Animations/folk_blue_down.tscn" id="41_8miwm"]
+[ext_resource type="PackedScene" uid="uid://dwimx8eyhor76" path="res://scenes/Animations/folk_green_down.tscn" id="42_pyiw6"]
 [ext_resource type="PackedScene" uid="uid://bmvwyu42m7olb" path="res://scenes/Animations/folk_yell_side.tscn" id="43_pyiw6"]
+[ext_resource type="PackedScene" uid="uid://bs233eblupmtc" path="res://scenes/Animations/folk_yell_down.tscn" id="43_vdkvf"]
 [ext_resource type="PackedScene" uid="uid://ctwe3m6wwjdi5" path="res://scenes/Animations/folk_green_side.tscn" id="47_uf0e1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4bq6r"]
@@ -4416,6 +4420,36 @@ _data = {
 }
 point_count = 8
 
+[sub_resource type="Curve2D" id="Curve2D_uf0e1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 504, 96, 0, 0, 0, 0, 584, 40, 0, 0, 0, 0, 600, 48, 0, 0, 0, 0, 512, 112, 0, 0, 0, 0, 504, 96)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_pfpe7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 488, -224, 0, 0, 0, 0, 472, -192, 0, 0, 0, 0, 576, -152, 0, 0, 0, 0, 600, -184, 0, 0, 0, 0, 488, -224)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_n45qo"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 168, -360, 0, 0, 0, 0, 264, -360, 0, 0, 0, 0, 376, -352, 0, 0, 0, 0, 376, -320, 0, 0, 0, 0, 168, -312, 0, 0, 0, 0, 168, -360)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_0j50h"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 72, 24, 0, 0, 0, 0, 152, 24, 0, 0, 0, 0, 152, 56, 0, 0, 0, 0, 72, 56, 0, 0, 0, 0, 72, 24)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_stkyh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 656, 160, 0, 0, 0, 0, 656, 144, 0, 0, 0, 0, 528, 152, 0, 0, 0, 0, 528, 168, 0, 0, 0, 0, 336, 168, 0, 0, 0, 0, 336, 176, 0, 0, 0, 0, 656, 176, 0, 0, 0, 0, 656, 160)
+}
+point_count = 8
+
 [node name="Outside3" type="Node2D"]
 script = ExtResource("1_3rchf")
 
@@ -4791,7 +4825,7 @@ scale = Vector2(0.1, 0.1)
 [node name="Purply Side" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("36_1tv65")]
 position = Vector2(120, 118)
 path_follow = NodePath("../Path2D/PathFollow2D")
-speed = 40.0
+speed = 30.0
 
 [node name="Path2D" type="Path2D" parent="Folk"]
 position = Vector2(4.662163, 6.17647)
@@ -4805,7 +4839,7 @@ rotation = 0.4636476
 [node name="Bluey Side" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("41_4wjv5")]
 position = Vector2(608, 10)
 path_follow = NodePath("../Path2D3/PathFollow2D")
-speed = 40.0
+speed = 30.0
 
 [node name="Path2D3" type="Path2D" parent="Folk"]
 curve = SubResource("Curve2D_4obpn")
@@ -4817,7 +4851,7 @@ rotation = 1.5707964
 [node name="Yelly Side" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("43_pyiw6")]
 position = Vector2(459.00003, 76)
 path_follow = NodePath("../Path2D4/PathFollow2D")
-speed = 40.0
+speed = 30.0
 
 [node name="Path2D4" type="Path2D" parent="Folk"]
 curve = SubResource("Curve2D_88yej")
@@ -4829,7 +4863,7 @@ rotation = 1.2490457
 [node name="Greeny Side" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("47_uf0e1")]
 position = Vector2(119, -464)
 path_follow = NodePath("../Path2D5/PathFollow2D")
-speed = 40.0
+speed = 30.0
 
 [node name="Path2D5" type="Path2D" parent="Folk"]
 position = Vector2(0, -111.1111)
@@ -4843,7 +4877,7 @@ rotation = -1.5707964
 [node name="Purply Side2" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("36_1tv65")]
 position = Vector2(379.00003, -397)
 path_follow = NodePath("../Path2D2/PathFollow2D")
-speed = 40.0
+speed = 30.0
 
 [node name="Path2D2" type="Path2D" parent="Folk"]
 curve = SubResource("Curve2D_muxi4")
@@ -4855,7 +4889,7 @@ rotation = 1.0303768
 [node name="Bluey Side2" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("41_4wjv5")]
 position = Vector2(123.501945, -362.75717)
 path_follow = NodePath("../Path2D6/PathFollow2D")
-speed = 40.0
+speed = 30.0
 
 [node name="Path2D6" type="Path2D" parent="Folk"]
 curve = SubResource("Curve2D_6a113")
@@ -4867,7 +4901,7 @@ rotation = 1.5707964
 [node name="Greeny Side2" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("47_uf0e1")]
 position = Vector2(488, -120)
 path_follow = NodePath("../Path2D7/PathFollow2D")
-speed = 40.0
+speed = 30.0
 
 [node name="Path2D7" type="Path2D" parent="Folk"]
 curve = SubResource("Curve2D_4wjv5")
@@ -4879,7 +4913,7 @@ rotation = -1.5707964
 [node name="Purply Side3" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("36_1tv65")]
 position = Vector2(642, -176.00002)
 path_follow = NodePath("../Path2D8/PathFollow2D")
-speed = 40.0
+speed = 30.0
 
 [node name="Path2D8" type="Path2D" parent="Folk"]
 curve = SubResource("Curve2D_8miwm")
@@ -4891,7 +4925,7 @@ rotation = 1.5707964
 [node name="Greeny Side4" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("47_uf0e1")]
 position = Vector2(376.00003, -672)
 path_follow = NodePath("../Path2D10/PathFollow2D")
-speed = 40.0
+speed = 30.0
 
 [node name="Path2D10" type="Path2D" parent="Folk"]
 position = Vector2(-160, -15)
@@ -4903,7 +4937,7 @@ position = Vector2(536, -657)
 [node name="Bluey Side4" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("41_4wjv5")]
 position = Vector2(736.7653, -517.7545)
 path_follow = NodePath("../Path2D9/PathFollow2D")
-speed = 40.0
+speed = 30.0
 
 [node name="Path2D9" type="Path2D" parent="Folk"]
 curve = SubResource("Curve2D_vdkvf")
@@ -4911,6 +4945,94 @@ curve = SubResource("Curve2D_vdkvf")
 [node name="PathFollow2D" type="PathFollow2D" parent="Folk/Path2D9"]
 position = Vector2(736, -512)
 rotation = 1.6262949
+
+[node name="Purply Idle2" parent="Folk" instance=ExtResource("40_4wjv5")]
+position = Vector2(72, -256)
+
+[node name="Bluey Idle" parent="Folk" instance=ExtResource("41_8miwm")]
+position = Vector2(254.1562, -560.11426)
+
+[node name="Bluey Idle2" parent="Folk" instance=ExtResource("41_8miwm")]
+position = Vector2(640, -520)
+
+[node name="Greeny Idle" parent="Folk" instance=ExtResource("42_pyiw6")]
+position = Vector2(599.88275, -608.64636)
+
+[node name="Greeny Idle2" parent="Folk" instance=ExtResource("42_pyiw6")]
+position = Vector2(248, -184)
+
+[node name="Yelly Idle" parent="Folk" instance=ExtResource("43_vdkvf")]
+position = Vector2(294.9566, -110.684875)
+
+[node name="Yelly Idle2" parent="Folk" instance=ExtResource("43_vdkvf")]
+position = Vector2(664, 120)
+
+[node name="Purply Side4" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("36_1tv65")]
+position = Vector2(504, 88)
+path_follow = NodePath("../Path2D11/PathFollow2D")
+speed = 30.0
+
+[node name="Path2D11" type="Path2D" parent="Folk"]
+curve = SubResource("Curve2D_uf0e1")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Folk/Path2D11"]
+position = Vector2(504, 96)
+rotation = -0.610726
+
+[node name="Yelly Side2" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("43_pyiw6")]
+position = Vector2(488, -224)
+path_follow = NodePath("../Path2D12/PathFollow2D")
+speed = 20.0
+
+[node name="Path2D12" type="Path2D" parent="Folk"]
+curve = SubResource("Curve2D_pfpe7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Folk/Path2D12"]
+position = Vector2(488, -224)
+rotation = 2.0344439
+
+[node name="Greeny Side3" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("47_uf0e1")]
+position = Vector2(167.9393, -362.24533)
+path_follow = NodePath("../Path2D13/PathFollow2D")
+speed = 30.0
+
+[node name="Path2D13" type="Path2D" parent="Folk"]
+curve = SubResource("Curve2D_n45qo")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Folk/Path2D13"]
+position = Vector2(168, -360)
+
+[node name="Purply Idle3" parent="Folk" instance=ExtResource("40_4wjv5")]
+position = Vector2(96.00001, -432)
+
+[node name="Greeny Idle3" parent="Folk" instance=ExtResource("42_pyiw6")]
+position = Vector2(752, -400)
+
+[node name="Yelly Idle3" parent="Folk" instance=ExtResource("43_vdkvf")]
+position = Vector2(513.5081, 25.238243)
+
+[node name="Greeny Side5" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("47_uf0e1")]
+position = Vector2(74.2138, 21.138622)
+path_follow = NodePath("../Path2D14/PathFollow2D")
+speed = 20.0
+
+[node name="Path2D14" type="Path2D" parent="Folk"]
+curve = SubResource("Curve2D_0j50h")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Folk/Path2D14"]
+position = Vector2(72, 24)
+
+[node name="Greeny Side6" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("47_uf0e1")]
+position = Vector2(656, 160)
+path_follow = NodePath("../Path2D15/PathFollow2D")
+speed = 30.0
+
+[node name="Path2D15" type="Path2D" parent="Folk"]
+curve = SubResource("Curve2D_stkyh")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Folk/Path2D15"]
+position = Vector2(656, 160)
+rotation = -1.5707964
 
 [editable path="champi_socket"]
 [editable path="porcini_socket"]
