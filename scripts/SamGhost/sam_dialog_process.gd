@@ -1,26 +1,29 @@
 extends NPC
 class_name SamDialogProcess
 
+const SEGMENT_INDEX_KEY: String = "sam_outside5_segment_index"
+const FAILED_FLAG: String = "outside5_pillar_puzzle_failed"
 
-const DIALOG_BY_SCENE := {
-	"Outside5": "res://dialog/dialogueSam/memory_intro.json",
-}
-
-const OUTSIDE5_FLOW := [
-	{
-		"flag": "sam_outside5_first_dialog_done",
-		"path": "res://dialog/Sam_ghost/Sam.json",
-	},
+const OUTSIDE5_DIALOGS := [
+	"res://dialog/Sam_ghost/Sam.json",
+	"res://dialog/Sam_ghost/Sam2.json",
+	"res://dialog/Sam_ghost/Sam3.json",
 ]
+
+const OUTSIDE5_FAILED_DIALOG := "res://dialog/Sam_ghost/SamFailed.json"
 
 const OUTSIDE5_END := ""
 const DEFAULT_DIALOG := ""
 
-@onready var sam_state_machine: SamStateMachine = $stateMachine
+@onready var sam_state_machine: SamStateMachine = get_node_or_null("stateMachine") as SamStateMachine
 
 
 func _ready() -> void:
 	super._ready()
+
+	# Fallback: falls NodePath anders ist oder stateMachine nicht als child existiert
+	if sam_state_machine == null:
+		sam_state_machine = _find_sam_state_machine()
 
 
 func _process(_delta: float) -> void:
@@ -50,17 +53,25 @@ func _process(_delta: float) -> void:
 func get_dialog_path(scene_name: String) -> String:
 	if scene_name == "Outside5":
 		return _get_outside5_dialog()
-
-	return DIALOG_BY_SCENE.get(scene_name, DEFAULT_DIALOG)
+	return DEFAULT_DIALOG
 
 
 func _get_outside5_dialog() -> String:
-	for step: Dictionary in OUTSIDE5_FLOW:
-		var flag: String = str(step.get("flag", ""))
-		if flag == "":
-			return str(step.get("path", ""))
+	# Wenn Fail-Flag gesetzt -> Failed Dialog hat Priorität
+	if bool(GameState.puzzle_state.get(FAILED_FLAG, false)):
+		return OUTSIDE5_FAILED_DIALOG
 
-		if not bool(GameState.puzzle_state.get(flag, false)):
-			return str(step.get("path", ""))
+	# sonst normal nach Segment-Index
+	var idx := int(GameState.puzzle_state.get(SEGMENT_INDEX_KEY, 0))
+
+	if idx >= 0 and idx < OUTSIDE5_DIALOGS.size():
+		return OUTSIDE5_DIALOGS[idx]
 
 	return OUTSIDE5_END
+
+
+func _find_sam_state_machine() -> SamStateMachine:
+	var list := get_tree().get_nodes_in_group("sam_state_machine")
+	if list.is_empty():
+		return null
+	return list[0] as SamStateMachine
