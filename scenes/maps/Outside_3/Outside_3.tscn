@@ -4876,9 +4876,6 @@ curve = SubResource("Curve2D_4wjv5")
 position = Vector2(488, -120)
 rotation = -1.5707964
 
-[node name="Yelly Side2" parent="Folk" instance=ExtResource("43_pyiw6")]
-position = Vector2(192, -145)
-
 [node name="Purply Side3" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("36_1tv65")]
 position = Vector2(642, -176.00002)
 path_follow = NodePath("../Path2D8/PathFollow2D")
@@ -4902,12 +4899,6 @@ curve = SubResource("Curve2D_pyiw6")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Folk/Path2D10"]
 position = Vector2(536, -657)
-
-[node name="Bluey Side3" parent="Folk" instance=ExtResource("41_4wjv5")]
-position = Vector2(247.67986, -572.27795)
-
-[node name="Yelly Side3" parent="Folk" instance=ExtResource("43_pyiw6")]
-position = Vector2(604.70953, -600.21936)
 
 [node name="Bluey Side4" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("41_4wjv5")]
 position = Vector2(736.7653, -517.7545)
