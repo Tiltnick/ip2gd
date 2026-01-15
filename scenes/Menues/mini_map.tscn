@@ -40,6 +40,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [node name="MiniMap" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_yp080")
 
 [node name="Background" type="Panel" parent="."]
@@ -71,6 +72,7 @@ mouse_filter = 2
 texture = SubResource("CompressedTexture2D_61kpm")
 
 [node name="Building" type="TextureRect" parent="."]
+visible = false
 offset_left = 941.0
 offset_top = 271.3617
 offset_right = 1106.0
@@ -91,6 +93,7 @@ script = ExtResource("4_m41xg")
 label_text = "Oris' Shuttle"
 
 [node name="Sam_Shuttle" type="TextureRect" parent="."]
+visible = false
 offset_left = 1197.0
 offset_top = 385.0
 offset_right = 1351.0
@@ -101,6 +104,7 @@ script = ExtResource("4_m41xg")
 label_text = "Sam's Shuttle"
 
 [node name="Stone_Panel" type="TextureRect" parent="."]
+visible = false
 offset_left = 576.0
 offset_top = 240.0
 offset_right = 736.0
@@ -111,6 +115,7 @@ script = ExtResource("4_m41xg")
 label_text = "Stone Panel"
 
 [node name="Temple" type="TextureRect" parent="."]
+visible = false
 offset_left = 610.0
 offset_top = 658.0
 offset_right = 865.2619
@@ -121,6 +126,7 @@ script = ExtResource("4_m41xg")
 label_text = "Temple"
 
 [node name="Tower" type="TextureRect" parent="."]
+visible = false
 offset_left = 1161.0
 offset_top = 182.0
 offset_right = 1369.1738
@@ -131,6 +137,7 @@ script = ExtResource("4_m41xg")
 label_text = "mysterious Tower"
 
 [node name="Sockets" type="TextureRect" parent="."]
+visible = false
 offset_left = 576.0
 offset_top = 488.0
 offset_right = 731.0

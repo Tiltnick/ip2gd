@@ -9,8 +9,6 @@ extends Control
 @onready var graphic_menu: HBoxContainer = $GraphicsContainer
 
 
-
-
 func _on_close_button_pressed() -> void:
 	var scene = get_tree().current_scene
 	var path = scene.scene_file_path

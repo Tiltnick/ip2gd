@@ -32,7 +32,7 @@ var music_setting: float
 # Sprache
 var language: String = "en"
 
-var screen_mode
+var display_mode: String = "fullscreen"
 
 func start_dialog(dialog_id: String) -> void:
 	# Dialog existiert
@@ -64,6 +64,7 @@ func to_dict() -> Dictionary:
 		"music_setting": music_setting,
 		"sound_setting": sound_setting,
 		"language": language,
+		"display_mode": display_mode,
 	}
 
 
@@ -80,6 +81,10 @@ func from_dict(data: Dictionary) -> void:
 
 	if data.has("map_state"):
 		map_state = data["map_state"]
+
+	if data.has("display_mode"):
+		display_mode = str(data["display_mode"])
+
 
 	if data.has("player_position"):
 		var p = data["player_position"]
