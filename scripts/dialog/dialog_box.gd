@@ -12,7 +12,7 @@ signal choice_selected(index: int)
 @onready var choice2: Control           = $NinePatchRect/Choice2
 @onready var choice1_text: RichTextLabel        = $NinePatchRect/Choice1/Text_Choice1
 @onready var choice2_text: RichTextLabel        = $NinePatchRect/Choice2/Text_Choice2
-@onready var space_to_continue: RichTextLabel    =$NinePatchRect/Space_to_Continue
+@onready var space_to_continue: RichTextLabel    = $NinePatchRect/Space_to_Continue
 
 @export var typing_speed: float = 0.02
 @export var max_chars_per_page: int = 200
@@ -23,12 +23,12 @@ var full_text: String = ""
 var _pages: Array[String] = []
 var _page_index: int = 0
 
-
 const SPEAKER_COLORS := {
-	"Mr. Blob": Color("#7CFF6B"),
-	"Oris": Color("#6BB7FF")
+	"Mr. Blob": Color("eee9d4ff"),
+	"Oris": Color("eafffaff"),
+	"Mushrooms": Color("eef7e1ff"),
+	"Sam": Color("feebe4ff")
 }
-
 
 func _ready() -> void:
 	hide()
@@ -47,22 +47,36 @@ func _ready() -> void:
 	choice2.mouse_entered.connect(_on_choice2_mouse_entered)
 	choice2.mouse_exited.connect(_on_choice2_mouse_exited)
 
+	
+	dialog_text.bbcode_enabled = true
+
+
 func show_line(speaker: String, text: String, portrait_path: String = "") -> void:
-	if speaker.strip_edges() == "":
+	var speaker_key := speaker.strip_edges()
+	var c: Color = SPEAKER_COLORS.get(speaker_key, Color.WHITE)
+
+	# Name anzeigen 
+	if speaker_key == "":
 		name_label.text = ""
 		name_label.hide()
 	else:
-		name_label.text = speaker
+		name_label.text = speaker_key
 		name_label.show()
+		name_label.add_theme_color_override("font_color", c) # name einfärben
 
+	# Portrait
 	if portrait_path != "":
 		portrait.texture = load(portrait_path)
 	else:
 		portrait.texture = null
 
+	# Text + Pages
 	full_text = text
 	_pages = _split_into_pages(full_text)
 	_page_index = 0
+
+	# dialoginhalt 
+	_pages = _wrap_pages_with_color(_pages, c)
 
 	typing = true
 	skip = false
@@ -70,8 +84,8 @@ func show_line(speaker: String, text: String, portrait_path: String = "") -> voi
 	space_to_continue.show()
 
 	hide_choices()
-
 	_apply_current_page()
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
@@ -85,6 +99,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				_apply_current_page()
 			else:
 				emit_signal("continue_pressed")
+
 
 func typewriter() -> void:
 	await get_tree().process_frame
@@ -119,9 +134,11 @@ func show_choices(choice_texts: Array) -> void:
 		choice2.visible = true
 		choice2_text.text = String(choice_texts[1])
 
+
 func hide_choices() -> void:
 	choice1.visible = false
 	choice2.visible = false
+
 
 func _on_choice1_clicked(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
@@ -130,6 +147,7 @@ func _on_choice1_clicked(event: InputEvent) -> void:
 		emit_signal("choice_selected", 0)
 		choice1.modulate = Color(1, 1, 1, 1)
 
+
 func _on_choice2_clicked(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		choice2.modulate = Color(1, 1, 1, 0.6)
@@ -137,17 +155,22 @@ func _on_choice2_clicked(event: InputEvent) -> void:
 		emit_signal("choice_selected", 1)
 		choice2.modulate = Color(1, 1, 1, 1)
 
+
 func _on_choice1_mouse_entered() -> void:
 	choice1.modulate = Color(1, 1, 1, 0.8)
+
 
 func _on_choice1_mouse_exited() -> void:
 	choice1.modulate = Color(1, 1, 1, 1)
 
+
 func _on_choice2_mouse_entered() -> void:
 	choice2.modulate = Color(1, 1, 1, 0.8)
 
+
 func _on_choice2_mouse_exited() -> void:
 	choice2.modulate = Color(1, 1, 1, 1)
+
 
 func _apply_current_page() -> void:
 	space_to_continue.visible = false
@@ -156,11 +179,13 @@ func _apply_current_page() -> void:
 	dialog_text.visible_characters = 0
 	typewriter()
 
+
 func _split_into_pages(text: String) -> Array[String]:
 	var result: Array[String] = []
 	var max_chars: int = max_chars_per_page
 	var i: int = 0
 	var length: int = text.length()
+
 	while i < length:
 		var end: int = min(i + max_chars, length)
 		var slice_end: int = end
@@ -171,6 +196,18 @@ func _split_into_pages(text: String) -> Array[String]:
 		var part: String = text.substr(i, slice_end - i)
 		result.append(part)
 		i = slice_end
+
 	if result.is_empty():
 		result.append("")
 	return result
+
+
+func _wrap_pages_with_color(pages: Array[String], color: Color) -> Array[String]:
+	var colored: Array[String] = []
+	var hex := color.to_html(false) # RRGGBB
+
+	for p in pages:
+		# Dialoginhalt einfärben
+		colored.append("[color=#%s]%s[/color]" % [hex, p])
+
+	return colored
