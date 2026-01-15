@@ -21,7 +21,6 @@ const DEFAULT_DIALOG := ""
 func _ready() -> void:
 	super._ready()
 
-	# Fallback: falls NodePath anders ist oder stateMachine nicht als child existiert
 	if sam_state_machine == null:
 		sam_state_machine = _find_sam_state_machine()
 
@@ -57,11 +56,9 @@ func get_dialog_path(scene_name: String) -> String:
 
 
 func _get_outside5_dialog() -> String:
-	# Wenn Fail-Flag gesetzt -> Failed Dialog hat Priorität
 	if bool(GameState.puzzle_state.get(FAILED_FLAG, false)):
 		return OUTSIDE5_FAILED_DIALOG
 
-	# sonst normal nach Segment-Index
 	var idx := int(GameState.puzzle_state.get(SEGMENT_INDEX_KEY, 0))
 
 	if idx >= 0 and idx < OUTSIDE5_DIALOGS.size():

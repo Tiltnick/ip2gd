@@ -31,7 +31,7 @@ func _ready() -> void:
 	_set_pillars_locked(false)
 
 
-# Registration pillars
+# pillars
 func _register_pillars() -> void:
 	_pillars_by_id.clear()
 

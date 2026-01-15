@@ -3313,21 +3313,21 @@ size = Vector2(96, 20)
 
 [sub_resource type="Curve2D" id="Curve2D_4y2am"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -5, 204, 0, 0, 0, 0, -291, 300, 0, 0, 0, 0, -402, 271, 0, 0, 0, 0, -349, 91)
-}
-point_count = 4
-
-[sub_resource type="Curve2D" id="Curve2D_s0bbf"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -350, 93, 0, 0, 0, 0, -369, -65, 0, 0, 0, 0, -368, -187, 0, 0, 0, 0, -264, -200, 0, 0, 0, 0, -187, -108, 0, 0, 0, 0, -124, -70)
+"points": PackedVector2Array(0, 0, 0, 0, -5, 204, 0, 0, 0, 0, -93, 242, 0, 0, 0, 0, -207, 242, 0, 0, 0, 0, -296, 294, 0, 0, 0, 0, -402, 271, 0, 0, 0, 0, -349, 91)
 }
 point_count = 6
 
+[sub_resource type="Curve2D" id="Curve2D_s0bbf"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -350, 93, 0, 0, 0, 0, -369, -65, 0, 0, 0, 0, -368, -187, 0, 0, 0, 0, -264, -200, 0, 0, 0, 0, -246, -155, 0, 0, 0, 0, -187, -108, 0, 0, 0, 0, -124, -70)
+}
+point_count = 7
+
 [sub_resource type="Curve2D" id="Curve2D_p33si"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -124, -70, 0, 0, 0, 0, 75, -110, 0, 0, 0, 0, 191, -71, 0, 0, 0, 0, 373, -67, 0, 0, 0, 0, 377, -176, 0, 0, 0, 0, 269, -205, 0, 0, 0, 0, 286, -114, 0, 0, 0, 0, 392, 74, 0, 0, 0, 0, 242, -167, 0, 0, 0, 0, 176, -244, 0, 0, 0, 0, 49, -305)
+"points": PackedVector2Array(0, 0, 0, 0, -124, -70, 0, 0, 0, 0, -4, -74, 0, 0, 0, 0, 75, -110, 0, 0, 0, 0, 163, -65, 0, 0, 0, 0, 373, -67, 0, 0, 0, 0, 377, -176, 0, 0, 0, 0, 269, -205, 0, 0, 0, 0, 286, -114, 0, 0, 0, 0, 392, 74, 0, 0, 0, 0, 242, -167, 0, 0, 0, 0, 176, -244, 0, 0, 0, 0, 49, -305)
 }
-point_count = 11
+point_count = 12
 
 [node name="Outside5" type="Node2D"]
 script = ExtResource("1_s0bbf")
@@ -3378,7 +3378,7 @@ curve = SubResource("Curve2D_4y2am")
 
 [node name="sam_follow" type="PathFollow2D" parent="sam_path"]
 position = Vector2(-5, 204)
-rotation = 2.8177457
+rotation = 2.733961
 loop = false
 
 [node name="sam_path_2" type="Path2D" parent="."]
@@ -3394,7 +3394,7 @@ curve = SubResource("Curve2D_p33si")
 
 [node name="sam_follow_3" type="PathFollow2D" parent="sam_path_3"]
 position = Vector2(-124, -70)
-rotation = -0.19836174
+rotation = -0.033320993
 loop = false
 
 [node name="Character" parent="." instance=ExtResource("7_4y2am")]

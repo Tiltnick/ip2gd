@@ -4,7 +4,6 @@ class_name SamStateMachine
 signal demo_finished
 
 # Exports 
-
 @export var initial_state: SamState
 @export var start_move_state_name: String = "move"
 @export var path_follow_names: Array[String] = ["sam_follow", "sam_follow_2", "sam_follow_3"]
@@ -17,35 +16,29 @@ signal demo_finished
 @export var segment_index_key: String = "sam_outside5_segment_index"
 @export var failed_flag: String = "outside5_pillar_puzzle_failed"
 
-# Optional Notbremse (0 = aus)
 @export var cutscene_failsafe_seconds: float = 0.0
 
 # Nodes
-
 @onready var npc: NPC = get_parent() as NPC
 
 # State machine
-
 var current_state: SamState
-var states: Dictionary = {} # String -> SamState
+var states: Dictionary = {}
 
 # Flow
-
 var _dialog_started_by_me := false
 var _demo_mode := false
 var _pending_retry_demo := false
 var _segment_index := 0
 
 # Freeze
-
 const _FROZEN_NODE_KEY := "node"
 const _FROZEN_MODE_KEY := "mode"
 
 var _player: Node = null
-var _frozen_nodes: Array[Dictionary] = [] # [{node: Node, mode: int}, ...]
+var _frozen_nodes: Array[Dictionary] = []
 
 # Camera / Cutscene
-
 var _cutscene_cam: Camera2D = null
 var _tween: Tween = null
 
@@ -134,7 +127,6 @@ func on_puzzle_failed() -> void:
 
 
 #Dialog
-
 func _on_dialog_finished() -> void:
 	if not _dialog_started_by_me:
 		return
@@ -177,7 +169,6 @@ func _start_demo_from_beginning() -> void:
 
 
 # Segment control
-
 func _start_segment_by_index(idx: int) -> void:
 	if idx < 0 or idx >= path_follow_names.size():
 		_demo_mode = false
@@ -218,7 +209,6 @@ func _resolve_path_follow_by_name(name_in_scene: String) -> PathFollow2D:
 
 
 # SM
-
 func _register_states() -> void:
 	states.clear()
 
@@ -277,7 +267,6 @@ func _on_state_changed(prev: SamState, now: SamState) -> void:
 
 
 # Cutscene
-
 func _start_cutscene() -> void:
 	_player = _get_player()
 	_player_cam = _get_player_camera()
@@ -380,7 +369,6 @@ func _stop_failsafe() -> void:
 
 
 # Camera
-
 func _find_cutscene_camera() -> Camera2D:
 	var scene := get_tree().current_scene
 	if scene == null:
@@ -452,7 +440,6 @@ func _kill_tween() -> void:
 
 
 # Freeze
-
 func _freeze_player_tree(freeze: bool) -> void:
 	if freeze:
 		_player = _get_player()
@@ -487,7 +474,6 @@ func _collect_tree(root: Node) -> void:
 
 
 #GameState
-
 func _get_segment_index() -> int:
 	return int(GameState.puzzle_state.get(segment_index_key, 0))
 
@@ -501,8 +487,7 @@ func _set_failed_flag(value: bool) -> void:
 		GameState.puzzle_state[failed_flag] = value
 
 
-#Utils 
-
+# Utils 
 func _find_node_by_name(root: Node, wanted: String) -> Node:
 	if root.name == wanted:
 		return root

@@ -14,7 +14,6 @@ func _ready() -> void:
 		_replace_now()
 		return
 
-	# Signal verbinden
 	if puzzle_path != NodePath() and has_node(puzzle_path):
 		var puzzle := get_node(puzzle_path)
 		if puzzle and puzzle.has_signal("puzzle_solved"):
@@ -31,13 +30,11 @@ func _replace_now() -> void:
 	_replaced = true
 
 	if flower_scene == null:
-		push_warning("ReplaceWithFlower: flower_scene ist nicht gesetzt.")
 		return
 
 	var flower := flower_scene.instantiate()
 	flower.global_position = global_position
 
-	# gleicher Parent, gleiche Stelle in Hierarchie
 	var parent := get_parent()
 	if parent:
 		parent.add_child(flower)
