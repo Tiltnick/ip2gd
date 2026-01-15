@@ -4152,7 +4152,7 @@ scale = Vector2(1.5, 1.5)
 [node name="MapBounds" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MapBounds"]
-position = Vector2(784, -40)
+position = Vector2(768, -40)
 build_mode = 1
 polygon = PackedVector2Array(-770, -705, -2, -705, -1, -385, 8, -385, 8, -275, -1, -275, 0, 333, -186, 333, -187, 353, -235, 353, -235.14958, 332.00003, -771, 332)
 

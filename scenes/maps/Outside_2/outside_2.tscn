@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="6_2emao"]
 [ext_resource type="PackedScene" uid="uid://bph2lfcube6e4" path="res://scenes/maps/Outside_2/FadeArea.tscn" id="7_3r0bj"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="10_exwp3"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/objects/shovel.tscn" id="10_o6c6f"]
+[ext_resource type="PackedScene" uid="uid://eb6l6mv15te6" path="res://scenes/interactables/objects/shovel.tscn" id="10_o6c6f"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="11_iaftu"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="12_60fd3"]
 [ext_resource type="PackedScene" uid="uid://c7amjsaj2vw3u" path="res://scenes/interactables/objects/flashlight.tscn" id="12_g73bm"]
@@ -18,9 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://1uf4f4pkdxpx" path="res://scenes/interactables/objects/treasure.tscn" id="14_hiyfs"]
 [ext_resource type="PackedScene" uid="uid://dfa4ga2b2k76f" path="res://scenes/Menues/saving_menu.tscn" id="14_vxisc"]
 [ext_resource type="PackedScene" uid="uid://m8y5i5u6eyka" path="res://scenes/maps/transition_area_fade.tscn" id="17_ew4ox"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/objects/statue.tscn" id="17_l2mbr"]
+[ext_resource type="PackedScene" uid="uid://bwhu76fxy1g07" path="res://scenes/interactables/objects/statue.tscn" id="17_l2mbr"]
 [ext_resource type="PackedScene" uid="uid://dgxcraqxfqci7" path="res://scenes/Riddles/riddle_statue/riddle_statue.tscn" id="18_l2mbr"]
-[ext_resource type="PackedScene" uid="uid://ch3mxlgsh3het" path="res://scenes/interactables/objects/tripod.tscn" id="19_on5tc"]
+[ext_resource type="PackedScene" uid="uid://bnjx4jljcdw2x" path="res://scenes/interactables/objects/tripod.tscn" id="19_on5tc"]
 [ext_resource type="Script" uid="uid://bkmuaqelrfjke" path="res://scripts/riddles/sky_riddle/tripod_middle.gd" id="20_f8agi"]
 [ext_resource type="PackedScene" uid="uid://dkl4wilu1mavv" path="res://scenes/interactables/objects/stone pieces/stone_piece_4.tscn" id="21_3tmc5"]
 [ext_resource type="Script" uid="uid://dr1kl8nrqtby" path="res://scripts/riddles/sky_riddle/tripod_top.gd" id="21_bk0mb"]
@@ -2086,6 +2086,7 @@ tile_map_data = PackedByteArray("AADQ/+f/AQADAAwAAADQ/+j/AQADAA0AAADQ/+n/AQADAA4
 tile_set = SubResource("TileSet_q7d5i")
 
 [node name="FadeArea" parent="PassageHiding/Passage1" instance=ExtResource("7_3r0bj")]
+visible = false
 z_index = 8
 position = Vector2(-648, -380.00003)
 scale = Vector2(-11.97995, 2.1352155)
@@ -2096,6 +2097,7 @@ tile_map_data = PackedByteArray("AADQ/+j/AQAAAAkAAADQ/+n/AQAAAAoAAADe/+j/AQAFAAk
 tile_set = SubResource("TileSet_q7d5i")
 
 [node name="FadeArea" parent="PassageHiding/Passage2" instance=ExtResource("7_3r0bj")]
+visible = false
 z_index = 8
 position = Vector2(-648, -380.00003)
 scale = Vector2(-11.97995, 2.1352155)
@@ -2106,6 +2108,7 @@ tile_map_data = PackedByteArray("AADT/+n/AQABAA8AAADX/+n/AQABAA8AAADb/+n/AQACAA8
 tile_set = SubResource("TileSet_ew4ox")
 
 [node name="FadeArea" parent="PassageHiding/Roof3_5" instance=ExtResource("7_3r0bj")]
+visible = false
 z_index = 8
 position = Vector2(-648, -380.00003)
 scale = Vector2(-11.97995, 2.1352155)
@@ -2116,6 +2119,7 @@ tile_map_data = PackedByteArray("AADQ/+f/AQAMAAkAAADR/+f/AQAMAAkAAADS/+f/AQAMAAk
 tile_set = SubResource("TileSet_ew4ox")
 
 [node name="FadeArea" parent="PassageHiding/Roof4" instance=ExtResource("7_3r0bj")]
+visible = false
 position = Vector2(-648.00006, -291)
 scale = Vector2(11.960439, -10.085182)
 
@@ -2125,6 +2129,7 @@ tile_map_data = PackedByteArray("AADQ/+f/AQACAAcAAADR/+f/AQADAAcAAADS/+f/AQACAAc
 tile_set = SubResource("TileSet_ew4ox")
 
 [node name="FadeArea" parent="PassageHiding/Roof5" instance=ExtResource("7_3r0bj")]
+visible = false
 position = Vector2(-648.00006, -291)
 scale = Vector2(11.960439, -10.085182)
 
@@ -2134,6 +2139,7 @@ tile_map_data = PackedByteArray("AADQ/+b/AgAAAAgAAADQ/+f/AgAAAAkAAADQ/+j/AgAAAAo
 tile_set = SubResource("TileSet_ew4ox")
 
 [node name="FadeArea" parent="PassageHiding/Roof6" instance=ExtResource("7_3r0bj")]
+visible = false
 position = Vector2(-648.00006, -291)
 scale = Vector2(11.960439, -10.085182)
 
@@ -2145,6 +2151,7 @@ tile_map_data = PackedByteArray("AADQ/+r/AQAMAAkAAADQ/+v/AQAMAAkAAADQ/+z/AQAMAAk
 tile_set = SubResource("TileSet_60fd3")
 
 [node name="FadeArea" parent="Roof_Hiding/Roof1" instance=ExtResource("7_3r0bj")]
+visible = false
 position = Vector2(-648.00006, -268)
 scale = Vector2(11.960439, -8.005182)
 
@@ -2154,6 +2161,7 @@ tile_map_data = PackedByteArray("AADW/+r/AQAAAAkAAADW/+v/AQAAAAoAAADW/+z/AQAAAAo
 tile_set = SubResource("TileSet_ew4ox")
 
 [node name="FadeArea" parent="Roof_Hiding/Roof2" instance=ExtResource("7_3r0bj")]
+visible = false
 position = Vector2(-648.00006, -268)
 scale = Vector2(11.960439, -8.005182)
 
@@ -2163,6 +2171,7 @@ tile_map_data = PackedByteArray("AADQ/+r/AgAAAAkAAADQ/+v/AgAAAAoAAADQ/+7/AgAAAAg
 tile_set = SubResource("TileSet_ew4ox")
 
 [node name="FadeArea" parent="Roof_Hiding/Roof3" instance=ExtResource("7_3r0bj")]
+visible = false
 position = Vector2(-648.00006, -268)
 scale = Vector2(11.960439, -8.005182)
 

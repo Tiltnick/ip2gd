@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfceavr718114"
-path="res://.godot/imported/WholeMap.png-1bebf7cadee7d9e420fba5f304a27dd7.ctex"
+uid="uid://dcmotrux3mdln"
+path="res://.godot/imported/tower_icon.png-24bbd701d54eb7499559a8f6bef9ac38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/selfmade/WholeMap.png"
-dest_files=["res://.godot/imported/WholeMap.png-1bebf7cadee7d9e420fba5f304a27dd7.ctex"]
+source_file="res://assets/sprites/selfmade/map/map_icon/tower_icon.png"
+dest_files=["res://.godot/imported/tower_icon.png-24bbd701d54eb7499559a8f6bef9ac38.ctex"]
 
 [params]
 

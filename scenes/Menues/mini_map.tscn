@@ -1,8 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dr8ikx12umk4h"]
+[gd_scene load_steps=13 format=3 uid="uid://dr8ikx12umk4h"]
 
 [ext_resource type="Script" uid="uid://dfqx80n77268n" path="res://scripts/menu/mini_map.gd" id="1_yp080"]
-[ext_resource type="Texture2D" uid="uid://bfceavr718114" path="res://assets/sprites/selfmade/WholeMap.png" id="2_d7oj4"]
-[ext_resource type="Texture2D" uid="uid://bxkpc75qkm6q" path="res://assets/sprites/icon.svg" id="3_d7oj4"]
+[ext_resource type="Texture2D" uid="uid://bsw333pwhff4l" path="res://assets/sprites/selfmade/map/map_icon/building_icon.png" id="3_61kpm"]
+[ext_resource type="Texture2D" uid="uid://nd38idvefjo2" path="res://assets/sprites/selfmade/marker.png" id="3_d7oj4"]
+[ext_resource type="Script" uid="uid://lepobq4kjqk1" path="res://scenes/Menues/minimap_icons.gd" id="4_m41xg"]
+[ext_resource type="Texture2D" uid="uid://ctju4vfe343wo" path="res://assets/sprites/selfmade/map/map_icon/oris_shuttle_icon.png" id="5_wox8i"]
+[ext_resource type="Texture2D" uid="uid://cnsfov3q5q8nh" path="res://assets/sprites/selfmade/map/map_icon/sam_shuttle_icon.png" id="6_6siv4"]
+[ext_resource type="Texture2D" uid="uid://wwwa5wk47vuu" path="res://assets/sprites/selfmade/map/map_icon/stone_panel_icon.png" id="7_dg4ou"]
+[ext_resource type="Texture2D" uid="uid://c3opxqvx1n2wk" path="res://assets/sprites/selfmade/map/map_icon/temple_icon.png" id="8_kg1vc"]
+[ext_resource type="Texture2D" uid="uid://dcmotrux3mdln" path="res://assets/sprites/selfmade/map/map_icon/tower_icon.png" id="9_sl0p5"]
+[ext_resource type="Texture2D" uid="uid://dr68jtgxk3836" path="res://assets/sprites/selfmade/map/map_icon/sockets_icon.png" id="10_fqm68"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ci3pi"]
 bg_color = Color(0.14509805, 0.14509805, 0.14509805, 0.88235295)
@@ -16,20 +23,23 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_61kpm"]
+load_path = "res://.godot/imported/WholeMap.png-60e26c24c809697faefce3c508847020.ctex"
+
 [node name="MiniMap" type="CanvasLayer"]
-visible = false
 script = ExtResource("1_yp080")
 
 [node name="Background" type="Panel" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 472.0
-offset_top = 64.0
-offset_right = -416.0
-offset_bottom = -96.0
+offset_left = 454.0
+offset_top = 84.0
+offset_right = -434.0
+offset_bottom = -76.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ci3pi")
 
 [node name="MapTexture" type="TextureRect" parent="."]
@@ -38,57 +48,131 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -529.5
-offset_top = -529.5
-offset_right = 529.5
-offset_bottom = 529.5
+offset_left = -571.5
+offset_top = -503.5
+offset_right = 487.5
+offset_bottom = 555.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_d7oj4")
+mouse_filter = 2
+texture = SubResource("CompressedTexture2D_61kpm")
 
-[node name="Markers" type="Node" parent="."]
+[node name="Building" type="TextureRect" parent="."]
+offset_left = 941.0
+offset_top = 271.3617
+offset_right = 1106.0
+offset_bottom = 457.42554
+mouse_filter = 0
+texture = ExtResource("3_61kpm")
+script = ExtResource("4_m41xg")
 
-[node name="Marker_Outside1" type="TextureRect" parent="Markers"]
+[node name="Oris_Shuttle" type="TextureRect" parent="."]
+offset_left = 1027.0
+offset_top = 690.0
+offset_right = 1207.3657
+offset_bottom = 835.0
+mouse_filter = 0
+texture = ExtResource("5_wox8i")
+script = ExtResource("4_m41xg")
+label_text = "Oris"
+
+[node name="Sam_Shuttle" type="TextureRect" parent="."]
+offset_left = 1197.0
+offset_top = 385.0
+offset_right = 1351.0
+offset_bottom = 497.0
+mouse_filter = 0
+texture = ExtResource("6_6siv4")
+script = ExtResource("4_m41xg")
+label_text = "Sam"
+
+[node name="Stone_Panel" type="TextureRect" parent="."]
+offset_left = 582.0
+offset_top = 240.0
+offset_right = 724.2222
+offset_bottom = 368.0
+mouse_filter = 0
+texture = ExtResource("7_dg4ou")
+script = ExtResource("4_m41xg")
+label_text = "Stone"
+
+[node name="Temple" type="TextureRect" parent="."]
+offset_left = 610.0
+offset_top = 658.0
+offset_right = 865.2619
+offset_bottom = 809.0
+mouse_filter = 0
+texture = ExtResource("8_kg1vc")
+script = ExtResource("4_m41xg")
+label_text = "Temple"
+
+[node name="Tower" type="TextureRect" parent="."]
+offset_left = 1161.0
+offset_top = 182.0
+offset_right = 1369.1738
+offset_bottom = 350.0
+mouse_filter = 0
+texture = ExtResource("9_sl0p5")
+script = ExtResource("4_m41xg")
+label_text = "Tower"
+
+[node name="Sockets" type="TextureRect" parent="."]
+offset_left = 576.0
+offset_top = 488.0
+offset_right = 731.0
+offset_bottom = 529.0
+mouse_filter = 0
+texture = ExtResource("10_fqm68")
+script = ExtResource("4_m41xg")
+label_text = "Socket"
+
+[node name="Label" type="Label" parent="."]
 visible = false
-offset_left = 1344.0
-offset_top = 726.0
-offset_right = 1472.0
-offset_bottom = 854.0
-scale = Vector2(0.3, 0.3)
+offset_left = 312.0
+offset_top = 455.0
+offset_right = 361.0
+offset_bottom = 504.0
+text = "Tower
+"
+
+[node name="Marker" type="Node" parent="."]
+
+[node name="Marker_Outside4" type="TextureRect" parent="Marker"]
+offset_left = 713.0
+offset_top = 645.0
+offset_right = 781.0
+offset_bottom = 724.0
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_d7oj4")
 
-[node name="Marker_Outside2" type="TextureRect" parent="Markers"]
-visible = false
-offset_left = 1149.0
-offset_top = 338.0
-offset_right = 1277.0
-offset_bottom = 466.0
-scale = Vector2(0.3, 0.3)
+[node name="Marker_Outside3" type="TextureRect" parent="Marker"]
+offset_left = 688.0
+offset_top = 415.0
+offset_right = 756.0
+offset_bottom = 494.0
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_d7oj4")
 
-[node name="Marker_Outside3" type="TextureRect" parent="Markers"]
-visible = false
-offset_left = 704.0
-offset_top = 416.0
-offset_right = 832.0
-offset_bottom = 544.0
-scale = Vector2(0.3, 0.3)
+[node name="Marker_Outside2" type="TextureRect" parent="Marker"]
+offset_left = 1176.0
+offset_top = 376.0
+offset_right = 1244.0
+offset_bottom = 455.0
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_d7oj4")
 
-[node name="Marker_Outside4" type="TextureRect" parent="Markers"]
-visible = false
-offset_left = 680.0
-offset_top = 648.00006
-offset_right = 808.0
-offset_bottom = 776.00006
-scale = Vector2(0.3, 0.3)
+[node name="Marker_Outside1" type="TextureRect" parent="Marker"]
+offset_left = 1248.0
+offset_top = 713.0
+offset_right = 1316.0
+offset_bottom = 792.0
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_d7oj4")
 
-[node name="Marker_Spaceship" type="TextureRect" parent="Markers"]
-visible = false
-offset_left = 1200.0
-offset_top = 736.0
-offset_right = 1328.0
-offset_bottom = 864.0
-scale = Vector2(0.3, 0.3)
+[node name="Marker_Spaceship" type="TextureRect" parent="Marker"]
+offset_left = 1101.0
+offset_top = 653.0
+offset_right = 1169.0
+offset_bottom = 732.0
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_d7oj4")

@@ -8,6 +8,7 @@ extends CanvasLayer
 @onready var marker_outside_4: TextureRect = $Markers/Marker_Outside4
 @onready var marker_spaceship: TextureRect = $Markers/Marker_Spaceship
 @onready var markers: Node = $Markers
+@onready var label: Label = $Label
 
 func _ready() -> void:
 	pass
@@ -38,16 +39,16 @@ func _get_map_texture() -> Texture2D:
 	var outside_4 = GameState.map_state.get("outside4_map", false)
 
 	if outside_4:
-		return preload("res://assets/sprites/selfmade/WholeMap.png")
+		return preload("res://assets/sprites/selfmade/map/WholeMap.png")
 
 	if outside_3:
-		return preload("res://assets/sprites/selfmade/minimap_3.png")
+		return preload("res://assets/sprites/selfmade/map/minimap_3.png")
 
 	if outside_2:
-		return preload("res://assets/sprites/selfmade/minimap_2.png")
+		return preload("res://assets/sprites/selfmade/map/minimap_2.png")
 
-	# Fallback (sollte eig nicht passieren)
-	return preload("res://assets/sprites/selfmade/minimap_1.png")
+	# Fallback
+	return preload("res://assets/sprites/selfmade/map/minimap_1.png")
 
 func update_marker(scene_name: String) -> void:
 	match scene_name:
@@ -61,3 +62,11 @@ func update_marker(scene_name: String) -> void:
 			marker_outside_3.show()
 		"Outside4":
 			marker_outside_4.show()
+
+func show_tooltip(text: String, pos: Vector2):
+	label.text = text
+	label.visible = true
+	label.global_position = pos + Vector2(18, -10)
+
+func hide_tooltip():
+	label.visible = false

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4khei26ggeuo"
-path="res://.godot/imported/map_item.png-305895ed3a5763e2bff32ab9a1827149.ctex"
+uid="uid://bsw333pwhff4l"
+path="res://.godot/imported/building_icon.png-0fafadb64a39ed668adba84c03dc10d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/selfmade/map_item.png"
-dest_files=["res://.godot/imported/map_item.png-305895ed3a5763e2bff32ab9a1827149.ctex"]
+source_file="res://assets/sprites/selfmade/map/map_icon/building_icon.png"
+dest_files=["res://.godot/imported/building_icon.png-0fafadb64a39ed668adba84c03dc10d9.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c8wh573cegrw7"]
 
 [ext_resource type="Script" uid="uid://cprdq3p8ckf02" path="res://scripts/interactables/objects/map_item.gd" id="1_et83h"]
-[ext_resource type="Texture2D" uid="uid://b4khei26ggeuo" path="res://assets/sprites/selfmade/map_item.png" id="2_lxoux"]
+[ext_resource type="Texture2D" uid="uid://b4khei26ggeuo" path="res://assets/sprites/selfmade/map/map_item.png" id="2_lxoux"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="3_oktc6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_osm6j"]

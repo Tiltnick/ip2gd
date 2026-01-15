@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://c8wh573cegrw7" path="res://scenes/interactables/objects/map_item.tscn" id="12_a5uu7"]
 [ext_resource type="Script" uid="uid://dge528a6i2b6f" path="res://scripts/interactables/doors/door_spaceship_room.gd" id="13_4nltl"]
 [ext_resource type="Texture2D" uid="uid://c7pwwu6560hy4" path="res://assets/sprites/selfmade/spaceship_door_open.png" id="13_b8ov6"]
-[ext_resource type="Texture2D" uid="uid://b4khei26ggeuo" path="res://assets/sprites/selfmade/map_item.png" id="13_t5k16"]
+[ext_resource type="Texture2D" uid="uid://b4khei26ggeuo" path="res://assets/sprites/selfmade/map/map_item.png" id="13_t5k16"]
 [ext_resource type="PackedScene" uid="uid://bpvneidk4xerj" path="res://scenes/Riddles/Spaceship/spaceship_door_riddle.tscn" id="14_1oksb"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="15_emg07"]
 [ext_resource type="PackedScene" uid="uid://m8y5i5u6eyka" path="res://scenes/maps/transition_area_fade.tscn" id="17_8o1ua"]
@@ -1366,13 +1366,14 @@ texture = ExtResource("13_b8ov6")
 visible = false
 texture = ExtResource("13_b8ov6")
 
-[node name="Door" parent="." instance=ExtResource("10_172bc")]
+[node name="Door" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("10_172bc")]
 position = Vector2(272, 72)
 script = ExtResource("11_emg07")
 code_popup_path = NodePath("../SpaceshipDoor")
 puzzle_id = "Spaceship_code"
 target_scene_path = "uid://b4r2irdvo1x1b"
 target_spawn_id = "from_spaceship"
+e_popup_node = NodePath("Press_E_Popup_Door")
 
 [node name="Press_E_Popup_Door" parent="Door" instance=ExtResource("10_o77e3")]
 visible = false
