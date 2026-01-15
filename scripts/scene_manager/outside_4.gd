@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready() -> void:
-	pass
+	BgmPlayer.bgm_outside4()
 
 
 func configure_camera(cam: Camera2D) -> void:
