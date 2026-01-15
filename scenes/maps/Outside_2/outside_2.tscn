@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://34ylk7jtx176"]
+[gd_scene load_steps=56 format=4 uid="uid://34ylk7jtx176"]
 
 [ext_resource type="Script" uid="uid://f7c56kdptn0k" path="res://scripts/scene_manager/outside_2.gd" id="1_7t2bs"]
 [ext_resource type="Texture2D" uid="uid://dqoxkjxdkwqgu" path="res://assets/sprites/map/Outside_2/spaceship.png" id="2_f8agi"]
@@ -2081,6 +2081,24 @@ _data = {
 }
 point_count = 6
 
+[sub_resource type="Curve2D" id="Curve2D_bswoq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -712, 75, 0, 0, 0, 0, -588, 75, 0, 0, 0, 0, -597, -61, 0, 0, 0, 0, -546, -58, 0, 0, 0, 0, -538, 76, 0, 0, 0, 0, -712, 75)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_y0p7d"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -260, -603, 0, 0, 0, 0, -169, -635, 0, 0, 0, 0, -71, -639, 0, 0, 0, 0, -72, -607, 0, 0, 0, 0, -167, -605, 0, 0, 0, 0, -257, -603, 0, 0, 0, 0, -260, -603)
+}
+point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_d30d6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -151, 234, 0, 0, 0, 0, -563, 244, 0, 0, 0, 0, -562, 251, 0, 0, 0, 0, -153, 247, 0, 0, 0, 0, -151, 234)
+}
+point_count = 5
+
 [node name="Outside2" type="Node2D"]
 script = ExtResource("1_7t2bs")
 
@@ -2354,7 +2372,7 @@ position = Vector2(-360, 262)
 position = Vector2(2, 15)
 
 [node name="from_outside1" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(2, 39)
+position = Vector2(2, 15)
 
 [node name="from_sams_cave" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(-312, -853)
@@ -2560,6 +2578,43 @@ curve = SubResource("Curve2D_dnlym")
 [node name="PathFollow2D" type="PathFollow2D" parent="Tumleweed/Path2D5"]
 position = Vector2(-1.4285583, -1.4285583)
 rotation = -3.11925
+
+[node name="Tumbleweed6" parent="Tumleweed" node_paths=PackedStringArray("path_follow") instance=ExtResource("27_es6jy")]
+position = Vector2(-712, 77)
+scale = Vector2(0.7, 0.7)
+path_follow = NodePath("../Path2D6/PathFollow2D")
+
+[node name="Path2D6" type="Path2D" parent="Tumleweed"]
+curve = SubResource("Curve2D_bswoq")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Tumleweed/Path2D6"]
+position = Vector2(-712, 75)
+
+[node name="Tumbleweed8" parent="Tumleweed" node_paths=PackedStringArray("path_follow") instance=ExtResource("27_es6jy")]
+position = Vector2(-242, -603)
+scale = Vector2(0.7, 0.7)
+path_follow = NodePath("../Path2D8/PathFollow2D")
+
+[node name="Path2D8" type="Path2D" parent="Tumleweed"]
+position = Vector2(-24.021173, -134)
+scale = Vector2(0.8306878, 0.7777778)
+curve = SubResource("Curve2D_y0p7d")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Tumleweed/Path2D8"]
+position = Vector2(-260, -603)
+rotation = -0.3381425
+
+[node name="Tumbleweed7" parent="Tumleweed" node_paths=PackedStringArray("path_follow") instance=ExtResource("27_es6jy")]
+position = Vector2(-153, 234)
+scale = Vector2(0.7, 0.7)
+path_follow = NodePath("../Path2D7/PathFollow2D")
+
+[node name="Path2D7" type="Path2D" parent="Tumleweed"]
+curve = SubResource("Curve2D_d30d6")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Tumleweed/Path2D7"]
+position = Vector2(-151, 234)
+rotation = 3.1173255
 
 [node name="GrassBrown" type="Node" parent="."]
 
