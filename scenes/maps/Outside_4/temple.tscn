@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://r6j747jkcvv3" path="res://scripts/riddles/temple/pillar_puzzle.gd" id="9_n6rke"]
 [ext_resource type="PackedScene" uid="uid://cdvfatji880xc" path="res://scenes/interactables/objects/temple/Pillar.tscn" id="9_p33si"]
 [ext_resource type="Texture2D" uid="uid://nt6msjtfbiew" path="res://assets/sprites/selfmade/Riddle_temple/pillar_riddle.png" id="11_sq8sw"]
-[ext_resource type="Texture2D" uid="uid://wf62axv6d23q" path="res://assets/sprites/selfmade/Statue.png" id="12_ofqor"]
+[ext_resource type="Texture2D" uid="uid://2g61nlgyheys" path="res://assets/sprites/selfmade/pillar_riddle.png" id="12_kjp60"]
 [ext_resource type="Texture2D" uid="uid://bdd4mk1akiort" path="res://assets/sprites/selfmade/Riddle_temple/Stone_into_flower.png" id="13_ofqor"]
 [ext_resource type="PackedScene" uid="uid://cj8plkd0pvjg" path="res://scenes/Riddles/temple_riddle/flower.tscn" id="14_bgrxh"]
 [ext_resource type="Script" uid="uid://b0ogrds8irf2f" path="res://scripts/riddles/temple/flower.gd" id="14_gchg7"]
@@ -3367,7 +3367,7 @@ position = Vector2(0, 317)
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, 358)
 script = ExtResource("5_vq5gx")
-target_scene_path = "uid://dmkx8cyr3lsa6"
+target_scene_path = "uid://ppgrh87b51qp"
 target_spawn_id = "from_temple"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -3414,67 +3414,67 @@ script = ExtResource("9_n6rke")
 position = Vector2(-296, 300)
 pillar_id = "A"
 sprite_off = ExtResource("11_sq8sw")
-sprite_on = ExtResource("12_ofqor")
+sprite_on = ExtResource("12_kjp60")
 
 [node name="Pillar2" parent="PillarPuzzle" groups=["pillars"] instance=ExtResource("9_p33si")]
 position = Vector2(-408, 272)
 pillar_id = "B"
 sprite_off = ExtResource("11_sq8sw")
-sprite_on = ExtResource("12_ofqor")
+sprite_on = ExtResource("12_kjp60")
 
 [node name="Pillar3" parent="PillarPuzzle" groups=["pillars"] instance=ExtResource("9_p33si")]
 position = Vector2(-376, -65)
 pillar_id = "C"
 sprite_off = ExtResource("11_sq8sw")
-sprite_on = ExtResource("12_ofqor")
+sprite_on = ExtResource("12_kjp60")
 
 [node name="Pillar4" parent="PillarPuzzle" groups=["pillars"] instance=ExtResource("9_p33si")]
 position = Vector2(-376, -177)
 pillar_id = "D"
 sprite_off = ExtResource("11_sq8sw")
-sprite_on = ExtResource("12_ofqor")
+sprite_on = ExtResource("12_kjp60")
 
 [node name="Pillar5" parent="PillarPuzzle" groups=["pillars"] instance=ExtResource("9_p33si")]
 position = Vector2(-265, -193)
 pillar_id = "E"
 sprite_off = ExtResource("11_sq8sw")
-sprite_on = ExtResource("12_ofqor")
+sprite_on = ExtResource("12_kjp60")
 
 [node name="Pillar6" parent="PillarPuzzle" groups=["pillars"] instance=ExtResource("9_p33si")]
 position = Vector2(-200, -113)
 pillar_id = "F"
 sprite_off = ExtResource("11_sq8sw")
-sprite_on = ExtResource("12_ofqor")
+sprite_on = ExtResource("12_kjp60")
 
 [node name="Pillar7" parent="PillarPuzzle" groups=["pillars"] instance=ExtResource("9_p33si")]
 position = Vector2(72, -102)
 pillar_id = "G"
 sprite_off = ExtResource("11_sq8sw")
-sprite_on = ExtResource("12_ofqor")
+sprite_on = ExtResource("12_kjp60")
 
 [node name="Pillar8" parent="PillarPuzzle" groups=["pillars"] instance=ExtResource("9_p33si")]
 position = Vector2(376, -70)
 pillar_id = "H"
 sprite_off = ExtResource("11_sq8sw")
-sprite_on = ExtResource("12_ofqor")
+sprite_on = ExtResource("12_kjp60")
 
 [node name="Pillar9" parent="PillarPuzzle" groups=["pillars"] instance=ExtResource("9_p33si")]
 position = Vector2(376, -166)
 pillar_id = "I"
 sprite_off = ExtResource("11_sq8sw")
-sprite_on = ExtResource("12_ofqor")
+sprite_on = ExtResource("12_kjp60")
 
 [node name="Pillar10" parent="PillarPuzzle" groups=["pillars"] instance=ExtResource("9_p33si")]
 position = Vector2(263, -198)
 pillar_id = "J"
 sprite_off = ExtResource("11_sq8sw")
-sprite_on = ExtResource("12_ofqor")
+sprite_on = ExtResource("12_kjp60")
 
 [node name="Pillar11" parent="PillarPuzzle" groups=["pillars"] instance=ExtResource("9_p33si")]
 position = Vector2(391, 90)
 pillar_id = "K"
 sprite_off = ExtResource("11_sq8sw")
-sprite_on = ExtResource("12_ofqor")
+sprite_on = ExtResource("12_kjp60")
 
 [node name="stone" type="Sprite2D" parent="."]
 position = Vector2(-1, -304)
@@ -3484,5 +3484,6 @@ puzzle_path = NodePath("../PillarPuzzle")
 flower_scene = ExtResource("14_bgrxh")
 
 [node name="CutsceneCamera" type="Camera2D" parent="."]
-scale = Vector2(3.7041543, 6.0584784)
-zoom = Vector2(1.6, 1.6)
+position = Vector2(0, -1.5258789e-05)
+scale = Vector2(3.7041545, 6.058479)
+zoom = Vector2(1.7, 1.7)
