@@ -80,7 +80,7 @@ offset_bottom = 457.42554
 mouse_filter = 0
 texture = ExtResource("3_61kpm")
 script = ExtResource("4_m41xg")
-label_text = "Secret Building"
+label_text = "SECRET_BUILDING"
 
 [node name="Oris_Shuttle" type="TextureRect" parent="."]
 offset_left = 1027.0
@@ -90,7 +90,7 @@ offset_bottom = 835.0
 mouse_filter = 0
 texture = ExtResource("5_wox8i")
 script = ExtResource("4_m41xg")
-label_text = "Oris' Shuttle"
+label_text = "ORIS'S_SHUTTLE"
 
 [node name="Sam_Shuttle" type="TextureRect" parent="."]
 visible = false
@@ -101,7 +101,7 @@ offset_bottom = 497.0
 mouse_filter = 0
 texture = ExtResource("6_6siv4")
 script = ExtResource("4_m41xg")
-label_text = "Sam's Shuttle"
+label_text = "SAM'S_SHUTTLE"
 
 [node name="Stone_Panel" type="TextureRect" parent="."]
 visible = false
@@ -112,7 +112,7 @@ offset_bottom = 376.0
 mouse_filter = 0
 texture = ExtResource("7_dg4ou")
 script = ExtResource("4_m41xg")
-label_text = "Stone Panel"
+label_text = "STONE_PANEL"
 
 [node name="Temple" type="TextureRect" parent="."]
 visible = false
@@ -123,7 +123,7 @@ offset_bottom = 809.0
 mouse_filter = 0
 texture = ExtResource("8_kg1vc")
 script = ExtResource("4_m41xg")
-label_text = "Temple"
+label_text = "TEMPLE"
 
 [node name="Tower" type="TextureRect" parent="."]
 visible = false
@@ -134,7 +134,7 @@ offset_bottom = 350.0
 mouse_filter = 0
 texture = ExtResource("9_sl0p5")
 script = ExtResource("4_m41xg")
-label_text = "Mysterious Tower"
+label_text = "MYSTERIOUS_TOWER"
 
 [node name="Sockets" type="TextureRect" parent="."]
 visible = false
@@ -145,7 +145,7 @@ offset_bottom = 529.0
 mouse_filter = 0
 texture = ExtResource("10_fqm68")
 script = ExtResource("4_m41xg")
-label_text = "Mushroom Sockets"
+label_text = "MUSHROOM_SOCKETS"
 
 [node name="Marker" type="Node" parent="."]
 
