@@ -127,5 +127,10 @@ func _build_quest(id: String) -> Dictionary:
 		"id": id,
 		"title": q.get("quest_title_" + lang, ""),
 		"description": q.get("quest_description_" + lang, ""),
-		"is_new": state.get("is_new", false)
-	}
+		"is_new": state.get("is_new", false),
+		
+		"needs_item": q.get("needs_item", "false") == "true",
+		"icon_path": q.get("icon_path", "")
+		}
+	
+	

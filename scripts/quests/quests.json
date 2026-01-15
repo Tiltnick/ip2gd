@@ -1,28 +1,37 @@
 {
 	"quests": {
 		"quest1": {
+			"needs_item": "false",
+			"icon_path": "",
 			"quest_title_en": "Exit the Spaceship",
 			"quest_title_de": "Verlasse das Raumschiff",
 			"quest_description_en": "Find a way to escape the Spacehip.",
 			"quest_description_de": "Finde einen Weg um aus dem Raumschiff zu entkommen."
 		},
 		"quest2": {
+			"needs_item": "true",
+			"icon_path": "res://assets/sprites/selfmade/Fluxomat.png",
 			"quest_title_en": "The broken door",
 			"quest_title_de": "Die kaputte Tür",
 			"quest_description_en": "You might need a special tool to fix that door.",
 			"quest_description_de": "Du brauchst vielleicht ein spezielles Tool um die Tür zu reparieren."
 		},
 		"quest3": {
+			"needs_item": "true",
+			"icon_path": "",
 			"quest_title_en": "Missing Stone Plates",
 			"quest_title_de": "Verschwundene Steintafeln",
 			"quest_description_en": "You found a misterious looking stone. While you're looking closely, you notice that it might be a missing piece of a bigger picture.",
 			"quest_description_de": "Du hast einen mysteriös aussehenden Stein gefunden. Als du genauer hinsiehst fällt dir auf, dass es ein fehlendes Teil eines größeren Bildes sein könnte."
 		},
 		"quest4": {
+			"needs_item": "true",
+			"icon_path": "",
 			"quest_title_en": "Find Sam",
 			"quest_title_de": "Finde Sam",
 			"quest_description_en": "You came to this planet looking for your friend Sam. He's gotte be around here somewhere...",
 			"quest_description_de": "Du bist auf diesen Planeten gekommen um naach deinem Freund Sam zu suchen. Er muss hier irgendwo sein..."
-		}
+		},
+		
 	}
 }
