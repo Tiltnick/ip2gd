@@ -13,6 +13,15 @@ func clear():
 func is_occupied() -> bool:
 	return current_piece != null
 
+func take_piece() -> Area2D:
+	var p := current_piece
+	if p:
+		p.current_slot = null
+	current_piece = null
+	if manager:
+		manager.on_slot_cleared(self)
+	return 
+
 func set_piece(piece: Area2D):
 	current_piece = piece
 	piece.current_slot = self

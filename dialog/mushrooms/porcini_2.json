@@ -1,0 +1,22 @@
+{
+	"id": "porcini_riddle",
+
+	"characters": {
+		"Porcini": "res://assets/sprites/portrait/porcini.png"
+},
+
+ "steps": {
+
+	"sections": {
+		"lines": [
+			{"speaker": "Porcini","text_en": "Good Luck with the hottie.",
+									"text_de": "Viel Glück mit dem Hottie." 
+			}
+		],
+		"next": "end"
+	},
+	"end": {
+	  "lines": []
+	}
+  }
+}

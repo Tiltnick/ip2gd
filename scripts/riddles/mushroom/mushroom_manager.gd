@@ -38,11 +38,11 @@ func _ready() -> void:
 		solved = true
 		is_solved()
 		solved_layout()
-	
+
 
 func open_socket():
 	mushroom_ui.show()
-
+	
 	for slot in get_tree().get_nodes_in_group("socket"):
 		slot.manager = self
 
@@ -64,37 +64,62 @@ func check_mush():
 func on_slot_filled(slot):
 	if not fill_order.has(slot):
 		fill_order.append(slot)
-
 	check_puzzle()
 
 func on_slot_cleared(slot):
-	# wenn rausgezogen: aus Reihenfolge entfernen
 	fill_order.erase(slot)
 
 func correct_order(slot) -> bool:
 	var wanted = slot.required_order_index
-	var idx = fill_order.find(slot) + 1  # +1 weil find() ab 0 zählt
+	var idx = fill_order.find(slot) + 1 
 	return idx == wanted
 
 func check_puzzle():
-	var slots = get_tree().get_nodes_in_group("socket")
+	var sockets = get_tree().get_nodes_in_group("socket")
+#return if not every slot is occupied
+	for socket in sockets:
+			if not socket.is_occupied():
+				return
 
-	for slot in slots:
-		if not slot.is_correct():
+	for socket in sockets:
+		if not socket.is_correct():
+			reset_all_sockets()
 			return
 
 	if not solved:
 		if puzzle_id != "":
 			GameState.puzzle_state[puzzle_id] = true
 		solved = true
-		print("gelöst")
 		for id in mush_nodes.keys():
-			
 			var mushrooms_id: String = "mushrooms"
 			hotbarglobal.remove_item(id)
 			hotbarglobal.remove_item(mushrooms_id)
-
+		SaveSystem.save_game()
 		is_solved()
+
+func reset_all_sockets():
+	fill_order.clear()
+	var side_slots = get_tree().get_nodes_in_group("side_slots")
+	var pulled_pieces: Array[Area2D] = []
+
+	for slot in get_tree().get_nodes_in_group("socket"):
+		var p = slot.take_piece()
+		if p:
+			pulled_pieces.append(p)
+
+	for piece in pulled_pieces:
+		var target = _find_free_side_slot(side_slots)
+		if target:
+			target.set_piece(piece)
+			piece.scale = piece.side_scale
+
+
+func _find_free_side_slot(side_slots: Array) -> Area2D:
+	for s in side_slots:
+		if not s.is_occupied():
+			return s
+	return null
+
 
 func is_solved():
 	porcini.texture = porcini_solved

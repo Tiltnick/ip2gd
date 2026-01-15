@@ -253,5 +253,16 @@ var DATA := {
 		"world_scene": "res://scenes/interactables/objects/telescope.tscn"
 },
 
+	"map": {
+		"name_de": "Karte",
+		"name_en": "Map",
+		"description_en": "Helps with orientation. Sometimes.",
+		"description_de": "Hilft beim Orientieren. Manchmal.",
+		"icon": "res://assets/sprites/selfmade/map/map_item.png",
+		"icon_size": Vector2(30,30),
+		"world_scene": "res://scenes/interactables/objects/map_item.tscn"
+},
+
+
 
 }

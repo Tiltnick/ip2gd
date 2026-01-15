@@ -7,6 +7,9 @@ func _ready() -> void:
 	if not GameState.puzzle_state.get("outside2_monologue_done", false):
 		GameState.puzzle_state["outside2_monologue_done"] = true
 		DialogManager.start_dialog("res://dialog/innerMonologue/entering_outside_2.json")
+	if not GameState.map_state.get("outside2_map", false):
+		GameState.map_state["outside2_map"] = true
+
 
 
 func configure_camera(cam: Camera2D) -> void:

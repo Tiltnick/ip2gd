@@ -4550,10 +4550,10 @@ e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="truffle_socket" instance=ExtResource("14_ny1p2")]
 visible = false
-offset_left = 133.3335
-offset_top = -109.99998
-offset_right = 133.3335
-offset_bottom = -109.99998
+offset_left = -26.666504
+offset_top = -139.99997
+offset_right = -26.666504
+offset_bottom = -139.99997
 scale = Vector2(2.5, 2.5)
 
 [node name="StonePanel" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("13_wk4ve")]
@@ -4690,9 +4690,7 @@ scale = Vector2(1.5, 1.5)
 [node name="MapBounds" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MapBounds"]
-light_mask = 4
-visibility_layer = 0
-position = Vector2(801, -28)
+position = Vector2(768, -40)
 build_mode = 1
 polygon = PackedVector2Array(-770, -705, -2, -705, -1, -385, 8, -385, 8, -275, -1, -275, 0, 333, -186, 333, -187, 353, -235, 353, -235.14958, 332.00003, -771, 332)
 
@@ -4717,7 +4715,7 @@ visible = false
 position = Vector2(339.0602, -345.28543)
 
 [node name="NPC" parent="." instance=ExtResource("25_1k6v6")]
-position = Vector2(296, 176)
+position = Vector2(368, -464)
 
 [node name="Purple Grass" type="Node" parent="."]
 

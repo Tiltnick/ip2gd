@@ -357,6 +357,7 @@ scale = Vector2(3, 3)
 sockel_scale = Vector2(7, 7)
 side_scale = Vector2(3, 3)
 piece_id = "blue_mush"
+start_slot_path = NodePath("../../Slots/Slot6/Area2D")
 
 [node name="brown_mush" parent="mushrooms" groups=["mushrooms"] instance=ExtResource("6_2g3uk")]
 position = Vector2(1344, 896)
@@ -364,6 +365,7 @@ scale = Vector2(3, 3)
 sockel_scale = Vector2(7, 7)
 side_scale = Vector2(3, 3)
 piece_id = "brown_mush"
+start_slot_path = NodePath("../../Slots/Slot5/Area2D")
 
 [node name="Sprite2D" parent="mushrooms/brown_mush" index="0"]
 texture = SubResource("CompressedTexture2D_54y3o")
@@ -374,6 +376,7 @@ scale = Vector2(3, 3)
 sockel_scale = Vector2(7, 7)
 side_scale = Vector2(3, 3)
 piece_id = "green_mush"
+start_slot_path = NodePath("../../Slots/Slot4/Area2D")
 
 [node name="Sprite2D" parent="mushrooms/green_mush" index="0"]
 texture = SubResource("CompressedTexture2D_14c1k")
@@ -384,6 +387,7 @@ scale = Vector2(3, 3)
 sockel_scale = Vector2(7, 7)
 side_scale = Vector2(3, 3)
 piece_id = "orange_mush"
+start_slot_path = NodePath("../../Slots/Slot3/Area2D")
 
 [node name="Sprite2D" parent="mushrooms/orange_mush" index="0"]
 texture = SubResource("CompressedTexture2D_lsrtm")
@@ -394,6 +398,7 @@ scale = Vector2(3, 3)
 sockel_scale = Vector2(7, 7)
 side_scale = Vector2(3, 3)
 piece_id = "red_mush"
+start_slot_path = NodePath("../../Slots/Slot2/Area2D")
 
 [node name="Sprite2D" parent="mushrooms/red_mush" index="0"]
 texture = SubResource("CompressedTexture2D_6swy0")
@@ -404,6 +409,7 @@ scale = Vector2(3, 3)
 sockel_scale = Vector2(7, 7)
 side_scale = Vector2(3, 3)
 piece_id = "yellow_mush"
+start_slot_path = NodePath("../../Slots/Slot1/Area2D")
 
 [node name="Sprite2D" parent="mushrooms/yellow_mush" index="0"]
 texture = SubResource("CompressedTexture2D_qu0jh")

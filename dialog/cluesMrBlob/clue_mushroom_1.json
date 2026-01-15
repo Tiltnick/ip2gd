@@ -16,7 +16,7 @@
 		{ "id": "hint_yes", "text_en": "I need your help."
 							,"text_de": "Ich brauche deine Hilfe." 
 							,"next": "hint_yes" },
-		{ "id": "hint_no", "text_en": "I thought you were a mushroom."
+		{ "id": "hint_no", "text_en": "Thought you were a mushroom."
 							,"text_de": "Ich dachte du wärst ein Pilz." 
 							,"next": "end" }
 	  ]
@@ -41,7 +41,7 @@
 	  "lines": [
 		{ "speaker": "Oris", "text_en": "What do you mean they remind you of our galaxy?"
 							,"text_de": "Was meinst du, dass die dich an unsere Galaxie erinnern?" },
-		{ "speaker": "Mr. Blob", "text_en": "Oh man.. Look at the colors dude. Think about the colours in our universe or what they stand for. Got it?"
+		{ "speaker": "Mr. Blob", "text_en": "Oh man.. Look at the colors. Think about the colours in our universe or what they stand for. Got it?"
 								,"text_de": "Oh mann.. Schau dir die Farben an und denk an die Farben aus dem Universum bzw. für was sie stehen. Hast du's jetzt? " }
 	  ],
 	  "choices": [
@@ -54,7 +54,7 @@
 	"realization": {
 	  "lines": [
 		{ "speaker": "Oris", "text_en": "Oh, you're right. I need to connect the right colors to the planets!"
-							,"text_de": "Oh, du hast recht. Ich muss die richtige Farbe zu den Planeten zu ordnen!" }
+							,"text_de": "Oh, du hast recht. Ich muss die richtigen Farben den Planeten zu ordnen!" }
 	  ],
 	  "next": "end"
 	},

@@ -20,8 +20,9 @@ const PUZZLE_FLAG_BY_DIALOG_PATH: Dictionary = {
 	"res://dialog/dialogueMrBlob/outside_2_part_2.json": "blob_revelation_done",
 	"res://dialog/dialogueMrBlob/entering_outside_2.json": "outside2_monologue_done",
 	"res://dialog/mushrooms/mushroom.json": "mushroom_dialog_done",
-	"res://dialog/cluesMrBlob/clue_mushroom_1.json": "blob_clue1_done",
-	"res://dialog/cluesMrBlob/clue_mushroom_2.json": "blob_clue2_done",
+	"res://dialog/cluesMrBlob/clue_stone_panel_completion.json": "blob_clue1_done",
+	"res://dialog/cluesMrBlob/clue_mushroom_1.json": "blob_clue2_done",
+	"res://dialog/cluesMrBlob/clue_mushroom_2.json": "blob_clue3_done",
 	"res://dialog/innerMonologue/tripod_without_telescope.json": "tripod_no_telescope_seen",
 	
 }

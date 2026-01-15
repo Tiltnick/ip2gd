@@ -1,0 +1,22 @@
+{
+	"id": "truffle_riddle",
+
+	"characters": {
+		"Truffle": "res://assets/sprites/portrait/truffle.png"
+},
+
+ "steps": {
+
+	"sections": {
+		"lines": [
+			{"speaker": "Truffle", "text_en": "Humans are smarter than I thought.",
+									"text_de": "Menschen sind schlauer als ich dachte."
+			}
+		],
+		"next": "end"
+	},
+	"end": {
+	  "lines": []
+	}
+  }
+}

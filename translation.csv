@@ -18,7 +18,31 @@ DEUTSCH,Deutsch,Deutsch
 CLOSE,Close,Schließen
 MUSIC,Music,Musik
 SOUND_EFFECTS,Sound effects,Soundeffekte
-ITEM_FOUND,Item Found :,Item gefunden :
+ITEM_FOUND,Item Found :, Item gefunden :
+SPACE_CONTINUE,Press Space to continue, Drücke Leertaste zum Fortfahren
+ENTER_CODE, Enter Code to Exit, Code eingeben zum Verlassen
+VERIFY, Verify, Überprüfen
+NEW_GAME, New Game, Neues Spiel
+RESUME, Resume, Fortsetzen
+EXIT, Exit, Beenden
+START_GAME, Start new game?, Neues Spiel starten?
+YES, Yes, Ja
+NO, No, Nein
+SAVE_AND_EXIT, Save and Exit, Speichern und Beenden
+CONTINUE, Continue, Fortsetzen
+SAVE_GAME, Save Game?, Spiel speichern?
+CLICK_RIGHT, rotate with right click, rotiere mit Rechtsklick
+DIARY, Diary, Tagebuch
+INVENTORY, Inventory, Inventar
+GRAPHICS, Graphics, Grafik
+DISPLAY MODE, Display Mode, Anzeigemodus
+WINDOWED, Windowed, Fenstermodus
+FULLSCREEN, Fullscreen, Vollbild
+BORDERLESS, Borderless, Randlos
+QUESTS, Quests, Missionen
+QUEST_TITLE, Quest Title, Questtitel
+QUEST_DESCRIPTION, Quest Description, Questbeschreibung
+ITEM_FOUND,Item Found:,Item gefunden:
 SPACE_CONTINUE,Press Space to continue,Drücke Leertaste zum Fortfahren
 ENTER_CODE,Enter Code to Exit,Code eingeben zum Verlassen
 VERIFY,Verify,Überprüfen
@@ -41,3 +65,10 @@ CURRENT_QUESTS,Current Quests,Aktuelle Aufträge
 COMPLETED_QUESTS,Completed Quests,Erledigte Aufträge
 QUEST_NEW,New Quest,Neuer Auftrag
 QUEST_COMPLETED,Quest Completed,Auftrag Erfüllt
+SECRET_BUILDING,Secret Building,Geheimes Gebäude
+ORIS'S_SHUTTLE,Oris' Shuttle,Oris Shuttle
+SAM'S_SHUTTLE,Sam's Shuttle,Sams Shuttle
+STONE_PANEL,Stone Panel,Steintafel
+TEMPLE,Temple,Temple
+MUSHROOM_SOCKETS,Mushroom Sockets,Pilz Sockel
+MYSTERIOUS_TOWER,Mysterious Tower,Mysteriöser Turm
