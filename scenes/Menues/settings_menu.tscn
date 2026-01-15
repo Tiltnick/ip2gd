@@ -698,13 +698,11 @@ theme_override_constants/modulate_arrow = 0
 theme_override_icons/arrow = ExtResource("3_g0y5o")
 selected = 0
 fit_to_longest_item = false
-item_count = 3
+item_count = 2
 popup/item_0/text = "Windowed"
 popup/item_0/id = 0
 popup/item_1/text = "Fullscreen"
 popup/item_1/id = 1
-popup/item_2/text = "Borderless"
-popup/item_2/id = 2
 script = ExtResource("9_cm8sp")
 
 [node name="CloseButton" type="Button" parent="."]

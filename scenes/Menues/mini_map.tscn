@@ -134,7 +134,7 @@ offset_bottom = 350.0
 mouse_filter = 0
 texture = ExtResource("9_sl0p5")
 script = ExtResource("4_m41xg")
-label_text = "mysterious Tower"
+label_text = "Mysterious Tower"
 
 [node name="Sockets" type="TextureRect" parent="."]
 visible = false

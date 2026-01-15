@@ -150,7 +150,7 @@ func _physics_process(delta: float) -> void:
 func run_away_to(pos: Vector2) -> void:
 	fleeing = true
 	flee_target = pos
-	return OUTSIDE3_END
+	#return OUTSIDE3_END
 	
 func _get_spaceship_room_dialog() -> String:
 	for step in SPACESHIPROOM_FLOW:
