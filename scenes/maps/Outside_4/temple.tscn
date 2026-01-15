@@ -3487,3 +3487,23 @@ flower_scene = ExtResource("14_bgrxh")
 position = Vector2(0, -1.5258789e-05)
 scale = Vector2(3.7041545, 6.058479)
 zoom = Vector2(1.7, 1.7)
+[node name="Fish" type="Node" parent="."]
+
+[node name="Fish" parent="Fish" instance=ExtResource("5_vq5gx")]
+position = Vector2(-460.6667, 89.333405)
+scale = Vector2(0.4, 0.4)
+
+[node name="Fish2" parent="Fish" instance=ExtResource("5_vq5gx")]
+position = Vector2(-120, 176)
+scale = Vector2(0.4, 0.4)
+
+[node name="Fish3" parent="Fish" instance=ExtResource("5_vq5gx")]
+position = Vector2(456, 89)
+scale = Vector2(0.4, 0.4)
+
+[node name="Fish4" parent="Fish" instance=ExtResource("5_vq5gx")]
+position = Vector2(120, 144)
+scale = Vector2(0.4, 0.4)
+
+[node name="Character" parent="." instance=ExtResource("6_1ppeq")]
+position = Vector2(4.786377, 290.62152)

@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://njech6e5ppkr"]
+
+[ext_resource type="Texture2D" uid="uid://dscwajbyk3gns" path="res://assets/sprites/character/Purple_Shroomling.png" id="1_2a2n2"]
+[ext_resource type="Script" uid="uid://da4wtnufw3pik" path="res://scripts/state_machine_npc/simple movement/simple_movement_npc.gd" id="1_swf3q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_roo52"]
+atlas = ExtResource("1_2a2n2")
+region = Rect2(0, 128, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swf3q"]
+atlas = ExtResource("1_2a2n2")
+region = Rect2(16, 128, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwp0x"]
+atlas = ExtResource("1_2a2n2")
+region = Rect2(32, 128, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrou5"]
+atlas = ExtResource("1_2a2n2")
+region = Rect2(48, 128, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_es180"]
+atlas = ExtResource("1_2a2n2")
+region = Rect2(64, 128, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtqr2"]
+atlas = ExtResource("1_2a2n2")
+region = Rect2(80, 128, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wc7b3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_roo52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swf3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwp0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrou5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_es180")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtqr2")
+}],
+"loop": true,
+"name": &"move",
+"speed": 3.5
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btmav"]
+size = Vector2(8, 10)
+
+[node name="Purply Up" type="CharacterBody2D"]
+scale = Vector2(1.2, 1.2)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_swf3q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_wc7b3")
+animation = &"move"
+autoplay = "move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_btmav")
