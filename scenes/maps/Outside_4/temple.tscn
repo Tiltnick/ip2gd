@@ -1,12 +1,12 @@
 [gd_scene load_steps=25 format=4 uid="uid://dmkx8cyr3lsa6"]
 
 [ext_resource type="Texture2D" uid="uid://d3nsg2t6vxtvv" path="res://assets/sprites/map/Outside_4/Ground.png" id="1_n83po"]
-[ext_resource type="Script" uid="uid://dhtpwr18uvr5p" path="res://scripts/scene_manager/temple.gd" id="1_s0bbf"]
+[ext_resource type="Script" path="res://scripts/scene_manager/temple.gd" id="1_s0bbf"]
 [ext_resource type="Texture2D" uid="uid://dnnyk16u5j1b4" path="res://assets/sprites/map/Outside_4/Water+.png" id="2_1xbv6"]
 [ext_resource type="Texture2D" uid="uid://dos56i2jai37g" path="res://assets/sprites/map/Outside_4/Water_animation8.png" id="3_2p0uw"]
 [ext_resource type="Texture2D" uid="uid://dvhqom61ux7y6" path="res://assets/sprites/map/Outside_4/Bridges.png" id="4_s35bk"]
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="5_vq5gx"]
-[ext_resource type="PackedScene" uid="uid://c162olbv1ke10" path="res://scenes/Character/sam_ghost.tscn" id="6_1ppeq"]
+[ext_resource type="PackedScene" uid="uid://dp40yifkjsa4b" path="res://scenes/Character/sam_ghost.tscn" id="6_1ppeq"]
 [ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="7_4y2am"]
 [ext_resource type="Script" uid="uid://r6j747jkcvv3" path="res://scripts/riddles/temple/pillar_puzzle.gd" id="9_n6rke"]
 [ext_resource type="PackedScene" uid="uid://cdvfatji880xc" path="res://scenes/interactables/objects/temple/Pillar.tscn" id="9_p33si"]
@@ -3487,23 +3487,8 @@ flower_scene = ExtResource("14_bgrxh")
 position = Vector2(0, -1.5258789e-05)
 scale = Vector2(3.7041545, 6.058479)
 zoom = Vector2(1.7, 1.7)
+
 [node name="Fish" type="Node" parent="."]
 
-[node name="Fish" parent="Fish" instance=ExtResource("5_vq5gx")]
-position = Vector2(-460.6667, 89.333405)
-scale = Vector2(0.4, 0.4)
-
-[node name="Fish2" parent="Fish" instance=ExtResource("5_vq5gx")]
-position = Vector2(-120, 176)
-scale = Vector2(0.4, 0.4)
-
-[node name="Fish3" parent="Fish" instance=ExtResource("5_vq5gx")]
-position = Vector2(456, 89)
-scale = Vector2(0.4, 0.4)
-
-[node name="Fish4" parent="Fish" instance=ExtResource("5_vq5gx")]
-position = Vector2(120, 144)
-scale = Vector2(0.4, 0.4)
-
-[node name="Character" parent="." instance=ExtResource("6_1ppeq")]
+[node name="Character2" parent="." instance=ExtResource("6_1ppeq")]
 position = Vector2(4.786377, 290.62152)
