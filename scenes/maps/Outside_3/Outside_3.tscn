@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=4 uid="uid://dlsjgc5i7yt81"]
+[gd_scene load_steps=83 format=4 uid="uid://dlsjgc5i7yt81"]
 
 [ext_resource type="Script" uid="uid://dliaffanr7vt" path="res://scripts/scene_manager/outside_3.gd" id="1_3rchf"]
 [ext_resource type="Texture2D" uid="uid://dtxi3laerm24l" path="res://assets/sprites/map/Outside_3/Ground.png" id="1_oc04w"]
@@ -4389,9 +4389,9 @@ point_count = 13
 
 [sub_resource type="Curve2D" id="Curve2D_muxi4"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 384, -392, 0, 0, 0, 0, 432, -312, 0, 0, 0, 0, 440, -296, 0, 0, 0, 0, 416, -240, 0, 0, 0, 0, 376, -200, 0, 0, 0, 0, 240, -152, 0, 0, 0, 0, 184, -112, 0, 0, 0, 0, 216, -112, 0, 0, 0, 0, 376, -160, 0, 0, 0, 0, 424, -192, 0, 0, 0, 0, 464, -224, 0, 0, 0, 0, 472, -304, 0, 0, 0, 0, 432, -376, 0, 0, 0, 0, 408, -400, 0, 0, 0, 0, 384, -392)
+"points": PackedVector2Array(0, 0, 0, 0, 384, -392, 0, 0, 0, 0, 432, -312, 0, 0, 0, 0, 440, -296, 0, 0, 0, 0, 440, -232, 0, 0, 0, 0, 376, -232, 0, 0, 0, 0, 376, -184, 0, 0, 0, 0, 240, -152, 0, 0, 0, 0, 184, -112, 0, 0, 0, 0, 216, -112, 0, 0, 0, 0, 392, -184, 0, 0, 0, 0, 456, -184, 0, 0, 0, 0, 464, -224, 0, 0, 0, 0, 472, -304, 0, 0, 0, 0, 432, -376, 0, 0, 0, 0, 408, -400, 0, 0, 0, 0, 384, -392)
 }
-point_count = 15
+point_count = 16
 
 [sub_resource type="Curve2D" id="Curve2D_6a113"]
 _data = {
