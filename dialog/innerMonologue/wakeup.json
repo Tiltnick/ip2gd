@@ -16,11 +16,6 @@
 							,"text_de": "…An nichts. Einfach an gar nichts." },
 		{ "speaker": "Oris", "text_en": "Alright… panicking won’t help. I should take a look around. Maybe I’ll find a clue…"
 							,"text_de": "Na gut… Panik hilft nicht weiter. Ich sollte mich hier umsehen. Vielleicht finde ich einen Hinweis…"}
-	  ],
-	  "choices": [
-		{ "id": "oris_crash_continue", "text_en": "Look around"
-										, "text_de":"Schau dich um",
-		 "next": "end" }
 	  ]
 	},
 
