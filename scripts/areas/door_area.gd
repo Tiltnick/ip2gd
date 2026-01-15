@@ -5,7 +5,7 @@ class_name DoorArea
 var target_scene_path: String = ""
 
 @export
-var target_spawn_id: String = "start"   # Name des Spawnpoints in der Zielszene
+var target_spawn_id: String = "start"
 
 @export 
 var required_group: String = "player"

@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7ajruie7dmvq"]
+[gd_scene load_steps=9 format=3 uid="uid://b7ajruie7dmvq"]
 
 [ext_resource type="Texture2D" uid="uid://tky213w87pvv" path="res://assets/sprites/character/Snail_1.png" id="1_avc1f"]
+[ext_resource type="Script" uid="uid://da4wtnufw3pik" path="res://scripts/state_machine_npc/simple movement/simple_movement_npc.gd" id="1_v5bau"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5bau"]
 atlas = ExtResource("1_avc1f")
@@ -46,6 +47,7 @@ height = 13.333333
 scale = Vector2(1.2, 1.2)
 collision_layer = 0
 collision_mask = 4
+script = ExtResource("1_v5bau")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.7, 0.7)

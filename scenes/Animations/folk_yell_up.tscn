@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4oc2gbkirui0"]
+[gd_scene load_steps=11 format=3 uid="uid://b4oc2gbkirui0"]
 
 [ext_resource type="Texture2D" uid="uid://bbkw7w8cia4ou" path="res://assets/sprites/character/Yellow_Shroomling.png" id="1_huaie"]
+[ext_resource type="Script" uid="uid://da4wtnufw3pik" path="res://scripts/state_machine_npc/simple movement/simple_movement_npc.gd" id="1_oewdn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oewdn"]
 atlas = ExtResource("1_huaie")
@@ -59,6 +60,7 @@ size = Vector2(8, 10)
 scale = Vector2(1.2, 1.2)
 collision_layer = 0
 collision_mask = 0
+script = ExtResource("1_oewdn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.7, 0.7)

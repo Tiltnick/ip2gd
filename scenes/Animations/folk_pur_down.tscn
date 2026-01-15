@@ -1,71 +1,41 @@
-[gd_scene load_steps=10 format=3 uid="uid://bc2bnmdi7g8c2"]
+[gd_scene load_steps=6 format=3 uid="uid://bc2bnmdi7g8c2"]
 
 [ext_resource type="Texture2D" uid="uid://dscwajbyk3gns" path="res://assets/sprites/character/Purple_Shroomling.png" id="1_roo52"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_roo52"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxdvv"]
 atlas = ExtResource("1_roo52")
-region = Rect2(0, 96, 16, 32)
+region = Rect2(0, 0, 16, 34)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_swf3q"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1hs5"]
 atlas = ExtResource("1_roo52")
-region = Rect2(16, 96, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iwp0x"]
-atlas = ExtResource("1_roo52")
-region = Rect2(32, 96, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vrou5"]
-atlas = ExtResource("1_roo52")
-region = Rect2(48, 96, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_es180"]
-atlas = ExtResource("1_roo52")
-region = Rect2(64, 96, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jtqr2"]
-atlas = ExtResource("1_roo52")
-region = Rect2(80, 96, 16, 32)
+region = Rect2(16, 0, 16, 34)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wc7b3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_roo52")
+"texture": SubResource("AtlasTexture_mxdvv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_swf3q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iwp0x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vrou5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_es180")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jtqr2")
+"texture": SubResource("AtlasTexture_w1hs5")
 }],
 "loop": true,
-"name": &"move",
+"name": &"idle",
 "speed": 3.5
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btmav"]
 size = Vector2(8, 10)
 
-[node name="Purply Down" type="CharacterBody2D"]
+[node name="Purply Idle" type="CharacterBody2D"]
 scale = Vector2(1.2, 1.2)
-collision_layer = 0
-collision_mask = 0
+collision_layer = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_wc7b3")
-animation = &"move"
-autoplay = "move"
-frame_progress = 0.4911751
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
