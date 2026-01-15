@@ -8,7 +8,8 @@ extends CanvasLayer
 @onready var marker_outside_4: TextureRect = $Markers/Marker_Outside4
 @onready var marker_spaceship: TextureRect = $Markers/Marker_Spaceship
 @onready var markers: Node = $Markers
-@onready var label: Label = $Label
+@onready var panel: Panel = $Panel
+@onready var label: Label = $Panel/Label
 
 func _ready() -> void:
 	pass
@@ -65,8 +66,8 @@ func update_marker(scene_name: String) -> void:
 
 func show_tooltip(text: String, pos: Vector2):
 	label.text = text
-	label.visible = true
-	label.global_position = pos + Vector2(18, -10)
+	panel.visible = true
+	#panel.global_position = pos + Vector2(18, -10)
 
 func hide_tooltip():
-	label.visible = false
+	panel.visible = false
