@@ -23,6 +23,13 @@ var full_text: String = ""
 var _pages: Array[String] = []
 var _page_index: int = 0
 
+
+const SPEAKER_COLORS := {
+	"Mr. Blob": Color("#7CFF6B"),
+	"Oris": Color("#6BB7FF")
+}
+
+
 func _ready() -> void:
 	hide()
 	choice1.visible = false
