@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://uyg54772xeiv" path="res://assets/sprites/map/Outside_3/Mushrooms_Green.png" id="12_cpm51"]
 [ext_resource type="Texture2D" uid="uid://52oilt3qrjr5" path="res://assets/sprites/map/Outside_3/Mushrooms_Other.png" id="13_4obpn"]
 [ext_resource type="PackedScene" uid="uid://58ehm0hl8qlg" path="res://scenes/Character/npc_porcini.tscn" id="13_sj13r"]
-[ext_resource type="PackedScene" uid="uid://drlrmvj7kttid" path="res://scenes/interactables/objects/stone_panel.tscn" id="13_wk4ve"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/objects/stone_panel.tscn" id="13_wk4ve"]
 [ext_resource type="Texture2D" uid="uid://cf6877rex5t2j" path="res://assets/sprites/map/Outside_3/Mushrooms_Purple.png" id="14_88yej"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="14_ny1p2"]
 [ext_resource type="PackedScene" uid="uid://dri71srb6nfk1" path="res://scenes/Character/npc_truffle.tscn" id="14_wk4ve"]

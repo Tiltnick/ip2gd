@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dos56i2jai37g" path="res://assets/sprites/map/Outside_4/Water_animation8.png" id="3_2p0uw"]
 [ext_resource type="Texture2D" uid="uid://dvhqom61ux7y6" path="res://assets/sprites/map/Outside_4/Bridges.png" id="4_s35bk"]
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="5_vq5gx"]
-[ext_resource type="PackedScene" uid="uid://dp40yifkjsa4b" path="res://scenes/Character/sam_ghost.tscn" id="6_1ppeq"]
+[ext_resource type="PackedScene" uid="uid://c162olbv1ke10" path="res://scenes/Character/sam_ghost.tscn" id="6_1ppeq"]
 [ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="7_4y2am"]
 [ext_resource type="Script" uid="uid://r6j747jkcvv3" path="res://scripts/riddles/temple/pillar_puzzle.gd" id="9_n6rke"]
 [ext_resource type="PackedScene" uid="uid://cdvfatji880xc" path="res://scenes/interactables/objects/temple/Pillar.tscn" id="9_p33si"]
