@@ -55,6 +55,14 @@ const OUTSIDE3_FLOW := [
 ]
 const OUTSIDE3_END: String = "res://dialog/dialogueMrBlob/end_dialog_outside3_blob.json"
 
+const SPACESHIPROOM_FLOW := [
+	{
+		"flag":"",
+		"path":"",
+	},
+]
+const SPACESHIPROOM_FLOW_END: String = "res://dialog/dialogueMrBlob/end_dialog_outside3_blob.json"
+
 func _ready() -> void:
 	super._ready()
 
@@ -77,6 +85,9 @@ func get_dialog_path(scene_name: String) -> String:
 
 	elif scene_name == "Outside3":
 		return _get_outside3_dialog()
+		
+	elif scene_name == "Spaceship_room":
+		return _get_spaceship_room_dialog()
 
 	return DIALOG_BY_SCENE.get(scene_name, DEFAULT_DIALOG)
 
@@ -103,3 +114,9 @@ func _get_outside3_dialog() -> String:
 		if not bool(GameState.puzzle_state.get(step["flag"], false)):
 			return step["path"]
 	return OUTSIDE3_END
+	
+func _get_spaceship_room_dialog() -> String:
+	for step in SPACESHIPROOM_FLOW:
+		if not bool(GameState.puzzle_state.get(step["flag"], false)):
+			return step["path"]
+	return SPACESHIPROOM_FLOW_END

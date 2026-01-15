@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f73b68d2-da2e-4bc2-8672-8276f571766f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Notification2.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Notification2.wav.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/animation/Green Fog.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/animation/Green Fog.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/animation/Jumping Fish.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/animation/Jumping Fish.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/animation/Moving Bubbles.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/animation/Moving Bubbles.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/animation/Moving Grass Brown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/animation/Moving Grass Brown.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/animation/Moving Grass Purple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/animation/Moving Grass Purple.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/animation/Moving Grass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/animation/Moving Grass.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/animation/Tumbleweed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/animation/Tumbleweed.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Big_Alive_Shroomling.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Big_Alive_Shroomling.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Blobfish Spritesheet Shadow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Blobfish Spritesheet Shadow.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Blue_Shroomling.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Blue_Shroomling.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Green_Shroomling.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Green_Shroomling.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Purple_Shroomling.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Purple_Shroomling.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Sams_Ghost.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Sams_Ghost.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Small_Alive_Shroomling.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Small_Alive_Shroomling.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Snail_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Snail_1.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Snail_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Snail_2.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Snail_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Snail_3.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Snail_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Snail_4.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Snail_Small_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Snail_Small_1.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Snail_Small_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Snail_Small_2.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Snail_Small_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Snail_Small_3.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Snail_Small_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Snail_Small_4.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Yellow_Shroomling.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/character/Yellow_Shroomling.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/map/Outside_3/Mushrooms_Blue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/map/Outside_3/Mushrooms_Blue.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/map/Outside_3/Mushrooms_Brown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/map/Outside_3/Mushrooms_Brown.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/map/Outside_3/Mushrooms_Green.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/map/Outside_3/Mushrooms_Green.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/map/Outside_3/Mushrooms_Other.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/map/Outside_3/Mushrooms_Other.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/map/Outside_3/Mushrooms_Purple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/map/Outside_3/Mushrooms_Purple.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/map/Outside_3/Mushrooms_Red.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/map/Outside_3/Mushrooms_Red.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/map/Outside_3/Shroomlands_Rocks.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/map/Outside_3/Shroomlands_Rocks.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/selfmade/NewIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/selfmade/NewIcon.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/selfmade/Quest_Icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/selfmade/Quest_Icon.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/selfmade/Shadow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/selfmade/Shadow.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/selfmade/Shadow2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/selfmade/Shadow2.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/selfmade/Shadow3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/selfmade/Shadow3.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprites/selfmade/shadow.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scenes/Animations/bubbles.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scenes/Animations/fish.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scenes/Animations/fog.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scenes/Animations/folk_blue_down.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scenes/Animations/folk_blue_side.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scenes/Animations/folk_blue_up.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scenes/Animations/folk_green_down.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scenes/Animations/folk_green_side.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scenes/Animations/folk_green_up.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scenes/Animations/folk_pur_down.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scenes/Animations/folk_pur_side.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scenes/Animations/folk_pur_up.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scenes/Animations/folk_yell_down.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scenes/Animations/folk_yell_side.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scenes/Animations/folk_yell_up.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scenes/Animations/grass.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scenes/Animations/grassBrown.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scenes/Animations/grassPurple.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scenes/Animations/snail_brown.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scenes/Animations/tumbleweed.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scenes/Character/npc_sam.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scenes/Menues/QuestMenu/QuestEntry.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scenes/UI/Quest_Popup.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scripts/quests/quest_controller.gd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scripts/quests/quest_controller.gd.uid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scripts/quests/quest_entry.gd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scripts/quests/quest_entry.gd.uid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scripts/quests/quest_manager.gd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scripts/quests/quest_manager.gd.uid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scripts/quests/quests.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scripts/state_machine_npc/simple movement/simple_movement_npc.gd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scripts/state_machine_npc/simple movement/simple_movement_npc.gd.uid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notification.wav.import" beforeDir="false" afterPath="$PROJECT_DIR$/Notification.wav.import" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/../../../project.godot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../scenes/Character/main_character.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../../../scenes/Character/main_character.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../scenes/Character/npc.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../../../scenes/Character/npc.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../scenes/Character/npc_champignon.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../../../scenes/Character/npc_champignon.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../scenes/Character/npc_porcini.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../../../scenes/Character/npc_porcini.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../scenes/Character/npc_truffle.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../../../scenes/Character/npc_truffle.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../scenes/Menues/GameMenu/diary_menu.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../../../scenes/Menues/GameMenu/diary_menu.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../scenes/UI/spacegram_popup.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../../../scenes/UI/Popup.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../scenes/maps/Outside_2/outside_2.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../../../scenes/maps/Outside_2/outside_2.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../scenes/maps/Outside_3/Outside_3.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../../../scenes/maps/Outside_3/Outside_3.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../scenes/maps/Outside_4/temple.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../../../scenes/maps/Outside_4/temple.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../scenes/maps/outside_1.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../../../scenes/maps/outside_1.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../scenes/maps/spaceship.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../../../scenes/maps/spaceship.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../scenes/maps/spaceship_room.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../../../scenes/maps/spaceship_room.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../scripts/UI/PopupManager.gd" beforeDir="false" afterPath="$PROJECT_DIR$/../../../scripts/UI/PopupManager.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../scripts/UI/spacegram_popup.gd" beforeDir="false" afterPath="$PROJECT_DIR$/../../../scripts/UI/Popup.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../scripts/UI/spacegram_popup.gd.uid" beforeDir="false" afterPath="$PROJECT_DIR$/../../../scripts/UI/Popup.gd.uid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../scripts/audio/sfx_player.gd" beforeDir="false" afterPath="$PROJECT_DIR$/../../../scripts/audio/sfx_player.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../scripts/interactables/doors/door_spaceship_room.gd" beforeDir="false" afterPath="$PROJECT_DIR$/../../../scripts/interactables/doors/door_spaceship_room.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../scripts/riddles/spaceship_door/spaceship_door_riddle.gd" beforeDir="false" afterPath="$PROJECT_DIR$/../../../scripts/riddles/spaceship_door/spaceship_door_riddle.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../scripts/save_system/game_state.gd" beforeDir="false" afterPath="$PROJECT_DIR$/../../../scripts/save_system/game_state.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../scripts/scene_manager/spaceship.gd" beforeDir="false" afterPath="$PROJECT_DIR$/../../../scripts/scene_manager/spaceship.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../scripts/state_machine/idle.gd" beforeDir="false" afterPath="$PROJECT_DIR$/../../../scripts/state_machine/idle.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../translation.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../../../translation.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../translation.de.translation" beforeDir="false" afterPath="$PROJECT_DIR$/../../../translation.de.translation" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../translation.en.translation" beforeDir="false" afterPath="$PROJECT_DIR$/../../../translation.en.translation" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="38JB8b7Ml5AykVBkltpBhnXy7gw" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Merging sprint3__Tutorial",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\DeNaice\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
+      "C:\\Users\\DeNaice\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
+      "C:\\Users\\DeNaice\\AppData\\Local\\Symbols\\src"
+    ]
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f73b68d2-da2e-4bc2-8672-8276f571766f" name="Changes" comment="" />
+      <created>1768507636775</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1768507636775</updated>
+      <workItem from="1768507640683" duration="17000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>

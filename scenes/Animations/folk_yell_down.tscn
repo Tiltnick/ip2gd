@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bs233eblupmtc"]
+[gd_scene load_steps=6 format=3 uid="uid://bs233eblupmtc"]
 
 [ext_resource type="Texture2D" uid="uid://bbkw7w8cia4ou" path="res://assets/sprites/character/Yellow_Shroomling.png" id="1_bm4jm"]
-[ext_resource type="Script" uid="uid://da4wtnufw3pik" path="res://scripts/state_machine_npc/simple movement/simple_movement_npc.gd" id="1_mtfm1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mtfm1"]
 atlas = ExtResource("1_bm4jm")
@@ -31,7 +30,6 @@ size = Vector2(8, 10)
 [node name="Yelly Idle" type="CharacterBody2D"]
 scale = Vector2(1.2, 1.2)
 collision_layer = 4
-script = ExtResource("1_mtfm1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.7, 0.7)
