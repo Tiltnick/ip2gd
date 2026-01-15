@@ -1296,7 +1296,7 @@ collision_mask = 0
 [node name="MapBounds" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(14, 304)
 build_mode = 1
-polygon = PackedVector2Array(-173, -73, 59, -77, 58, -42, 135, -42, 135, -78, 303, -77, 304, -211, 116, -219, 112, -160, 69, -162, 65, -273, -61, -274, -64, -128, -173, -128)
+polygon = PackedVector2Array(-173, -77, 59, -77, 58, -42, 135, -42, 135, -78, 303, -77, 304, -211, 116, -219, 112, -160, 69, -162, 65, -273, -61, -274, -64, -128, -172, -128)
 
 [node name="Objects" type="Node" parent="."]
 

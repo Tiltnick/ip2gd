@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=4 uid="uid://dlsjgc5i7yt81"]
+[gd_scene load_steps=84 format=4 uid="uid://dlsjgc5i7yt81"]
 
 [ext_resource type="Script" uid="uid://dliaffanr7vt" path="res://scripts/scene_manager/outside_3.gd" id="1_3rchf"]
 [ext_resource type="Texture2D" uid="uid://dtxi3laerm24l" path="res://assets/sprites/map/Outside_3/Ground.png" id="1_oc04w"]
@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://uyg54772xeiv" path="res://assets/sprites/map/Outside_3/Mushrooms_Green.png" id="12_cpm51"]
 [ext_resource type="Texture2D" uid="uid://52oilt3qrjr5" path="res://assets/sprites/map/Outside_3/Mushrooms_Other.png" id="13_4obpn"]
 [ext_resource type="PackedScene" uid="uid://58ehm0hl8qlg" path="res://scenes/Character/npc_porcini.tscn" id="13_sj13r"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/objects/stone_panel.tscn" id="13_wk4ve"]
+[ext_resource type="PackedScene" uid="uid://drlrmvj7kttid" path="res://scenes/interactables/objects/stone_panel.tscn" id="13_wk4ve"]
 [ext_resource type="Texture2D" uid="uid://cf6877rex5t2j" path="res://assets/sprites/map/Outside_3/Mushrooms_Purple.png" id="14_88yej"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="14_ny1p2"]
 [ext_resource type="PackedScene" uid="uid://dri71srb6nfk1" path="res://scenes/Character/npc_truffle.tscn" id="14_wk4ve"]
@@ -4453,6 +4453,9 @@ _data = {
 }
 point_count = 8
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyiw6"]
+size = Vector2(768.5, 293)
+
 [node name="Outside3" type="Node2D"]
 script = ExtResource("1_3rchf")
 
@@ -5049,6 +5052,15 @@ curve = SubResource("Curve2D_stkyh")
 [node name="PathFollow2D" type="PathFollow2D" parent="Folk/Path2D15"]
 position = Vector2(656, 160)
 rotation = -1.5707964
+
+[node name="PopupArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopupArea"]
+position = Vector2(414.75, 129)
+shape = SubResource("RectangleShape2D_pyiw6")
+debug_color = Color(0.65119547, 0.51965237, 5.7756904e-07, 0.41960785)
+
+[connection signal="body_entered" from="PopupArea" to="." method="_on_area_2d_3_body_entered"]
 
 [editable path="champi_socket"]
 [editable path="porcini_socket"]

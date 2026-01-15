@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c162olbv1ke10"]
+[gd_scene load_steps=28 format=3 uid="uid://dcl8ag834o4cv"]
 
 [ext_resource type="Script" uid="uid://2eug6462m6rn" path="res://scripts/SamGhost/sam_dialog_process.gd" id="1_1r1co"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="2_o0ppx"]
@@ -146,6 +146,7 @@ height = 18.0
 radius = 48.0
 
 [node name="SAM" type="CharacterBody2D"]
+scale = Vector2(1.35, 1.35)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_1r1co")

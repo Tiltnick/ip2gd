@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxe04ai8lc1a7" path="res://scripts/state_machine_npc/npc_dialog_process_truffle.gd" id="1_mt00b"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="2_0oew2"]
-[ext_resource type="PackedScene" uid="uid://bboqbaycemetp" path="res://assets/sprites/selfmade/shadow.tscn" id="2_pimq7"]
+[ext_resource type="PackedScene" path="res://assets/sprites/selfmade/shadow.tscn" id="2_pimq7"]
 [ext_resource type="Texture2D" uid="uid://bn8g7cbtng77g" path="res://assets/sprites/character/truffle_spritesheet.png" id="3_mt00b"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="4_l2leq"]
 [ext_resource type="Script" uid="uid://bag4u47y1hlnx" path="res://scripts/state_machine_npc/state_machine_npc.gd" id="5_ks268"]
@@ -78,6 +78,7 @@ radius = 24.0
 
 [node name="NPC_truffle" type="CharacterBody2D"]
 collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_mt00b")
 
 [node name="Press_E_Popup_NPC" parent="." instance=ExtResource("2_0oew2")]

@@ -84,9 +84,14 @@ func PhysicsUpdate(delta: float) -> void:
 		npc.velocity = Vector2.ZERO
 
 	# Sprite flippen horizontal
-	if npc.anim:
-		if abs(npc.velocity.x) > 1.0:
-			npc.anim.flip_h = npc.velocity.x > 0
+	if abs(npc.velocity.x) > 1.0:
+		var flip := npc.velocity.x > 0
+
+		if npc.anim:
+			npc.anim.flip_h = flip
+
+		if npc.outline:
+			npc.outline.flip_h = flip
 
 	npc.move_and_slide()
 

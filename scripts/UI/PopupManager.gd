@@ -7,6 +7,8 @@ var quest_popup_scene := preload("res://scenes/UI/Quest_Popup.tscn")
 var popup: Control
 var quest_popup: Control
 
+var SPACEGRAM_URL := "https://www.instagram.com/oris.is.here/"
+
 func _ready():
 	QuestManager.quest_added.connect(popup_add_quest)
 	QuestManager.quest_completed.connect(popup_complete_quest)
@@ -26,21 +28,28 @@ func _ready():
 #use insta popup
 func popup_spacegram_de():
 	SfxPlayer.notification_quest_sound()
-	popup.show_popup("Nutze Spacegram!", load("res://assets/sprites/selfmade/Spacegram_Logo.png") as Texture2D)
+	popup.show_popup(
+		"Nutze Spacegram!",
+		load("res://assets/sprites/selfmade/Spacegram_Logo.png"),
+		SPACEGRAM_URL
+	)
 
 func popup_spacegram_en():
 	SfxPlayer.notification_quest_sound()
-	popup.show_popup("Use Spacegram!", 
-	load("res://assets/sprites/selfmade/Spacegram_Logo.png") as Texture2D)
+	popup.show_popup(
+		"Use Spacegram!",
+		load("res://assets/sprites/selfmade/Spacegram_Logo.png"),
+		SPACEGRAM_URL
+	)
 
 #found item popup
 func popup_item_de(item: String, icon: Texture2D):
 	SfxPlayer.notification_sound()
-	popup.show_popup("Item gefunden : " + item, icon)
+	popup.show_popup("Item gefunden: " + item, icon)
 	
 func popup_item_en(item: String, icon: Texture2D):
 	SfxPlayer.notification_sound()
-	popup.show_popup("Item found : " + item, icon)
+	popup.show_popup("Item found: " + item, icon)
 
 #found note popup
 func popup_diary_en():
