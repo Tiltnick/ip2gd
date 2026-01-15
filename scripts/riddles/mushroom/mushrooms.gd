@@ -5,15 +5,34 @@ signal mush_released
 @export var sockel_scale := Vector2(1, 1)
 @export var side_scale := Vector2(0.5, 0.5)
 @export var piece_id: String
+@export var start_slot_path: NodePath
 
 static var active_drag_piece: Area2D = null
 var dragging := false
 var drag_offset := Vector2.ZERO
 var current_slot = null
 
+var start_slot: Area2D = null
+var start_position: Vector2
+
+
 func _ready():
 	input_pickable = true
 	scale = side_scale
+	
+	start_position = global_position
+	if start_slot_path != NodePath(""):
+		start_slot = get_node_or_null(start_slot_path)
+
+func return_to_start():
+	dragging = false
+	if active_drag_piece == self:
+		active_drag_piece = null
+	scale = side_scale
+	if start_slot and not start_slot.is_occupied():
+		start_slot.set_piece(self)
+	else:
+		global_position = start_position
 
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -39,7 +58,7 @@ func try_assign_to_slot():
 	var next_puzzle_piece: Area2D = null
 	var puzzle_dist = 100.0
 	var next_side_slot: Area2D= null
-	var side_dist = 40.0
+	var side_dist = 50.0
 
 	# finding nearest slot for puzzle piece
 	for slot in socket:

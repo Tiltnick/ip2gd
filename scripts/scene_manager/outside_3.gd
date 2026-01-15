@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready() -> void:
+	BgmPlayer.bgm_outside3()
 	if not GameState.puzzle_state.get("outside3_monologue_done", false):
 		GameState.puzzle_state["outside3_monologue_done"] = true
 		DialogManager.start_dialog("res://dialog/mushrooms/outside_3_begin.json")
@@ -9,6 +10,8 @@ func _ready() -> void:
 		PopupManager.popup_spacegram_en()
 	elif lang == "de":
 		PopupManager.popup_spacegram_de()
+	if not GameState.map_state.get("outside3_map", false):
+		GameState.map_state["outside3_map"] = true
 
 func configure_camera(cam: Camera2D) -> void:
 	# Cam Limits

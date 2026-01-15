@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://uyg54772xeiv" path="res://assets/sprites/map/Outside_3/Mushrooms_Green.png" id="12_cpm51"]
 [ext_resource type="Texture2D" uid="uid://52oilt3qrjr5" path="res://assets/sprites/map/Outside_3/Mushrooms_Other.png" id="13_4obpn"]
 [ext_resource type="PackedScene" uid="uid://58ehm0hl8qlg" path="res://scenes/Character/npc_porcini.tscn" id="13_sj13r"]
-[ext_resource type="PackedScene" uid="uid://drlrmvj7kttid" path="res://scenes/interactables/objects/stone_panel.tscn" id="13_wk4ve"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/objects/stone_panel.tscn" id="13_wk4ve"]
 [ext_resource type="Texture2D" uid="uid://cf6877rex5t2j" path="res://assets/sprites/map/Outside_3/Mushrooms_Purple.png" id="14_88yej"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="14_ny1p2"]
 [ext_resource type="PackedScene" uid="uid://dri71srb6nfk1" path="res://scenes/Character/npc_truffle.tscn" id="14_wk4ve"]
@@ -4389,9 +4389,9 @@ point_count = 13
 
 [sub_resource type="Curve2D" id="Curve2D_muxi4"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 384, -392, 0, 0, 0, 0, 432, -312, 0, 0, 0, 0, 440, -296, 0, 0, 0, 0, 416, -240, 0, 0, 0, 0, 376, -200, 0, 0, 0, 0, 240, -152, 0, 0, 0, 0, 184, -112, 0, 0, 0, 0, 216, -112, 0, 0, 0, 0, 376, -160, 0, 0, 0, 0, 424, -192, 0, 0, 0, 0, 464, -224, 0, 0, 0, 0, 472, -304, 0, 0, 0, 0, 432, -376, 0, 0, 0, 0, 408, -400, 0, 0, 0, 0, 384, -392)
+"points": PackedVector2Array(0, 0, 0, 0, 384, -392, 0, 0, 0, 0, 432, -312, 0, 0, 0, 0, 440, -296, 0, 0, 0, 0, 440, -232, 0, 0, 0, 0, 376, -232, 0, 0, 0, 0, 376, -184, 0, 0, 0, 0, 240, -152, 0, 0, 0, 0, 184, -112, 0, 0, 0, 0, 216, -112, 0, 0, 0, 0, 392, -184, 0, 0, 0, 0, 456, -184, 0, 0, 0, 0, 464, -224, 0, 0, 0, 0, 472, -304, 0, 0, 0, 0, 432, -376, 0, 0, 0, 0, 408, -400, 0, 0, 0, 0, 384, -392)
 }
-point_count = 15
+point_count = 16
 
 [sub_resource type="Curve2D" id="Curve2D_6a113"]
 _data = {
@@ -4547,10 +4547,10 @@ e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="truffle_socket" instance=ExtResource("14_ny1p2")]
 visible = false
-offset_left = 133.3335
-offset_top = -109.99998
-offset_right = 133.3335
-offset_bottom = -109.99998
+offset_left = -26.666504
+offset_top = -139.99997
+offset_right = -26.666504
+offset_bottom = -139.99997
 scale = Vector2(2.5, 2.5)
 
 [node name="StonePanel" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("13_wk4ve")]
@@ -4687,7 +4687,7 @@ scale = Vector2(1.5, 1.5)
 [node name="MapBounds" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MapBounds"]
-position = Vector2(801, -28)
+position = Vector2(768, -40)
 build_mode = 1
 polygon = PackedVector2Array(-770, -705, -2, -705, -1, -385, 8, -385, 8, -275, -1, -275, 0, 333, -186, 333, -187, 353, -235, 353, -235.14958, 332.00003, -771, 332)
 
@@ -4712,7 +4712,7 @@ visible = false
 position = Vector2(339.0602, -345.28543)
 
 [node name="NPC" parent="." instance=ExtResource("25_1k6v6")]
-position = Vector2(296, 176)
+position = Vector2(368, -464)
 
 [node name="Purple Grass" type="Node" parent="."]
 

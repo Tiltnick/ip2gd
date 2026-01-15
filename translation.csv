@@ -34,6 +34,11 @@ SAVE_GAME, Save Game?, Spiel speichern?
 CLICK_RIGHT, rotate with right click, rotiere mit Rechtsklick
 DIARY, Diary, Tagebuch
 INVENTORY, Inventory, Inventar
+GRAPHICS, Graphics, Grafik
+DISPLAY MODE, Display Mode, Anzeigemodus
+WINDOWED, Windowed, Fenstermodus
+FULLSCREEN, Fullscreen, Vollbild
+BORDERLESS, Borderless, Randlos
 QUESTS, Quests, Missionen
 QUEST_TITLE, Quest Title, Questtitel
 QUEST_DESCRIPTION, Quest Description, Questbeschreibung
@@ -41,3 +46,10 @@ CURRENT_QUESTS,Current Quests,Aktuelle Aufträge
 COMPLETED_QUESTS,Completed Quests,Erledigte Aufträge
 QUEST_NEW,New Quest,Neuer Auftrag
 QUEST_COMPLETED,Quest Completed,Auftrag Erfüllt
+SECRET_BUILDING,Secret Building,Geheimes Gebäude
+ORIS'S_SHUTTLE,Oris' Shuttle,Oris Shuttle
+SAM'S_SHUTTLE,Sam's Shuttle,Sams Shuttle
+STONE_PANEL,Stone Panel,Steintafel
+TEMPLE,Temple,Temple
+MUSHROOM_SOCKETS,Mushroom Sockets,Pilz Sockel
+MYSTERIOUS_TOWER,Mysterious Tower,Mysteriöser Turm

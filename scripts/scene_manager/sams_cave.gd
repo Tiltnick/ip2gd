@@ -6,6 +6,7 @@ extends Node2D
 
 
 func _ready() -> void:
+	BgmPlayer.bgm_cave()
 	if hotbarglobal.inventory_items.has("flashlight"):
 		GameState.puzzle_state[flashlight_save_id] = true
 		field_of_view.visible = true
