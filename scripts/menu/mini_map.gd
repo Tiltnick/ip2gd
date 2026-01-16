@@ -95,3 +95,7 @@ func show_tooltip(text: String, pos: Vector2):
 
 func hide_tooltip():
 	panel.visible = false
+
+
+func _on_close_button_pressed() -> void:
+	close_map()

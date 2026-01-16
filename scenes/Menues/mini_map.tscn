@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dr8ikx12umk4h"]
+[gd_scene load_steps=20 format=3 uid="uid://dr8ikx12umk4h"]
 
 [ext_resource type="Script" uid="uid://dfqx80n77268n" path="res://scripts/menu/mini_map.gd" id="1_yp080"]
 [ext_resource type="Texture2D" uid="uid://bsw333pwhff4l" path="res://assets/sprites/selfmade/map/map_icon/building_icon.png" id="3_61kpm"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dcmotrux3mdln" path="res://assets/sprites/selfmade/map/map_icon/tower_icon.png" id="9_sl0p5"]
 [ext_resource type="Texture2D" uid="uid://dr68jtgxk3836" path="res://assets/sprites/selfmade/map/map_icon/sockets_icon.png" id="10_fqm68"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="11_m41xg"]
+[ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="12_wox8i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ci3pi"]
 bg_color = Color(0.14509805, 0.14509805, 0.14509805, 0.88235295)
@@ -39,8 +40,45 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6siv4"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dg4ou"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kg1vc"]
+bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sl0p5"]
+
 [node name="MiniMap" type="CanvasLayer"]
-visible = false
 script = ExtResource("1_yp080")
 
 [node name="Background" type="Panel" parent="."]
@@ -195,6 +233,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_d7oj4")
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -215,3 +254,24 @@ theme_override_fonts/font = ExtResource("11_m41xg")
 theme_override_font_sizes/font_size = 25
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="."]
+process_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -421.0
+offset_top = 40.0
+offset_right = -358.0
+offset_bottom = 103.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_6siv4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dg4ou")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kg1vc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sl0p5")
+icon = ExtResource("12_wox8i")
+icon_alignment = 1
+
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

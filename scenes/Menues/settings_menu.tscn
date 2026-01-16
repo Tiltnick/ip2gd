@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://cxlvnj5ow5ltm" path="res://scripts/menu/settings/v_box_container.gd" id="6_ghnlw"]
 [ext_resource type="Texture2D" uid="uid://bklvnm5csnt2e" path="res://assets/sprites/ui/lautstarke-erhohen (1).png" id="6_pmovl"]
 [ext_resource type="Texture2D" uid="uid://brynadvskwckv" path="res://assets/sprites/ui/lautstarke-runter 1.png" id="7_ghnlw"]
-[ext_resource type="Script" path="res://scripts/menu/settings/graphics_button.gd" id="9_cm8sp"]
+[ext_resource type="Script" uid="uid://b51mk8v3mgj5" path="res://scripts/menu/settings/graphics_button.gd" id="9_cm8sp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0ysv"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
