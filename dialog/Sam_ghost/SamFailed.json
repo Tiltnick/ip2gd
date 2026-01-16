@@ -2,15 +2,16 @@
 	"id": "Sam_ghost",
 
 	"characters": {
-		"Sam": "",
+		"Sam": "res://assets/sprites/portrait/SamGhost.png", 
+		"Oris": "res://assets/sprites/portrait/oris.png"
 },
 
  "steps": {
 
 	"sections": {
 		"lines": [
-			{"speaker": "Mr. Blob", "text_en": "test 1",
-									"text_de": "nochmal"
+			{"speaker": "Sam",  "text_en": "It's okay, we can start over. Follow my lead precisely please. I know you can do it!",
+								"text_de": "Alles gut, wir können von vorne anfangen. Befolge bitte meinen genauen Weg. Ich weiß, dass du es schaffen kannst!"
 			}
 		],
 		"next": "end"
