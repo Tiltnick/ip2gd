@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cj8plkd0pvjg"]
 
-[ext_resource type="Texture2D" uid="uid://73q40ucqxh4y" path="res://icon.svg" id="1_u74ye"]
+[ext_resource type="Texture2D" uid="uid://dxvp8jmqyq2bk" path="res://assets/sprites/selfmade/flower.png" id="1_u74ye"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n4eux"]
 size = Vector2(32, 20)
