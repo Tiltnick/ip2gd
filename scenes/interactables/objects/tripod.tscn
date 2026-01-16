@@ -18,6 +18,7 @@ radius = 6.0
 
 [node name="tripod" type="Node2D"]
 script = ExtResource("1_3228d")
+disable_area_on_interact = false
 
 [node name="Shadow" parent="." instance=ExtResource("4_1uxoc")]
 position = Vector2(0, 6)
