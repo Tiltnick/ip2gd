@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://dmkx8cyr3lsa6"]
+[gd_scene load_steps=27 format=4 uid="uid://dmkx8cyr3lsa6"]
 
 [ext_resource type="Texture2D" uid="uid://d3nsg2t6vxtvv" path="res://assets/sprites/map/Outside_4/Ground.png" id="1_n83po"]
 [ext_resource type="Script" uid="uid://dhtpwr18uvr5p" path="res://scripts/scene_manager/temple.gd" id="1_s0bbf"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://ch40f6me4wi4a" path="res://assets/sprites/map/Outside_4/Truhe.png" id="13_gchg7"]
 [ext_resource type="PackedScene" uid="uid://cj8plkd0pvjg" path="res://scenes/Riddles/temple_riddle/flower.tscn" id="14_bgrxh"]
 [ext_resource type="Script" uid="uid://b0ogrds8irf2f" path="res://scripts/riddles/temple/flower.gd" id="14_gchg7"]
+[ext_resource type="PackedScene" uid="uid://cd6aal2ayx2tk" path="res://scenes/Animations/fish.tscn" id="16_5ugvp"]
+[ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="16_kjp60"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5gjwu"]
 texture = ExtResource("1_n83po")
@@ -3535,9 +3537,26 @@ zoom = Vector2(1.7, 1.7)
 
 [node name="Fish" type="Node" parent="."]
 
+[node name="Fish" parent="Fish" instance=ExtResource("16_5ugvp")]
+position = Vector2(-120, 176)
+
+[node name="Fish2" parent="Fish" instance=ExtResource("16_5ugvp")]
+position = Vector2(-440, 144)
+
+[node name="Fish3" parent="Fish" instance=ExtResource("16_5ugvp")]
+position = Vector2(464, 90)
+
+[node name="Fish4" parent="Fish" instance=ExtResource("16_5ugvp")]
+position = Vector2(256, 144)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 light_mask = 4
 build_mode = 1
 polygon = PackedVector2Array(-48, 346, -50, 369, 51, 369, 50, 350, 67, 384, -59, 381)
+
+[node name="Hotbar" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Hotbar" parent="Hotbar" instance=ExtResource("16_kjp60")]

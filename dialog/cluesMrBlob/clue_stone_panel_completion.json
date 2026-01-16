@@ -19,7 +19,7 @@
 		{
 		  "id": "tablet_yes",
 		  "text_en": "Yeah, I don't understand.",
-		  "text_de": "Ja, ich verstehe es nicht.",
+		  "text_de": "Ich verstehe nichts.",
 		  "next": "tablet_yes"
 		},
 		{
@@ -43,13 +43,13 @@
 		{
 		  "id": "tablet_understand",
 		  "text_en": "Ahh, I understand!",
-		  "text_de": "Ahh, jetzt verstehe ich!",
+		  "text_de": "Ahh, ich verstehe!",
 		  "next": "end"
 		},
 		{
 		  "id": "tablet_dont_get_it",
 		  "text_en": "I don’t get it.",
-		  "text_de": "Ich verstehe es immer noch nicht.",
+		  "text_de": "Verstehe GAR nichts.",
 		  "next": "tablet_dont_get_it"
 		}
 	  ]

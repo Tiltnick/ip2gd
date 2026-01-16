@@ -1,13 +1,15 @@
-[gd_scene load_steps=17 format=4 uid="uid://ppgrh87b51qp"]
+[gd_scene load_steps=19 format=4 uid="uid://ppgrh87b51qp"]
 
 [ext_resource type="Texture2D" uid="uid://dvhqom61ux7y6" path="res://assets/sprites/map/Outside_4/Bridges.png" id="1_3bhg6"]
-[ext_resource type="Script" uid="uid://cxmmm0wwhx1ag" path="res://scripts/scene_manager/outside_4.gd" id="1_mjsk3"]
+[ext_resource type="Script" path="res://scripts/scene_manager/outside_4.gd" id="1_mjsk3"]
 [ext_resource type="Texture2D" uid="uid://d3nsg2t6vxtvv" path="res://assets/sprites/map/Outside_4/Ground.png" id="2_rf87n"]
 [ext_resource type="Texture2D" uid="uid://dnnyk16u5j1b4" path="res://assets/sprites/map/Outside_4/Water+.png" id="3_d6fly"]
 [ext_resource type="Texture2D" uid="uid://dos56i2jai37g" path="res://assets/sprites/map/Outside_4/Water_animation8.png" id="4_5aw3q"]
 [ext_resource type="Texture2D" uid="uid://dbsmtogr7b6wj" path="res://assets/sprites/map/Outside_4/Ground - Water.png" id="5_rf87n"]
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="6_d6fly"]
 [ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="7_5aw3q"]
+[ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="9_wd6o3"]
+[ext_resource type="PackedScene" uid="uid://cd6aal2ayx2tk" path="res://scenes/Animations/fish.tscn" id="10_k2f6j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mjsk3"]
 texture = ExtResource("1_3bhg6")
@@ -3778,3 +3780,19 @@ position = Vector2(-46, -22)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 build_mode = 1
 polygon = PackedVector2Array(-448, -285, -444, 270, 431, 272, 434, -290, 349, -287, 348, -332, 291, -334, 292, -289)
+
+[node name="Hotbar" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Hotbar" parent="Hotbar" instance=ExtResource("9_wd6o3")]
+
+[node name="Fish" type="Node" parent="."]
+
+[node name="Fish2" parent="Fish" instance=ExtResource("10_k2f6j")]
+position = Vector2(112, -51)
+
+[node name="Fish3" parent="Fish" instance=ExtResource("10_k2f6j")]
+position = Vector2(-352, 232)
+
+[node name="Fish4" parent="Fish" instance=ExtResource("10_k2f6j")]
+position = Vector2(304, 231)
