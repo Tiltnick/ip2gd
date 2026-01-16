@@ -2,6 +2,7 @@ extends Control
 
 @onready var tutorial_title := $TextureRect/Tutorial_Title
 @onready var tutorial_text := $TextureRect/Tutorial_Text
+@export var tutorial_id := "tutorial_seen_v1"
 
 enum TutorialStep {
 	MOVEMENT,
@@ -21,6 +22,11 @@ var used_movement := {
 }
 
 func _ready():
+	if GameState.puzzle_state.get(tutorial_id, false) == true:
+		visible = false
+		set_process_input(false)
+		return
+	
 	visible = true
 	tutorial_title.text = "Steuerung"
 	_update_text()
@@ -62,7 +68,11 @@ func _check_interact(event):
 		SfxPlayer.notification_sound()
 		current_step = TutorialStep.DONE
 		_update_text()
-		self.visible = false
+		visible = false
+		set_process_input(false)
+
+		GameState.puzzle_state[tutorial_id] = true
+		SaveSystem.save_game()
 
 func _update_text():
 	match current_step:
