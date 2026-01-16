@@ -12,8 +12,8 @@ func setup(_npc, _sm) -> void:
 
 
 func enter() -> void:
-	# optional: direkt stehen bleiben/Reset
-	pass
+	if npc.has_method("stop_and_idle"):
+		npc.stop_and_idle()
 
 
 func physics_update(_delta: float) -> void:
@@ -21,15 +21,13 @@ func physics_update(_delta: float) -> void:
 		sm.transition_to("Idle")
 		return
 
-	# zum Player laufen
 	npc.move_towards(npc.player.global_position)
 
-	# nah genug -> Talk
 	if npc.global_position.distance_to(npc.player.global_position) <= stop_distance:
-		npc.velocity = Vector2.ZERO
-		npc.move_and_slide()
+		if npc.has_method("stop_and_idle"):
+			npc.stop_and_idle()
 		sm.transition_to("Talk")
 
 
 func exit() -> void:
-	npc.velocity = Vector2.ZERO
+	pass

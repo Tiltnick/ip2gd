@@ -35,7 +35,7 @@ func _ready() -> void:
 	_set_pillars_locked(false)
 
 
-# --- pillars ---
+#pillars
 func _register_pillars() -> void:
 	_pillars_by_id.clear()
 
@@ -65,7 +65,7 @@ func reset_puzzle() -> void:
 	_set_pillars_locked(false)
 
 
-# --- input ---
+#input
 func _on_pillar_pressed(pillar: Pillar) -> void:
 	if _solved:
 		return
@@ -92,7 +92,7 @@ func _accept_correct_input(pillar: Pillar) -> void:
 		_on_solved()
 
 
-# --- fail / solve ---
+# fail / solve
 func _on_failed() -> void:
 	_fail_and_reset()
 	_set_flag(failed_flag, true)
@@ -135,7 +135,7 @@ func _set_pillars_locked(locked: bool) -> void:
 		pillar.set_locked(locked)
 
 
-# --- sam signals ---
+#signals
 func _connect_sam_signals() -> void:
 	if _sam_target == null:
 		return
@@ -154,7 +154,7 @@ func _on_sam_guide_finished() -> void:
 	_set_pillars_locked(false)
 
 
-# --- sam notify (duck typing) ---
+#notify
 func _notify_sam_failed() -> void:
 	if _sam_target == null:
 		_sam_target = _find_sam_target()
@@ -173,7 +173,7 @@ func _find_sam_target() -> Node:
 	return list[0] as Node
 
 
-# --- gamestate ---
+#gamestate
 func _is_flag_true(flag_key: String) -> bool:
 	if flag_key.is_empty():
 		return false

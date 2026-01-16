@@ -14,19 +14,29 @@ signal guide_finished
 @onready var npc_camera: Camera2D = $NpcCamera
 @onready var dialog_process: Node = $DialogProcess
 @onready var interact_area: Area2D = $InteractArea
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
 var player: Node2D = null
 var guide_path_node: Path2D = null
 var _prev_camera: Camera2D = null
 
-# Step 1..3 = welcher Dialog/Weg als Nächstes
+
 var step: int = 1
 
 var _player_in_range: bool = false
 var _can_interact: bool = false
 
-# Wird true sobald SAM mindestens 1x einen Weg gezeigt hat
 var _has_shown_a_path: bool = false
+
+
+var _force_fail_dialog: bool = false
+
+var facing: Vector2 = Vector2.DOWN
+
+const ANIM_DOWN := "idle_down"
+const ANIM_LEFT := "idle_left"
+const ANIM_RIGHT := "idle_right"
+const ANIM_UP := "idle_top"
 
 
 func _ready() -> void:
@@ -36,14 +46,15 @@ func _ready() -> void:
 	interact_area.body_exited.connect(_on_interact_body_exited)
 
 
+	play_stand_idle()
+
+
 func on_player_triggered(p: Node2D) -> void:
 	player = p
-
-	# Optional: falls du speicherst/lädst, resync über Flags:
-	_sync_step_from_flags()
-
-	_can_interact = false
+	step = 1
 	_has_shown_a_path = false
+	_force_fail_dialog = false
+	_can_interact = false
 	state_machine.transition_to("Approach")
 
 
@@ -60,26 +71,22 @@ func _unhandled_input(event: InputEvent) -> void:
 func _start_next_dialog() -> void:
 	_can_interact = false
 
-	# WICHTIG: Nach dem ersten gezeigten Weg soll beim nächsten Reden step hochgehen
 	if _has_shown_a_path and step < 3:
 		step += 1
-
-	# Wenn du nach Step 3 NICHT nochmal reden willst:
-	# if _has_shown_a_path and step >= 3:
-	#     state_machine.transition_to("Idle")
-	#     return
 
 	state_machine.transition_to("Talk")
 
 
 func on_guide_completed() -> void:
-	# SAM ist fertig mit “Weg zeigen” -> jetzt läuft Spieler selbst
 	_has_shown_a_path = true
 	_can_interact = true
+	play_stand_idle()
 	state_machine.transition_to("WaitInteract")
 
 
 func on_dialog_finished(dialog_path: String) -> void:
+	_force_fail_dialog = false
+
 	var scene_name := _get_scene_name()
 
 	if should_guide_after_dialog(scene_name, dialog_path):
@@ -88,16 +95,63 @@ func on_dialog_finished(dialog_path: String) -> void:
 		state_machine.transition_to("Guide")
 	else:
 		_can_interact = true
+		play_stand_idle()
 		state_machine.transition_to("WaitInteract")
 
 
 func move_towards(target: Vector2) -> void:
 	var dir := target - global_position
+
 	if dir.length() < 0.001:
-		velocity = Vector2.ZERO
-	else:
-		velocity = dir.normalized() * move_speed
+		stop_and_idle()
+		return
+
+	_update_facing_from_vector(dir)
+	velocity = dir.normalized() * move_speed
 	move_and_slide()
+
+	play_move_anim()
+
+
+func stop_and_idle() -> void:
+	velocity = Vector2.ZERO
+	move_and_slide()
+	play_stand_idle()
+
+
+func _update_facing_from_vector(v: Vector2) -> void:
+	if abs(v.x) > abs(v.y):
+		facing = Vector2.RIGHT if v.x > 0.0 else Vector2.LEFT
+	else:
+		facing = Vector2.DOWN if v.y > 0.0 else Vector2.UP
+
+
+func play_move_anim() -> void:
+	if anim == null or anim.sprite_frames == null:
+		return
+
+	var name := ANIM_DOWN
+	if facing == Vector2.LEFT:
+		name = ANIM_LEFT
+	elif facing == Vector2.RIGHT:
+		name = ANIM_RIGHT
+	elif facing == Vector2.UP:
+		name = ANIM_UP
+	else:
+		name = ANIM_DOWN
+
+	if anim.sprite_frames.has_animation(name):
+		if anim.animation != name or not anim.is_playing():
+			anim.play(name)
+
+
+func play_stand_idle() -> void:
+	if anim == null or anim.sprite_frames == null:
+		return
+
+	if anim.sprite_frames.has_animation(ANIM_DOWN):
+		if anim.animation != ANIM_DOWN or not anim.is_playing():
+			anim.play(ANIM_DOWN)
 
 
 func set_guide_index(index: int) -> void:
@@ -127,6 +181,9 @@ func restore_camera() -> void:
 func get_dialog_path_for_step(scene_name: String, wanted_step: int) -> String:
 	return String(dialog_process.call("get_dialog_path_for_step", scene_name, wanted_step))
 
+func get_fail_dialog_path(scene_name: String) -> String:
+	return String(dialog_process.call("get_fail_dialog_path", scene_name))
+
 func should_guide_after_dialog(scene_name: String, dialog_path: String) -> bool:
 	return bool(dialog_process.call("should_guide_after_dialog", scene_name, dialog_path))
 
@@ -150,20 +207,9 @@ func _get_scene_name() -> String:
 	return String(scene.name)
 
 
-func _sync_step_from_flags() -> void:
-	# Wenn Dialog1 done -> nächster ist Schritt 2, usw.
-	if bool(GameState.puzzle_state.get("sam_dialog_3_done", false)):
-		step = 3
-	elif bool(GameState.puzzle_state.get("sam_dialog_2_done", false)):
-		step = 2
-	elif bool(GameState.puzzle_state.get("sam_dialog_1_done", false)):
-		step = 1 # du kannst hier auch 2 setzen, wenn du nach Reload direkt Dialog2 willst
-	else:
-		step = 1
-
-
 func on_puzzle_failed() -> void:
 	step = 1
-	_has_shown_a_path = false
+	_force_fail_dialog = true
 	_can_interact = false
+	_has_shown_a_path = false
 	state_machine.transition_to("Talk")

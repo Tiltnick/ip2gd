@@ -10,12 +10,14 @@ func setup(_npc, _sm) -> void:
 
 
 func enter() -> void:
-	npc.velocity = Vector2.ZERO
-	npc.move_and_slide()
+	if npc.has_method("stop_and_idle"):
+		npc.stop_and_idle()
+	else:
+		npc.velocity = Vector2.ZERO
+		npc.move_and_slide()
 
 
 func physics_update(_delta: float) -> void:
-	# Nichts tun – SAM wartet. Interact wird in SAM._unhandled_input abgefangen.
 	pass
 
 

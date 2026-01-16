@@ -12,11 +12,15 @@ func setup(_npc, _sm) -> void:
 
 
 func enter() -> void:
-	npc.velocity = Vector2.ZERO
-	npc.move_and_slide()
+	if npc.has_method("stop_and_idle"):
+		npc.stop_and_idle()
 
 	var scene_name: String = _get_scene_name()
-	dialog_path = npc.get_dialog_path_for_step(scene_name, npc.step)
+
+	if npc._force_fail_dialog:
+		dialog_path = npc.get_fail_dialog_path(scene_name)
+	else:
+		dialog_path = npc.get_dialog_path_for_step(scene_name, npc.step)
 
 	DialogManager.dialog_finished.connect(_on_dialog_finished, CONNECT_ONE_SHOT)
 	DialogManager.start_dialog(dialog_path)

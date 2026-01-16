@@ -26,14 +26,12 @@ func transition_to(state_name: String) -> void:
 		push_warning("StateMachine: unknown state '%s'" % state_name)
 		return
 
-	# Wenn wir schon in einem transition stecken -> nur merken und später ausführen
 	if _is_transitioning:
 		_queued_state = state_name
 		return
 
 	_is_transitioning = true
 
-	# WICHTIG: current_state erst "entkoppeln", dann exit aufrufen (verhindert recursion)
 	var prev := current_state
 	current_state = null
 	if prev != null and prev.has_method("exit"):
@@ -45,7 +43,6 @@ func transition_to(state_name: String) -> void:
 
 	_is_transitioning = false
 
-	# Falls währenddessen ein neuer Transition gewünscht wurde:
 	if _queued_state != "":
 		var next := _queued_state
 		_queued_state = ""
