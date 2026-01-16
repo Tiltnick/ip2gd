@@ -45,6 +45,7 @@ func check_puzzle():
 
 	for slot in slots:
 		var ok = slot.is_correct()
+		
 		if not ok:
 			return
 
@@ -53,12 +54,14 @@ func check_puzzle():
 			GameState.puzzle_state[puzzle_id] = true
 		solved = true
 		solved_animation.play("solved_animation")
+		QuestManager.complete_quest("quest_3")
 		for i in range(1, 7):
 			var id = "stone_piece_%d" % i
 			var stonepanel: String = "stonepanel"
 			hotbarglobal.remove_item(id)
 			hotbarglobal.remove_item(stonepanel)
 			blob.run_away_to(blob.global_position + Vector2(0, 550))
+			
 		
 
 func _on_close_button_pressed() -> void:
