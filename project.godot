@@ -114,13 +114,6 @@ window/size/viewport_height=1080
 window/size/mode=3
 window/stretch/mode="canvas_items"
 
-[file_customization]
-
-folder_colors={
-"res://dialog/": "pink",
-"res://scripts/Sam/": "blue",
-"res://scripts/riddles/temple/": "orange"
-}
 
 [global_group]
 

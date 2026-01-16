@@ -2,16 +2,53 @@
 	"id": "Sam_ghost",
 
 	"characters": {
-		"Sam": "",
+		"Sam": "res://assets/sprites/portrait/SamGhost.png", 
+		"Oris": "res://assets/sprites/portrait/oris.png"
 },
 
  "steps": {
 
 	"sections": {
 		"lines": [
-			{"speaker": "Mr. Blob", "text_en": "test 1",
-									"text_de": "test 1"
-			}
+			{"speaker": "Sam",  "text_en": "Hello friend. Please don't run away, it's me. Sam.",
+								"text_de": "Hallo mein Freund. Bitte renn nicht weg, ich bins. Sam."
+			},
+			{"speaker": "Oris",  "text_en": "What?! This must be a cruel joke. You're dead!",
+								 "text_de": "Was?! Das muss ein grausamer Witz sein. Du bist doch tot!"
+			},
+			{"speaker": "Sam",  "text_en": "I know it's hard to believe, but I beg you to at least try to hear me out. We don't have much time.",
+								"text_de": "Ich weiß es ist kaum zu glauben, aber bitte gib mir die Chance mich zu erklären. Wir haben nicht viel Zeit."
+			},
+			
+			{"speaker": "Oris",  "text_en": "But...wait, why are you so transparent? Are you a GHOST?!",
+								 "text_de": "Aber...warte, wieso bist du so durchsichtig? Bist du etwa ein GEIST?!"
+			},
+			{"speaker": "Sam",  "text_en": "Long story. Listen, I'm here to help you get the flower! I know you're after it.",
+								"text_de": "Lange Geschichte. Hör zu, ich bin hier um dir mit der Blume zu helfen! Ich weiß, du suchst sie."
+			},
+			
+			{"speaker": "Oris",  "text_en": "How do you know- Fine, explain later. What do I do?",
+								 "text_de": "Woher weißt du- Egal, erklärs mir später. Was muss ich tun?"
+			},
+			{"speaker": "Sam",  "text_en": "This temple is old and very tricky. You have to precisely follow each of my movements.",
+								"text_de": "Dieser Tempel ist alt und sehr knifflig. Du musst meine genauen Bewegungen befolgen."
+			},
+			
+			{"speaker": "Sam",  "text_en": "I will show you which columns to light with the fire mushroom. I presume you got it from the mushroom folk and have it on you, yes?",
+								"text_de": "Ich werde dir zeigen, welche der Säulen du mit dem Feuerpilz anzünden musst. Ich vermute du hast ihn Pilzvolk bekommen, richtig?"
+			},
+			{"speaker": "Oris",  "text_en": "I don't even want to know how you know that. But fine, yes I have the mushroom. But what do you mean 'light the columns'?",
+								 "text_de": "Ich will gar nicht wissen, wie du vom Pilz weißt. Aber ja, in Ordnung, ich habe den Pilz bei mir. Was meinst du aber mit 'anzünden'?"
+			},
+			{"speaker": "Sam",  "text_en": "Each column has a torch that you must light in the correct order. This is the only way to get to the flower.",
+								"text_de": "Jede Säule hat eine Fackel, die in der richtigen Reihenfolge angezündet werden muss. Nur so bekommst du die Blume."
+			},
+			{"speaker": "Sam",  "text_en": "Are you ready to follow me? It's vital, that you pay attention to all the columns I pass. I will start with two.",
+								"text_de": "Bist du bereit mir zu folgen? Es ist wichtig, dass du auf die Säulen achtest, an denen ich vorbei laufe. Ich zeige dir erst zwei."
+			},
+			{"speaker": "Oris",  "text_en": "I guess. Lead the way.",
+								 "text_de": "Ich denke schon. Weise den Weg."
+			},
 		],
 		"next": "end"
 	},

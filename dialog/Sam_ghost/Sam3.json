@@ -2,15 +2,16 @@
 	"id": "Sam_ghost",
 
 	"characters": {
-		"Sam": "",
+		"Sam": "res://assets/sprites/portrait/SamGhost.png", 
+		"Oris": "res://assets/sprites/portrait/oris.png"
 },
 
  "steps": {
 
 	"sections": {
 		"lines": [
-			{"speaker": "Mr. Blob", "text_en": "test 3",
-									"text_de": "test 3"
+			{"speaker": "Sam",  "text_en": "Okay, we're almost done. The last part is the hardest but I believe in you. Now 5 columns.",
+								"text_de": "Okay, wir sind fast fertig. Der letzte Teil ist immer der schwierigste aber ich glaube an dich. Jetzt kommen 5 Säulen."
 			}
 		],
 		"next": "end"

@@ -27,7 +27,7 @@ const SPEAKER_COLORS := {
 	"Mr. Blob": Color("eee9d4ff"),
 	"Oris": Color("eafffaff"),
 	"Mushrooms": Color("eef7e1ff"),
-	"Sam": Color("feebe4ff")
+	"Sam": Color("fee2d8ff")
 }
 
 func _ready() -> void:
