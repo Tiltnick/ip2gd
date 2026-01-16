@@ -3448,7 +3448,7 @@ target_spawn_id = "from_temple"
 shape = SubResource("RectangleShape2D_j5sn1")
 
 [node name="Character" parent="." instance=ExtResource("7_4y2am")]
-position = Vector2(0, 328)
+position = Vector2(-1, 306)
 
 [node name="PillarPuzzle" type="Node" parent="." groups=["pillar_puzzle"]]
 script = ExtResource("9_n6rke")
