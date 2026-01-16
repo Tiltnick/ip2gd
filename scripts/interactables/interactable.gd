@@ -5,6 +5,9 @@ class_name Interactable
 @onready var area: Area2D = $Area2D
 
 @export var e_popup_node: Node
+
+@export var disable_area_on_interact: bool = true
+
 var player_in_area := false
 var outline_locked := false
 
@@ -38,7 +41,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("interact"):
 		var allow := player_in_area
 
-		# wenn das Objekt "is_zoomed" hat und gerade gezoomt istdann erlauben, auch ohne player_in_area
+		# wenn das Objekt "is_zoomed" hat und gerade gezoomt ist
 		if not allow:
 			for p in get_property_list():
 				if p.name == "is_zoomed":
@@ -46,4 +49,19 @@ func _process(_delta):
 					break
 
 		if allow:
+			_hide_interact_ui()
 			interact()
+
+
+
+func _hide_interact_ui() -> void:
+
+	if outline:
+		outline.visible = false
+	if e_popup_node:
+		e_popup_node.visible = false
+
+	if disable_area_on_interact:
+		player_in_area = false
+		if area:
+			area.set_deferred("monitoring", false)
