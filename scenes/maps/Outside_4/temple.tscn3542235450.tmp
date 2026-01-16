@@ -3361,7 +3361,7 @@ size = Vector2(162, 20)
 
 [sub_resource type="Curve2D" id="Curve2D_kjp60"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 224, 0, 0, 0, 0, -89, 244, 0, 0, 0, 0, -295, 291, 0, 0, 0, 0, -410, 258, 0, 0, 0, 0, -355, 199, 0, 0, 0, 0, -352, 96)
+"points": PackedVector2Array(0, 0, 0, 0, -8, 201, 0, 0, 0, 0, -89, 244, 0, 0, 0, 0, -295, 291, 0, 0, 0, 0, -410, 258, 0, 0, 0, 0, -355, 199, 0, 0, 0, 0, -352, 96)
 }
 point_count = 6
 
@@ -3414,7 +3414,7 @@ tile_set = SubResource("TileSet_bcjcm")
 position = Vector2(0, 317)
 
 [node name="from_outside4" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(0, 274)
+position = Vector2(0, 317)
 
 [node name="Trigger" type="Node" parent="."]
 
@@ -3448,7 +3448,7 @@ target_spawn_id = "from_temple"
 shape = SubResource("RectangleShape2D_j5sn1")
 
 [node name="Character" parent="." instance=ExtResource("7_4y2am")]
-position = Vector2(0, 328)
+position = Vector2(-1, 306)
 
 [node name="PillarPuzzle" type="Node" parent="." groups=["pillar_puzzle"]]
 script = ExtResource("9_n6rke")

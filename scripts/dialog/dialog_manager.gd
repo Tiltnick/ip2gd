@@ -24,6 +24,11 @@ const PUZZLE_FLAG_BY_DIALOG_PATH: Dictionary = {
 	"res://dialog/cluesMrBlob/clue_mushroom_1.json": "blob_clue2_done",
 	"res://dialog/cluesMrBlob/clue_mushroom_2.json": "blob_clue3_done",
 	"res://dialog/innerMonologue/tripod_without_telescope.json": "tripod_no_telescope_seen",
+	"res://dialog/Sam_ghost/Sam.json": "sam_dialog_1_done",
+	"res://dialog/Sam_ghost/Sam2.json": "sam_dialog_2_done",
+	"res://dialog/Sam_ghost/Sam3.json": "sam_dialog_3_done",
+	"res://dialog/Sam_ghost/SamFailed.json": "sam_fail_dialog_done",
+
 	
 }
 

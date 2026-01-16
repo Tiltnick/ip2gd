@@ -9,17 +9,21 @@ signal puzzle_solved
 @export var solved_flag: String = "outside5_pillar_puzzle_solved"
 @export var failed_flag: String = "outside5_pillar_puzzle_failed"
 
+@export var sam_group_name: String = "sam_state_machine"
+@export var sam_failed_method: String = "on_puzzle_failed"
+
 var _pillars_by_id: Dictionary = {}
 var _input_index: int = 0
 var _solved: bool = false
 
-var _sam_sm: SamStateMachine = null
+var _sam_target: Node = null
 
 
 func _ready() -> void:
 	_register_pillars()
 
-	_sam_sm = _find_sam_state_machine()
+	_sam_target = _find_sam_target()
+	_connect_sam_signals()
 
 	if _is_flag_true(solved_flag):
 		_set_solved_state()
@@ -31,7 +35,7 @@ func _ready() -> void:
 	_set_pillars_locked(false)
 
 
-# pillars
+#pillars
 func _register_pillars() -> void:
 	_pillars_by_id.clear()
 
@@ -61,14 +65,12 @@ func reset_puzzle() -> void:
 	_set_pillars_locked(false)
 
 
-# Input
+#input
 func _on_pillar_pressed(pillar: Pillar) -> void:
 	if _solved:
 		return
-
 	if solution.is_empty():
 		return
-
 	if _input_index < 0 or _input_index >= solution.size():
 		_fail_and_reset()
 		return
@@ -90,7 +92,7 @@ func _accept_correct_input(pillar: Pillar) -> void:
 		_on_solved()
 
 
-# Fail / Solve
+# fail / solve
 func _on_failed() -> void:
 	_fail_and_reset()
 	_set_flag(failed_flag, true)
@@ -133,26 +135,45 @@ func _set_pillars_locked(locked: bool) -> void:
 		pillar.set_locked(locked)
 
 
-# Sam
-func _notify_sam_failed() -> void:
-	if _sam_sm == null:
-		_sam_sm = _find_sam_state_machine()
-
-	if _sam_sm == null:
+#signals
+func _connect_sam_signals() -> void:
+	if _sam_target == null:
 		return
 
-	if _sam_sm.has_method("on_puzzle_failed"):
-		_sam_sm.call("on_puzzle_failed")
+	if _sam_target.has_signal("guide_started"):
+		_sam_target.connect("guide_started", Callable(self, "_on_sam_guide_started"))
+	if _sam_target.has_signal("guide_finished"):
+		_sam_target.connect("guide_finished", Callable(self, "_on_sam_guide_finished"))
 
 
-func _find_sam_state_machine() -> SamStateMachine:
-	var list := get_tree().get_nodes_in_group("sam_state_machine")
+func _on_sam_guide_started() -> void:
+	_set_pillars_locked(true)
+
+
+func _on_sam_guide_finished() -> void:
+	_set_pillars_locked(false)
+
+
+#notify
+func _notify_sam_failed() -> void:
+	if _sam_target == null:
+		_sam_target = _find_sam_target()
+		_connect_sam_signals()
+	if _sam_target == null:
+		return
+
+	if _sam_target.has_method(sam_failed_method):
+		_sam_target.call(sam_failed_method)
+
+
+func _find_sam_target() -> Node:
+	var list := get_tree().get_nodes_in_group(sam_group_name)
 	if list.is_empty():
 		return null
-	return list[0] as SamStateMachine
+	return list[0] as Node
 
 
-# GameState
+#gamestate
 func _is_flag_true(flag_key: String) -> bool:
 	if flag_key.is_empty():
 		return false
