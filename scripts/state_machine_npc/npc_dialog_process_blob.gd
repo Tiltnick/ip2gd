@@ -75,6 +75,8 @@ const SPACESHIPROOM_FLOW_END: String = "res://dialog/dialogueMrBlob/end_dialog_o
 
 func _ready() -> void:
 	super._ready()
+	DialogManager.dialog_finished.connect(_on_dialog_finished)
+
 
 # Szene → Dialogdatei
 func get_dialog_path(scene_name: String) -> String:
@@ -157,3 +159,10 @@ func _get_spaceship_room_dialog() -> String:
 		if not bool(GameState.puzzle_state.get(step["flag"], false)):
 			return step["path"]
 	return SPACESHIPROOM_FLOW_END
+
+
+func _on_dialog_finished() -> void:
+	var scene_name := get_tree().current_scene.name
+
+	if scene_name == "Outside1":
+		QuestManager.add_quest("quest4") # find sam

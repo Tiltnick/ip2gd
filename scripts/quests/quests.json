@@ -37,10 +37,10 @@
 			"quest_description_de": "Wenn du genau hinsiehst erkennst du Symbole auf dem Turm. Um das Rätsel zu lösen musst du dich vielleicht auf einen Spazierang begeben und nach den Symbolen ausschau halten."
 		},
 		"quest7": {
-			"quest_title_en": "The cave",
-			"quest_title_de": "Die Höhle",
-			"quest_description_en": "Hier ist es zu dunkel. Finde einen Weg hier reinzukommen.",
-			"quest_description_de": "Its too dark in here. Find a way to enter."
+			"quest_title_en": "Sams cave",
+			"quest_title_de": "Sams Höhle",
+			"quest_description_en": "You found the cave in which Sam did his reseach on the flower. Maybe you can find some leftovers from his research.",
+			"quest_description_de": "Du hast die Höhle gefunden in der Sam an der Blume geforscht hat. Vielleicht findest du hier Überbleibsel seiner Forschung."
 		},
 		"quest8": {
 			"quest_title_en": "Tripods",
