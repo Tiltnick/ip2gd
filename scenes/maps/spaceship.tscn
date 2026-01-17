@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://csejhruust020"]
+[gd_scene load_steps=36 format=4 uid="uid://csejhruust020"]
 
 [ext_resource type="Script" uid="uid://dkosu7fsxv5uu" path="res://scripts/scene_manager/spaceship.gd" id="1_k18lp"]
 [ext_resource type="Texture2D" uid="uid://kxs6kkm0ut6w" path="res://assets/sprites/map/Spaceship/background.png" id="1_krvlx"]
@@ -16,13 +16,16 @@
 [ext_resource type="Script" uid="uid://btvvee8ehjidi" path="res://scripts/riddles/spaceship_door/spaceship_door_door.gd" id="11_emg07"]
 [ext_resource type="PackedScene" uid="uid://dfa4ga2b2k76f" path="res://scenes/Menues/saving_menu.tscn" id="11_o77e3"]
 [ext_resource type="PackedScene" uid="uid://i0736j8r38e8" path="res://scenes/interactables/doors/door_broken.tscn" id="12_4s1gq"]
+[ext_resource type="PackedScene" uid="uid://c8wh573cegrw7" path="res://scenes/interactables/objects/map_item.tscn" id="12_a5uu7"]
 [ext_resource type="Script" uid="uid://dge528a6i2b6f" path="res://scripts/interactables/doors/door_spaceship_room.gd" id="13_4nltl"]
 [ext_resource type="Texture2D" uid="uid://c7pwwu6560hy4" path="res://assets/sprites/selfmade/spaceship_door_open.png" id="13_b8ov6"]
+[ext_resource type="Texture2D" uid="uid://b4khei26ggeuo" path="res://assets/sprites/selfmade/map/map_item.png" id="13_t5k16"]
 [ext_resource type="PackedScene" uid="uid://bpvneidk4xerj" path="res://scenes/Riddles/Spaceship/spaceship_door_riddle.tscn" id="14_1oksb"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="15_emg07"]
 [ext_resource type="PackedScene" uid="uid://m8y5i5u6eyka" path="res://scenes/maps/transition_area_fade.tscn" id="17_8o1ua"]
 [ext_resource type="PackedScene" uid="uid://c3lilldf155p4" path="res://scenes/Animations/bubbles.tscn" id="23_a5uu7"]
 [ext_resource type="PackedScene" uid="uid://bmwyil8lbg5aq" path="res://scenes/Animations/fog.tscn" id="24_t5k16"]
+[ext_resource type="PackedScene" uid="uid://jndgq2qoed1w" path="res://scenes/UI/tutorial_ui.tscn" id="25_w60i3"]
 [ext_resource type="Texture2D" uid="uid://bbkysrm140l12" path="res://assets/sprites/selfmade/background_sky.png" id="27_7rixv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oegse"]
@@ -1278,7 +1281,7 @@ tile_map_data = PackedByteArray("AAD6/wgAAwAKAAkAAAD6/wkAAwAKAAoAAAD6/woAAwAKAAs
 tile_set = SubResource("TileSet_2km4p")
 
 [node name="Decoration2" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD9////AwAUAAUAAAD9/wEAAwAGAAAAAAD9/wIAAwAGAAEAAAD9/wUAAwAUAAAAAAD9/wYAAwARAAAAAAD+/wEAAwAHAAAAAAD+/wIAAwAHAAEAAAD+/wQAAwAEAAwAAAD+/wUAAwAEAA0AAAD+/wYAAwAEAA4AAAD//wIAAwADAAwAAAD//wMAAwADAA0AAAD//wQAAwADAA4AAAAAAAEAAwAGAAIAAAAAAAIAAwAGAAMAAAABAAEAAwAHAAIAAAABAAIAAwAHAAMAAAACAAIAAwADAAwAAAACAAMAAwADAA0AAAACAAQAAwADAA4AAAADAAEAAwAGAAAAAAADAAIAAwAGAAEAAAADAAQAAwAFAAwAAAADAAUAAwAFAA0AAAADAAYAAwAFAA4AAAAEAP//AwAUAAUAAAAEAAEAAwAHAAAAAAAEAAIAAwAHAAEAAAAEAAQAAwATAAAAAAAEAAUAAwAOAAAAAAAEAAYAAwASAAAAAAAIAAIAAwARAAEAAAAIAAMAAwARAAIAAAAIAAUAAwAMAAUAAAAJAAIAAwASAAEAAAAJAAMAAwASAAIAAAAJAAUAAwAMAAgAAAAJAAYAAwAPAAAAAAAKAAIAAwATAAEAAAAKAAMAAwATAAIAAAAKAAUAAwARAAAAAAALAAIAAwAUAAEAAAALAAMAAwAUAAIAAAAMAAIAAwARAAEAAAAMAAMAAwARAAIAAAAMAAYAAwATAAAAAAANAAIAAwASAAEAAAANAAMAAwASAAIAAAANAAUAAwAMAAMAAAA=")
+tile_map_data = PackedByteArray("AAD9////AwAUAAUAAAD9/wEAAwAGAAAAAAD9/wIAAwAGAAEAAAD9/wUAAwAUAAAAAAD9/wYAAwARAAAAAAD+/wEAAwAHAAAAAAD+/wIAAwAHAAEAAAD+/wQAAwAEAAwAAAD+/wUAAwAEAA0AAAD+/wYAAwAEAA4AAAD//wIAAwADAAwAAAD//wMAAwADAA0AAAD//wQAAwADAA4AAAAAAAEAAwAGAAIAAAAAAAIAAwAGAAMAAAABAAEAAwAHAAIAAAABAAIAAwAHAAMAAAACAAIAAwADAAwAAAACAAMAAwADAA0AAAACAAQAAwADAA4AAAADAAEAAwAGAAAAAAADAAIAAwAGAAEAAAADAAQAAwAFAAwAAAADAAUAAwAFAA0AAAADAAYAAwAFAA4AAAAEAP//AwAUAAUAAAAEAAEAAwAHAAAAAAAEAAIAAwAHAAEAAAAEAAQAAwATAAAAAAAEAAUAAwAOAAAAAAAEAAYAAwASAAAAAAAIAAIAAwARAAEAAAAIAAMAAwARAAIAAAAIAAUAAwAMAAUAAAAJAAIAAwASAAEAAAAJAAMAAwASAAIAAAAJAAUAAwAMAAgAAAAKAAIAAwATAAEAAAAKAAMAAwATAAIAAAAKAAUAAwARAAAAAAALAAIAAwAUAAEAAAALAAMAAwAUAAIAAAAMAAIAAwARAAEAAAAMAAMAAwARAAIAAAANAAIAAwASAAEAAAANAAMAAwASAAIAAAANAAUAAwAMAAMAAAA=")
 tile_set = SubResource("TileSet_2km4p")
 
 [node name="Decoration3" type="TileMapLayer" parent="."]
@@ -1293,7 +1296,7 @@ collision_mask = 0
 [node name="MapBounds" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(14, 304)
 build_mode = 1
-polygon = PackedVector2Array(-157, -74, 59, -77, 58, -42, 135, -42, 135, -78, 303, -77, 304, -211, 116, -219, 112, -160, 69, -162, 65, -273, -61, -274, -64, -128, -157, -128)
+polygon = PackedVector2Array(-173, -77, 59, -77, 58, -42, 135, -42, 135, -78, 303, -77, 304, -211, 116, -219, 112, -160, 69, -162, 65, -273, -61, -274, -64, -128, -172, -128)
 
 [node name="Objects" type="Node" parent="."]
 
@@ -1310,7 +1313,7 @@ offset_bottom = -35.000004
 scale = Vector2(1.6, 1.6)
 
 [node name="Diary" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("10_2km4p")]
-position = Vector2(177, 104)
+position = Vector2(146, 104)
 item_icon = ExtResource("10_khykm")
 e_popup_node = NodePath("Press_E_Popup_Diary")
 
@@ -1321,6 +1324,21 @@ offset_top = -31.000008
 offset_right = 12.000008
 offset_bottom = -7.2500076
 scale = Vector2(0.8, 0.8)
+
+[node name="MapItem" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_a5uu7")]
+z_index = 4
+position = Vector2(201.00002, 103.00001)
+scale = Vector2(0.25, 0.25)
+item_icon = ExtResource("13_t5k16")
+e_popup_node = NodePath("Press_E_Popup")
+
+[node name="Press_E_Popup" parent="Objects/MapItem" instance=ExtResource("10_o77e3")]
+visible = false
+offset_left = -19.999939
+offset_top = -73.333374
+offset_right = -19.999939
+offset_bottom = -73.333374
+scale = Vector2(2, 2)
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 
@@ -1357,13 +1375,14 @@ texture = ExtResource("13_b8ov6")
 visible = false
 texture = ExtResource("13_b8ov6")
 
-[node name="Door" parent="." instance=ExtResource("10_172bc")]
+[node name="Door" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("10_172bc")]
 position = Vector2(272, 72)
 script = ExtResource("11_emg07")
 code_popup_path = NodePath("../SpaceshipDoor")
 puzzle_id = "Spaceship_code"
 target_scene_path = "uid://b4r2irdvo1x1b"
 target_spawn_id = "from_spaceship"
+e_popup_node = NodePath("Press_E_Popup_Door")
 
 [node name="Press_E_Popup_Door" parent="Door" instance=ExtResource("10_o77e3")]
 visible = false
@@ -1404,12 +1423,13 @@ layer = 0
 [node name="Background" type="TextureRect" parent="."]
 z_index = -3
 offset_left = -312.0
-offset_top = -148.0
+offset_top = -155.0
 offset_right = 496.88892
-offset_bottom = 307.0
+offset_bottom = 300.0
 mouse_filter = 2
 texture = ExtResource("27_7rixv")
 expand_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="Bubbles" type="Node" parent="."]
 
@@ -1420,3 +1440,9 @@ position = Vector2(-64, 158)
 
 [node name="Fog" parent="Fog Container" instance=ExtResource("24_t5k16")]
 position = Vector2(304, 120)
+
+[node name="Tutorial_UI" parent="." instance=ExtResource("25_w60i3")]
+offset_left = -233.0
+offset_top = -94.0
+offset_right = -233.0
+offset_bottom = -94.0

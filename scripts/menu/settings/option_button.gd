@@ -21,8 +21,8 @@ func _ready() -> void:
 
 func _select_current_locale() -> void:
 	var current: String = ""
-	if has_node("/root/LanguageManager"):
-		current = get_node("/root/LanguageManager").get_language()
+	if has_node("/root/LanguageManager"):  
+		current = get_node("/root/LanguageManager").get_language() 
 
 	if current == "" or current == "automatic":
 		current = OS.get_locale_language()
@@ -36,8 +36,8 @@ func _select_current_locale() -> void:
 func _on_item_selected(index: int) -> void:
 	var locale: String = str(get_item_metadata(index))
 
-	if has_node("/root/LanguageManager"):
-		get_node("/root/LanguageManager").set_language(locale)
+	if has_node("/root/LanguageManager"): 
+		get_node("/root/LanguageManager").set_language(locale) 
 	else:
 		TranslationServer.set_locale(locale)
 

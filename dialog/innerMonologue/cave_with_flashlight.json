@@ -1,0 +1,25 @@
+{
+	"id": "oris_enters_cave_2",
+
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+   "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "Oh, that must be the cave which Blobby was talking about."
+							,"text_de": "Oh, das muss die Höhle sein von der Blobby erzählt hat." },
+		{ "speaker": "Oris", "text_en": "Sam apparently did his research on the flower here."
+							,"text_de": "Sam hat scheinbar hier seine Forschung an der besagten Blume betrieben." },
+		{ "speaker": "Oris", "text_en": "Maybe I should take a look around."
+							,"text_de": "Vielleicht sollte ich mich hier mal umschauen." }
+	  ],
+	  "next": "end"
+	},
+	
+	"end": {
+	  "lines": []
+	}
+  }
+}

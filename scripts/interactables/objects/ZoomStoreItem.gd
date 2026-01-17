@@ -92,6 +92,11 @@ func _store_in_hotbar():
 		queue_free()
 
 func hotbar_activate():
+	if hotbar_id == "map":
+		MiniMap.open() # oder open()
+		queue_free() 
+		print("map funktd")    # damit das Item nicht im Level rumliegt
+		return
 	spawned_from_hotbar = true
 
 	is_zoomed = false

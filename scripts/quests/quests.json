@@ -32,6 +32,29 @@
 			"quest_description_en": "You came to this planet looking for your friend Sam. He's gotte be around here somewhere...",
 			"quest_description_de": "Du bist auf diesen Planeten gekommen um naach deinem Freund Sam zu suchen. Er muss hier irgendwo sein..."
 		},
-		
+		"quest5": {
+			"quest_title_en": "Tripods",
+			"quest_title_de": "Stative",
+			"quest_description_en": "There are Tripods spread around the map. You could put a certain object on them.",
+			"quest_description_de": "Über die Karte sind Stative verteilt. Du könntest ein bestimmtes Objekt darauf platzieren."
+		},
+		"quest6": {
+			"quest_title_en": "The mysterious tower",
+			"quest_title_de": "Der mysteriöse Turm",
+			"quest_description_en": "If you loo closely, you can see some sybmols on the tower. To solve this riddle, you go take a walk around and look for the symbols.",
+			"quest_description_de": "Wenn du genau hinsiehst erkennst du Symbole auf dem Turm. Um das Rätsel zu lösen musst du dich vielleicht auf einen Spazierang begeben und nach den Symbolen ausschau halten."
+		},
+		"quest7": {
+			"quest_title_en": "Sams cave",
+			"quest_title_de": "Sams Höhle",
+			"quest_description_en": "You found the cave in which Sam did his reseach on the flower. Maybe you can find some leftovers from his research.",
+			"quest_description_de": "Du hast die Höhle gefunden in der Sam an der Blume geforscht hat. Vielleicht findest du hier Überbleibsel seiner Forschung."
+		},
+		"quest8": {
+			"quest_title_en": "Tripods",
+			"quest_title_de": "Stative",
+			"quest_description_en": "There are Tripods spread around the map. You could put a certain object on them.",
+			"quest_description_de": "Über die Karte sind Stative verteilt. Du könntest ein bestimmtes Objekt darauf verwenden."
+		}
 	}
 }

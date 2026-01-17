@@ -46,7 +46,7 @@ func interact() -> void:
 		else:
 			DialogManager.start_dialog("res://dialog/spaceship/door_locked.json")
 			await DialogManager.dialog_finished
-			QuestManager.add_quest("quest2")
+			QuestManager.add_quest("quest2") # The broken door
 			
 	elif not is_in_group("door_broken"):
 		open_door()

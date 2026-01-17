@@ -1,0 +1,22 @@
+{
+	"id": "Sam_ghost",
+
+	"characters": {
+		"Sam": "",
+},
+
+ "steps": {
+
+	"sections": {
+		"lines": [
+			{"speaker": "Mr. Blob", "text_en": "test 1",
+									"text_de": "test 3"
+			}
+		],
+		"next": "end"
+	},
+	"end": {
+	  "lines": []
+	}
+  }
+}

@@ -1,6 +1,9 @@
 extends NPC
 class_name NpcDialogProcessBlob
 
+var fleeing := false
+var flee_target := Vector2.ZERO
+@export var npc_id: String = "blob"
 @export
 var required_item_id: String = "shovel"
 
@@ -46,17 +49,34 @@ const OUTSIDE2_LOCKED_WITH_ITEM_DIALOG: String = "res://dialog/dialogueMrBlob/ou
 const OUTSIDE3_FLOW := [
 	{
 		"flag": "blob_clue1_done",
+		"path": "res://dialog/cluesMrBlob/clue_stone_panel_completion.json",
+	}
+]
+
+const OUTSIDE3_SECOND_FLOW := [
+	{
+		"flag": "blob_clue2_done",
 		"path": "res://dialog/cluesMrBlob/clue_mushroom_1.json",
 	},
 	{
-		"flag": "blob_clue2_done",
+		"flag": "blob_clue3_done",
 		"path": "res://dialog/cluesMrBlob/clue_mushroom_2.json",
 	},
 ]
-const OUTSIDE3_END: String = "res://dialog/dialogueMrBlob/end_dialog_outside3_blob.json"
+const OUTSIDE3_SECOND_END: String = "res://dialog/dialogueMrBlob/end_dialog_outside3_blob.json"
+
+const SPACESHIPROOM_FLOW := [
+	{
+		"flag":"",
+		"path":"",
+	},
+]
+const SPACESHIPROOM_FLOW_END: String = "res://dialog/dialogueMrBlob/end_dialog_outside3_blob.json"
 
 func _ready() -> void:
 	super._ready()
+	DialogManager.dialog_finished.connect(_on_dialog_finished)
+
 
 # Szene → Dialogdatei
 func get_dialog_path(scene_name: String) -> String:
@@ -76,7 +96,12 @@ func get_dialog_path(scene_name: String) -> String:
 		return _get_outside2_dialog()
 
 	elif scene_name == "Outside3":
+		if GameState.puzzle_state.has("stone_puzzle"):
+			return _get_outside3_second_dialog()
 		return _get_outside3_dialog()
+		
+	elif scene_name == "Spaceship_room":
+		return _get_spaceship_room_dialog()
 
 	return DIALOG_BY_SCENE.get(scene_name, DEFAULT_DIALOG)
 
@@ -102,4 +127,42 @@ func _get_outside3_dialog() -> String:
 	for step in OUTSIDE3_FLOW:
 		if not bool(GameState.puzzle_state.get(step["flag"], false)):
 			return step["path"]
-	return OUTSIDE3_END
+	return OUTSIDE3_FLOW[-1]["path"]
+
+func _get_outside3_second_dialog() -> String:
+	for step in OUTSIDE3_SECOND_FLOW:
+		if not bool(GameState.puzzle_state.get(step["flag"], false)):
+			return step["path"]
+	return OUTSIDE3_SECOND_END
+
+func _physics_process(delta: float) -> void:
+	if fleeing:
+		var dir = (flee_target - global_position)
+		if dir.length() < 8.0:
+			fleeing = false
+			# FINAL-Position speichern, damit nach Neustart genau dort steht
+			GameState.puzzle_state["npc_pos_" + npc_id] = {
+				"x": global_position.x,
+				"y": global_position.y,
+			}
+			return
+		velocity = dir.normalized() * move_speed 
+		move_and_slide()
+
+func run_away_to(pos: Vector2) -> void:
+	fleeing = true
+	flee_target = pos
+	#return OUTSIDE3_END
+	
+func _get_spaceship_room_dialog() -> String:
+	for step in SPACESHIPROOM_FLOW:
+		if not bool(GameState.puzzle_state.get(step["flag"], false)):
+			return step["path"]
+	return SPACESHIPROOM_FLOW_END
+
+
+func _on_dialog_finished() -> void:
+	var scene_name := get_tree().current_scene.name
+
+	if scene_name == "Outside1":
+		QuestManager.add_quest("quest4") # find sam

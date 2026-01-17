@@ -24,6 +24,8 @@ func interact() -> void:
 	# Dialog
 	if dialog_path != "":
 		DialogManager.start_dialog(dialog_path)
+		#await DialogManager.dialog_finished
+		#QuestManager.complete_quest("quest2")
 
 
 func _show_item_popup() -> void:
