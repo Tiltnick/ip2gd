@@ -9,6 +9,7 @@ extends CanvasLayer
 var solved := false
 
 const SOLVED_DIALOG := "res://dialog/innerMonologue/completing_statue_riddle.json"
+const TELESCOPE_CONSUMED_FLAG := "telescope_consumed_after_statue"
 
 
 # Lösung:
@@ -64,6 +65,12 @@ func _on_puzzle_solved() -> void:
 	top.lock()
 	
 	call_deferred("_delayed_close_and_dialog")
+	
+
+	if not GameState.puzzle_state.get(TELESCOPE_CONSUMED_FLAG, false):
+		GameState.puzzle_state[TELESCOPE_CONSUMED_FLAG] = true
+		if hotbarglobal.has_item("telescope"):
+			hotbarglobal.remove_item("telescope")
 
 
 func _delayed_close_and_dialog() -> void:
