@@ -20,7 +20,7 @@ func take_piece() -> Area2D:
 	current_piece = null
 	if manager:
 		manager.on_slot_cleared(self)
-	return 
+	return p
 
 func set_piece(piece: Area2D):
 	current_piece = piece
