@@ -179,10 +179,60 @@ func get_hotbar_index_of_item(item_id: String) -> int:
 
 
 func has_item(item_id: String) -> bool:
-	# im Inventory?
+	# im Inventory
 	if inventory_items.has(item_id):
 		return true
-	# oder ist es ein Oberbegriff mit count?
+	# oder ist es ein Oberbegriff mit count
 	if int(hotbar_counts.get(item_id, 0)) > 0:
 		return true
 	return false
+	
+	
+func give_item(item_id: String, save_key: String = "") -> bool:
+	if item_id == "":
+		return false
+
+	# einmalig vergwben
+	if save_key != "" and bool(GameState.puzzle_state.get(save_key, false)):
+		update_ui()
+		return false
+
+	# Item ins Inventar
+	var added := add_item(item_id)
+	if not added:
+		return false
+
+	# Save-State setzen
+	if save_key != "":
+		GameState.puzzle_state[save_key] = true
+
+	# Popup anzeigen
+	_show_item_popup_from_db(item_id)
+
+	return true
+
+
+func _show_item_popup_from_db(item_id: String) -> void:
+	if not ItemDatabase.DATA.has(item_id):
+		return
+
+	var data: Dictionary = ItemDatabase.DATA[item_id]
+	var lang := TranslationServer.get_locale().substr(0, 2)
+
+	var title: String = String(data.get("name_en", item_id))
+	if lang == "de":
+		title = String(data.get("name_de", item_id))
+
+	
+	var icon_path: String = String(data.get("icon", ""))
+	if icon_path == "":
+		return
+
+	var tex := load(icon_path) as Texture2D
+	if tex == null:
+		return
+
+	if lang == "de":
+		PopupManager.popup_item_de(title, tex)
+	else:
+		PopupManager.popup_item_en(title, tex)

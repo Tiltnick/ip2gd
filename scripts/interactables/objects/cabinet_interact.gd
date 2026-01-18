@@ -29,13 +29,14 @@ func interact() -> void:
 		return
 
 	opened = true
-	GameState.puzzle_state[SAVE_KEY] = true
+	#GameState.puzzle_state[SAVE_KEY] = true
 
 	# Visuell öffnen
 	_set_open_visual()
 
 	# Item geben
-	hotbarglobal.add_item(ITEM_ID)
+	hotbarglobal.give_item(ITEM_ID, SAVE_KEY)
+	#hotbarglobal.add_item(ITEM_ID)
 
 	# Innerer Monolog
 	if dialog_path != "":
