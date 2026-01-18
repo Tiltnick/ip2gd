@@ -2561,6 +2561,7 @@ shape = SubResource("RectangleShape2D_rgnjo")
 position = Vector2(-360, -431)
 
 [node name="cabinet2" parent="." instance=ExtResource("10_ht0yc")]
+visible = false
 position = Vector2(-360, -431)
 
 [node name="Color_manager" type="Node" parent="."]
