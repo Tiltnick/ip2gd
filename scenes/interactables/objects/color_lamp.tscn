@@ -64,6 +64,7 @@ size = Vector2(15, 27)
 
 [node name="ColorLamp" type="Node2D"]
 script = ExtResource("1_4ap05")
+disable_area_on_interact = false
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4j50x")

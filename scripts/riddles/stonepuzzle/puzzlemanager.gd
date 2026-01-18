@@ -11,7 +11,7 @@ extends CanvasLayer
 @onready var piece_5: Area2D = $Pieces/Piece5
 @onready var piece_6: Area2D = $Pieces/Piece6
 
-@onready var solved_puzzle: TextureRect = $solved_Puzzle2
+@onready var solved_puzzle: TextureRect = $solved_Puzzle
 @onready var pieces: Node2D = $Pieces
 @onready var blob: NpcDialogProcessBlob = $"../NPC"
 

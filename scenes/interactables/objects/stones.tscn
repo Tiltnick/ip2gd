@@ -18,6 +18,7 @@ radius = 31.016125
 [node name="Stones" type="Node2D"]
 z_index = 1
 script = ExtResource("1_hmjdm")
+disable_area_on_interact = false
 metadata/_custom_type_script = "uid://bdssbm1prbicl"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
