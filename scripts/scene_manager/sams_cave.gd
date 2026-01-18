@@ -14,7 +14,7 @@ func _ready() -> void:
 		"res://dialog/innerMonologue/cave_with_flashlight.json"
 		)
 		await DialogManager.dialog_finished
-		QuestManager.add_quest("quest7")
+		QuestManager.add_quest("quest7") # sams cave
 		return
 
 	field_of_view.visible = false

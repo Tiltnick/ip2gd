@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://y5kct0mr503d"]
+[gd_scene load_steps=32 format=3 uid="uid://y5kct0mr503d"]
 
 [ext_resource type="Script" uid="uid://c7mgrddxx8c0t" path="res://scripts/menu/GameMenu/menuClose.gd" id="1_jpjjb"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_xn7nl"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bfivg0njs3ku8" path="res://scenes/hotbar/slot.tscn" id="7_d5s1g"]
 [ext_resource type="Shader" uid="uid://bggfs48ys3kc5" path="res://assets/shaders/hide_shadow.gdshader" id="8_5rqpv"]
 [ext_resource type="Script" uid="uid://db47r2w3mqisu" path="res://scripts/quests/quest_controller.gd" id="9_jpjjb"]
+[ext_resource type="Texture2D" uid="uid://mdkboxjky2f0" path="res://assets/sprites/selfmade/Spacegram_Logo.png" id="10_vagrn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0y5o"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -116,6 +117,20 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d5s1g"]
+bg_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+corner_detail = 20
+anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b85bu"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -705,13 +720,50 @@ theme_override_fonts/font = ExtResource("1_xn7nl")
 theme_override_font_sizes/font_size = 35
 text = "NEEDED_ITEMS"
 
-[node name="Slot" parent="TabContainer/QUESTS/DisplayRight/ItemDisplay" instance=ExtResource("7_d5s1g")]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/QUESTS/DisplayRight/ItemDisplay"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_left = 28.0
+offset_top = 85.0
+offset_right = 299.94244
+offset_bottom = 149.0
+scale = Vector2(2.085, 2.085)
+
+[node name="Slot" parent="TabContainer/QUESTS/DisplayRight/ItemDisplay/HBoxContainer" instance=ExtResource("7_d5s1g")]
+layout_mode = 2
+
+[node name="Spacegram_Hint" type="Panel" parent="TabContainer/QUESTS/DisplayRight"]
 layout_mode = 1
-offset_left = 27.0
-offset_top = 83.0
-offset_right = 70.441
-offset_bottom = 132.15114
-scale = Vector2(2.04, 2.04)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -219.00006
+offset_top = 26.0
+offset_right = -150.31256
+offset_bottom = 49.297485
+grow_horizontal = 0
+scale = Vector2(2.79, 2.79)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_d5s1g")
+
+[node name="Label" type="Label" parent="TabContainer/QUESTS/DisplayRight/Spacegram_Hint"]
+layout_mode = 0
+offset_left = 20.430107
+offset_top = 5.3763423
+offset_right = 540.5483
+offset_bottom = 147.53253
+scale = Vector2(0.085, 0.085)
+theme_override_constants/line_spacing = -32
+theme_override_fonts/font = ExtResource("1_xn7nl")
+theme_override_font_sizes/font_size = 80
+text = "USE_SPACEGRAM"
+autowrap_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/QUESTS/DisplayRight/Spacegram_Hint"]
+position = Vector2(11.469536, 11.827959)
+scale = Vector2(0.05159543, 0.05159543)
+texture = ExtResource("10_vagrn")
 
 [node name="CloseButton" type="Button" parent="."]
 process_mode = 3

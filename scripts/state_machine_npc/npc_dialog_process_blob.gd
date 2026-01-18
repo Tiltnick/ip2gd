@@ -164,5 +164,5 @@ func _get_spaceship_room_dialog() -> String:
 func _on_dialog_finished() -> void:
 	var scene_name := get_tree().current_scene.name
 
-	if scene_name == "Outside1":
-		QuestManager.add_quest("quest4") # find sam
+	if last_dialog_path == "res://dialog/dialogueMrBlob/outside_1.json":
+		QuestManager.add_quest("quest4")

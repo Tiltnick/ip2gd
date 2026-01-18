@@ -19,4 +19,4 @@ func _store_in_hotbar():
 	mark_collected()
 	hotbarglobal.add_piece(save_id, hotbar_type_id)
 	queue_free()
-	QuestManager.add_quest("quest_3")
+	QuestManager.add_quest("quest_3") # stone pieces
