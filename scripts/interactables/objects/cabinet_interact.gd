@@ -4,7 +4,7 @@ class_name CabinetGiveTelescope
 const SAVE_KEY := "telescope1"  #  Save-State Key
 const ITEM_ID  := "telescope"   # ItemDatabase Key / hotbar_id
 
-@export var dialog_path := ""   #falls dialohue für cab
+@export var dialog_path := "res://dialog/innerMonologue/discovering_telescope.json"   
 
 func interact() -> void:
 	SfxPlayer.ui_click_sound()
@@ -20,8 +20,6 @@ func interact() -> void:
 	hotbarglobal.add_item(ITEM_ID)
 
 	
-
-	# optionaler dialohe
 	if dialog_path != "":
 		DialogManager.start_dialog(dialog_path)
 
