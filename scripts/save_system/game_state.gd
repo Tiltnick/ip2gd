@@ -8,6 +8,8 @@ var should_play_intro_dialog: bool = false
 # Zustände speichern
 var puzzle_state: Dictionary = {}
 
+var tutorial_state: bool = false
+
 var dialog_state: Dictionary = {}
 
 var map_state: Dictionary = {}
@@ -54,6 +56,7 @@ func to_dict() -> Dictionary:
 	return {
 		"current_area_path": current_area_path,
 		"puzzle_state": puzzle_state,
+		"tutorial_state": tutorial_state,
 		"dialog_state": dialog_state,
 		"map_state": map_state,
 		"quest_state": quest_state,
