@@ -27,7 +27,6 @@ func _ready():
 		set_process_input(false)
 		return
 	
-	visible = true
 	tutorial_title.text = "Steuerung"
 	_update_text()
 

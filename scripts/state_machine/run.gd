@@ -25,7 +25,7 @@ func PhysicsUpdate(delta: float) -> void:
 	if input_vector != Vector2.ZERO:
 		footstep_timer -= delta
 		if footstep_timer <= 0.0:
-			SfxPlayer.footstep_sound()
+			Footstep.footstep_sound()
 			footstep_timer = footstep_interval
 	else:
 		TransitionTo("idle")
