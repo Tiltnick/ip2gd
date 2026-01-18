@@ -64,13 +64,16 @@ func _on_puzzle_solved() -> void:
 	middle.lock()
 	top.lock()
 	
-	call_deferred("_delayed_close_and_dialog")
 	
-
 	if not GameState.puzzle_state.get(TELESCOPE_CONSUMED_FLAG, false):
 		GameState.puzzle_state[TELESCOPE_CONSUMED_FLAG] = true
 		if hotbarglobal.has_item("telescope"):
 			hotbarglobal.remove_item("telescope")
+			
+	call_deferred("_delayed_close_and_dialog")
+	
+
+	
 
 
 func _delayed_close_and_dialog() -> void:

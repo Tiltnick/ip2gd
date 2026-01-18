@@ -15,16 +15,40 @@ const NO_TELESCOPE_FLOW := [
 
 const NO_TELESCOPE_END := "res://dialog/innerMonologue/tripod_without_telescope_end.json"
 
+const DONE_WITH_TELESCOPE_DIALOG := "res://dialog/innerMonologue/done_with_telescope.json"
+const TELESCOPE_USED_FLAG := "telescope_consumed_after_statue"
+
+
+
+
 
 func interact() -> void:
 	SfxPlayer.ui_click_sound()
-	if not _has_required_item():
-		var dialog_path := _get_no_telescope_dialog()
-		if dialog_path != "":
-			DialogManager.start_dialog(dialog_path)
+
+	# wenn teleskop vorhanden
+	if _has_required_item():
+		_go_to_sky_scene()
 		return
 
-	_go_to_sky_scene()
+	# wenn teleskop schon verbraucht
+	if bool(GameState.puzzle_state.get(TELESCOPE_USED_FLAG, false)):
+		DialogManager.start_dialog(DONE_WITH_TELESCOPE_DIALOG)
+		return
+
+	# wenn wir noch kein teleskop 
+	var dialog_path := _get_no_telescope_dialog()
+	if dialog_path != "":
+		DialogManager.start_dialog(dialog_path)
+
+#func interact() -> void:
+	#SfxPlayer.ui_click_sound()
+	#if not _has_required_item():
+		#var dialog_path := _get_no_telescope_dialog()
+		#if dialog_path != "":
+			#DialogManager.start_dialog(dialog_path)
+		#return
+#
+	#_go_to_sky_scene()
 
 
 func _get_no_telescope_dialog() -> String:
