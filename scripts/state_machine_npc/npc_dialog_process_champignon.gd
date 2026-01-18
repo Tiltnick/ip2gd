@@ -12,11 +12,18 @@ const DIALOG_BY_SCENE := {
 # Reihenfolge wichtig
 const OUTSIDE3_FLOW := [
 	{
+		"flag": "puzzle_dialog_done",
+		"path": "res://dialog/mushrooms/champi_puzzle.json",
+	},
+]
+
+const OUTSIDE3_SECOND_FLOW := [
+	{
 		"flag": "mushroom_dialog_done",
 		"path": "res://dialog/mushrooms/mushroom.json",
 	},
 ]
-const OUTSIDE3_SECOND_FLOW := [
+const OUTSIDE3_THIRD_FLOW := [
 	{
 		"flag": "champi_dialog_done",
 		"path": "res://dialog/mushrooms/champignon_2.json",
@@ -38,7 +45,9 @@ func _ready() -> void:
 # Szene → Dialogdatei
 func get_dialog_path(scene_name: String) -> String:
 	if scene_name == "Outside3":
-		if GameState.puzzle_state.has("mushroom_riddle_solved_dialog_shown"):
+		if GameState.puzzle_state.has("stone_puzzle"):
+			if GameState.puzzle_state.has("mushroom_riddle_solved_dialog_shown"):
+				return _get_outside3_third_dialog()
 			return _get_outside3_second_dialog()
 		return _get_outside3_dialog()
 	
@@ -49,10 +58,16 @@ func _get_outside3_dialog() -> String:
 	for step in OUTSIDE3_FLOW:
 		if not GameState.puzzle_state.get(step["flag"], false):
 			return step["path"]
-	return OUTSIDE3_END
+	return OUTSIDE3_FLOW[-1]["path"]
 
 func _get_outside3_second_dialog() -> String:
 	for step in OUTSIDE3_SECOND_FLOW:
+		if not GameState.puzzle_state.get(step["flag"], false):
+			return step["path"]
+	return OUTSIDE3_END
+
+func _get_outside3_third_dialog() -> String:
+	for step in OUTSIDE3_THIRD_FLOW:
 		if not GameState.puzzle_state.get(step["flag"], false):
 			return step ["path"]
 	return OUTSIDE3_SECOND_FLOW[-1]["path"]

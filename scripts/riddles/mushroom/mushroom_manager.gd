@@ -139,7 +139,6 @@ func solved_layout():
 		var piece := find_piece_by_id(slot.required_piece_id)
 		if piece:
 			piece.scale = piece.sockel_scale
-			slot.set_piece(piece)
 			piece.visible = true
 
 

@@ -63,3 +63,5 @@ func check_puzzle():
 
 func _on_close_button_pressed() -> void:
 	puzzle.hide()
+	if GameState.puzzle_state.has(puzzle_id):
+		DialogManager.start_dialog("res://dialog/innerMonologue/puzzle_solved.json")

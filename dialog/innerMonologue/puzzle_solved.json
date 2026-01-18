@@ -1,0 +1,20 @@
+{
+  "id": "puzzle_solved",
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "Yeah, I solved it!"
+							,"text_de": "Yeah, ich hab's gelöst!" },
+							
+		{ "speaker": "Oris", "text_en": "I guess I can talk to the mushrooms now. "
+							,"text_de": "Dann kann ich ja jetzt mit den Pilzen reden" },
+
+	  ]
+	},
+
+	"end": { "lines": [] }
+  }
+}
