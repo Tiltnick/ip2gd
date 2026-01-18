@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dr167tapmrqxf"]
+[gd_scene load_steps=11 format=3 uid="uid://dr167tapmrqxf"]
 
 [ext_resource type="Texture2D" uid="uid://vuf15hf1msvt" path="res://assets/sprites/map/Spaceship/props-Sheet.png" id="1_jhydk"]
 [ext_resource type="Script" uid="uid://0wdmb6lq4rib" path="res://scripts/interactables/objects/cabinet_interact.gd" id="2_lmcc4"]
+[ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="3_om2tw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aeyaq"]
 atlas = ExtResource("1_jhydk")
@@ -44,6 +45,11 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vwrm2"]
+shader = ExtResource("3_om2tw")
+shader_parameter/outline_size = 2.0
+shader_parameter/outline_color = Vector4(1, 1, 1, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7enq"]
 size = Vector2(20, 29)
 
@@ -56,6 +62,7 @@ animation = &"open"
 
 [node name="Outline" type="AnimatedSprite2D" parent="."]
 visible = false
+material = SubResource("ShaderMaterial_vwrm2")
 sprite_frames = SubResource("SpriteFrames_g1n1c")
 animation = &"open"
 
