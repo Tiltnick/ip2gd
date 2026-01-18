@@ -49,7 +49,7 @@ func try_assign_to_slot():
 	var next_puzzle_piece: Area2D = null
 	var puzzle_dist = 40.0
 	var next_side_slot: Area2D= null
-	var side_dist = 40.0
+	var side_dist = 50.0
 
 	# finding nearest slot for puzzle piece
 	for slot in puzzle_slots:
