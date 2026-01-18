@@ -12,6 +12,7 @@ size = Vector2(28, 21)
 script = ExtResource("1_rakct")
 code_popup_path = null
 puzzle_id = null
+disable_area_on_interact = false
 metadata/_custom_type_script = "uid://bdssbm1prbicl"
 
 [node name="Area2D" type="Area2D" parent="."]

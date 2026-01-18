@@ -1,0 +1,18 @@
+{
+  "id": "completing_statue_riddle",
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+  "steps": {
+	"sections": {
+	  "lines": [
+		{
+		  "speaker": "Oris",
+		  "text_en": "I did it! Thank you, dear telescope and stars!",
+		  "text_de": "Ich habs geschafft! Danke liebes Teleskop und liebe Sterne!"
+		},
+		
+]},
+	"end": { "lines": [] }
+  }
+}

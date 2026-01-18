@@ -8,6 +8,9 @@ extends CanvasLayer
 
 var solved := false
 
+const SOLVED_DIALOG := "res://dialog/innerMonologue/completing_statue_riddle.json"
+
+
 # Lösung:
 # bottom idle = 4
 # middle idle = 4
@@ -59,6 +62,20 @@ func _on_puzzle_solved() -> void:
 	bottom.lock()
 	middle.lock()
 	top.lock()
+	
+	call_deferred("_delayed_close_and_dialog")
+
+
+func _delayed_close_and_dialog() -> void:
+	await get_tree().create_timer(1.0).timeout
+
+	close_puzzle()
+
+	#w1 frame warten bevor puzzle geschlossen wird
+	await get_tree().process_frame
+
+	DialogManager.start_dialog(SOLVED_DIALOG)
+
 
 func _on_close_button_pressed() -> void:
 	close_puzzle()
