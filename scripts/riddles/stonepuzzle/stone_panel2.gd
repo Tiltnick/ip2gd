@@ -6,4 +6,5 @@ extends Interactable
 func _ready() -> void:
 	super._ready()
 func interact():
+	SfxPlayer.ui_click_sound()
 	puzzle.open_puzzle()
