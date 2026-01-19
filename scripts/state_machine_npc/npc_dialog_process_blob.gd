@@ -22,6 +22,14 @@ const OUTSIDE1_FLOW := [
 ]
 const OUTSIDE1_END: String = "res://dialog/dialogueMrBlob/outside_1_end.json"
 
+const OUTSIDE1_SECOND_FLOW := [
+	{
+		"flag": "outside1_endscene_done",
+		"path": "",
+	}
+]
+const OUTSIDE1_SECOND_END: String = ""
+
 const OUTSIDE2_FLOW := [
 	{
 		"flag": "blob_intro_done",
@@ -65,6 +73,15 @@ const OUTSIDE3_SECOND_FLOW := [
 ]
 const OUTSIDE3_SECOND_END: String = "res://dialog/dialogueMrBlob/end_dialog_outside3_blob.json"
 
+const OUTSIDE4_FLOW := [
+	{
+		"flag": "blob_flower_done",
+		"path": "",
+	}
+]
+const OUTSIDE4_FLOW_END: String = ""
+
+
 const SPACESHIPROOM_FLOW := [
 	{
 		"flag":"",
@@ -77,7 +94,7 @@ func _ready() -> void:
 	super._ready()
 	
 	var npc_pos = "npc_pos_" + npc_id
-	#proving if position saved in game state
+	#proving if theres a saved position in game state
 	if GameState.puzzle_state.has(npc_pos):
 		var d = GameState.puzzle_state[npc_pos]
 		if typeof(d) == TYPE_DICTIONARY and d.has("x") and d.has("y"):
@@ -104,6 +121,9 @@ func get_dialog_path(scene_name: String) -> String:
 		if GameState.puzzle_state.has("stone_puzzle"):
 			return _get_outside3_second_dialog()
 		return _get_outside3_dialog()
+	
+	elif scene_name == "Outside4":
+		return _get_outside4_dialog()
 		
 	elif scene_name == "Spaceship_room":
 		return _get_spaceship_room_dialog()
@@ -140,6 +160,18 @@ func _get_outside3_second_dialog() -> String:
 			return step["path"]
 	return OUTSIDE3_SECOND_END
 
+func _get_outside4_dialog() -> String:
+	for step in OUTSIDE4_FLOW:
+		if not bool(GameState.puzzle_state.get(step["flag"], false)):
+			return step["path"]
+	return OUTSIDE4_FLOW_END
+
+func _get_spaceship_room_dialog() -> String:
+	for step in SPACESHIPROOM_FLOW:
+		if not bool(GameState.puzzle_state.get(step["flag"], false)):
+			return step["path"]
+	return SPACESHIPROOM_FLOW_END
+
 func _physics_process(delta: float) -> void:
 	if fleeing:
 		var dir = (flee_target - global_position)
@@ -159,8 +191,3 @@ func run_away_to(pos: Vector2) -> void:
 	fleeing = true
 	flee_target = pos
 	
-func _get_spaceship_room_dialog() -> String:
-	for step in SPACESHIPROOM_FLOW:
-		if not bool(GameState.puzzle_state.get(step["flag"], false)):
-			return step["path"]
-	return SPACESHIPROOM_FLOW_END
