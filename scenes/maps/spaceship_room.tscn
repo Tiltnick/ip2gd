@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://n5pfeqsgykkm"]
+[gd_scene load_steps=35 format=4 uid="uid://n5pfeqsgykkm"]
 
 [ext_resource type="Texture2D" uid="uid://kxs6kkm0ut6w" path="res://assets/sprites/map/Spaceship/background.png" id="1_4dxd0"]
 [ext_resource type="Script" uid="uid://6h2ivu8hvxck" path="res://scripts/scene_manager/spaceship_room.gd" id="1_mc6u0"]
@@ -11,7 +11,6 @@
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="8_o77xa"]
 [ext_resource type="Script" uid="uid://bi8iy7l3nq3mj" path="res://scripts/riddles/color_lamp/color_manager.gd" id="9_1kkv4"]
 [ext_resource type="PackedScene" uid="uid://dr167tapmrqxf" path="res://scenes/interactables/objects/cabinet.tscn" id="9_rgnjo"]
-[ext_resource type="PackedScene" uid="uid://v21ssku3qit5" path="res://scenes/interactables/objects/cabinet2.tscn" id="10_ht0yc"]
 [ext_resource type="PackedScene" uid="uid://cvxugkjd186sr" path="res://scenes/interactables/objects/color_lamp.tscn" id="11_8nj6b"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="12_8nj6b"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="12_vqt5a"]
@@ -2557,12 +2556,17 @@ metadata/_custom_type_script = "uid://omi26xfafgx0"
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_rgnjo")
 
-[node name="cabinet" parent="." instance=ExtResource("9_rgnjo")]
+[node name="cabinet" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("9_rgnjo")]
 position = Vector2(-360, -431)
+e_popup_node = NodePath("Press_E_Popup")
 
-[node name="cabinet2" parent="." instance=ExtResource("10_ht0yc")]
+[node name="Press_E_Popup" parent="cabinet" instance=ExtResource("12_vqt5a")]
 visible = false
-position = Vector2(-360, -431)
+offset_left = -7.0534363
+offset_top = -36.864532
+offset_right = -7.0534363
+offset_bottom = -36.864532
+scale = Vector2(0.7, 0.7)
 
 [node name="Color_manager" type="Node" parent="."]
 script = ExtResource("9_1kkv4")
