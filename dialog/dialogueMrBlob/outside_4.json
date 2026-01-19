@@ -1,0 +1,32 @@
+{
+  "id": "outside_4",
+
+  "characters": {
+	"Mr. Blob": "res://assets/sprites/portrait/MrBlobs.png",
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text_en": "Oh, I see you've found the flower. The flower that was only spoken of in myths. May I take a look at it for a moment?"
+								,"text_de": "Oh, ich sehe dass du die Blume gefunden hast. Die Blume von der nur in Mythen gesprochen wurde. Darf ich sie kurz anschauen?" },
+		{ "speaker": "Oris", "text_en": "Sure, here you go."
+							,"text_de": "Klar, hier bitte." },
+		{ "speaker": "Oris", "text_en": "*you give Mr. Blob the flower*"
+							,"text_de": "*du gibst Mr. Blob die Blume*" },
+		{ "speaker": "Mr. Blob", "text_en": "Wow… The flower that can cure all diseases…"
+								,"text_de": "Wow… Die Blume die alle Krankheiten heilen kann…" },
+		{ "speaker": "Mr. Blob", "text_en": "I will go ahead, Oris, let's meet right away in the spaceship…"
+								,"text_de": "Ich würde schonmal damit vorgehen, lass uns gleich im Raumschiff treffen…" },
+		{ "speaker": "Oris", "text_en": "Oh, sure, okay. See you in a minute, Blobby."
+							,"text_de": "Oh, klar, okay. Bis gleich, Blobby." },
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+	  "lines": []
+	}
+  }
+}

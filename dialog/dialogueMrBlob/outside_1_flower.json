@@ -1,0 +1,88 @@
+{
+  "id": "outside_1_flower",
+
+  "characters": {
+	"Mr. Blob": "res://assets/sprites/portrait/MrBlobs.png",
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "Hi Blobby, why did you run away? Where did you put the flower?"
+							,"text_de": "Hi Blobby, warum bist du weggerannt? Wohin hast du die Blume getan?" },
+		{ "speaker": "Mr. Blob", "text_en": "..."
+	   							,"text_de": "..." },
+		{ "speaker": "Oris", "text_en": "?"
+	   						,"text_de": "?" },
+		{ "speaker": "Oris", "text_en": "Where ist the flower, Blobby?"
+	  						,"text_de": "Wo ist die Blume, Blobby?" },
+		{ "speaker": "Mr. Blob", "text_en": "I'm sorry, I had to do it."
+   								,"text_de": "Es tut mir leid, ich musste es tun." },
+		{ "speaker": "Oris", "text_en": "What did you do?"
+	 						,"text_de": "Was hast du gemacht?" },
+		{ "speaker": "Mr. Blob", "text_en": "I ate it..."
+   								,"text_de": "Ich habe sie gegessen..." },
+		{ "speaker": "Oris", "text_en": "You ate it?!"
+	 						,"text_de": "Du hast sie gegessen?!" },
+		{ "speaker": "Mr. Blob", "text_en": "..."
+								,"text_de": "..." },
+		{ "speaker": "Mr. Blob", "text_en": "I was sick, very sick... For years I was suffering from the bubbling glandular fever, a sickness wich cannot be cured by any medication."
+								,"text_de": "Ich war krank, sehr krank... Seit Jahren habe ich unter dem Blubberischen Drüsenfieber gelitten, eine Krankheit gegen die kein Heilmittel jemals hilft." },
+		{ "speaker": "Mr. Blob", "text_en": "The flower was my only way out. My last hope… But now I'm cured, cured, do you hear!"
+								,"text_de": "Die Blume war mein einziger Ausweg. Meine letzte Hoffnung… Doch nun bin ich geheilt, geheilt, hörst du!" },
+		{ "speaker": "Oris", "text_en": "..."
+	   						,"text_de": "..." },
+		{ "speaker": "Oris", "text_en": "You just used the flower for yourself???"
+	   						,"text_de": "Du hast die Blume einfach für dich selbst verwendet???" },
+		{ "speaker": "Oris", "text_en": "What about Sam..."
+	   						,"text_de": "Was ist jetzt mit Sam…" },
+		{ "speaker": "Mr. Blob", "text_en": "..."
+								,"text_de": "..." },
+		{ "speaker": "Oris", "text_en": "I lost my best friend, and you're telling me something about last hope??"
+	   						,"text_de": "Ich habe meinen besten Freund verloren, und du sagst mir etwas von letzter Hoffnung??" },
+		{ "speaker": "Oris", "text_en": "I wanted to bring Sam back to life with the flower… What have you done!!!"
+	  						,"text_de": "Ich wollte Sam mit der Blume wieder zurück ins Leben holen… Was hast du nur getan!!!" },
+		{ "speaker": "Mr. Blob", "text_en": "I'm sorry! I really am! Please don't hurt me!"
+								,"text_de": "Es tut mir leid! Wirklich! Bitte tu mir nichts!" },
+		{ "speaker": "Mr. Blob", "text_en": "For Sam, all hope was too late, the flower only heals illnesses and wounds, it cannot bring the dead back to life…"
+								,"text_de": "Für Sam war alle Hoffnung zu spät, die Blume heilt nur alle Krankheiten und Wunden, sie kann keine Toten zurück ins Leben rufen…" },
+		{ "speaker": "Oris", "text_en": "Wait, what?! You made me search for the flower for nothing?? There was absolutely no chance that Sam could have returned the whole time???"
+	   						,"text_de": " Wie, was?! Du hast mich also umsonst die Blume suchen lassen?? Die ganze Zeit gab es keine Chance, dass Sam hätte zurückkehren können???" },
+		{ "speaker": "Mr. Blob", "text_en": "Well, It wasn't for nothing…"
+								,"text_de": "Umsonst war es nicht…" },
+		{ "speaker": "Oris", "text_en": "You miserable liar! You're a truly awful blobfish! How could you do this to me? Oh Sam…"
+	   						,"text_de": " Du elender Lügner! Du bist wirklich ein furchtbarer Blobfisch! Wie konntest du mir das antun? Oh Sam…" },
+		{ "speaker": "Mr. Blob", "text_en": "You brought me the flower and gave me a second chance… Thank you."
+								,"text_de": "Du hast mir die Blume gebracht und mir eine zweite Chance gegeben… Ich danke dir." },
+		{ "speaker": "Oris", "text_en": "..."
+	   						,"text_de": "..." },
+		{ "speaker": "Oris", "text_en": "You don't deserve it."
+	   						,"text_de": "Du verdienst sie nicht." },
+		{ "speaker": "Mr. Blob", "text_en": "It hurts me that you think this way, but it hast been done now. And as selfish as it was, it was my only last hope."
+								,"text_de": "Es tut mir weh dass du so denkst, aber es ist nun geschehen. Und so egoistisch es auch gewesen ist, es war meine einzige letzte Hoffnung." },
+		{ "speaker": "Oris", "text_en": "..."
+	   						,"text_de": "..." },
+		{ "speaker": "Mr. Blob", "text_en": "Now that it's all over, I should say goodbye to you. I owe you my life and my health. I hope you can forgive me one day."
+								,"text_de": "Nun da alles vorüber ist, sollte ich mich von dir verabschieden. Ich schulde dir mein Leben und meine Gesundheit. Ich hoffe du kannst mir eines Tages verzeihen." },
+		{ "speaker": "Mr. Blob", "text_en": "It was lovely to meet you, Oris. Maybe we'll see each other again sometime."
+								,"text_de": "Es war schön dich kennenzulernen, Oris. Vielleicht sieht man sich ein andermal wieder." },
+		{ "speaker": "Oris", "text_en": "..."
+	   						,"text_de": "..." },
+		{ "speaker": "Mr. Blob", "text_en": "*walks away from you*"
+								,"text_de": "*dreht sich um und geht*" },
+		{ "speaker": "Oris", "text_en": "..."
+	   						,"text_de": "..." },
+		{ "speaker": "Oris", "text_en": "Well..."
+	   						,"text_de": "Hm..." },
+		{ "speaker": "Oris", "text_en": "I just really want to go home... Guess it's time for me to say goodbye to this planet..."
+	   						,"text_de": "Ich möchte eigentlich nurnoch wieder nach Hause... Scheint als wäre die Zeit gekommen, mich von diesem Planeten zu verabschieden..." },
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+	  "lines": []
+	}
+  }
+}
