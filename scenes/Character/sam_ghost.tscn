@@ -1,12 +1,12 @@
 [gd_scene load_steps=28 format=3 uid="uid://dcl8ag834o4cv"]
 
-[ext_resource type="Script" uid="uid://2eug6462m6rn" path="res://scripts/SamGhost/sam_dialog_process.gd" id="1_1r1co"]
+[ext_resource type="Script" uid="uid://cwfphqc61oew8" path="res://scripts/Sam/sam_dialog_process.gd" id="1_1r1co"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="2_o0ppx"]
 [ext_resource type="Texture2D" uid="uid://cx0xi7uq3vlex" path="res://assets/sprites/character/Sams_Ghost.png" id="3_1r1co"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="4_h5wdk"]
-[ext_resource type="Script" uid="uid://dtm8qe2gw72c" path="res://scripts/SamGhost/sam_state_machine.gd" id="5_1r1co"]
-[ext_resource type="Script" uid="uid://s8e22if7h4r8" path="res://scripts/SamGhost/sam_idle.gd" id="6_tdt7k"]
-[ext_resource type="Script" uid="uid://b0qqbmcy5p3nu" path="res://scripts/SamGhost/sam_move.gd" id="7_ghk1l"]
+[ext_resource type="Script" uid="uid://cqjxa2ly5247m" path="res://scripts/Sam/StateMachine.gd" id="5_1r1co"]
+[ext_resource type="Script" uid="uid://cvmystcdmj0rl" path="res://scripts/Sam/Idle.gd" id="6_tdt7k"]
+[ext_resource type="Script" uid="uid://bhmsb48tknwy1" path="res://scripts/Sam/Guide.gd" id="7_ghk1l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o0ppx"]
 atlas = ExtResource("3_1r1co")
