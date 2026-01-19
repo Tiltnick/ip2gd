@@ -15,6 +15,8 @@ var _player_inside: bool = false
 var _is_on: bool = false
 var _locked: bool = false
 
+var _flash_token: int = 0
+
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
@@ -50,6 +52,28 @@ func _process(_delta: float) -> void:
 		pressed.emit(self)
 
 
+func flash_hint(duration: float = 0.25) -> void:
+	if sprite == null:
+		return
+	if sprite_on == null:
+		return
+
+	_flash_token += 1
+	var token := _flash_token
+
+	sprite.texture = sprite_on
+
+	if duration <= 0.0:
+		return
+
+	await get_tree().create_timer(duration).timeout
+
+	if token != _flash_token:
+		return
+
+	_update_visual()
+
+
 func _update_visual() -> void:
 	if sprite == null:
 		return
@@ -58,7 +82,6 @@ func _update_visual() -> void:
 		sprite.texture = sprite_on
 	elif (not _is_on) and sprite_off:
 		sprite.texture = sprite_off
-	
 
 
 func _on_body_entered(body: Node) -> void:

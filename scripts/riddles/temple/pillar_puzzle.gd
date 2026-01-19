@@ -35,7 +35,7 @@ func _ready() -> void:
 	_set_pillars_locked(false)
 
 
-#pillars
+# pillars
 func _register_pillars() -> void:
 	_pillars_by_id.clear()
 
@@ -65,7 +65,7 @@ func reset_puzzle() -> void:
 	_set_pillars_locked(false)
 
 
-#input
+# input
 func _on_pillar_pressed(pillar: Pillar) -> void:
 	if _solved:
 		return
@@ -98,6 +98,7 @@ func _on_failed() -> void:
 	_set_flag(failed_flag, true)
 	_set_pillars_locked(false)
 	_notify_sam_failed()
+	_save_game_now()
 
 
 func _fail_and_reset() -> void:
@@ -116,6 +117,15 @@ func _on_solved() -> void:
 	puzzle_solved.emit()
 	SfxPlayer.puzzle_solved()
 	print("Temple solved")
+
+	_save_game_now()
+
+
+func _save_game_now() -> void:
+	if has_node("/root/SaveSystem"):
+		var ss := get_node("/root/SaveSystem")
+		if ss != null and ss.has_method("save_game"):
+			ss.call("save_game")
 
 
 func _set_solved_state() -> void:
@@ -137,7 +147,7 @@ func _set_pillars_locked(locked: bool) -> void:
 		pillar.set_locked(locked)
 
 
-#signals
+# signals
 func _connect_sam_signals() -> void:
 	if _sam_target == null:
 		return
@@ -155,17 +165,20 @@ func _on_sam_guide_started() -> void:
 func _on_sam_guide_finished() -> void:
 	_set_pillars_locked(false)
 
-
-#notify
 func _notify_sam_failed() -> void:
-	if _sam_target == null:
-		_sam_target = _find_sam_target()
-		_connect_sam_signals()
-	if _sam_target == null:
-		return
+	var nodes := get_tree().get_nodes_in_group(sam_group_name)
+	for n in nodes:
+		if n == null:
+			continue
 
-	if _sam_target.has_method(sam_failed_method):
-		_sam_target.call(sam_failed_method)
+		if n.has_method(sam_failed_method):
+			n.call(sam_failed_method)
+			return
+
+		var parent := n.get_parent()
+		if parent != null and parent.has_method(sam_failed_method):
+			parent.call(sam_failed_method)
+			return
 
 
 func _find_sam_target() -> Node:
@@ -175,7 +188,7 @@ func _find_sam_target() -> Node:
 	return list[0] as Node
 
 
-#gamestate
+# gamestate
 func _is_flag_true(flag_key: String) -> bool:
 	if flag_key.is_empty():
 		return false
