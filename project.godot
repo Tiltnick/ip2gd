@@ -38,6 +38,8 @@ BgmPlayer="*res://scripts/audio/bgm_player.gd"
 SfxPlayer="*res://scripts/audio/sfx_player.gd"
 MiniMap="*res://scenes/Menues/mini_map.tscn"
 QuestManager="*res://scripts/quests/quest_manager.gd"
+Footstep="*res://scripts/audio/footstep.gd"
+Hotkeys="*res://scripts/UI/hotkeys.gd"
 
 [dialogic]
 
@@ -124,6 +126,11 @@ mushrooms=""
 stones=""
 stone3=""
 sam_state_machine=""
+door_code_ui=""
+statue_puzzle_ui=""
+chest_puzzle_ui=""
+socket_puzzle_ui=""
+panel_puzzle_ui=""
 
 [input]
 
@@ -189,6 +196,21 @@ hotbar_3={
 hotbar_4={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":52,"key_label":0,"unicode":52,"location":0,"echo":false,"script":null)
+]
+}
+toggle_inventory={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":73,"key_label":0,"unicode":105,"location":0,"echo":false,"script":null)
+]
+}
+toggle_quests={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":113,"location":0,"echo":false,"script":null)
+]
+}
+toggle_diary={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":74,"key_label":0,"unicode":106,"location":0,"echo":false,"script":null)
 ]
 }
 

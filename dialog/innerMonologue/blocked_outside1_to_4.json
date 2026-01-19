@@ -1,0 +1,18 @@
+{
+  "id": "blocked_outside1_to_4",
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+  "steps": {
+	"sections": {
+	  "lines": [
+		{
+		  "speaker": "Oris",
+		  "text_en": "Oh, it looks like I can't pass through here. There must be another way.",
+		  "text_de": "Oh, sieht so aus, als könnte ich nicht hier durch. Es muss wohl einen anderen Weg geben."
+		},
+	
+]},
+	"end": { "lines": [] }
+  }
+}

@@ -176,7 +176,7 @@ corner_radius_bottom_left = 62
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d58ip"]
 
-[node name="Puzzle" type="CanvasLayer"]
+[node name="Puzzle" type="CanvasLayer" groups=["panel_puzzle_ui"]]
 script = ExtResource("1_h324o")
 
 [node name="ColorRect" type="ColorRect" parent="."]

@@ -81,7 +81,7 @@ corner_radius_bottom_left = 62
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_my2ui"]
 
-[node name="MushroomUi" type="CanvasLayer"]
+[node name="MushroomUi" type="CanvasLayer" groups=["socket_puzzle_ui"]]
 script = ExtResource("1_t74yn")
 puzzle_id = "mushroom_riddle"
 

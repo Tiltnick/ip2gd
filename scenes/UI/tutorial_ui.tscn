@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://jndgq2qoed1w"]
 
 [ext_resource type="Script" uid="uid://87rdgrsnv5js" path="res://tutorial_ui.gd" id="1_ag6lg"]
-[ext_resource type="Texture2D" path="res://assets/sprites/ui/UI_INFO.png" id="2_dlfbv"]
+[ext_resource type="Texture2D" uid="uid://dodcf3q8xpmxu" path="res://assets/sprites/ui/UI_INFO.png" id="2_dlfbv"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="3_8a81m"]
 
 [node name="Tutorial_UI" type="Control"]

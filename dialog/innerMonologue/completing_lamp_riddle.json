@@ -1,0 +1,27 @@
+{
+  "id": "completing_lamp_riddle",
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+  "steps": {
+	"sections": {
+	  "lines": [
+		{
+		  "speaker": "Oris",
+		  "text_en": "Oh, finally! The right color combination!",
+		  "text_de": "Oh, endlich! Das war die richtige Farbkombination!"
+		},
+		{
+		  "speaker": "Oris",
+		  "text_en": "But nothing happened...Maybe I should walk around a bit, try to find something useful.",
+		  "text_de": "Aber es ist nichts passiert...Vielleicht sollte ich ein wenig herumlaufen, versuchen etwas Nützliches zu finden."
+		},
+		{
+		  "speaker": "Oris",
+		  "text_en": "Maybe even a telescope! Let me check that closet over there! It looks rather promising.",
+		  "text_de": "Vielleicht sogar ein Teleskop! Ich schaue mal in dem Schrank da drüben nach, der sieht vielversprechend aus."
+		},
+]},
+	"end": { "lines": [] }
+  }
+}
