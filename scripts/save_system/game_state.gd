@@ -8,7 +8,7 @@ var should_play_intro_dialog: bool = false
 # Zustände speichern
 var puzzle_state: Dictionary = {}
 
-var tutorial_state: bool = false
+var tutorial_done: bool = false
 
 var dialog_state: Dictionary = {}
 
@@ -57,7 +57,7 @@ func to_dict() -> Dictionary:
 	return {
 		"current_area_path": current_area_path,
 		"puzzle_state": puzzle_state,
-		"tutorial_state": tutorial_state,
+		"tutorial_done": tutorial_done,
 		"dialog_state": dialog_state,
 		"map_state": map_state,
 		"quest_state": quest_state,
@@ -104,6 +104,9 @@ func from_dict(data: Dictionary) -> void:
 
 	if data.has("puzzle_items"):
 		puzzle_items = data["puzzle_items"]
+		
+	if data.has("tutorial_done"):
+		puzzle_items = data["tutorial_done"]
 
 	if data.has("sound_setting"):
 		sound_setting = data["sound_setting"]
