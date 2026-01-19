@@ -1,0 +1,29 @@
+{
+  "id": "after_grave",
+
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ 
+			"speaker": "Oris", 
+			"text_en": "Here's where I found Sam lying under a stone...",
+			"text_de": "Hier habe ich Sam unter einem Steinhaufen gefunden..."
+		 },
+		{ 
+			"speaker": "Oris", 
+			"text_en": "Rest in peace, my dear friend...",
+			"text_de": "Ruhe in Frieden, mein treuer Freund..."
+		 }
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+		"lines": []
+	}
+  }
+}
