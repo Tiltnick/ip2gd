@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dvfvh3itass52"]
+[gd_scene load_steps=46 format=3 uid="uid://dvfvh3itass52"]
 
 [ext_resource type="Script" uid="uid://bbq7qi7bi51gf" path="res://scripts/Sam/SAM.gd" id="1_yiwm8"]
 [ext_resource type="Texture2D" uid="uid://c1xldldvnlrsm" path="res://assets/sprites/character/Sam_Spritesheet.png" id="2_jfhnd"]
@@ -262,6 +262,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_jfhnd"]
 radius = 26.019224
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3l018"]
+radius = 7.0
+
 [node name="Sam" type="CharacterBody2D" groups=["sam_state_machine"]]
 script = ExtResource("1_yiwm8")
 
@@ -309,3 +312,11 @@ script = ExtResource("6_di7xg")
 
 [node name="WaitInteract" type="Node" parent="StateMachine"]
 script = ExtResource("9_jfhnd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_3l018")
+debug_color = Color(0.9677389, 0.18220621, 1.92523e-07, 0.41960785)
