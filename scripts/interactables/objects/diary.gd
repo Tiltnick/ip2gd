@@ -19,3 +19,4 @@ func interact() -> void:
 	mark_collected()
 	GlobalMenuButton.show()
 	queue_free()
+	DialogManager.start_dialog("res://dialog/innerMonologue/diary_found.json")

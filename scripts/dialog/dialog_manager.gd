@@ -29,7 +29,9 @@ const PUZZLE_FLAG_BY_DIALOG_PATH: Dictionary = {
 	"res://dialog/Sam_ghost/Sam2.json": "sam_dialog_2_done",
 	"res://dialog/Sam_ghost/Sam3.json": "sam_dialog_3_done",
 	"res://dialog/Sam_ghost/SamFailed.json": "sam_fail_dialog_done",
-	"res://dialog/innerMonologue/puzzle_solved.json": "puzzle_solved_done"
+	"res://dialog/innerMonologue/puzzle_solved.json": "puzzle_solved_done",
+	"res://dialog/innerMonologue/diary_found.json": "diary_found_done",
+	
 	
 
 	
