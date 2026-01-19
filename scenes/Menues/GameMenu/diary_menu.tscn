@@ -179,7 +179,7 @@ theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_k0ysv")
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_k0ysv")
 theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_i2vsb")
 tab_alignment = 1
-current_tab = 1
+current_tab = 2
 
 [node name="DIARY" type="TabBar" parent="TabContainer"]
 visible = false
@@ -306,6 +306,7 @@ theme_override_font_sizes/font_size = 26
 text = "Header"
 
 [node name="INVENTORY" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 mouse_filter = 1
 theme_override_font_sizes/font_size = 21
@@ -574,7 +575,6 @@ offset_bottom = 124.0
 scale = Vector2(2.5, 2.5)
 
 [node name="QUESTS" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 script = ExtResource("9_jpjjb")
 metadata/_tab_index = 2
