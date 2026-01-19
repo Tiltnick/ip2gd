@@ -3373,7 +3373,7 @@ point_count = 8
 
 [sub_resource type="Curve2D" id="Curve2D_uh1jq"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1, -73, 0, 0, 0, 0, 71, -109, 0, 0, 0, 0, 154, -68, 0, 0, 0, 0, 374, -77, 0, 0, 0, 0, 378, -175, 0, 0, 0, 0, 261, -208, 0, 0, 0, 0, 281, -110, 0, 0, 0, 0, 348, -43, 0, 0, 0, 0, 351, 38, 0, 0, 0, 0, 390, 80, 0, 0, 0, 0, 355, 37, 0, 0, 0, 0, 355, -41, 0, 0, 0, 0, 130, -79, 0, 0, 0, 0, 127, -305, 0, 0, 0, 0, 56, -354)
+"points": PackedVector2Array(0, 0, 0, 0, 1, -73, 0, 0, 0, 0, 71, -109, 0, 0, 0, 0, 154, -68, 0, 0, 0, 0, 374, -77, 0, 0, 0, 0, 378, -175, 0, 0, 0, 0, 261, -208, 0, 0, 0, 0, 281, -110, 0, 0, 0, 0, 331, -44, 0, 0, 0, 0, 351, 38, 0, 0, 0, 0, 390, 80, 0, 0, 0, 0, 355, 37, 0, 0, 0, 0, 330, -42, 0, 0, 0, 0, 130, -79, 0, 0, 0, 0, 127, -305, 0, 0, 0, 0, 56, -354)
 }
 point_count = 15
 
@@ -3422,6 +3422,7 @@ position = Vector2(0, 274)
 position = Vector2(-71, 285)
 script = ExtResource("6_uh1jq")
 npc_path = NodePath("../../Sam")
+puzzle_path = NodePath("../../PillarPuzzle")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger/SamTrigger"]
 position = Vector2(71, 0)
@@ -3557,3 +3558,4 @@ position = Vector2(1, 108)
 guide_path_1 = NodePath("../Paths/sam_path")
 guide_path_2 = NodePath("../Paths/sam_path_2")
 guide_path_3 = NodePath("../Paths/sam_path_3")
+pillar_puzzle_path = NodePath("../PillarPuzzle")
