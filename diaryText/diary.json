@@ -49,13 +49,27 @@
 	The mushrooms told me that the flower is inside. But I can’t get it yet. My equipment is still at the ship, entering the ruins without it would be too dangerous. I have to go back first.
 	Over the past days I’ve crossed paths several times with a strange creature. He calls himself Mr. Blob. He seems friendly, but I hardly know him.
 	We’ve only spoken briefly, yet I can’t shake the feeling that he knows more about the flower than he lets on. It’s odd. He speaks of how important the flower is, but never why.
-	I’m probably imagining things. After so long alone, even your own thoughts become unreliable.",
+	I’m probably imagining things. After so long alone, even your own thoughts become unreliable.
+	-Sam",
 	"text_de": 
 	"Ich habe den Tempel gefunden.
 	Die Pilze sagten mir, dass die Blume dort drinnen ist. Doch ich kann sie noch nicht holen. Meine Ausrüstung liegt noch im Raumschiff, es wäre zu gefährlich ohne sie reinzugehen. Ich muss zuerst zurück.
 	In den letzten Tagen bin ich mehrmals einem seltsamen Wesen begegnet. Er nennt sich Mr Blob. Er wirkt freundlich, aber ich kenne ihn kaum. 
 	Wir haben nur kurz gesprochen, und trotzdem habe ich das Gefühl, dass er mehr über die Blume weiß, als er zugibt. Es ist merkwürdig. Er spricht davon, wie wichtig die Blume ist, aber nie warum.
-	Wahrscheinlich bilde ich mir das alles nur ein. Nach so langer Zeit allein traut man selbst den eigenen Gedanken nicht mehr."
+	Wahrscheinlich bilde ich mir das alles nur ein. Nach so langer Zeit allein traut man selbst den eigenen Gedanken nicht mehr.
+	-Sam"
+	},
+	
+	"entry_5": {
+	  "header": "19.03.2152",
+	  "text_en":
+	"The mushrooms are a strange and stubborn folk. They always speak in riddles and never say directly what they want. I suspect the stone is somehow connected to them and their riddle, but I can’t find all the pieces yet…
+	They like to make things complicated. What I have noticed, however, is that each of them seems to want a specific mushroom. I just can’t figure out which one — and in what order.
+	-Sam",
+	"text_de": 
+	"Die Pilze sind ein merkwürdiges und stures Volk. Sie sprechen ständig in Rätseln und sagen nie direkt, was sie wollen. Ich vermute, dass der Stein irgendwie mit ihnen und ihrem Rätsel zusammenhängt, aber mir fehlen noch einige Teile…
+	Sie machen Dinge gerne kompliziert. Mir ist aber aufgefallen, dass jeder von ihnen einen bestimmten Pilz haben möchte. Ich kann nur nicht herausfinden, welchen und in welcher Reihenfolge.
+	-Sam"
 	}
   }
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=4 uid="uid://dlsjgc5i7yt81"]
+[gd_scene load_steps=85 format=4 uid="uid://dlsjgc5i7yt81"]
 
 [ext_resource type="Script" uid="uid://dliaffanr7vt" path="res://scripts/scene_manager/outside_3.gd" id="1_3rchf"]
 [ext_resource type="Texture2D" uid="uid://dtxi3laerm24l" path="res://assets/sprites/map/Outside_3/Ground.png" id="1_oc04w"]
@@ -42,6 +42,7 @@
 [ext_resource type="PackedScene" uid="uid://dwimx8eyhor76" path="res://scenes/Animations/folk_green_down.tscn" id="42_pyiw6"]
 [ext_resource type="PackedScene" uid="uid://bmvwyu42m7olb" path="res://scenes/Animations/folk_yell_side.tscn" id="43_pyiw6"]
 [ext_resource type="PackedScene" uid="uid://bs233eblupmtc" path="res://scenes/Animations/folk_yell_down.tscn" id="43_vdkvf"]
+[ext_resource type="PackedScene" uid="uid://bdqvh5ss8a2t4" path="res://scenes/interactables/objects/note.tscn" id="44_8miwm"]
 [ext_resource type="PackedScene" uid="uid://ctwe3m6wwjdi5" path="res://scenes/Animations/folk_green_side.tscn" id="47_uf0e1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4bq6r"]
@@ -5062,6 +5063,20 @@ rotation = -1.5707964
 position = Vector2(414.75, 129)
 shape = SubResource("RectangleShape2D_pyiw6")
 debug_color = Color(0.65119547, 0.51965237, 5.7756904e-07, 0.41960785)
+
+[node name="Note" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("44_8miwm")]
+position = Vector2(506, -624)
+diary_entry_id = "entry_5"
+save_id = "mush_note"
+e_popup_node = NodePath("Press_E_Popup")
+
+[node name="Press_E_Popup" parent="Note" instance=ExtResource("14_ny1p2")]
+visible = false
+offset_left = -5.0
+offset_top = -21.0
+offset_right = -5.0
+offset_bottom = -21.0
+scale = Vector2(0.6, 0.6)
 
 [connection signal="body_entered" from="PopupArea" to="." method="_on_area_2d_3_body_entered"]
 
