@@ -342,6 +342,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Note" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("4_esekf")]
 position = Vector2(114, -604)
+diary_entry_id = "entry_3"
 e_popup_node = NodePath("Press_E_Popup2")
 
 [node name="Press_E_Popup2" parent="Note" instance=ExtResource("5_vquj5")]
