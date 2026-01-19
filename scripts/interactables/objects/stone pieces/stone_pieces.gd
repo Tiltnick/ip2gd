@@ -13,10 +13,10 @@ func _ready() -> void:
 	super._ready()
 
 func _store_in_hotbar():
+	QuestManager.add_quest("quest_3") # stone pieces
 	if spawned_from_hotbar:
 		queue_free()
 		return
 	mark_collected()
 	hotbarglobal.add_piece(save_id, hotbar_type_id)
 	queue_free()
-	QuestManager.add_quest("quest_3") # stone pieces

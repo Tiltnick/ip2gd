@@ -25,6 +25,8 @@ func open_puzzle() -> void:
 		bottom.lock()
 		middle.lock()
 		top.lock()
+	
+	QuestManager.add_quest("quest_6")
 
 func close_puzzle() -> void:
 	hide()
@@ -52,6 +54,9 @@ func _on_puzzle_solved() -> void:
 	# In GameState speichern
 	if puzzle_id != "":
 		GameState.puzzle_state[puzzle_id] = true
+	
+	QuestManager.complete_quest("quest_5")
+	QuestManager.complete_quest("quest_6")
 
 	print("Rätsel gelöst")
 

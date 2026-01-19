@@ -40,3 +40,5 @@ func _replace_now() -> void:
 		parent.add_child(flower)
 
 	queue_free()
+	
+	QuestManager.complete_quest("quest_10")

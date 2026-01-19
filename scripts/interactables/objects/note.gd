@@ -17,3 +17,5 @@ func interact() -> void:
 	
 	mark_collected()
 	queue_free()
+	
+	QuestManager.add_quest("quest_8")

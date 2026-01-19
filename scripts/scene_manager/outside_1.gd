@@ -9,7 +9,7 @@ func _ready() -> void:
 
 		DialogManager.start_dialog("res://dialog/innerMonologue/exiting_spaceship.json")
 		await DialogManager.dialog_finished
-		QuestManager.complete_quest("quest1")
+		QuestManager.complete_quest("quest_1")
 
 
 func configure_camera(cam: Camera2D) -> void:
