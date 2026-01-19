@@ -39,6 +39,11 @@ func add_item(item_id: String) -> bool:
 	if item_id == "":
 		return false
 
+	# Quest-Updates + Quest-Slots
+	if not GameState.picked_items.has(item_id):
+		GameState.picked_items.append(item_id)
+		QuestManager.on_item_picked(item_id)
+
 	# so items aren't saved twice
 	if inventory_items.has(item_id):
 		print("has id in add item")
