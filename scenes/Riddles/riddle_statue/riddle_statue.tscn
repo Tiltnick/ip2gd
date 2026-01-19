@@ -249,7 +249,7 @@ corner_radius_bottom_left = 62
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gp37h"]
 
-[node name="riddle_statue" type="CanvasLayer"]
+[node name="riddle_statue" type="CanvasLayer" groups=["statue_puzzle_ui"]]
 script = ExtResource("1_tholu")
 
 [node name="ColorRect" type="ColorRect" parent="."]

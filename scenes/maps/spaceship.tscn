@@ -1351,11 +1351,13 @@ position = Vector2(272, 116)
 [node name="from_spaceship_room" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(-120, 196)
 
-[node name="Door_broken" parent="." groups=["door_broken"] instance=ExtResource("12_4s1gq")]
+[node name="Door_broken" parent="." node_paths=PackedStringArray("e_popup_node") groups=["door_broken"] instance=ExtResource("12_4s1gq")]
 position = Vector2(-127.96, 152.985)
 script = ExtResource("13_4nltl")
 target_scene_path = "uid://n5pfeqsgykkm"
 target_spawn_id = "from_spaceship"
+e_popup_node = NodePath("Press_E_Popup_Door2")
+disable_area_on_interact = false
 
 [node name="Press_E_Popup_Door2" parent="Door_broken" instance=ExtResource("10_o77e3")]
 visible = false
@@ -1402,7 +1404,7 @@ texture = ExtResource("13_b8ov6")
 
 [node name="SpaceshipDoor" parent="." instance=ExtResource("14_1oksb")]
 visible = false
-code = ["2", "1", "5", "1"]
+code = Array[String](["2", "1", "5", "1"])
 
 [node name="CanvasLayer" parent="." instance=ExtResource("11_o77e3")]
 layer = 2

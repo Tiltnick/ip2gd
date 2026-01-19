@@ -4413,7 +4413,7 @@ point_count = 12
 
 [sub_resource type="Curve2D" id="Curve2D_pyiw6"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 536, -657, 0, 0, 0, 0, 592, -657, 0, 0, 0, 0, 616, -657, 0, 0, 0, 0, 672, -657, 0, 0, 0, 0, 672, -625, 0, 0, 0, 0, 688, -625, 0, 0, 0, 0, 688, -569, 0, 0, 0, 0, 672, -569, 0, 0, 0, 0, 672, -553, 0, 0, 0, 0, 648, -553, 0, 0, 0, 0, 640, -537, 0, 0, 0, 0, 616, -537, 0, 0, 0, 0, 544, -537, 0, 0, 0, 0, 544, -553, 0, 0, 0, 0, 512, -553, 0, 0, 0, 0, 512, -569, 0, 0, 0, 0, 496, -569, 0, 0, 0, 0, 496, -593, 0, 0, 0, 0, 496, -609, 0, 0, 0, 0, 520, -609, 0, 0, 0, 0, 520, -633, 0, 0, 0, 0, 520, -657, 0, 0, 0, 0, 536, -657)
+"points": PackedVector2Array(0, 0, 0, 0, 568, -657, 0, 0, 0, 0, 592, -657, 0, 0, 0, 0, 616, -657, 0, 0, 0, 0, 672, -657, 0, 0, 0, 0, 672, -625, 0, 0, 0, 0, 688, -625, 0, 0, 0, 0, 688, -569, 0, 0, 0, 0, 672, -569, 0, 0, 0, 0, 672, -553, 0, 0, 0, 0, 648, -553, 0, 0, 0, 0, 640, -537, 0, 0, 0, 0, 616, -537, 0, 0, 0, 0, 544, -537, 0, 0, 0, 0, 544, -553, 0, 0, 0, 0, 512, -553, 0, 0, 0, 0, 512, -569, 0, 0, 0, 0, 496, -569, 0, 0, 0, 0, 496, -593, 0, 0, 0, 0, 496, -601, 0, 0, 0, 0, 544, -609, 0, 0, 0, 0, 544, -625, 0, 0, 0, 0, 544, -649, 0, 0, 0, 0, 544, -657)
 }
 point_count = 23
 
@@ -4449,9 +4449,9 @@ point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_stkyh"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 656, 160, 0, 0, 0, 0, 656, 144, 0, 0, 0, 0, 528, 152, 0, 0, 0, 0, 528, 168, 0, 0, 0, 0, 336, 168, 0, 0, 0, 0, 336, 176, 0, 0, 0, 0, 656, 176, 0, 0, 0, 0, 656, 160)
+"points": PackedVector2Array(0, 0, 0, 0, 656, 160, 0, 0, 0, 0, 656, 144, 0, 0, 0, 0, 528, 152, 0, 0, 0, 0, 528, 168, 0, 0, 0, 0, 336, 168, 0, 0, 0, 0, 336, 176, 0, 0, 0, 0, 496, 169.08109, 0, 0, 0, 0, 656, 176, 0, 0, 0, 0, 656, 160)
 }
-point_count = 8
+point_count = 9
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pyiw6"]
 size = Vector2(768.5, 293)
@@ -4942,7 +4942,7 @@ position = Vector2(640, -168)
 rotation = 1.5707964
 
 [node name="Greeny Side4" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("47_uf0e1")]
-position = Vector2(376.00003, -672)
+position = Vector2(384, -672)
 path_follow = NodePath("../Path2D10/PathFollow2D")
 speed = 30.0
 
@@ -4951,7 +4951,7 @@ position = Vector2(-160, -15)
 curve = SubResource("Curve2D_pyiw6")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Folk/Path2D10"]
-position = Vector2(536, -657)
+position = Vector2(568, -657)
 
 [node name="Bluey Side4" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("41_4wjv5")]
 position = Vector2(736.7653, -517.7545)
@@ -5047,6 +5047,8 @@ path_follow = NodePath("../Path2D15/PathFollow2D")
 speed = 30.0
 
 [node name="Path2D15" type="Path2D" parent="Folk"]
+position = Vector2(0, 8.499977)
+scale = Vector2(1, 0.9062501)
 curve = SubResource("Curve2D_stkyh")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Folk/Path2D15"]
