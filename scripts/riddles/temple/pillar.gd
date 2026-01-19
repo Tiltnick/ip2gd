@@ -15,7 +15,6 @@ var _player_inside: bool = false
 var _is_on: bool = false
 var _locked: bool = false
 
-# Token, damit mehrere schnelle "Flash"-Aufrufe sauber funktionieren.
 var _flash_token: int = 0
 
 
@@ -53,8 +52,6 @@ func _process(_delta: float) -> void:
 		pressed.emit(self)
 
 
-# Diese Funktion ändert NICHT _is_on.
-# Sie schaltet nur kurz die Anzeige auf "on", damit der Player den Weg sieht.
 func flash_hint(duration: float = 0.25) -> void:
 	if sprite == null:
 		return
@@ -64,7 +61,6 @@ func flash_hint(duration: float = 0.25) -> void:
 	_flash_token += 1
 	var token := _flash_token
 
-	# Kurz "an" anzeigen
 	sprite.texture = sprite_on
 
 	if duration <= 0.0:
@@ -72,11 +68,9 @@ func flash_hint(duration: float = 0.25) -> void:
 
 	await get_tree().create_timer(duration).timeout
 
-	# Falls in der Zwischenzeit ein neuer Flash kam, den alten ignorieren
 	if token != _flash_token:
 		return
 
-	# Zur echten Visual-State-Anzeige zurück
 	_update_visual()
 
 

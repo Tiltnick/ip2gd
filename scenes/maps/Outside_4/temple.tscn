@@ -3422,6 +3422,7 @@ position = Vector2(0, 274)
 position = Vector2(-71, 285)
 script = ExtResource("6_uh1jq")
 npc_path = NodePath("../../Sam")
+puzzle_path = NodePath("../../PillarPuzzle")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger/SamTrigger"]
 position = Vector2(71, 0)
@@ -3554,7 +3555,7 @@ layer = 0
 
 [node name="Sam" parent="." instance=ExtResource("17_5ugvp")]
 position = Vector2(1, 108)
-move_speed = 120.0
 guide_path_1 = NodePath("../Paths/sam_path")
 guide_path_2 = NodePath("../Paths/sam_path_2")
 guide_path_3 = NodePath("../Paths/sam_path_3")
+pillar_puzzle_path = NodePath("../PillarPuzzle")

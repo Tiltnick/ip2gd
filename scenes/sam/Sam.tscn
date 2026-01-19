@@ -264,10 +264,6 @@ radius = 26.019224
 
 [node name="Sam" type="CharacterBody2D" groups=["sam_state_machine"]]
 script = ExtResource("1_yiwm8")
-move_speed = null
-guide_path_1 = null
-guide_path_2 = null
-guide_path_3 = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -18)

@@ -97,9 +97,8 @@ func _on_failed() -> void:
 	_fail_and_reset()
 	_set_flag(failed_flag, true)
 	_set_pillars_locked(false)
-
-	print("PillarPuzzle: FAILED -> notifying Sam")
 	_notify_sam_failed()
+	_save_game_now()
 
 
 func _fail_and_reset() -> void:
@@ -116,6 +115,15 @@ func _on_solved() -> void:
 	_set_solved_state()
 	puzzle_solved.emit()
 	print("Temple solved")
+
+	_save_game_now()
+
+
+func _save_game_now() -> void:
+	if has_node("/root/SaveSystem"):
+		var ss := get_node("/root/SaveSystem")
+		if ss != null and ss.has_method("save_game"):
+			ss.call("save_game")
 
 
 func _set_solved_state() -> void:
@@ -136,18 +144,16 @@ func _set_pillars_locked(locked: bool) -> void:
 		var pillar := p as Pillar
 		pillar.set_locked(locked)
 
+
+# signals
 func _connect_sam_signals() -> void:
 	if _sam_target == null:
 		return
 
-	var target := _sam_target
-	if not target.has_signal("guide_started") and target.get_parent() != null and target.get_parent().has_signal("guide_started"):
-		target = target.get_parent()
-
-	if target.has_signal("guide_started") and not target.is_connected("guide_started", Callable(self, "_on_sam_guide_started")):
-		target.connect("guide_started", Callable(self, "_on_sam_guide_started"))
-	if target.has_signal("guide_finished") and not target.is_connected("guide_finished", Callable(self, "_on_sam_guide_finished")):
-		target.connect("guide_finished", Callable(self, "_on_sam_guide_finished"))
+	if _sam_target.has_signal("guide_started"):
+		_sam_target.connect("guide_started", Callable(self, "_on_sam_guide_started"))
+	if _sam_target.has_signal("guide_finished"):
+		_sam_target.connect("guide_finished", Callable(self, "_on_sam_guide_finished"))
 
 
 func _on_sam_guide_started() -> void:
@@ -157,13 +163,8 @@ func _on_sam_guide_started() -> void:
 func _on_sam_guide_finished() -> void:
 	_set_pillars_locked(false)
 
-
 func _notify_sam_failed() -> void:
 	var nodes := get_tree().get_nodes_in_group(sam_group_name)
-
-	if nodes.is_empty():
-		return
-
 	for n in nodes:
 		if n == null:
 			continue
@@ -176,7 +177,6 @@ func _notify_sam_failed() -> void:
 		if parent != null and parent.has_method(sam_failed_method):
 			parent.call(sam_failed_method)
 			return
-
 
 
 func _find_sam_target() -> Node:

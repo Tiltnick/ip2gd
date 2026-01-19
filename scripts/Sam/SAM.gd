@@ -10,12 +10,17 @@ signal guide_finished
 @export var guide_path_2: NodePath
 @export var guide_path_3: NodePath
 
+@export var puzzle_solved_flag: String = "outside5_pillar_puzzle_solved"
+
+@export var sam_save_id: String = "outside5_sam"
+
+@export var pillar_puzzle_path: NodePath
+
 @onready var state_machine: Node = $StateMachine
 @onready var npc_camera: Camera2D = $NpcCamera
 @onready var dialog_process: Node = $DialogProcess
 @onready var interact_area: Area2D = $InteractArea
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
-
 @onready var pillar_sensor: Area2D = $PillarSensor
 
 var player: Node2D = null
@@ -37,6 +42,8 @@ const ANIM_UP := "idle_top"
 
 var _highlight_enabled: bool = false
 
+const _SAM_SAVE_PREFIX := "sam_progress_"
+
 
 func _ready() -> void:
 	add_to_group("sam_state_machine")
@@ -52,7 +59,28 @@ func _ready() -> void:
 	guide_started.connect(Callable(self, "_on_guide_started"))
 	guide_finished.connect(Callable(self, "_on_guide_finished"))
 
+	_connect_puzzle_solved_signal()
+
 	play_stand_idle()
+
+	call_deferred("_load_sam_progress")
+
+
+func _connect_puzzle_solved_signal() -> void:
+	if pillar_puzzle_path.is_empty():
+		return
+
+	var node := get_node_or_null(pillar_puzzle_path)
+	if node == null:
+		return
+
+	if node.has_signal("puzzle_solved"):
+		if not node.is_connected("puzzle_solved", Callable(self, "_on_pillar_puzzle_solved")):
+			node.connect("puzzle_solved", Callable(self, "_on_pillar_puzzle_solved"))
+
+
+func _on_pillar_puzzle_solved() -> void:
+	_try_save_after_puzzle_and_path3()
 
 
 func on_player_triggered(p: Node2D) -> void:
@@ -88,6 +116,7 @@ func on_guide_completed() -> void:
 	_can_interact = true
 	play_stand_idle()
 	state_machine.transition_to("WaitInteract")
+	_try_save_after_puzzle_and_path3()
 
 
 func on_dialog_finished(dialog_path: String) -> void:
@@ -185,19 +214,35 @@ func restore_camera() -> void:
 
 
 func get_dialog_path_for_step(scene_name: String, wanted_step: int) -> String:
-	return String(dialog_process.call("get_dialog_path_for_step", scene_name, wanted_step))
+	if dialog_process == null:
+		return ""
+	if dialog_process.has_method("get_dialog_path_for_step"):
+		return String(dialog_process.call("get_dialog_path_for_step", scene_name, wanted_step))
+	return ""
 
 
 func get_fail_dialog_path(scene_name: String) -> String:
-	return String(dialog_process.call("get_fail_dialog_path", scene_name))
+	if dialog_process == null:
+		return ""
+	if dialog_process.has_method("get_fail_dialog_path"):
+		return String(dialog_process.call("get_fail_dialog_path", scene_name))
+	return ""
 
 
 func should_guide_after_dialog(scene_name: String, dialog_path: String) -> bool:
-	return bool(dialog_process.call("should_guide_after_dialog", scene_name, dialog_path))
+	if dialog_process == null:
+		return false
+	if dialog_process.has_method("should_guide_after_dialog"):
+		return bool(dialog_process.call("should_guide_after_dialog", scene_name, dialog_path))
+	return false
 
 
 func get_guide_index_for_dialog(scene_name: String, dialog_path: String) -> int:
-	return int(dialog_process.call("get_guide_index_for_dialog", scene_name, dialog_path))
+	if dialog_process == null:
+		return 1
+	if dialog_process.has_method("get_guide_index_for_dialog"):
+		return int(dialog_process.call("get_guide_index_for_dialog", scene_name, dialog_path))
+	return 1
 
 
 func _on_interact_body_entered(body: Node) -> void:
@@ -242,3 +287,68 @@ func on_puzzle_failed() -> void:
 	_can_interact = false
 	_has_shown_a_path = false
 	state_machine.transition_to("Talk")
+
+
+func _try_save_after_puzzle_and_path3() -> void:
+	if not _is_puzzle_solved():
+		return
+	if step < 3:
+		return
+	_save_sam_progress()
+
+
+func _is_puzzle_solved() -> bool:
+	if puzzle_solved_flag.is_empty():
+		return false
+	return bool(GameState.puzzle_state.get(puzzle_solved_flag, false))
+
+
+func _get_sam_save_key() -> String:
+	if not sam_save_id.is_empty():
+		return _SAM_SAVE_PREFIX + sam_save_id
+
+	var scene := get_tree().current_scene
+	if scene == null:
+		return ""
+	return _SAM_SAVE_PREFIX + String(scene.name)
+
+
+func _save_sam_progress() -> void:
+	var key: String = _get_sam_save_key()
+	if key.is_empty():
+		return
+
+	GameState.map_state[key] = {
+		"x": global_position.x,
+		"y": global_position.y,
+		"step": step,
+	}
+
+	if has_node("/root/SaveSystem"):
+		var ss: Node = get_node("/root/SaveSystem")
+		if ss.has_method("save_game"):
+			ss.call("save_game")
+
+
+func _load_sam_progress() -> void:
+	var key: String = _get_sam_save_key()
+	if key.is_empty():
+		return
+	if not GameState.map_state.has(key):
+		return
+
+	var raw: Variant = GameState.map_state.get(key)
+	if typeof(raw) != TYPE_DICTIONARY:
+		return
+
+	var data: Dictionary = raw
+
+	if data.has("x") and data.has("y"):
+		global_position = Vector2(float(data["x"]), float(data["y"]))
+
+	if data.has("step"):
+		step = int(data["step"])
+
+	_can_interact = true
+	play_stand_idle()
+	state_machine.transition_to("WaitInteract")
