@@ -4716,6 +4716,7 @@ position = Vector2(339.0602, -345.28543)
 
 [node name="NPC" parent="." instance=ExtResource("25_1k6v6")]
 position = Vector2(368, -464)
+required_item_id = ""
 
 [node name="Purple Grass" type="Node" parent="."]
 

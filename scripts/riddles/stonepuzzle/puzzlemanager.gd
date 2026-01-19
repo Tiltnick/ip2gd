@@ -60,7 +60,6 @@ func check_puzzle():
 			hotbarglobal.remove_item(id)
 			hotbarglobal.remove_item(stonepanel)
 			blob.run_away_to(blob.global_position + Vector2(0, 550))
-		
 
 func _on_close_button_pressed() -> void:
 	var key := puzzle_id + "_solved_dialog_shown" 

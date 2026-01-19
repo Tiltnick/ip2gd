@@ -22,6 +22,7 @@ var has_save: bool = false
 # Letzte Spielerposition
 var player_position: Vector2 = Vector2.ZERO
 
+
 var use_saved_position: bool = false
 
 # Aufgehobene Items speichern

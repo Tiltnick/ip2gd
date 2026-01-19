@@ -75,6 +75,13 @@ const SPACESHIPROOM_FLOW_END: String = "res://dialog/dialogueMrBlob/end_dialog_o
 
 func _ready() -> void:
 	super._ready()
+	
+	var npc_pos = "npc_pos_" + npc_id
+	#proving if position saved in game state
+	if GameState.puzzle_state.has(npc_pos):
+		var d = GameState.puzzle_state[npc_pos]
+		if typeof(d) == TYPE_DICTIONARY and d.has("x") and d.has("y"):
+			global_position = Vector2(d["x"], d["y"])
 
 # Szene → Dialogdatei
 func get_dialog_path(scene_name: String) -> String:
@@ -144,13 +151,13 @@ func _physics_process(delta: float) -> void:
 				"y": global_position.y,
 			}
 			return
+
 		velocity = dir.normalized() * move_speed 
 		move_and_slide()
 
 func run_away_to(pos: Vector2) -> void:
 	fleeing = true
 	flee_target = pos
-	#return OUTSIDE3_END
 	
 func _get_spaceship_room_dialog() -> String:
 	for step in SPACESHIPROOM_FLOW:
