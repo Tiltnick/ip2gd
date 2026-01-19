@@ -2346,23 +2346,24 @@ e_popup_node = NodePath("Press_E_Popup")
 [node name="Press_E_Popup" parent="Objects/Flashlight" instance=ExtResource("10_exwp3")]
 visible = false
 z_index = 3
-offset_left = -7.7921634
-offset_top = -41.558445
-offset_right = -7.7921634
-offset_bottom = -41.558445
-scale = Vector2(0.835, 0.835)
+offset_left = -15.58429
+offset_top = -62.337696
+offset_right = -15.58429
+offset_bottom = -62.337696
+scale = Vector2(1.5, 1.5)
 
-[node name="StonePiece2" parent="Objects" instance=ExtResource("13_es6jy")]
+[node name="StonePiece2" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("13_es6jy")]
 z_index = 0
 position = Vector2(-493, -356)
+e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="Objects/StonePiece2" instance=ExtResource("10_exwp3")]
 visible = false
 z_index = 3
-offset_left = -6.9999995
-offset_top = -34.0
-offset_right = -6.9999995
-offset_bottom = -34.0
+offset_left = -7.0
+offset_top = -22.99997
+offset_right = -7.0
+offset_bottom = -22.99997
 scale = Vector2(0.72, 0.72)
 
 [node name="SpawnPoints" type="Node2D" parent="."]
@@ -2563,7 +2564,7 @@ curve = SubResource("Curve2D_jm4is")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Tumleweed/Path2D4"]
 position = Vector2(0, -1.4285583)
-rotation = 3.1415927
+rotation = 3.1415925
 
 [node name="Tumbleweed5" parent="Tumleweed" node_paths=PackedStringArray("path_follow") instance=ExtResource("27_es6jy")]
 position = Vector2(-296, -303)
