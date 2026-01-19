@@ -52,6 +52,7 @@ func check_puzzle():
 	if not solved:
 		if puzzle_id != "":
 			GameState.puzzle_state[puzzle_id] = true
+		SfxPlayer.puzzle_solved()
 		solved = true
 		solved_animation.play("solved_animation")
 		for i in range(1, 7):

@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bn3p3cdfqpf6w" path="res://scripts/audio/sfx_player.gd" id="3_o5bt4"]
 [ext_resource type="Script" uid="uid://dml2wtvc6n8rs" path="res://scripts/audio/footstep.gd" id="4_dk1w3"]
 
-[sub_resource type="AudioStream" id="AudioStream_o5bt4"]
+[sub_resource type="AudioStream" id="AudioStream_dk1w3"]
 
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_o5bt4"]
 
@@ -14,7 +14,7 @@ process_mode = 3
 script = ExtResource("1_orjkx")
 
 [node name="bgm_player" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStream_o5bt4")
+stream = SubResource("AudioStream_dk1w3")
 volume_db = -20.0
 autoplay = true
 bus = &"Music"

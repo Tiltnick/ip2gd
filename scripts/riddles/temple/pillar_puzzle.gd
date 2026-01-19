@@ -102,6 +102,7 @@ func _on_failed() -> void:
 
 
 func _fail_and_reset() -> void:
+	SfxPlayer.puzzle_failed()
 	_input_index = 0
 	_reset_visuals()
 
@@ -114,6 +115,7 @@ func _on_solved() -> void:
 
 	_set_solved_state()
 	puzzle_solved.emit()
+	SfxPlayer.puzzle_solved()
 	print("Temple solved")
 
 	_save_game_now()

@@ -7,4 +7,5 @@ func _ready() -> void:
 	super._ready()
 
 func interact():
+	SfxPlayer.ui_click_sound()
 	mushroom_ui.open_socket()

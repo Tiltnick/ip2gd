@@ -89,6 +89,7 @@ func check_puzzle():
 	if not solved:
 		if puzzle_id != "":
 			GameState.puzzle_state[puzzle_id] = true
+			SfxPlayer.puzzle_solved()
 		solved = true
 		for id in mush_nodes.keys():
 			var mushrooms_id: String = "mushrooms"
@@ -157,6 +158,7 @@ func find_piece_by_id(id: String) -> Area2D:
 
 
 func _on_close_button_pressed() -> void:
+	SfxPlayer.ui_click_sound()
 	mushroom_ui.hide()
 
 	var riddle_solved = solved or GameState.puzzle_state.get(puzzle_id, false)
