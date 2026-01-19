@@ -58,7 +58,7 @@ corner_radius_bottom_left = 62
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tt0ug"]
 
-[node name="TreasureChestRiddle" type="CanvasLayer"]
+[node name="TreasureChestRiddle" type="CanvasLayer" groups=["chest_puzzle_ui"]]
 script = ExtResource("1_0tp8k")
 code = ["5", "3", "4"]
 

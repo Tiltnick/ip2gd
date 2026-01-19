@@ -1,45 +1,40 @@
 extends CanvasLayer
 
 func _ready() -> void:
-	hide()   # Menü beim Start verstecken
+	hide()
 
 
 func resume():
 	get_tree().paused = false
 	hide()
 
-	# Dialog wieder einblenden nur wenn er existiert
-	# (DialogManager ist ein Autoload → direkt nutzbar)
-	DialogManager.show()
-	
-	# Hotbar wieder zeigen wenn sie existiert
+	# Dialog wieder einblenden nur wenn er läuft
+	if DialogManager and DialogManager.is_running:
+		DialogManager.show()
+
 	if hotbarglobal.hotbar:
 		hotbarglobal.hotbar.show()
-	
+
+
 func pause():
 	get_tree().paused = true
 	show()
 
-	# diary_menu schließen falls vorhanden (nur die instanzierte diary_menu Szene)
 	for node in get_tree().get_nodes_in_group("diary_menu"):
-		# Wenn das diary_menu eine close_menu() Methode hat, nutze sie (macht UI sauber zurück)
 		if node.has_method("close_menu"):
 			node.close_menu()
 		else:
 			node.queue_free()
 
-	# Buttons wieder einblenden, damit sie nicht "weg" bleiben
 	GlobalMenuButton.show()
 	SettingsButton.show()
 
-	# Dialog versteckenfalls vorhanden
-	DialogManager.hide()
+	# Dialog verstecken falls er läuft 
+	if DialogManager and DialogManager.is_running:
+		DialogManager.hide()
 
-		
-	# Hotbar verstecken falls vorhanden
 	if hotbarglobal.hotbar:
 		hotbarglobal.hotbar.hide()
-	
 
 
 func toggle_pause():
@@ -50,57 +45,94 @@ func toggle_pause():
 
 
 func esc():
-	# ESC toggelt einfach das Menü
-	# Startmenü ausnehmen (Name ggf. anpassen, falls deine MainScene anders heißt)
 	var current_scene := get_tree().current_scene
 	if current_scene and current_scene.name == "MainMenu":
 		return
 
-	if Input.is_action_just_pressed("esc"):
-		toggle_pause()
+	if not Input.is_action_just_pressed("esc"):
+		return
+
+	# popup erst schließen
+	if _close_topmost_overlay():
+		get_viewport().set_input_as_handled()
+		return
+
+	# sonst pause
+	toggle_pause()
+
+
+func _close_topmost_overlay() -> bool:
+	
+
+	var door_ui := get_tree().get_first_node_in_group("door_code_ui")
+	if door_ui and door_ui.visible:
+		_close_overlay_node(door_ui)
+		return true
+
+	var statue_ui := get_tree().get_first_node_in_group("statue_puzzle_ui")
+	if statue_ui and statue_ui.visible:
+		_close_overlay_node(statue_ui)
+		return true
+
+	var chest_puzzle := get_tree().get_first_node_in_group("chest_puzzle_ui")
+	if chest_puzzle and chest_puzzle.visible:
+		_close_overlay_node(chest_puzzle)
+		return true
+		
+	var panel_puzzle := get_tree().get_first_node_in_group("panel_puzzle_ui")
+	if panel_puzzle and panel_puzzle.visible:
+		_close_overlay_node(panel_puzzle)
+		return true
+		
+	var socket_puzzle := get_tree().get_first_node_in_group("socket_puzzle_ui")
+	if socket_puzzle and socket_puzzle.visible:
+		_close_overlay_node(socket_puzzle)
+		return true
+
+	return false
+
+
+func _close_overlay_node(n: Node) -> void:
+	
+	if n.has_method("close_puzzle"):
+		n.call("close_puzzle")
+	elif n.has_method("close"):
+		n.call("close")
+	else:
+		n.hide()
 
 
 func _on_continue_button_pressed() -> void:
 	resume()
 
 
+func _on_round_buttton_pressed() -> void:
+	resume()
+
+
 func _on_exit_button_pressed() -> void:
-	# Scene/Area im GameState merken
 	var current_scene := get_tree().current_scene
 	if current_scene:
 		GameState.current_area_path = current_scene.get_scene_file_path()
 
-	# Spielstand speichern
 	SaveSystem.save_game()
-	print("Spiel gespeichert")
 	GameState.has_save = true
 
-	# Laufenden Dialog  beenden
 	DialogManager.force_close()
 
-	# Spiel wieder "entpausen" für Main menu
 	get_tree().paused = false
-
-	# Menü direkt ausblenden, damit es im Hauptmenü nicht sichtbar bleibt
 	hide()
 
-	# diary_menu sicherheitshalber schließen, damit es im Hauptmenü nicht sichtbar bleibt
 	for node in get_tree().get_nodes_in_group("diary_menu"):
 		if node.has_method("close_menu"):
 			node.close_menu()
 		else:
 			node.queue_free()
 
-	# Buttons wieder einblenden, damit sie im MainMenu nicht "weg" bleiben
 	GlobalMenuButton.show()
 	SettingsButton.show()
 
-	# Zur MainMenu scene wechseln
 	SceneManager.goto_main_menu()
-
-
-func _on_round_buttton_pressed() -> void:
-	resume()
 
 
 func _process(_delta: float) -> void:
