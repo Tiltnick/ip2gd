@@ -35,7 +35,7 @@ func _ready() -> void:
 	_set_pillars_locked(false)
 
 
-#pillars
+# pillars
 func _register_pillars() -> void:
 	_pillars_by_id.clear()
 
@@ -65,7 +65,7 @@ func reset_puzzle() -> void:
 	_set_pillars_locked(false)
 
 
-#input
+# input
 func _on_pillar_pressed(pillar: Pillar) -> void:
 	if _solved:
 		return
@@ -97,6 +97,8 @@ func _on_failed() -> void:
 	_fail_and_reset()
 	_set_flag(failed_flag, true)
 	_set_pillars_locked(false)
+
+	print("PillarPuzzle: FAILED -> notifying Sam")
 	_notify_sam_failed()
 
 
@@ -134,16 +136,18 @@ func _set_pillars_locked(locked: bool) -> void:
 		var pillar := p as Pillar
 		pillar.set_locked(locked)
 
-
-#signals
 func _connect_sam_signals() -> void:
 	if _sam_target == null:
 		return
 
-	if _sam_target.has_signal("guide_started"):
-		_sam_target.connect("guide_started", Callable(self, "_on_sam_guide_started"))
-	if _sam_target.has_signal("guide_finished"):
-		_sam_target.connect("guide_finished", Callable(self, "_on_sam_guide_finished"))
+	var target := _sam_target
+	if not target.has_signal("guide_started") and target.get_parent() != null and target.get_parent().has_signal("guide_started"):
+		target = target.get_parent()
+
+	if target.has_signal("guide_started") and not target.is_connected("guide_started", Callable(self, "_on_sam_guide_started")):
+		target.connect("guide_started", Callable(self, "_on_sam_guide_started"))
+	if target.has_signal("guide_finished") and not target.is_connected("guide_finished", Callable(self, "_on_sam_guide_finished")):
+		target.connect("guide_finished", Callable(self, "_on_sam_guide_finished"))
 
 
 func _on_sam_guide_started() -> void:
@@ -154,16 +158,25 @@ func _on_sam_guide_finished() -> void:
 	_set_pillars_locked(false)
 
 
-#notify
 func _notify_sam_failed() -> void:
-	if _sam_target == null:
-		_sam_target = _find_sam_target()
-		_connect_sam_signals()
-	if _sam_target == null:
+	var nodes := get_tree().get_nodes_in_group(sam_group_name)
+
+	if nodes.is_empty():
 		return
 
-	if _sam_target.has_method(sam_failed_method):
-		_sam_target.call(sam_failed_method)
+	for n in nodes:
+		if n == null:
+			continue
+
+		if n.has_method(sam_failed_method):
+			n.call(sam_failed_method)
+			return
+
+		var parent := n.get_parent()
+		if parent != null and parent.has_method(sam_failed_method):
+			parent.call(sam_failed_method)
+			return
+
 
 
 func _find_sam_target() -> Node:
@@ -173,7 +186,7 @@ func _find_sam_target() -> Node:
 	return list[0] as Node
 
 
-#gamestate
+# gamestate
 func _is_flag_true(flag_key: String) -> bool:
 	if flag_key.is_empty():
 		return false

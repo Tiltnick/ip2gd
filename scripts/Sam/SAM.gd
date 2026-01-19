@@ -10,25 +10,22 @@ signal guide_finished
 @export var guide_path_2: NodePath
 @export var guide_path_3: NodePath
 
-@onready var state_machine = $StateMachine
+@onready var state_machine: Node = $StateMachine
 @onready var npc_camera: Camera2D = $NpcCamera
 @onready var dialog_process: Node = $DialogProcess
 @onready var interact_area: Area2D = $InteractArea
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
+@onready var pillar_sensor: Area2D = $PillarSensor
+
 var player: Node2D = null
 var guide_path_node: Path2D = null
 var _prev_camera: Camera2D = null
 
-
 var step: int = 1
-
 var _player_in_range: bool = false
 var _can_interact: bool = false
-
 var _has_shown_a_path: bool = false
-
-
 var _force_fail_dialog: bool = false
 
 var facing: Vector2 = Vector2.DOWN
@@ -38,13 +35,22 @@ const ANIM_LEFT := "idle_left"
 const ANIM_RIGHT := "idle_right"
 const ANIM_UP := "idle_top"
 
+var _highlight_enabled: bool = false
+
 
 func _ready() -> void:
+	add_to_group("sam_state_machine")
+
 	state_machine.init(self)
 
 	interact_area.body_entered.connect(_on_interact_body_entered)
 	interact_area.body_exited.connect(_on_interact_body_exited)
 
+	if pillar_sensor != null:
+		pillar_sensor.area_entered.connect(Callable(self, "_on_pillar_sensor_area_entered"))
+
+	guide_started.connect(Callable(self, "_on_guide_started"))
+	guide_finished.connect(Callable(self, "_on_guide_finished"))
 
 	play_stand_idle()
 
@@ -181,11 +187,14 @@ func restore_camera() -> void:
 func get_dialog_path_for_step(scene_name: String, wanted_step: int) -> String:
 	return String(dialog_process.call("get_dialog_path_for_step", scene_name, wanted_step))
 
+
 func get_fail_dialog_path(scene_name: String) -> String:
 	return String(dialog_process.call("get_fail_dialog_path", scene_name))
 
+
 func should_guide_after_dialog(scene_name: String, dialog_path: String) -> bool:
 	return bool(dialog_process.call("should_guide_after_dialog", scene_name, dialog_path))
+
 
 func get_guide_index_for_dialog(scene_name: String, dialog_path: String) -> int:
 	return int(dialog_process.call("get_guide_index_for_dialog", scene_name, dialog_path))
@@ -195,9 +204,29 @@ func _on_interact_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		_player_in_range = true
 
+
 func _on_interact_body_exited(body: Node) -> void:
 	if body.is_in_group("player"):
 		_player_in_range = false
+
+
+func _on_guide_started() -> void:
+	_highlight_enabled = true
+
+
+func _on_guide_finished() -> void:
+	_highlight_enabled = false
+
+
+func _on_pillar_sensor_area_entered(area: Area2D) -> void:
+	if not _highlight_enabled:
+		return
+
+	var pillar := area as Pillar
+	if pillar == null:
+		return
+
+	pillar.flash_hint(0.25)
 
 
 func _get_scene_name() -> String:

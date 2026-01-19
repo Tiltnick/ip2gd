@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dvfvh3itass52"]
+[gd_scene load_steps=45 format=3 uid="uid://dvfvh3itass52"]
 
 [ext_resource type="Script" uid="uid://bbq7qi7bi51gf" path="res://scripts/Sam/SAM.gd" id="1_yiwm8"]
 [ext_resource type="Texture2D" uid="uid://c1xldldvnlrsm" path="res://assets/sprites/character/Sam_Spritesheet.png" id="2_jfhnd"]
@@ -259,8 +259,15 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xt33x"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jfhnd"]
+radius = 26.019224
+
 [node name="Sam" type="CharacterBody2D" groups=["sam_state_machine"]]
 script = ExtResource("1_yiwm8")
+move_speed = null
+guide_path_1 = null
+guide_path_2 = null
+guide_path_3 = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -18)
@@ -282,6 +289,12 @@ position = Vector2(0, 6)
 position = Vector2(0, -16)
 scale = Vector2(3.8396685, 3.8396685)
 shape = SubResource("CircleShape2D_xt33x")
+
+[node name="PillarSensor" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PillarSensor"]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_jfhnd")
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_u03g8")
