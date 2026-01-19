@@ -189,7 +189,6 @@ shape = SubResource("CircleShape2D_5dfqd")
 
 [node name="stateMachine" type="Node" parent="."]
 script = ExtResource("5_1r1co")
-cutscene_zoom_out = Vector2(1.5, 1.5)
 
 [node name="idle" type="Node" parent="stateMachine"]
 script = ExtResource("6_tdt7k")
