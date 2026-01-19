@@ -2262,7 +2262,7 @@ offset_right = -10.0
 offset_bottom = -54.0
 
 [node name="Stones2" parent="Objects" node_paths=PackedStringArray("e_popup_node") groups=["stones"] instance=ExtResource("12_qarrx")]
-position = Vector2(-493, -357)
+position = Vector2(-405, -349)
 save_id = "stones_2"
 item_path = NodePath("../StonePiece2")
 e_popup_node = NodePath("Press_E_Popup")
@@ -2354,7 +2354,7 @@ scale = Vector2(1.5, 1.5)
 
 [node name="StonePiece2" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("13_es6jy")]
 z_index = 0
-position = Vector2(-493, -356)
+position = Vector2(-492, -356)
 e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="Objects/StonePiece2" instance=ExtResource("10_exwp3")]

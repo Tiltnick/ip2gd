@@ -3754,6 +3754,9 @@ position = Vector2(322, -225)
 [node name="from_temple" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(-48, -92)
 
+[node name="blob" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(-48, 70)
+
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(318, -253)
 script = ExtResource("6_d6fly")

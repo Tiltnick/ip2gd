@@ -1,4 +1,7 @@
 extends Node2D
+@onready var blob_spawn: Marker2D = $SpawnPoints/Marker2D
+@onready var old_blob: NpcDialogProcessBlob = $NPC
+const blob: PackedScene = preload("res://scenes/Character/npc.tscn")
 
 func _ready() -> void:
 	BgmPlayer.bgm_outside1()
@@ -10,6 +13,12 @@ func _ready() -> void:
 		DialogManager.start_dialog("res://dialog/innerMonologue/exiting_spaceship.json")
 		await DialogManager.dialog_finished
 		QuestManager.complete_quest("quest1")
+
+	if GameState.puzzle_state.has("outside5_pillar_puzzle_solved"):
+		var blob_instance = blob.instantiate()
+		blob_instance.global_position = blob_spawn.global_position
+		add_child(blob_instance)
+		old_blob.hide()
 
 
 func configure_camera(cam: Camera2D) -> void:

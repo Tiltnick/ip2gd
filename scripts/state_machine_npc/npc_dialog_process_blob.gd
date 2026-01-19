@@ -25,7 +25,7 @@ const OUTSIDE1_END: String = "res://dialog/dialogueMrBlob/outside_1_end.json"
 const OUTSIDE1_SECOND_FLOW := [
 	{
 		"flag": "outside1_endscene_done",
-		"path": "",
+		"path": "res://dialog/dialogueMrBlob/outside_1_flower.json",
 	}
 ]
 const OUTSIDE1_SECOND_END: String = ""
@@ -76,7 +76,7 @@ const OUTSIDE3_SECOND_END: String = "res://dialog/dialogueMrBlob/end_dialog_outs
 const OUTSIDE4_FLOW := [
 	{
 		"flag": "blob_flower_done",
-		"path": "",
+		"path": "res://dialog/dialogueMrBlob/outside_4.json",
 	}
 ]
 const OUTSIDE4_FLOW_END: String = ""
@@ -103,6 +103,8 @@ func _ready() -> void:
 # Szene → Dialogdatei
 func get_dialog_path(scene_name: String) -> String:
 	if scene_name == "Outside1":
+		if GameState.puzzle_state.has("outside5_pillar_puzzle_solved"):
+			return _get_outside1_second_dialog()
 		return _get_outside1_dialog()
 
 	elif scene_name == "Outside2":
@@ -135,6 +137,12 @@ func _get_outside1_dialog() -> String:
 		if not bool(GameState.puzzle_state.get(step["flag"], false)):
 			return step["path"]
 	return OUTSIDE1_END
+	
+func _get_outside1_second_dialog() -> String:
+	for step in OUTSIDE1_SECOND_FLOW:
+		if not bool(GameState.puzzle_state.get(step["flag"], false)):
+			return step["path"]
+	return OUTSIDE1_SECOND_END
 
 func _get_outside2_dialog() -> String:
 	for step in OUTSIDE2_FLOW:
