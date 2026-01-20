@@ -7428,7 +7428,7 @@ tile_map_data = PackedByteArray("AADv////AQACAAwAAADv/wAAAQACAA0AAADv/wEAAQACAA4
 tile_set = SubResource("TileSet_hpomn")
 
 [node name="Walls2" type="TileMapLayer" parent="."]
-z_index = 2
+z_index = 4
 tile_map_data = PackedByteArray("AAD3//v/AQABAA8AAAD3//z/AQABABAAAAD3/wIAAQABAA8AAAD3/wMAAQABABAAAAD8//f/AQACAAcAAAD9//f/AQADAAcAAAACAPv/AQABAA8AAAACAPz/AQABABAAAAACAAIAAQABAA8AAAACAAMAAQABABAAAAD8//b/AQAKAAkAAAD9//b/AQAKAAkAAAA=")
 tile_set = SubResource("TileSet_hpomn")
 
@@ -7486,7 +7486,7 @@ position = Vector2(438, 138.6211)
 shape = SubResource("RectangleShape2D_hpomn")
 
 [node name="Character" parent="." instance=ExtResource("7_5aw3q")]
-position = Vector2(-48, -87)
+position = Vector2(-47, -50)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
