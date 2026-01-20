@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://c7pwwu6560hy4" path="res://assets/sprites/selfmade/spaceship_door_open.png" id="13_b8ov6"]
 [ext_resource type="Texture2D" uid="uid://byt13npihdi8l" path="res://assets/sprites/selfmade/map/map_item.png" id="13_t5k16"]
 [ext_resource type="PackedScene" uid="uid://bpvneidk4xerj" path="res://scenes/Riddles/Spaceship/spaceship_door_riddle.tscn" id="14_1oksb"]
-[ext_resource type="PackedScene" uid="uid://8mqtuu7621ma" path="res://scenes/interactables/objects/spaceship_control.tscn" id="14_k18lp"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/objects/spaceship_control.tscn" id="14_k18lp"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="15_emg07"]
 [ext_resource type="PackedScene" uid="uid://m8y5i5u6eyka" path="res://scenes/maps/transition_area_fade.tscn" id="17_8o1ua"]
 [ext_resource type="PackedScene" uid="uid://c3lilldf155p4" path="res://scenes/Animations/bubbles.tscn" id="23_a5uu7"]
@@ -1457,6 +1457,7 @@ position = Vector2(-64, 158)
 position = Vector2(304, 120)
 
 [node name="Tutorial_UI" parent="." instance=ExtResource("25_w60i3")]
+visible = false
 offset_left = -231.0
 offset_top = -93.0
 offset_right = -231.0
