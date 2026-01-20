@@ -60,6 +60,9 @@ func hotbar_activate() -> void:
 func _zoom_in() -> void:
 	is_zoomed = true
 	z_index = 100
+	
+	if has_node("Outline"):
+		$Outline.visible = false
 
 	# opt e-popup aus
 	if e_popup_node:

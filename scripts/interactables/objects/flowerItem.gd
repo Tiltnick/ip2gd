@@ -1,0 +1,2 @@
+extends HotbarCollectZoomItem
+class_name FlowerItem
