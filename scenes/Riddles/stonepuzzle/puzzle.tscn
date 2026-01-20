@@ -176,7 +176,7 @@ corner_radius_bottom_left = 62
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d58ip"]
 
-[node name="Puzzle" type="CanvasLayer"]
+[node name="Puzzle" type="CanvasLayer" groups=["panel_puzzle_ui"]]
 script = ExtResource("1_h324o")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -474,6 +474,16 @@ shape = SubResource("RectangleShape2D_bag6g")
 
 [node name="solved_Puzzle" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)
+z_index = 1000
+offset_left = 511.88464
+offset_top = 216.0
+offset_right = 1407.0
+offset_bottom = 845.0
+texture = ExtResource("4_pwhx3")
+
+[node name="solved_Puzzle2" type="TextureRect" parent="."]
+visible = false
+z_index = 1000
 offset_left = 511.88464
 offset_top = 216.0
 offset_right = 1407.0
@@ -504,22 +514,21 @@ icon = ExtResource("13_yqnux")
 icon_alignment = 1
 
 [node name="rightclick_hint" type="Label" parent="."]
-offset_left = 823.0
-offset_top = 86.0
-offset_right = 1159.0
-offset_bottom = 182.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -136.0
+offset_right = 72.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_colors/font_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
 theme_override_fonts/font = ExtResource("14_bag6g")
 theme_override_font_sizes/font_size = 36
 text = "CLICK_RIGHT"
-
-[node name="solved_Puzzle2" type="TextureRect" parent="."]
-visible = false
-offset_left = 511.88464
-offset_top = 216.0
-offset_right = 1407.0
-offset_bottom = 845.0
-texture = ExtResource("4_pwhx3")
 
 [connection signal="pressed" from="close_button" to="." method="_on_close_button_pressed"]
 

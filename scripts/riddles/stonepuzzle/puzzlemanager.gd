@@ -13,6 +13,7 @@ extends CanvasLayer
 
 @onready var solved_puzzle: TextureRect = $solved_Puzzle2
 @onready var pieces: Node2D = $Pieces
+@onready var blob: NpcDialogProcessBlob = $"../NPC"
 
 var solved = false
 
@@ -26,11 +27,12 @@ func open_puzzle():
 			piece.piece_released.connect(check_puzzle)
 		check_pieces()
 	#puzzle already solved ?
-	elif GameState.puzzle_state.get(puzzle_id, false):
-			solved_puzzle.show()
-			pieces.hide()
-			solved = true
-			
+	elif GameState.puzzle_state.has(puzzle_id):
+		print("solved puzel")
+		solved_puzzle.show()
+		pieces.hide()
+		solved = true
+		
 		
 
 func check_pieces():
@@ -50,15 +52,22 @@ func check_puzzle():
 	if not solved:
 		if puzzle_id != "":
 			GameState.puzzle_state[puzzle_id] = true
+		SfxPlayer.puzzle_solved()
 		solved = true
 		solved_animation.play("solved_animation")
+		QuestManager.complete_quest("quest_3")
+		QuestManager.add_quest("quest_9")
 		for i in range(1, 7):
 			var id = "stone_piece_%d" % i
 			var stonepanel: String = "stonepanel"
 			hotbarglobal.remove_item(id)
 			hotbarglobal.remove_item(stonepanel)
-
-		
+			blob.run_away_to(blob.global_position + Vector2(0, 550))
 
 func _on_close_button_pressed() -> void:
+	var key := puzzle_id + "_solved_dialog_shown" 
 	puzzle.hide()
+	if GameState.puzzle_state.has(puzzle_id) and not GameState.puzzle_state.get(key, false):
+		GameState.puzzle_state[key] = true
+		SaveSystem.save_game()
+		DialogManager.start_dialog("res://dialog/innerMonologue/puzzle_solved.json")

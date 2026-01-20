@@ -1,0 +1,23 @@
+{
+	"id": "Sam_ghost",
+
+	"characters": {
+		"Sam": "res://assets/sprites/portrait/SamGhost.png", 
+		"Oris": "res://assets/sprites/portrait/oris.png"
+},
+
+ "steps": {
+
+	"sections": {
+		"lines": [
+			{"speaker": "Sam",  "text_en": "Good job! Now it will become a bit trickier. I will show you 4 columns, okay?",
+								"text_de": "Super! Jetzt wird es ein wenig kniffliger. Ich zeige dir jetzt 4 Säulen, okay?"
+			}
+		],
+		"next": "end"
+	},
+	"end": {
+	  "lines": []
+	}
+  }
+}

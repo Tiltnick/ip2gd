@@ -37,3 +37,9 @@ func _check_code() -> void:
 	if current == correct:
 		GameState.puzzle_state[puzzle_id] = true
 		print("Farb-Rätsel gelöst! Code =", current)
+		_on_puzzle_completed()
+		
+		
+func _on_puzzle_completed():
+	SfxPlayer.puzzle_solved()
+	DialogManager.start_dialog("res://dialog/innerMonologue/completing_lamp_riddle.json")

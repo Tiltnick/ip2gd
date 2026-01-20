@@ -1,0 +1,41 @@
+{
+	"id": "ending_scene",
+
+	"characters": {
+		"Sam": "res://assets/sprites/portrait/SamGhost.png", 
+		"Oris": "res://assets/sprites/portrait/oris.png"
+},
+
+ "steps": {
+
+	"sections": {
+		"lines": [
+			{"speaker": "Sam",  "text_en": "Hello, Oris.",
+								"text_de": "Hallo, Oris."
+			},
+			{"speaker": "Oris",  "text_en": "Sam!",
+								 "text_de": "Sam!"
+			},
+			{"speaker": "Sam",  "text_en": "You went through a lot lately. I'm sorry.",
+								"text_de": "Du musstest in letzter Zeit viel durchmachen. Das tut mir leid."
+			},
+			{"speaker": "Sam",  "text_en": "There was no hope left for me. But at least one person was saved. I'm sorry, Oris, but also thank you.",
+								"text_de": "Für mich gab es keine Hoffnung mehr, aber wenigstens eine person konnte gerettet werden. Es tut mir leid, Oris, doch ich danke dir auch."
+			},
+			{"speaker": "Oris",  "text_en": "Sam...",
+								 "text_de": "Sam..."
+			},
+			{"speaker": "Sam",  "text_en": "We'll see each other again someday, Oris. Until then, farewell…",
+								"text_de": "Eines Tages sehen wir uns wieder Oris, bis dahin, lebe wohl…"
+			},
+			{"speaker": "Oris",  "text_en": "...",
+								 "text_de": "..."
+			}
+		],
+		"next": "end"
+	},
+	"end": {
+	  "lines": []
+	}
+  }
+}

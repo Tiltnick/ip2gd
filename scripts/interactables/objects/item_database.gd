@@ -253,5 +253,27 @@ var DATA := {
 		"world_scene": "res://scenes/interactables/objects/telescope.tscn"
 },
 
+	"map": {
+		"name_de": "Karte",
+		"name_en": "Map",
+		"description_en": "Helps with orientation. Sometimes.",
+		"description_de": "Hilft beim Orientieren. Manchmal.",
+		"icon": "res://assets/sprites/selfmade/map/map_item.png",
+		"icon_size": Vector2(55,55),
+		"world_scene": "res://scenes/interactables/objects/map_item.tscn"
+},
+
+
+	"flower": {
+		"name_de": "Blume",
+		"name_en": "Flower",
+		"description_en": "The magical flower. Myths say that it will heal even those, who are beyond being healable. But be careful, as you can only use it once.",
+		"description_de": "Die magische Blume. Mythen besagen, dass sie sogar jene heilen kann, die als unheilbar gelten. Aber vorsicht! Man kann die Blume nur einmalig verwenden.",
+		"icon": "res://assets/sprites/selfmade/flower.png",
+		"icon_size": Vector2(55,55),
+		"world_scene": "res://scenes/Riddles/temple_riddle/flower.tscn"
+},
+
+
 
 }

@@ -15,6 +15,7 @@ var player: Node2D = null
 
 # Dialog neustarten verhindern
 var dialog_active := false
+var last_dialog_path: String = ""
 
 
 func _ready() -> void:
@@ -25,13 +26,20 @@ func _ready() -> void:
 	detect_area.body_entered.connect(_on_body_entered)
 	detect_area.body_exited.connect(_on_body_exited)
 
+	DialogManager.dialog_finished.connect(_on_any_dialog_finished)
 
+func _on_any_dialog_finished() -> void:
+	# Dialog ist vorbei -> NPC wieder freigeben
+	dialog_active = false
+
+	# Popup ggf. wieder zeigen, wenn Spieler noch drin ist
+	if player_inside and e_popup_node:
+		e_popup_node.visible = true
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	outline.visible = player_inside
 	
-
-
 	if player_inside:
 		outline.frame = anim.frame
 
@@ -51,6 +59,7 @@ func _process(_delta: float) -> void:
 			dialog_path = get_dialog_path(scene_name)
 
 			if dialog_path != "":
+				last_dialog_path = dialog_path
 				DialogManager.start_dialog(dialog_path)
 				dialog_active = true
 

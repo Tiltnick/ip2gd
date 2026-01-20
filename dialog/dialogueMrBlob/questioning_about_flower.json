@@ -1,0 +1,49 @@
+{
+  "id": "questioning_about_flower",
+
+  "characters": {
+	"Mr. Blob": "res://assets/sprites/portrait/MrBlobs.png",
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text_en": "Cough...So, did you find anything in the cave?"
+								,"text_de": "Hust...Und, hast du etwas in der Höhle gefunden?" },
+		{ "speaker": "Oris", "text_en": "It appears you were right. He did look for a flower, but I don't really understand his research."
+							,"text_de": "Es sieht so aus als hättest du Recht gehabt. Er hat nach einer Blume gesucht, allerdings verstehe ich seine Forschung nicht." },
+		{ "speaker": "Mr. Blob", "text_en": "Can I see it? I might be able to help you decipher it?"
+								,"text_de": "Kann ich sie mir mal anschauen? Ich kann dir vielleicht beim entschlüsseln helfen?" },
+		{ "speaker": "Oris", "text_en": "Uhm...fine. But how would you know how to read his research? Aren't you just a Blobfish?"
+							,"text_de": "Äh...na gut. Aber woher solltest du wissen sollen, wie man seine Forschung interpretiert? Bist du nicht einfach nur ein Blobfisch?" },
+		{ "speaker": "Mr. Blob", "text_en": "Hey, that's mean! Cough. I do have a brain, you know? Unlike someone else..."
+								,"text_de": "Also hallo! Wie gemein. Ich hab tatsächlich ein Gehirn, weißt du. Nicht so wie andere..." },
+		{ "speaker": "Mr. Blob", "text_en": "Anyways, it appears that the plant indeed exists. And I think I can even take us to it! You, I mean."
+								,"text_de": "Naja, es scheint so als würde die Pflanze wirklich existieren. Und ich glaube ich kann uns sogar zu ihr führen. Dich meine ich." },
+		{ "speaker": "Oris", "text_en": "Why would I go get it though? I have no interest in a random flower. I just wanted my friend back."
+							,"text_de": "Warum sollte ich sie holen? Ich habe kein Interesse an einer seltsamen Blume. Ich wollte lediglich meinen Freund holen." },
+		{ "speaker": "Mr. Blob", "text_en": "Cough, Cough...What if...What if I told you you CAN get him back."
+								,"text_de": "Hust, Hust...Was wenn ich dir sagen würde, dass du ihn zurück holen kannst." },
+		{ "speaker": "Mr. Blob", "text_en": "According to the myth, the flower can heal anyone. Even those who are believed to be incurable. Why should that not include the dead?"
+								,"text_de": "Der Mythos besagt, dass die Blume jeden heilen kann. Sogar jene, die als unheilbar gelten. Warum sollte das nicht die Toten betreffen?" },
+		{ "speaker": "Oris", "text_en": "And why would I trust what you say. After you've lied to me. Is this a trap?"
+							,"text_de": "Wieso sollte ich dir vertrauen, wenn du mich bisher nur angelogen hast? Ist das hier eine Falle?" },
+		{ "speaker": "Mr. Blob", "text_en": "No, I promise! Cough, Cough...Trust me, I have no reason to lie to you! Think of Sam!"
+								,"text_de": "Nein, ich verspreche es dir...Hust, Hust...Ich hab keinen Grund dich anzulügen. Denk an Sam!" },
+		{ "speaker": "Oris", "text_en": "...Hmm. Fine."
+							,"text_de": "...Hmm. Na gut." },
+		{ "speaker": "Oris", "text_en": "Then we must find it! I will do whatever it takes if there is any hope of getting him back."
+							,"text_de": "Dann müssen wir sie finden! Ich werde alles dafür tun, wenn es nur die kleinste Chance gibt, ihn zurückzuholen." },
+		{ "speaker": "Mr. Blob", "text_en": "Good, see if you can find anything else that is useful around here. I will be here when you are ready to leave."
+								,"text_de": "Gut, schau ob du noch andere nützliche Dinge finden kannst, die hier herumliegen. Ich werde hier sein, sobald du los willst." },
+		
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+	  "lines": []
+	}
+  }
+}

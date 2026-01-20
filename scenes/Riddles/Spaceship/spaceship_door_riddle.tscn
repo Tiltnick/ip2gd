@@ -57,7 +57,7 @@ corner_radius_bottom_left = 62
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6xmg8"]
 
-[node name="SpaceshipDoor" type="CanvasLayer"]
+[node name="SpaceshipDoor" type="CanvasLayer" groups=["door_code_ui"]]
 script = ExtResource("1_5uccr")
 
 [node name="Control" type="Control" parent="."]

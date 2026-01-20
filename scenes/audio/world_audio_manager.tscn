@@ -1,25 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://dghu8l1p7spw3"]
+[gd_scene load_steps=7 format=3 uid="uid://dghu8l1p7spw3"]
 
 [ext_resource type="Script" uid="uid://d6x3wc4mchrs" path="res://scripts/audio/world_audio_manager.gd" id="1_orjkx"]
 [ext_resource type="Script" uid="uid://bi4fq2mstbm8n" path="res://scripts/audio/bgm_player.gd" id="2_yrap8"]
 [ext_resource type="Script" uid="uid://bn3p3cdfqpf6w" path="res://scripts/audio/sfx_player.gd" id="3_o5bt4"]
+[ext_resource type="Script" uid="uid://dml2wtvc6n8rs" path="res://scripts/audio/footstep.gd" id="4_dk1w3"]
 
-[sub_resource type="AudioStream" id="AudioStream_o5bt4"]
+[sub_resource type="AudioStream" id="AudioStream_dk1w3"]
 
-[sub_resource type="AudioStream" id="AudioStream_g4cbb"]
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_o5bt4"]
 
 [node name="WorldAudioManager" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_orjkx")
 
 [node name="bgm_player" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStream_o5bt4")
+stream = SubResource("AudioStream_dk1w3")
 volume_db = -20.0
 autoplay = true
 bus = &"Music"
 script = ExtResource("2_yrap8")
 
 [node name="sfx_player" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStream_g4cbb")
+stream = SubResource("AudioStreamPolyphonic_o5bt4")
+max_polyphony = 8
 bus = &"SFX"
 script = ExtResource("3_o5bt4")
+
+[node name="footstep" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPolyphonic_o5bt4")
+max_polyphony = 8
+bus = &"SFX"
+script = ExtResource("4_dk1w3")

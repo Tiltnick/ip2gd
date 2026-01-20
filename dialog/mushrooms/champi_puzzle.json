@@ -1,0 +1,22 @@
+{
+	"id": "champi_puzzle",
+
+	"characters": {
+		"Champi": "res://assets/sprites/portrait/champignon.png"
+},
+
+ "steps": {
+
+	"sections": {
+		"lines": [
+			{"speaker": "Champi", "text_en": "What do you want human? You haven't even solved the puzzle yet. ",
+									"text_de": "Was willst du Mensch? Du hast das Puzzle noch nichtmal gelöst. "
+			}
+		],
+		"next": "end"
+	},
+	"end": {
+	  "lines": []
+	}
+  }
+}

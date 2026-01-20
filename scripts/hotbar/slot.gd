@@ -5,6 +5,7 @@ class_name HotbarSlot
 @onready var key_label := $"Label for Keys"
 @onready var count_label := get_node_or_null("CountLabel") 
 
+@export var show_key_label: bool = true
 
 var slot_index := -1
 var click_callback: Callable = Callable()
@@ -15,6 +16,7 @@ func _ready():
 	# Counter standardmäßig aus
 	if count_label:
 		count_label.visible = false
+	_apply_key_label_visibility()
 
 
 func _gui_input(event):
@@ -86,3 +88,10 @@ func set_slot_index(i: int):
 	else:
 		if key_label:
 			key_label.visible = false
+			
+			
+func _apply_key_label_visibility() -> void:
+	if not key_label:
+		return
+
+	key_label.visible = show_key_label

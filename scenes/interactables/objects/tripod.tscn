@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnjx4jljcdw2x"]
+[gd_scene load_steps=8 format=3 uid="uid://bnjx4jljcdw2x"]
 
-[ext_resource type="Script" path="res://scripts/riddles/sky_riddle/tripod_bottom.gd" id="1_3228d"]
+[ext_resource type="Script" uid="uid://bbvlka7ww8t0m" path="res://scripts/riddles/sky_riddle/tripod_bottom.gd" id="1_3228d"]
 [ext_resource type="Texture2D" uid="uid://dl3uy4dydh6u7" path="res://assets/sprites/selfmade/tripod.png" id="1_sxklx"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="2_3228d"]
+[ext_resource type="PackedScene" uid="uid://bboqbaycemetp" path="res://assets/sprites/selfmade/shadow.tscn" id="4_1uxoc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1uxoc"]
 shader = ExtResource("2_3228d")
@@ -17,6 +18,11 @@ radius = 6.0
 
 [node name="tripod" type="Node2D"]
 script = ExtResource("1_3228d")
+disable_area_on_interact = false
+
+[node name="Shadow" parent="." instance=ExtResource("4_1uxoc")]
+position = Vector2(0, 6)
+scale = Vector2(0.37, 0.37)
 
 [node name="tripod" type="Sprite2D" parent="."]
 position = Vector2(0.5, -0.5)

@@ -29,6 +29,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	and event is InputEventMouseButton \
 	and event.pressed \
 	and event.button_index == MOUSE_BUTTON_LEFT:
+		SfxPlayer.stone_grinding()
 		rotate_next()
 
 func rotate_next() -> void:

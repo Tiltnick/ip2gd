@@ -8,7 +8,12 @@ var should_play_intro_dialog: bool = false
 # Zustände speichern
 var puzzle_state: Dictionary = {}
 
+var tutorial_done: bool = false
+
 var dialog_state: Dictionary = {}
+
+var map_state: Dictionary = {}
+var quest_state: Dictionary = {}
 
 var return_scene_path: String = ""
 
@@ -16,6 +21,7 @@ var has_save: bool = false
 
 # Letzte Spielerposition
 var player_position: Vector2 = Vector2.ZERO
+
 
 var use_saved_position: bool = false
 
@@ -30,6 +36,7 @@ var music_setting: float
 # Sprache
 var language: String = "en"
 
+var display_mode: String = "fullscreen"
 
 func start_dialog(dialog_id: String) -> void:
 	# Dialog existiert
@@ -50,7 +57,10 @@ func to_dict() -> Dictionary:
 	return {
 		"current_area_path": current_area_path,
 		"puzzle_state": puzzle_state,
+		"tutorial_done": tutorial_done,
 		"dialog_state": dialog_state,
+		"map_state": map_state,
+		"quest_state": quest_state,
 		"player_position": {
 			"x": player_position.x,
 			"y": player_position.y,
@@ -60,6 +70,7 @@ func to_dict() -> Dictionary:
 		"music_setting": music_setting,
 		"sound_setting": sound_setting,
 		"language": language,
+		"display_mode": display_mode,
 	}
 
 
@@ -74,6 +85,15 @@ func from_dict(data: Dictionary) -> void:
 	if data.has("dialog_state"):
 		dialog_state = data["dialog_state"]
 
+	if data.has("map_state"):
+		map_state = data["map_state"]
+
+	if data.has("display_mode"):
+		display_mode = str(data["display_mode"])
+
+	if data.has("quest_state"):
+		quest_state = data["quest_state"]
+
 	if data.has("player_position"):
 		var p = data["player_position"]
 		if typeof(p) == TYPE_DICTIONARY and p.has("x") and p.has("y"):
@@ -84,6 +104,10 @@ func from_dict(data: Dictionary) -> void:
 
 	if data.has("puzzle_items"):
 		puzzle_items = data["puzzle_items"]
+		
+	if data.has("tutorial_done"):
+		tutorial_done = bool(data["tutorial_done"])
+
 
 	if data.has("sound_setting"):
 		sound_setting = data["sound_setting"]

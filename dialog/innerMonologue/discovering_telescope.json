@@ -1,0 +1,21 @@
+{
+  "id": "oris_discovers_telescope",
+
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+   "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "Indeed, a telescope! I wonder if it will fit on the tripods I saw outside. I shall try."
+							,"text_de": "Wirklich ein Teleskop! Vielleicht passt es ja auf die Stative, die ich draußen gesehen habe." }
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+	  "lines": []
+	}
+  }
+}

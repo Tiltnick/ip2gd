@@ -9,37 +9,82 @@
   "steps": {
 	"sections": {
 	  "lines": [
-		{ "speaker": "Mr. Blob", "text": "What, you need my help again?" }
+		{
+		  "speaker": "Mr. Blob",
+		  "text_en": "What, you need my help again?",
+		  "text_de": "Was, du brauchst schon wieder meine Hilfe?"
+		}
 	  ],
 	  "choices": [
-		{ "id": "tablet_yes", "text": "Yeah, I don't understand.", "next": "tablet_yes" },
-		{ "id": "tablet_no", "text": "Not from you.", "next": "end" }
+		{
+		  "id": "tablet_yes",
+		  "text_en": "Yeah, I don't understand.",
+		  "text_de": "Ich verstehe nichts.",
+		  "next": "tablet_yes"
+		},
+		{
+		  "id": "tablet_no",
+		  "text_en": "Not from you.",
+		  "text_de": "Nicht von dir.",
+		  "next": "end"
+		}
 	  ]
 	},
 
 	"tablet_yes": {
 	  "lines": [
-		{ "speaker": "Mr. Blob", "text": "Sometimes the whole picture only makes sense when all pieces are in the right place..." }
+		{
+		  "speaker": "Mr. Blob",
+		  "text_en": "Sometimes the whole picture only makes sense when all pieces are in the right place...",
+		  "text_de": "Manchmal ergibt das ganze Bild erst Sinn, wenn alle Teile an der richtigen Stelle sind..."
+		}
 	  ],
 	  "choices": [
-		{ "id": "tablet_understand", "text": "Ahh, I understand!", "next": "end" },
-		{ "id": "tablet_dont_get_it", "text": "I don’t get it.", "next": "tablet_dont_get_it" }
+		{
+		  "id": "tablet_understand",
+		  "text_en": "Ahh, I understand!",
+		  "text_de": "Ahh, ich verstehe!",
+		  "next": "end"
+		},
+		{
+		  "id": "tablet_dont_get_it",
+		  "text_en": "I don’t get it.",
+		  "text_de": "Verstehe GAR nichts.",
+		  "next": "tablet_dont_get_it"
+		}
 	  ]
 	},
 
 	"tablet_dont_get_it": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "I don’t get it. I need more help." },
-		{ "speaker": "Mr. Blob", "text": "The final placementof the stone pieces should create a picture!" }
+		{
+		  "speaker": "Oris",
+		  "text_en": "I don’t get it. I need more help.",
+		  "text_de": "Ich verstehe es nicht. Ich brauche mehr Hilfe."
+		},
+		{
+		  "speaker": "Mr. Blob",
+		  "text_en": "The final placement of the stone pieces should create a picture!",
+		  "text_de": "Die endgültige Anordnung der Steinteile sollte ein Bild ergeben!"
+		}
 	  ],
 	  "choices": [
-		{ "id": "tablet_realization", "text": "That makes sense.", "next": "panel_realization" }
+		{
+		  "id": "tablet_realization",
+		  "text_en": "That makes sense.",
+		  "text_de": "Das ergibt Sinn.",
+		  "next": "panel_realization"
+		}
 	  ]
 	},
 
 	"panel_realization": {
 	  "lines": [
-		{ "speaker": "Oris", "text": "Oh, that makes sense!" }
+		{
+		  "speaker": "Oris",
+		  "text_en": "Oh, that makes sense!",
+		  "text_de": "Oh, das ergibt Sinn!"
+		}
 	  ],
 	  "next": "end"
 	},

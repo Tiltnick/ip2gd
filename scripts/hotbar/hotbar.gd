@@ -103,6 +103,12 @@ func use_slot(slot_index: int):
 		if slot_index == active_slot_index:
 			_close_active_item()
 		return
+	if item_id == "map":
+		# falls gerade ein anderes aktives Item offen ist, schließen
+		if active_item and is_instance_valid(active_item):
+			_close_active_item()
+		MiniMap.map_interact()  
+		return
 
 	# Wenn bereits ein aktives Item existiert dann interagieren
 	# gleiches Slot togglet, anderes Slot wechselt

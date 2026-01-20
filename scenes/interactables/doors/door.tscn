@@ -6,6 +6,11 @@
 
 [node name="Door" type="Node2D"]
 script = ExtResource("1_s3e0f")
+target_scene_path = null
+target_spawn_id = null
+required_item_id = null
+opened_state_key = null
+disable_area_on_interact = false
 metadata/_custom_type_script = "uid://bdssbm1prbicl"
 
 [node name="Area2D" type="Area2D" parent="."]

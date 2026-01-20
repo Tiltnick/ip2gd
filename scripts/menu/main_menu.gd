@@ -4,6 +4,7 @@ class_name main_menu
 @onready var pop_up = $PopUp
 
 @onready var resume_button: Button = $VBoxContainer/ResumeButton
+@onready var pointlight: PointLight2D = $Logo/PointLight2D
 
 func _ready() -> void:
 	# Prüft ob es eine Save-Datei gibt -> Nein = button.disabled
@@ -12,6 +13,7 @@ func _ready() -> void:
 	play_click_sound()
 	
 func _on_new_g_button_pressed() -> void:
+	pointlight.visible = false
 	var lang = TranslationServer.get_locale().substr(0, 2)
 	play_click_sound()
 	if lang == "en":
@@ -38,6 +40,7 @@ func _on_resume_button_pressed() -> void:
 
 
 func _on_exit_button_pressed() -> void:
+	pointlight.visible = false
 	var lang = TranslationServer.get_locale().substr(0, 2)
 	play_click_sound()
 	if lang == "en":

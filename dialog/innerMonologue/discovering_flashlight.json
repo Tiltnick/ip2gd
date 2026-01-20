@@ -8,19 +8,10 @@
 	  "lines": [
 		{
 		  "speaker": "Oris",
-		  "text_en": "Oh, look here...",
-		  "text_de": "Oh, sieh an..."
+		  "text_en": "Oh, look here...A flashlight! I'm sure this will come in handy.",
+		  "text_de": "Oh, sieh an...Eine Taschenlampe! Die wird sicher nützlich sein."
 		},
-		{
-		  "speaker": "Oris",
-		  "text_en": "A flashlight!",
-		  "text_de": "Eine Taschenlampe!"
-		},
-		{
-		  "speaker": "Oris",
-		  "text_en": "I'm sure this will come in handy.",
-		  "text_de": "Die wird sicher nützlich sein."
-		},
+	
 ]},
 	"end": { "lines": [] }
   }

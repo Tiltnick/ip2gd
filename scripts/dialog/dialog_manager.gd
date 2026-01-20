@@ -20,9 +20,19 @@ const PUZZLE_FLAG_BY_DIALOG_PATH: Dictionary = {
 	"res://dialog/dialogueMrBlob/outside_2_part_2.json": "blob_revelation_done",
 	"res://dialog/dialogueMrBlob/entering_outside_2.json": "outside2_monologue_done",
 	"res://dialog/mushrooms/mushroom.json": "mushroom_dialog_done",
-	"res://dialog/cluesMrBlob/clue_mushroom_1.json": "blob_clue1_done",
-	"res://dialog/cluesMrBlob/clue_mushroom_2.json": "blob_clue2_done",
+	"res://dialog/mushrooms/champi_puzzle.json": "puzzle_dialog_done",
+	"res://dialog/cluesMrBlob/clue_stone_panel_completion.json": "blob_clue1_done",
+	"res://dialog/cluesMrBlob/clue_mushroom_1.json": "blob_clue2_done",
+	"res://dialog/cluesMrBlob/clue_mushroom_2.json": "blob_clue3_done",
 	"res://dialog/innerMonologue/tripod_without_telescope.json": "tripod_no_telescope_seen",
+	"res://dialog/Sam_ghost/Sam.json": "sam_dialog_1_done",
+	"res://dialog/Sam_ghost/Sam2.json": "sam_dialog_2_done",
+	"res://dialog/Sam_ghost/Sam3.json": "sam_dialog_3_done",
+	"res://dialog/Sam_ghost/SamFailed.json": "sam_fail_dialog_done",
+	"res://dialog/innerMonologue/puzzle_solved.json": "puzzle_solved_done",
+	"res://dialog/innerMonologue/diary_found.json": "diary_found_done",
+	"res://dialog/dialogueMrBlob/outside_4.json": "blob_flower_done",
+	"res://dialog/dialogueMrBlob/outside_1_flower.json": "outside1_endscene_done",
 	
 }
 

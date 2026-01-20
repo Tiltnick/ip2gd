@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://cc86xpvrn37so"]
+[gd_scene load_steps=21 format=3 uid="uid://cc86xpvrn37so"]
 
 [ext_resource type="Script" uid="uid://c66icxn0ex1r2" path="res://scripts/menu/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://b58phef2u4osr" path="res://assets/sprites/ui/Logo.png" id="3_oa1go"]
+[ext_resource type="Texture2D" uid="uid://c0wnpeb24xggh" path="res://assets/sprites/selfmade/light.png" id="4_ttft1"]
 [ext_resource type="FontFile" uid="uid://bcydf3meoraya" path="res://assets/fonts/ModernDOS9x14.ttf" id="4_wu84c"]
 [ext_resource type="Texture2D" uid="uid://dprepxc2r0jqd" path="res://assets/sprites/ui/instagram (2) 1.png" id="5_oa1go"]
 [ext_resource type="Texture2D" uid="uid://d12eclmam7q5d" path="res://assets/sprites/ui/discord 1.png" id="7_jk1qb"]
@@ -225,8 +226,15 @@ grow_horizontal = 2
 texture = ExtResource("3_oa1go")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="Logo"]
+visible = false
 position = Vector2(600.5, -41)
 max_distance = 2897.0
+
+[node name="PointLight2D" type="PointLight2D" parent="Logo"]
+visible = false
+position = Vector2(222.50003, 320)
+scale = Vector2(5.1833334, 5.1833334)
+texture = ExtResource("4_ttft1")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1

@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bs233eblupmtc"]
+
+[ext_resource type="Texture2D" uid="uid://bbkw7w8cia4ou" path="res://assets/sprites/character/Yellow_Shroomling.png" id="1_bm4jm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtfm1"]
+atlas = ExtResource("1_bm4jm")
+region = Rect2(0, 0, 16, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fulsy"]
+atlas = ExtResource("1_bm4jm")
+region = Rect2(16, 0, 16, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wc7b3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtfm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fulsy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.5
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btmav"]
+size = Vector2(8, 10)
+
+[node name="Yelly Idle" type="CharacterBody2D"]
+scale = Vector2(1.2, 1.2)
+collision_layer = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_wc7b3")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_btmav")

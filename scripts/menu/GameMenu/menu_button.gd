@@ -22,16 +22,13 @@ func _process(_delta: float) -> void:
 	var scene = get_tree().current_scene
 	if scene == null:
 		return
-
 	var path = scene.scene_file_path
-
 	if path != _last_path:
 		_last_path = path
 		update_visibility(path)
 
-
 func _on_pressed():
 	# Öffnet das MainMenu innerhalb der Szene
-	var menu = get_tree().current_scene.get_node("CanvasLayer") # anpassen falls CanvasLayer anders heißt
+	var menu = get_tree().current_scene.get_node("CanvasLayer") 
 	menu.visible = true
 	get_tree().paused = true

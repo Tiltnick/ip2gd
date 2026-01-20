@@ -1,0 +1,179 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3j01p3ntpfux"]
+
+[ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_48hsu"]
+[ext_resource type="Script" uid="uid://duevfwqwuv7bb" path="res://scripts/UI/Popup.gd" id="1_65nak"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opsdi"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 20
+anti_aliasing = false
+
+[sub_resource type="Animation" id="Animation_uhgwa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Panel:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-100.0]
+}
+
+[sub_resource type="Animation" id="Animation_v51nl"]
+resource_name = "slide_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Panel:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-100.0, 35.0]
+}
+
+[sub_resource type="Animation" id="Animation_4fdes"]
+resource_name = "slide_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Panel:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [35.0, -100.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4fdes"]
+_data = {
+&"RESET": SubResource("Animation_uhgwa"),
+&"slide_in": SubResource("Animation_v51nl"),
+&"slide_out": SubResource("Animation_4fdes")
+}
+
+[node name="QuestPopup" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1920.0
+offset_right = -1920.0
+grow_horizontal = 0
+script = ExtResource("1_65nak")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 5000
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.055000003
+anchor_right = 1.0
+anchor_bottom = 0.055000003
+offset_left = -509.99988
+offset_top = -159.40001
+offset_right = -368.70825
+offset_bottom = -116.34717
+scale = Vector2(2.555, 2.555)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_opsdi")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 36.007793
+offset_top = 8.610566
+offset_right = 1150.3169
+offset_bottom = 314.49564
+scale = Vector2(0.085, 0.085)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = -32
+theme_override_fonts/font = ExtResource("1_48hsu")
+theme_override_font_sizes/font_size = 128
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035839435
+anchor_top = 0.15472685
+anchor_right = 0.035839435
+anchor_bottom = 0.15472685
+offset_left = 0.024198532
+offset_top = -0.00783062
+offset_right = 29.378445
+offset_bottom = 26.998062
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel"]
+visible = false
+position = Vector2(19.960823, 21.526415)
+scale = Vector2(0.54631454, 0.54631454)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4fdes")
+}

@@ -16,8 +16,8 @@
 		{ "id": "hint_yes", "text_en": "Stop being mean and help me."
 							,"text_de": "Sei nett und hilf mir." 
 							,"next": "hint_yes" },
-		{ "id": "hint_no", "text_en": "You're right, I'll manage it on my own."
-							,"text_de": "Hast recht. Ich mach's selbst" 
+		{ "id": "hint_no", "text_en": "I'll manage it on my own."
+							,"text_de": "Ich mach's selbst" 
 							,"next": "end" }
 	  ]
 	},

@@ -11,7 +11,6 @@ func _on_pressed() -> void:
 	var menu := get_tree().get_first_node_in_group("diary_menu")
 	if menu == null:
 		menu = DIARY_MENU_SCENE.instantiate()
-
 		# in die aktuelle Szene hängen (oder root, falls keine current_scene)
 		var current_scene := get_tree().current_scene
 		if current_scene:

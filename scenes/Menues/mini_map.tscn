@@ -1,0 +1,278 @@
+[gd_scene load_steps=20 format=3 uid="uid://dr8ikx12umk4h"]
+
+[ext_resource type="Script" uid="uid://dfqx80n77268n" path="res://scripts/menu/mini_map.gd" id="1_yp080"]
+[ext_resource type="Texture2D" uid="uid://bsw333pwhff4l" path="res://assets/sprites/selfmade/map/map_icon/building_icon.png" id="3_61kpm"]
+[ext_resource type="Texture2D" uid="uid://nd38idvefjo2" path="res://assets/sprites/selfmade/marker.png" id="3_d7oj4"]
+[ext_resource type="Script" uid="uid://lepobq4kjqk1" path="res://scenes/Menues/minimap_icons.gd" id="4_m41xg"]
+[ext_resource type="Texture2D" uid="uid://ctju4vfe343wo" path="res://assets/sprites/selfmade/map/map_icon/oris_shuttle_icon.png" id="5_wox8i"]
+[ext_resource type="Texture2D" uid="uid://cnsfov3q5q8nh" path="res://assets/sprites/selfmade/map/map_icon/sam_shuttle_icon.png" id="6_6siv4"]
+[ext_resource type="Texture2D" uid="uid://wwwa5wk47vuu" path="res://assets/sprites/selfmade/map/map_icon/stone_panel_icon.png" id="7_dg4ou"]
+[ext_resource type="Texture2D" uid="uid://c3opxqvx1n2wk" path="res://assets/sprites/selfmade/map/map_icon/temple_icon.png" id="8_kg1vc"]
+[ext_resource type="Texture2D" uid="uid://dcmotrux3mdln" path="res://assets/sprites/selfmade/map/map_icon/tower_icon.png" id="9_sl0p5"]
+[ext_resource type="Texture2D" uid="uid://dr68jtgxk3836" path="res://assets/sprites/selfmade/map/map_icon/sockets_icon.png" id="10_fqm68"]
+[ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="11_m41xg"]
+[ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="12_wox8i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ci3pi"]
+bg_color = Color(0.14509805, 0.14509805, 0.14509805, 0.88235295)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_61kpm"]
+load_path = "res://.godot/imported/WholeMap.png-60e26c24c809697faefce3c508847020.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wox8i"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6siv4"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dg4ou"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kg1vc"]
+bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sl0p5"]
+
+[node name="MiniMap" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_yp080")
+
+[node name="Background" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 454.0
+offset_top = 84.0
+offset_right = -434.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ci3pi")
+
+[node name="MapTexture" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -571.5
+offset_top = -503.5
+offset_right = 487.5
+offset_bottom = 555.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("CompressedTexture2D_61kpm")
+
+[node name="Building" type="TextureRect" parent="."]
+visible = false
+offset_left = 941.0
+offset_top = 271.3617
+offset_right = 1106.0
+offset_bottom = 457.42554
+mouse_filter = 0
+texture = ExtResource("3_61kpm")
+script = ExtResource("4_m41xg")
+label_text = "SECRET_BUILDING"
+
+[node name="Oris_Shuttle" type="TextureRect" parent="."]
+offset_left = 1027.0
+offset_top = 690.0
+offset_right = 1207.3657
+offset_bottom = 835.0
+mouse_filter = 0
+texture = ExtResource("5_wox8i")
+script = ExtResource("4_m41xg")
+label_text = "ORIS'S_SHUTTLE"
+
+[node name="Sam_Shuttle" type="TextureRect" parent="."]
+visible = false
+offset_left = 1197.0
+offset_top = 385.0
+offset_right = 1351.0
+offset_bottom = 497.0
+mouse_filter = 0
+texture = ExtResource("6_6siv4")
+script = ExtResource("4_m41xg")
+label_text = "SAM'S_SHUTTLE"
+
+[node name="Stone_Panel" type="TextureRect" parent="."]
+visible = false
+offset_left = 576.0
+offset_top = 240.0
+offset_right = 736.0
+offset_bottom = 376.0
+mouse_filter = 0
+texture = ExtResource("7_dg4ou")
+script = ExtResource("4_m41xg")
+label_text = "STONE_PANEL"
+
+[node name="Temple" type="TextureRect" parent="."]
+visible = false
+offset_left = 610.0
+offset_top = 658.0
+offset_right = 865.2619
+offset_bottom = 809.0
+mouse_filter = 0
+texture = ExtResource("8_kg1vc")
+script = ExtResource("4_m41xg")
+label_text = "TEMPLE"
+
+[node name="Tower" type="TextureRect" parent="."]
+visible = false
+offset_left = 1161.0
+offset_top = 182.0
+offset_right = 1369.1738
+offset_bottom = 350.0
+mouse_filter = 0
+texture = ExtResource("9_sl0p5")
+script = ExtResource("4_m41xg")
+label_text = "MYSTERIOUS_TOWER"
+
+[node name="Sockets" type="TextureRect" parent="."]
+visible = false
+offset_left = 576.0
+offset_top = 488.0
+offset_right = 731.0
+offset_bottom = 529.0
+mouse_filter = 0
+texture = ExtResource("10_fqm68")
+script = ExtResource("4_m41xg")
+label_text = "MUSHROOM_SOCKETS"
+
+[node name="Marker" type="Node" parent="."]
+
+[node name="Marker_Outside4" type="TextureRect" parent="Marker"]
+visible = false
+offset_left = 713.0
+offset_top = 645.0
+offset_right = 781.0
+offset_bottom = 724.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_d7oj4")
+
+[node name="Marker_Outside3" type="TextureRect" parent="Marker"]
+visible = false
+offset_left = 688.0
+offset_top = 392.0
+offset_right = 756.0
+offset_bottom = 471.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_d7oj4")
+
+[node name="Marker_Outside2" type="TextureRect" parent="Marker"]
+visible = false
+offset_left = 1176.0
+offset_top = 376.0
+offset_right = 1244.0
+offset_bottom = 455.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_d7oj4")
+
+[node name="Marker_Outside1" type="TextureRect" parent="Marker"]
+visible = false
+offset_left = 1240.0
+offset_top = 720.0
+offset_right = 1308.0
+offset_bottom = 799.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_d7oj4")
+
+[node name="Marker_Spaceship" type="TextureRect" parent="Marker"]
+visible = false
+offset_left = 1101.0
+offset_top = 653.0
+offset_right = 1169.0
+offset_bottom = 732.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_d7oj4")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -112.0
+offset_top = 108.0
+offset_right = 112.0
+offset_bottom = 152.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wox8i")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 208.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("11_m41xg")
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="."]
+process_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -421.0
+offset_top = 40.0
+offset_right = -358.0
+offset_bottom = 103.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_6siv4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dg4ou")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kg1vc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sl0p5")
+icon = ExtResource("12_wox8i")
+icon_alignment = 1
+
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

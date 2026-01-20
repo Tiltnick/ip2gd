@@ -36,6 +36,8 @@ func interact() -> void:
 		if hotbarglobal.has_item(required_item_id):
 			# Item verbrauchen, damit es aus der Hotbar verschwindet
 			hotbarglobal.remove_item(required_item_id)
+			
+			QuestManager.complete_quest("quest_2")
 
 			# Tür optisch öffnen + Zustand merken
 			door_open()
@@ -43,6 +45,8 @@ func interact() -> void:
 			
 		else:
 			DialogManager.start_dialog("res://dialog/spaceship/door_locked.json")
+			await DialogManager.dialog_finished
+			QuestManager.add_quest("quest_2") # The broken door
 			
 	elif not is_in_group("door_broken"):
 		open_door()

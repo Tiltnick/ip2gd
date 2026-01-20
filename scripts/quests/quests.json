@@ -1,0 +1,165 @@
+{
+"quests": {
+
+"quest_1": {
+	"needs_items": [],
+	"spacegram_hint": true,
+	"title": {
+		"text_de": "Verlasse das Raumschiff",
+		"text_en": "Exit the Spaceship"
+	},
+	"description": {
+		"text_de": "Finde einen Weg um aus dem Raumschiff zu entkommen.",
+		"text_en": "Find a way to escape the Spaceship."
+	}
+},
+
+"quest_2": {
+	"needs_items": ["fluxomat"],
+	"spacegram_hint": false,
+	"title": {
+		"text_de": "Die kaputte Tür",
+		"text_en": "The broken door"
+	},
+	"description": {
+		"text_de":  "Du brauchst vielleicht ein spezielles Tool um die Tür zu reparieren.",
+		"text_en":  "You might need a special tool to fix that door."
+	}
+},
+
+"quest_3": {
+	"needs_items": [
+		"stone_piece_1",
+		"stone_piece_2",
+		"stone_piece_3",
+		"stone_piece_4",
+		"stone_piece_5",
+		"stone_piece_6"
+	],
+	"spacegram_hint": false,
+	"title": {
+		"text_de": "Fehlende Steintafeln",
+		"text_en": "Missing Stone Plates"
+	},
+	"description": {
+		"text_de": "Du hast einen mysteriös aussehenden Stein gefunden. Als du genauer hinsiehst fällt dir auf, dass es ein fehlendes Teil eines größeren Bildes sein könnte.",
+		"text_en": "You found a misterious looking stone. While you're looking closely, you notice that it might be a missing piece of a bigger picture."
+	}
+},
+
+"quest_4": {
+	  "needs_items": ["shovel"],
+	  "spacegram_hint": false,
+	  "title": {
+		"text_de": "Finde Sam",
+		"text_en": "Find Sam"
+	  },
+	  "description": {
+		"text_de": "Du bist auf diesen Planeten gekommen um naach deinem Freund Sam zu suchen. Er muss hier irgendwo sein...",
+		"text_en": "You came to this planet looking for your friend Sam. He's gotte be around here somewhere..."
+	  }
+	},
+
+"quest_5": {
+	"needs_items": ["telescope"],
+	"spacegram_hint": true,
+	"title": {
+	"text_de": "Stative",
+	"text_en": "Tripods"
+	},
+	"description": {
+	"text_de": "Über die Karte sind Stative verteilt. Du könntest ein bestimmtes Objekt darauf platzieren.",
+	"text_en": "There are Tripods spread around the map. You could put a certain object on them."
+	}
+},
+
+"quest_6": {
+	"needs_items": [],
+	"spacegram_hint": false,
+	"title": {
+		"text_de": "Der mysteriöse Turm",
+		"text_en": "The mysterious tower"
+	},
+	"description": {
+		"text_de": "Wenn du genau hinsiehst erkennst du Symbole auf dem Turm. Um das Rätsel zu lösen musst vielleicht einen Blick in die Sterne werfen und nach den Symbolen ausschau halten.",
+		"text_en": "If you loo closely, you can see some sybmols on the tower. To solve this riddle, you might take a look at the stars and search for the symbols."
+	}
+},
+
+"quest_7": {
+	"needs_items": [
+		"cave_note",
+		"stone_piece_3"
+	],
+	"spacegram_hint": false,
+	"title": {
+		"text_de": "Sams Höhle",
+		"text_en": "Sams cave"
+	},
+	"description": {
+		"text_de": "Du hast die Höhle gefunden in der Sam an der Blume geforscht hat. Vielleicht findest du hier Überbleibsel seiner Forschung.",
+		"text_en": "You found the cave in which Sam did his reseach on the flower. Maybe you can find some leftovers from his research."
+	}
+},
+
+"quest_8": {
+	"needs_items": ["cave_note", "temple_note", "mush_note"],
+	"spacegram_hint": false,
+	"title": {
+		"text_de": "Sams Forschungsnotizen",
+		"text_en": "Sams reseach notes"
+	},
+	"description": {
+		"text_de": "Du hast eine Notiz von Sam gefunden. In deinem Tagebuch kannst du nachlesen, was er geschrieben hat.",
+		"text_en": "You found a note from Sam. You can read in your Diary what he wrote."
+	}
+},
+
+"quest_9": {
+	"needs_items": [
+		"green_mush",
+		"blue_mush",
+		"red_mush",
+		"yellow_mush",
+		"orange_mush",
+		"brown_mush"
+	],
+	"spacegram_hint": true,
+	"title": {
+		"text_de": "Das Rätsel des Pilzvolkes",
+		"text_en": "The riddle of the Mushroom people"
+	},
+	"description": {
+		"text_de": "Ein paar Pilzbewohner blockieren den Weg über die Brücke. Um hier weiterzukommen musst du ihr Rätsel lösen.",
+		"text_en": "Some Mushroom residents are blocking the path over the bridge. To pass here you have to solve their riddle."
+	}
+},
+
+"quest_10": {
+	"needs_items": ["flower"],
+	"spacegram_hint": false,
+	"title": {
+		"text_de": "Die heilende Blume",
+		"text_en": "The healing flower"
+	},
+	"description": {
+		"text_de": "Aus Sams Notizen hast du von der mystischen Blume erfahren, die magische Kräfte besitzen soll und mit der es möglich sein soll, alle Krankheiten zu heilen. Mr. Blob hat dir gesagt, dass es mit ihrer Hilfe vielleicht möglich sei, Sam wieder zurückzuholen...",
+		"text_en": "From Sams notes you got information about the mystical flower which is said to possess magical powers and is said to cure every sickness. Mr. Blob told you that it could be possible to bring back Sam to life with it..."
+	}
+},
+
+"quest_11": {
+	"needs_items": ["fire_mush"],
+	"spacegram_hint": false,
+	"title": {
+		"text_de": "Der Wassertempel",
+		"text_en": "The water temple"
+	},
+	"description": {
+		"text_de": "Die Pilzleute haben dich die Brücke zum Wassertempel passieren lassen. Um den Tempel betreten zu können, haben sie dir einen speziellen Feuerpilz gegeben. Du wirst ihn früher oder später brauchen...",
+		"text_en": "The mushroom people let you pass the bridge to the water temple. To enter the temple, they gave you a special fire mushroom. You will need it sooner or later..."
+	}
+}
+
+}
+}
