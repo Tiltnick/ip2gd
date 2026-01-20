@@ -19,7 +19,6 @@ func open_entries():
 	pages = build_all_pages()
 	current_page = 0
 	update_pages()
-	
 
 func update_pages():
 	header_left.text = pages[current_page]["header"]
@@ -35,8 +34,6 @@ func update_pages():
 		$Panel2.hide()
 	prev_button.visible = current_page > 0
 	next_button.visible = (current_page + 2) < pages.size()
-
-
 
 func _split_into_pages(text: String, max_chars_per_page: int) -> Array[String]:
 	var result: Array[String] = []
@@ -63,7 +60,6 @@ func build_all_pages():
 	var max_chars = 750
 
 	for id in Diary.unlocked_entries:
-		
 		var header = Diary.get_header(id)
 		var full_text = Diary.get_text(id)
 		var auto_pages = _split_into_pages(full_text, max_chars)
@@ -72,7 +68,6 @@ func build_all_pages():
 				"header": header,
 				"text": p
 			})
-	
 	return combined_pages
 
 func _on_prev_button_pressed() -> void:
@@ -80,19 +75,15 @@ func _on_prev_button_pressed() -> void:
 		current_page -= 2
 		update_pages()
 
-
 func _on_next_button_pressed() -> void:
 	if current_page + 2 < pages.size():
 		current_page += 2
 		update_pages()
 
-
 func _on_close_button_pressed() -> void:
 	var menu := get_tree().get_first_node_in_group("diary_menu")
 	if menu != null and menu.has_method("close_menu"):
 		menu.close_menu()
-
-
 
 func _on_entry_unlocked():
 	pages = build_all_pages()

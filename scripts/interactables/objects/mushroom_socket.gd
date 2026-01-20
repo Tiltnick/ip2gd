@@ -8,4 +8,7 @@ func _ready() -> void:
 
 func interact():
 	SfxPlayer.ui_click_sound()
-	mushroom_ui.open_socket()
+	if GameState.puzzle_state.has("stone_puzzle"):
+		mushroom_ui.open_socket()
+	else: 
+		DialogManager.start_dialog("res://dialog/innerMonologue/mush_socket_dialogue.json")

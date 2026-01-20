@@ -1,0 +1,16 @@
+{
+	"id": "mush_socket",
+	"characters": {
+		"Oris": "res://assets/sprites/portrait/oris.png"
+		},
+	"steps": {
+		"sections": {
+			"lines": [{
+				"speaker": "Oris",
+				"text_en": "Hmm... I guess I have to come back later.",
+				"text_de": "Hm… Sieht aus als müsste ich später nochmal herkommen."
+			}]
+		},
+	"end": { "lines": [] }
+  }
+}
