@@ -76,3 +76,9 @@ MUSHROOM_SOCKETS,Mushroom Sockets,Pilz Sockel
 MYSTERIOUS_TOWER,Mysterious Tower,Mysteriöser Turm
 USE_SPACEGRAM_FOR_RIDDLE,Use Spacegram to solve this riddle,Nutze Spacegram um das Rätsel zu lösen
 USE_SPACEGRAM,Use Spacegram,Nutze Spacegram
+TUTORIAL_TITLE_MOVEMENT,MOVEMENT,BEWEGUNG
+TUTORIAL_TITLE_SPRINT,SPRINTING,Rennen
+TUTORIAL_TITLE_INTERACT,INTERACT,INTERAGIEREN
+TUTORIAL_TEXT_MOVEMENT,Use WASD to move,Benutze WASD zur Steuerung
+TUTORIAL_TEXT_SPRINT,Hold Shift to sprint,Halte Shift um zu rennen
+TUTORIAL_TEXT_INTERACT,Press E to interact,Drücke E zum Interagieren
