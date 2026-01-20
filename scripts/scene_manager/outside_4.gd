@@ -11,11 +11,16 @@ var follow_blob := false
 
 func _ready() -> void:
 	BgmPlayer.bgm_outside4()
+	QuestManager.add_quest("quest_11")
 
 	if not DialogManager.dialog_finished.is_connected(_on_dialog_finished):
 		DialogManager.dialog_finished.connect(_on_dialog_finished)
 
 	if GameState.puzzle_state.has("outside5_pillar_puzzle_solved"):
+		blob_instance = BLOB_SCENE.instantiate()
+		blob_instance.global_position = blob_spawn.global_position
+		add_child(blob_instance)
+	elif GameState.picked_items.has("flower"):
 		blob_instance = BLOB_SCENE.instantiate()
 		blob_instance.global_position = blob_spawn.global_position
 		add_child(blob_instance)

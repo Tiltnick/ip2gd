@@ -228,14 +228,14 @@ func walk_away() -> void:
 
 
 func _on_dialog_finished() -> void:
-	var scene_name := get_tree().current_scene.name
+#	var scene_name := get_tree().current_scene.name
 
 	if last_dialog_path == "res://dialog/dialogueMrBlob/outside_1.json":
-		QuestManager.add_quest("quest4")
+		QuestManager.add_quest("quest_4")
 		
 	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_1_end.json":
-		QuestManager.add_quest("quest4")
+		walk_away()
 	
-	#elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_4.json":
-		#delete flower item
-		#pass
+	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_4.json":
+		if GameState.picked_items.has("flower"):
+			GameState.picked_items.erase("flower")

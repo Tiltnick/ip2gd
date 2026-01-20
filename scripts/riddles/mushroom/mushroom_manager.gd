@@ -184,4 +184,4 @@ func _on_solved_dialog_finished():
 	GameState.puzzle_state[key] = true
 	
 	QuestManager.complete_quest("quest_9")
-	QuestManager.add_quest("quest_10")
+	QuestManager.add_quest("quest_11")
