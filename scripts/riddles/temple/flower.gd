@@ -26,6 +26,12 @@ func _on_puzzle_solved() -> void:
 func _replace_now() -> void:
 	if _replaced:
 		return
+		
+		
+	if GameState.puzzle_state.get("outside5_flower_collected", false):
+		queue_free()
+		return
+		
 	_replaced = true
 
 	if flower_scene == null:
@@ -38,6 +44,8 @@ func _replace_now() -> void:
 		var parent := get_parent()
 		if parent != null:
 			parent.add_child(flower)
+
+
 
 	queue_free()
 

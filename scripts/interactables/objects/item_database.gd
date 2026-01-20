@@ -264,5 +264,16 @@ var DATA := {
 },
 
 
+	"flower": {
+		"name_de": "Blume",
+		"name_en": "Flower",
+		"description_en": "The magical flower. Myths say that it will heal even those, who are beyond being healable. But be careful, as you can only use it once.",
+		"description_de": "Die magische Blume. Mythen besagen, dass sie sogar jene heilen kann, die als unheilbar gelten. Aber vorsicht! Man kann die Blume nur einmalig verwenden.",
+		"icon": "res://assets/sprites/selfmade/flower.png",
+		"icon_size": Vector2(55,55),
+		"world_scene": "res://scenes/Riddles/temple_riddle/flower.tscn"
+},
+
+
 
 }

@@ -45,7 +45,12 @@ var _highlight_enabled: bool = false
 const _SAM_SAVE_PREFIX := "sam_progress_"
 
 
+
 func _ready() -> void:
+	if GameState.puzzle_state.get("outside5_sam_gone", false):
+		disable_sam()
+		return
+	
 	add_to_group("sam_state_machine")
 
 	state_machine.init(self)
@@ -81,6 +86,11 @@ func _connect_puzzle_solved_signal() -> void:
 
 func _on_pillar_puzzle_solved() -> void:
 	_try_save_after_puzzle_and_path3()
+	
+
+	if not GameState.puzzle_state.get("outside5_temple_riddle_monologue_done", false):
+		GameState.puzzle_state["outside5_temple_riddle_monologue_done"] = true
+		DialogManager.start_dialog("res://dialog/innerMonologue/completing_temple_riddle.json")
 
 
 func on_player_triggered(p: Node2D) -> void:
@@ -352,3 +362,33 @@ func _load_sam_progress() -> void:
 	_can_interact = true
 	play_stand_idle()
 	state_machine.transition_to("WaitInteract")
+
+
+func disable_sam() -> void:
+	
+	visible = false
+
+	
+	set_physics_process(false)
+	set_process(false)
+	set_process_unhandled_input(false)
+
+	
+	if interact_area:
+		interact_area.set_deferred("monitoring", false)
+		interact_area.set_deferred("monitorable", false)
+
+	if pillar_sensor:
+		pillar_sensor.set_deferred("monitoring", false)
+		pillar_sensor.set_deferred("monitorable", false)
+
+	
+	collision_layer = 0
+	collision_mask = 0
+
+	
+	for child in get_children():
+		if child is CollisionShape2D:
+			child.set_deferred("disabled", true)
+		elif child is CollisionPolygon2D:
+			child.set_deferred("disabled", true)

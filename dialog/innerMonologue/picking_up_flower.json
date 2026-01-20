@@ -1,0 +1,27 @@
+{
+  "id": "picking_up_flower",
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+  "steps": {
+	"sections": {
+	  "lines": [
+		{
+		  "speaker": "Oris",
+		  "text_en": "This must be it. The mythical flower! Sam loo-",
+		  "text_de": "Das muss sie sein. Die mythische Blume! Sam, schau ma-"
+		},
+		{
+		  "speaker": "Oris",
+		  "text_en": "Sam? Where did you go? SAM!?",
+		  "text_de": "Sam? Wo bist du hin? SAM!?"
+		},
+		{
+		  "speaker": "Oris",
+		  "text_en": "Maybe I should go outside and find Mr. Blob. He will surely know how to bring Sam back.",
+		  "text_de": "Ich sollte vielleicht rausgehen und Mr. Blob suchen. Er wird sicherlich wissen, wie ich Sam zurückbringen kann."
+		},
+]},
+	"end": { "lines": [] }
+  }
+}

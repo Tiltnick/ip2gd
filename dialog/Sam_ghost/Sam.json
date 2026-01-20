@@ -46,9 +46,13 @@
 			{"speaker": "Sam",  "text_en": "Are you ready to follow me? It's vital, that you pay attention to all the columns I pass. I will start with two.",
 								"text_de": "Bist du bereit mir zu folgen? Es ist wichtig, dass du auf die Säulen achtest, an denen ich vorbei laufe. Ich zeige dir erst zwei."
 			},
+			{"speaker": "Sam",  "text_en": "After every set of pillars I show you, you must come talk to me again. Do you understand?",
+								"text_de": "Nach jeden paar Säulen die ich dir zeige, musst du erneut mit mir sprechen. Verstehst du?"
+			},
 			{"speaker": "Oris",  "text_en": "I guess. Lead the way.",
 								 "text_de": "Ich denke schon. Weise den Weg."
 			},
+			
 		],
 		"next": "end"
 	},
