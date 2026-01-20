@@ -19,17 +19,16 @@ var used_movement := {
 	"moveUp": false,
 	"moveDown": false
 }
-
 func _ready():
-	if GameState.tutorial_state == false:
+	if GameState.tutorial_done:
 		visible = false
 		set_process_input(false)
 		return
-	
-	tutorial_title.text = "Steuerung"
+
 	_update_text()
 
 func start_tutorial():
+	tutorial_title.text = "Controls"
 	visible = true
 	current_step = TutorialStep.MOVEMENT
 	_update_text()
@@ -69,14 +68,30 @@ func _check_interact(event):
 		visible = false
 		set_process_input(false)
 
-		GameState.tutorial_state = true
+		GameState.tutorial_done = true
 		SaveSystem.save_game()
 
 func _update_text():
-	match current_step:
-		TutorialStep.MOVEMENT:
-			tutorial_text.text = "Use WASD to move (%d/4)" % movement_counter
-		TutorialStep.SPRINT:
-			tutorial_text.text = "Hold Shift to sprint"
-		TutorialStep.INTERACT:
-			tutorial_text.text = "Press E to interact"
+	if GameState.language == "en":
+		match current_step:
+			TutorialStep.MOVEMENT:
+				tutorial_title.text = "MOVEMENT"
+				tutorial_text.text = "Use WASD to move (%d/4)" % movement_counter
+			TutorialStep.SPRINT:
+				tutorial_title.text = "SPRINTING"
+				tutorial_text.text = "Hold Shift to sprint"
+			TutorialStep.INTERACT:
+				tutorial_title.text = "INTERACT"
+				tutorial_text.text = "Press E to interact"
+				
+	else:
+		match current_step:
+			TutorialStep.MOVEMENT:
+				tutorial_title.text = "BEWEGUNG"
+				tutorial_text.text = "Benutze WASD zum Steuern (%d/4)" % movement_counter
+			TutorialStep.SPRINT:
+				tutorial_title.text = "RENNEN"
+				tutorial_text.text = "Halte Shift um zu rennen"
+			TutorialStep.INTERACT:
+				tutorial_title.text = "INTERAGIEREN"
+				tutorial_text.text = "Drücke E zum Interagieren"

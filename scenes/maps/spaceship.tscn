@@ -1457,8 +1457,7 @@ position = Vector2(-64, 158)
 position = Vector2(304, 120)
 
 [node name="Tutorial_UI" parent="." instance=ExtResource("25_w60i3")]
-visible = false
-offset_left = -233.0
-offset_top = -94.0
-offset_right = -233.0
-offset_bottom = -94.0
+offset_left = -231.0
+offset_top = -93.0
+offset_right = -231.0
+offset_bottom = -93.0
