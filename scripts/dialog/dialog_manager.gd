@@ -39,6 +39,8 @@ const PUZZLE_FLAG_BY_DIALOG_PATH: Dictionary = {
 
 func _ready() -> void:
 	hide()
+	box.closed.connect(_on_dialog_box_closed)
+
 
 
 func start_dialog(json_path: String) -> void:
@@ -106,6 +108,10 @@ func start_dialog(json_path: String) -> void:
 
 	dialog_is_finished()
 
+
+func _on_dialog_box_closed() -> void:
+	is_running = false
+	dialog_finished.emit()
 
 func dialog_is_finished() -> void:
 	if not is_running:

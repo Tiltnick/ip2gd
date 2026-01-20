@@ -3,6 +3,11 @@ class_name DialogBox
 
 signal continue_pressed
 signal choice_selected(index: int)
+signal closed
+
+
+@onready var close_button: Button = $NinePatchRect/CloseButton
+
 
 @onready var name_label: Label          = $NinePatchRect/Name
 @onready var dialog_text: RichTextLabel = $NinePatchRect/Dialog
@@ -46,6 +51,9 @@ func _ready() -> void:
 
 	choice2.mouse_entered.connect(_on_choice2_mouse_entered)
 	choice2.mouse_exited.connect(_on_choice2_mouse_exited)
+	
+	close_button.pressed.connect(_on_close_pressed)
+
 
 	
 	dialog_text.bbcode_enabled = true
@@ -88,6 +96,9 @@ func show_line(speaker: String, text: String, portrait_path: String = "") -> voi
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if not visible:
+		return
+
 	if event.is_action_pressed("ui_accept"):
 		if typing:
 			skip = true
@@ -202,6 +213,19 @@ func _split_into_pages(text: String) -> Array[String]:
 	return result
 
 
+func _on_close_pressed() -> void:
+	close()
+
+func close() -> void:
+	# laufendes Tippen abbrechen
+	typing = false
+	skip = false
+
+	hide_choices()
+	space_to_continue.hide()
+	hide()
+
+	emit_signal("closed")
 func _wrap_pages_with_color(pages: Array[String], color: Color) -> Array[String]:
 	var colored: Array[String] = []
 	var hex := color.to_html(false) # RRGGBB
