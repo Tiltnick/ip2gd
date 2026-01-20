@@ -30,7 +30,7 @@ func _ready() -> void:
 		blob.walk_away()
 		
 func configure_camera(cam: Camera2D) -> void:
-	cam.limit_left = -440
+	cam.limit_left = -445
 	cam.limit_right = 425
 	cam.limit_top = -285
 	cam.limit_bottom = 270

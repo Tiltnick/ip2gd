@@ -7402,7 +7402,7 @@ size = Vector2(57, 20)
 size = Vector2(36, 33.257813)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpomn"]
-size = Vector2(43, 111.24219)
+size = Vector2(28.5, 111.24219)
 
 [node name="Outside4" type="Node2D"]
 script = ExtResource("1_mjsk3")
@@ -7456,6 +7456,9 @@ position = Vector2(-48, -87)
 [node name="blob" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(-48, -32)
 
+[node name="from_outside1" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(387, 130)
+
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(318, -253)
 script = ExtResource("6_d6fly")
@@ -7482,7 +7485,7 @@ target_scene_path = "uid://b4r2irdvo1x1b"
 target_spawn_id = "from_outside4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
-position = Vector2(438, 138.6211)
+position = Vector2(430.75, 138.6211)
 shape = SubResource("RectangleShape2D_hpomn")
 
 [node name="Character" parent="." instance=ExtResource("7_5aw3q")]

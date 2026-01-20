@@ -11,7 +11,7 @@ var follow_blob := false
 
 func _ready() -> void:
 	BgmPlayer.bgm_outside4()
-	QuestManager.add_quest("quest_11")
+#	QuestManager.add_quest("quest_11")
 
 	if not DialogManager.dialog_finished.is_connected(_on_dialog_finished):
 		DialogManager.dialog_finished.connect(_on_dialog_finished)
