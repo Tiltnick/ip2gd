@@ -489,8 +489,11 @@ position = Vector2(-120, -31)
 [node name="from_outside2" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(93, -264)
 
-[node name="Marker2D" type="Marker2D" parent="SpawnPoints"]
+[node name="blob_outside4" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(-31, -32)
+
+[node name="from_outside4" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(-422, 100)
 
 [node name="Hotbar" type="CanvasLayer" parent="."]
 layer = 0
@@ -507,7 +510,6 @@ rotation = -0.4388593
 
 [node name="NPC" parent="." node_paths=PackedStringArray("path_follow") instance=ExtResource("8_iqy5x")]
 z_index = 1
-position = Vector2(309, -128)
 path_follow = NodePath("../NPCPath/NPCPathFollow")
 
 [node name="TransitionAreaFade" parent="." instance=ExtResource("11_dkob4")]

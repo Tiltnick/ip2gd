@@ -1,11 +1,13 @@
 extends NPC
 class_name NpcDialogProcessBlob
 
+var cutscene_locked := false
 var fleeing := false
 var flee_target := Vector2.ZERO
 @export var npc_id: String = "blob"
-@export
-var required_item_id: String = "shovel"
+@export var required_item_id: String = "shovel"
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 const OUTSIDE2_SECOND_UNLOCK_FLAG: String = "outside2_second_unlocked"
 
@@ -198,4 +200,25 @@ func _physics_process(delta: float) -> void:
 func run_away_to(pos: Vector2) -> void:
 	fleeing = true
 	flee_target = pos
-	
+
+
+
+signal walk_away_done
+
+func walk_away() -> void:
+	cutscene_locked = true
+	velocity = Vector2.ZERO
+	move_and_slide()
+
+	var path := ""
+	if get_tree().current_scene:
+		path = get_tree().current_scene.scene_file_path
+
+	if path == "res://scenes/maps/Outside_4/Outside_4.tscn":
+		animation_player.play("walk_away_outside_4")
+	elif path == "res://scenes/maps/Outside_1/Outside_1.tscn":
+		animation_player.play("walk_away_outside_1")
+
+	await animation_player.animation_finished
+	walk_away_done.emit()
+	queue_free()

@@ -68,15 +68,7 @@
 		{ "speaker": "Mr. Blob", "text_en": "It was lovely to meet you, Oris. Maybe we'll see each other again sometime."
 								,"text_de": "Es war schön dich kennenzulernen, Oris. Vielleicht sieht man sich ein andermal wieder." },
 		{ "speaker": "Oris", "text_en": "..."
-	   						,"text_de": "..." },
-		{ "speaker": "Mr. Blob", "text_en": "*walks away from you*"
-								,"text_de": "*dreht sich um und geht*" },
-		{ "speaker": "Oris", "text_en": "..."
-	   						,"text_de": "..." },
-		{ "speaker": "Oris", "text_en": "Well..."
-	   						,"text_de": "Hm..." },
-		{ "speaker": "Oris", "text_en": "I just really want to go home... Guess it's time for me to say goodbye to this planet..."
-	   						,"text_de": "Ich möchte eigentlich nurnoch wieder nach Hause... Scheint als wäre die Zeit gekommen, mich von diesem Planeten zu verabschieden..." },
+	   						,"text_de": "..." }
 	  ],
 	  "next": "end"
 	},

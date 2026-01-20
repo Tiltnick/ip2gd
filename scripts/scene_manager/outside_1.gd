@@ -1,29 +1,43 @@
 extends Node2D
-@onready var blob_spawn: Marker2D = $SpawnPoints/Marker2D
+
+const BLOB_SCENE: PackedScene = preload("res://scenes/Character/npc.tscn")
+
+@onready var blob_spawn: Marker2D = $SpawnPoints/blob_outside4
 @onready var old_blob: NpcDialogProcessBlob = $NPC
-const blob: PackedScene = preload("res://scenes/Character/npc.tscn")
+
+var blob: NpcDialogProcessBlob = null
 
 func _ready() -> void:
 	BgmPlayer.bgm_outside1()
-	# Einmaliger innerer Monolog direkt nach dem Verlassen des Raumschiffs
-	if GameState.puzzle_state.get("ship_exit_monologue_pending", false):
-		# Flag sofort verbr, damit es nur einmal passiert
-		GameState.puzzle_state["ship_exit_monologue_pending"] = false
 
+	if not DialogManager.dialog_finished.is_connected(_on_dialog_finished):
+		DialogManager.dialog_finished.connect(_on_dialog_finished)
+
+	# Einmaliger innerer Monolog
+	if GameState.puzzle_state.get("ship_exit_monologue_pending", false):
+		GameState.puzzle_state["ship_exit_monologue_pending"] = false
 		DialogManager.start_dialog("res://dialog/innerMonologue/exiting_spaceship.json")
 		await DialogManager.dialog_finished
 		QuestManager.complete_quest("quest1")
 
+	# Blob spawnen / ersetzen
 	if GameState.puzzle_state.has("outside5_pillar_puzzle_solved"):
-		var blob_instance = blob.instantiate()
-		blob_instance.global_position = blob_spawn.global_position
-		add_child(blob_instance)
+		blob = BLOB_SCENE.instantiate() as NpcDialogProcessBlob
+		blob.global_position = blob_spawn.global_position
+		add_child(blob)
 		old_blob.hide()
-
-
+		blob.walk_away()
+	else:
+		blob = old_blob
+		blob.walk_away()
+		
+		
 func configure_camera(cam: Camera2D) -> void:
-	# Cam Limits
 	cam.limit_left = -440
 	cam.limit_right = 425
 	cam.limit_top = -285
 	cam.limit_bottom = 270
+
+
+func _on_dialog_finished() -> void:
+	blob.walk_away()
