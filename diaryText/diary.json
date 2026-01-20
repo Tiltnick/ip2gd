@@ -1,49 +1,67 @@
 {
   "entries": {
 	"entry_1":{
-	  "header": "30.03.2152",
+	  "header": "30.03.2151",
 	  "text_en":
-	"Dear Diary,
-	It’s been a full month since Sam took off.
-	At first, everything felt normal.
-	We exchanged messages every day, sometimes twice a day.
-	  He told me about the view, the stars, the hum of the engines, the weird freeze-dried meals he hated. I laughed. He always made things feel less lonely. But a week ago, everything stopped. No messages. No calls. No updates on Spacegram. I keep checking his feed every few hours, hoping something new shows up… but it never does. I’m trying not to panic, but the silence feels wrong.",
+			"Dear Diary,
+			It’s been a full month since Sam took off.
+			At first, everything felt normal.
+			We exchanged messages every day.
+			But a week ago, everything stopped. No messages. No calls. No updates on Spacegram. 
+			I keep checking his feed every few hours, hoping something new shows up… but it never does. I’m trying not to panic, but the silence feels wrong.",
 	"text_de": "Liebes Tagebuch,
-	Es ist jetzt ein voller Monat vergangen, seit Sam aufgebrochen ist.
-	Am Anfang fühlte sich alles ganz normal an.
-	Wir schrieben uns jeden Tag.
-	Er erzählte mir von der Aussicht, den Sternen, dem Brummen der Triebwerke und den seltsamen gefriergetrockneten Mahlzeiten, die er hasste. Ich lachte. Er schaffte es immer, dass sich alles weniger einsam anfühlte. Aber vor einer Woche hörte plötzlich alles auf. Keine Nachrichten. Keine Anrufe. Keine Updates auf Spacegram. Ich überprüfe seinen Feed alle paar Stunden in der Hoffnung, dass etwas Neues auftaucht … aber es passiert nie. Ich versuche, nicht in Panik zu geraten, doch diese Stille fühlt sich falsch an."
+			Es ist jetzt ein voller Monat vergangen, seit Sam aufgebrochen ist.
+			Am Anfang fühlte sich alles ganz normal an.
+			Wir schrieben uns jeden Tag. Aber vor einer Woche hörte plötzlich alles auf. 
+			Keine Nachrichten. Keine Anrufe. Keine Updates auf Spacegram. Ich überprüfe seinen Feed alle paar Stunden in der Hoffnung, 
+			dass etwas Neues auftaucht… aber es passiert einfach nichts. Ich versuche, nicht in Panik zu geraten, doch die Stille fühlt sich falsch an."
 	},
 	
 	"entry_2":
 	{
-	  "header": "14.04.2152",
+	  "header": "14.04.2151",
 	  "text_en":
-	"Now it’s been two whole weeks since I last heard from him. I keep replaying our last conversation in my head, looking for anything I might’ve missed, a hint, a clue, anything that would tell me what’s going on. Nothing. I can’t sit here anymore. I can’t keep pretending this is fine. So… I made a decision.
-	I talked to Command, filed the request, got the clearance, packed my gear, and told my parents I’d be away “for a while.” They didn’t ask questions. I think they saw the fear in my eyes and understood. Tomorrow, I’m leaving. My first mission in two years.
-	I don’t know what I’m going to find out there. I don’t know if Sam is okay. I don’t even know if he’s still alive.
-	But I have to try. I have to find him. For the promise we made, that neither of us would ever disappear into the void without the other. Wish me luck, Diary. I might need more than that.",
-	
-	"text_de": "Jetzt sind es schon zwei ganze Wochen, seit ich zuletzt von ihm gehört habe.
-	Ich spiele unser letztes Gespräch immer wieder in meinem Kopf ab und suche nach allem, was ich vielleicht übersehen habe, einen Hinweis, eine Spur, irgendetwas, das mir sagen könnte, was los ist. Nichts.
-	Ich kann hier nicht länger sitzen. Ich kann nicht weiter so tun, als wäre das in Ordnung. Also habe ich eine Entscheidung getroffen.
-	Ich habe mit dem Kommando gesprochen, den Antrag gestellt, die Genehmigung bekommen, meine Ausrüstung gepackt und meinen Eltern gesagt, dass ich „für eine Weile“ weg sein werde. Sie haben keine Fragen gestellt. Ich glaube, sie haben die Angst in meinen Augen gesehen und es verstanden. Morgen breche ich auf. Meine erste Mission seit zwei Jahren.
-	Ich weiß nicht, was ich dort draußen finden werde. Ich weiß nicht, ob Sam in Ordnung ist. Ich weiß nicht einmal, ob er noch lebt.
-	Aber ich muss es versuchen. Ich muss ihn finden. Wegen des Versprechens, das wir uns gegeben haben, dass keiner von uns jemals allein im Nichts verschwinden würde.
-	Wünsch mir Glück, liebes Tagebuch. Ich werde wohl mehr als das brauchen."
+			"It’s been two weeks since I last heard from him. I can’t sit here anymore. So… I made a decision.
+			I packed my gear and told my parents I’d be away “for a while.” They didn’t ask questions. Tomorrow, I’m leaving. My first mission in two years.
+			I don’t know what I’m going to find out there. I don’t know if Sam is okay. I don’t even know if he’s still alive.
+			But I have to try. I have to find him. For the promise we made, that neither of us would ever disappear into the void without the other. Wish me luck, Diary.",
+			
+	"text_de": "Jetzt sind es schon zwei Wochen, seit ich zuletzt von ihm gehört habe.
+				Ich kann hier nicht länger sitzen. Also habe ich eine Entscheidung getroffen.
+				Ich habe meine Ausrüstung gepackt und meinen Eltern gesagt, dass ich „für eine Weile“ weg sein werde. Sie haben keine Fragen gestellt.
+				Morgen breche ich auf. Meine erste Mission seit zwei Jahren.
+				Ich weiß nicht, was ich dort draußen finden werde. Ich weiß nicht, ob Sam in Ordnung ist. Ich weiß nicht einmal, ob er noch lebt.
+				Aber ich muss es versuchen. Ich muss ihn finden. Für das Versprechen, das wir uns gegeben haben, dass keiner von uns jemals allein im Nichts verschwinden würde.
+				Wünsch mir Glück, liebes Tagebuch."
 	},
 	
 	"entry_3": {
-	  "header": "15.02.2152",
+	  "header": "15.02.2151",
 	  "text_en":
-      "Big Research Update: \n \nA few days ago I finally got a hold of the thing I came to this planet for. The flower which is said to heal every wound and cure every sickness. I am spending a few more days here to complete the final stages of documentation on the flower. There are still a few observations that need to be recorded before I can conclude my research. After that, I will head back home and bring the flower to Earth.
-	  \n \n\n \n--Sam",
-	"text_de": "Großes Forschungs-Update: \n \n Vor ein paar Tagen habe ich endlich das gefunden, weswegen ich auf diesen Planeten gekommen bin. Die Blume, von der man sagt, dass sie jede Wunde heilt und jede Krankheit kurieren kann. ch werde noch ein paar Tage hier bleiben, um die letzten Phasen der Dokumentation über die Blume abzuschließen. Es gibt noch einige Beobachtungen, die festgehalten werden müssen, bevor ich meine Forschung abschließen kann. Danach fliege ich wieder heim und bring die Pflanze zur Erde.
-	\n \n\n \n--Sam"
+		"Big Research Update: 
+		\n \n
+			A few days ago I finally got a hold of the thing I came to this planet for. 
+			The flower which is said to heal every wound and cure every sickness. 
+			I am spending a few more days here to complete the final stages of documentation on the flower. 
+			There are still a few observations that need to be recorded before I can conclude my research. 
+			After that, I will head back home and bring the flower to Earth.
+			\n \n \n \n
+			--Sam",
+		
+		"text_de": 
+			"Großes Forschungs-Update: 
+			\n \n 
+			Vor ein paar Tagen habe ich endlich das gefunden, wofür ich auf diesen Planeten gekommen bin. 
+			Die Blume, von der man sagt, dass sie jede Wunde und jede Krankheit heilen kann. 
+			Ich werde noch ein paar Tage hier bleiben, um die letzten Phasen der Dokumentation über die Blume abzuschließen. 
+			Es gibt noch einige Beobachtungen, die festgehalten werden müssen, bevor ich meine Forschung fortsetzen kann. 
+			Wenn alles getan ist fliege ich wieder nach Hause und bring die Pflanze zur Erde.
+			\n \n \n \n
+			--Sam"
 	},
 	
 	"entry_4": {
-	  "header": "21.03.2152",
+	  "header": "21.03.2151",
 	  "text_en":
 	"I’ve found the temple.
 	The mushrooms told me that the flower is inside. But I can’t get it yet. My equipment is still at the ship, entering the ruins without it would be too dangerous. I have to go back first.
@@ -61,7 +79,7 @@
 	},
 	
 	"entry_5": {
-	  "header": "19.03.2152",
+	  "header": "19.03.2151",
 	  "text_en":
 	"The mushrooms are a strange and stubborn folk. They always speak in riddles and never say directly what they want. I suspect the stone is somehow connected to them and their riddle, but I can’t find all the pieces yet…
 	They like to make things complicated. What I have noticed, however, is that each of them seems to want a specific mushroom. I just can’t figure out which one — and in what order.

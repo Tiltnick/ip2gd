@@ -206,7 +206,7 @@ theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_k0ysv")
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_k0ysv")
 theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_i2vsb")
 tab_alignment = 1
-current_tab = 1
+current_tab = 2
 
 [node name="DIARY" type="TabBar" parent="TabContainer"]
 visible = false
@@ -249,11 +249,12 @@ icon = ExtResource("3_fk2nq")
 [node name="Header" type="Label" parent="TabContainer/DIARY/Panel"]
 layout_mode = 1
 offset_left = 64.0
-offset_top = 28.0
+offset_top = 36.5
 offset_right = 156.0
-offset_bottom = 64.0
+offset_bottom = 75.5
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
-theme_override_font_sizes/font_size = 26
+theme_override_fonts/font = ExtResource("1_xn7nl")
+theme_override_font_sizes/font_size = 35
 text = "Header"
 
 [node name="Text" type="Label" parent="TabContainer/DIARY/Panel"]
@@ -262,12 +263,13 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 64.0
-offset_top = -275.5
+offset_top = -267.0
 offset_right = 704.0
-offset_bottom = 288.0
+offset_bottom = 296.5
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
-theme_override_font_sizes/font_size = 23
+theme_override_fonts/font = ExtResource("1_xn7nl")
+theme_override_font_sizes/font_size = 30
 text = "Text"
 autowrap_mode = 3
 justification_flags = 162
@@ -315,26 +317,29 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 64.0
-offset_top = -275.5
+offset_top = -267.0
 offset_right = 704.0
-offset_bottom = 288.0
+offset_bottom = 296.5
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
-theme_override_font_sizes/font_size = 23
+theme_override_fonts/font = ExtResource("1_xn7nl")
+theme_override_font_sizes/font_size = 30
 text = "Text"
 autowrap_mode = 3
 
 [node name="Header" type="Label" parent="TabContainer/DIARY/Panel2"]
 layout_mode = 0
 offset_left = 64.0
-offset_top = 25.0
+offset_top = 33.5
 offset_right = 156.0
-offset_bottom = 61.0
+offset_bottom = 72.5
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
-theme_override_font_sizes/font_size = 26
+theme_override_fonts/font = ExtResource("1_xn7nl")
+theme_override_font_sizes/font_size = 35
 text = "Header"
 
 [node name="INVENTORY" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 mouse_filter = 1
 theme_override_font_sizes/font_size = 21
@@ -571,7 +576,8 @@ offset_top = 7.4559975
 offset_right = -0.16000366
 offset_bottom = -3.7120056
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
-theme_override_font_sizes/font_size = 26
+theme_override_fonts/font = ExtResource("1_xn7nl")
+theme_override_font_sizes/font_size = 35
 text = "Title"
 
 [node name="Text" type="Label" parent="TabContainer/INVENTORY/Description"]
@@ -585,7 +591,8 @@ offset_right = 376.0
 offset_bottom = 328.0
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
-theme_override_font_sizes/font_size = 23
+theme_override_fonts/font = ExtResource("1_xn7nl")
+theme_override_font_sizes/font_size = 30
 text = "Text"
 autowrap_mode = 3
 justification_flags = 162
@@ -603,7 +610,6 @@ offset_bottom = 124.0
 scale = Vector2(2.5, 2.5)
 
 [node name="QUESTS" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 script = ExtResource("9_jpjjb")
 metadata/_tab_index = 2
@@ -624,9 +630,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_v8122")
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/QUESTS/DisplayLeft"]
 layout_mode = 0
 offset_left = 56.0
-offset_top = 31.0
+offset_top = 50.0
 offset_right = 703.0
-offset_bottom = 685.0
+offset_bottom = 690.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/QUESTS/DisplayLeft/ScrollContainer"]
 layout_mode = 2
@@ -636,7 +642,7 @@ theme_override_constants/separation = 6
 layout_mode = 2
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_fonts/font = ExtResource("1_xn7nl")
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 35
 text = "CURRENT_QUESTS"
 
 [node name="current_list" type="VBoxContainer" parent="TabContainer/QUESTS/DisplayLeft/ScrollContainer/VBoxContainer"]
@@ -651,7 +657,7 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_jpjjb")
 layout_mode = 2
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_fonts/font = ExtResource("1_xn7nl")
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 35
 text = "COMPLETED_QUESTS"
 
 [node name="completed_list" type="VBoxContainer" parent="TabContainer/QUESTS/DisplayLeft/ScrollContainer/VBoxContainer"]
@@ -672,13 +678,13 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_v8122")
 
 [node name="QuestTitle" type="Label" parent="TabContainer/QUESTS/DisplayRight"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 28.0
-offset_right = 232.0
-offset_bottom = 64.0
+offset_left = 63.0
+offset_top = 53.0
+offset_right = 231.0
+offset_bottom = 92.0
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_fonts/font = ExtResource("1_xn7nl")
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 35
 text = "QUEST_TITLE"
 
 [node name="QuestDescription" type="Label" parent="TabContainer/QUESTS/DisplayRight"]
@@ -693,7 +699,7 @@ offset_bottom = 27.0
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
 theme_override_fonts/font = ExtResource("1_xn7nl")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 30
 text = "QUEST_DESCRIPTION"
 autowrap_mode = 3
 justification_flags = 162
