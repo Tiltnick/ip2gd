@@ -94,15 +94,14 @@ const SPACESHIPROOM_FLOW_END: String = "res://dialog/dialogueMrBlob/end_dialog_o
 
 func _ready() -> void:
 	super._ready()
-	
+
 	var npc_pos = "npc_pos_" + npc_id
 	#proving if theres a saved position in game state
 	if GameState.puzzle_state.has(npc_pos):
 		var d = GameState.puzzle_state[npc_pos]
 		if typeof(d) == TYPE_DICTIONARY and d.has("x") and d.has("y"):
 			global_position = Vector2(d["x"], d["y"])
-	
-	
+
 	DialogManager.dialog_finished.connect(_on_dialog_finished)
 
 
@@ -204,8 +203,6 @@ func run_away_to(pos: Vector2) -> void:
 	fleeing = true
 	flee_target = pos
 
-
-
 signal walk_away_done
 
 func walk_away() -> void:
@@ -225,7 +222,6 @@ func walk_away() -> void:
 	await animation_player.animation_finished
 	walk_away_done.emit()
 	queue_free()
-
 
 func _on_dialog_finished() -> void:
 #	var scene_name := get_tree().current_scene.name

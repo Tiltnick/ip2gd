@@ -8,7 +8,6 @@ func _ready() -> void:
 	load_diary_data()
 	unlock_entry("entry_1")
 	unlock_entry("entry_2")
-	
 
 func load_diary_data():
 	var file = FileAccess.open("res://diaryText/diary.json", FileAccess.READ)

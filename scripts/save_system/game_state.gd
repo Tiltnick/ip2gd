@@ -106,7 +106,8 @@ func from_dict(data: Dictionary) -> void:
 		puzzle_items = data["puzzle_items"]
 		
 	if data.has("tutorial_done"):
-		puzzle_items = data["tutorial_done"]
+		tutorial_done = bool(data["tutorial_done"])
+
 
 	if data.has("sound_setting"):
 		sound_setting = data["sound_setting"]

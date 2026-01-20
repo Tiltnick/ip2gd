@@ -72,26 +72,14 @@ func _check_interact(event):
 		SaveSystem.save_game()
 
 func _update_text():
-	if GameState.language == "en":
-		match current_step:
-			TutorialStep.MOVEMENT:
-				tutorial_title.text = "MOVEMENT"
-				tutorial_text.text = "Use WASD to move (%d/4)" % movement_counter
-			TutorialStep.SPRINT:
-				tutorial_title.text = "SPRINTING"
-				tutorial_text.text = "Hold Shift to sprint"
-			TutorialStep.INTERACT:
-				tutorial_title.text = "INTERACT"
-				tutorial_text.text = "Press E to interact"
-				
-	else:
-		match current_step:
-			TutorialStep.MOVEMENT:
-				tutorial_title.text = "BEWEGUNG"
-				tutorial_text.text = "Benutze WASD zum Steuern (%d/4)" % movement_counter
-			TutorialStep.SPRINT:
-				tutorial_title.text = "RENNEN"
-				tutorial_text.text = "Halte Shift um zu rennen"
-			TutorialStep.INTERACT:
-				tutorial_title.text = "INTERAGIEREN"
-				tutorial_text.text = "Drücke E zum Interagieren"
+	match current_step:
+		TutorialStep.MOVEMENT:
+			tutorial_title.text = "TUTORIAL_TITLE_MOVEMENT"
+			tutorial_text.text = "TUTORIAL_TEXT_MOVEMENT" % movement_counter
+		TutorialStep.SPRINT:
+			tutorial_title.text = "TUTORIAL_TITLE_SPRINT"
+			tutorial_text.text = "TUTORIAL_TEXT_SPRINT"
+		TutorialStep.INTERACT:
+			tutorial_title.text = "TUTORIAL_TITLE_INTERACT"
+			tutorial_text.text = "TUTORIAL_TEXT_INTERACT"
+			
