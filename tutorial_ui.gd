@@ -84,7 +84,7 @@ func _update_text():
 				tutorial_title.text = "INTERACT"
 				tutorial_text.text = "Press E to interact"
 				
-	else:
+	if GameState.language == "de":
 		match current_step:
 			TutorialStep.MOVEMENT:
 				tutorial_title.text = "BEWEGUNG"
@@ -93,5 +93,5 @@ func _update_text():
 				tutorial_title.text = "RENNEN"
 				tutorial_text.text = "Halte Shift um zu rennen"
 			TutorialStep.INTERACT:
-				tutorial_title.text = "INTERAGIEREN"
+				tutorial_title.text = "INTERAGIEREN"  
 				tutorial_text.text = "Drücke E zum Interagieren"

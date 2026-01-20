@@ -235,7 +235,7 @@
 
 ## Was würden die nächsten Schritte aussehen?
 
-- Überlegung ob Social Media ins Spiel mit ein integriert wird ? 
+- Instagram Posts optimieren (klarere Stütze des Spiels)
 - Anpassungen am Inventar und der Hotbar für Intuitivere Nutzung des Spielers
 - Implementieren von mehr Rätseln(z.B Tempel)
 - Side Content / Quests (Pilz Reich)
