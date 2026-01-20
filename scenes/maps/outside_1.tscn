@@ -508,10 +508,6 @@ curve = SubResource("Curve2D_myyye")
 position = Vector2(241, -177)
 rotation = -0.4388593
 
-[node name="NPC" parent="." node_paths=PackedStringArray("path_follow") instance=ExtResource("8_iqy5x")]
-z_index = 1
-path_follow = NodePath("../NPCPath/NPCPathFollow")
-
 [node name="TransitionAreaFade" parent="." instance=ExtResource("11_dkob4")]
 
 [node name="tripod_bottom" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_qv8vl")]
@@ -595,3 +591,7 @@ scale = Vector2(0.1, 0.1)
 [node name="Grass14" parent="Moving Grass" instance=ExtResource("14_vb0ej")]
 position = Vector2(200, 43.000008)
 scale = Vector2(0.1, 0.1)
+
+[node name="NPC" parent="." node_paths=PackedStringArray("path_follow") instance=ExtResource("8_iqy5x")]
+position = Vector2(307, -128)
+path_follow = NodePath("../NPCPath/NPCPathFollow")

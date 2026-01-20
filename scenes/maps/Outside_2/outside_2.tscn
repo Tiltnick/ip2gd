@@ -1,13 +1,12 @@
-[gd_scene load_steps=56 format=4 uid="uid://34ylk7jtx176"]
+[gd_scene load_steps=55 format=4 uid="uid://34ylk7jtx176"]
 
 [ext_resource type="Script" uid="uid://f7c56kdptn0k" path="res://scripts/scene_manager/outside_2.gd" id="1_7t2bs"]
 [ext_resource type="Texture2D" uid="uid://dqoxkjxdkwqgu" path="res://assets/sprites/map/Outside_2/spaceship.png" id="2_f8agi"]
-[ext_resource type="Texture2D" uid="uid://djxhqmxg4i62w" path="res://assets/sprites/map/Pixel Crawler - Desert/Pixel Crawler - Desert/Assets/Ground.png" id="2_vxisc"]
-[ext_resource type="Texture2D" uid="uid://d2ipyfv1dy5j0" path="res://assets/sprites/map/Pixel Crawler - Desert/Pixel Crawler - Desert/Assets/Props.png" id="3_o6c6f"]
+[ext_resource type="Texture2D" uid="uid://djxhqmxg4i62w" path="res://assets/sprites/map/Outside_2/Ground.png" id="2_vxisc"]
+[ext_resource type="Texture2D" uid="uid://d2ipyfv1dy5j0" path="res://assets/sprites/map/Outside_2/Props.png" id="3_o6c6f"]
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="6_2emao"]
 [ext_resource type="PackedScene" uid="uid://bph2lfcube6e4" path="res://scenes/maps/Outside_2/FadeArea.tscn" id="7_3r0bj"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="10_exwp3"]
-[ext_resource type="PackedScene" uid="uid://eb6l6mv15te6" path="res://scenes/interactables/objects/shovel.tscn" id="10_o6c6f"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="11_iaftu"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="12_60fd3"]
 [ext_resource type="PackedScene" uid="uid://c7amjsaj2vw3u" path="res://scenes/interactables/objects/flashlight.tscn" id="12_g73bm"]
@@ -2305,7 +2304,6 @@ offset_bottom = -69.0
 position = Vector2(-648, -291)
 code_popup_path = NodePath("../../TreasureChestRiddle")
 puzzle_id = "treasure_chest_code"
-shovel_path = NodePath("../Shovel")
 e_popup_node = NodePath("Press_E_Popup")
 
 [node name="Press_E_Popup" parent="Objects/Treasure" instance=ExtResource("10_exwp3")]
@@ -2321,21 +2319,6 @@ offset_bottom = -34.0
 [node name="Outline" type="Sprite2D" parent="Objects/Treasure"]
 visible = false
 material = SubResource("ShaderMaterial_h3v21")
-
-[node name="Shovel" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("10_o6c6f")]
-visible = false
-z_index = 2
-position = Vector2(-608, -269)
-e_popup_node = NodePath("Press_E_Popup")
-
-[node name="Press_E_Popup" parent="Objects/Shovel" instance=ExtResource("10_exwp3")]
-visible = false
-z_index = 3
-offset_left = -7.0
-offset_top = -33.0
-offset_right = -7.0
-offset_bottom = -33.0
-scale = Vector2(0.65, 0.65)
 
 [node name="Flashlight" parent="Objects" node_paths=PackedStringArray("e_popup_node") instance=ExtResource("12_g73bm")]
 z_index = 0
