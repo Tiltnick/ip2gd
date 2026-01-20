@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://y5kct0mr503d"]
+[gd_scene load_steps=32 format=3 uid="uid://y5kct0mr503d"]
 
 [ext_resource type="Script" uid="uid://c7mgrddxx8c0t" path="res://scripts/menu/GameMenu/menuClose.gd" id="1_jpjjb"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_xn7nl"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bfivg0njs3ku8" path="res://scenes/hotbar/slot.tscn" id="7_d5s1g"]
 [ext_resource type="Shader" uid="uid://bggfs48ys3kc5" path="res://assets/shaders/hide_shadow.gdshader" id="8_5rqpv"]
 [ext_resource type="Script" uid="uid://db47r2w3mqisu" path="res://scripts/quests/quest_controller.gd" id="9_jpjjb"]
+[ext_resource type="Texture2D" uid="uid://mdkboxjky2f0" path="res://assets/sprites/selfmade/Spacegram_Logo.png" id="10_vagrn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0y5o"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -50,10 +51,10 @@ corner_radius_top_right = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2kte2"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
+border_width_left = 10
+border_width_top = 10
+border_width_right = 5
+border_width_bottom = 10
 border_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
 corner_radius_top_left = 10
 corner_radius_bottom_left = 10
@@ -70,20 +71,20 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8q5ut"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
+border_width_left = 5
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
 border_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8122"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
 border_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
@@ -104,6 +105,32 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vagrn"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d5s1g"]
+bg_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+corner_detail = 20
+anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b85bu"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -179,7 +206,7 @@ theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_k0ysv")
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_k0ysv")
 theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_i2vsb")
 tab_alignment = 1
-current_tab = 2
+current_tab = 1
 
 [node name="DIARY" type="TabBar" parent="TabContainer"]
 visible = false
@@ -308,7 +335,6 @@ theme_override_font_sizes/font_size = 26
 text = "Header"
 
 [node name="INVENTORY" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 mouse_filter = 1
 theme_override_font_sizes/font_size = 21
@@ -577,6 +603,7 @@ offset_bottom = 124.0
 scale = Vector2(2.5, 2.5)
 
 [node name="QUESTS" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("9_jpjjb")
 metadata/_tab_index = 2
@@ -661,8 +688,8 @@ anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 64.0
 offset_top = -246.0
-offset_right = 623.0
-offset_bottom = 288.0
+offset_right = 624.0
+offset_bottom = 27.0
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
 theme_override_fonts/font = ExtResource("1_xn7nl")
@@ -670,6 +697,76 @@ theme_override_font_sizes/font_size = 35
 text = "QUEST_DESCRIPTION"
 autowrap_mode = 3
 justification_flags = 162
+
+[node name="ItemDisplay" type="Panel" parent="TabContainer/QUESTS/DisplayRight"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 33.0
+offset_top = 95.0
+offset_right = 656.0
+offset_bottom = 313.0
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_vagrn")
+
+[node name="NeededItems" type="Label" parent="TabContainer/QUESTS/DisplayRight/ItemDisplay"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 28.0
+offset_right = 242.0
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+theme_override_fonts/font = ExtResource("1_xn7nl")
+theme_override_font_sizes/font_size = 35
+text = "NEEDED_ITEMS"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/QUESTS/DisplayRight/ItemDisplay"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_left = 28.0
+offset_top = 85.0
+offset_right = 430.81683
+offset_bottom = 149.0
+scale = Vector2(1.42, 1.42)
+
+[node name="Slot" parent="TabContainer/QUESTS/DisplayRight/ItemDisplay/HBoxContainer" instance=ExtResource("7_d5s1g")]
+layout_mode = 2
+show_key_label = false
+
+[node name="Spacegram_Hint" type="Panel" parent="TabContainer/QUESTS/DisplayRight"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -219.00006
+offset_top = 26.0
+offset_right = -150.31256
+offset_bottom = 49.297485
+grow_horizontal = 0
+scale = Vector2(2.79, 2.79)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_d5s1g")
+
+[node name="Label" type="Label" parent="TabContainer/QUESTS/DisplayRight/Spacegram_Hint"]
+layout_mode = 0
+offset_left = 20.430107
+offset_top = 5.3763423
+offset_right = 540.5483
+offset_bottom = 147.53253
+scale = Vector2(0.085, 0.085)
+theme_override_constants/line_spacing = -32
+theme_override_fonts/font = ExtResource("1_xn7nl")
+theme_override_font_sizes/font_size = 80
+text = "USE_SPACEGRAM_FOR_RIDDLE"
+autowrap_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/QUESTS/DisplayRight/Spacegram_Hint"]
+position = Vector2(11.469536, 11.827959)
+scale = Vector2(0.05159543, 0.05159543)
+texture = ExtResource("10_vagrn")
 
 [node name="CloseButton" type="Button" parent="."]
 process_mode = 3

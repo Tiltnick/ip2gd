@@ -17,8 +17,9 @@ func configure_camera(cam: Camera2D) -> void:
 	cam.limit_bottom = 300
 
 func _on_area_2d_3_body_entered(body: Node2D) -> void:
-	var lang = TranslationServer.get_locale().substr(0, 2)
-	if lang == "en":
-		PopupManager.popup_spacegram_en()
-	elif lang == "de":
-		PopupManager.popup_spacegram_de()
+	if not GameState.puzzle_state.get("outside3_monologue_done", true):
+		var lang = TranslationServer.get_locale().substr(0, 2)
+		if lang == "en":
+			PopupManager.popup_spacegram_en()
+		elif lang == "de":
+			PopupManager.popup_spacegram_de()

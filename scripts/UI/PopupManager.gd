@@ -74,3 +74,10 @@ func popup_complete_quest(quest: Dictionary):
 		tr("QUEST_COMPLETED") + ": " + quest["title"],
 		QUEST_ICON
 	)
+
+func popup_update_quest(quest: Dictionary):
+	SfxPlayer.notification_quest_sound()
+	quest_popup.show_popup(
+		tr("QUEST_UPDATED") + ": " + quest["title"],
+		QUEST_ICON
+	)

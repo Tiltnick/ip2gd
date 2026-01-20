@@ -20,7 +20,8 @@ const TELESCOPE_USED_FLAG := "telescope_consumed_after_statue"
 
 func interact() -> void:
 	SfxPlayer.ui_click_sound()
-
+	QuestManager.add_quest("quest_5")
+	
 	#wenn teleskop vorhanden
 	if _has_required_item():
 		_go_to_sky_scene()

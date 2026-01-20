@@ -45,10 +45,7 @@ func _replace_now() -> void:
 		if parent != null:
 			parent.add_child(flower)
 
-
-
 	queue_free()
-
 
 func _is_solved() -> bool:
 	if solved_flag.is_empty():

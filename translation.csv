@@ -65,6 +65,8 @@ CURRENT_QUESTS,Current Quests,Aktuelle Aufträge
 COMPLETED_QUESTS,Completed Quests,Erledigte Aufträge
 QUEST_NEW,New Quest,Neuer Auftrag
 QUEST_COMPLETED,Quest Completed,Auftrag Erfüllt
+QUEST_UPDATED,Quest Update,Quest Update
+NEEDED_ITEMS,Needed Items,Benötigte Items
 SECRET_BUILDING,Secret Building,Geheimes Gebäude
 ORIS'S_SHUTTLE,Oris' Shuttle,Oris Shuttle
 SAM'S_SHUTTLE,Sam's Shuttle,Sams Shuttle
@@ -72,3 +74,5 @@ STONE_PANEL,Stone Panel,Steintafel
 TEMPLE,Temple,Temple
 MUSHROOM_SOCKETS,Mushroom Sockets,Pilz Sockel
 MYSTERIOUS_TOWER,Mysterious Tower,Mysteriöser Turm
+USE_SPACEGRAM_FOR_RIDDLE,Use Spacegram to solve this riddle,Nutze Spacegram um das Rätsel zu lösen
+USE_SPACEGRAM,Use Spacegram,Nutze Spacegram

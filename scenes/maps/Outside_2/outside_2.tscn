@@ -2262,7 +2262,7 @@ offset_right = -10.0
 offset_bottom = -54.0
 
 [node name="Stones2" parent="Objects" node_paths=PackedStringArray("e_popup_node") groups=["stones"] instance=ExtResource("12_qarrx")]
-position = Vector2(-405, -349)
+position = Vector2(-492, -356)
 save_id = "stones_2"
 item_path = NodePath("../StonePiece2")
 e_popup_node = NodePath("Press_E_Popup")
@@ -2392,7 +2392,6 @@ layer = 0
 [node name="Hotbar" parent="Hotbar" instance=ExtResource("12_60fd3")]
 
 [node name="NPC" parent="." node_paths=PackedStringArray("path_follow") instance=ExtResource("13_hiyfs")]
-position = Vector2(-542, 230)
 path_follow = NodePath("../NPCPath/NPCPathFollow")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("14_vxisc")]
@@ -2564,7 +2563,7 @@ curve = SubResource("Curve2D_jm4is")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Tumleweed/Path2D4"]
 position = Vector2(0, -1.4285583)
-rotation = 3.1415925
+rotation = 3.1415927
 
 [node name="Tumbleweed5" parent="Tumleweed" node_paths=PackedStringArray("path_follow") instance=ExtResource("27_es6jy")]
 position = Vector2(-296, -303)

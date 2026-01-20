@@ -30,5 +30,10 @@ func mark_collected() -> void:
 			PopupManager.popup_item_de(item_name_de, item_icon)
 		elif lang == "en":
 			PopupManager.popup_item_en(item_name_en, item_icon)
+	
+	if save_id != "" and not GameState.picked_items.has(save_id):
+		GameState.picked_items.append(save_id)
+		QuestManager.on_item_picked(save_id)
+	
 	SaveSystem.save_game()
 	print("")

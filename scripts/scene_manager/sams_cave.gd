@@ -10,12 +10,16 @@ func _ready() -> void:
 	if hotbarglobal.inventory_items.has("flashlight"):
 		GameState.puzzle_state[flashlight_save_id] = true
 		field_of_view.visible = true
+		DialogManager.start_dialog(
+		"res://dialog/innerMonologue/cave_with_flashlight.json")
+		await DialogManager.dialog_finished
+		QuestManager.add_quest("quest_7") # sams cave
 		return
 
 	field_of_view.visible = false
 
 	DialogManager.start_dialog(
-		"res://dialog/innerMonologue/entering_cave.json"
+		"res://dialog/innerMonologue/cave_without_flashlight.json"
 	)
 
 	await DialogManager.dialog_finished

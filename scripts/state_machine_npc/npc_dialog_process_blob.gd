@@ -101,6 +101,10 @@ func _ready() -> void:
 		var d = GameState.puzzle_state[npc_pos]
 		if typeof(d) == TYPE_DICTIONARY and d.has("x") and d.has("y"):
 			global_position = Vector2(d["x"], d["y"])
+	
+	
+	DialogManager.dialog_finished.connect(_on_dialog_finished)
+
 
 # Szene → Dialogdatei
 func get_dialog_path(scene_name: String) -> String:
@@ -193,7 +197,6 @@ func _physics_process(delta: float) -> void:
 				"y": global_position.y,
 			}
 			return
-
 		velocity = dir.normalized() * move_speed 
 		move_and_slide()
 
@@ -222,3 +225,17 @@ func walk_away() -> void:
 	await animation_player.animation_finished
 	walk_away_done.emit()
 	queue_free()
+
+
+func _on_dialog_finished() -> void:
+	var scene_name := get_tree().current_scene.name
+
+	if last_dialog_path == "res://dialog/dialogueMrBlob/outside_1.json":
+		QuestManager.add_quest("quest4")
+		
+	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_1_end.json":
+		QuestManager.add_quest("quest4")
+	
+	#elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_4.json":
+		#delete flower item
+		#pass

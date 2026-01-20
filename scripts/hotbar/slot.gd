@@ -7,7 +7,6 @@ class_name HotbarSlot
 
 @export var show_key_label: bool = true
 
-
 var slot_index := -1
 var click_callback: Callable = Callable()
 

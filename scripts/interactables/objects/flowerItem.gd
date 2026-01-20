@@ -21,6 +21,8 @@ func _store_in_hotbar() -> void:
 
 	
 	super._store_in_hotbar()
+	
+	QuestManager.complete_quest("quest9")
 
 
 func _disable_sam_now() -> void:

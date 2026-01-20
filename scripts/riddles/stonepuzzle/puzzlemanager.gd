@@ -55,6 +55,8 @@ func check_puzzle():
 		SfxPlayer.puzzle_solved()
 		solved = true
 		solved_animation.play("solved_animation")
+		QuestManager.complete_quest("quest_3")
+		QuestManager.add_quest("quest_9")
 		for i in range(1, 7):
 			var id = "stone_piece_%d" % i
 			var stonepanel: String = "stonepanel"
