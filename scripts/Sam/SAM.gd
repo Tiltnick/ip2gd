@@ -10,6 +10,8 @@ signal guide_finished
 @export var guide_path_2: NodePath
 @export var guide_path_3: NodePath
 
+#@export var puzzle_solved_dialog_flag: String = "completing_temple_riddle"
+
 @export var puzzle_solved_flag: String = "outside5_pillar_puzzle_solved"
 
 @export var sam_save_id: String = "outside5_sam"
@@ -81,6 +83,13 @@ func _connect_puzzle_solved_signal() -> void:
 
 func _on_pillar_puzzle_solved() -> void:
 	_try_save_after_puzzle_and_path3()
+	
+	GameState.puzzle_state["outside5_pillar_puzzle_solved"] = true
+	emit_signal("puzzle_solved")
+
+	if not GameState.puzzle_state.get("outside5_temple_riddle_monologue_done", false):
+		GameState.puzzle_state["outside5_temple_riddle_monologue_done"] = true
+		DialogManager.start_dialog("res://dialog/innerMonologue/completing_temple_riddle.json")
 
 
 func on_player_triggered(p: Node2D) -> void:

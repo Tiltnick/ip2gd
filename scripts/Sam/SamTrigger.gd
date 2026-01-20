@@ -45,8 +45,11 @@ func _on_body_entered(body: Node) -> void:
 
 
 func _disable_trigger() -> void:
-	monitoring = false
-	monitorable = false
+	set_deferred("monitoring", false)
+	set_deferred("monitorable", false)
+	
+	#monitoring = false
+	#monitorable = false
 
 	var shape := get_node_or_null("CollisionShape2D") as CollisionShape2D
 	if shape != null:

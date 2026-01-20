@@ -1,0 +1,18 @@
+{
+  "id": "completing_temple_riddle",
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+  "steps": {
+	"sections": {
+	  "lines": [
+		{
+		  "speaker": "Oris",
+		  "text_en": "Oh my, I really did it! Oh, something that looks like a flower appeared up there! I should check it out!",
+		  "text_de": "Ich habs geschafft! Oh, etwas das sehr nach einer Blume aussieht ist da oben aufgetaucht! Ich sollte mal nachschauen."
+		},
+		
+]},
+	"end": { "lines": [] }
+  }
+}
