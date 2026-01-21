@@ -62,7 +62,10 @@ func check_puzzle():
 			var stonepanel: String = "stonepanel"
 			hotbarglobal.remove_item(id)
 			hotbarglobal.remove_item(stonepanel)
+			blob.anim.play("move")
 			blob.run_away_to(blob.global_position + Vector2(0, 550))
+			blob.fleeing = false
+			#blob.anim.play("idle")
 
 func _on_close_button_pressed() -> void:
 	var key := puzzle_id + "_solved_dialog_shown" 

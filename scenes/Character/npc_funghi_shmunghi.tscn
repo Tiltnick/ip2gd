@@ -48,6 +48,7 @@ z_index = 2
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_7itl1")
+move_speed = 10.0
 
 [node name="Press_E_Popup_NPC" parent="." instance=ExtResource("2_kam5n")]
 visible = false

@@ -177,7 +177,9 @@ func _on_close_button_pressed() -> void:
 func _on_solved_dialog_finished():
 	for npc in get_tree().get_nodes_in_group("mushroom_npc"):
 		# final position npc
+		npc.anim.play("walk")
 		npc.run_away_to(npc.global_position + Vector2(0,-190))
+		npc.anim.play("idle")
 	
 	fire_mush.get_mush()
 	var key = puzzle_id + "_fire_mush_given"

@@ -77,3 +77,4 @@ func _physics_process(delta: float) -> void:
 func run_away_to(pos: Vector2) -> void:
 	fleeing = true
 	flee_target = pos
+	move_and_slide()

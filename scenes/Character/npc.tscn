@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cr63i71n61e0h" path="res://scripts/state_machine_npc/npc_dialog_process_blob.gd" id="1_kwd6m"]
 [ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="3_5dfqd"]
-[ext_resource type="PackedScene" path="res://assets/sprites/selfmade/shadow.tscn" id="3_db3se"]
+[ext_resource type="PackedScene" uid="uid://bboqbaycemetp" path="res://assets/sprites/selfmade/shadow.tscn" id="3_db3se"]
 [ext_resource type="Texture2D" uid="uid://bb2re0fysk6u" path="res://assets/sprites/character/Blobfish Spritesheet2.png" id="3_kwd6m"]
 [ext_resource type="Script" uid="uid://bag4u47y1hlnx" path="res://scripts/state_machine_npc/state_machine_npc.gd" id="3_li0y0"]
 [ext_resource type="Script" uid="uid://bj3wge2cd2so2" path="res://scripts/state_machine_npc/npc_idle.gd" id="4_qklou"]
@@ -236,7 +236,7 @@ offset_bottom = -35.0
 position = Vector2(0, -8)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_eprow")
-animation = &"idle"
+animation = &"move"
 autoplay = "move"
 frame_progress = 0.5315127
 
