@@ -266,6 +266,7 @@ radius = 26.019224
 radius = 7.0
 
 [node name="Sam" type="CharacterBody2D" groups=["sam_state_machine"]]
+z_index = 5
 script = ExtResource("1_yiwm8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
