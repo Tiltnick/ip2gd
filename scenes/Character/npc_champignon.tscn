@@ -80,6 +80,7 @@ radius = 24.0
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_i4s7v")
+move_speed = 10.0
 
 [node name="Shadow" parent="." instance=ExtResource("2_2cdhs")]
 position = Vector2(-1.0000001, -2)
@@ -127,6 +128,7 @@ initial_state = NodePath("idle")
 
 [node name="idle" type="Node" parent="stateMachine"]
 script = ExtResource("6_b2vda")
+start_patrol_after_wait = false
 
 [node name="move" type="Node" parent="stateMachine"]
 script = ExtResource("7_j1dvm")

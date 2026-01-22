@@ -1,6 +1,10 @@
 extends CharacterBody2D
 class_name NPC
 
+enum Behavior { STAND_ONLY, PATROL_WHEN_PATH }
+
+@export var behavior: Behavior = Behavior.PATROL_WHEN_PATH
+
 @export var move_speed: float = 50.0
 @export var detect_radius: float = 120.0
 @export var path_follow: PathFollow2D
@@ -91,3 +95,14 @@ func _on_body_exited(body: Node) -> void:
 		if e_popup_node:
 			e_popup_node.visible = false
 		dialog_active = false
+
+func has_valid_path() -> bool:
+	if path_follow == null:
+		return false
+	var p := path_follow.get_parent()
+	if not (p is Path2D):
+		return false
+	var path := p as Path2D
+	if path.curve == null:
+		return false
+	return path.curve.get_baked_length() > 0.0

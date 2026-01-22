@@ -6,8 +6,8 @@
   "steps": {
 	"sections": {
 	  "lines": [
-		{ "speaker": "Oris", "text_en": "Das ist der Raumschiff-Controller, Ich kann noch nicht zurück zur Erde."
-							,"text_de": "Thats the spaceship controller. I can't go back to earth yet." }
+		{ "speaker": "Oris", "text_en": "Thats the spaceship controller. I can't go back to earth yet."
+							,"text_de": "Das ist der Raumschiff-Controller, Ich kann noch nicht zurück zur Erde." }
 	  ]
 	},
 

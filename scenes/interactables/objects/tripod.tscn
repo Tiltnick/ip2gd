@@ -10,8 +10,8 @@ shader = ExtResource("2_3228d")
 shader_parameter/outline_size = 2.0
 shader_parameter/outline_color = Vector4(1, 1, 1, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxklx"]
-size = Vector2(20, 19)
+[sub_resource type="CircleShape2D" id="CircleShape2D_1uxoc"]
+radius = 20.024984
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3228d"]
 radius = 6.0
@@ -37,9 +37,10 @@ texture = ExtResource("1_sxklx")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_sxklx")
+shape = SubResource("CircleShape2D_1uxoc")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("CircleShape2D_3228d")

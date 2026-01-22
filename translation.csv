@@ -18,30 +18,30 @@ DEUTSCH,Deutsch,Deutsch
 CLOSE,Close,Schließen
 MUSIC,Music,Musik
 SOUND_EFFECTS,Sound effects,Soundeffekte
-ITEM_FOUND,Item Found :, Item gefunden :
-SPACE_CONTINUE,Press Space to continue, Drücke Leertaste zum Fortfahren
-ENTER_CODE, Enter Code to Exit, Code eingeben zum Verlassen
-VERIFY, Verify, Überprüfen
-NEW_GAME, New Game, Neues Spiel
-RESUME, Resume, Fortsetzen
-EXIT, Exit, Beenden
-START_GAME, Start new game?, Neues Spiel starten?
-YES, Yes, Ja
-NO, No, Nein
-SAVE_AND_EXIT, Save and Exit, Speichern und Beenden
-CONTINUE, Continue, Fortsetzen
-SAVE_GAME, Save Game?, Spiel speichern?
-CLICK_RIGHT, rotate with right click, rotiere mit Rechtsklick
-DIARY, Diary, Tagebuch
-INVENTORY, Inventory, Inventar
-GRAPHICS, Graphics, Grafik
-DISPLAY MODE, Display Mode, Anzeigemodus
-WINDOWED, Windowed, Fenstermodus
-FULLSCREEN, Fullscreen, Vollbild
-BORDERLESS, Borderless, Randlos
-QUESTS, Quests, Missionen
-QUEST_TITLE, Quest Title, Questtitel
-QUEST_DESCRIPTION, Quest Description, Questbeschreibung
+ITEM_FOUND,Item Found :,Item gefunden :
+SPACE_CONTINUE,Press Space to continue,Drücke Leertaste zum Fortfahren
+ENTER_CODE,Enter Code to Exit,Code eingeben zum Verlassen
+VERIFY,Verify,Überprüfen
+NEW_GAME,New Game,Neues Spiel
+RESUME,Resume,Fortsetzen
+EXIT,Exit,Beenden
+START_GAME,Start new game?,Neues Spiel starten?
+YES,Yes,Ja
+NO,No,Nein
+SAVE_AND_EXIT,Save and Exit,Speichern und Beenden
+CONTINUE,Continue,Fortsetzen
+SAVE_GAME,Save Game?,Spiel speichern?
+CLICK_RIGHT,Rotate with right click,Rotiere mit Rechtsklick
+DIARY,Diary,Tagebuch
+INVENTORY,Inventory,Inventar
+GRAPHICS,Graphics,Grafik
+DISPLAY MODE,Display Mode,Anzeigemodus
+WINDOWED,Windowed,Fenstermodus
+FULLSCREEN,Fullscreen,Vollbild
+BORDERLESS,Borderless,Randlos
+QUESTS,Quests,Missionen
+QUEST_TITLE,Quest Title,Questtitel
+QUEST_DESCRIPTION,Quest Description,Questbeschreibung
 ITEM_FOUND,Item Found:,Item gefunden:
 SPACE_CONTINUE,Press Space to continue,Drücke Leertaste zum Fortfahren
 ENTER_CODE,Enter Code to Exit,Code eingeben zum Verlassen
