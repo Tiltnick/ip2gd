@@ -4,8 +4,9 @@ class_name NpcDialogProcessBlob
 var cutscene_locked := false
 var fleeing := false
 var flee_target := Vector2.ZERO
-@export var npc_id: String = "blob"
-@export var required_item_id: String = "shovel"
+var npc_id: String = "blob"
+var required_item_id: String = "shovel"
+@export var spawn_marker: Marker2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -96,11 +97,14 @@ func _ready() -> void:
 	super._ready()
 
 	var npc_pos = "npc_pos_" + npc_id
-	#proving if theres a saved position in game state
+
 	if GameState.puzzle_state.has(npc_pos):
 		var d = GameState.puzzle_state[npc_pos]
 		if typeof(d) == TYPE_DICTIONARY and d.has("x") and d.has("y"):
 			global_position = Vector2(d["x"], d["y"])
+	elif spawn_marker:
+		global_position = spawn_marker.global_position
+
 
 	DialogManager.dialog_finished.connect(_on_dialog_finished)
 
@@ -224,14 +228,14 @@ func walk_away() -> void:
 	queue_free()
 
 func _on_dialog_finished() -> void:
-	var scene_name := get_tree().current_scene.name
+#	var scene_name := get_tree().current_scene.name
 
 	if last_dialog_path == "res://dialog/dialogueMrBlob/outside_1.json":
-		QuestManager.add_quest("quest4")
+		QuestManager.add_quest("quest_4")
 		
 	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_1_end.json":
-		QuestManager.add_quest("quest4")
+		walk_away()
 	
-	#elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_4.json":
-		#delete flower item
-		#pass
+	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_4.json":
+		if GameState.picked_items.has("flower"):
+			GameState.picked_items.erase("flower")

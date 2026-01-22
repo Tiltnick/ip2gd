@@ -72,6 +72,8 @@ func _on_code_verified(result: bool) -> void:
 
 	if result:
 		SfxPlayer.puzzle_solved()
+		if not hotbarglobal.give_item("shovel", "shovel_1"):
+			return
 		code_solved = true
 
 		GameState.puzzle_state[puzzle_id] = true

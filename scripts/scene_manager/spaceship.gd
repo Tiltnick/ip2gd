@@ -9,6 +9,6 @@ func _ready() -> void:
 		DialogManager.start_dialog("res://dialog/innerMonologue/wakeup.json")
 		
 		await DialogManager.dialog_finished
-		QuestManager.add_quest("quest1")
+		QuestManager.add_quest("quest_1")
 		tutorial.visible = true
 		

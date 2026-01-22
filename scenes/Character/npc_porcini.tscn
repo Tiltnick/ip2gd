@@ -80,6 +80,7 @@ radius = 24.0
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_1u0wy")
+move_speed = 10.0
 
 [node name="Press_E_Popup_NPC" parent="." instance=ExtResource("2_6fqm2")]
 visible = false
@@ -100,8 +101,6 @@ scale = Vector2(1.032258, 1)
 sprite_frames = SubResource("SpriteFrames_eprow")
 animation = &"idle"
 autoplay = "idle"
-frame = 1
-frame_progress = 0.9370906
 
 [node name="Outline" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -124,10 +123,11 @@ shape = SubResource("CircleShape2D_5dfqd")
 
 [node name="stateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("5_syqdl")
-initial_state = NodePath("move")
+initial_state = NodePath("idle")
 
 [node name="idle" type="Node" parent="stateMachine"]
 script = ExtResource("6_ftgrv")
+start_patrol_after_wait = false
 
 [node name="move" type="Node" parent="stateMachine"]
 script = ExtResource("7_edrff")

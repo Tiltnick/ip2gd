@@ -44,32 +44,33 @@ func PhysicsUpdate(delta: float) -> void:
 		TransitionTo("idle")
 		return
 
-	# Npc nicht bewegen wenn es keinen Path gibt
-	if path_follow == null or path_length <= 0.0:
-		npc.velocity = Vector2.ZERO
-		npc.move_and_slide()
+	# Wenn der NPC gar nicht patrouillieren soll
+	if npc.behavior == NPC.Behavior.STAND_ONLY:
+		TransitionTo("idle")
+		return
+
+	# Kein Path -> idle (damit Animation stimmt)
+	if not npc.has_valid_path():
+		TransitionTo("idle")
 		return
 
 	var current: float = path_follow.progress
 
-	# State wechseln für warten
+	# Ziel erreicht -> warten
 	if abs(target_progress - current) <= progress_epsilon:
 		TransitionTo("idle")
 		return
 
 	var diff: float = target_progress - current
-	var dir_sign: float = 1.0
-	if diff < 0.0:
-		dir_sign = -1.0
+	var dir_sign: float = -1.0 if diff < 0.0 else 1.0
 
 	var step: float = npc.move_speed * speed_multiplier * delta
 	var new_progress: float = current + dir_sign * step
 
-
+	# nicht überschießen
 	if (dir_sign > 0.0 and new_progress > target_progress) or (dir_sign < 0.0 and new_progress < target_progress):
 		new_progress = target_progress
 
-	# Auf Pfad halten
 	new_progress = clamp(new_progress, 0.0, path_length)
 	path_follow.progress = new_progress
 
@@ -78,18 +79,15 @@ func PhysicsUpdate(delta: float) -> void:
 	var move_vec: Vector2 = target_pos - npc.global_position
 
 	if move_vec.length() > 0.0:
-		var dir: Vector2 = move_vec.normalized()
-		npc.velocity = dir * npc.move_speed * speed_multiplier
+		npc.velocity = move_vec.normalized() * npc.move_speed * speed_multiplier
 	else:
 		npc.velocity = Vector2.ZERO
 
-	# Sprite flippen horizontal
+	# Flip
 	if abs(npc.velocity.x) > 1.0:
 		var flip := npc.velocity.x > 0
-
 		if npc.anim:
 			npc.anim.flip_h = flip
-
 		if npc.outline:
 			npc.outline.flip_h = flip
 
