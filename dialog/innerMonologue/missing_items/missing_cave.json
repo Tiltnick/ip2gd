@@ -1,0 +1,18 @@
+{
+  "id": "missing_cave",
+
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+		"sections": {
+			"lines": [{
+				"speaker": "Oris",
+				"text_en": "Maybe I can find some information about Sam lying around here somewhere.",
+				"text_de": "Vielleicht liegen hier ein paar Informationen zu Sam rum."
+			}]
+		},
+	"end": { "lines": [] }
+  }
+}

@@ -365,6 +365,8 @@ position = Vector2(-25, 167)
 script = ExtResource("5_oqthk")
 target_scene_path = "uid://34ylk7jtx176"
 target_spawn_id = "from_sams_cave"
+required_items = Array[String](["cave_note"])
+missing_items_dialog_json = "res://dialog/innerMonologue/missing_items/missing_cave.json"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea"]
 position = Vector2(0, 14)

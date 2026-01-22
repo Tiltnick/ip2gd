@@ -3444,6 +3444,8 @@ position = Vector2(0, 358)
 script = ExtResource("5_vq5gx")
 target_scene_path = "uid://ppgrh87b51qp"
 target_spawn_id = "from_temple"
+required_items = Array[String](["flower"])
+missing_items_dialog_json = "res://dialog/innerMonologue/missing_items/missing_temple.json"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_j5sn1")

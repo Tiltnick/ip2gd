@@ -1,0 +1,18 @@
+{
+  "id": "missing_spaceship_room",
+
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+		"sections": {
+			"lines": [{
+				"speaker": "Oris",
+				"text_en": "There's gotta be a telescope here somewhere. I might use it to look at the stars.",
+				"text_de": "Hier muss irgendwo ein Teleskop sein. Ich könnte es benutzen um einen Blibk in die Sterne zu werfen."
+			}]
+		},
+	"end": { "lines": [] }
+  }
+}

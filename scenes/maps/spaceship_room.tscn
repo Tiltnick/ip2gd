@@ -2550,10 +2550,12 @@ position = Vector2(-624, -39)
 script = ExtResource("8_o77xa")
 target_scene_path = "uid://csejhruust020"
 target_spawn_id = "from_spaceship_room"
+required_items = Array[String](["telescope"])
+missing_items_dialog_json = "res://dialog/innerMonologue/missing_items/missing_spaceship_room.json"
 metadata/_custom_type_script = "uid://omi26xfafgx0"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea"]
-position = Vector2(0, 5)
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_rgnjo")
 
 [node name="cabinet" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("9_rgnjo")]
@@ -2632,6 +2634,7 @@ offset_bottom = 72.0
 mouse_filter = 2
 texture = ExtResource("14_vqt5a")
 expand_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="Fog Container" type="Node" parent="."]
 

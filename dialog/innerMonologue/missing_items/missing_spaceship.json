@@ -1,0 +1,18 @@
+{
+  "id": "missing_spaceship",
+
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+		"sections": {
+			"lines": [{
+				"speaker": "Oris",
+				"text_en": "The code was correct, but I feel like there is something important lying on the table. I should collect it before I go out.",
+				"text_de": "Der Code hat gestimmt, aber ich glaube auf dem Tisch liegt noch etwas wichtiges. Ich sollte es einsammeln bevor ich rausgehe."
+			}]
+		},
+	"end": { "lines": [] }
+  }
+}
