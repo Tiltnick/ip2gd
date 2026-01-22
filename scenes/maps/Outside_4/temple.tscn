@@ -3542,11 +3542,12 @@ position = Vector2(464, 90)
 position = Vector2(256, 144)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 light_mask = 4
 build_mode = 1
-polygon = PackedVector2Array(-48, 346, -50, 369, 51, 369, 50, 350, 67, 384, -59, 381)
+polygon = PackedVector2Array(-48, 346, -50, 369, 51, 369, 50, 350, 67, 384, -58, 385)
 
 [node name="Hotbar" type="CanvasLayer" parent="."]
 layer = 0

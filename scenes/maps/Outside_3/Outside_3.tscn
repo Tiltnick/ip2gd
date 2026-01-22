@@ -4690,6 +4690,7 @@ offset_bottom = -54.999878
 scale = Vector2(1.5, 1.5)
 
 [node name="MapBounds" type="StaticBody2D" parent="."]
+collision_layer = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MapBounds"]
 position = Vector2(802, -27)
