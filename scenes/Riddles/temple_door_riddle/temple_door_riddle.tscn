@@ -1,0 +1,130 @@
+[gd_scene load_steps=15 format=3 uid="uid://c7few50osunnf"]
+
+[ext_resource type="Script" uid="uid://bebkhle224m2v" path="res://scripts/riddles/spaceship_door/temple_door_riddle.gd" id="1_7ry33"]
+[ext_resource type="Texture2D" uid="uid://cjuhq1spk8kgi" path="res://assets/sprites/map/Outside_4/slots.png" id="1_gv3id"]
+[ext_resource type="Texture2D" uid="uid://s8ta5msbbnjf" path="res://assets/sprites/selfmade/mushrooms/fire_mush.png" id="1_rgy3i"]
+[ext_resource type="Script" uid="uid://ykh27yiayjb1" path="res://scripts/riddles/temple_door/slots.gd" id="2_1q60s"]
+[ext_resource type="Script" uid="uid://cxi36gpbs7nn4" path="res://scripts/riddles/temple_door/mushrooms.gd" id="2_bmvqf"]
+[ext_resource type="Texture2D" uid="uid://djk41gs8bqjb0" path="res://assets/sprites/selfmade/mushrooms/water_mush.png" id="2_gv3id"]
+[ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="5_1q60s"]
+[ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="8_d1fto"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ry33"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1fto"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwnh8"]
+bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_abdgs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w4lwf"]
+radius = 109.01835
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rimrx"]
+radius = 31.805817
+
+[node name="TempleDoorRiddle" type="CanvasLayer"]
+script = ExtResource("1_7ry33")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_gv3id")
+metadata/_edit_lock_ = true
+
+[node name="close_button" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -77.0
+offset_top = 35.0
+offset_right = -21.0
+offset_bottom = 88.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_7ry33")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_d1fto")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mwnh8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_abdgs")
+icon = ExtResource("5_1q60s")
+icon_alignment = 1
+
+[node name="Slots" type="Node" parent="."]
+
+[node name="LeftSlot" type="Area2D" parent="Slots"]
+position = Vector2(494.10004, 523.70996)
+scale = Vector2(2.915, 2.915)
+script = ExtResource("2_1q60s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slots/LeftSlot"]
+shape = SubResource("CircleShape2D_w4lwf")
+
+[node name="RightSlot" type="Area2D" parent="Slots"]
+position = Vector2(1419.9, 524.29004)
+scale = Vector2(2.915, 2.915)
+script = ExtResource("2_1q60s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slots/RightSlot"]
+shape = SubResource("CircleShape2D_w4lwf")
+metadata/_edit_lock_ = true
+
+[node name="Mushrooms" type="Node" parent="."]
+
+[node name="LeftMush" type="Area2D" parent="Mushrooms"]
+position = Vector2(-114.99999, -120.99999)
+scale = Vector2(10, 10)
+script = ExtResource("2_bmvqf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Mushrooms/LeftMush"]
+position = Vector2(60.9, 61.399994)
+texture = ExtResource("1_rgy3i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mushrooms/LeftMush"]
+position = Vector2(60.90041, 64.4097)
+shape = SubResource("CircleShape2D_rimrx")
+
+[node name="RightMush" type="Area2D" parent="Mushrooms"]
+position = Vector2(494.10004, 523.70996)
+scale = Vector2(10, 10)
+script = ExtResource("2_bmvqf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Mushrooms/RightMush"]
+position = Vector2(92.689995, 3.434)
+texture = ExtResource("2_gv3id")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mushrooms/RightMush"]
+position = Vector2(92.58999, 0.1290046)
+shape = SubResource("CircleShape2D_rimrx")
+
+[node name="Hotbar" parent="." instance=ExtResource("8_d1fto")]
