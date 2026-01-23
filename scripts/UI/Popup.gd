@@ -1,4 +1,7 @@
 extends Control
+class_name UIPopup
+
+signal finished
 
 @onready var anim := $AnimationPlayer
 @onready var label: Label = $CanvasLayer/Panel/Label
@@ -21,6 +24,11 @@ func show_popup(text: String, image: Texture2D = null, link := ""):
 	anim.play("slide_in")
 	await get_tree().create_timer(4).timeout
 	anim.play("slide_out")
+	
+	#warten bis Animation  fertig ist
+	await anim.animation_finished
+	$CanvasLayer.visible = false
+	finished.emit()
 
 func _on_icon_input(event):
 	if icon_link == "":
