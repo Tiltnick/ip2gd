@@ -24,6 +24,16 @@ var DATA := {
 		"world_scene": "res://scenes/interactables/objects/mushrooms/fire_mush.tscn"
 	},
 	
+	"water_mush": {
+		"name_de": "Wasserpilz",
+		"name_en": "water mushroom",
+		"description_de": "Nass und glitschig. Steck ihn am Besten nicht in deine Hosentasche...",
+		"description_en": "Wet and slippery. It's best if you don't put it in your pocket...",
+		"icon":"res://assets/sprites/selfmade/mushrooms/water_mush.png",
+		"icon_size": Vector2(55,55),
+		"world_scene": "res://scenes/interactables/objects/mushrooms/water_mush.tscn"
+	},
+	
 	"mushrooms": {      # used for the hotbar
 		"name_de": "Pilze",
 		"name_en": "mushrooms",

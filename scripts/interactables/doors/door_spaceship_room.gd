@@ -5,7 +5,7 @@ class_name Door
 var target_scene_path: String = ""
 
 @export 
-var target_spawn_id: String = "start"   # Name des Spawnpoints in der Zielszene
+var target_spawn_id: String = "start"
 
 @export
 var required_item_id: String = "fluxomat"
@@ -23,33 +23,37 @@ func _ready():
 		door_open()
 	else:
 		door_locked()
-	
-	
+
 
 func interact() -> void:
-	if is_in_group("door_broken"):
-		if door_is_open:
-			open_door()
-			return
-
-		# check if item 
-		if hotbarglobal.has_item(required_item_id):
-			# Item verbrauchen, damit es aus der Hotbar verschwindet
-			hotbarglobal.remove_item(required_item_id)
-			
-			QuestManager.complete_quest("quest_2")
-
-			# Tür optisch öffnen + Zustand merken
-			door_open()
-			open_door()
-			
-		else:
-			DialogManager.start_dialog("res://dialog/spaceship/door_locked.json")
-			await DialogManager.dialog_finished
-			QuestManager.add_quest("quest_2") # The broken door
-			
-	elif not is_in_group("door_broken"):
+	if not is_in_group("door_broken"):
 		open_door()
+		return
+
+	if hotbarglobal.has_item(required_item_id):
+		hotbarglobal.remove_item(required_item_id)
+		QuestManager.complete_quest("quest_2")
+		door_open()
+		open_door()
+		return
+
+	var puzzle_done := bool(GameState.puzzle_state.get("spaceship_room_done", false))
+	var has_telescope := hotbarglobal.has_item("telescope")
+
+	if puzzle_done and not has_telescope:
+		DialogManager.start_dialog(
+			"res://dialog/spaceship/door_locked_after_riddle.json"
+		)
+		return
+
+	if not puzzle_done and not has_telescope:
+		DialogManager.start_dialog(
+			"res://dialog/spaceship/door_locked.json"
+		)
+		QuestManager.add_quest("quest_2") # The broken door
+		return
+
+	open_door()
 
 
 func door_locked():
@@ -76,7 +80,6 @@ func door_open():
 	var texture = load("res://assets/sprites/selfmade/spaceship_door_open.png")
 	sprite.texture = texture
 
-# Diese Methode kann auch von Subklassen wie DoorWithCode aufgerufen werden
 func open_door() -> void:
 	if target_scene_path == "":
 		push_warning("Keine Zielszene gesetzt für: %s" % name)
@@ -87,5 +90,4 @@ func open_door() -> void:
 		push_warning("Kein Spieler gefunden")
 		return
 	
-	# Szenenwechsel über SceneManager
 	SceneManager.goto_scene(target_scene_path, target_spawn_id)

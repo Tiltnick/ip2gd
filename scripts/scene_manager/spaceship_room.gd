@@ -1,8 +1,7 @@
 extends Node2D
 
 func _ready() -> void:
-	if not GameState.puzzle_state.get("spaceship_room_done", false):
-		GameState.puzzle_state["spaceship_room_done"] = true
+	if not GameState.puzzle_state.get("spaceship_room_done"):
 		DialogManager.start_dialog("res://dialog/spaceship/door_opened.json")
 
 
