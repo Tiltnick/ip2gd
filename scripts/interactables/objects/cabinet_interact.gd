@@ -37,6 +37,8 @@ func interact() -> void:
 	# Item geben
 	hotbarglobal.give_item(ITEM_ID, SAVE_KEY)
 	#hotbarglobal.add_item(ITEM_ID)
+	
+	GameState.puzzle_state["spaceship_room_done"] = true
 
 	# Innerer Monolog
 	if dialog_path != "":
