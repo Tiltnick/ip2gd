@@ -16,8 +16,12 @@ func _ready() -> void:
 		set_item_metadata(0, "en")
 		set_item_metadata(1, "de")
 
-	_select_current_locale()
-	item_selected.connect(_on_item_selected)
+		item_selected.connect(_on_item_selected)
+		_select_current_locale()
+
+
+	#_select_current_locale()
+	#item_selected.connect(_on_item_selected)
 
 func _select_current_locale() -> void:
 	var current: String = ""
@@ -31,6 +35,7 @@ func _select_current_locale() -> void:
 		var locale: String = str(get_item_metadata(i))
 		if locale == current:
 			select(i)
+			_on_item_selected(i) 
 			return
 
 func _on_item_selected(index: int) -> void:
