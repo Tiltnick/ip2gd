@@ -73,6 +73,7 @@ func start_new_game() -> void:
 	GameState.puzzle_state = {}
 	GameState.has_save = false
 	GameState.picked_items = []
+	GameState.tutorial_done = false
 
 	# Hotbar + Inventory zurücksetzen
 	hotbarglobal.inventory_items.fill(null)
