@@ -27,11 +27,22 @@ func _ready():
 
 	_update_text()
 
+
 func start_tutorial():
-	tutorial_title.text = "Controls"
 	visible = true
+	set_process_input(true)
+
 	current_step = TutorialStep.MOVEMENT
+	movement_counter = 0
+	used_movement = {
+		"moveLeft": false,
+		"moveRight": false,
+		"moveUp": false,
+		"moveDown": false
+	}
+
 	_update_text()
+
 
 func _input(event):
 	match current_step:
@@ -71,15 +82,21 @@ func _check_interact(event):
 		GameState.tutorial_done = true
 		SaveSystem.save_game()
 
+
+
 func _update_text():
 	match current_step:
 		TutorialStep.MOVEMENT:
-			tutorial_title.text = "TUTORIAL_TITLE_MOVEMENT"
-			tutorial_text.text = "TUTORIAL_TEXT_MOVEMENT" % movement_counter
+			tutorial_title.text = tr("TUTORIAL_TITLE_MOVEMENT")
+			tutorial_text.text  = tr("TUTORIAL_TEXT_MOVEMENT") % movement_counter
 		TutorialStep.SPRINT:
-			tutorial_title.text = "TUTORIAL_TITLE_SPRINT"
-			tutorial_text.text = "TUTORIAL_TEXT_SPRINT"
+			tutorial_title.text = tr("TUTORIAL_TITLE_SPRINT")
+			tutorial_text.text  = tr("TUTORIAL_TEXT_SPRINT")
 		TutorialStep.INTERACT:
-			tutorial_title.text = "TUTORIAL_TITLE_INTERACT"
-			tutorial_text.text = "TUTORIAL_TEXT_INTERACT"
+			tutorial_title.text = tr("TUTORIAL_TITLE_INTERACT")
+			tutorial_text.text  = tr("TUTORIAL_TEXT_INTERACT")
+		TutorialStep.DONE:
+			tutorial_title.text = ""
+			tutorial_text.text = ""
+
 			
