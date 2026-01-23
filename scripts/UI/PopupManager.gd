@@ -91,8 +91,7 @@ func popup_item(item: String, icon: Texture2D):
 	SfxPlayer.notification_sound()
 	_enqueue(
 		popup,
-		tr("ITEM_FOUND") + item, 
-		icon)
+		tr("ITEM_FOUND") + ": " + item, icon)
 
 
 #func popup_item_de(item: String, icon: Texture2D):

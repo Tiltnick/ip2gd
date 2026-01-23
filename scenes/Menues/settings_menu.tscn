@@ -678,7 +678,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 50
-text = "DISPLAY MODE"
+text = "DISPLAY_MODE"
 
 [node name="OptionButton" type="OptionButton" parent="TabContainer/SETTINGS/GraphicsContainer"]
 layout_mode = 2
