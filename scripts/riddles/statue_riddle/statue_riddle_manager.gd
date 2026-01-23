@@ -10,7 +10,8 @@ var solved := false
 
 const SOLVED_DIALOG := "res://dialog/innerMonologue/completing_statue_riddle.json"
 const TELESCOPE_CONSUMED_FLAG := "telescope_consumed_after_statue"
-
+const SAVE_KEY := "water_mush"
+const ITEM_ID  := "water_mush"
 
 # Lösung:
 # bottom idle = 4
@@ -30,7 +31,7 @@ func open_puzzle() -> void:
 		middle.lock()
 		top.lock()
 	
-	QuestManager.add_quest("quest_6")
+
 
 func close_puzzle() -> void:
 	hide()
@@ -76,10 +77,7 @@ func _on_puzzle_solved() -> void:
 			hotbarglobal.remove_item("telescope")
 			
 	call_deferred("_delayed_close_and_dialog")
-	
-
-	
-
+	get_mushroom()
 
 func _delayed_close_and_dialog() -> void:
 	await get_tree().create_timer(1.0).timeout
@@ -94,3 +92,7 @@ func _delayed_close_and_dialog() -> void:
 
 func _on_close_button_pressed() -> void:
 	close_puzzle()
+
+func get_mushroom():
+	if not hotbarglobal.give_item(ITEM_ID, SAVE_KEY):
+		return

@@ -5,6 +5,8 @@ var sky_scene_path: String = ""
 
 @export var required_item_id: String = "telescope1"
 
+@export var tripod_id: String = "tripod_2"
+
 # Reihenfolge wichtig
 const NO_TELESCOPE_FLOW := [
 	{
@@ -21,9 +23,12 @@ const TELESCOPE_USED_FLAG := "telescope_consumed_after_statue"
 
 func interact() -> void:
 	SfxPlayer.ui_click_sound()
+	QuestManager.add_quest("quest_5")
 
 	# wenn teleskop vorhanden
 	if _has_required_item():
+		print("Tripod interact:", tripod_id)
+		TripodManager.mark_interacted(tripod_id)
 		_go_to_sky_scene()
 		return
 
