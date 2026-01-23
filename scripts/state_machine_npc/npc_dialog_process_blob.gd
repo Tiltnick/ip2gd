@@ -7,10 +7,13 @@ var flee_target := Vector2.ZERO
 var npc_id: String = "blob"
 var required_item_id: String = "shovel"
 @export var spawn_marker: Marker2D
+@onready var spawn_marker_cave: Marker2D = $SpawnPoints/blob_spawn_cave
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+const FLOWER_CONSUMED_FLAG := "flower_consumed_after_dialogue"
 
 const OUTSIDE2_SECOND_UNLOCK_FLAG: String = "outside2_second_unlocked"
+const OUTSIDE2_NOTE_FLAG := "sams_note_picked" # <-- nimm hier deinen echten Flag!
+
 
 # Szene → Dialogdatei
 const DIALOG_BY_SCENE := {
@@ -53,6 +56,20 @@ const OUTSIDE2_SECOND_FLOW := [
 		"path": "res://dialog/dialogueMrBlob/outside_2_part_2.json",
 	}
 ]
+
+const OUTSIDE2_BEFORE_CAVE := [
+	
+]
+
+const OUTSIDE2_AFTER_CAVE := [
+	{
+		"flag": "blob_cave_done",
+		"path": "res://dialog/dialogueMrBlob/questioning_about_flower.json",
+	}
+]
+
+
+
 const OUTSIDE2_SECOND_END: String = "res://dialog/dialogueMrBlob/outside_2_part_2_end.json"
 
 const OUTSIDE2_LOCKED_WITH_ITEM_DIALOG: String = "res://dialog/dialogueMrBlob/outside_2_part_2_default.json"
@@ -95,15 +112,19 @@ const SPACESHIPROOM_FLOW_END: String = "res://dialog/dialogueMrBlob/end_dialog_o
 
 func _ready() -> void:
 	super._ready()
-
 	var npc_pos = "npc_pos_" + npc_id
+	var cave_done := bool(GameState.puzzle_state.get("blob_cave_done", false))
+	var note_picked := bool(GameState.puzzle_state.get(OUTSIDE2_NOTE_FLAG, false))
 
-	if GameState.puzzle_state.has(npc_pos):
-		var d = GameState.puzzle_state[npc_pos]
-		if typeof(d) == TYPE_DICTIONARY and d.has("x") and d.has("y"):
-			global_position = Vector2(d["x"], d["y"])
-	elif spawn_marker:
-		global_position = spawn_marker.global_position
+	if get_tree().current_scene and get_tree().current_scene.name == "Outside2" and note_picked and not cave_done and spawn_marker_cave:
+			global_position = spawn_marker_cave.global_position
+	else:
+		if GameState.puzzle_state.has(npc_pos):
+			var d = GameState.puzzle_state[npc_pos]
+			if typeof(d) == TYPE_DICTIONARY and d.has("x") and d.has("y"):
+				global_position = Vector2(d["x"], d["y"])
+		elif spawn_marker:
+			global_position = spawn_marker.global_position
 
 
 	DialogManager.dialog_finished.connect(_on_dialog_finished)
@@ -120,6 +141,14 @@ func get_dialog_path(scene_name: String) -> String:
 		var has_item: bool = hotbarglobal.has_item(required_item_id)
 		var unlocked: bool = bool(GameState.puzzle_state.get(OUTSIDE2_SECOND_UNLOCK_FLAG, false))
 
+	
+		var note_picked: bool = bool(GameState.puzzle_state.get(OUTSIDE2_NOTE_FLAG, false))
+		var cave_done: bool = bool(GameState.puzzle_state.get("blob_cave_done", false))
+		if note_picked and not cave_done:
+			return _get_outside2_after_cave_dialog()
+
+		#var npc_path: Path2D = $"../NPCPath/NPCPathFollow"
+		
 		if has_item and unlocked:
 			return _get_outside2_second_dialog()
 
@@ -164,6 +193,13 @@ func _get_outside2_second_dialog() -> String:
 		if not bool(GameState.puzzle_state.get(step["flag"], false)):
 			return step["path"]
 	return OUTSIDE2_SECOND_END
+	
+func _get_outside2_after_cave_dialog() -> String:
+	for step in OUTSIDE2_AFTER_CAVE:
+		if not bool(GameState.puzzle_state.get(step["flag"], false)):
+			return step["path"]
+	# Wenn done: danach normal weiter (oder ein Default)
+	return DEFAULT_DIALOG
 
 func _get_outside3_dialog() -> String:
 	for step in OUTSIDE3_FLOW:
@@ -207,25 +243,25 @@ func run_away_to(pos: Vector2) -> void:
 	fleeing = true
 	flee_target = pos
 
-signal walk_away_done
+#signal walk_away_done
 
-func walk_away() -> void:
-	cutscene_locked = true
-	velocity = Vector2.ZERO
-	move_and_slide()
-
-	var path := ""
-	if get_tree().current_scene:
-		path = get_tree().current_scene.scene_file_path
-
-	if path == "res://scenes/maps/Outside_4/Outside_4.tscn":
-		animation_player.play("walk_away_outside_4")
-	elif path == "res://scenes/maps/Outside_1/Outside_1.tscn":
-		animation_player.play("walk_away_outside_1")
-
-	await animation_player.animation_finished
-	walk_away_done.emit()
-	queue_free()
+#func walk_away() -> void:
+	#cutscene_locked = true
+	#velocity = Vector2.ZERO
+	#move_and_slide()
+#
+	#var path := ""
+	#if get_tree().current_scene:
+		#path = get_tree().current_scene.scene_file_path
+#
+	#if path == "res://scenes/maps/Outside_4/Outside_4.tscn":
+		#animation_player.play("walk_away_outside_4")
+	#elif path == "res://scenes/maps/Outside_1/Outside_1.tscn":
+		#animation_player.play("walk_away_outside_1")
+#
+	#await animation_player.animation_finished
+	#walk_away_done.emit()
+	#queue_free()
 
 func _on_dialog_finished() -> void:
 #	var scene_name := get_tree().current_scene.name
@@ -234,8 +270,12 @@ func _on_dialog_finished() -> void:
 		QuestManager.add_quest("quest_4")
 		
 	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_1_end.json":
-		walk_away()
-	
+		pass
+		#run_away_to()
+
+	elif last_dialog_path == "res://dialog/dialogueMrBlob/questioning_about_flower.json":
+		GameState.puzzle_state["blob_cave_done"] = true
+
 	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_4.json":
 		if GameState.picked_items.has("flower"):
 			GameState.picked_items.erase("flower")

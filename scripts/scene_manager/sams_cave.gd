@@ -13,6 +13,9 @@ func _ready() -> void:
 		DialogManager.start_dialog(
 		"res://dialog/innerMonologue/cave_with_flashlight.json")
 		await DialogManager.dialog_finished
+		
+		GameState.puzzle_state["sams_note_picked"] = true
+
 		QuestManager.add_quest("quest_7") # sams cave
 		return
 
