@@ -277,5 +277,11 @@ func _on_dialog_finished() -> void:
 		GameState.puzzle_state["blob_cave_done"] = true
 
 	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_4.json":
-		if GameState.picked_items.has("flower"):
-			GameState.picked_items.erase("flower")
+		remove_flower()
+		#run_away_to()
+
+func remove_flower():
+		if not GameState.puzzle_state.get(FLOWER_CONSUMED_FLAG, false):
+			GameState.puzzle_state[FLOWER_CONSUMED_FLAG] = true
+		if hotbarglobal.has_item("flower"):
+			hotbarglobal.remove_item("flower")
