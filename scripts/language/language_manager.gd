@@ -34,9 +34,6 @@ func _apply_language() -> void:
 	get_tree().root.propagate_notification(NOTIFICATION_TRANSLATION_CHANGED)
 
 
-#func _apply_language() -> void:
-	#TranslationServer.set_locale(get_effective_locale())
-
 
 func _save_language() -> void:
 	var cfg := ConfigFile.new()
