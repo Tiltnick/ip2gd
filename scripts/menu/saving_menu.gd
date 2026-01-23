@@ -26,8 +26,11 @@ func pause():
 		else:
 			node.queue_free()
 
-	GlobalMenuButton.show()
-	SettingsButton.show()
+
+	if GameState.puzzle_state.get("spaceship_diary", false):
+		GlobalMenuButton.show()
+	else:
+		GlobalMenuButton.hide()
 
 	# Dialog verstecken falls er läuft 
 	if DialogManager and DialogManager.is_running:

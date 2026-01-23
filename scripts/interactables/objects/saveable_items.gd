@@ -22,7 +22,7 @@ func mark_collected() -> void:
 
 	if save_id != "cave_note":
 		GameState.puzzle_state[save_id] = true
-		PopupManager.popup_item(item_name_de, item_icon)
+		show_item_popup()
 	
 	if save_id != "" and not GameState.picked_items.has(save_id):
 		GameState.picked_items.append(save_id)
@@ -30,3 +30,11 @@ func mark_collected() -> void:
 	
 	SaveSystem.save_game()
 	print("")
+
+
+func show_item_popup():
+	var lang = TranslationServer.get_locale().substr(0,2)
+	if lang == "de":
+		PopupManager.popup_item(item_name_de, item_icon)
+	if lang == "en":
+		PopupManager.popup_item(item_name_en, item_icon)
