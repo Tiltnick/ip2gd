@@ -5,6 +5,8 @@ var sky_scene_path: String = ""
 
 @export var required_item_id: String = "telescope1"
 
+@export var tripod_id: String = "tripod_1"
+
 # Reihenfolge wichtig
 const NO_TELESCOPE_FLOW := [
 	{
@@ -24,6 +26,8 @@ func interact() -> void:
 	
 	#wenn teleskop vorhanden
 	if _has_required_item():
+		print("Tripod interact:", tripod_id)
+		TripodManager.mark_interacted(tripod_id)
 		_go_to_sky_scene()
 		return
 

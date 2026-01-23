@@ -1,0 +1,16 @@
+{
+	"id": "oris_no_shovel",
+	"characters": {
+		"Oris": "res://assets/sprites/portrait/oris.png"
+		},
+	"steps": {
+		"sections": {
+			"lines": [{
+				"speaker": "Oris",
+				"text_en": "This statue looks very old... Maybe the tripods have something to do with it.",
+				"text_de": "Die Statue sieht sehr alt aus. Vielleicht haben die Stative etwas damit zu tun."
+			}]
+		},
+	"end": { "lines": [] }
+  }
+}
