@@ -95,7 +95,8 @@ func update_ui():
 func remove_item(item_id: String) -> void:
 	if item_id == "":
 		return
-
+	if GameState.picked_items.has(item_id):
+		GameState.picked_items.erase(item_id)
 	# if piece gets deleted, lower count
 	var group := _get_stack_group(item_id)
 	if group != "":
