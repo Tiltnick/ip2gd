@@ -14,9 +14,11 @@ var _last_path = ""
 func update_visibility(path: String):
 	if path in hidden_in_scenes:
 		GlobalMenuButton.hide()
-	#checking if diary is collected 
-	elif GameState.puzzle_state.has("spaceship_diary"):
+	elif GameState.puzzle_state.get("spaceship_diary", false):
 		GlobalMenuButton.show()
+	else:
+		GlobalMenuButton.hide()
+
 
 func _process(_delta: float) -> void:
 	var scene = get_tree().current_scene
