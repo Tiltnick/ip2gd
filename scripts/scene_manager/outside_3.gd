@@ -18,8 +18,4 @@ func configure_camera(cam: Camera2D) -> void:
 
 func _on_area_2d_3_body_entered(body: Node2D) -> void:
 	if not GameState.puzzle_state.get("outside3_monologue_done", true):
-		var lang = TranslationServer.get_locale().substr(0, 2)
-		if lang == "en":
-			PopupManager.popup_spacegram_en()
-		elif lang == "de":
-			PopupManager.popup_spacegram_de()
+			PopupManager.popup_spacegram()

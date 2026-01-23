@@ -16,20 +16,13 @@ func _ready() -> void:
 		queue_free()
 
 func mark_collected() -> void:
-	var lang = TranslationServer.get_locale().substr(0, 2)
 	if save_id == "cave_note":
 		GameState.puzzle_state[save_id] = true
-		if lang == "de":
-			PopupManager.popup_diary_de()
-		elif lang == "en":
-			PopupManager.popup_diary_en()
+		PopupManager.popup_diary()
 
 	if save_id != "cave_note":
 		GameState.puzzle_state[save_id] = true
-		if lang == "de":
-			PopupManager.popup_item_de(item_name_de, item_icon)
-		elif lang == "en":
-			PopupManager.popup_item_en(item_name_en, item_icon)
+		PopupManager.popup_item(item_name_de, item_icon)
 	
 	if save_id != "" and not GameState.picked_items.has(save_id):
 		GameState.picked_items.append(save_id)

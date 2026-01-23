@@ -236,8 +236,5 @@ func _show_item_popup_from_db(item_id: String) -> void:
 	var tex := load(icon_path) as Texture2D
 	if tex == null:
 		return
-
-	if lang == "de":
-		PopupManager.popup_item_de(title, tex)
-	else:
-		PopupManager.popup_item_en(title, tex)
+	
+	PopupManager.popup_item(title, tex)
