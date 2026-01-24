@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://dmkx8cyr3lsa6"]
+[gd_scene load_steps=29 format=4 uid="uid://dmkx8cyr3lsa6"]
 
 [ext_resource type="Texture2D" uid="uid://d3nsg2t6vxtvv" path="res://assets/sprites/map/Outside_4/Ground.png" id="1_n83po"]
 [ext_resource type="Script" uid="uid://dhtpwr18uvr5p" path="res://scripts/scene_manager/temple.gd" id="1_s0bbf"]
@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://cd6aal2ayx2tk" path="res://scenes/Animations/fish.tscn" id="16_5ugvp"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="16_kjp60"]
 [ext_resource type="PackedScene" uid="uid://dvfvh3itass52" path="res://scenes/sam/Sam.tscn" id="17_5ugvp"]
-[ext_resource type="Texture2D" uid="uid://bbkysrm140l12" path="res://assets/sprites/selfmade/background_sky.png" id="19_ms8y5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5gjwu"]
 texture = ExtResource("1_n83po")
@@ -3381,9 +3380,6 @@ point_count = 15
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5sn1"]
 size = Vector2(96, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ms8y5"]
-size = Vector2(32, 23)
-
 [node name="Outside5" type="Node2D"]
 script = ExtResource("1_s0bbf")
 
@@ -3533,13 +3529,6 @@ script = ExtResource("14_gchg7")
 puzzle_path = NodePath("../PillarPuzzle")
 flower_scene = ExtResource("14_bgrxh")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="stone"]
-collision_layer = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="stone/StaticBody2D"]
-position = Vector2(1, 1.5)
-shape = SubResource("RectangleShape2D_ms8y5")
-
 [node name="Fish" type="Node" parent="."]
 
 [node name="Fish" parent="Fish" instance=ExtResource("16_5ugvp")]
@@ -3573,14 +3562,3 @@ guide_path_1 = NodePath("../Paths/sam_path")
 guide_path_2 = NodePath("../Paths/sam_path_2")
 guide_path_3 = NodePath("../Paths/sam_path_3")
 pillar_puzzle_path = NodePath("../PillarPuzzle")
-
-[node name="Background" type="TextureRect" parent="."]
-z_index = -3
-offset_left = -952.0
-offset_top = -584.0
-offset_right = 1032.0
-offset_bottom = 512.0
-mouse_filter = 2
-texture = ExtResource("19_ms8y5")
-expand_mode = 1
-metadata/_edit_lock_ = true

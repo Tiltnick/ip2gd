@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://ppgrh87b51qp"]
+[gd_scene load_steps=28 format=4 uid="uid://ppgrh87b51qp"]
 
 [ext_resource type="Texture2D" uid="uid://dvhqom61ux7y6" path="res://assets/sprites/map/Outside_4/Bridges.png" id="1_3bhg6"]
 [ext_resource type="Script" uid="uid://cxmmm0wwhx1ag" path="res://scripts/scene_manager/outside_4.gd" id="1_mjsk3"]
@@ -7398,6 +7398,9 @@ sources/7 = SubResource("TileSetAtlasSource_mdvsi")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rf87n"]
 size = Vector2(57, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6fly"]
+size = Vector2(36, 18.814453)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpomn"]
 size = Vector2(28.5, 111.24219)
 
@@ -7465,6 +7468,17 @@ target_spawn_id = "from_outside4"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1.5, 0)
 shape = SubResource("RectangleShape2D_rf87n")
+
+[node name="Area2D2" type="Area2D" parent="."]
+z_index = 2
+position = Vector2(-110, -202)
+script = ExtResource("6_d6fly")
+target_scene_path = "uid://dmkx8cyr3lsa6"
+target_spawn_id = "from_outside4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(-5, -26.407227)
+shape = SubResource("RectangleShape2D_d6fly")
 
 [node name="Area2D3" type="Area2D" parent="."]
 script = ExtResource("6_d6fly")
