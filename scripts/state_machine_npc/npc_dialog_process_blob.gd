@@ -10,6 +10,7 @@ var required_item_id: String = "shovel"
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+const FLOWER_CONSUMED_FLAG := "flower_consumed_after_dialogue"
 const OUTSIDE2_SECOND_UNLOCK_FLAG: String = "outside2_second_unlocked"
 
 # Szene → Dialogdatei
@@ -237,5 +238,11 @@ func _on_dialog_finished() -> void:
 		walk_away()
 	
 	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_4.json":
-		if GameState.picked_items.has("flower"):
-			GameState.picked_items.erase("flower")
+		remove_flower()
+		#run_away_to()
+
+func remove_flower():
+		if not GameState.puzzle_state.get(FLOWER_CONSUMED_FLAG, false):
+			GameState.puzzle_state[FLOWER_CONSUMED_FLAG] = true
+		if hotbarglobal.has_item("flower"):
+			hotbarglobal.remove_item("flower")

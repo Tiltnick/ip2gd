@@ -34,9 +34,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_85ubr")
 }],
-"loop": true,
+"loop": false,
 "name": &"open",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vk6b"]
@@ -46,10 +46,9 @@ size = Vector2(64, 47)
 script = ExtResource("1_5vk6b")
 metadata/_custom_type_script = "uid://bdssbm1prbicl"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="anim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bsc25")
 animation = &"open"
-frame_progress = 0.22374158
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 4

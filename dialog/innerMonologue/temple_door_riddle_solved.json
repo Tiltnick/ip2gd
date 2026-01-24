@@ -1,0 +1,40 @@
+{
+  "id": "temple_door_riddle_solved",
+
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+		"sections": {
+			"lines": [
+				{
+				"speaker": "Oris",
+				"text_en": "Here are two mushroom-like signs on the door...",
+				"text_de": "Hier sind zwei Pilzförmige Zeichen auf der Tür..."
+				},
+				{
+				"speaker": "Oris",
+				"text_en": "Maybe one of them is the fire mushroom which the mushroom people gave me just now...",
+				"text_de": "Vielleicht soll einer der beiden der Feuerpilz sein, den ich grade von den Pilzen bekommen habe."
+				},
+				{
+				"speaker": "Oris",
+				"text_en": "And the other one could be the water mushroom I got from the weird staue.",
+				"text_de": "Der andere Pilz könnte der eklige Wasserpilz sein den ich in der Statue gefunden habe."
+				},
+				{
+				"speaker": "Oris",
+				"text_en": "I guess I should try to put them into the slots...",
+				"text_de": "Ich denke ich sollte versuchen die beiden in die Slots zu legen..."
+				},
+				{
+				"speaker": "Oris",
+				"text_en": "Oh, I think something's moving there!",
+				"text_de": "Oh, ich glaube da bewegt sich was!"
+				}
+			]
+		},
+	"end": { "lines": [] }
+  }
+}
