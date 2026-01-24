@@ -1,28 +1,36 @@
 extends Node
+
 #scenes in which the button needs to be hidden
 var hidden_in_scenes = [
-"res://scenes/Menues/diary_menu.tscn",
-"res://scenes/Menues/main_menu.tscn",
-"res://scenes/Menues/PopUp.tscn",
-"res://scenes/Menues/saving_menu.tscn",
-"res://scenes/hotbar/hotbar.tscn"
+	"res://scenes/Menues/diary_menu.tscn",
+	"res://scenes/Menues/main_menu.tscn",
+	"res://scenes/Menues/PopUp.tscn",
+	"res://scenes/Menues/saving_menu.tscn",
+	"res://scenes/hotbar/hotbar.tscn"
 ]
+
 var _last_path = ""
 
 func update_visibility(path: String):
 	if path in hidden_in_scenes:
 		GlobalMenuButton.hide()
-	#checking if diary is collected 
-	elif GameState.puzzle_state.has("spaceship_diary"):
+	elif GameState.puzzle_state.get("spaceship_diary", false):
 		GlobalMenuButton.show()
+	else:
+		GlobalMenuButton.hide()
 
 
 func _process(_delta: float) -> void:
 	var scene = get_tree().current_scene
-	var path = scene.scene_file_path
-		#scene could be in between two scnenes null, while switching to new scene -> could crash
 	if scene == null:
 		return
+	var path = scene.scene_file_path
 	if path != _last_path:
 		_last_path = path
 		update_visibility(path)
+
+func _on_pressed():
+	# Öffnet das MainMenu innerhalb der Szene
+	var menu = get_tree().current_scene.get_node("CanvasLayer") 
+	menu.visible = true
+	get_tree().paused = true

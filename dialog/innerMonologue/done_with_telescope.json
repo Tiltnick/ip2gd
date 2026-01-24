@@ -1,0 +1,21 @@
+{
+  "id": "oris_done_with_telescope",
+
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+   "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "Ah, I have already used the telescope here to solve the statue."
+							,"text_de": "Ah, ich habe hier bereits das Teleskop benutzt, um den Turm richtig einzustellen." }
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+	  "lines": []
+	}
+  }
+}

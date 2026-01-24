@@ -1,0 +1,23 @@
+{
+	"id": "outside_3_begin",
+
+	"characters": {
+		"Oris": "res://assets/sprites/portrait/oris.png"
+},
+
+ "steps": {
+
+	"sections": {
+		"lines": [
+		{ "speaker": "Oris", "text_en": "Wow, so many mushrooms. I wonder if they have some special effects. ",
+								 "text_de": "Wow, so viele Pilze. Ich frag mich, ob die irgendwelche besonderen Effekte haben."
+		}
+			],
+	  "next": "end"
+	},
+	
+	"end": {
+	  "lines": []
+	}
+  }
+}

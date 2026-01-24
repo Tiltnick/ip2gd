@@ -1,0 +1,107 @@
+{
+	"id": "mushroom_riddle",
+
+	"characters": {
+		"Champi": "res://assets/sprites/portrait/champignon.png",
+		"Truffle": "res://assets/sprites/portrait/truffle.png",
+		"Porcini": "res://assets/sprites/portrait/porcini.png",
+		"Oris": "res://assets/sprites/portrait/oris.png",
+},
+
+ "steps": {
+
+	"sections": {
+		"lines": [
+		{ "speaker": "Champi", "text_en": "Stop, not every step deserves the space beyond. The plant beyond the depths can heal, yet it demands more than what is taken from it.",
+								 "text_de": "Halt, nicht jeder schritt verdient den Raum dahinter. Die Pflanze jenseits der Tiefe heilt, doch fordert sie mehr, als man ihr entreißt."
+		}
+			],
+	  "next": "dialogue_2"
+	},
+
+	"dialogue_2": {
+		"lines": [
+		{ "speaker": "Truffle", "text_en": "Whoever takes only to survive will never understand its path. You seek healing beyond this bridge. But every step toward it demands a price.",
+									"text_de": "Wer nur nimmt, um selbst zu bestehen, wird niemals ihren Pfad verstehen. Du suchst Heilung jenseits dieser Brücke. Doch jeder Schritt dorthin fordert einen Preis."
+		}
+		],
+		"next": "dialogue_3"
+	},
+
+	"dialogue_3": {
+		"lines": [
+			{ "speaker": "Porcini", "text_en": "Not knowledge, not strength, but sacrifice weighs heavy here. What you need is not always what you are allowed to keep.",
+										"text_de": "Nicht Wissen, nicht Stärke, sondern Verzicht wiegt hier schwer. Was du brauchst, ist nicht immer das, was du behalten darfst."
+			}
+		],
+		"next": "giving"
+	},
+
+	"giving": {
+		"lines": [
+			{ "speaker": "Oris", "text_en": "You want me to give something up ?",
+									"text_de": "Ich soll auf etwas verzichten ?"
+			}
+		],
+		"next": "give"
+	},
+	"give": {
+		"lines": [
+			{"speaker": "Champi", "text_en": " The bridge permits only those with a pure heart. But if you bring us what you truly need, it will begin to listen.",
+										"text_de": "Die Brücke lässt nur Wesen reines Herzens durch. Bringst du uns, was du brauchst, beginnt sie zu hören."
+			}
+		],
+		"next": "mushrooms"
+	},
+
+	"mushrooms": {
+		"lines": [
+			{"speaker": "Oris", "text_en": "You mean the mushrooms I collected ? But I need them for the flower... for my friend... ",
+								"text_de": "Ihr meint die Pilze, die ich gesammelt habe ? Ich brauch sie für die Blume... für meinen Freund..."
+			}
+		],
+		"next": "riddle"
+	},
+
+	"riddle": {
+		"lines": [
+			{"speaker": "Truffle", "text_en": "Three voices. three fields. Three possibilities to give.",
+									"text_de": "Drei Stimmen. Drei Felder. Drei Möglichkeiten etwas zu Gebens."
+			}
+		],
+		"next": "sun"
+	},
+
+	"sun": {
+		"lines": [
+			{"speaker": "Champi", "text_en": " I am the flame that weaves all life, a golden circle, drifting through time. I wake the land with morning light, yet never hide within the deepest night.",
+									"text_de": "Ich bin die Glut, die Leben webt, im gold'nen Kreis, der ewig schwebt. Ich wach’ das Land im Morgenlicht, doch birg mich nie in tiefster Nacht."
+			}
+		],
+		"next": "moon"
+	},
+
+	"moon": {
+		"lines": [
+			{"speaker": "Truffle", "text_en": "I part the waters, shape the flow of time, in quiet stillness, truth will shine. When night ascends, I rule the tides, a pale eye watching from above.",
+									"text_de": "Ich teil’ das Wasser, führ’ die Zeit, im Stillen liegt die Wahrheit breit. Wenn Nacht erwacht, beherrsch’ ich die Flut, ein blasses Auge hoch in Ruh’."
+			}
+		],
+		"next": "planet"
+	},
+
+	"planet": {
+		"lines": [
+			{"speaker": "Porcini","text_en": " I am the soil where countless feet have passed, where loss sinks deep and roots hold fast. I move in circles, slow and sure, a grounded world both old and pure.",
+									"text_de": "Ich bin der Grund, den Schritte tragen, wo Verlust versinkt, wo Wurzeln schlagen. Ich zieh’ im Kreis, so alt, so schwer.Geerdete Welt, uralt und pur." 
+			}
+		],
+		"next": "end"
+	},
+	
+	
+	"end": {
+	  "lines": []
+	}
+  }
+}

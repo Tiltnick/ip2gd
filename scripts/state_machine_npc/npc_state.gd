@@ -4,8 +4,8 @@ class_name NPCState
 
 signal state_transition(target_state: String)
 
-var machine
-var npc
+var machine: NPCStateMachine
+var npc: NPC
 
 
 func Enter(_prev: NPCState) -> void:

@@ -57,7 +57,7 @@ corner_radius_bottom_left = 62
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6xmg8"]
 
-[node name="SpaceshipDoor" type="CanvasLayer"]
+[node name="SpaceshipDoor" type="CanvasLayer" groups=["door_code_ui"]]
 script = ExtResource("1_5uccr")
 
 [node name="Control" type="Control" parent="."]
@@ -110,7 +110,7 @@ offset_right = 750.0
 offset_bottom = 138.0
 theme_override_fonts/font = ExtResource("2_8dm3v")
 theme_override_font_sizes/font_size = 60
-text = "Enter Code to Exit"
+text = "ENTER_CODE"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel2"]
@@ -151,7 +151,7 @@ offset_right = 482.0
 offset_bottom = 347.0
 theme_override_fonts/font = ExtResource("2_8dm3v")
 theme_override_font_sizes/font_size = 21
-text = "Verify"
+text = "VERIFY"
 
 [node name="RoundButtton" type="Button" parent="Control"]
 layout_mode = 1

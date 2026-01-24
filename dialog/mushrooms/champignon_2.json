@@ -1,0 +1,22 @@
+{
+	"id": "champi_end",
+
+	"characters": {
+		"Champi": "res://assets/sprites/portrait/champignon.png"
+},
+
+ "steps": {
+
+	"sections": {
+		"lines": [
+			{"speaker": "Champi", "text_en": "You impressed me... ",
+									"text_de": "Du hast mich beeindruckt..."
+			}
+		],
+		"next": "end"
+	},
+	"end": {
+	  "lines": []
+	}
+  }
+}

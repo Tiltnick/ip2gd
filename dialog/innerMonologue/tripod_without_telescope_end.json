@@ -1,0 +1,17 @@
+{
+  "id": "tripod_without_telescope_end",
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "Just a tripod..."
+							,"text_de": "Einfach nur ein Stativ..." },
+							
+	  ]
+	},
+
+	"end": { "lines": [] }
+  }
+}

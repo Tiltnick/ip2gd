@@ -1,0 +1,27 @@
+{
+  "id": "oris_discovers_sams_ship",
+
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "Huh, what an interesting area."
+							,"text_de": "Huch, was eine interessante Gegend." },
+		{ "speaker": "Oris", "text_en": "Everything looks and feels so dry."
+							,"text_de": "Alles ist so... trocken" },
+		{ "speaker": "Oris", "text_en": "Oh, I see something... is that... Sam's ship?"
+							,"text_de": "Oh, da drüben ist etwas... ist das... Sam's Schiff?" },
+		{ "speaker": "Oris", "text_en": "Oh, thank goodness. That means he must be nearby!"
+							,"text_de": "Zum Glück. Das muss wohl heißen er ist in der Nähe!" }
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+	  "lines": []
+	}
+  }
+}

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://l2i8ucrt4xbo"]
+
+[ext_resource type="Script" uid="uid://ch4x45idu1o8w" path="res://scripts/Cutscenes/ending_scene.gd" id="1_50p35"]
+[ext_resource type="PackedScene" uid="uid://dcl8ag834o4cv" path="res://scenes/Character/sam_ghost.tscn" id="2_4pu5p"]
+
+[node name="EndingScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_50p35")
+
+[node name="CanvasModulate" type="TextureRect" parent="."]
+layout_mode = 0
+
+[node name="SAM" parent="." instance=ExtResource("2_4pu5p")]
+position = Vector2(988, 553)
+scale = Vector2(8.9, 8.9)

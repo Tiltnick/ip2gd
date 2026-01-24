@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0vonwkvy4jaa"]
+
+[ext_resource type="Script" uid="uid://3eiilgxe8daw" path="res://scripts/interactables/objects/fire_mush.gd" id="1_8odni"]
+[ext_resource type="Texture2D" uid="uid://s8ta5msbbnjf" path="res://assets/sprites/selfmade/mushrooms/fire_mush.png" id="2_6ysbe"]
+[ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="3_2ifu2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gibed"]
+shader = ExtResource("3_2ifu2")
+shader_parameter/outline_size = 2.0
+shader_parameter/outline_color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y4xkn"]
+radius = 40.0
+
+[node name="FireMush" type="Node2D"]
+script = ExtResource("1_8odni")
+piece_save_id = "fire_mush"
+hotbar_type_id = "fire_mush"
+mush_name_de = "Pilz"
+mush_name_en = "mushroom"
+item_icon = ExtResource("2_6ysbe")
+metadata/_custom_type_script = "uid://ok3vdggq8k0a"
+
+[node name="Mushroom" type="Sprite2D" parent="."]
+texture = ExtResource("2_6ysbe")
+
+[node name="Outline" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_gibed")
+texture = ExtResource("2_6ysbe")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_y4xkn")

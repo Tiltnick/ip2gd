@@ -1,0 +1,18 @@
+{
+  "id": "oris_discovers_flashlight",
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+  "steps": {
+	"sections": {
+	  "lines": [
+		{
+		  "speaker": "Oris",
+		  "text_en": "Oh, look here...A flashlight! I'm sure this will come in handy.",
+		  "text_de": "Oh, sieh an...Eine Taschenlampe! Die wird sicher nützlich sein."
+		},
+	
+]},
+	"end": { "lines": [] }
+  }
+}

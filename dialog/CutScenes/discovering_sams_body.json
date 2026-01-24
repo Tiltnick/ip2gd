@@ -1,0 +1,101 @@
+{
+  "id": "oris_discovers_sam",
+
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ 
+			"speaker": "Oris", 
+			"text_en": "Oh, there's something here...",
+			"text_de": "Oh, hier liegt etwas..."
+		 },
+		{ 
+			"speaker": "Oris", 
+			"text_en": "...no, it can't be!",
+			"text_de": "...nein, das kann nicht sein!"
+		 },
+		{ 
+			"speaker": "Oris", 
+			"text_en": "...",
+			"text_de": "..."
+		 },
+		{ 
+			"speaker": "Oris", 
+			"text_en": "Oh my goodness... SAM!",
+			"text_de": "Oh mein Gott... SAM!"
+		 },
+		{ 
+			"speaker": "Oris", 
+			"text_en": "No, no, no, you're...",
+			"text_de": "Nein, nein, nein, du bist..."
+		 },
+		{ 
+			"speaker": "Oris", 
+			"text_en": "*sniff*",
+			"text_de": "*schnief*"
+		 },
+		{ 
+			"speaker": "Oris", 
+			"text_en": "You're gone... How did that happen?",
+			"text_de": "Du bist... fort. Wie ist das nur passiert?"
+		 },
+		{ 
+			"speaker": "Oris", 
+			"text_en": "...",
+			"text_de": "..."
+		 },
+		{ 
+			"speaker": "Oris", 
+			"text_en": "I can't leave you lying here like this... *sniff*",
+			"text_de": "Ich kann dich hier nicht so liegen lssen... *schnief*"
+		 },
+		{ 
+			"speaker": "Oris", 
+			"text_en": "You deserve a nice place to rest at least...",
+			"text_de": "Du verdienst zumindest einen schönen Ort zum Ruhen..."
+		 },
+		{ 
+			"speaker": "Oris", 
+			"text_en": "Let me just...",
+			"text_de": "Lass mich nur kurz..."
+		 },
+		{ 
+			"speaker": "Oris", 
+			"text_en": "Here... And there... *sniff*",
+			"text_de": "Hier... Und dort... *schnief*"
+		 },
+		{ 
+			"speaker": "Oris", 
+			"text_en": "...",
+			"text_de": "..."
+		 },
+		{ 
+			"speaker": "Oris", 
+			"text_en": "Here you go.",
+			"text_de": "Na bitte."
+		 },
+		{ 
+			"speaker": "Oris", 
+			"text_en": "Rest in peace, Sam... My dear friend... *sniff* You deserved much more than that.",
+			"text_de": "Ruhe in Frieden, Sam... Mein bester Freund... *schnief* Du hättest viel mehr als das verdient."
+		 },
+		{ 
+			"speaker": "Oris", 
+			"text_en": "I should have a talk with Blobby about this... There's no way he didn't notice Sam's passing.",
+			"text_de": "Ich sollte ein Wort darüber mit Blobby reden... Es kann doch nicht sein, dass er nichts davon mitbekommen hat."
+		 }
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+	  "lines": [
+		
+	]
+	}
+  }
+}

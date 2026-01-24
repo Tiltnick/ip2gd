@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://eghgox4suvdf"]
+
+[ext_resource type="Script" uid="uid://0tb3k2u5p7ni" path="res://scripts/interactables/objects/stone pieces/stone_pieces.gd" id="1_ahny6"]
+[ext_resource type="Texture2D" uid="uid://d1bgyo2pv8te3" path="res://assets/sprites/selfmade/Piece1.png" id="1_vk5a2"]
+[ext_resource type="Texture2D" uid="uid://bl0b0h45ti05u" path="res://assets/sprites/selfmade/stonesForInven/Piece1.png" id="2_3n4qd"]
+[ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="2_ahny6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3n4qd"]
+shader = ExtResource("2_ahny6")
+shader_parameter/outline_size = 2.0
+shader_parameter/outline_color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3qne5"]
+radius = 24.0
+
+[node name="StonePiece1" type="Node2D"]
+z_index = 100
+script = ExtResource("1_ahny6")
+item_icon = ExtResource("2_3n4qd")
+
+[node name="Piece1" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_vk5a2")
+
+[node name="Outline" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_3n4qd")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_vk5a2")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_3qne5")

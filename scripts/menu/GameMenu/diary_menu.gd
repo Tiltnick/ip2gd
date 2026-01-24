@@ -11,15 +11,14 @@ var pages = []
 @onready var next_button: Button = $Panel2/NextButton
 
 func _ready() -> void:
+	Diary.entry_unlocked.connect(_on_entry_unlocked)
 	pages = build_all_pages()
 	update_pages()
-
 
 func open_entries():
 	pages = build_all_pages()
 	current_page = 0
 	update_pages()
-	
 
 func update_pages():
 	header_left.text = pages[current_page]["header"]
@@ -33,10 +32,8 @@ func update_pages():
 		header_right.text = ""
 		text_right.text = ""
 		$Panel2.hide()
-	prev_button.disabled = current_page == 0
-	next_button.disabled = current_page + 2 >= pages.size()
-	print(pages.size())
-	print(current_page + 2)
+	prev_button.visible = current_page > 0
+	next_button.visible = (current_page + 2) < pages.size()
 
 func _split_into_pages(text: String, max_chars_per_page: int) -> Array[String]:
 	var result: Array[String] = []
@@ -61,7 +58,7 @@ func _split_into_pages(text: String, max_chars_per_page: int) -> Array[String]:
 func build_all_pages():
 	var combined_pages = []
 	var max_chars = 750
-	
+
 	for id in Diary.unlocked_entries:
 		var header = Diary.get_header(id)
 		var full_text = Diary.get_text(id)
@@ -71,7 +68,6 @@ func build_all_pages():
 				"header": header,
 				"text": p
 			})
-	
 	return combined_pages
 
 func _on_prev_button_pressed() -> void:
@@ -79,17 +75,17 @@ func _on_prev_button_pressed() -> void:
 		current_page -= 2
 		update_pages()
 
-
 func _on_next_button_pressed() -> void:
 	if current_page + 2 < pages.size():
 		current_page += 2
 		update_pages()
 
-
 func _on_close_button_pressed() -> void:
-	get_tree().paused = false
-	GameMenu.hide()
-	GlobalMenuButton.show()
-	SettingsButton.show()
-	hotbarglobal.hotbar.show()
-	
+	var menu := get_tree().get_first_node_in_group("diary_menu")
+	if menu != null and menu.has_method("close_menu"):
+		menu.close_menu()
+
+func _on_entry_unlocked():
+	pages = build_all_pages()
+	current_page = 0
+	update_pages()

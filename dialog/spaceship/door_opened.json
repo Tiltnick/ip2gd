@@ -1,0 +1,32 @@
+{
+  "id": "oris_locked_door",
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "Oh nice the Fluxomat fluxated and now the door is open!"
+							,"text_de": "Oh der Fluxomat hat fluxiert und nun ist die Tür offen!" 
+		},
+		{ "speaker": "Oris", "text_en": "Are those lamps I see in the back? They must be the kind that change colors."
+							,"text_de": "Sind das die coolen farb-wechselnden Lampen, die ich da erspähe?" 
+		},
+		{ "speaker": "Oris", "text_en": "Oh how I loved to play with them at home. And their colors! Red, Blue, Green, Yellow, Pink..."
+							,"text_de": "Oh, wie ich es geliebt habe mit den schönen Farben zu experimentieren. Rot, Blau, Grün, Gelb und Pink..." 
+		},
+		{ "speaker": "Oris", "text_en": "Wait. Those colors remind me of something...The back the photo which shows Sam and me!"
+							,"text_de": "Warte. Die Farben erinnern mich an etwas...Die Rückseite des Fotos, auf dem Sam und ich zu sehen sind!" 
+		},
+		{ "speaker": "Oris", "text_en": "Maybe it will help me somehow."
+							,"text_de": "Vielleicht wird es mir irgendwie helfen." 
+		},
+		
+
+
+	  ]
+	},
+
+	"end": { "lines": [] }
+  }
+}

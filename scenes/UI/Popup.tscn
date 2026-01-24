@@ -1,0 +1,170 @@
+[gd_scene load_steps=9 format=3 uid="uid://dlh1duptshy3u"]
+
+[ext_resource type="Script" uid="uid://duevfwqwuv7bb" path="res://scripts/UI/Popup.gd" id="1_vbygg"]
+[ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_asrg3"]
+[ext_resource type="Texture2D" uid="uid://mdkboxjky2f0" path="res://assets/sprites/selfmade/Spacegram_Logo.png" id="3_gxxw1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dn4hv"]
+bg_color = Color(0.3764706, 0.6039216, 0.54901963, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.6862745, 0.8627451, 0.76862746, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 20
+anti_aliasing = false
+
+[sub_resource type="Animation" id="Animation_uhgwa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Panel:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-100.0]
+}
+
+[sub_resource type="Animation" id="Animation_v51nl"]
+resource_name = "slide_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Panel:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-100.0, 35.0]
+}
+
+[sub_resource type="Animation" id="Animation_4fdes"]
+resource_name = "slide_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Panel:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [35.0, -100.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4fdes"]
+_data = {
+&"RESET": SubResource("Animation_uhgwa"),
+&"slide_in": SubResource("Animation_v51nl"),
+&"slide_out": SubResource("Animation_4fdes")
+}
+
+[node name="Popup" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1920.0
+offset_right = -1920.0
+grow_horizontal = 0
+script = ExtResource("1_vbygg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 5000
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -486.34204
+offset_top = -100.0
+offset_right = -367.60522
+offset_bottom = -68.000046
+grow_horizontal = 0
+scale = Vector2(2.555, 2.555)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_dn4hv")
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 6.0
+offset_right = 800.0
+offset_bottom = 247.0
+scale = Vector2(0.085, 0.085)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = -32
+theme_override_fonts/font = ExtResource("2_asrg3")
+theme_override_font_sizes/font_size = 128
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 8.744439
+offset_top = 5.4794493
+offset_right = 30.013298
+offset_bottom = 26.74831
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel"]
+visible = false
+position = Vector2(18.137207, 16.046967)
+scale = Vector2(0.087136924, 0.087136924)
+texture = ExtResource("3_gxxw1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4fdes")
+}

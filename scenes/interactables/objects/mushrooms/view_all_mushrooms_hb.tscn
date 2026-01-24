@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5itj20g4xnxh"]
+
+[ext_resource type="Script" uid="uid://bse4vohvuwb4u" path="res://scripts/interactables/objects/stone pieces/view_all_pieces_hb.gd" id="1_73ksa"]
+
+[node name="ViewAllMushroomsHb" type="Node2D"]
+script = ExtResource("1_73ksa")
+filter_mode = 1
+filter_value = "_mush"
+
+[node name="PiecesContainer" type="Node2D" parent="."]

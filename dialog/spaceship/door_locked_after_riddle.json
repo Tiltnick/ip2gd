@@ -1,0 +1,16 @@
+{
+  "id": "spaceship_room_door_locked_after_riddle",
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "I don't think there's more to find here..."
+							,"text_de": "Ich glaube nicht dass ich hier noch etwas finden kann..." },
+	  ]
+	},
+
+	"end": { "lines": [] }
+  }
+}

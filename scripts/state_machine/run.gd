@@ -2,29 +2,35 @@ extends State
 class_name Run
 
 @export var run_multiplier: float = 1.8
+@export var footstep_interval := 0.3
+var footstep_timer := 0.0
+
+#const FOOTSTEP_SOUND := preload("res://assets/sound/Free Footsteps Pack/Concrete 2.wav")
 
 func Enter(_prev: State) -> void:
-	pass
+	footstep_timer = 0.0
 
-func PhysicsUpdate(_delta: float) -> void:
+func PhysicsUpdate(delta: float) -> void:
 	var input_vector := Vector2(
 		Input.get_axis("moveLeft", "moveRight"),
 		Input.get_axis("moveUp", "moveDown")
 	)
 
-	# Vermeiden von Diagonalem schneller laufen
 	if input_vector.length() > 1.0:
 		input_vector = input_vector.normalized()
 
 	actor.velocity = input_vector * actor.speed * run_multiplier
 	actor.move_and_slide()
 
-	# Vector 0 = idle state
-	if input_vector == Vector2.ZERO:
+	if input_vector != Vector2.ZERO:
+		footstep_timer -= delta
+		if footstep_timer <= 0.0:
+			Footstep.footstep_sound()
+			footstep_timer = footstep_interval
+	else:
 		TransitionTo("idle")
 		return
 
-	# Shift loslassen = move state
 	if not Input.is_action_pressed("run"):
 		TransitionTo("move")
 		return

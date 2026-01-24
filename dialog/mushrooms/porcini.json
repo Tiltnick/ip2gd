@@ -1,0 +1,22 @@
+{
+	"id": "porcini_riddle",
+
+	"characters": {
+		"Porcini": "res://assets/sprites/portrait/porcini.png"
+},
+
+ "steps": {
+
+	"sections": {
+		"lines": [
+			{"speaker": "Porcini","text_en": " I am the soil where countless feet have passed, where loss sinks deep and roots hold fast. I move in circles, slow and sure, a grounded world both old and pure.",
+									"text_de": "Ich bin der Grund, den Schritte tragen, wo Verlust versinkt, wo Wurzeln schlagen. Ich zieh’ im Kreis, so alt, so schwer.Geerdete Welt, uralt und pur." 
+			}
+		],
+		"next": "end"
+	},
+	"end": {
+	  "lines": []
+	}
+  }
+}

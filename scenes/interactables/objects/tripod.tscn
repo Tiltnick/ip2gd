@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://bnjx4jljcdw2x"]
+
+[ext_resource type="Script" uid="uid://bbvlka7ww8t0m" path="res://scripts/riddles/sky_riddle/tripod_bottom.gd" id="1_3228d"]
+[ext_resource type="Texture2D" uid="uid://dl3uy4dydh6u7" path="res://assets/sprites/selfmade/tripod.png" id="1_sxklx"]
+[ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="2_3228d"]
+[ext_resource type="PackedScene" uid="uid://bboqbaycemetp" path="res://assets/sprites/selfmade/shadow.tscn" id="4_1uxoc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1uxoc"]
+shader = ExtResource("2_3228d")
+shader_parameter/outline_size = 2.0
+shader_parameter/outline_color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1uxoc"]
+radius = 20.024984
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3228d"]
+radius = 6.0
+
+[node name="tripod" type="Node2D"]
+script = ExtResource("1_3228d")
+disable_area_on_interact = false
+
+[node name="Shadow" parent="." instance=ExtResource("4_1uxoc")]
+position = Vector2(0, 6)
+scale = Vector2(0.37, 0.37)
+
+[node name="tripod" type="Sprite2D" parent="."]
+position = Vector2(0.5, -0.5)
+scale = Vector2(1.03125, 1.03125)
+texture = ExtResource("1_sxklx")
+
+[node name="Outline" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_1uxoc")
+texture = ExtResource("1_sxklx")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_1uxoc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_3228d")
+debug_color = Color(0.83684397, 0.3339814, 0.5153667, 0.41960785)

@@ -1,0 +1,18 @@
+{
+  "id": "missing_spaceship_room",
+
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+		"sections": {
+			"lines": [{
+				"speaker": "Oris",
+				"text_en": "Maybe there's something in here with which I can look into the stars.",
+				"text_de": "Vielleicht finde ich hier etwas womit ich einen Blick in die Sterne werfen kann."
+			}]
+		},
+	"end": { "lines": [] }
+  }
+}

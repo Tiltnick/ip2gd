@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dghu8l1p7spw3"]
+
+[ext_resource type="Script" uid="uid://d6x3wc4mchrs" path="res://scripts/audio/world_audio_manager.gd" id="1_orjkx"]
+
+[sub_resource type="AudioStream" id="AudioStream_yrap8"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_o5bt4"]
+stream_count = 2
+stream_0 = SubResource("AudioStream_yrap8")
+
+[sub_resource type="AudioStream" id="AudioStream_g4cbb"]
+
+[node name="WorldAudioManager" type="Node2D"]
+script = ExtResource("1_orjkx")
+
+[node name="bgm_musicplayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPlaylist_o5bt4")
+volume_db = -20.0
+autoplay = true
+bus = &"Music"
+
+[node name="sfx_musicplayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_g4cbb")

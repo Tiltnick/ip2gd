@@ -1,0 +1,66 @@
+{
+  "id": "mushroom_clue_1",
+
+  "characters": {
+	"Mr. Blob": "res://assets/sprites/portrait/MrBlobs.png",
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text_en": "What do you need now?"
+								 ,"text_de": "Was brauchst du jetzt?"}
+	  ],
+	  "choices": [
+		{ "id": "hint_yes", "text_en": "I need your help."
+							,"text_de": "Ich brauche deine Hilfe." 
+							,"next": "hint_yes" },
+		{ "id": "hint_no", "text_en": "Thought you were a mushroom."
+							,"text_de": "Ich dachte du wärst ein Pilz." 
+							,"next": "end" }
+	  ]
+	},
+
+	"hint_yes": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text_en": "Some mushrooms, remind me of our galaxy. What do you think?"
+								,"text_de": "Manche Pilze erinnern mich an unsere Galaxie, was denkst du?" }
+	  ],
+	  "choices": [
+		{ "id": "understand", "text_en": "Yeah, I agree!"
+								,"text_de": "Jaa, ich stimm dir zu!" 
+								,"next": "end" },
+		{ "id": "dont_get_it", "text_en": "What do you mean?"
+								,"text_de": "Was meinst du?" 
+								,"next": "dont_get_it" }
+	  ]
+	},
+
+	"dont_get_it": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "What do you mean they remind you of our galaxy?"
+							,"text_de": "Was meinst du, dass die dich an unsere Galaxie erinnern?" },
+		{ "speaker": "Mr. Blob", "text_en": "Oh man.. Look at the colors. Think about the colours in our universe or what they stand for. Got it?"
+								,"text_de": "Oh mann.. Schau dir die Farben an und denk an die Farben aus dem Universum bzw. für was sie stehen. Hast du's jetzt? " }
+	  ],
+	  "choices": [
+		{ "id": "realization", "text_en": "I think so, yes."
+								,"text_de": "Ich glaube, ja." 
+								,"next": "realization" }
+	  ]
+	},
+
+	"realization": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "Oh, you're right. I need to connect the right colors to the planets!"
+							,"text_de": "Oh, du hast recht. Ich muss die richtigen Farben den Planeten zu ordnen!" }
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+	  "lines": []
+	}
+  }
+}

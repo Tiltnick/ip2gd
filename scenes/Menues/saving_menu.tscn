@@ -141,7 +141,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
 theme_override_fonts/font = ExtResource("1_ksa70")
 theme_override_font_sizes/font_size = 40
-text = "Save Game ?"
+text = "SAVE_GAME"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="saving_menu/ColorRect/Panel/VBoxContainer"]
@@ -162,7 +162,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_u0lg0")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_y8ufa")
 theme_override_styles/hover = SubResource("StyleBoxFlat_y8ufa")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_au487")
-text = "Continue"
+text = "CONTINUE"
 
 [node name="ExitButton" type="Button" parent="saving_menu/ColorRect/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -178,7 +178,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_u0lg0")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_y8ufa")
 theme_override_styles/hover = SubResource("StyleBoxFlat_y8ufa")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_au487")
-text = "Save and Exit"
+text = "SAVE_AND_EXIT"
 
 [node name="RoundButtton" type="Button" parent="saving_menu/ColorRect"]
 layout_mode = 1

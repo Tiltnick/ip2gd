@@ -1,11 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhyl0rqmojucp"]
 
-[ext_resource type="Script" uid="uid://dge528a6i2b6f" path="res://scripts/interactables/doors/door.gd" id="1_s3e0f"]
+[ext_resource type="Script" uid="uid://dge528a6i2b6f" path="res://scripts/interactables/doors/door_spaceship_room.gd" id="1_s3e0f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s3e0f"]
 
 [node name="Door" type="Node2D"]
 script = ExtResource("1_s3e0f")
+target_scene_path = null
+target_spawn_id = null
+required_item_id = null
+opened_state_key = null
+disable_area_on_interact = false
 metadata/_custom_type_script = "uid://bdssbm1prbicl"
 
 [node name="Area2D" type="Area2D" parent="."]

@@ -1,0 +1,133 @@
+[gd_scene load_steps=19 format=3 uid="uid://58ehm0hl8qlg"]
+
+[ext_resource type="Script" uid="uid://b6bhm2weavv6y" path="res://scripts/state_machine_npc/npc_dialog_process_porcini.gd" id="1_1u0wy"]
+[ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="2_6fqm2"]
+[ext_resource type="PackedScene" uid="uid://bboqbaycemetp" path="res://assets/sprites/selfmade/shadow.tscn" id="2_htdk8"]
+[ext_resource type="Texture2D" uid="uid://db0b1pgo4krve" path="res://assets/sprites/character/porcini_spritesheet.png" id="3_htdk8"]
+[ext_resource type="Shader" uid="uid://brxafnb5qxoeo" path="res://assets/shaders/general_object.gdshader" id="4_tls4u"]
+[ext_resource type="Script" uid="uid://bag4u47y1hlnx" path="res://scripts/state_machine_npc/state_machine_npc.gd" id="5_syqdl"]
+[ext_resource type="Script" uid="uid://bj3wge2cd2so2" path="res://scripts/state_machine_npc/npc_idle.gd" id="6_ftgrv"]
+[ext_resource type="Script" uid="uid://pxcfgc747h2m" path="res://scripts/state_machine_npc/npc_move.gd" id="7_edrff"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tls4u"]
+atlas = ExtResource("3_htdk8")
+region = Rect2(2, 32, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syqdl"]
+atlas = ExtResource("3_htdk8")
+region = Rect2(33, 32, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u0wy"]
+atlas = ExtResource("3_htdk8")
+region = Rect2(2, 64, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fqm2"]
+atlas = ExtResource("3_htdk8")
+region = Rect2(33, 64, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htdk8"]
+atlas = ExtResource("3_htdk8")
+region = Rect2(64, 64, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftgrv"]
+atlas = ExtResource("3_htdk8")
+region = Rect2(95, 64, 31, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eprow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tls4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syqdl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u0wy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fqm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htdk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftgrv")
+}],
+"loop": true,
+"name": &"move",
+"speed": 3.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kwd6m"]
+shader = ExtResource("4_tls4u")
+shader_parameter/outline_size = 2.0
+shader_parameter/outline_color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1u0wy"]
+radius = 13.0
+height = 26.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5dfqd"]
+radius = 24.0
+
+[node name="NPC_porcini" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_1u0wy")
+move_speed = 10.0
+
+[node name="Press_E_Popup_NPC" parent="." instance=ExtResource("2_6fqm2")]
+visible = false
+z_index = 10
+offset_left = -8.0
+offset_top = -44.0
+offset_right = -8.0
+offset_bottom = -44.0
+scale = Vector2(0.8, 0.8)
+
+[node name="Shadow" parent="." instance=ExtResource("2_htdk8")]
+position = Vector2(0, -2)
+scale = Vector2(0.4, 0.4)
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(1.032258, 1)
+sprite_frames = SubResource("SpriteFrames_eprow")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Outline" type="AnimatedSprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_kwd6m")
+position = Vector2(0, -16)
+scale = Vector2(1.032258, 1)
+sprite_frames = SubResource("SpriteFrames_eprow")
+animation = &"idle"
+frame_progress = 0.04933625
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -12)
+shape = SubResource("CapsuleShape2D_1u0wy")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+position = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_5dfqd")
+
+[node name="stateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("5_syqdl")
+initial_state = NodePath("idle")
+
+[node name="idle" type="Node" parent="stateMachine"]
+script = ExtResource("6_ftgrv")
+start_patrol_after_wait = false
+
+[node name="move" type="Node" parent="stateMachine"]
+script = ExtResource("7_edrff")

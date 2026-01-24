@@ -1,0 +1,16 @@
+{
+	"id": "oris_no_shovel",
+	"characters": {
+		"Oris": "res://assets/sprites/portrait/oris.png"
+		},
+	"steps": {
+		"sections": {
+			"lines": [{
+				"speaker": "Oris",
+				"text_en": "Uhh… Looks like I need a tool to dig here…",
+				"text_de": "Hm… Sieht aus als bräuchte ich etwas um hier graben zu können…"
+			}]
+		},
+	"end": { "lines": [] }
+  }
+}

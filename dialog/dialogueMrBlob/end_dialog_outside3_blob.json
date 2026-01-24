@@ -1,0 +1,22 @@
+{
+	"id": "end_dialog_outside3_blob",
+
+	"characters": {
+		"Mr. Blob": "res://assets/sprites/portrait/MrBlobs.png",
+},
+
+ "steps": {
+
+	"sections": {
+		"lines": [
+			{"speaker": "Mr. Blob", "text_en": "Let's get this flower!",
+									"text_de": "Lass uns diese Blume holen!"
+			}
+		],
+		"next": "end"
+	},
+	"end": {
+	  "lines": []
+	}
+  }
+}

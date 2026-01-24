@@ -1,0 +1,109 @@
+{
+  "id": "solved_riddle",
+
+  "characters": {
+	"Champi": "res://assets/sprites/portrait/champignon.png",
+	"Truffle": "res://assets/sprites/portrait/truffle.png",
+	"Porcini": "res://assets/sprites/portrait/porcini.png",
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+
+	"sections": {
+	  "lines": [
+		{
+		  "speaker": "Champi",
+		  "text_en": "Well... the order was correct. The colors too. I hate when that happens.",
+		  "text_de": "Nun ja... die Reihenfolge stimmt. Die Farben auch. Ich hasse es, wenn das passiert."
+		}
+	  ],
+	  "next": "dialogue_2"
+	},
+
+	"dialogue_2": {
+	  "lines": [
+		{
+		  "speaker": "Truffle",
+		  "text_en": "Wait. You mean he solved the riddle?",
+		  "text_de": "Moment mal. Du meinst, er hat das Rätsel gelöst?"
+		}
+	  ],
+	  "next": "dialogue_3"
+	},
+
+	"dialogue_3": {
+	  "lines": [
+		{
+		  "speaker": "Porcini",
+		  "text_en": "I told you it's too easy!",
+		  "text_de": "Ich hab euch gesagt es ist zu einfach!"
+		}
+	  ],
+	  "next": "dialogue_4"
+	},
+
+	"dialogue_4": {
+	  "lines": [
+		{
+		  "speaker": "Champi",
+		  "text_en": "Silence! The ancient rules are the ancient rules. And according to them… this human passed the test.",
+		  "text_de": "Ruhe! Die alten Regeln sind nun mal die alten Regeln. Und laut ihnen… hat dieser Mensch die Prüfung bestanden."
+		}
+	  ],
+	  "next": "dialogue_5"
+	},
+
+	"dialogue_5": {
+	  "lines": [
+		{
+		  "speaker": "Truffle",
+		  "text_en": "Hm, you don’t look that pure hearted.",
+		  "text_de": "Hm, du siehst gar nicht so aus, als hättest du ein reines Herz."
+		}
+	  ],
+	  "next": "dialogue_6"
+	},
+
+	"dialogue_6": {
+	  "lines": [
+		{
+		  "speaker": "Porcini",
+		  "text_en": "Still… anyone who understands us mushrooms deserves some respect.",
+		  "text_de": "Trotzdem… jeder der uns Pilze versteht, verdient Respekt."
+		}
+	  ],
+	  "next": "dialogue_7"
+	},
+
+	"dialogue_7": {
+	  "lines": [
+		{
+		  "speaker": "Champi",
+		  "text_en": "Very well, human. You may pass.",
+		  "text_de": "Sehr gut, Mensch. Du darfst vorbei."
+		},
+		{
+		  "speaker": "Champi",
+		  "text_en": "Take this mushroom. It is extremely powerful.",
+		  "text_de": "Nimm diesen Pilz. Er ist extrem machtvoll."
+		},
+		{
+		  "speaker": "Truffle",
+		  "text_en": "And extremely hot.",
+		  "text_de": "Und extrem scharf."
+		},
+		{
+		  "speaker": "Porcini",
+		  "text_en": "Seriously. Don’t put it in your mouth.",
+		  "text_de": "Im Ernst. Nimm ihn nicht in den Mund."
+		}
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+	  "lines": []
+	}
+  }
+}

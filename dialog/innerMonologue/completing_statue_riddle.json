@@ -1,0 +1,28 @@
+{
+  "id": "completing_statue_riddle",
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+  "steps": {
+	"sections": {
+	  "lines": [
+		{
+		  "speaker": "Oris",
+		  "text_en": "I did it! Thank you, dear telescope and stars!",
+		  "text_de": "Ich habs geschafft! Danke liebes Teleskop und liebe Sterne!"
+		},
+		{
+		  "speaker": "Oris",
+		  "text_en": "Oh, I heard some noise. Sounded like something opened here...",
+		  "text_de": "Oh, ich habe ein Geräusch gehört. Klang, als hätte sich irgendwo etwas geöffnet..."
+		},
+		{
+		  "speaker": "Oris",
+		  "text_en": "What the hell is that? A mushroom? It's wet!",
+		  "text_de": "Was ist denn das? Ein Pilz? Der ist ja nass!"
+		}
+		
+]},
+	"end": { "lines": [] }
+  }
+}

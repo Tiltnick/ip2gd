@@ -1,0 +1,18 @@
+{
+  "id": "missing_temple",
+
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+		"sections": {
+			"lines": [{
+				"speaker": "Oris",
+				"text_en": "The flower should be around here somewhere. I should collect it before I go out.",
+				"text_de": "Die Blume sollte hier irgendwo sein. Ich sollte sie mitnehmen bevor ich rausgehe."
+			}]
+		},
+	"end": { "lines": [] }
+  }
+}

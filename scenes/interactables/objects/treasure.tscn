@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://1uf4f4pkdxpx"]
+
+[ext_resource type="Script" uid="uid://ow3hjqlu5ud" path="res://scripts/riddles/treasure_chest/treasure_chest.gd" id="1_rakct"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kn0s4"]
+size = Vector2(71, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43tyl"]
+size = Vector2(28, 21)
+
+[node name="Treasure" type="Node2D"]
+script = ExtResource("1_rakct")
+code_popup_path = null
+puzzle_id = null
+disable_area_on_interact = false
+metadata/_custom_type_script = "uid://bdssbm1prbicl"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_kn0s4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_43tyl")

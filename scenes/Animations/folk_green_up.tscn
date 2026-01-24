@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://cox01ed8ks4mp"]
+
+[ext_resource type="Texture2D" uid="uid://54l0jghybn3x" path="res://assets/sprites/character/Green_Shroomling.png" id="1_gqrmx"]
+[ext_resource type="Script" uid="uid://da4wtnufw3pik" path="res://scripts/state_machine_npc/simple movement/simple_movement_npc.gd" id="1_i4sy3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4sy3"]
+atlas = ExtResource("1_gqrmx")
+region = Rect2(0, 128, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4bgc"]
+atlas = ExtResource("1_gqrmx")
+region = Rect2(16, 128, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gi2mn"]
+atlas = ExtResource("1_gqrmx")
+region = Rect2(32, 128, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4la8"]
+atlas = ExtResource("1_gqrmx")
+region = Rect2(48, 128, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ts6k"]
+atlas = ExtResource("1_gqrmx")
+region = Rect2(64, 128, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1h8hk"]
+atlas = ExtResource("1_gqrmx")
+region = Rect2(80, 128, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wc7b3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4sy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4bgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gi2mn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4la8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ts6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1h8hk")
+}],
+"loop": true,
+"name": &"move",
+"speed": 3.5
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btmav"]
+size = Vector2(8, 10)
+
+[node name="Greeny Up" type="CharacterBody2D"]
+scale = Vector2(1.2, 1.2)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_i4sy3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_wc7b3")
+animation = &"move"
+autoplay = "move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_btmav")

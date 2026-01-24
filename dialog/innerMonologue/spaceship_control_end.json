@@ -1,0 +1,16 @@
+{
+  "id": "spaceship_control_end",
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "Alright, I guess it's time to head back home..."
+							,"text_de": "Alles klar, ich denke es ist Zeit zurück nach Hause zu fliegen..." }
+	  ]
+	},
+
+	"end": { "lines": [] }
+  }
+}

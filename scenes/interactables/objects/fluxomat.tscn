@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwb4oebf4t2rb"]
+
+[ext_resource type="Script" uid="uid://bprtpeaj0q4x" path="res://scripts/interactables/objects/HotbarCollectZoomItem.gd" id="1_6peuh"]
+[ext_resource type="Texture2D" uid="uid://b3awiueoenjoq" path="res://assets/sprites/selfmade/Fluxomat.png" id="1_l1lns"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6peuh"]
+size = Vector2(32, 16)
+
+[node name="Fluxomat" type="Node2D"]
+script = ExtResource("1_6peuh")
+save_id = "fluxomat"
+item_name_de = "Fluxomat"
+item_name_en = "Fluxomat"
+item_icon = ExtResource("1_l1lns")
+
+[node name="fluxomat" type="Sprite2D" parent="."]
+texture = ExtResource("1_l1lns")
+
+[node name="Outline" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_l1lns")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_6peuh")

@@ -1,0 +1,210 @@
+{
+  "id": "mr_blob_revelation",
+
+  "characters": {
+	"Mr. Blob": "res://assets/sprites/portrait/MrBlobs.png",
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "I found Sam… beneath one of the stone piles."
+							,"text_de": "I habe Sam gefunden... unter einem der Steinhaufen." },
+		{ "speaker": "Mr. Blob", "text_en": "..."
+								,"text_de": "..." },
+		{ "speaker": "Oris", "text_en": "I cannot believe it. He's... gone! I can't save him anymore because he's GONE!"
+							,"text_de": "Ich kann es kaum fassen. Er ist... tot! Ich kann ihn nicht mehr retten weil er weg vom Fenster ist!" }
+	  ],
+	  "choices": [
+		{ "id": "reveal_1", "text_en": "You knew."
+							,"text_de": "Du hast es gewusst."
+							,"next": "reveal_1" },
+		{ "id": "reveal_2", "text_en": "Why not tell me?"
+							,"text_de": "Wieso jetzt?"
+							,"next": "reveal_2" }
+	  ]
+	},
+
+	"reveal_1": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "You knew it from the start and you DIDN'T think to tell me? You led me on this wild goose chase to...to what?"
+							,"text_de": "Du wusstest es von Anfang an und hast mir NICHTS gesagt? Du hast mich an der Nase herumgeführt... wieso?"},
+		{ "speaker": "Mr. Blob", "text_en": "Look, I get it. You're upset." 
+								,"text_de": "Ich verstehe das du verärgert bist."}
+	  ],
+	  "choices": [
+		{ "id": "reveal_angry", "text_en": "I'm angry."
+								,"text_de": "Ich bin sauer." 
+								,"next": "reveal_angry" },
+		{ "id": "reveal_hurt", "text_en": "How could you?"
+								,"text_de": "Wie konntest du nur?" 
+								,"next": "reveal_hurt" }
+	  ]
+	},
+
+	"reveal_2": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "Why didn't you tell me the truth from the beginning?"
+							,"text_de": "Wieso erzählst du mir das jetzt und nicht von Anfang an?" },
+		{ "speaker": "Mr. Blob", "text_en": "Because you weren't ready to hear it yet."
+								,"text_de": "Weil du noch nicht bereit warst, es zu hören." }
+	  ],
+	  "choices": [
+		{ "id": "reveal_angry", "text_en": "No excuse."
+								,"text_de": "Keine Entschuldigung." 
+								,"next": "reveal_angry" },
+		{ "id": "reveal_hurt", "text_en": "How dare you?"
+								,"text_de": "Wie konntest du?"
+								,"next": "reveal_hurt" }
+	  ]
+	},
+
+	"reveal_angry": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "I'm angry! You let me chase a ghost!"
+							,"text_de": "Ich bin sauer! Du hast mich meinen toten Freund suchen lassen!" },
+		{ "speaker": "Mr. Blob", "text_en": "I let you chase hope." 
+								,"text_de": "Durch mich hast du die Hoffnung nicht verloren."}
+	  ],
+	  "next": "flower_intro"
+	},
+
+	"reveal_hurt": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "How could you? You could've spared me this pain…"
+							,"text_de": "Wie kannst du es wagen. Dieser ganze Schmerz hätte mir erspart bleiben können..." },
+		{ "speaker": "Mr. Blob", "text_en": "But see it this way, now you know and you can overcome it!"
+								,"text_de": "Aber siehs doch mal so: jetzt weißt du es und kannst darüber hinauswachsen." }
+	  ],
+	  "next": "flower_intro"
+	},
+
+	"flower_intro": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text_en": "Sam did not come here just to explore."
+								,"text_de": "Sam war nicht nur hier, um den Planeten zu erkunden." },
+		{ "speaker": "Mr. Blob", "text_en": "He searched for a flower… one that could heal even what seems beyond saving."
+								,"text_de": "Er hat nach einer Blume gesucht, die alles heilen kann, was man sich nur vorstellen kann." },
+		{ "speaker": "Oris", "text_en": "A healing flower?"
+							,"text_de": "Eine heilende Blume?" }
+	  ],
+	  "choices": [
+		{ "id": "flower_more", "text_en": "Tell me more."
+								,"text_de": "Erzähl mehr." 
+								,"next": "flower_more" },
+		{ "id": "flower_why", "text_en": "What? Why?"
+								,"text_de": "Was? Wieso?"
+								,"next": "flower_why" }
+	  ]
+	},
+
+	"flower_more": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text_en": "It grows only where the sun can't reach."
+								,"text_de": "Sie wächst dort, wo sie die Sonne niemals erreichen wird." },
+		{ "speaker": "Mr. Blob", "text_en": "Its petals can mend any wound."
+								,"text_de": "Ihre Blütenblätter können jede Wunde heilen." }
+	  ],
+	  "next": "flower_reason"
+	},
+
+	"flower_why": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text_en": "Because Sam feared loss more than death."
+								,"text_de": "Weil Sam Verlust mehr fürchtete als den Tot." },
+		{ "speaker": "Mr. Blob", "text_en": "He wanted to bring the flower back to your world."
+								,"text_de": "Er wollte die Blume zurück auf die Erde bringen." }
+	  ],
+	  "next": "flower_reason"
+	},
+
+	"flower_reason": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "So saving others… was his real mission?"
+							,"text_de": "Also andere zu retten... war seine richtige Mission?" },
+		{ "speaker": "Mr. Blob", "text_en": "His greatest wish."
+								,"text_de": "Sein größter Wunsch." }
+	  ],
+	  "choices": [
+		{ "id": "promise", "text_en": "I'll finish it."
+							,"text_de": "Ich beende sie."
+							,"next": "promise" },
+		{ "id": "doubt", "text_en": "It's too late."
+						,"text_de": "Zu spät."
+						,"next": "doubt" }
+	  ]
+	},
+
+	"promise": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "I'll finish it. I won't let this be for nothing."
+							,"text_de": "Ich werde seine Mission beenden. Ich lasse nicht zu, dass seine ganze Arbeit um sonst war." },
+		{ "speaker": "Mr. Blob", "text_en": "Then your path is only beginning."
+								,"text_de": "Dann fängt dein Weg erst jetzt richtig an." }
+	  ],
+	  "next": "cave_intro"
+	},
+
+	"doubt": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "It's too late. This won't bring Sam back… will it?"
+							,"text_de": "Es ist zu spät. Das wird Sam nicht wieder zum leben erwecken... oder?" },
+		{ "speaker": "Mr. Blob", "text_en": "No. But it may save those you haven't yet lost."
+								,"text_de": "Nein. Aber es wird die retten, die noch nicht verloren sind." }
+	  ],
+	  "next": "cave_intro"
+	},
+
+	"cave_intro": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text_en": "Before he died, Sam worked on his research nearby."
+								,"text_de": "Bevor er verstorben ist, hat Sam in der Nähe an seinen Entdekckungen geforscht." },
+		{ "speaker": "Mr. Blob", "text_en": "He stored his research inside a cavern system close to here."
+								,"text_de": "Er hat seine Forschung in einem Höhlensystem hier in der Nähe aufbewahrt." },
+		{ "speaker": "Oris", "text_en": "You mean he left some of his work behind?"
+							,"text_de": "Du meinst, er hat Teile seiner Arbeit hinterlassen?" }
+	  ],
+	  "choices": [
+		{ "id": "cave_where", "text_en": "Where is it?"
+								,"text_de": "Wo ist sie?" 
+								,"next": "cave_where" },
+		{ "id": "cave_why", "text_en": "Why now?"
+								,"text_de": "Wieso jetzt?" 
+								,"next": "cave_why" }
+	  ]
+	},
+
+	"cave_where": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text_en": "Look closely into the unseaming paths and places. You might be surprised what lays beyond closed paths."
+								,"text_de": "Schau dir die unscheinbaren Wege und Orte genauer an. Du könntest überrascht sein, was hinter verschlossenen Wegen liegt." }
+	  ],
+	  "next": "final_push"
+	},
+
+	"cave_why": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text_en": "Because now you are ready to choose the right option. The option Sam would've wanted for you: to find the flower and save so many people with it."
+								 ,"text_de": "Weil du jetzt bereit bist, dich für den richtigen Weg zu entscheiden. Den Weg, den Sam auch gegangen wäre, um die Blume zu finden und Menschen zu retten."}
+	  ],
+	  "next": "final_push"
+	},
+
+	"final_push": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "If Sam already searched for this flower, he must have stored his aquired information somewhere."
+							,"text_de": "Wenn Sam schon nach dieser Blume gesucht hat, muss er wohl seine Forschung irgendwo hinterlegt haben." },
+		{ "speaker": "Oris", "text_en": "A cave system yous said? Then that's where I'll go."
+							,"text_de": "Ein Höhlensystem meintest du? Dann werde ich da hingehen." },
+		{ "speaker": "Mr. Blob", "text_en": "I will help you find the flower when the time comes."
+								,"text_de": "Ich werde dir helfen, die Blume zu finden, wenn die Zeit reif ist." }
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+	  "lines": []
+	}
+  }
+}

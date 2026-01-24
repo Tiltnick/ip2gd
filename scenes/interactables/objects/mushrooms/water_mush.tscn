@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://qpb76w5fsvrr"]
+
+[ext_resource type="Script" uid="uid://bprtpeaj0q4x" path="res://scripts/interactables/objects/HotbarCollectZoomItem.gd" id="1_84ovv"]
+[ext_resource type="Texture2D" uid="uid://djk41gs8bqjb0" path="res://assets/sprites/selfmade/mushrooms/water_mush.png" id="3_84ovv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y4xkn"]
+radius = 40.0
+
+[node name="WaterMush" type="Node2D"]
+script = ExtResource("1_84ovv")
+hotbar_id = "water_mush"
+save_id = "water_mush"
+item_name_de = "Wasserpilz"
+item_name_en = "water mushroom"
+item_icon = ExtResource("3_84ovv")
+metadata/_custom_type_script = "uid://bprtpeaj0q4x"
+
+[node name="Mushroom" type="Sprite2D" parent="."]
+texture = ExtResource("3_84ovv")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_y4xkn")

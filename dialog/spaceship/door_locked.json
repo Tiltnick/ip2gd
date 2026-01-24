@@ -1,0 +1,24 @@
+{
+  "id": "oris_locked_door",
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "Oh....."
+							,"text_de": "Oh....." },
+							
+		{ "speaker": "Oris", "text_en": "Looks like the door is not working."
+							,"text_de": "Es sieht so aus, als wäre die Tür kaputt." },
+							
+		{ "speaker": "Oris", "text_en": "Maybe i can fix the door somehow later."
+							,"text_de": "Vielleicht kann ich die Tür später irgendwie reparieren."},
+							
+
+	  ]
+	},
+
+	"end": { "lines": [] }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "id": "outside_2_part_1",
+
+  "characters": {
+	"Mr. Blob": "res://assets/sprites/portrait/MrBlobs.png",
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Mr. Blob", "text_en": "Oh… you're here too? Cough cough."
+								,"text_de": "Oh... du auch hier? Hust hust" },
+		{ "speaker": "Oris", "text_en": "Yeah. Did you follow me?"
+							,"text_de": "Ja. Bist du mir gefolgt?" },
+		{ "speaker": "Mr. Blob", "text_en": "Whaaat? No, of course not."
+								,"text_de": "Waaas? Nein, natürlich nicht." },
+		{ "speaker": "Oris", "text_en": "Aha. Well… I'm looking for Sam. That spaceship over there is probably his, right?"
+							,"text_de": "Aha. Naja... ich suche nach Sam. Das Raumschiff da drüben gehört warscheinlich ihm, oder?" },
+		{ "speaker": "Mr. Blob", "text_en": "Mhm...cough, cough...yeah."
+								,"text_de": "Mhm... hust, hust...klar." },
+		{ "speaker": "Oris", "text_en": "Then he must be somewhere nearby, right?"
+							,"text_de": "Das heißt er muss irgendwo in der Nähe sein, oder?"},
+		{ "speaker": "Mr. Blob", "text_en": "Yeeah… exactly. There sure are a lot of stone piles around here, don't you think?"
+								,"text_de": "Yes... klaro. Hier sind schon viele Steinhaufen, meinst du nicht?" }
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+	  "lines": []
+	}
+  }
+}

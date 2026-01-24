@@ -16,6 +16,12 @@ func goto_scene(scene_path: String, spawn_id: String = "start") -> void:
 
 	# Spawn für die nächste scene
 	next_spawn_id = spawn_id
+	
+	# 1. Fade starten
+	TransitionAreaFade.transition()
+
+	# 2. Warten bis der Bildschirm komplett schwarz ist
+	await TransitionAreaFade.transition_finished
 
 	# Deferred laden steht so im docs
 	call_deferred("_deferred_goto_scene", scene_path)
@@ -56,6 +62,7 @@ func _deferred_goto_scene(scene_path: String) -> void:
 
 	# Spieler in der neuen scene spawnen
 	_spawn_player_in_scene(new_scene)
+	
 
 
 func _spawn_player_in_scene(new_scene: Node) -> void:
@@ -100,10 +107,16 @@ func _spawn_player_in_scene(new_scene: Node) -> void:
 		var cam := player.get_node_or_null("Camera2D")
 		if cam:
 			cam.make_current()
+			print("KAMERA DA!!")
 			if new_scene.has_method("configure_camera"):
 				new_scene.call("configure_camera", cam)
+				
+	var point_light := new_scene.get_node_or_null("Field_of_view") as PointLight2D
+	if point_light:
+		point_light.reparent(player, true)
+		point_light.position = Vector2.ZERO
 
-	
-	if GameState.should_play_intro_dialog:
-		GameState.should_play_intro_dialog = false
-		DialogManager.start_dialog("res://dialog/spaceship/wakeup.json")
+
+	#if GameState.should_play_intro_dialog:
+		#GameState.should_play_intro_dialog = false
+		#DialogManager.start_dialog("res://dialog/innerMonologue/wakeup.json")

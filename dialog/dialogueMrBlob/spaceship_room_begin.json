@@ -1,0 +1,34 @@
+{
+  "id": "spaceship_room_begin",
+
+  "characters": {
+	"Mr. Blob": "res://assets/sprites/portrait/MrBlobs.png",
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+	"sections": {
+	  "lines": [
+		{ "speaker": "Oris", "text_en": "Why are you here?!"
+							,"text_de": "Warum bist du hier?!" },
+		{ "speaker": "Mr. Blob", "text_en": "Well, I saw your photo and what was on the back."
+								,"text_de": "Naja also ich hab dein Foto gesehen und was auf der Rückseite war." },
+		{ "speaker": "Mr. Blob", "text_en": "There were these colorful numbers, so I came in and just wanted to have a look around."
+								,"text_de": "Da waren diese bunten Zahlen, so kam ich rein und wollte mich nur mal umsehen." },
+		{ "speaker": "Oris", "text_en": "Colorful numbers, you say, mhh?"
+							,"text_de": "Bunte zahlen sagst du mhh?" },
+		{ "speaker": "Mr. Blob", "text_en": "Yes, why?"
+								,"text_de": "Ja, warum?" },
+		{ "speaker": "Oris", "text_en": "Nothing just like that..."
+							,"text_de": "Nichts nur so..."},
+		{ "speaker": "Mr. Blob", "text_en": "Oh okay, sorry for just barging in like this."
+								,"text_de": "Achso sorry das ich einfach so reinplatze."}
+	  ],
+	  "next": "end"
+	},
+
+	"end": {
+	  "lines": []
+	}
+  }
+}

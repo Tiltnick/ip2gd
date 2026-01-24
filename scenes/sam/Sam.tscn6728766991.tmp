@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvfvh3itass52"]
+
+[ext_resource type="Script" uid="uid://bbq7qi7bi51gf" path="res://scripts/Sam/SAM.gd" id="1_yiwm8"]
+[ext_resource type="Script" uid="uid://cqjxa2ly5247m" path="res://scripts/Sam/StateMachine.gd" id="2_u03g8"]
+[ext_resource type="Texture2D" uid="uid://73q40ucqxh4y" path="res://icon.svg" id="2_xt33x"]
+[ext_resource type="Script" uid="uid://cwfphqc61oew8" path="res://scripts/Sam/sam_dialog_process.gd" id="3_jfhnd"]
+[ext_resource type="Script" uid="uid://cvmystcdmj0rl" path="res://scripts/Sam/Idle.gd" id="3_xt33x"]
+[ext_resource type="Script" uid="uid://b2kpak85pioyx" path="res://scripts/Sam/Approach.gd" id="4_jfhnd"]
+[ext_resource type="Script" uid="uid://2x2jpffibvl" path="res://scripts/Sam/Talk.gd" id="5_3l018"]
+[ext_resource type="Script" uid="uid://bhmsb48tknwy1" path="res://scripts/Sam/Guide.gd" id="6_di7xg"]
+
+[node name="Sam" type="CharacterBody2D" groups=["sam_state_machine"]]
+script = ExtResource("1_yiwm8")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+position = Vector2(-9.536743e-07, -18)
+scale = Vector2(0.27734378, 0.27734378)
+texture = ExtResource("2_xt33x")
+
+[node name="NpcCamera" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="DialogProcess" type="Node" parent="."]
+script = ExtResource("3_jfhnd")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_u03g8")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_xt33x")
+
+[node name="Approach" type="Node" parent="StateMachine"]
+script = ExtResource("4_jfhnd")
+
+[node name="Talk" type="Node" parent="StateMachine"]
+script = ExtResource("5_3l018")
+
+[node name="Guide" type="Node" parent="StateMachine"]
+script = ExtResource("6_di7xg")
