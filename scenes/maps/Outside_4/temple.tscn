@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://dmkx8cyr3lsa6"]
+[gd_scene load_steps=30 format=4 uid="uid://dmkx8cyr3lsa6"]
 
 [ext_resource type="Texture2D" uid="uid://d3nsg2t6vxtvv" path="res://assets/sprites/map/Outside_4/Ground.png" id="1_n83po"]
 [ext_resource type="Script" uid="uid://dhtpwr18uvr5p" path="res://scripts/scene_manager/temple.gd" id="1_s0bbf"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cd6aal2ayx2tk" path="res://scenes/Animations/fish.tscn" id="16_5ugvp"]
 [ext_resource type="PackedScene" uid="uid://bul3xuwbe1ai1" path="res://scenes/hotbar/hotbar.tscn" id="16_kjp60"]
 [ext_resource type="PackedScene" uid="uid://dvfvh3itass52" path="res://scenes/sam/Sam.tscn" id="17_5ugvp"]
+[ext_resource type="Texture2D" uid="uid://bbkysrm140l12" path="res://assets/sprites/selfmade/background_sky.png" id="19_ms8y5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5gjwu"]
 texture = ExtResource("1_n83po")
@@ -3562,3 +3563,14 @@ guide_path_1 = NodePath("../Paths/sam_path")
 guide_path_2 = NodePath("../Paths/sam_path_2")
 guide_path_3 = NodePath("../Paths/sam_path_3")
 pillar_puzzle_path = NodePath("../PillarPuzzle")
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -3
+offset_left = -976.0
+offset_top = -672.0
+offset_right = 1006.0
+offset_bottom = 520.0
+mouse_filter = 2
+texture = ExtResource("19_ms8y5")
+expand_mode = 1
+metadata/_edit_lock_ = true
