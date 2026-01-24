@@ -21,11 +21,10 @@ func open_dialogue():
 		
 		await $anim.animation_finished
 		await SfxPlayer.finished
-		TransitionAreaFade.transition()
-		await TransitionAreaFade.transition_finished
+		
 		QuestManager.complete_quest("quest_11")
 		#GameState.puzzle_state.set("temple_door_open")
-		get_tree().change_scene_to_file("res://scenes/maps/Outside_4/temple.tscn")
+		SceneManager.goto_scene("res://scenes/maps/Outside_4/temple.tscn", "start")
 		return
 		
 	elif GameState.picked_items.has("fire_mush") or GameState.picked_items.has("water_mush"):

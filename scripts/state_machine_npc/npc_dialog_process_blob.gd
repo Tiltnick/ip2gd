@@ -208,25 +208,25 @@ func run_away_to(pos: Vector2) -> void:
 	fleeing = true
 	flee_target = pos
 
-signal walk_away_done
+#signal walk_away_done
 
-func walk_away() -> void:
-	cutscene_locked = true
-	velocity = Vector2.ZERO
-	move_and_slide()
-
-	var path := ""
-	if get_tree().current_scene:
-		path = get_tree().current_scene.scene_file_path
-
-	if path == "res://scenes/maps/Outside_4/Outside_4.tscn":
-		animation_player.play("walk_away_outside_4")
-	elif path == "res://scenes/maps/Outside_1/Outside_1.tscn":
-		animation_player.play("walk_away_outside_1")
-
-	await animation_player.animation_finished
-	walk_away_done.emit()
-	queue_free()
+#func walk_away() -> void:
+	#cutscene_locked = true
+	#velocity = Vector2.ZERO
+	#move_and_slide()
+#
+	#var path := ""
+	#if get_tree().current_scene:
+		#path = get_tree().current_scene.scene_file_path
+#
+	#if path == "res://scenes/maps/Outside_4/Outside_4.tscn":
+ 		#animation_player.play("walk_away_outside_4")
+	#elif path == "res://scenes/maps/Outside_1/Outside_1.tscn":
+		#animation_player.play("walk_away_outside_1")
+#
+	#await animation_player.animation_finished
+	#walk_away_done.emit()
+	#queue_free()
 
 func _on_dialog_finished() -> void:
 #	var scene_name := get_tree().current_scene.name
@@ -235,11 +235,12 @@ func _on_dialog_finished() -> void:
 		QuestManager.add_quest("quest_4")
 		
 	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_1_end.json":
-		walk_away()
+		#walk_away()
+		pass
 	
 	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_4.json":
 		remove_flower()
-		#run_away_to()
+		#run_away_to(0.200)
 
 func remove_flower():
 		if not GameState.puzzle_state.get(FLOWER_CONSUMED_FLAG, false):
