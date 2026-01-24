@@ -1,8 +1,10 @@
 name: Export BloomOfMemory
 
 on:
-  push:
-    branches: ["feat-exportPipeline"]
+  pull_request: 
+    types:
+      - closed
+    branches: ["main"]
 
 env:
   GODOT_VERSION: "4.5.0"
@@ -10,6 +12,8 @@ env:
   ITCH_GAME: ${{ vars.ITCH_GAME }}
 
 jobs:
+  if_merged:
+    if: github.event.pull_request.merged == true
   export-and-upload:
     runs-on: ubuntu-latest
     steps:
