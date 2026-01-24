@@ -1,0 +1,52 @@
+name: Export BloomOfMemory
+
+on:
+  push:
+    branches: ["feat-exportPipeline"]
+
+env:
+  GODOT_VERSION: "4.5.0"
+  ITCH_USERNAME: ${{ vars.ITCH_USERNAME }}
+  ITCH_GAME: ${{ vars.ITCH_GAME }}
+
+jobs:
+  export-and-upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Export Godot project
+        uses: firebelley/godot-export@v7.0.0
+        with:
+          godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/${{ env.GODOT_VERSION }}/Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64.zip
+          godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/${{ env.GODOT_VERSION }}/Godot_v${{ env.GODOT_VERSION }}-stable_export_templates.tpz
+          relative_project_path: ./
+          cache: true
+          use_preset_export_path: false
+          relative_export_path: build
+          export_debug: false
+          archive_output: true
+          archive_root_folder: true
+
+      - name: Setup butler
+        uses: remarkablegames/setup-butler@v2
+
+      - name: Upload to itch.io
+        env:
+          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+        run: |
+          set -e
+
+          find_zip () {
+            local needle="$1"
+            find build -maxdepth 2 -type f -iname "*.zip" -print | grep -i "$needle" | head -n 1
+          }
+
+          WIN_ZIP="$(find_zip 'windows export')"
+          MAC_ZIP="$(find_zip 'macos export')"
+
+          [ -n "$WIN_ZIP" ] || { echo "Windows ZIP nicht gefunden"; exit 1; }
+          [ -n "$MAC_ZIP" ] || { echo "macOS ZIP nicht gefunden"; exit 1; }
+
+          butler push "$WIN_ZIP" "${ITCH_USERNAME}/${ITCH_GAME}:windows" --userversion "${GITHUB_SHA}"
+          butler push "$MAC_ZIP" "${ITCH_USERNAME}/${ITCH_GAME}:mac" --userversion "${GITHUB_SHA}"
