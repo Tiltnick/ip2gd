@@ -219,6 +219,9 @@ z_index = 2
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_kwd6m")
+behavior = null
+move_speed = null
+detect_radius = null
 
 [node name="Shadow" parent="." instance=ExtResource("3_db3se")]
 position = Vector2(0, 0.005)

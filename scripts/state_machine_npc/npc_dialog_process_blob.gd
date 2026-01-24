@@ -7,6 +7,10 @@ var flee_target := Vector2.ZERO
 var npc_id: String = "blob"
 var required_item_id: String = "shovel"
 @export var spawn_marker: Marker2D
+
+var path_enabled := false
+
+
 @onready var spawn_marker_cave: Marker2D = $SpawnPoints/blob_spawn_cave
 
 const FLOWER_CONSUMED_FLAG := "flower_consumed_after_dialogue"
@@ -126,6 +130,8 @@ func _ready() -> void:
 		elif spawn_marker:
 			global_position = spawn_marker.global_position
 
+	path_enabled = false
+
 
 	DialogManager.dialog_finished.connect(_on_dialog_finished)
 
@@ -226,22 +232,56 @@ func _get_spaceship_room_dialog() -> String:
 	return SPACESHIPROOM_FLOW_END
 
 func _physics_process(delta: float) -> void:
+	
 	if fleeing:
-		var dir = (flee_target - global_position)
+		var dir := (flee_target - global_position)
 		if dir.length() < 8.0:
 			fleeing = false
-			# FINAL-Position speichern, damit nach Neustart genau dort steht
-			GameState.puzzle_state["npc_pos_" + npc_id] = {
-				"x": global_position.x,
-				"y": global_position.y,
-			}
+			GameState.puzzle_state["npc_pos_" + npc_id] = {"x": global_position.x, "y": global_position.y}
+			velocity = Vector2.ZERO
 			return
-		velocity = dir.normalized() * move_speed 
+
+		velocity = dir.normalized() * move_speed
 		move_and_slide()
+		return
+
+	
+	if not path_enabled:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+
+	
+	if path_follow:
+		path_follow.progress += move_speed * delta
+		global_position = path_follow.global_position
+
 
 func run_away_to(pos: Vector2) -> void:
 	fleeing = true
 	flee_target = pos
+	
+func snap_path_to_current_position() -> void:
+	if not path_follow:
+		return
+	var path2d := path_follow.get_parent() as Path2D
+	if not path2d:
+		return
+
+	var curve := path2d.curve
+	var local_pos := path2d.to_local(global_position)
+	var closest_offset := curve.get_closest_offset(local_pos)
+	path_follow.progress = closest_offset
+
+func enable_path_late():
+	path_follow = $"../NPCPath/NPCPathFollow"
+	snap_path_to_current_position()
+	print("progress after late connect: ", path_follow.progress)
+	print("path pos after late connect: ", path_follow.global_position)
+	print("npc pos: ", global_position)
+	path_enabled = true
+
+
 
 #signal walk_away_done
 
@@ -272,6 +312,9 @@ func _on_dialog_finished() -> void:
 	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_1_end.json":
 		pass
 		#run_away_to()
+		
+	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_2_part_2.json":
+		enable_path_late()
 
 	elif last_dialog_path == "res://dialog/dialogueMrBlob/questioning_about_flower.json":
 		GameState.puzzle_state["blob_cave_done"] = true

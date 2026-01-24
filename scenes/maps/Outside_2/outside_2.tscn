@@ -2389,12 +2389,12 @@ layer = 0
 visible = false
 
 [node name="NPCPath" type="Path2D" parent="."]
-position = Vector2(-793.62415, 222)
+position = Vector2(-783.62415, 183)
 scale = Vector2(1.5503355, 1)
 curve = SubResource("Curve2D_hiyfs")
 
 [node name="NPCPathFollow" type="PathFollow2D" parent="NPCPath"]
-position = Vector2(291.30737, -66)
+position = Vector2(285.50214, -261)
 rotation = 1.7683645
 
 [node name="DoorAreaOutside1" type="Area2D" parent="."]
@@ -2673,3 +2673,6 @@ scale = Vector2(0.1, 0.1)
 [node name="NPC" parent="." node_paths=PackedStringArray("spawn_marker") instance=ExtResource("13_hiyfs")]
 z_index = 1
 spawn_marker = NodePath("../SpawnPoints/blob_spawn")
+behavior = 1
+move_speed = 50.0
+detect_radius = 120.0
