@@ -40,6 +40,8 @@ func Update(_delta: float) -> void:
 
 
 func PhysicsUpdate(delta: float) -> void:
+	if npc.fleeing or npc.path_enabled:
+		return
 	if npc.player_inside:
 		TransitionTo("idle")
 		return

@@ -233,6 +233,11 @@ func _get_spaceship_room_dialog() -> String:
 
 func _physics_process(delta: float) -> void:
 	
+	if player_inside:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+	
 	if fleeing:
 		var dir := (flee_target - global_position)
 		if dir.length() < 8.0:
