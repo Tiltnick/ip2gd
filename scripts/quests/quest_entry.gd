@@ -9,7 +9,7 @@ var quest_data: Dictionary
 
 signal quest_selected(quest_data)
 
-func setup(id: String, data: Dictionary, is_new := true, completed := false):
+func setup(id: String, data: Dictionary, _is_new := true, completed := false):
 	quest_id = id
 	quest_data = data
 	name_label.text = data["title"]

@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @export var code: Array[String] = ["1", "1", "1"]
+@export var auto_close_delay: float = 1.0  
 
 @onready var title_label: Label = $Control/Panel2/Label
 
@@ -85,8 +86,20 @@ func _try_verify_code() -> void:
 	if entered == code:
 		code_solved = true
 		emit_signal("code_verified", true)
+
+		
+		for input in inputs:
+			input.editable = false
+
+		
+		call_deferred("_delayed_close")
 	else:
 		emit_signal("code_verified", false)
+
+
+func _delayed_close() -> void:
+	await get_tree().create_timer(auto_close_delay).timeout
+	hide()
 
 
 func _on_round_buttton_pressed() -> void:

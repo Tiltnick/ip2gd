@@ -83,11 +83,21 @@ func set_stack_count(count: int) -> void:
 func set_slot_index(i: int):
 	slot_index = i
 
-	if key_label:
-		key_label.text = str(i + 1)
-	else:
-		if key_label:
-			key_label.visible = false
+	if not key_label:
+		return
+
+	key_label.text = str(i + 1)
+	key_label.visible = show_key_label
+
+
+#func set_slot_index(i: int):
+	#slot_index = i
+#
+	#if key_label:
+		#key_label.text = str(i + 1)
+	#else:
+		#if key_label:
+			#key_label.visible = false
 			
 			
 func _apply_key_label_visibility() -> void:
