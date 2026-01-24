@@ -4415,9 +4415,9 @@ point_count = 12
 
 [sub_resource type="Curve2D" id="Curve2D_pyiw6"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 568, -657, 0, 0, 0, 0, 592, -657, 0, 0, 0, 0, 616, -657, 0, 0, 0, 0, 672, -657, 0, 0, 0, 0, 672, -625, 0, 0, 0, 0, 688, -625, 0, 0, 0, 0, 688, -569, 0, 0, 0, 0, 672, -569, 0, 0, 0, 0, 672, -553, 0, 0, 0, 0, 648, -553, 0, 0, 0, 0, 640, -537, 0, 0, 0, 0, 616, -537, 0, 0, 0, 0, 544, -537, 0, 0, 0, 0, 544, -553, 0, 0, 0, 0, 512, -553, 0, 0, 0, 0, 512, -569, 0, 0, 0, 0, 496, -569, 0, 0, 0, 0, 496, -593, 0, 0, 0, 0, 496, -601, 0, 0, 0, 0, 544, -609, 0, 0, 0, 0, 544, -625, 0, 0, 0, 0, 544, -649, 0, 0, 0, 0, 544, -657)
+"points": PackedVector2Array(0, 0, 0, 0, 672, -657, 0, 0, 0, 0, 672, -625, 0, 0, 0, 0, 688, -625, 0, 0, 0, 0, 688, -569, 0, 0, 0, 0, 672, -569, 0, 0, 0, 0, 672, -553, 0, 0, 0, 0, 648, -553, 0, 0, 0, 0, 640, -537, 0, 0, 0, 0, 616, -537, 0, 0, 0, 0, 616, -555, 0, 0, 0, 0, 616, -571, 0, 0, 0, 0, 616, -609, 0, 0, 0, 0, 616, -633, 0, 0, 0, 0, 616, -657, 0, 0, 0, 0, 672, -657)
 }
-point_count = 23
+point_count = 15
 
 [sub_resource type="Curve2D" id="Curve2D_vdkvf"]
 _data = {
@@ -4945,16 +4945,17 @@ position = Vector2(640, -168)
 rotation = 1.5707964
 
 [node name="Greeny Side4" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("47_uf0e1")]
-position = Vector2(384, -672)
+position = Vector2(456, -668)
 path_follow = NodePath("../Path2D10/PathFollow2D")
 speed = 30.0
 
 [node name="Path2D10" type="Path2D" parent="Folk"]
-position = Vector2(-160, -15)
+position = Vector2(-160, -13)
 curve = SubResource("Curve2D_pyiw6")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Folk/Path2D10"]
-position = Vector2(568, -657)
+position = Vector2(672, -657)
+rotation = 1.5707964
 
 [node name="Bluey Side4" parent="Folk" node_paths=PackedStringArray("path_follow") instance=ExtResource("41_4wjv5")]
 position = Vector2(736.7653, -517.7545)
@@ -5066,7 +5067,7 @@ shape = SubResource("RectangleShape2D_pyiw6")
 debug_color = Color(0.65119547, 0.51965237, 5.7756904e-07, 0.41960785)
 
 [node name="Note" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("44_8miwm")]
-position = Vector2(506, -624)
+position = Vector2(498, -616)
 diary_entry_id = "entry_5"
 save_id = "mush_note"
 e_popup_node = NodePath("Press_E_Popup")

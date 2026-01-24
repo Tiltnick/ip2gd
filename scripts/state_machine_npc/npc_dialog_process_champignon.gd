@@ -77,12 +77,12 @@ func _physics_process(delta: float) -> void:
 		var dir = (flee_target - global_position)
 		if dir.length() < 8.0:
 			fleeing = false
-			# FINAL-Position speichern, damit nach Neustart genau dort steht
+			# finale speichern, damit nach Neustart genau dort steht
 			GameState.puzzle_state["npc_pos_" + npc_id] = {
 				"x": global_position.x,
 				"y": global_position.y,
 			}
-			dialog_active = false # optional: verschwinden
+			dialog_active = false 
 			return
 
 		velocity = dir.normalized() * move_speed * 3.0

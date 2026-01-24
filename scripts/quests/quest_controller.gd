@@ -78,6 +78,9 @@ func _show_item_requirement(quest: Dictionary):
 
 		# Slot ist rein visuell → kein Click
 		slot.set_click_callback(Callable())
+		slot.show_key_label = false
+		slot._apply_key_label_visibility()
+		slot.get_node("Label for Keys").visible = false
 
 		if GameState.picked_items.has(item_id):
 			slot.set_item_icon(item_id)
