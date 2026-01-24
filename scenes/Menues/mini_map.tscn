@@ -79,6 +79,7 @@ corner_radius_bottom_left = 62
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sl0p5"]
 
 [node name="MiniMap" type="CanvasLayer"]
+layer = 0
 visible = false
 script = ExtResource("1_yp080")
 

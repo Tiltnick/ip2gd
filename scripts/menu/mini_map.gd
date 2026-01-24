@@ -31,7 +31,7 @@ func map_interact():
 
 func open_map():
 	var scene: Node = get_tree().current_scene
-	var scene_name: String = scene.name if scene != null else ""
+	var scene_name: String = String(scene.name) if scene != null else ""
 	map_texture.texture = _get_map_texture()
 	update_marker(scene_name)
 	mini_map.show()
@@ -88,7 +88,7 @@ func update_marker(scene_name: String) -> void:
 		"Outside4":
 			marker_outside_4.show()
 
-func show_tooltip(text: String, pos: Vector2):
+func show_tooltip(text: String, _pos: Vector2):
 	label.text = text
 	panel.visible = true
 	#panel.global_position = pos + Vector2(18, -10)
