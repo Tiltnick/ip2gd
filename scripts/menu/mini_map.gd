@@ -33,12 +33,18 @@ func open_map():
 	var scene: Node = get_tree().current_scene
 	var scene_name: String = String(scene.name) if scene != null else ""
 	map_texture.texture = _get_map_texture()
+
+	for marker in markers.get_children():
+		if marker is CanvasItem:
+			marker.hide()
+
 	update_marker(scene_name)
 	mini_map.show()
 
 func close_map():
 	for marker in markers.get_children():
-		marker.hide()
+		if marker is CanvasItem:
+			marker.hide()
 	mini_map.hide()
 
 func _get_map_texture() -> Texture2D:
@@ -99,3 +105,7 @@ func hide_tooltip():
 
 func _on_close_button_pressed() -> void:
 	close_map()
+
+
+func is_open() -> bool:
+	return visible

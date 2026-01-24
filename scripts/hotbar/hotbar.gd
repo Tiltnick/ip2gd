@@ -98,16 +98,22 @@ func _close_active_item():
 
 
 func use_slot(slot_index: int):
+	
 	var item_id = hotbarglobal.get_hotbar_item(slot_index)
 	if not item_id:
 		if slot_index == active_slot_index:
 			_close_active_item()
+		if MiniMap and MiniMap.visible:
+			if MiniMap.has_method("close_map"):
+				MiniMap.close_map()
+			else:
+				MiniMap.hide()
 		return
 	if item_id == "map":
 		# falls gerade ein anderes aktives Item offen ist, schließen
 		if active_item and is_instance_valid(active_item):
 			_close_active_item()
-		MiniMap.map_interact()  
+		MiniMap.map_interact()
 		return
 
 	# Wenn bereits ein aktives Item existiert dann interagieren
@@ -119,6 +125,12 @@ func use_slot(slot_index: int):
 			return
 		else:
 			_close_active_item()
+
+	if MiniMap and MiniMap.visible:
+		if MiniMap.has_method("close_map"):
+			MiniMap.close_map()
+		else:
+			MiniMap.hide()
 
 	# Item muss in der Datenbank existieren
 	if not ItemDatabase.DATA.has(item_id):
@@ -151,7 +163,7 @@ func use_slot(slot_index: int):
 	if has_spawned:
 		inst.set("spawned_from_hotbar", true)
 
-	# Jetzt in den SceneTree hängen
+	# Jetzt in den scene tree hängen
 	get_tree().current_scene.add_child(inst)
 
 	active_item = inst
@@ -164,7 +176,7 @@ func use_slot(slot_index: int):
 			active_slot_index = -1
 	)
 
-	# Hotbar Activation zb. zoom
+	# Hotbar Activation wie zoom
 	if inst.has_method("hotbar_activate"):
 		inst.hotbar_activate()
 	elif inst.has_method("interact"):
