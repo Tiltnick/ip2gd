@@ -63,8 +63,8 @@
 		},
 		{
 		  "speaker": "Mr. Blob",
-		  "text_en": "Interesting...well it was nice meeting you.",
-		  "text_de": "Interessant...naja, war nett dich kennenzulernen."
+		  "text_en": "Interesting...Cough, cough...well it was nice meeting you.",
+		  "text_de": "Interessant...naja, hust, hust...war nett dich kennenzulernen."
 		}
 	  ],
 	  "next": "oris_question_1"
@@ -102,8 +102,8 @@
 		},
 		{
 		  "speaker": "Mr. Blob",
-		  "text_en": "Let’s calm down a bit. He was fine, just a little rumpled.",
-		  "text_de": "Beruhigen wir uns mal kurz. Es ging ihm gut, er war nur ein bisschen zerzaust."
+		  "text_en": "Let’s calm down a bit. Cough. He was fine, just a little rumpled.",
+		  "text_de": "Beruhigen wir uns mal kurz. Hust. Es ging ihm gut, er war nur ein bisschen zerzaust."
 		}
 	  ],
 	  "next": "oris_detail_1"
@@ -134,8 +134,8 @@
 		},
 		{
 		  "speaker": "Mr. Blob",
-		  "text_en": "Oh, just over this human app… Space… something. The second part rhymes with clam.",
-		  "text_de": "Oh, einfach über diese menschliche App… Space… irgendwas. Der zweite Teil reimt sich auf „Clam“."
+		  "text_en": "Oh, just over this human app… Space… something. The second part rhymes with clam. Cough.",
+		  "text_de": "Oh, einfach über diese menschliche App… Space… irgendwas. Der zweite Teil reimt sich auf „Clam“. Hust."
 		}
 	  ],
 	  "next": "oris_app_1"

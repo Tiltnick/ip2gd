@@ -120,6 +120,7 @@ window/stretch/mode="canvas_items"
 [file_customization]
 
 folder_colors={
+"res://dialog/dialogueMrBlob/": "blue",
 "res://dialog/innerMonologue/": "orange"
 }
 
@@ -138,6 +139,7 @@ statue_puzzle_ui=""
 chest_puzzle_ui=""
 socket_puzzle_ui=""
 panel_puzzle_ui=""
+minimap_ui=""
 
 [input]
 
