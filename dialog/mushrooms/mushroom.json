@@ -83,8 +83,8 @@
 
 	"moon": {
 		"lines": [
-			{"speaker": "Truffle", "text_en": "I pull the oceans with unseen hands and paint the night in shifting shapes whole, I am broken, yet never gone forever circling, never staying.",
-									"text_de": "Mit unsichtbaren Händen ziehe ich die Meere und male die Nacht in wandelnden Formen. Mal bin ich ganz, mal bin ich gebrochen, doch niemals fort, ewig kreisend, nie verweilend."
+			{"speaker": "Truffle", "text_en": "I part the waters, shape the flow of time, in quiet stillness, truth will shine. When night ascends, I rule the tides, a pale eye watching from above.",
+									"text_de": "Ich teil’ das Wasser, führ’ die Zeit, im Stillen liegt die Wahrheit breit. Wenn Nacht erwacht, beherrsch’ ich die Flut, ein blasses Auge hoch in Ruh’."
 			}
 		],
 		"next": "planet"
@@ -92,8 +92,8 @@
 
 	"planet": {
 		"lines": [
-			{"speaker": "Porcini","text_en": " I bear the traces of every soul, that walks, that gives, that loses hold. Only those who honor, not possess, may rest where new life begins to bless.",
-									"text_de": "Ich trag’ die Spuren aller Seelen, die wandeln, geben, manchmal fehlen. Nur wer mich achtet, nicht besitzt, darf ruh’n, wo neues Leben sitzt." 
+			{"speaker": "Porcini","text_en": " I am the soil where countless feet have passed, where loss sinks deep and roots hold fast. I move in circles, slow and sure, a grounded world both old and pure.",
+									"text_de": "Ich bin der Grund, den Schritte tragen, wo Verlust versinkt, wo Wurzeln schlagen. Ich zieh’ im Kreis, so alt, so schwer.Geerdete Welt, uralt und pur." 
 			}
 		],
 		"next": "end"

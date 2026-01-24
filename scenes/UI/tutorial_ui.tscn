@@ -13,9 +13,10 @@ script = ExtResource("1_ag6lg")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 1.0
-offset_right = 294.14285
-offset_bottom = 171.0
+offset_left = 11.0
+offset_top = 12.0
+offset_right = 304.14285
+offset_bottom = 183.0
 texture = ExtResource("2_dlfbv")
 
 [node name="Tutorial_Title" type="Label" parent="TextureRect"]

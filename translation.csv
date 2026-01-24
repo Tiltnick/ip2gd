@@ -35,7 +35,7 @@ NO,No,Nein
 SAVE_AND_EXIT,Save and Exit,Speichern und Beenden
 CONTINUE,Continue,Fortsetzen
 SAVE_GAME,Save Game?,Spiel speichern?
-CLICK_RIGHT,rotate with right click,rotiere mit Rechtsklick
+CLICK_RIGHT,Rotate with right click,Rotiere mit Rechtsklick
 DIARY,Diary,Tagebuch
 INVENTORY,Inventory,Inventar
 QUESTS,Quests,Missionen
@@ -59,7 +59,7 @@ USE_SPACEGRAM,Use Spacegram,Nutze Spacegram
 TUTORIAL_TITLE_MOVEMENT,MOVEMENT,BEWEGUNG
 TUTORIAL_TITLE_SPRINT,SPRINTING,Rennen
 TUTORIAL_TITLE_INTERACT,INTERACT,INTERAGIEREN
-TUTORIAL_TEXT_MOVEMENT,Use WASD to move,Benutze WASD zur Steuerung
+TUTORIAL_TEXT_MOVEMENT,Use WASD to move (%d/4),Benutze WASD zur Steuerung (%d/4)
 TUTORIAL_TEXT_SPRINT,Hold Shift to sprint,Halte Shift um zu rennen
 TUTORIAL_TEXT_INTERACT,Press E to interact,Drücke E zum Interagieren
 NEW_DIARY_ENTRY,New Diary Entry,Neuer Tagebucheintrag
