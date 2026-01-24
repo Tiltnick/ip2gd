@@ -149,7 +149,7 @@
 },
 
 "quest_11": {
-	"needs_items": ["fire_mush"],
+	"needs_items": ["fire_mush", "water_mush"],
 	"spacegram_hint": false,
 	"title": {
 		"text_de": "Der Wassertempel",

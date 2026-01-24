@@ -49,12 +49,3 @@ func _player_has_all_items(player: Node, ) -> bool:
 
 func _show_missing_items_dialog() -> void:
 	DialogManager.start_dialog(missing_items_dialog_json)
-
-	
-#(funktioniert*yay*)
-#tempel: blume
-#spaceship-room: teleskop
-#höhle: notiz
-
-#noch schauen:
-#spaceship: diary
