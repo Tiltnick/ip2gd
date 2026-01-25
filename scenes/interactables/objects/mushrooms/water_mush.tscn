@@ -11,7 +11,7 @@ script = ExtResource("1_84ovv")
 hotbar_id = "water_mush"
 save_id = "water_mush"
 item_name_de = "Wasserpilz"
-item_name_en = "water mushroom"
+item_name_en = "Water Mushroom"
 item_icon = ExtResource("3_84ovv")
 metadata/_custom_type_script = "uid://bprtpeaj0q4x"
 
