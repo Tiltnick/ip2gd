@@ -8,7 +8,6 @@ class_name QuestController
 @onready var item_display = $DisplayRight/ItemDisplay
 @onready var item_box = $DisplayRight/ItemDisplay/HBoxContainer
 @onready var spacegram_hint = $DisplayRight/Spacegram_Hint
-
 @export var quest_entry_scene: PackedScene = preload("res://scenes/Menues/QuestMenu/QuestEntry.tscn")
 @export var slot_scene: PackedScene = preload("res://scenes/hotbar/slot.tscn")
 
@@ -35,6 +34,8 @@ func _rebuild_ui():
 		add_quest(q)
 	for q in QuestManager.completed_quests.values():
 		complete_quest(q)
+
+	_select_default_quest()
 
 
 func add_quest(quest: Dictionary):
@@ -76,7 +77,6 @@ func _show_item_requirement(quest: Dictionary):
 		var slot: HotbarSlot = slot_scene.instantiate()
 		item_box.add_child(slot)
 
-		# Slot ist rein visuell → kein Click
 		slot.set_click_callback(Callable())
 		slot.show_key_label = false
 		slot._apply_key_label_visibility()
@@ -88,12 +88,13 @@ func _show_item_requirement(quest: Dictionary):
 			slot.clear_icon()
 
 
+
 func _on_quest_updated(quest: Dictionary) -> void:
 	var id = quest.get("id", "")
 	if id == "":
 		return
 
-	# Quest IMMER frisch aus dem Manager holen (neu gebaut = neue Sprache)
+	# Quest dem Manager holen (für Sprachupdates)
 	var fresh: Dictionary = {}
 	if QuestManager.current_quests.has(id):
 		fresh = QuestManager.current_quests[id]
@@ -102,8 +103,20 @@ func _on_quest_updated(quest: Dictionary) -> void:
 	else:
 		fresh = quest # fallback
 
-	# Nur anzeigen wenn gerade selektiert (sonst flackert die Anzeige)
 	if selected_quest_id == id:
 		_show_quest(fresh)
 
 	_rebuild_ui()
+
+func _select_default_quest() -> void:
+	if selected_quest_id != "":
+		return
+
+	if current_list.get_child_count() > 0:
+		var entry: QuestEntry = current_list.get_child(0)
+		_show_quest(entry.quest_data)
+		return
+
+	if completed_list.get_child_count() > 0:
+		var entry: QuestEntry = completed_list.get_child(0)
+		_show_quest(entry.quest_data)
