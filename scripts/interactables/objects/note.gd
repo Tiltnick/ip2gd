@@ -5,6 +5,10 @@ func _ready() -> void:
 	super._ready()
 
 func interact() -> void:
+	if GameState.picked_items.has("cave_note") and GameState.picked_items.has("mush_item") and GameState.picked_items.has("temple_note"):
+		QuestManager.complete_quest("quest_8")
+
+	
 	if GameState.puzzle_state.get(save_id, false):
 		return
 
@@ -19,3 +23,4 @@ func interact() -> void:
 	queue_free()
 
 	QuestManager.add_quest("quest_8")
+	
