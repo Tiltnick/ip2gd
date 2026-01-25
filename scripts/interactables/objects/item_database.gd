@@ -16,7 +16,7 @@ var DATA := {
 	
 	"fire_mush": {
 		"name_de": "Feuerpilz",
-		"name_en": "fire mushroom",
+		"name_en": "Fire Mushroom",
 		"description_de": "Ein feuriger Pilz. Achtung, sehr heiß, lass dich nicht verführen.",
 		"description_en": "A fire mushroom. Be cautious, it's very hot, don't let yourself be seduced.",
 		"icon":"res://assets/sprites/selfmade/mushrooms/fire_mush.png",
@@ -26,7 +26,7 @@ var DATA := {
 	
 	"water_mush": {
 		"name_de": "Wasserpilz",
-		"name_en": "water mushroom",
+		"name_en": "Water Mushroom",
 		"description_de": "Nass und glitschig. Steck ihn am Besten nicht in deine Hosentasche...",
 		"description_en": "Wet and slippery. It's best if you don't put it in your pocket...",
 		"icon":"res://assets/sprites/selfmade/mushrooms/water_mush.png",

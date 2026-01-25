@@ -2370,7 +2370,7 @@ position = Vector2(-376, -811)
 position = Vector2(186, -136)
 
 [node name="blob_spawn" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(19, -340)
+position = Vector2(-33, -294)
 
 [node name="blob_spawn_cave" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(-357, -807)
