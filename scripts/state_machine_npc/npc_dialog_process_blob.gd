@@ -9,11 +9,13 @@ var required_item_id: String = "shovel"
 @export var spawn_marker: Marker2D
 @onready var spawn_marker_cave: Marker2D = get_tree().current_scene.get_node_or_null("SpawnPoints/blob_spawn_cave") as Marker2D
 var path_enabled := false
+@onready var interaction_area: Area2D = $DetectionArea
 
 
 const FLOWER_CONSUMED_FLAG := "flower_consumed_after_dialogue"
 const OUTSIDE2_SECOND_UNLOCK_FLAG: String = "outside2_second_unlocked"
 const OUTSIDE2_NOTE_FLAG := "sams_note_picked"
+const BLOB_RAN_AWAY_OUTSIDE1_FLAG := "blob_ran_away_outside1"
 
 
 # Szene → Dialogdatei
@@ -266,10 +268,21 @@ func _physics_process(delta: float) -> void:
 		global_position = path_follow.global_position
 
 
-func run_away_to(pos: Vector2) -> void:
+func run_away_to(pos: Vector2) -> void: 
 	fleeing = true
 	flee_target = pos
 	
+func run_away_to_and_wait(pos: Vector2) -> void:
+	_set_interaction_enabled(false)
+	anim.play("move")
+	anim.flip_h = true
+	run_away_to(pos)
+	while fleeing:
+		await get_tree().process_frame
+	_set_interaction_enabled(true)
+	anim.flip_h = false
+	anim.play("idle")
+
 func snap_path_to_current_position() -> void:
 	if not path_follow:
 		return
@@ -291,11 +304,8 @@ func enable_path_late():
 	path_enabled = true
 
 func _on_dialog_finished() -> void:
-#	var scene_name := get_tree().current_scene.name
-
 	if last_dialog_path == "res://dialog/dialogueMrBlob/outside_1.json":
 		QuestManager.add_quest("quest_4")
-		
 
 	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_2_part_2.json":
 		enable_path_late()
@@ -303,19 +313,25 @@ func _on_dialog_finished() -> void:
 	elif last_dialog_path == "res://dialog/dialogueMrBlob/questioning_about_flower.json":
 		GameState.puzzle_state["blob_cave_done"] = true
 		path_enabled = false
-		run_away_to(global_position + Vector2(120, 0))
-
+		run_away_to(global_position + Vector2(120, 0)) # fire-and-forget, kein await
 
 	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_4.json":
 		remove_flower()
-		run_away_to(global_position + Vector2(0, 120))
-		run_away_to(global_position + Vector2(500, 0))
+		await run_away_to_and_wait(global_position + Vector2(0, 140))
+		await run_away_to_and_wait(global_position + Vector2(500, 0))
 
-	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_1_end.json":
-		run_away_to(global_position + Vector2(0, 120))
+	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_1_flower.json":
+		await run_away_to_and_wait(global_position + Vector2(0, 170))
+		await run_away_to_and_wait(global_position + Vector2(180, 0))
+		await run_away_to_and_wait(global_position + Vector2(0, -450))
+		GameState.puzzle_state[BLOB_RAN_AWAY_OUTSIDE1_FLAG] = true
 
 func remove_flower():
 		if not GameState.puzzle_state.get(FLOWER_CONSUMED_FLAG, false):
 			GameState.puzzle_state[FLOWER_CONSUMED_FLAG] = true
 		if hotbarglobal.has_item("flower"):
 			hotbarglobal.remove_item("flower")
+
+func _set_interaction_enabled(v: bool) -> void:
+	interaction_area.monitoring = v
+	interaction_area.monitorable = v
