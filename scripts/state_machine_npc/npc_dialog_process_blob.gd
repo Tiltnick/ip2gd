@@ -7,11 +7,16 @@ var flee_target := Vector2.ZERO
 var npc_id: String = "blob"
 var required_item_id: String = "shovel"
 @export var spawn_marker: Marker2D
+@onready var spawn_marker_cave: Marker2D = get_tree().current_scene.get_node_or_null("SpawnPoints/blob_spawn_cave") as Marker2D
+var path_enabled := false
+@onready var interaction_area: Area2D = $DetectionArea
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 const FLOWER_CONSUMED_FLAG := "flower_consumed_after_dialogue"
 const OUTSIDE2_SECOND_UNLOCK_FLAG: String = "outside2_second_unlocked"
+const OUTSIDE2_NOTE_FLAG := "sams_note_picked"
+const BLOB_RAN_AWAY_OUTSIDE1_FLAG := "blob_ran_away_outside1"
+
 
 # Szene → Dialogdatei
 const DIALOG_BY_SCENE := {
@@ -54,6 +59,20 @@ const OUTSIDE2_SECOND_FLOW := [
 		"path": "res://dialog/dialogueMrBlob/outside_2_part_2.json",
 	}
 ]
+
+const OUTSIDE2_BEFORE_CAVE := [
+	
+]
+
+const OUTSIDE2_AFTER_CAVE := [
+	{
+		"flag": "blob_cave_done",
+		"path": "res://dialog/dialogueMrBlob/questioning_about_flower.json",
+	}
+]
+
+
+
 const OUTSIDE2_SECOND_END: String = "res://dialog/dialogueMrBlob/outside_2_part_2_end.json"
 
 const OUTSIDE2_LOCKED_WITH_ITEM_DIALOG: String = "res://dialog/dialogueMrBlob/outside_2_part_2_default.json"
@@ -90,21 +109,32 @@ const SPACESHIPROOM_FLOW := [
 	{
 		"flag":"",
 		"path":"",
-	},
+	}
 ]
 const SPACESHIPROOM_FLOW_END: String = "res://dialog/dialogueMrBlob/end_dialog_outside3_blob.json"
-
+var cave_done := bool(GameState.puzzle_state.get("blob_cave_done", false))
+var note_picked := bool(GameState.puzzle_state.get(OUTSIDE2_NOTE_FLAG, false))
+	
 func _ready() -> void:
 	super._ready()
 
 	var npc_pos = "npc_pos_" + npc_id
+	
+	if get_tree().current_scene \
+		and get_tree().current_scene.name == "Outside2" \
+		and note_picked \
+		and not cave_done \
+		and spawn_marker_cave:
+			global_position = spawn_marker_cave.global_position
+	else:
+		if GameState.puzzle_state.has(npc_pos):
+			var d = GameState.puzzle_state[npc_pos]
+			if typeof(d) == TYPE_DICTIONARY and d.has("x") and d.has("y"):
+				global_position = Vector2(d["x"], d["y"])
+		elif spawn_marker:
+			global_position = spawn_marker.global_position
 
-	if GameState.puzzle_state.has(npc_pos):
-		var d = GameState.puzzle_state[npc_pos]
-		if typeof(d) == TYPE_DICTIONARY and d.has("x") and d.has("y"):
-			global_position = Vector2(d["x"], d["y"])
-	elif spawn_marker:
-		global_position = spawn_marker.global_position
+	path_enabled = false
 
 
 	DialogManager.dialog_finished.connect(_on_dialog_finished)
@@ -120,7 +150,12 @@ func get_dialog_path(scene_name: String) -> String:
 	elif scene_name == "Outside2":
 		var has_item: bool = hotbarglobal.has_item(required_item_id)
 		var unlocked: bool = bool(GameState.puzzle_state.get(OUTSIDE2_SECOND_UNLOCK_FLAG, false))
+	
+		if note_picked and not cave_done:
+			return _get_outside2_after_cave_dialog()
 
+		#var npc_path: Path2D = $"../NPCPath/NPCPathFollow"
+		
 		if has_item and unlocked:
 			return _get_outside2_second_dialog()
 
@@ -165,6 +200,13 @@ func _get_outside2_second_dialog() -> String:
 		if not bool(GameState.puzzle_state.get(step["flag"], false)):
 			return step["path"]
 	return OUTSIDE2_SECOND_END
+	
+func _get_outside2_after_cave_dialog() -> String:
+	for step in OUTSIDE2_AFTER_CAVE:
+		if not bool(GameState.puzzle_state.get(step["flag"], false)):
+			return step["path"]
+	# Wenn done: danach normal weiter (oder ein Default)
+	return DEFAULT_DIALOG
 
 func _get_outside3_dialog() -> String:
 	for step in OUTSIDE3_FLOW:
@@ -191,6 +233,12 @@ func _get_spaceship_room_dialog() -> String:
 	return SPACESHIPROOM_FLOW_END
 
 func _physics_process(delta: float) -> void:
+	
+	if player_inside:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+	
 	if fleeing:
 		var dir = (flee_target - global_position)
 		if dir.length() < 8.0:
@@ -200,50 +248,90 @@ func _physics_process(delta: float) -> void:
 				"x": global_position.x,
 				"y": global_position.y,
 			}
-			return
-		velocity = dir.normalized() * move_speed 
-		move_and_slide()
+			velocity = Vector2.ZERO
 
-func run_away_to(pos: Vector2) -> void:
+			return
+
+		velocity = dir.normalized() * move_speed
+		move_and_slide()
+		return
+
+	
+	if not path_enabled:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+
+	
+	if path_follow:
+		path_follow.progress += move_speed * delta
+		global_position = path_follow.global_position
+
+
+func run_away_to(pos: Vector2) -> void: 
 	fleeing = true
 	flee_target = pos
+	
+func run_away_to_and_wait(pos: Vector2) -> void:
+	_set_interaction_enabled(false)
+	anim.play("move")
+	anim.flip_h = true
+	run_away_to(pos)
+	while fleeing:
+		await get_tree().process_frame
+	_set_interaction_enabled(true)
+	anim.flip_h = false
+	anim.play("idle")
 
-#signal walk_away_done
+func snap_path_to_current_position() -> void:
+	if not path_follow:
+		return
+	var path2d := path_follow.get_parent() as Path2D
+	if not path2d:
+		return
 
-#func walk_away() -> void:
-	#cutscene_locked = true
-	#velocity = Vector2.ZERO
-	#move_and_slide()
-#
-	#var path := ""
-	#if get_tree().current_scene:
-		#path = get_tree().current_scene.scene_file_path
-#
-	#if path == "res://scenes/maps/Outside_4/Outside_4.tscn":
- 		#animation_player.play("walk_away_outside_4")
-	#elif path == "res://scenes/maps/Outside_1/Outside_1.tscn":
-		#animation_player.play("walk_away_outside_1")
-#
-	#await animation_player.animation_finished
-	#walk_away_done.emit()
-	#queue_free()
+	var curve := path2d.curve
+	var local_pos := path2d.to_local(global_position)
+	var closest_offset := curve.get_closest_offset(local_pos)
+	path_follow.progress = closest_offset
+
+func enable_path_late():
+	path_follow = $"../NPCPath/NPCPathFollow"
+	snap_path_to_current_position()
+	print("progress after late connect: ", path_follow.progress)
+	print("path pos after late connect: ", path_follow.global_position)
+	print("npc pos: ", global_position)
+	path_enabled = true
 
 func _on_dialog_finished() -> void:
-#	var scene_name := get_tree().current_scene.name
-
 	if last_dialog_path == "res://dialog/dialogueMrBlob/outside_1.json":
 		QuestManager.add_quest("quest_4")
-		
-	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_1_end.json":
-		#walk_away()
-		pass
-	
+
+	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_2_part_2.json":
+		enable_path_late()
+
+	elif last_dialog_path == "res://dialog/dialogueMrBlob/questioning_about_flower.json":
+		GameState.puzzle_state["blob_cave_done"] = true
+		path_enabled = false
+		run_away_to(global_position + Vector2(120, 0)) # fire-and-forget, kein await
+
 	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_4.json":
 		remove_flower()
-		#run_away_to(0.200)
+		await run_away_to_and_wait(global_position + Vector2(0, 140))
+		await run_away_to_and_wait(global_position + Vector2(500, 0))
+
+	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_1_flower.json":
+		await run_away_to_and_wait(global_position + Vector2(0, 170))
+		await run_away_to_and_wait(global_position + Vector2(180, 0))
+		await run_away_to_and_wait(global_position + Vector2(0, -450))
+		GameState.puzzle_state[BLOB_RAN_AWAY_OUTSIDE1_FLAG] = true
 
 func remove_flower():
 		if not GameState.puzzle_state.get(FLOWER_CONSUMED_FLAG, false):
 			GameState.puzzle_state[FLOWER_CONSUMED_FLAG] = true
 		if hotbarglobal.has_item("flower"):
 			hotbarglobal.remove_item("flower")
+
+func _set_interaction_enabled(v: bool) -> void:
+	interaction_area.monitoring = v
+	interaction_area.monitorable = v

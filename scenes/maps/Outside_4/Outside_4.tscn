@@ -7448,7 +7448,7 @@ position = Vector2(322, -226)
 position = Vector2(322, -225)
 
 [node name="from_temple" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(-48, -48.565)
+position = Vector2(-49, -74)
 
 [node name="blob" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(-48, -32)

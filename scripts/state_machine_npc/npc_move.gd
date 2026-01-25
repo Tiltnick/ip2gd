@@ -40,6 +40,7 @@ func Update(_delta: float) -> void:
 
 
 func PhysicsUpdate(delta: float) -> void:
+
 	if npc.player_inside:
 		TransitionTo("idle")
 		return
