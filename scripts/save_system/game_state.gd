@@ -38,6 +38,17 @@ var language: String = "en"
 
 var display_mode: String = "fullscreen"
 
+
+var inventory_slots: Array = [
+	null, null, null, null,
+	null, null, null, null,
+	null, null, null, null,
+	null, null, null, null
+]
+var hotbar_counts: Dictionary = {}
+var hotbar_icon_override: Dictionary = {}
+
+
 func start_dialog(dialog_id: String) -> void:
 	# Dialog existiert
 	if not dialog_state.has(dialog_id):
@@ -71,6 +82,10 @@ func to_dict() -> Dictionary:
 		"sound_setting": sound_setting,
 		"language": language,
 		"display_mode": display_mode,
+		"inventory_slots": inventory_slots,
+		"hotbar_counts": hotbar_counts,
+		"hotbar_icon_override": hotbar_icon_override,
+
 	}
 
 
@@ -120,3 +135,23 @@ func from_dict(data: Dictionary) -> void:
 	if data.has("language"):
 		language = str(data["language"])
 		TranslationServer.set_locale(language)
+		
+	if data.has("inventory_slots") and typeof(data["inventory_slots"]) == TYPE_ARRAY:
+		inventory_slots = data["inventory_slots"]
+	else:
+		inventory_slots = [
+			null, null, null, null,
+			null, null, null, null,
+			null, null, null, null,
+			null, null, null, null
+		]
+
+	if data.has("hotbar_counts") and typeof(data["hotbar_counts"]) == TYPE_DICTIONARY:
+		hotbar_counts = data["hotbar_counts"]
+	else:
+		hotbar_counts = {}
+
+	if data.has("hotbar_icon_override") and typeof(data["hotbar_icon_override"]) == TYPE_DICTIONARY:
+		hotbar_icon_override = data["hotbar_icon_override"]
+	else:
+		hotbar_icon_override = {}

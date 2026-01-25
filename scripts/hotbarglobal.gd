@@ -48,6 +48,7 @@ func add_item(item_id: String) -> bool:
 	if inventory_items.has(item_id):
 		print("has id in add item")
 		update_ui()
+		push_to_gamestate()
 		return true
 
 	#füge item zu inventory zu 
@@ -55,9 +56,13 @@ func add_item(item_id: String) -> bool:
 		if inventory_items[i] == null:
 			inventory_items[i] = item_id
 			update_ui()
+			push_to_gamestate()
 			return true
 
+	#push_to_gamestate()
 	return false
+	
+
 
 
 func add_piece(piece_id: String, hotbar_type_id: String) -> void:
@@ -76,6 +81,8 @@ func add_piece(piece_id: String, hotbar_type_id: String) -> void:
 	hotbar_icon_override[hotbar_type_id] = piece_id
 
 	update_ui()
+	push_to_gamestate()
+
 
 
 func get_hotbar_display_item_id(item_id: String) -> String:
@@ -120,6 +127,8 @@ func remove_item(item_id: String) -> void:
 		_compact_array(inventory_items)
 
 	update_ui()
+	push_to_gamestate()
+
 
 
 func _compact_array(arr: Array) -> void:
@@ -210,6 +219,8 @@ func give_item(item_id: String, save_key: String = "") -> bool:
 	# Save-State setzen
 	if save_key != "":
 		GameState.puzzle_state[save_key] = true
+		
+	push_to_gamestate()
 
 	# Popup anzeigen
 	_show_item_popup_from_db(item_id)
@@ -238,3 +249,26 @@ func _show_item_popup_from_db(item_id: String) -> void:
 		return
 	
 	PopupManager.popup_item(title, tex)
+
+
+func push_to_gamestate() -> void:
+	GameState.inventory_slots = inventory_items.duplicate(true)
+	GameState.hotbar_counts = hotbar_counts.duplicate(true)
+	GameState.hotbar_icon_override = hotbar_icon_override.duplicate(true)
+
+func pull_from_gamestate() -> void:
+	
+	if GameState.inventory_slots.is_empty():
+		inventory_items = [
+			null, null, null, null,
+			null, null, null, null,
+			null, null, null, null,
+			null, null, null, null
+		]
+	else:
+		inventory_items = GameState.inventory_slots.duplicate(true)
+
+	hotbar_counts = GameState.hotbar_counts.duplicate(true)
+	hotbar_icon_override = GameState.hotbar_icon_override.duplicate(true)
+
+	update_ui()

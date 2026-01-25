@@ -10,7 +10,8 @@ var active_slot_index: int = -1
 
 func _ready():
 	hotbarglobal.hotbar = self
-
+	hotbarglobal.pull_from_gamestate()
+	
 	# Slots initialisieren
 	for i in range(slots.size()):
 		var slot = slots[i]

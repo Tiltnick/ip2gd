@@ -68,6 +68,7 @@ func load_game() -> bool:
 	# Daten zurück in die GameState
 	var data: Dictionary = json.data
 	GameState.from_dict(data)
+
 	# Speicherstand existiert
 	GameState.has_save = true
 	# beim nächsten Szenenwechsel gespeicherte Position benutzen
