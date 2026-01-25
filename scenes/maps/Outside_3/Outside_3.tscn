@@ -4718,7 +4718,6 @@ visible = false
 position = Vector2(339.0602, -345.28543)
 
 [node name="NPC" parent="." node_paths=PackedStringArray("spawn_marker") instance=ExtResource("25_1k6v6")]
-position = Vector2(383, -452)
 spawn_marker = NodePath("../SpawnPoints/blob_spawn")
 
 [node name="Purple Grass" type="Node" parent="."]
@@ -5082,6 +5081,7 @@ offset_bottom = -21.0
 scale = Vector2(0.6, 0.6)
 
 [node name="Character" parent="." instance=ExtResource("2_8miwm")]
+position = Vector2(414, -273)
 
 [connection signal="body_entered" from="PopupArea" to="." method="_on_area_2d_3_body_entered"]
 
