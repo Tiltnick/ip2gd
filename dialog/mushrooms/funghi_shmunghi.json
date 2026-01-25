@@ -1,6 +1,5 @@
 {
   "id": "funghi_shmunghi",
-  "start": "sections",
   "characters": {
 	"Funghi": "res://assets/sprites/portrait/truffle.png",
 	"Shmunghi": "res://assets/sprites/portrait/truffle.png"
@@ -10,7 +9,7 @@
 	  "lines": [
 		{ "speaker": "Funghi", "text_en": "Hold up, there, mister!", "text_de": "Einen Moment, junger Herr!" },
 		{ "speaker": "Shmunghi", "text_en": "Hold up!", "text_de": "Moment!" },
-		{ "speaker": "Funghi", "text_en": "No trespassing allowed for normies like you!", "text_de": "Durchgehen nicht erlaubt für normies wie dich!" },
+		{ "speaker": "Funghi", "text_en": "No trespassing allowed for humans like you!", "text_de": "Durchgehen nicht erlaubt für Menschen wie dich!" },
 		{ "speaker": "Shmunghi", "text_en": "Oh yeah!", "text_de": "Oh yeah!" }
 	  ],
 	  "next": "end"
