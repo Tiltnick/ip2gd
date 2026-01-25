@@ -2038,9 +2038,9 @@ shader_parameter/outline_color = Vector4(1, 1, 1, 1)
 
 [sub_resource type="Curve2D" id="Curve2D_hiyfs"]
 _data = {
-"points": PackedVector2Array(11.075592, -52.626648, 0, 0, 291.30737, -66, 0, 0, 0, 0, 279.69696, -8, 0, 0, 0, 0, 149.40259, 7, 0, 0, 0, 0, 125.536804, 8, 0.4692192, 0.6687393, -0.4692192, -0.6687393, 128.11688, -57, 0, 0, 0, 0, 166.17316, -57, 0, 0, 0, 0, 256.4762, -57, 0, 0, 0, 0, 256.4762, -110, 0, 0, 0, 0, 268.7316, -140, 0, 0, 0, 0, 269.37665, -185, 0, 0, 0, 0, 273.89178, -218, 0, 0, 0, 0, 285.5022, -261, 0, 0, 0, 0, 304.2078, -224, 0, 0, 0, 0, 342.2641, -173, 0, 0, 0, 0, 308.07794, -121, 0, 0, 0, 0, 291.30737, -66)
+"points": PackedVector2Array(0, 0, 0, 0, 268.7316, -140, 0, 0, 0, 0, 269.37665, -185, 0, 0, 0, 0, 273.89178, -218, 0, 0, 0, 0, 285.5022, -261, 0, 0, 0, 0, 296.31976, -244.03624, 0, 0, 0, 0, 304.2078, -224, 0, 0, 0, 0, 342.2641, -173, 0, 0, 0, 0, 291.30737, -66)
 }
-point_count = 16
+point_count = 8
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6c6f"]
 size = Vector2(117, 20)
@@ -2394,8 +2394,8 @@ scale = Vector2(1.5503355, 1)
 curve = SubResource("Curve2D_hiyfs")
 
 [node name="NPCPathFollow" type="PathFollow2D" parent="NPCPath"]
-position = Vector2(291.30737, -66)
-rotation = 1.7683645
+position = Vector2(268.7316, -140)
+rotation = -1.5564629
 
 [node name="DoorAreaOutside1" type="Area2D" parent="."]
 position = Vector2(-359, 335)

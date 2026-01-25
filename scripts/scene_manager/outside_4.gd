@@ -39,17 +39,17 @@ func _on_dialog_finished() -> void:
 	if not is_instance_valid(blob_instance):
 		return
 
-	if blob_instance.has_signal("walk_away_done"):
-		if not blob_instance.walk_away_done.is_connected(_on_blob_walk_away_done):
-			blob_instance.walk_away_done.connect(_on_blob_walk_away_done, CONNECT_ONE_SHOT)
-
-		blob_instance.walk_away()
-	else:
-		blob_instance.walk_away()
-		await get_tree().create_timer(2.0).timeout
-		_on_blob_walk_away_done()
-
-
-func _on_blob_walk_away_done() -> void:
-	follow_blob = false
-	set_process(false)
+	#if blob_instance.has_signal("walk_away_done"):
+		#if not blob_instance.walk_away_done.is_connected(_on_blob_walk_away_done):
+			#blob_instance.walk_away_done.connect(_on_blob_walk_away_done, CONNECT_ONE_SHOT)
+#
+		#blob_instance.walk_away()
+	#else:
+		#blob_instance.walk_away()
+		#await get_tree().create_timer(2.0).timeout
+		#_on_blob_walk_away_done()
+#
+#
+#func _on_blob_walk_away_done() -> void:
+	#follow_blob = false
+	#set_process(false)

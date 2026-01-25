@@ -7,16 +7,14 @@ var flee_target := Vector2.ZERO
 var npc_id: String = "blob"
 var required_item_id: String = "shovel"
 @export var spawn_marker: Marker2D
-
+@onready var spawn_marker_cave: Marker2D = get_tree().current_scene.get_node_or_null("SpawnPoints/blob_spawn_cave") as Marker2D
 var path_enabled := false
 
-
-@onready var spawn_marker_cave: Marker2D = $SpawnPoints/blob_spawn_cave
 
 const FLOWER_CONSUMED_FLAG := "flower_consumed_after_dialogue"
 
 const OUTSIDE2_SECOND_UNLOCK_FLAG: String = "outside2_second_unlocked"
-const OUTSIDE2_NOTE_FLAG := "sams_note_picked" # <-- nimm hier deinen echten Flag!
+const OUTSIDE2_NOTE_FLAG := "sams_note_picked"
 
 
 # Szene → Dialogdatei
@@ -119,8 +117,12 @@ func _ready() -> void:
 	var npc_pos = "npc_pos_" + npc_id
 	var cave_done := bool(GameState.puzzle_state.get("blob_cave_done", false))
 	var note_picked := bool(GameState.puzzle_state.get(OUTSIDE2_NOTE_FLAG, false))
-
-	if get_tree().current_scene and get_tree().current_scene.name == "Outside2" and note_picked and not cave_done and spawn_marker_cave:
+	
+	if get_tree().current_scene \
+		and get_tree().current_scene.name == "Outside2" \
+		and note_picked \
+		and not cave_done \
+		and spawn_marker_cave:
 			global_position = spawn_marker_cave.global_position
 	else:
 		if GameState.puzzle_state.has(npc_pos):
@@ -286,47 +288,29 @@ func enable_path_late():
 	print("npc pos: ", global_position)
 	path_enabled = true
 
-
-
-#signal walk_away_done
-
-#func walk_away() -> void:
-	#cutscene_locked = true
-	#velocity = Vector2.ZERO
-	#move_and_slide()
-#
-	#var path := ""
-	#if get_tree().current_scene:
-		#path = get_tree().current_scene.scene_file_path
-#
-	#if path == "res://scenes/maps/Outside_4/Outside_4.tscn":
-		#animation_player.play("walk_away_outside_4")
-	#elif path == "res://scenes/maps/Outside_1/Outside_1.tscn":
-		#animation_player.play("walk_away_outside_1")
-#
-	#await animation_player.animation_finished
-	#walk_away_done.emit()
-	#queue_free()
-
 func _on_dialog_finished() -> void:
 #	var scene_name := get_tree().current_scene.name
 
 	if last_dialog_path == "res://dialog/dialogueMrBlob/outside_1.json":
 		QuestManager.add_quest("quest_4")
 		
-	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_1_end.json":
-		pass
-		#run_away_to()
-		
+
 	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_2_part_2.json":
 		enable_path_late()
 
 	elif last_dialog_path == "res://dialog/dialogueMrBlob/questioning_about_flower.json":
 		GameState.puzzle_state["blob_cave_done"] = true
+		path_enabled = false
+		run_away_to(global_position + Vector2(120, 0))
+
 
 	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_4.json":
 		remove_flower()
-		#run_away_to()
+		run_away_to(global_position + Vector2(0, 120))
+		run_away_to(global_position + Vector2(500, 0))
+
+	elif last_dialog_path == "res://dialog/dialogueMrBlob/outside_1_end.json":
+		run_away_to(global_position + Vector2(0, 120))
 
 func remove_flower():
 		if not GameState.puzzle_state.get(FLOWER_CONSUMED_FLAG, false):

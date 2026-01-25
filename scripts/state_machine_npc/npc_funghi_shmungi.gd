@@ -1,4 +1,5 @@
 extends NPC
+var fleeing := false
 
 const DIALOG := {
 	"Outside3": "res://dialog/mushrooms/funghi_shmunghi.json",

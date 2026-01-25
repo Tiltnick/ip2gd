@@ -30,6 +30,10 @@ func _ready() -> void:
 
 
 func exit_scene() -> void:
+	GameState.puzzle_state["came_from_sams_cave"] = true
+	GameState.puzzle_state["sams_note_picked"] = true
+
+
 	SceneManager.goto_scene(
 		"res://scenes/maps/Outside_2/outside_2.tscn",
 		"from_sams_cave"
