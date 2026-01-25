@@ -14,7 +14,6 @@ extends CanvasLayer
 @onready var solved_puzzle: TextureRect = $solved_Puzzle2
 @onready var pieces: Node2D = $Pieces
 @onready var blob: NpcDialogProcessBlob = $"../NPC"
-
 var solved = false
 
 

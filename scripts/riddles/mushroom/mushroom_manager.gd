@@ -100,7 +100,7 @@ func check_puzzle():
 
 func reset_all_sockets():
 	fill_order.clear()
-	var side_slots = get_tree().get_nodes_in_group("side_slots")
+	var side_slots = get_tree().get_nodes_in_group("slots_mush")
 	var pulled_pieces: Array[Area2D] = []
 
 	for slot in get_tree().get_nodes_in_group("socket"):
