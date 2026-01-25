@@ -83,7 +83,6 @@ func complete_quest(id: String):
 	SaveSystem.save_game()
 
 
-# ✅ EINZIGER Entry Point
 func on_item_picked(item_id: String) -> void:
 	var picked := _norm(item_id)
 	print("[QuestManager] on_item_picked:", picked, " active:", current_quests.keys())
@@ -142,7 +141,7 @@ func _update_quest_progress(id: String, picked_norm: String) -> void:
 func _build_quest(id: String) -> Dictionary:
 	var q: Dictionary = quest_data[id]
 	var state: Dictionary = GameState.quest_state.get(id, {})
-	var lang = TranslationServer.get_locale().substr(0, 2) # "de" / "en"
+	var lang = TranslationServer.get_locale().substr(0, 2)
 
 	var title_dict: Dictionary = q.get("title", {})
 	var desc_dict: Dictionary = q.get("description", {})
