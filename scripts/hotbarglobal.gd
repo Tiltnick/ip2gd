@@ -44,13 +44,13 @@ func add_item(item_id: String) -> bool:
 		GameState.picked_items.append(item_id)
 		QuestManager.on_item_picked(item_id)
 
-	# so items aren't saved twice
+	# damit items nicht doppelt gesaved werden
 	if inventory_items.has(item_id):
 		print("has id in add item")
 		update_ui()
 		return true
 
-	# add item to inventory
+	#füge item zu inventory zu 
 	for i in range(inventory_items.size()):
 		if inventory_items[i] == null:
 			inventory_items[i] = item_id
@@ -108,14 +108,14 @@ func remove_item(item_id: String) -> void:
 
 	var changed := false
 
-	# remove from inventory
+	# aus inventory löschen
 	for i in range(inventory_items.size()):
 		if inventory_items[i] == item_id:
 			inventory_items[i] = null
 			changed = true
 			break
 
-	# complete empty slots with next items
+	# füll die nächsten leeren slots mit items auf
 	if changed:
 		_compact_array(inventory_items)
 

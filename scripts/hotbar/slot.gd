@@ -13,7 +13,7 @@ var click_callback: Callable = Callable()
 const SLOT_ICON_SIZE = Vector2(64, 64)
 
 func _ready():
-	# Counter standardmäßig aus
+	# counter standardmäßig aus
 	if count_label:
 		count_label.visible = false
 	_apply_key_label_visibility()
@@ -64,11 +64,11 @@ func clear_icon():
 	if icon:
 		icon.texture = null
 
-	# Wenn Icon weg ist, Counter auch weg
+	# Wenn Icon weg ist counter auch weg
 	set_stack_count(0)
 
 
-# Counter setzen (sichtbar nur bei > 1)
+# Counter setzen, sihctbar nur bei mehr als 1 item
 func set_stack_count(count: int) -> void:
 	if not count_label:
 		return
@@ -90,14 +90,7 @@ func set_slot_index(i: int):
 	key_label.visible = show_key_label
 
 
-#func set_slot_index(i: int):
-	#slot_index = i
-#
-	#if key_label:
-		#key_label.text = str(i + 1)
-	#else:
-		#if key_label:
-			#key_label.visible = false
+
 			
 			
 func _apply_key_label_visibility() -> void:
