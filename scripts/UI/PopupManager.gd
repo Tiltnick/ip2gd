@@ -9,7 +9,7 @@ var quest_popup: UIPopup
 
 var SPACEGRAM_URL := "https://www.instagram.com/oris.is.here/"
 
-# --- Queue Logik ---
+# Queue Logik
 var _queue: Array[Dictionary] = []
 var _showing := false
 
@@ -20,7 +20,6 @@ func _ready():
 	popup = popup_scene.instantiate()
 	quest_popup = quest_popup_scene.instantiate()
 
-	# In CanvasLayer packen
 	var ui := CanvasLayer.new()
 	get_tree().root.add_child.call_deferred(ui)
 	ui.add_child(popup)
@@ -53,8 +52,8 @@ func _process_queue() -> void:
 
 	_showing = false
 	_process_queue()
-	
-	
+
+
 #use insta popup
 func popup_spacegram():
 	SfxPlayer.notification_quest_sound()
@@ -65,27 +64,6 @@ func popup_spacegram():
 		SPACEGRAM_URL
 	)
 
-
-#func popup_spacegram_de():
-	#SfxPlayer.notification_quest_sound()
-	#_enqueue(
-		#popup,
-		#"Nutze Spacegram!",
-		#load("res://assets/sprites/selfmade/Spacegram_Logo.png"),
-		#SPACEGRAM_URL
-	#)
-#
-#func popup_spacegram_en():
-	#SfxPlayer.notification_quest_sound()
-	#_enqueue(
-		#popup,
-		#"Use Spacegram!",
-		#load("res://assets/sprites/selfmade/Spacegram_Logo.png"),
-		#SPACEGRAM_URL
-	#)
-
-
-
 #found item popup
 func popup_item(item: String, icon: Texture2D):
 	SfxPlayer.notification_sound()
@@ -94,20 +72,6 @@ func popup_item(item: String, icon: Texture2D):
 		tr("ITEM_FOUND") + ": " + item, icon)
 
 
-#func popup_item_de(item: String, icon: Texture2D):
-	#SfxPlayer.notification_sound()
-	#_enqueue(
-		#popup,
-		#"Item gefunden: " + item, 
-		#icon)
-	#
-#func popup_item_en(item: String, icon: Texture2D):
-	#SfxPlayer.notification_sound()
-	#_enqueue(
-		#popup,
-		#"Item found: " + item,
-		#icon)
-
 #found note popup
 func popup_diary():
 	SfxPlayer.notification_sound()
@@ -115,21 +79,6 @@ func popup_diary():
 		popup,
 		tr("NEW_DIARY_ENTRY"),
 		load("res://assets/sprites/selfmade/note.png") as Texture2D)
-
-#func popup_diary_en():
-	#SfxPlayer.notification_sound()
-	#_enqueue(
-		#popup,
-		#"New Diary entry!",
-		#load("res://assets/sprites/selfmade/note.png") as Texture2D)
-#
-#func popup_diary_de():
-	#SfxPlayer.notification_sound()
-	#_enqueue(
-		#popup,
-		#"Neuer Tagebucheintrag!",
-		#load("res://assets/sprites/selfmade/note.png") as Texture2D)
-#
 
 func popup_add_quest(quest: Dictionary):
 	SfxPlayer.notification_quest_sound()
