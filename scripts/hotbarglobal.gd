@@ -97,7 +97,6 @@ func remove_item(item_id: String) -> void:
 		return
 	if GameState.picked_items.has(item_id):
 		GameState.picked_items.erase(item_id)
-	# if piece gets deleted, lower count
 	var group := _get_stack_group(item_id)
 	if group != "":
 		var new_count: int = int(hotbar_counts.get(group, 0)) - 1
@@ -164,7 +163,7 @@ func get_hotbar_item(slot: int) -> Variant:
 
 		list.append(id)
 
-	# Fallback falls counts gesetzt sind, aber kein Piece
+	# Fallback falls counts gesetzt sin baer keine piece
 	for g in hotbar_counts.keys():
 		if int(hotbar_counts.get(g, 0)) > 0 and not added_groups.has(g):
 			list.append(g)
@@ -188,7 +187,7 @@ func has_item(item_id: String) -> bool:
 	# im Inventory
 	if inventory_items.has(item_id):
 		return true
-	# oder ist es ein Oberbegriff mit count
+	# oder es ist ein stackable
 	if int(hotbar_counts.get(item_id, 0)) > 0:
 		return true
 	return false

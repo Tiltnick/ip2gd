@@ -3,7 +3,7 @@ extends Control
 @onready var slots := $Background/HBoxContainer.get_children()
 var selected_slot := 0
 
-# Aktuelles aktives Item
+# Aktuell aktives Item
 var active_item: Node = null
 var active_slot_index: int = -1
 
@@ -19,7 +19,7 @@ func _ready():
 		if slot.has_method("set_slot_index"):
 			slot.set_slot_index(i)
 
-		# Klickfunktion macht genau dasselbe wie Tastendruck
+		# Klickfunktion macht daselbe wie Tastendruck
 		if slot.has_method("set_click_callback"):
 			slot.set_click_callback(_on_slot_clicked)
 
@@ -140,7 +140,7 @@ func use_slot(slot_index: int):
 	var data: Dictionary = ItemDatabase.DATA[item_id]
 	var scene_path: String = String(data.get("world_scene", ""))
 
-	# Wenn kein world_scene dann nichts spawnen
+	# Wenn kein world scene dann nichts spawnen
 	if scene_path == "":
 		print("Hotbar: Item hat kein world_scene (ok):", item_id)
 		return
@@ -169,7 +169,7 @@ func use_slot(slot_index: int):
 	active_item = inst
 	active_slot_index = slot_index
 
-	# active_item zurücksetzen wenn es sich selber schließt
+	# active item zurücksetzen wenn es sich selber schließt
 	inst.tree_exited.connect(func():
 		if active_item == inst:
 			active_item = null
