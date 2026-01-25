@@ -13,7 +13,7 @@ func setup(id: String, data: Dictionary, _is_new := true, completed := false):
 	quest_id = id
 	quest_data = data
 	name_label.text = data["title"]
-	disabled = completed
+	disabled = false
 	modulate = Color(0.6, 0.6, 0.6) if completed else Color.WHITE
 	new_icon.visible = data.get("is_new", false) and not completed
 

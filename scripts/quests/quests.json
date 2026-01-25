@@ -3,7 +3,7 @@
 
 "quest_1": {
 	"needs_items": [],
-	"spacegram_hint": true,
+	"spacegram_hint": false,
 	"title": {
 		"text_de": "Verlasse das Raumschiff",
 		"text_en": "Exit the Spaceship"
