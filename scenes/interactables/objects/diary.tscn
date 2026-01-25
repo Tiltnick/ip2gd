@@ -15,6 +15,7 @@ size = Vector2(32, 63)
 [node name="Diary" type="Node2D"]
 z_index = 4
 script = ExtResource("1_1j2xx")
+add_to_inventory = false
 
 [node name="Book" type="Sprite2D" parent="."]
 z_index = 1

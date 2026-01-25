@@ -68,7 +68,7 @@ func _on_slot_clicked(index: int):
 			$Description/Title.text = "Leerer Slot"
 			$Description/Text.text = "Ups, dieser Slot wurde noch mit nichts gefüllt. Hier gibt es nichts zu sehen, nur ein leerer Slot!"
 		
-		# Icon anzeigen für "empty"
+		# Icon anzeigen für empty
 		
 		$Description/Slot17.set_item_icon("empty")
 
@@ -101,10 +101,10 @@ func _on_slot_clicked(index: int):
 	var hotbar_index: int = hotbarglobal.get_hotbar_index_of_item(item_id)
 
 	if hotbar_index != -1:
-		# item liegt in der Hotbar → hotbar key anzeigen (1–4)
+		# item liegt in der Hotbar , dann hotbar key anzeigen 1 bis 4
 		$Description/Slot17/"Label for Keys".text = str(hotbar_index + 1)
 	else:
-		# item nicht in der Hotbar → Inventar-Slotnummer anzeigen (1–16)
+		# item nicht in der Hotbar dann Inventar-Slotnummer anzeigen 1 bis 16
 		$Description/Slot17/"Label for Keys".text = str(slot_number_for_label)
 
 

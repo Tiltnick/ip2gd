@@ -25,7 +25,6 @@ func show_popup(text: String, image: Texture2D = null, link := ""):
 	await get_tree().create_timer(4).timeout
 	anim.play("slide_out")
 	
-	#warten bis Animation  fertig ist
 	await anim.animation_finished
 	$CanvasLayer.visible = false
 	finished.emit()
