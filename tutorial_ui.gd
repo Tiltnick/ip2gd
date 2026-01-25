@@ -23,7 +23,13 @@ func _ready():
 	if GameState.tutorial_done:
 		visible = false
 		set_process_input(false)
-		return
+		set_process_unhandled_input(false)
+		set_process(false)
+		set_physics_process(false)
+		set_process_internal(false)
+		set_process_shortcut_input(false)
+		set_process_unhandled_key_input(false)
+	return
 
 	_update_text()
 
@@ -78,6 +84,8 @@ func _check_interact(event):
 		_update_text()
 		visible = false
 		set_process_input(false)
+		set_process_unhandled_input(false)
+		set_process_unhandled_key_input(false)
 
 		GameState.tutorial_done = true
 		SaveSystem.save_game()
