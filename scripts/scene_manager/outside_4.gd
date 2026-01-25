@@ -13,9 +13,6 @@ func _ready() -> void:
 	BgmPlayer.bgm_outside4()
 #	QuestManager.add_quest("quest_11")
 
-	if not DialogManager.dialog_finished.is_connected(_on_dialog_finished):
-		DialogManager.dialog_finished.connect(_on_dialog_finished)
-
 	if GameState.picked_items.has("flower"):
 		blob_instance = BLOB_SCENE.instantiate()
 		blob_instance.global_position = blob_spawn.global_position
@@ -33,23 +30,3 @@ func _process(_delta: float) -> void:
 		cutscene_cam.global_position = blob_instance.global_position
 	else:
 		set_process(false)
-
-
-func _on_dialog_finished() -> void:
-	if not is_instance_valid(blob_instance):
-		return
-
-	if blob_instance.has_signal("walk_away_done"):
-		if not blob_instance.walk_away_done.is_connected(_on_blob_walk_away_done):
-			blob_instance.walk_away_done.connect(_on_blob_walk_away_done, CONNECT_ONE_SHOT)
-
-		blob_instance.walk_away()
-	else:
-		blob_instance.walk_away()
-		await get_tree().create_timer(2.0).timeout
-		_on_blob_walk_away_done()
-
-
-func _on_blob_walk_away_done() -> void:
-	follow_blob = false
-	set_process(false)
