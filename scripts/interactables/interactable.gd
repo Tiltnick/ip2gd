@@ -41,7 +41,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("interact"):
 		var allow := player_in_area
 
-		# wenn das Objekt "is_zoomed" hat und gerade gezoomt ist
+		# wenn das Objekt is_zoomed hat und gerade gezoomt ist
 		if not allow:
 			for p in get_property_list():
 				if p.name == "is_zoomed":

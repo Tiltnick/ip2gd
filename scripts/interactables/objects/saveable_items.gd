@@ -8,6 +8,9 @@ class_name SaveableItem
 
 @export var spawned_from_hotbar: bool = false  
 
+@export var add_to_inventory: bool = true
+
+
 func _ready() -> void:
 	super._ready()
 	add_to_group("collectible_items")
@@ -15,21 +18,39 @@ func _ready() -> void:
 	if not spawned_from_hotbar and save_id != "" and GameState.puzzle_state.get(save_id, false):
 		queue_free()
 
-func mark_collected() -> void:
-	if save_id == "cave_note":
-		GameState.puzzle_state[save_id] = true
-		PopupManager.popup_diary()
 
-	if save_id != "cave_note":
-		GameState.puzzle_state[save_id] = true
+func mark_collected() -> void:
+	if save_id == "":
+		return
+
+	# Item als eingesammelt markieren
+	GameState.puzzle_state[save_id] = true
+
+	# Item  im GameState vormerken
+	if add_to_inventory and not GameState.inventory_slots.has(save_id):
+		for i in range(GameState.inventory_slots.size()):
+			if GameState.inventory_slots[i] == null:
+				GameState.inventory_slots[i] = save_id
+				break
+
+
+
+
+
+	# Popup
+	if save_id == "cave_note":
+		PopupManager.popup_diary()
+	else:
 		show_item_popup()
-	
-	if save_id != "" and not GameState.picked_items.has(save_id):
+
+	# Quest-Tracking 
+	if not GameState.picked_items.has(save_id):
 		GameState.picked_items.append(save_id)
 		QuestManager.on_item_picked(save_id)
-	
+
 	SaveSystem.save_game()
-	print("")
+
+
 
 
 func show_item_popup():

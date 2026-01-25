@@ -17,12 +17,12 @@ func _ready() -> void:
 func interact() -> void:
 	SfxPlayer.ui_click_sound()
 
-	# einsammeln -> in hotbar & inventory -> weg
+	# einsammeln, dann in inventory & hotbar, dann weg
 	if not spawned_from_hotbar:
 		_collect_into_hotbar_and_inventory()
 		return
 
-	# toggle zoom (rein/raus)
+	# toggle zoom rein /raus
 	if not is_zoomed:
 		_zoom_in()
 	else:
@@ -30,7 +30,7 @@ func interact() -> void:
 
 
 func _collect_into_hotbar_and_inventory() -> void:
-	# schon eingesammelt -> nix tun
+	# schon eingesammelt, dann nix tun 
 	if save_id != "" and GameState.puzzle_state.get(save_id, false):
 		return
 

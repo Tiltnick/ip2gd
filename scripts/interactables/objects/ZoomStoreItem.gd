@@ -93,7 +93,7 @@ func _store_in_hotbar():
 
 func hotbar_activate():
 	if hotbar_id == "map":
-		MiniMap.open() # oder open()
+		MiniMap.open() 
 		queue_free() 
 		print("map funktd")    # damit das Item nicht im Level rumliegt
 		return
@@ -104,7 +104,7 @@ func hotbar_activate():
 	outline_locked = true
 
 
-	# items zoomen aus hotbar raus in die mitte des screens, nicht mehr abgängig von der player position 
+	# items zoomen aus hotbar raus in die mitte des screens
 	var vp := get_viewport()
 	var screen_center := vp.get_visible_rect().size * 0.5
 	global_position = vp.get_canvas_transform().affine_inverse() * screen_center

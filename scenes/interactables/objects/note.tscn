@@ -18,6 +18,7 @@ save_id = "cave_note"
 item_name_de = "Notiz"
 item_name_en = "Note"
 item_icon = ExtResource("2_h7x0p")
+add_to_inventory = false
 metadata/_custom_type_script = "uid://c6cret5740xna"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
