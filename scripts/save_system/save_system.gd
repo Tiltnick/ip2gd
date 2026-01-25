@@ -68,6 +68,10 @@ func load_game() -> bool:
 	# Daten zurück in die GameState
 	var data: Dictionary = json.data
 	GameState.from_dict(data)
+	
+	# Quests
+	if has_node("/root/QuestManager"):
+		get_node("/root/QuestManager").rebuild_from_gamestate()
 
 	# Speicherstand existiert
 	GameState.has_save = true
