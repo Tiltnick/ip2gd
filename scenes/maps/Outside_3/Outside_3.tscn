@@ -5081,6 +5081,7 @@ offset_bottom = -21.0
 scale = Vector2(0.6, 0.6)
 
 [node name="Character" parent="." instance=ExtResource("2_8miwm")]
+position = Vector2(414, -273)
 
 [connection signal="body_entered" from="PopupArea" to="." method="_on_area_2d_3_body_entered"]
 

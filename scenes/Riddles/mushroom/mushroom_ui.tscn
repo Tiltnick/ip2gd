@@ -255,7 +255,7 @@ offset_bottom = 960.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_my2ui")
 
-[node name="Area2D" type="Area2D" parent="Slots/Slot1" node_paths=PackedStringArray("start_piece") groups=["side_slots"]]
+[node name="Area2D" type="Area2D" parent="Slots/Slot1" node_paths=PackedStringArray("start_piece") groups=["slots_mush"]]
 position = Vector2(64, 65)
 script = ExtResource("5_fpcnq")
 start_piece = NodePath("../../../mushrooms/yellow_mush")
@@ -272,7 +272,7 @@ offset_bottom = 958.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_my2ui")
 
-[node name="Area2D" type="Area2D" parent="Slots/Slot2" node_paths=PackedStringArray("start_piece") groups=["side_slots"]]
+[node name="Area2D" type="Area2D" parent="Slots/Slot2" node_paths=PackedStringArray("start_piece") groups=["slots_mush"]]
 position = Vector2(64, 65)
 script = ExtResource("5_fpcnq")
 start_piece = NodePath("../../../mushrooms/red_mush")
@@ -289,7 +289,7 @@ offset_bottom = 960.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_my2ui")
 
-[node name="Area2D" type="Area2D" parent="Slots/Slot3" node_paths=PackedStringArray("start_piece") groups=["side_slots"]]
+[node name="Area2D" type="Area2D" parent="Slots/Slot3" node_paths=PackedStringArray("start_piece") groups=["slots_mush"]]
 position = Vector2(64, 65)
 script = ExtResource("5_fpcnq")
 start_piece = NodePath("../../../mushrooms/orange_mush")
@@ -306,7 +306,7 @@ offset_bottom = 960.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_my2ui")
 
-[node name="Area2D" type="Area2D" parent="Slots/Slot4" node_paths=PackedStringArray("start_piece") groups=["side_slots"]]
+[node name="Area2D" type="Area2D" parent="Slots/Slot4" node_paths=PackedStringArray("start_piece") groups=["slots_mush"]]
 position = Vector2(64, 65)
 script = ExtResource("5_fpcnq")
 start_piece = NodePath("../../../mushrooms/green_mush")
@@ -323,7 +323,7 @@ offset_bottom = 960.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_my2ui")
 
-[node name="Area2D" type="Area2D" parent="Slots/Slot5" node_paths=PackedStringArray("start_piece") groups=["side_slots"]]
+[node name="Area2D" type="Area2D" parent="Slots/Slot5" node_paths=PackedStringArray("start_piece") groups=["slots_mush"]]
 position = Vector2(64, 65)
 script = ExtResource("5_fpcnq")
 start_piece = NodePath("../../../mushrooms/brown_mush")
@@ -340,7 +340,7 @@ offset_bottom = 959.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_my2ui")
 
-[node name="Area2D" type="Area2D" parent="Slots/Slot6" node_paths=PackedStringArray("start_piece") groups=["side_slots"]]
+[node name="Area2D" type="Area2D" parent="Slots/Slot6" node_paths=PackedStringArray("start_piece") groups=["slots_mush"]]
 position = Vector2(64, 65)
 script = ExtResource("5_fpcnq")
 start_piece = NodePath("../../../mushrooms/blue_mush")

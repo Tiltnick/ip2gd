@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://dmkx8cyr3lsa6"]
+[gd_scene load_steps=29 format=4 uid="uid://dmkx8cyr3lsa6"]
 
 [ext_resource type="Texture2D" uid="uid://d3nsg2t6vxtvv" path="res://assets/sprites/map/Outside_4/Ground.png" id="1_n83po"]
 [ext_resource type="Script" uid="uid://dhtpwr18uvr5p" path="res://scripts/scene_manager/temple.gd" id="1_s0bbf"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://dvhqom61ux7y6" path="res://assets/sprites/map/Outside_4/Bridges.png" id="4_s35bk"]
 [ext_resource type="Script" uid="uid://omi26xfafgx0" path="res://scripts/areas/door_area.gd" id="5_vq5gx"]
 [ext_resource type="Script" uid="uid://hswmjxt75dcg" path="res://scripts/Sam/SamTrigger.gd" id="6_uh1jq"]
-[ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="7_4y2am"]
 [ext_resource type="Script" uid="uid://r6j747jkcvv3" path="res://scripts/riddles/temple/pillar_puzzle.gd" id="9_n6rke"]
 [ext_resource type="PackedScene" uid="uid://cdvfatji880xc" path="res://scenes/interactables/objects/temple/Pillar.tscn" id="9_p33si"]
 [ext_resource type="Texture2D" uid="uid://nt6msjtfbiew" path="res://assets/sprites/selfmade/Riddle_temple/pillar_riddle.png" id="11_sq8sw"]
@@ -3381,6 +3380,9 @@ point_count = 15
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5sn1"]
 size = Vector2(96, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ms8y5"]
+size = Vector2(32, 20)
+
 [node name="Outside5" type="Node2D"]
 script = ExtResource("1_s0bbf")
 
@@ -3450,9 +3452,6 @@ missing_items_dialog_json = "res://dialog/innerMonologue/missing_items/missing_t
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_j5sn1")
-
-[node name="Character" parent="." instance=ExtResource("7_4y2am")]
-position = Vector2(0, 328)
 
 [node name="PillarPuzzle" type="Node" parent="." groups=["pillar_puzzle"]]
 script = ExtResource("9_n6rke")
@@ -3529,6 +3528,12 @@ texture = ExtResource("13_gchg7")
 script = ExtResource("14_gchg7")
 puzzle_path = NodePath("../PillarPuzzle")
 flower_scene = ExtResource("14_bgrxh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="stone"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stone/StaticBody2D"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_ms8y5")
 
 [node name="Fish" type="Node" parent="."]
 

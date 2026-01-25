@@ -1,5 +1,7 @@
 extends Node2D
 
+const RETURN_FROM_CAVE_SPAWN_ID := "from_sams_cave"
+
 func _ready() -> void:
 	
 	BgmPlayer.bgm_outside2()

@@ -68,7 +68,9 @@
 		{ "speaker": "Mr. Blob", "text_en": "It was lovely to meet you, Oris. Maybe we'll see each other again sometime."
 								,"text_de": "Es war schön dich kennenzulernen, Oris. Vielleicht sieht man sich ein andermal wieder." },
 		{ "speaker": "Oris", "text_en": "..."
-	   						,"text_de": "..." }
+	   						,"text_de": "..." },
+		{ "speaker": "Oris", "text_en": "I think I should fly home now. This was enough drama to last for a lifetime. Time to go back to the spaceship."
+	   						,"text_de": "Ich glaube ich sollte jetzt nachhause fliegen. Das war ausreichend Drama. Zeit, wieder ins Raumschiff zu gehen." }
 	  ],
 	  "next": "end"
 	},

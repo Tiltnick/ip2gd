@@ -8,6 +8,8 @@
    "steps": {
 	"sections": {
 	  "lines": [
+		{ "speaker": "Oris", "text_en": "Oh, it appears the door was open all along. What fun!"
+							,"text_de": "Oh, es sieht so aus als wäre die Tür die ganze Zeit offen gewesen. Wie lustig!" },
 		{ "speaker": "Oris", "text_en": "Indeed, a telescope! I wonder if it will fit on the tripods I saw outside. I shall try."
 							,"text_de": "Wirklich ein Teleskop! Vielleicht passt es ja auf die Stative, die ich draußen gesehen habe." }
 	  ],

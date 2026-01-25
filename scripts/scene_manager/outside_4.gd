@@ -13,10 +13,14 @@ func _ready() -> void:
 	BgmPlayer.bgm_outside4()
 #	QuestManager.add_quest("quest_11")
 
+	if not DialogManager.dialog_finished.is_connected(_on_dialog_finished):
+		DialogManager.dialog_finished.connect(_on_dialog_finished)
+
 	if GameState.picked_items.has("flower"):
 		blob_instance = BLOB_SCENE.instantiate()
-		blob_instance.global_position = blob_spawn.global_position
 		add_child(blob_instance)
+		blob_instance.global_position = blob_spawn.global_position
+		blob_instance.move_speed = 200
 
 func configure_camera(cam: Camera2D) -> void:
 	cam.limit_left = -449
@@ -30,3 +34,8 @@ func _process(_delta: float) -> void:
 		cutscene_cam.global_position = blob_instance.global_position
 	else:
 		set_process(false)
+
+
+func _on_dialog_finished() -> void:
+	if not is_instance_valid(blob_instance):
+		return
