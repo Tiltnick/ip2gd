@@ -3380,6 +3380,9 @@ point_count = 15
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5sn1"]
 size = Vector2(96, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ms8y5"]
+size = Vector2(32, 20)
+
 [node name="Outside5" type="Node2D"]
 script = ExtResource("1_s0bbf")
 
@@ -3525,6 +3528,12 @@ texture = ExtResource("13_gchg7")
 script = ExtResource("14_gchg7")
 puzzle_path = NodePath("../PillarPuzzle")
 flower_scene = ExtResource("14_bgrxh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="stone"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stone/StaticBody2D"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_ms8y5")
 
 [node name="Fish" type="Node" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://ppgrh87b51qp"]
+[gd_scene load_steps=30 format=4 uid="uid://ppgrh87b51qp"]
 
 [ext_resource type="Texture2D" uid="uid://dvhqom61ux7y6" path="res://assets/sprites/map/Outside_4/Bridges.png" id="1_3bhg6"]
 [ext_resource type="Script" uid="uid://cxmmm0wwhx1ag" path="res://scripts/scene_manager/outside_4.gd" id="1_mjsk3"]
@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://bdqvh5ss8a2t4" path="res://scenes/interactables/objects/note.tscn" id="11_hpomn"]
 [ext_resource type="PackedScene" uid="uid://dvwiy7ygg1e46" path="res://scenes/Menues/Press_E_Popup.tscn" id="12_cvi40"]
 [ext_resource type="PackedScene" uid="uid://illortuv3el6" path="res://scenes/Riddles/temple_door_riddle/temple_door.tscn" id="13_cvi40"]
+[ext_resource type="PackedScene" uid="uid://tksbpdfoo5l5" path="res://scenes/Character/main_character.tscn" id="13_tj83d"]
+[ext_resource type="PackedScene" uid="uid://c0vonwkvy4jaa" path="res://scenes/interactables/objects/mushrooms/fire_mush.tscn" id="14_mdvsi"]
+[ext_resource type="PackedScene" uid="uid://qpb76w5fsvrr" path="res://scenes/interactables/objects/mushrooms/water_mush.tscn" id="15_26sis"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mjsk3"]
 texture = ExtResource("1_3bhg6")
@@ -7534,3 +7537,12 @@ offset_top = -38.0
 offset_right = -6.0
 offset_bottom = -38.0
 scale = Vector2(0.7, 0.7)
+
+[node name="Character" parent="." instance=ExtResource("13_tj83d")]
+position = Vector2(-25.573303, 58.885376)
+
+[node name="FireMush" parent="." instance=ExtResource("14_mdvsi")]
+position = Vector2(-61.636414, 80.67349)
+
+[node name="WaterMush" parent="." instance=ExtResource("15_26sis")]
+position = Vector2(24, 96)
