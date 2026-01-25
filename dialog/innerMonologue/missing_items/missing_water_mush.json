@@ -1,0 +1,30 @@
+{
+  "id": "missing_water_mush",
+
+  "characters": {
+	"Oris": "res://assets/sprites/portrait/oris.png"
+  },
+
+  "steps": {
+		"sections": {
+			"lines": [
+				{
+				"speaker": "Oris",
+				"text_en": "Here are two mushroom-like signs on the door...",
+				"text_de": "Hier sind zwei Pilzförmige Zeichen auf der Tür..."
+				},
+				{
+				"speaker": "Oris",
+				"text_en": "Maybe one of them is the fire mushroom which the mushroom people gave me just now...",
+				"text_de": "Vielleicht soll einer der beiden der Feuerpilz sein, den ich grade von den Pilzen bekommen habe."
+				},
+				{
+				"speaker": "Oris",
+				"text_en": "I guess I still have to look for the othere one.",
+				"text_de": "Anscheinend muss ich den anderen noch finden."
+				},
+			]
+		},
+	"end": { "lines": [] }
+  }
+}

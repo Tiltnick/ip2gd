@@ -12,7 +12,6 @@ var path_enabled := false
 
 
 const FLOWER_CONSUMED_FLAG := "flower_consumed_after_dialogue"
-
 const OUTSIDE2_SECOND_UNLOCK_FLAG: String = "outside2_second_unlocked"
 const OUTSIDE2_NOTE_FLAG := "sams_note_picked"
 
@@ -108,15 +107,16 @@ const SPACESHIPROOM_FLOW := [
 	{
 		"flag":"",
 		"path":"",
-	},
+	}
 ]
 const SPACESHIPROOM_FLOW_END: String = "res://dialog/dialogueMrBlob/end_dialog_outside3_blob.json"
-
+var cave_done := bool(GameState.puzzle_state.get("blob_cave_done", false))
+var note_picked := bool(GameState.puzzle_state.get(OUTSIDE2_NOTE_FLAG, false))
+	
 func _ready() -> void:
 	super._ready()
+
 	var npc_pos = "npc_pos_" + npc_id
-	var cave_done := bool(GameState.puzzle_state.get("blob_cave_done", false))
-	var note_picked := bool(GameState.puzzle_state.get(OUTSIDE2_NOTE_FLAG, false))
 	
 	if get_tree().current_scene \
 		and get_tree().current_scene.name == "Outside2" \
@@ -148,10 +148,7 @@ func get_dialog_path(scene_name: String) -> String:
 	elif scene_name == "Outside2":
 		var has_item: bool = hotbarglobal.has_item(required_item_id)
 		var unlocked: bool = bool(GameState.puzzle_state.get(OUTSIDE2_SECOND_UNLOCK_FLAG, false))
-
 	
-		var note_picked: bool = bool(GameState.puzzle_state.get(OUTSIDE2_NOTE_FLAG, false))
-		var cave_done: bool = bool(GameState.puzzle_state.get("blob_cave_done", false))
 		if note_picked and not cave_done:
 			return _get_outside2_after_cave_dialog()
 
@@ -241,11 +238,16 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	if fleeing:
-		var dir := (flee_target - global_position)
+		var dir = (flee_target - global_position)
 		if dir.length() < 8.0:
 			fleeing = false
-			GameState.puzzle_state["npc_pos_" + npc_id] = {"x": global_position.x, "y": global_position.y}
+			# FINAL-Position speichern, damit nach Neustart genau dort steht
+			GameState.puzzle_state["npc_pos_" + npc_id] = {
+				"x": global_position.x,
+				"y": global_position.y,
+			}
 			velocity = Vector2.ZERO
+
 			return
 
 		velocity = dir.normalized() * move_speed
