@@ -140,6 +140,7 @@ chest_puzzle_ui=""
 socket_puzzle_ui=""
 panel_puzzle_ui=""
 minimap_ui=""
+slots_mush=""
 
 [input]
 
