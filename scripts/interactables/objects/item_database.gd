@@ -284,6 +284,34 @@ var DATA := {
 		"world_scene": "res://scenes/Riddles/temple_riddle/flower.tscn"
 },
 
+	"cave_note": {
+		"name_de": "Sam's Notiz 1",
+		"name_en": "Sam's Note 1",
+		"description_en": "You visited the cave in which Sam did his research on the flower. You found a note from him there and put it into your diary...",
+		"description_de": "Du hast in der Höhle, in der Sam seine Forschung betrieben hat eine Notiz von ihm gefunden... Du hast sie in dein Tagebuch gelegt.",
+		"icon": "res://assets/sprites/selfmade/note.png",
+		"icon_size": Vector2(55,55),
+		"world_scene": "res://scenes/interactables/objects/note.tscn"
+},
 
+	"mush_note": {
+		"name_de": "Sam's Notiz 2",
+		"name_en": "Sam's Note 2",
+		"description_en": "Next to the Mushroom's Stone Panel was a note lying on the floor. The handwriting looks very familiar... You put the note into your diary.",
+		"description_de": "Neben der Steintafel des Pilzvolkes lag eine Notiz auf dem Boden. Die Handschrift kommt dir irgdendwie bekannt vor... Du hast die Notiz in dein Tagebuch gelegt.",
+		"icon": "res://assets/sprites/selfmade/note.png",
+		"icon_size": Vector2(55,55),
+		"world_scene": "res://scenes/interactables/objects/note.tscn"
+},
+
+	"temple_note": {
+		"name_de": "Sam's Notiz 3",
+		"name_en": "Sam's Note 3",
+		"description_en": "You found one of Sam's research note in front of the Temple. You put it into your diary.",
+		"description_de": "Du hast eine von Sam's Forschungsnotizen vor dem Tempel gefunden. Du hast sie in dein Tagebuch gelegt.",
+		"icon": "res://assets/sprites/selfmade/note.png",
+		"icon_size": Vector2(55,55),
+		"world_scene": "res://scenes/interactables/objects/note.tscn"
+},
 
 }
