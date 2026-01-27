@@ -4,6 +4,7 @@
 [![Instagram](https://img.shields.io/badge/Instagram-111111?style=for-the-badge)](https://www.instagram.com/oris.is.here)
 [![Discord](https://img.shields.io/badge/Discord-111111?style=for-the-badge)](https://discord.gg/kTMWpU96Hw)
 [![YouTube](https://img.shields.io/badge/YouTube-111111?style=for-the-badge)](https://www.youtube.com/@BloomofMemory)
+[![Itch.io](https://img.shields.io/badge/Itch.io-111111?style=for-the-badge)]([https://www.youtube.com/@BloomofMemory](https://tiltnick.itch.io/bloomofmemory))
 
 
 ## Requirements
