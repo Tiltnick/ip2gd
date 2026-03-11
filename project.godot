@@ -41,6 +41,8 @@ QuestManager="*res://scripts/quests/quest_manager.gd"
 Footstep="*res://scripts/audio/footstep.gd"
 Hotkeys="*res://scripts/UI/hotkeys.gd"
 TripodManager="*res://scripts/riddles/sky_riddle/tripod_manager.gd"
+Nakama="*res://addons/com.heroiclabs.nakama/Nakama.gd"
+NakamaManager="*res://scripts/network/NakamaManager.gd"
 
 [dialogic]
 
@@ -121,7 +123,8 @@ window/stretch/mode="canvas_items"
 
 folder_colors={
 "res://dialog/dialogueMrBlob/": "blue",
-"res://dialog/innerMonologue/": "orange"
+"res://dialog/innerMonologue/": "orange",
+"res://scripts/network/": "orange"
 }
 
 [global_group]
