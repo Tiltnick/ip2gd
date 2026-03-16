@@ -14,11 +14,10 @@ IMG_H = 1024
 ARROW_STEP = 16
 MIN_SEGMENT_LEN = 0.5
 
-# Szene -> Hintergrundbild + feste Weltgrenzen
 SCENE_MAPS = {
     "res://scenes/maps/spaceship.tscn": {
         "image": "maps/spaceship.png",
-        "bounds": (-320, -180, 1600, 900),  # min_x, min_y, max_x, max_y
+        "bounds": (-320, -180, 1600, 900),
     },
 }
 
