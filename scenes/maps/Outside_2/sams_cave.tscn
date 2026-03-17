@@ -338,6 +338,7 @@ build_mode = 1
 polygon = PackedVector2Array(-721, 209, 751, 209, 753, -781, -723, -781)
 
 [node name="Dark" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Note" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("4_esekf")]
