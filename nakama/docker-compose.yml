@@ -35,7 +35,7 @@ services:
       postgres:
         condition: service_healthy
     volumes:
-      - /c/Users/Ianco/projects/docker:/nakama/data.
+      - C:\Users\ianco\Documents\GitHub\ip2gd\nakama.
     expose:
       - "7349"
       - "7350"
