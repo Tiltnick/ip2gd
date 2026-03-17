@@ -24,8 +24,7 @@ func login_device():
 	session = result
 	print("Successful Login: User ID: ", session.user_id)
 
-	await save_test_post()
-	await load_test_post()
+	await create_post_rpc()
 
 
 func save_test_post():
@@ -87,3 +86,19 @@ func load_test_post():
 	print("Author: ", post_data["author"])
 	print("Caption: ", post_data["caption"])
 	print("Likes: ", post_data["likes"])
+	
+	
+	
+func create_post_rpc():
+	var payload = {
+		"caption": "RPC Test Post",
+		"image_path": "assets/posts/test.png"
+	}
+
+	var result = await client.rpc_async(session, "create_post", JSON.stringify(payload))
+
+	if result.is_exception():
+		print("RPC Fehler: ", result)
+		return
+
+	print("RPC Erfolg: ", result.payload)
