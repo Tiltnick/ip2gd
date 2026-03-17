@@ -30,3 +30,4 @@ macOS system file
 node_modules/
 dist/
 package-lock.json
+nakama/data/.cookie

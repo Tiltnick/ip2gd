@@ -1,0 +1,8 @@
+logger:
+  level: "DEBUG"
+
+runtime:
+  js_entrypoint: "spacegram.js"
+
+session:
+  token_expiry_sec: 7200

@@ -2,6 +2,11 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["es2015"],
-    "types": ["nakama-runtime"]
-  }
+    "module": "commonjs",
+    "strict": false,
+    "esModuleInterop": true,
+    "types": ["nakama-runtime"],
+    "outDir": "./data/modules"
+  },
+  "files": ["data/modules/spacegram.ts"]
 }

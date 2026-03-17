@@ -27,15 +27,15 @@ services:
       - "-ecx"
       - >
         /nakama/nakama migrate up --database.address postgres:localdb@postgres:5432/nakama &&
-        exec /nakama/nakama --name nakama1 --database.address postgres:localdb@postgres:5432/nakama --logger.level DEBUG --session.token_expiry_sec 7200        
-    restart: always
+        exec /nakama/nakama --config /nakama/data/local.yml --name nakama1 --database.address postgres:localdb@postgres:5432/nakama --logger.level DEBUG --session.token_expiry_sec 7200    
+        restart: always
     links:
       - "postgres:db"
     depends_on:
       postgres:
         condition: service_healthy
     volumes:
-      - C:\Users\ianco\Documents\GitHub\ip2gd\nakama.
+      - ./data:/nakama/data
     expose:
       - "7349"
       - "7350"
