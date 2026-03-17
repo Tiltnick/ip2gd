@@ -17,7 +17,7 @@ Imported translations (automatically generated from CSV files)
 
 Mono-specific ignores
 .mono/
-data/
+/data/
 mono_crash..json
 
 Android build directory
@@ -25,3 +25,8 @@ Android build directory
 
 macOS system file
 .DS_Store
+
+
+node_modules/
+dist/
+package-lock.json
