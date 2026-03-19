@@ -124,6 +124,7 @@ window/stretch/mode="canvas_items"
 folder_colors={
 "res://dialog/dialogueMrBlob/": "blue",
 "res://dialog/innerMonologue/": "orange",
+"res://scripts/api/": "orange",
 "res://scripts/network/": "orange"
 }
 
