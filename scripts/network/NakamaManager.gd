@@ -23,6 +23,7 @@ func login_device():
 
 	session = result
 	print("Successful Login: User ID: ", session.user_id)
+	
 
 
 func is_logged_in() -> bool:
