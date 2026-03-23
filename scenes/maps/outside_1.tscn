@@ -453,7 +453,7 @@ collision_layer = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MapBounds"]
 build_mode = 1
-polygon = PackedVector2Array(-448, -287, -447, 219, 430, 218, 429, -288, 172.56549, -287.7076, 173, -309, 11, -309, 11.124176, -287.52353)
+polygon = PackedVector2Array(-448, -287, -448, 272, 431, 271, 429, -288, 172.56549, -287.7076, 173, -309, 11, -309, 11.124176, -287.52353)
 
 [node name="NPCPath" type="Path2D" parent="."]
 position = Vector2(16, -1)
