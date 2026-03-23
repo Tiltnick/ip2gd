@@ -1,5 +1,7 @@
 extends Node
 
+signal scene_changed(from_path: String, to_path: String)
+
 var current_scene: Node
 var next_spawn_id: String = "start"   # Name des Spawnpoints in der nächsten Szene
 
@@ -48,6 +50,7 @@ func _deferred_goto_scene(scene_path: String) -> void:
 	var root := get_tree().root
 
 	# Alte scene entfernen
+	var from_path := current_scene.scene_file_path if current_scene and is_instance_valid(current_scene) else ""
 	if current_scene and is_instance_valid(current_scene):
 		current_scene.queue_free()
 
@@ -59,6 +62,8 @@ func _deferred_goto_scene(scene_path: String) -> void:
 	root.add_child(new_scene)
 	get_tree().current_scene = new_scene
 	current_scene = new_scene
+
+	scene_changed.emit(from_path, scene_path)
 
 	# Spieler in der neuen scene spawnen
 	_spawn_player_in_scene(new_scene)
