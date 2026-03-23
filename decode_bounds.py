@@ -13,6 +13,9 @@ def decode_tilemap(b64_data):
 for scene_name, scene_path in [
     ("spaceship", r"c:\Users\yanni\OneDrive\Desktop\IP2\ip2gd\scenes\maps\spaceship.tscn"),
     ("outside_1", r"c:\Users\yanni\OneDrive\Desktop\IP2\ip2gd\scenes\maps\outside_1.tscn"),
+    ("outside_2", r"c:\Users\yanni\OneDrive\Desktop\IP2\ip2gd\scenes\maps\outside_2.tscn"),
+    ("outside_3", r"c:\Users\yanni\OneDrive\Desktop\IP2\ip2gd\scenes\maps\outside_3.tscn"),
+    ("outside_4", r"c:\Users\yanni\OneDrive\Desktop\IP2\ip2gd\scenes\maps\outside_4.tscn"),
 ]:
     with open(scene_path, encoding="utf-8") as f:
         content = f.read()
