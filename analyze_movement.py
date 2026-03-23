@@ -14,10 +14,20 @@ IMG_H = 1024
 ARROW_STEP = 16
 MIN_SEGMENT_LEN = 0.5
 
+_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
 SCENE_MAPS = {
     "res://scenes/maps/spaceship.tscn": {
-        "image": "maps/spaceship.png",
-        "bounds": (-320, -180, 1600, 900),
+        "image": os.path.join(_SCRIPT_DIR, "wiki", "Oris_Spaceship.png"),
+    },
+    "res://scenes/maps/outside_1.tscn": {
+        "image": os.path.join(_SCRIPT_DIR, "wiki", "Outside_1.png"),
+    },
+    "res://scenes/maps/Outside_2/outside_2.tscn": {
+        "image": os.path.join(_SCRIPT_DIR, "wiki", "Outside_2.png"),
+    },
+    "res://scenes/maps/Outside_3/outside_3.tscn": {
+        "image": os.path.join(_SCRIPT_DIR, "wiki", "Outside_3.png"),
     },
 }
 
@@ -56,10 +66,32 @@ def compute_bounds(rows, padding=16.0):
         max_y += 1.0
     return min_x, min_y, max_x, max_y
 
-def get_scene_config(scene, rows):
-    if scene in SCENE_MAPS:
-        return SCENE_MAPS[scene]["image"], SCENE_MAPS[scene]["bounds"]
-    return None, compute_bounds(rows)
+def load_map_bounds(input_path):
+    """Lädt map_bounds.json aus demselben Ordner wie die JSONL-Datei.
+    Unterstützt zwei Formate:
+      1. {"scene": "...", "limit_left": ..., ...}   (ein Objekt, eine Szene)
+      2. {"res://...": {"limit_left": ..., ...}, ...} (Dict mit Scene-Pfad als Key)
+    """
+    bounds_path = os.path.join(os.path.dirname(os.path.abspath(input_path)), "map_bounds.json")
+    if not os.path.exists(bounds_path):
+        return {}
+    with open(bounds_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    # Format 1: flaches Objekt mit "scene"-Key
+    if "scene" in data and "limit_left" in data:
+        scene = data["scene"]
+        return {scene: {k: data[k] for k in ("limit_left", "limit_right", "limit_top", "limit_bottom")}}
+    # Format 2: bereits korrekt als Dict
+    return data
+
+def get_scene_config(scene, rows, map_bounds=None):
+    if map_bounds and scene in map_bounds:
+        b = map_bounds[scene]
+        bounds = (b["limit_left"], b["limit_top"], b["limit_right"], b["limit_bottom"])
+    else:
+        bounds = compute_bounds(rows)
+    image = SCENE_MAPS.get(scene, {}).get("image")
+    return image, bounds
 
 def world_to_uv(x, y, bounds):
     min_x, min_y, max_x, max_y = bounds
@@ -102,7 +134,7 @@ def draw_tracks(rows, bounds, map_path, out_path):
             x0, y0 = uv_to_img(ua, va, IMG_W, IMG_H)
             x1, y1 = uv_to_img(ub, vb, IMG_W, IMG_H)
 
-            draw.line((x0, y0, x1, y1), fill=(255, 0, 0, 120), width=3)
+            draw.line((x0, y0, x1, y1), fill=(255, 50, 50, 180), width=4)
 
     out = Image.alpha_composite(base, overlay)
     out.save(out_path)
@@ -181,10 +213,10 @@ def save_heatmap(density, map_path, out_path):
     for y in range(GRID_H):
         for x in range(GRID_W):
             v = float(d[y, x])
-            r = int(min(255, 255 * min(1.0, v * 1.8)))
-            g = int(min(255, 255 * max(0.0, (v - 0.35) / 0.65)))
-            b = int(min(255, 255 * max(0.0, (v - 0.75) / 0.25)))
-            a = int(180 * v)
+            r = int(min(255, 255 * min(1.0, v * 2.0)))
+            g = int(min(255, 255 * max(0.0, (v - 0.25) / 0.75)))
+            b = int(min(255, 255 * max(0.0, (v - 0.65) / 0.35)))
+            a = int(210 * v)
             px[x, y] = (r, g, b, a)
 
     heat = heat.resize((IMG_W, IMG_H), Image.Resampling.NEAREST)
@@ -244,11 +276,17 @@ def main():
         print("Keine Daten gefunden.")
         sys.exit(1)
 
+    map_bounds = load_map_bounds(input_path)
+    if map_bounds:
+        print(f"map_bounds.json geladen: {list(map_bounds.keys())}")
+    else:
+        print("Kein map_bounds.json gefunden – berechne Bounds aus Daten.")
+
     grouped = group_by_scene(rows)
 
     for scene, scene_rows in grouped.items():
         safe_scene = scene.replace("/", "_").replace("\\", "_").replace(":", "_")
-        map_path, bounds = get_scene_config(scene, scene_rows)
+        map_path, bounds = get_scene_config(scene, scene_rows, map_bounds)
 
         draw_tracks(scene_rows, bounds, map_path, os.path.join(output_dir, f"{safe_scene}_tracks.png"))
         density, vx, vy = rasterize(scene_rows, bounds)
