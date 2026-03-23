@@ -115,6 +115,7 @@ func _spawn_player_in_scene(new_scene: Node) -> void:
 			print("KAMERA DA!!")
 			if new_scene.has_method("configure_camera"):
 				new_scene.call("configure_camera", cam)
+				_write_map_bounds(new_scene.scene_file_path, cam)
 				
 	var point_light := new_scene.get_node_or_null("Field_of_view") as PointLight2D
 	if point_light:
@@ -125,3 +126,23 @@ func _spawn_player_in_scene(new_scene: Node) -> void:
 	#if GameState.should_play_intro_dialog:
 		#GameState.should_play_intro_dialog = false
 		#DialogManager.start_dialog("res://dialog/innerMonologue/wakeup.json")
+
+
+func _write_map_bounds(scene_path: String, cam: Camera2D) -> void:
+	const PATH := "user://analytics/map_bounds.json"
+	var all_bounds: Dictionary = {}
+	if FileAccess.file_exists(PATH):
+		var f := FileAccess.open(PATH, FileAccess.READ)
+		if f:
+			var parsed = JSON.parse_string(f.get_as_text())
+			if parsed is Dictionary:
+				all_bounds = parsed
+	all_bounds[scene_path] = {
+		"limit_left": cam.limit_left,
+		"limit_right": cam.limit_right,
+		"limit_top": cam.limit_top,
+		"limit_bottom": cam.limit_bottom,
+	}
+	var f2 := FileAccess.open(PATH, FileAccess.WRITE)
+	if f2:
+		f2.store_string(JSON.stringify(all_bounds))
