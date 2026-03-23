@@ -12,6 +12,14 @@ func _ready() -> void:
 	BgmPlayer.bgm_main_menu()
 	play_click_sound()
 	
+	#test für verbindung zu server 
+	await $NakamaManager.login_device()
+	# $SpacegramApi.create_post("Test Post", "assets/test.png")
+	# $SpacegramApi.get_posts()
+	#$SpacegramApi.get_comments("d4194c03-e272-4c62-b71c-77d4806879a4")
+	$SpacegramApi.update_my_profile("UrsiUpdated", "Hallo ich bin ein Test", "profile/test.png")
+	$SpacegramApi.get_my_profile()
+		
 func _on_new_g_button_pressed() -> void:
 	pointlight.visible = false
 	var lang = TranslationServer.get_locale().substr(0, 2)

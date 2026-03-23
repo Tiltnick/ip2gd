@@ -8,10 +8,11 @@ func _ready():
 	client.timeout = 10
 	print("Created Client: ", client)
 
-	await login_device()
-
 
 func login_device():
+	if session != null:
+		return
+
 	var device_id = OS.get_unique_id()
 	print("Device ID: ", device_id)
 
@@ -23,7 +24,6 @@ func login_device():
 
 	session = result
 	print("Successful Login: User ID: ", session.user_id)
-	
 
 
 func is_logged_in() -> bool:
