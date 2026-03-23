@@ -26,8 +26,20 @@ SCENE_MAPS = {
     "res://scenes/maps/Outside_2/outside_2.tscn": {
         "image": os.path.join(_SCRIPT_DIR, "wiki", "Outside_2.png"),
     },
-    "res://scenes/maps/Outside_3/outside_3.tscn": {
+    "res://scenes/maps/Outside_3/Outside_3.tscn": {
         "image": os.path.join(_SCRIPT_DIR, "wiki", "Outside_3.png"),
+    },
+    "res://scenes/maps/Outside_4/Outside_4.tscn": {
+        "image": os.path.join(_SCRIPT_DIR, "wiki", "Outside_4.png"),
+    },
+    "res://scenes/maps/Outside_4/temple.tscn": {
+        "image": os.path.join(_SCRIPT_DIR, "wiki", "Temple.png"),
+    },
+    "res://scenes/maps/Outside_2/sams_cave.tscn": {
+        "image": os.path.join(_SCRIPT_DIR, "wiki", "Sams_Cave1.png"),
+    },
+    "res://scenes/maps/spaceship_room.tscn": {
+        "image": None,  # no dedicated wiki image available for this room
     },
 }
 
