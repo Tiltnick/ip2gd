@@ -154,7 +154,7 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -122.0
-offset_top = -372.0
+offset_top = -464.0
 offset_right = 122.0
 offset_bottom = -172.0
 grow_horizontal = 2
@@ -213,6 +213,40 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_bqqt6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_l6cm7")
 text = "EXIT"
+
+[node name="SignUp" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_focus_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_pressed_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_hover_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l6cm7")
+text = "SIGN_UP"
+
+[node name="Login" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_focus_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_pressed_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_hover_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l6cm7")
+text = "LOGIN"
 
 [node name="Logo" type="TextureRect" parent="."]
 layout_mode = 1
@@ -330,5 +364,7 @@ script = ExtResource("10_phixr")
 [connection signal="pressed" from="VBoxContainer/NewGButton" to="." method="_on_new_g_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SignUp" to="." method="_on_new_g_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Login" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="InstaButton" to="." method="_on_insta_button_pressed"]
 [connection signal="pressed" from="DiscordButton" to="." method="_on_discord_button_pressed"]
