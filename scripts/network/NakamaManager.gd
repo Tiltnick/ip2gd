@@ -4,13 +4,17 @@ var client
 var session
 
 func _ready():
+	print("NakamaManager _ready: ", get_instance_id())
 	client = Nakama.create_client("defaultkey", "127.0.0.1", 7350, "http")
 	client.timeout = 10
 	print("Created Client: ", client)
 
 
 func login_device():
+	print("login_device called on: ", get_instance_id())
+	
 	if session != null:
+		print("Already logged in, skipping")
 		return
 
 	var device_id = OS.get_unique_id()

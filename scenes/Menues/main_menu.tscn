@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cc86xpvrn37so"]
+[gd_scene load_steps=22 format=3 uid="uid://cc86xpvrn37so"]
 
 [ext_resource type="Script" uid="uid://c66icxn0ex1r2" path="res://scripts/menu/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_l6cm7"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dprepxc2r0jqd" path="res://assets/sprites/ui/instagram (2) 1.png" id="5_oa1go"]
 [ext_resource type="Texture2D" uid="uid://d12eclmam7q5d" path="res://assets/sprites/ui/discord 1.png" id="7_jk1qb"]
 [ext_resource type="PackedScene" uid="uid://cpockpmuyp365" path="res://scenes/Menues/PopUp.tscn" id="8_tbmy8"]
-[ext_resource type="Script" uid="uid://cdkffdenieaag" path="res://scripts/network/NakamaManager.gd" id="9_34lgo"]
 [ext_resource type="Script" uid="uid://bd1iyj8i00qwe" path="res://scripts/api/SpacegramApi.gd" id="10_phixr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
@@ -324,9 +323,6 @@ icon_alignment = 1
 [node name="PopUp" parent="." instance=ExtResource("8_tbmy8")]
 visible = false
 layout_mode = 1
-
-[node name="NakamaManager" type="Node" parent="."]
-script = ExtResource("9_34lgo")
 
 [node name="SpacegramApi" type="Node" parent="."]
 script = ExtResource("10_phixr")

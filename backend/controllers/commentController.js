@@ -73,7 +73,44 @@ async function getCommentsByPost(req, res) {
   }
 }
 
+async function deleteComment(req, res) {
+  try {
+    const userId = req.user_id;
+    const commentId = req.params.comment_id;
+
+    const query = `
+      DELETE FROM comment
+      WHERE comment_id = $1 AND user_id = $2
+      RETURNING *
+    `;
+
+    const result = await pool.query(query, [commentId, userId]);
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({
+        success: false,
+        data: null,
+        error: "Comment not found or not owned by user",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      data: result.rows[0],
+      error: null,
+    });
+  } catch (err) {
+    console.error("DB Error:", err);
+    return res.status(500).json({
+      success: false,
+      data: null,
+      error: "Internal server error",
+    });
+  }
+}
+
 module.exports = {
   createComment,
   getCommentsByPost,
+  deleteComment,
 };

@@ -37,4 +37,12 @@ VALUES (
   ''
 );
 
+INSERT INTO profile (user_id, display_name, bio, profile_picture)
+VALUES (
+  '00000000-0000-0000-0000-000000000000',
+  'Karl',
+  '',
+  ''
+);
+
 

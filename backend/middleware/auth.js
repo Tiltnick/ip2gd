@@ -18,9 +18,9 @@ function authMiddleware(req, res, next) {
   const token = authHeader.split(" ")[1];
 
   try {
-    console.log("ENV KEY:", process.env.NAKAMA_SESSION_ENCRYPTION_KEY);
-    console.log("Token received:", token);
-    console.log("JWT decoded:", jwt.decode(token));
+    // console.log("ENV KEY:", process.env.NAKAMA_SESSION_ENCRYPTION_KEY);
+    // console.log("Token received:", token);
+    // console.log("JWT decoded:", jwt.decode(token));
 
     const payload = jwt.verify(
       token,

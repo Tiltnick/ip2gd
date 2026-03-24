@@ -74,7 +74,44 @@ async function getPosts(req, res) {
   }
 }
 
+async function deletePost(req, res) {
+  try {
+    const userId = req.user_id;
+    const postId = req.params.id;
+
+    const query = `
+      DELETE FROM post
+      WHERE post_id = $1 AND user_id = $2
+      RETURNING *
+    `;
+
+    const result = await pool.query(query, [postId, userId]);
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({
+        success: false,
+        data: null,
+        error: "Post not found or not owned by user",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      data: result.rows[0],
+      error: null,
+    });
+  } catch (err) {
+    console.error("DB Error:", err);
+    return res.status(500).json({
+      success: false,
+      data: null,
+      error: "Internal server error",
+    });
+  }
+}
+
 module.exports = {
   createPost,
   getPosts,
+  deletePost,
 };

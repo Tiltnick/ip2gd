@@ -7,18 +7,44 @@ class_name main_menu
 @onready var pointlight: PointLight2D = $Logo/PointLight2D
 
 func _ready() -> void:
+	print("main_menu _ready: ", get_instance_id())
 	# Prüft ob es eine Save-Datei gibt -> Nein = button.disabled
 	resume_button.disabled = not FileAccess.file_exists(SaveSystem.SAVE_PATH)
 	BgmPlayer.bgm_main_menu()
 	play_click_sound()
 	
 	#test für verbindung zu server 
-	await $NakamaManager.login_device()
-	# $SpacegramApi.create_post("Test Post", "assets/test.png")
+	await NakamaManager.login_device()
+	
+	# POSTS
+	# Create Post worked
+	# $SpacegramApi.create_post("Test Post 3", "assets/test.png")
+	# Get all Posts ( die eigenen (Feed?) worked
 	# $SpacegramApi.get_posts()
-	#$SpacegramApi.get_comments("d4194c03-e272-4c62-b71c-77d4806879a4")
-	$SpacegramApi.update_my_profile("UrsiUpdated", "Hallo ich bin ein Test", "profile/test.png")
-	$SpacegramApi.get_my_profile()
+	# Delete Post (eigene post_id einsetzen!) worked
+	# $SpacegramApi.delete_post("7313f4be-9603-4bed-8d1c-fc6b85d99644")
+
+	# COMMENTS
+	# Get Comments worked
+	# $SpacegramApi.get_comments("31415955-c45a-4fae-a985-4bafe5da7bb2")
+	# Create Comment worked
+	# $SpacegramApi.create_comment("31415955-c45a-4fae-a985-4bafe5da7bb2", "Das ist ein Kommentar part 2")
+	# Delete Comment (eigene comment_id einsetzen!) worked
+	# $SpacegramApi.delete_comment("924ed0c4-43b0-4674-9266-70674bb837b0")
+
+	# LIKES
+	# Like Post worked (aber kann gerade unendlich ausgeführt werden, auch wenn nur 1 Like pro Person am Ende dasteht)
+	# $SpacegramApi.like_post("31415955-c45a-4fae-a985-4bafe5da7bb2")
+	# Unlike Post worked (aber auch unendlich ausführbar)
+	# $SpacegramApi.unlike_post("31415955-c45a-4fae-a985-4bafe5da7bb2")
+
+	# PROFILE
+	# Update eigenes Profil worked
+	# $SpacegramApi.update_my_profile("UrsiUpdated", "Hallo ich bin ein Test", "profile/test.png")
+	# Get eigenes Profil worked
+	# $SpacegramApi.get_my_profile()
+	# Get Profil von anderem User worked 
+	# $SpacegramApi.get_profile_by_user_id("00000000-0000-0000-0000-000000000000")
 		
 func _on_new_g_button_pressed() -> void:
 	pointlight.visible = false

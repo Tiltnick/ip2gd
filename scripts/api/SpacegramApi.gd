@@ -11,16 +11,27 @@ func _ready():
 	http_request.request_completed.connect(_on_request_completed)
 
 
+func _get_auth_headers(include_json: bool = false) -> Array:
+	if not NakamaManager.is_logged_in():
+		print("Kein Nakama-Login vorhanden.")
+		return []
+
+	var token = NakamaManager.session.token
+	var headers: Array = []
+
+	if include_json:
+		headers.append("Content-Type: application/json")
+
+	headers.append("Authorization: Bearer " + token)
+	return headers
+
+
 func create_post(caption: String, image_path: String):
 	var url = BASE_URL + "/posts"
+	var headers = _get_auth_headers(true)
 
-	var nakama_node = get_parent().get_node("NakamaManager")
-
-	if nakama_node == null or nakama_node.session == null:
-		print("Kein Nakama-Login vorhanden.")
+	if headers.is_empty():
 		return
-
-	var token = nakama_node.session.token
 
 	var body = {
 		"caption": caption,
@@ -28,10 +39,6 @@ func create_post(caption: String, image_path: String):
 	}
 
 	var json_body = JSON.stringify(body)
-	var headers = [
-		"Content-Type: application/json",
-		"Authorization: Bearer " + token
-	]
 
 	var error = http_request.request(
 		url,
@@ -46,18 +53,10 @@ func create_post(caption: String, image_path: String):
 
 func get_posts():
 	var url = BASE_URL + "/posts"
+	var headers = _get_auth_headers()
 
-	var nakama_node = get_parent().get_node("NakamaManager")
-
-	if nakama_node == null or nakama_node.session == null:
-		print("Kein Nakama-Login vorhanden.")
+	if headers.is_empty():
 		return
-
-	var token = nakama_node.session.token
-
-	var headers = [
-		"Authorization: Bearer " + token
-	]
 
 	var error = http_request.request(
 		url,
@@ -71,36 +70,27 @@ func get_posts():
 
 func get_comments(post_id: String):
 	var url = BASE_URL + "/posts/" + post_id + "/comments"
+	var headers = _get_auth_headers()
 
-	var nakama_node = get_parent().get_node("NakamaManager")
-
-	if nakama_node == null or nakama_node.session == null:
-		print("Kein Login")
+	if headers.is_empty():
 		return
 
-	var token = nakama_node.session.token
+	var error = http_request.request(
+		url,
+		headers,
+		HTTPClient.METHOD_GET
+	)
 
-	var headers = [
-		"Authorization: Bearer " + token
-	]
-
-	http_request.request(url, headers, HTTPClient.METHOD_GET)
+	if error != OK:
+		print("Request Fehler: ", error)
 
 
 func like_post(post_id: String):
 	var url = BASE_URL + "/posts/" + post_id + "/like"
+	var headers = _get_auth_headers()
 
-	var nakama_node = get_parent().get_node("NakamaManager")
-
-	if nakama_node == null or nakama_node.session == null:
-		print("Kein Nakama-Login vorhanden.")
+	if headers.is_empty():
 		return
-
-	var token = nakama_node.session.token
-
-	var headers = [
-		"Authorization: Bearer " + token
-	]
 
 	var error = http_request.request(
 		url,
@@ -114,18 +104,10 @@ func like_post(post_id: String):
 
 func unlike_post(post_id: String):
 	var url = BASE_URL + "/posts/" + post_id + "/like"
+	var headers = _get_auth_headers()
 
-	var nakama_node = get_parent().get_node("NakamaManager")
-
-	if nakama_node == null or nakama_node.session == null:
-		print("Kein Nakama-Login vorhanden.")
+	if headers.is_empty():
 		return
-
-	var token = nakama_node.session.token
-
-	var headers = [
-		"Authorization: Bearer " + token
-	]
 
 	var error = http_request.request(
 		url,
@@ -136,20 +118,13 @@ func unlike_post(post_id: String):
 	if error != OK:
 		print("Request Fehler: ", error)
 
+
 func get_my_profile():
 	var url = BASE_URL + "/profile/me"
+	var headers = _get_auth_headers()
 
-	var nakama_node = get_parent().get_node("NakamaManager")
-
-	if nakama_node == null or nakama_node.session == null:
-		print("Kein Nakama-Login vorhanden.")
+	if headers.is_empty():
 		return
-
-	var token = nakama_node.session.token
-
-	var headers = [
-		"Authorization: Bearer " + token
-	]
 
 	var error = http_request.request(
 		url,
@@ -160,16 +135,13 @@ func get_my_profile():
 	if error != OK:
 		print("Request Fehler: ", error)
 
+
 func update_my_profile(display_name: String, bio: String, profile_picture: String):
 	var url = BASE_URL + "/profile/me"
+	var headers = _get_auth_headers(true)
 
-	var nakama_node = get_parent().get_node("NakamaManager")
-
-	if nakama_node == null or nakama_node.session == null:
-		print("Kein Nakama-Login vorhanden.")
+	if headers.is_empty():
 		return
-
-	var token = nakama_node.session.token
 
 	var body = {
 		"display_name": display_name,
@@ -178,15 +150,84 @@ func update_my_profile(display_name: String, bio: String, profile_picture: Strin
 	}
 
 	var json_body = JSON.stringify(body)
-	var headers = [
-		"Content-Type: application/json",
-		"Authorization: Bearer " + token
-	]
 
 	var error = http_request.request(
 		url,
 		headers,
 		HTTPClient.METHOD_PUT,
+		json_body
+	)
+
+	if error != OK:
+		print("Request Fehler: ", error)
+
+func delete_post(post_id: String):
+	var url = BASE_URL + "/posts/" + post_id
+	var headers = _get_auth_headers()
+
+	if headers.is_empty():
+		return
+
+	var error = http_request.request(
+		url,
+		headers,
+		HTTPClient.METHOD_DELETE
+	)
+
+	if error != OK:
+		print("Request Fehler: ", error)
+
+
+func delete_comment(comment_id: String):
+	var url = BASE_URL + "/posts/comments/" + comment_id
+	var headers = _get_auth_headers()
+
+	if headers.is_empty():
+		return
+
+	var error = http_request.request(
+		url,
+		headers,
+		HTTPClient.METHOD_DELETE
+	)
+
+	if error != OK:
+		print("Request Fehler: ", error)
+
+
+func get_profile_by_user_id(user_id: String):
+	var url = BASE_URL + "/profile/" + user_id
+	var headers = _get_auth_headers()
+
+	if headers.is_empty():
+		return
+
+	var error = http_request.request(
+		url,
+		headers,
+		HTTPClient.METHOD_GET
+	)
+
+	if error != OK:
+		print("Request Fehler: ", error)
+
+func create_comment(post_id: String, text: String):
+	var url = BASE_URL + "/posts/" + post_id + "/comments"
+	var headers = _get_auth_headers(true)
+
+	if headers.is_empty():
+		return
+
+	var body = {
+		"text": text
+	}
+
+	var json_body = JSON.stringify(body)
+
+	var error = http_request.request(
+		url,
+		headers,
+		HTTPClient.METHOD_POST,
 		json_body
 	)
 
