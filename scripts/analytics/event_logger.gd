@@ -81,6 +81,13 @@ func _on_choice_made(choice_id: String) -> void:
 # Szenenwechsel
 func _on_scene_changed(from_path: String, to_path: String) -> void:
 	_log_event("scene_changed", {"from": from_path, "to": to_path})
+	
+# Puzzle logging
+'func _on_puzzle_started(quest_data: Dictionary) -> void:
+	_log_event("puzzle_started",{"puzzle_id": puzzle_data.get("id", ""), "title": quest_data.get("title", "")})
+	
+func _on_puzzle_finished(quest_data: Dictionary) -> void:
+	_log_event("puzzle_finished",{})'
 
 
 func _log_event(event: String, extra: Dictionary = {}) -> void:
