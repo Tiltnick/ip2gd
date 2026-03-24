@@ -39,7 +39,7 @@ SCENE_MAPS = {
         "image": os.path.join(_SCRIPT_DIR, "wiki", "Sams_Cave1.png"),
     },
     "res://scenes/maps/spaceship_room.tscn": {
-        "image": None,  # no dedicated wiki image available for this room
+        "image": None, 
     },
 }
 
@@ -79,11 +79,6 @@ def compute_bounds(rows, padding=16.0):
     return min_x, min_y, max_x, max_y
 
 def load_map_bounds(input_path):
-    """Lädt map_bounds.json aus demselben Ordner wie die JSONL-Datei.
-    Unterstützt zwei Formate:
-      1. {"scene": "...", "limit_left": ..., ...}   (ein Objekt, eine Szene)
-      2. {"res://...": {"limit_left": ..., ...}, ...} (Dict mit Scene-Pfad als Key)
-    """
     bounds_path = os.path.join(os.path.dirname(os.path.abspath(input_path)), "map_bounds.json")
     if not os.path.exists(bounds_path):
         return {}
