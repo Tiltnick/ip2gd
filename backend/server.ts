@@ -2,7 +2,7 @@ import express, { Application } from "express";
 import dotenv from "dotenv";
 import path from "path";
 
-import postsRoutes from "./routes/posts";
+import { router as postsRoutes } from "./routes/posts";
 import profileRoutes from "./routes/profile";
 
 dotenv.config({ path: path.join(__dirname, ".env") });

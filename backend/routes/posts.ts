@@ -1,28 +1,17 @@
-const express = require("express");
-const router = express.Router();
+import express from "express";
 
-const authMiddleware = require("../middleware/auth");
-const ensureProfile = require("../middleware/ensureProfile");
+import authMiddleware from "../middleware/auth";
+import ensureProfile from "../middleware/ensureProfile";
 
-const { createPost, getPosts, deletePost } = require("../controllers/postController");
-const {
+import { createPost, getPosts, deletePost } from "../controllers/postController";
+import {
   createComment,
   getCommentsByPost,
   deleteComment,
-} = require("../controllers/commentController");
-const {
-  likePost,
-  unlikePost,
-} = require("../controllers/likeController");
+} from "../controllers/commentController";
+import { likePost, unlikePost } from "../controllers/likeController";
 
-// console.log({
-//   createPost,
-//   getPosts,
-//   createComment,
-//   getCommentsByPost,
-//   likePost,
-//   unlikePost,
-// });
+const router = express.Router();
 
 router.post("/", authMiddleware, ensureProfile, createPost);
 router.delete("/:id", authMiddleware, ensureProfile, deletePost);
@@ -35,4 +24,5 @@ router.delete("/comments/:comment_id", authMiddleware, ensureProfile, deleteComm
 router.post("/:id/like", authMiddleware, ensureProfile, likePost);
 router.delete("/:id/like", authMiddleware, ensureProfile, unlikePost);
 
-module.exports = router;
+export { router };
+export default router;
