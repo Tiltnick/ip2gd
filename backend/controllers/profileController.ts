@@ -1,8 +1,18 @@
-const pool = require("../db/db");
+import { Response } from "express";
+import pool from "../db/db";
+import { AuthRequest } from "../types/express";
 
-async function getMyProfile(req, res) {
+export async function getMyProfile(req: AuthRequest, res: Response): Promise<Response> {
   try {
     const userId = req.user_id;
+
+    if (!userId) {
+      return res.status(401).json({
+        success: false,
+        data: null,
+        error: "Unauthorized",
+      });
+    }
 
     const query = `
       SELECT
@@ -40,10 +50,22 @@ async function getMyProfile(req, res) {
   }
 }
 
-async function updateMyProfile(req, res) {
+export async function updateMyProfile(req: AuthRequest, res: Response): Promise<Response> {
   try {
     const userId = req.user_id;
-    const { display_name, bio, profile_picture } = req.body;
+    const { display_name, bio, profile_picture } = req.body as {
+      display_name?: string;
+      bio?: string;
+      profile_picture?: string;
+    };
+
+    if (!userId) {
+      return res.status(401).json({
+        success: false,
+        data: null,
+        error: "Unauthorized",
+      });
+    }
 
     const query = `
       UPDATE profile
@@ -81,7 +103,7 @@ async function updateMyProfile(req, res) {
   }
 }
 
-async function getProfileByUserId(req, res) {
+export async function getProfileByUserId(req: AuthRequest, res: Response): Promise<Response> {
   try {
     const userId = req.params.user_id;
 
@@ -120,9 +142,3 @@ async function getProfileByUserId(req, res) {
     });
   }
 }
-
-module.exports = {
-  getMyProfile,
-  updateMyProfile,
-  getProfileByUserId,
-};

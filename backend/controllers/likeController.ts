@@ -1,9 +1,19 @@
-const pool = require("../db/db");
+import { Response } from "express";
+import pool from "../db/db";
+import { AuthRequest } from "../types/express";
 
-async function likePost(req, res) {
+export async function likePost(req: AuthRequest, res: Response): Promise<Response> {
   try {
     const userId = req.user_id;
     const postId = req.params.id;
+
+    if (!userId) {
+      return res.status(401).json({
+        success: false,
+        data: null,
+        error: "Unauthorized",
+      });
+    }
 
     const query = `
       INSERT INTO likes (user_id, post_id)
@@ -30,10 +40,18 @@ async function likePost(req, res) {
   }
 }
 
-async function unlikePost(req, res) {
+export async function unlikePost(req: AuthRequest, res: Response): Promise<Response> {
   try {
     const userId = req.user_id;
     const postId = req.params.id;
+
+    if (!userId) {
+      return res.status(401).json({
+        success: false,
+        data: null,
+        error: "Unauthorized",
+      });
+    }
 
     const query = `
       DELETE FROM likes
@@ -58,8 +76,3 @@ async function unlikePost(req, res) {
     });
   }
 }
-
-module.exports = {
-  likePost,
-  unlikePost,
-};

@@ -1,9 +1,23 @@
-const pool = require("../db/db");
+import { Response, NextFunction } from "express";
+import pool from "../db/db";
+import { AuthRequest } from "../types/express";
 
-async function ensureProfile(req, res, next) {
+async function ensureProfile(
+  req: AuthRequest,
+  res: Response,
+  next: NextFunction
+): Promise<Response | void> {
   try {
     const userId = req.user_id;
     const username = req.username || "Unknown User";
+
+    if (!userId) {
+      return res.status(401).json({
+        success: false,
+        data: null,
+        error: "Unauthorized",
+      });
+    }
 
     const checkQuery = `
       SELECT user_id
@@ -33,4 +47,4 @@ async function ensureProfile(req, res, next) {
   }
 }
 
-module.exports = ensureProfile;
+export default ensureProfile;

@@ -1,9 +1,22 @@
-const pool = require("../db/db");
+import { Response } from "express";
+import pool from "../db/db";
+import { AuthRequest } from "../types/express";
 
-async function createPost(req, res) {
+export async function createPost(req: AuthRequest, res: Response): Promise<Response> {
   try {
     const userId = req.user_id;
-    const { caption, image_path } = req.body;
+    const { caption, image_path } = req.body as {
+      caption?: string;
+      image_path?: string;
+    };
+
+    if (!userId) {
+      return res.status(401).json({
+        success: false,
+        data: null,
+        error: "Unauthorized",
+      });
+    }
 
     if (!caption || !image_path) {
       return res.status(400).json({
@@ -37,7 +50,7 @@ async function createPost(req, res) {
   }
 }
 
-async function getPosts(req, res) {
+export async function getPosts(req: AuthRequest, res: Response): Promise<Response> {
   try {
     const query = `
       SELECT 
@@ -74,10 +87,18 @@ async function getPosts(req, res) {
   }
 }
 
-async function deletePost(req, res) {
+export async function deletePost(req: AuthRequest, res: Response): Promise<Response> {
   try {
     const userId = req.user_id;
     const postId = req.params.id;
+
+    if (!userId) {
+      return res.status(401).json({
+        success: false,
+        data: null,
+        error: "Unauthorized",
+      });
+    }
 
     const query = `
       DELETE FROM post
@@ -109,9 +130,3 @@ async function deletePost(req, res) {
     });
   }
 }
-
-module.exports = {
-  createPost,
-  getPosts,
-  deletePost,
-};
