@@ -43,6 +43,7 @@ Hotkeys="*res://scripts/UI/hotkeys.gd"
 TripodManager="*res://scripts/riddles/sky_riddle/tripod_manager.gd"
 MovementTracker="*res://scripts/analytics/movement_tracker.gd"
 EventLogger="*res://scripts/analytics/event_logger.gd"
+PuzzleEvents="*res://scripts/analytics/puzzle_events.gd"
 
 [dialogic]
 

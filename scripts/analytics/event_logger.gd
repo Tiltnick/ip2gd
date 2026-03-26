@@ -48,6 +48,10 @@ func _connect_signals() -> void:
 	# Szenenwechsel verbinden
 	if has_node("/root/SceneManager"):
 		SceneManager.scene_changed.connect(_on_scene_changed)
+		
+	if has_node("/root/PuzzleEvents"):
+		PuzzleEvents.puzzle_started.connect(_on_puzzle_started)
+		PuzzleEvents.puzzle_ended.connect(_on_puzzle_ended)
 
 # Quest Callbacks added, updated, completed
 func _on_quest_added(quest_data: Dictionary) -> void:
@@ -83,11 +87,17 @@ func _on_scene_changed(from_path: String, to_path: String) -> void:
 	_log_event("scene_changed", {"from": from_path, "to": to_path})
 	
 # Puzzle logging
-'func _on_puzzle_started(quest_data: Dictionary) -> void:
-	_log_event("puzzle_started",{"puzzle_id": puzzle_data.get("id", ""), "title": quest_data.get("title", "")})
+func _on_puzzle_started(puzzle_data: Dictionary) -> void:
+	_log_event("puzzle_started", {
+		"puzzle_id": puzzle_data.get("id", ""),
+		"title": puzzle_data.get("title", "")
+	})
 	
-func _on_puzzle_finished(quest_data: Dictionary) -> void:
-	_log_event("puzzle_finished",{})'
+func _on_puzzle_ended(puzzle_data: Dictionary) -> void:
+	_log_event("puzzle_ended", {
+		"puzzle_id": puzzle_data.get("id", ""),
+		"title": puzzle_data.get("title", "")
+	})
 
 
 func _log_event(event: String, extra: Dictionary = {}) -> void:

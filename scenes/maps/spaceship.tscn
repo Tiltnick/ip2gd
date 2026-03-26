@@ -1396,10 +1396,13 @@ position = Vector2(272, 72)
 script = ExtResource("11_emg07")
 code_popup_path = NodePath("../SpaceshipDoor")
 puzzle_id = "Spaceship_code"
+puzzle_title = "Spaceship_code"
 required_items = Array[String](["spaceship_diary"])
 missing_items_dialog_json = "res://dialog/innerMonologue/missing_items/missing_spaceship.json"
 target_scene_path = "uid://b4r2irdvo1x1b"
 target_spawn_id = "from_spaceship"
+required_item_id = "fluxomat"
+opened_state_key = "Side_Spaceship_Door_opened"
 e_popup_node = NodePath("Press_E_Popup_Door")
 
 [node name="Press_E_Popup_Door" parent="Door" instance=ExtResource("10_o77e3")]

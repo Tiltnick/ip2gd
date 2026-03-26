@@ -304,3 +304,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# python "c:\Users\yanni\OneDrive\Desktop\IP2\ip2gd\analyze_movement.py" 
+# "C:\Users\yanni\AppData\Roaming\Godot\app_userdata\BloomOfMemory\analytics\MOVEMENT_DATEI_HIER" 
+# "c:\Users\yanni\OneDrive\Desktop\IP2\ip2gd\output"

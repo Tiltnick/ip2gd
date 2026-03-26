@@ -2,7 +2,10 @@ extends Door
 
 @export var code_popup_path: NodePath
 @export var puzzle_id: String = "Spaceship_code"
+@export var puzzle_title: String = "Spaceship_code"
 @export var required_items: Array[String] = []
+
+var puzzle_open_logged := false
 
 @export_file("*.json")
 var missing_items_dialog_json: String
@@ -40,6 +43,10 @@ func interact() -> void:
 		push_error("Kein Code-Popup zugewiesen!")
 		return
 
+	if not puzzle_open_logged:
+		puzzle_open_logged = true
+		PuzzleEvents.started(puzzle_id, puzzle_title)
+
 	code_popup.visible = true
 
 	var first_input = code_popup.get_node("Control/Panel2/HBoxContainer/Input1") as LineEdit
@@ -55,6 +62,8 @@ func _on_code_verified(result: bool) -> void:
 	if not result:
 		return
 
+	_end_puzzle("solved")
+
 	SfxPlayer.puzzle_solved()
 	code_solved = true
 
@@ -68,12 +77,21 @@ func _on_code_verified(result: bool) -> void:
 	_try_open_after_item_check()
 
 
+func _end_puzzle(result: String) -> void:
+	if not puzzle_open_logged:
+		return
+
+	puzzle_open_logged = false
+	PuzzleEvents.ended(puzzle_id, puzzle_title, result)
+
+
 func _try_open_after_item_check() -> void:
 	if required_items.size() > 0 and not _player_has_all_items():
 		_show_missing_items_dialog()
 		return
 
 	open_door()
+
 
 func _player_has_all_items() -> bool:
 	var picked_items := GameState.picked_items
@@ -83,10 +101,11 @@ func _player_has_all_items() -> bool:
 
 	return true
 
+
 func _show_missing_items_dialog() -> void:
 	DialogManager.start_dialog(missing_items_dialog_json)
-	
-	
+
+
 func set_texture():
 	var texture = load("res://assets/sprites/selfmade/spaceship_door_locked.png")
 	$Sprite2D.texture = texture

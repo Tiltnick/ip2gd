@@ -13,6 +13,7 @@ var tutorial_done: bool = false
 var dialog_state: Dictionary = {}
 
 var map_state: Dictionary = {}
+
 var quest_state: Dictionary = {}
 
 var return_scene_path: String = ""
@@ -21,7 +22,6 @@ var has_save: bool = false
 
 # Letzte Spielerposition
 var player_position: Vector2 = Vector2.ZERO
-
 
 var use_saved_position: bool = false
 
@@ -37,7 +37,6 @@ var music_setting: float
 var language: String = "en"
 
 var display_mode: String = "fullscreen"
-
 
 var inventory_slots: Array = [
 	null, null, null, null,
@@ -85,7 +84,6 @@ func to_dict() -> Dictionary:
 		"inventory_slots": inventory_slots,
 		"hotbar_counts": hotbar_counts,
 		"hotbar_icon_override": hotbar_icon_override,
-
 	}
 
 
@@ -122,7 +120,6 @@ func from_dict(data: Dictionary) -> void:
 		
 	if data.has("tutorial_done"):
 		tutorial_done = bool(data["tutorial_done"])
-
 
 	if data.has("sound_setting"):
 		sound_setting = data["sound_setting"]
