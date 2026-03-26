@@ -18,19 +18,19 @@ func _ready() -> void:
 	
 	# POSTS
 	# Create Post worked
-	# $SpacegramApi.create_post("Test Post 3", "assets/test.png")
+	# $SpacegramApi.create_post("Test Post 4", "assets/test.png")
 	# Get all Posts ( die eigenen (Feed?) worked
 	# $SpacegramApi.get_posts()
 	# Delete Post (eigene post_id einsetzen!) worked
-	# $SpacegramApi.delete_post("7313f4be-9603-4bed-8d1c-fc6b85d99644")
+	# $SpacegramApi.delete_post("949af9eb-6a8f-450c-9154-0ebc4de09f2e")
 
 	# COMMENTS
 	# Get Comments worked
 	# $SpacegramApi.get_comments("31415955-c45a-4fae-a985-4bafe5da7bb2")
 	# Create Comment worked
-	# $SpacegramApi.create_comment("31415955-c45a-4fae-a985-4bafe5da7bb2", "Das ist ein Kommentar part 2")
+	# $SpacegramApi.create_comment("31415955-c45a-4fae-a985-4bafe5da7bb2", "Das ist ein Kommentar part 3")
 	# Delete Comment (eigene comment_id einsetzen!) worked
-	# $SpacegramApi.delete_comment("924ed0c4-43b0-4674-9266-70674bb837b0")
+	# $SpacegramApi.delete_comment("57f03b20-a346-4883-a0c9-1bec0be6e9fe")
 
 	# LIKES
 	# Like Post worked (aber kann gerade unendlich ausgeführt werden, auch wenn nur 1 Like pro Person am Ende dasteht)

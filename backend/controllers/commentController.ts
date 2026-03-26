@@ -1,10 +1,20 @@
-const pool = require("../db/db");
+import { Response } from "express";
+import pool from "../db/db";
+import { AuthRequest } from "../types/express";
 
-async function createComment(req, res) {
+export async function createComment(req: AuthRequest, res: Response): Promise<Response> {
   try {
     const userId = req.user_id;
     const postId = req.params.id;
-    const { text } = req.body;
+    const { text } = req.body as { text?: string };
+
+    if (!userId) {
+      return res.status(401).json({
+        success: false,
+        data: null,
+        error: "Unauthorized",
+      });
+    }
 
     if (!text) {
       return res.status(400).json({
@@ -38,7 +48,7 @@ async function createComment(req, res) {
   }
 }
 
-async function getCommentsByPost(req, res) {
+export async function getCommentsByPost(req: AuthRequest, res: Response): Promise<Response> {
   try {
     const postId = req.params.id;
 
@@ -73,10 +83,18 @@ async function getCommentsByPost(req, res) {
   }
 }
 
-async function deleteComment(req, res) {
+export async function deleteComment(req: AuthRequest, res: Response): Promise<Response> {
   try {
     const userId = req.user_id;
     const commentId = req.params.comment_id;
+
+    if (!userId) {
+      return res.status(401).json({
+        success: false,
+        data: null,
+        error: "Unauthorized",
+      });
+    }
 
     const query = `
       DELETE FROM comment
@@ -108,9 +126,3 @@ async function deleteComment(req, res) {
     });
   }
 }
-
-module.exports = {
-  createComment,
-  getCommentsByPost,
-  deleteComment,
-};
