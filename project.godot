@@ -41,8 +41,7 @@ QuestManager="*res://scripts/quests/quest_manager.gd"
 Footstep="*res://scripts/audio/footstep.gd"
 Hotkeys="*res://scripts/UI/hotkeys.gd"
 TripodManager="*res://scripts/riddles/sky_riddle/tripod_manager.gd"
-MovementTracker="*res://scripts/analytics/movement_tracker.gd"
-EventLogger="*res://scripts/analytics/event_logger.gd"
+AnalyticsLogger="*res://scripts/analytics/analytics_logger.gd"
 PuzzleEvents="*res://scripts/analytics/puzzle_events.gd"
 
 [dialogic]
