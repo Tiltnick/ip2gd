@@ -1,0 +1,123 @@
+{
+  "version": "1.1.0",
+  "feature_set": "all",
+  "scene_filter": null,
+  "puzzle_filter": null,
+  "n_sessions": 2,
+  "n_attempts": 2,
+  "n_states": 6,
+  "n_transitions": 5,
+  "n_solved": 2,
+  "n_abandoned": 0,
+  "n_failed": 0,
+  "n_unknown": 0,
+  "cohort_comparison": {
+    "solved": {
+      "count": 2,
+      "avg_duration_ms": 39787.0,
+      "avg_sequence_length": 4.0,
+      "top_states": [
+        {
+          "state_hash": "99914b932b",
+          "count": 2,
+          "features": {}
+        },
+        {
+          "state_hash": "e2295df388",
+          "count": 2,
+          "features": {
+            "diary_collected": true,
+            "tutorial_done": true
+          }
+        },
+        {
+          "state_hash": "bffaadb1a5",
+          "count": 1,
+          "features": {
+            "map_collected": true,
+            "diary_collected": true,
+            "tutorial_done": true
+          }
+        },
+        {
+          "state_hash": "cfe440bc0f",
+          "count": 1,
+          "features": {
+            "quest:quest_1": true,
+            "map_collected": true,
+            "diary_collected": true,
+            "tutorial_done": true
+          }
+        },
+        {
+          "state_hash": "db53fd60d1",
+          "count": 1,
+          "features": {
+            "quest:quest_1": true,
+            "diary_collected": true,
+            "tutorial_done": true
+          }
+        },
+        {
+          "state_hash": "70b7858204",
+          "count": 1,
+          "features": {
+            "quest:quest_1": true,
+            "diary_collected": true,
+            "tutorial_done": true,
+            "mr_blob:1": true
+          }
+        }
+      ],
+      "top_transitions": [
+        {
+          "from": "99914b932b",
+          "to": "e2295df388",
+          "count": 2
+        },
+        {
+          "from": "e2295df388",
+          "to": "bffaadb1a5",
+          "count": 1
+        },
+        {
+          "from": "bffaadb1a5",
+          "to": "cfe440bc0f",
+          "count": 1
+        },
+        {
+          "from": "e2295df388",
+          "to": "db53fd60d1",
+          "count": 1
+        },
+        {
+          "from": "db53fd60d1",
+          "to": "70b7858204",
+          "count": 1
+        }
+      ]
+    },
+    "abandoned": {
+      "count": 0
+    },
+    "failed": {
+      "count": 0
+    },
+    "unknown": {
+      "count": 0
+    },
+    "success_indicators": [
+      "70b7858204",
+      "99914b932b",
+      "bffaadb1a5",
+      "cfe440bc0f",
+      "db53fd60d1",
+      "e2295df388"
+    ],
+    "abandon_indicators": [],
+    "shared_states": []
+  },
+  "loops_top20": [],
+  "dead_end_states": [],
+  "aha_states": []
+}

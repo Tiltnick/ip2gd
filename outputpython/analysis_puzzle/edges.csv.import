@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://hqohnx7q457j"
+
+[deps]
+
+files=["res://outputpython/analysis_puzzle/edges.target.translation", "res://outputpython/analysis_puzzle/edges.transition.translation", "res://outputpython/analysis_puzzle/edges.transition.translation", "res://outputpython/analysis_puzzle/edges.avg.translation", "res://outputpython/analysis_puzzle/edges.successful.translation", "res://outputpython/analysis_puzzle/edges.dominant.translation"]
+
+source_file="res://outputpython/analysis_puzzle/edges.csv"
+dest_files=["res://outputpython/analysis_puzzle/edges.target.translation", "res://outputpython/analysis_puzzle/edges.transition.translation", "res://outputpython/analysis_puzzle/edges.transition.translation", "res://outputpython/analysis_puzzle/edges.avg.translation", "res://outputpython/analysis_puzzle/edges.successful.translation", "res://outputpython/analysis_puzzle/edges.dominant.translation"]
+
+[params]
+
+compress=true
+delimiter=0

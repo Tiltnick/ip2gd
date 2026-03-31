@@ -7,14 +7,14 @@ Teil 1 – Bewegung (pro Szene):
   • Heatmap              (*_heatmap.png)
   • Flow-Pfeile          (*_flow.png)
 
-Teil 2 – Feature-basierter Playtracer:
-  • State = abgeschlossene Quests + aktive Rätsel (Fortschritts-Feature)
-  • Knoten-Größe  ∝  Anzahl Spieler die diesen Zustand besuchten
-  • Gelb  = Startzustand   (leerer Fortschritt)
-  • Grün  = Zielzustand    (alle Quests abgeschlossen / letztes quest_completed)
-  • Schwarz/Grau = restliche Zustände
+Teil 2 – Feature-basierter Playtracer (pro Szene):
+  • Ein Playtracer-Graph pro Szene
+  • Gelb  = Eintrittszustand  (State beim Betreten der Szene)
+  • Grün  = Austrittszustand  (State beim Verlassen der Szene)
+  • Orange= Eintritt & Austritt gleicher Zustand
+  • Knoten-Größe  ∝  Anzahl Sessions die diesen Zustand besuchten
   • MDS-Layout aus paarweiser Zustandsdistanz (symmetrische Differenz der Features)
-  • Ausgabe: playtracer.png
+  • Ausgabe: playtracer_<szene>.png
 
 Aufruf:
   python analyze.py <analytics_ordner_oder_datei> <output_dir>
@@ -300,54 +300,113 @@ def save_flow(density, vx, vy, map_path, out_path):
 # Layout via MDS (Classical Multidimensional Scaling)
 # ══════════════════════════════════════════════════════════════════════════════
 
-def _build_state_sequences(all_rows):
+def _extract_semantic_state(row):
     """
-    Pro Session eine Folge von (state, t_msec) aufbauen.
-    state = frozenset der abgeschlossenen Quest-IDs und laufenden Rätsel-IDs.
+    Extrahiert einen frozenset-Zustand aus einer type:"semantic"-Zeile.
+    Das state-Objekt ist unter row["state"] verschachtelt.
+    """
+    s = row.get("state", {})
+    features = set()
+
+    # Abgeschlossene Quests
+    for q in s.get("completed_quests", []):
+        features.add(f"quest:{q}")
+
+    # Boolean-Rätsel-Flags
+    for flag in ("stone_puzzle_solved", "color_code_solved", "statue_puzzle_solved",
+                 "temple_puzzle_solved", "all_tripods_interacted", "treasure_chest_solved"):
+        if s.get(flag):
+            features.add(flag)
+
+    # Boolean-Item-Flags
+    for flag in ("map_collected", "diary_collected", "shovel_collected"):
+        if s.get(flag):
+            features.add(flag)
+
+    # Tutorial
+    if s.get("tutorial_done"):
+        features.add("tutorial_done")
+
+    # NPC-Gesprächsstand (nur wenn > 0)
+    stage = s.get("mr_blob_dialog_stage", 0)
+    if stage:
+        features.add(f"mr_blob:{stage}")
+
+    return frozenset(features)
+
+
+def _build_per_scene_sequences(all_rows):
+    """
+    Pro Session+Szene-Besuch eine Zustandsfolge aufbauen.
+    Ein "Besuch" beginnt mit scene_changed und endet beim nächsten scene_changed.
+    Returns:
+      scene_visits: { scene -> [(session_id, [(state, t_msec), ...]), ...] }
+      all_quest_ids: set
     """
     by_session = defaultdict(list)
     for r in all_rows:
-        if r.get("type") == "event":
-            by_session[r.get("session_id", "unknown")].append(r)
+        by_session[r.get("session_id", "unknown")].append(r)
 
-    sequences = {}   # session_id -> [(state_frozenset, t_msec), ...]
+    scene_visits  = defaultdict(list)  # scene -> [(sid, visit_seq), ...]
     all_quest_ids = set()
 
-    for sid, events in by_session.items():
-        events.sort(key=lambda r: r.get("t_msec", 0))
-        done_quests   = set()
-        active_puzzles = set()
-        seq = []
+    for sid, rows in by_session.items():
+        rows.sort(key=lambda r: r.get("t_msec", 0))
+        has_semantic = any(r.get("type") == "semantic" for r in rows)
+        if not has_semantic:
+            continue
 
-        # Startzustand
-        seq.append((frozenset(), events[0].get("t_msec", 0) if events else 0))
+        current_scene = None
+        current_visit = []       # [(state, t_msec), ...] für aktuellen Besuch
+        last_state    = frozenset()
 
-        for ev in events:
-            event = ev.get("event", "")
-            t     = ev.get("t_msec", 0)
+        for r in rows:
+            rtype = r.get("type", "")
+            t     = r.get("t_msec", 0)
 
-            if event == "quest_completed":
-                qid = ev.get("quest_id", ev.get("title", "?"))
-                done_quests.add(qid)
-                all_quest_ids.add(qid)
-            elif event == "quest_added":
-                # Quest hinzugefügt gilt noch nicht als erledigt
-                pass
-            elif event == "puzzle_started":
-                pid = ev.get("puzzle_id", ev.get("puzzle", "puzzle"))
-                active_puzzles.add(f"puzzle:{pid}")
-            elif event == "puzzle_ended":
-                pid = ev.get("puzzle_id", ev.get("puzzle", "puzzle"))
-                active_puzzles.discard(f"puzzle:{pid}")
-                done_quests.add(f"puzzle_done:{pid}")
+            if rtype == "scene_changed":
+                # Aktuellen Besuch abschließen
+                if current_scene is not None and current_visit:
+                    scene_visits[current_scene].append((sid, current_visit[:]))
+                # Neuen Besuch beginnen
+                current_scene = r.get("to")
+                current_visit = [(last_state, t)]
 
-            new_state = frozenset(done_quests | active_puzzles)
-            if new_state != seq[-1][0]:
-                seq.append((new_state, t))
+            elif rtype == "semantic":
+                state = _extract_semantic_state(r)
+                for q in r.get("state", {}).get("completed_quests", []):
+                    all_quest_ids.add(q)
+                last_state = state
+                if current_scene is not None:
+                    if not current_visit or state != current_visit[-1][0]:
+                        current_visit.append((state, t))
 
-        sequences[sid] = seq
+        # Letzten Besuch abschließen
+        if current_scene is not None and current_visit:
+            scene_visits[current_scene].append((sid, current_visit[:]))
 
-    return sequences, all_quest_ids
+    return scene_visits, all_quest_ids
+
+
+def _state_label(state):
+    """Erzeugt ein kurzes mehrzeiliges Label für einen Zustand."""
+    parts = []
+    for f in sorted(state):
+        if f.startswith("puzzle:"):
+            continue
+        elif f.startswith("quest:"):
+            parts.append(f[6:])
+        elif f.startswith("mr_blob:"):
+            parts.append(f"blob:{f[8:]}")
+        elif f.endswith("_solved"):
+            parts.append(f.replace("_solved", "✓").replace("_", ""))
+        elif f.endswith("_collected"):
+            parts.append(f.replace("_collected", "").replace("_", ""))
+        elif f == "tutorial_done":
+            parts.append("tut✓")
+        else:
+            parts.append(f.replace("puzzle_done:", "✓").replace("_", ""))
+    return "\n".join(parts) if parts else "Start"
 
 
 def _state_distance(a, b):
@@ -355,154 +414,153 @@ def _state_distance(a, b):
     return len(a.symmetric_difference(b))
 
 
-def save_playtracer(all_rows, out_path):
+def save_playtracer_per_scene(all_rows, output_dir):
+    """Erstellt einen Feature-basierten Playtracer pro Szene."""
     if not HAS_SKLEARN:
         return
 
-    sequences, all_quests = _build_state_sequences(all_rows)
-    if not sequences:
-        print("  Playtracer: keine Event-Daten gefunden.")
+    scene_visits, all_quests = _build_per_scene_sequences(all_rows)
+    if not scene_visits:
+        print("  Playtracer: keine Szenen-Daten gefunden.")
         return
 
-    # ── Alle eindeutigen States sammeln ───────────────────────────────────────
-    node_visitors = defaultdict(set)   # state -> set(session_ids)
-    transitions   = defaultdict(int)   # (state_a, state_b) -> count
-
-    for sid, seq in sequences.items():
-        for i, (state, _) in enumerate(seq):
-            node_visitors[state].add(sid)
-            if i > 0:
-                prev_state = seq[i - 1][0]
-                if prev_state != state:
-                    transitions[(prev_state, state)] += 1
-
-    all_states   = list(node_visitors.keys())
-    n            = len(all_states)
-    state_idx    = {s: i for i, s in enumerate(all_states)}
-
-    if n < 2:
-        print(f"  Playtracer: nur {n} eindeutiger Zustand – wird übersprungen.")
-        return
-
-    # ── Distanzmatrix ─────────────────────────────────────────────────────────
-    dist_matrix = np.zeros((n, n), dtype=np.float64)
-    for i in range(n):
-        for j in range(i + 1, n):
-            d = _state_distance(all_states[i], all_states[j])
-            dist_matrix[i, j] = d
-            dist_matrix[j, i] = d
-
-    # ── MDS-Layout ────────────────────────────────────────────────────────────
-    n_components = min(2, n - 1)
-    with warnings.catch_warnings():
-        warnings.filterwarnings("ignore", category=FutureWarning, module="sklearn")
-        mds = MDS(
-            n_components=n_components,
-            metric=True,
-            dissimilarity="precomputed",
-            random_state=42,
-            normalized_stress="auto",
-            n_init=4,
-            init="random",
-        )
-        emb = mds.fit_transform(dist_matrix)   # (n, n_components)
-
-    if n_components == 1:
-        pos = np.column_stack([emb[:, 0], np.zeros(n)])
-    else:
-        pos = emb
-
-    # ── Start- und Zielknoten bestimmen ───────────────────────────────────────
-    start_state = frozenset()   # leerer Zustand = Spielbeginn (wie im Paper: gelb)
-
-    # Ziel = Zustände die das letzte quest_completed in mindestens einer Session markieren
-    goal_states = set()
-    if all_quests:
-        max_quests_possible = max(len(s) for s in all_states)
-        for s in all_states:
-            quest_done = {f for f in s if not f.startswith("puzzle:")}
-            if len(quest_done) == max_quests_possible:
-                goal_states.add(s)
-
-    max_visitors = max(len(v) for v in node_visitors.values())
-    max_trans    = max(transitions.values()) if transitions else 1
-    n_sessions   = len(sequences)
-
-    # ── Plot ──────────────────────────────────────────────────────────────────
-    fig, ax = plt.subplots(figsize=(11, 10))
-    ax.axis("off")
-    ax.set_aspect("equal")
-
-    # Kanten
-    for (sa, sb), count in transitions.items():
-        if sa not in state_idx or sb not in state_idx:
+    for scene, visits in sorted(scene_visits.items()):
+        if not visits:
             continue
-        ia, ib = state_idx[sa], state_idx[sb]
-        lw    = 0.3 + 4.5 * (count / max_trans)
-        alpha = 0.15 + 0.55 * (count / max_trans)
-        ax.annotate(
-            "",
-            xy=pos[ib], xytext=pos[ia],
-            arrowprops=dict(
-                arrowstyle="-|>",
-                color="#4466aa",
-                lw=lw,
-                alpha=alpha,
-                mutation_scale=8,
-                connectionstyle="arc3,rad=0.12",
-            ),
-            zorder=2,
-        )
 
-    # Knoten
-    for i, state in enumerate(all_states):
-        n_vis = len(node_visitors[state])
-        size  = 40 + 1200 * (n_vis / max_visitors)
-        x, y  = pos[i]
+        scene_label = SCENE_LABELS.get(scene, scene)
 
-        if state == start_state:
-            color, ec, lw, zo = "yellow", "goldenrod", 1.5, 6
-        elif state in goal_states:
-            color, ec, lw, zo = "#00dd55", "darkgreen", 1.5, 6
+        # ── States + Transitionen pro Szene sammeln ───────────────────────────
+        node_visitors = defaultdict(set)  # state -> set(session_ids)
+        transitions   = defaultdict(int)  # (state_a, state_b) -> count
+        entry_states  = set()             # Zustände beim Szeneneintritt
+        exit_states   = set()             # Zustände beim Szenenende
+
+        for sid, visit in visits:
+            if not visit:
+                continue
+            entry_states.add(visit[0][0])
+            exit_states.add(visit[-1][0])
+            for i, (state, _) in enumerate(visit):
+                node_visitors[state].add(sid)
+                if i > 0:
+                    prev = visit[i - 1][0]
+                    if prev != state:
+                        transitions[(prev, state)] += 1
+
+        all_states = list(node_visitors.keys())
+        n          = len(all_states)
+        if n < 2:
+            print(f"  Playtracer {scene_label}: nur {n} Zustand – übersprungen.")
+            continue
+
+        state_idx = {s: i for i, s in enumerate(all_states)}
+
+        # ── Distanzmatrix ─────────────────────────────────────────────────────
+        dist_matrix = np.zeros((n, n), dtype=np.float64)
+        for i in range(n):
+            for j in range(i + 1, n):
+                d = _state_distance(all_states[i], all_states[j])
+                dist_matrix[i, j] = d
+                dist_matrix[j, i] = d
+
+        # ── MDS-Layout ────────────────────────────────────────────────────────
+        n_components = min(2, n - 1)
+        with warnings.catch_warnings():
+            warnings.filterwarnings("ignore", category=FutureWarning, module="sklearn")
+            mds = MDS(
+                n_components=n_components,
+                metric=True,
+                dissimilarity="precomputed",
+                random_state=42,
+                normalized_stress="auto",
+                n_init=4,
+                init="random",
+            )
+            emb = mds.fit_transform(dist_matrix)
+
+        if n_components == 1:
+            pos = np.column_stack([emb[:, 0], np.zeros(n)])
         else:
-            gray  = max(0.05, 0.70 - 0.65 * (n_vis / max_visitors))
-            color, ec, lw, zo = (gray, gray, gray), "none", 0, 3
+            pos = emb
 
-        ax.scatter(x, y, s=size, c=[color], edgecolors=ec,
-                   linewidths=lw, zorder=zo)
+        max_visitors = max(len(v) for v in node_visitors.values())
+        max_trans    = max(transitions.values()) if transitions else 1
+        n_visits     = len(visits)
 
-        # State-Label: erledigte Quests (gekürzt)
-        label_parts = sorted(
-            f.replace("quest_", "").replace("puzzle_done:", "✓")
-            for f in state if not f.startswith("puzzle:")
+        # ── Plot ──────────────────────────────────────────────────────────────
+        fig, ax = plt.subplots(figsize=(11, 10))
+        ax.axis("off")
+        ax.set_aspect("equal")
+
+        # Kanten
+        for (sa, sb), count in transitions.items():
+            if sa not in state_idx or sb not in state_idx:
+                continue
+            ia, ib = state_idx[sa], state_idx[sb]
+            lw    = 0.3 + 4.5 * (count / max_trans)
+            alpha = 0.15 + 0.55 * (count / max_trans)
+            ax.annotate(
+                "",
+                xy=pos[ib], xytext=pos[ia],
+                arrowprops=dict(
+                    arrowstyle="-|>",
+                    color="#4466aa",
+                    lw=lw,
+                    alpha=alpha,
+                    mutation_scale=8,
+                    connectionstyle="arc3,rad=0.12",
+                ),
+                zorder=2,
+            )
+
+        # Knoten
+        for i, state in enumerate(all_states):
+            n_vis = len(node_visitors[state])
+            size  = 40 + 1200 * (n_vis / max_visitors)
+            x, y  = pos[i]
+
+            is_entry = state in entry_states
+            is_exit  = state in exit_states
+
+            if is_entry and is_exit:
+                color, ec, lw, zo = "orange",   "darkorange",  1.5, 6
+            elif is_entry:
+                color, ec, lw, zo = "yellow",   "goldenrod",   1.5, 6
+            elif is_exit:
+                color, ec, lw, zo = "#00dd55",  "darkgreen",   1.5, 6
+            else:
+                gray  = max(0.05, 0.70 - 0.65 * (n_vis / max_visitors))
+                color, ec, lw, zo = (gray, gray, gray), "none", 0, 3
+
+            ax.scatter(x, y, s=size, c=[color], edgecolors=ec,
+                       linewidths=lw, zorder=zo)
+            ax.text(x, y - 0.04, _state_label(state), fontsize=5.5,
+                    ha="center", va="top", color="#111111", zorder=7, alpha=0.85)
+
+        # Legende
+        handles = [
+            mpatches.Patch(facecolor="yellow",  edgecolor="goldenrod",  label="Eintrittszustand (Scene Entry)"),
+            mpatches.Patch(facecolor="#00dd55", edgecolor="darkgreen",  label="Austrittszustand (Scene Exit)"),
+            mpatches.Patch(facecolor="orange",  edgecolor="darkorange", label="Eintritt & Austritt (kein Fortschritt)"),
+            mpatches.Patch(facecolor="#111111", label="Oft besuchter Zustand"),
+            mpatches.Patch(facecolor="#aaaaaa", label="Selten besuchter Zustand"),
+        ]
+        ax.legend(handles=handles, loc="lower right", fontsize=8, framealpha=0.9)
+
+        quest_list = ", ".join(sorted(all_quests)) if all_quests else "–"
+        ax.set_title(
+            f"Playtracer: {scene_label}  ({n_visits} Besuche · {n} Zustände)\n"
+            f"Gelb=Szeneneintritt · Grün=Szenenende · Orange=kein Fortschritt · Größe ∝ Besuche · MDS\n"
+            f"Quests: {quest_list}",
+            fontsize=9,
         )
-        label = "\n".join(label_parts) if label_parts else "Start"
-        ax.text(x, y - 0.04, label, fontsize=5.5, ha="center", va="top",
-                color="#111111", zorder=7, alpha=0.85)
-
-    # Legende
-    handles = [
-        mpatches.Patch(facecolor="yellow",  edgecolor="goldenrod", label="Startzustand (kein Fortschritt)"),
-        mpatches.Patch(facecolor="#00dd55", edgecolor="darkgreen", label="Zielzustand (alle Quests erledigt)"),
-        mpatches.Patch(facecolor="#111111",  label="Oft besuchter Zustand"),
-        mpatches.Patch(facecolor="#aaaaaa",  label="Selten besuchter Zustand"),
-    ]
-    ax.legend(handles=handles, loc="lower right", fontsize=8, framealpha=0.9)
-
-    # Beschriftung alle bekannten Quests
-    quest_list = ", ".join(sorted(all_quests)) if all_quests else "–"
-
-    ax.set_title(
-        f"Feature-basierter Playtracer  ({n_sessions} Sessions · {n} Zustände)\n"
-        f"State-Feature: abgeschlossene Quests/Rätsel  ·  "
-        f"Distanz = symmetrische Differenz  ·  Layout: MDS\n"
-        f"Quests: {quest_list}",
-        fontsize=9,
-    )
-    fig.tight_layout()
-    fig.savefig(out_path, dpi=150)
-    plt.close(fig)
-    print(f"  Playtracer gespeichert: {out_path}")
+        fig.tight_layout()
+        safe     = scene.replace("/", "_").replace("\\", "_").replace(":", "_")
+        out_path = os.path.join(output_dir, f"playtracer_{safe}.png")
+        fig.savefig(out_path, dpi=150)
+        plt.close(fig)
+        print(f"  Playtracer {scene_label}: {out_path}")
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -542,9 +600,9 @@ def main():
     else:
         print("Keine Bewegungsdaten gefunden.")
 
-    # ── Teil 2: Feature-basierter Playtracer ──────────────────────────────────
-    print("\nTeil 2 – Playtracer (Feature-basiert):")
-    save_playtracer(all_rows, os.path.join(output_dir, "playtracer.png"))
+    # ── Teil 2: Feature-basierter Playtracer (pro Szene) ─────────────────────
+    print("\nTeil 2 – Playtracer (Feature-basiert, pro Szene):")
+    save_playtracer_per_scene(all_rows, output_dir)
 
     print("\nFertig.")
 

@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0",
+  "feature_set": "puzzle_core",
+  "scene_filter": null,
+  "puzzle_filter": "Spaceship_code",
+  "n_sessions": 2,
+  "n_attempts": 2,
+  "n_states": 1,
+  "n_transitions": 0,
+  "n_solved": 2,
+  "n_abandoned": 0,
+  "n_failed": 0,
+  "n_unknown": 0,
+  "cohort_comparison": {
+    "solved": {
+      "count": 2,
+      "avg_duration_ms": 0.0,
+      "avg_sequence_length": 1.0,
+      "top_states": [
+        {
+          "state_hash": "99914b932b",
+          "count": 2,
+          "features": {}
+        }
+      ],
+      "top_transitions": []
+    },
+    "abandoned": {
+      "count": 0
+    },
+    "failed": {
+      "count": 0
+    },
+    "unknown": {
+      "count": 0
+    },
+    "success_indicators": [
+      "99914b932b"
+    ],
+    "abandon_indicators": [],
+    "shared_states": []
+  },
+  "loops_top20": [],
+  "dead_end_states": [],
+  "aha_states": []
+}

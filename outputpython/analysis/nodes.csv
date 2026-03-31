@@ -1,0 +1,7 @@
+state_hash,visit_count,unique_sessions,unique_attempts,solve_rate_after_visit,quit_rate_after_visit,fail_rate_after_visit,avg_time_spent_ms,median_remaining_steps_to_goal,is_start_state,is_goal_state,is_dead_end_candidate,is_aha_candidate,scenes,puzzle_ids,sample_features_json
+99914b932b,2,2,2,1.0,0.0,0.0,6869.5,3,True,False,False,False,b4r2irdvo1x1b|res://scenes/maps/outside_1.tscn,Spaceship_code,{}
+e2295df388,2,2,2,1.0,0.0,0.0,19371.0,2,False,False,False,False,b4r2irdvo1x1b|res://scenes/maps/outside_1.tscn,Spaceship_code,"{""diary_collected"": true, ""tutorial_done"": true}"
+bffaadb1a5,1,1,1,1.0,0.0,0.0,10627.0,1,False,False,False,False,b4r2irdvo1x1b,Spaceship_code,"{""diary_collected"": true, ""map_collected"": true, ""tutorial_done"": true}"
+cfe440bc0f,1,1,1,1.0,0.0,0.0,0.0,0,False,True,False,False,b4r2irdvo1x1b,Spaceship_code,"{""diary_collected"": true, ""map_collected"": true, ""quest:quest_1"": true, ""tutorial_done"": true}"
+db53fd60d1,1,1,1,1.0,0.0,0.0,16466.0,1,False,False,False,False,res://scenes/maps/outside_1.tscn,Spaceship_code,"{""diary_collected"": true, ""quest:quest_1"": true, ""tutorial_done"": true}"
+70b7858204,1,1,1,1.0,0.0,0.0,0.0,0,False,True,False,False,res://scenes/maps/outside_1.tscn,Spaceship_code,"{""diary_collected"": true, ""mr_blob:1"": true, ""quest:quest_1"": true, ""tutorial_done"": true}"

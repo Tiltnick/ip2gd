@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dre0fnnt1da0i"
+
+[deps]
+
+files=["res://outputpython/nodes.visit.translation", "res://outputpython/nodes.unique.translation", "res://outputpython/nodes.unique.translation", "res://outputpython/nodes.solve.translation", "res://outputpython/nodes.quit.translation", "res://outputpython/nodes.fail.translation", "res://outputpython/nodes.avg.translation", "res://outputpython/nodes.median.translation", "res://outputpython/nodes.is.translation", "res://outputpython/nodes.is.translation", "res://outputpython/nodes.is.translation", "res://outputpython/nodes.is.translation", "res://outputpython/nodes.scenes.translation", "res://outputpython/nodes.puzzle.translation", "res://outputpython/nodes.sample.translation"]
+
+source_file="res://outputpython/nodes.csv"
+dest_files=["res://outputpython/nodes.visit.translation", "res://outputpython/nodes.unique.translation", "res://outputpython/nodes.unique.translation", "res://outputpython/nodes.solve.translation", "res://outputpython/nodes.quit.translation", "res://outputpython/nodes.fail.translation", "res://outputpython/nodes.avg.translation", "res://outputpython/nodes.median.translation", "res://outputpython/nodes.is.translation", "res://outputpython/nodes.is.translation", "res://outputpython/nodes.is.translation", "res://outputpython/nodes.is.translation", "res://outputpython/nodes.scenes.translation", "res://outputpython/nodes.puzzle.translation", "res://outputpython/nodes.sample.translation"]
+
+[params]
+
+compress=true
+delimiter=0

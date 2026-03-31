@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bd5vokil5gxfe"
+
+[deps]
+
+files=["res://outputpython/analysis_puzzle/nodes.visit.translation", "res://outputpython/analysis_puzzle/nodes.unique.translation", "res://outputpython/analysis_puzzle/nodes.unique.translation", "res://outputpython/analysis_puzzle/nodes.solve.translation", "res://outputpython/analysis_puzzle/nodes.quit.translation", "res://outputpython/analysis_puzzle/nodes.fail.translation", "res://outputpython/analysis_puzzle/nodes.avg.translation", "res://outputpython/analysis_puzzle/nodes.median.translation", "res://outputpython/analysis_puzzle/nodes.is.translation", "res://outputpython/analysis_puzzle/nodes.is.translation", "res://outputpython/analysis_puzzle/nodes.is.translation", "res://outputpython/analysis_puzzle/nodes.is.translation", "res://outputpython/analysis_puzzle/nodes.scenes.translation", "res://outputpython/analysis_puzzle/nodes.puzzle.translation", "res://outputpython/analysis_puzzle/nodes.sample.translation"]
+
+source_file="res://outputpython/analysis_puzzle/nodes.csv"
+dest_files=["res://outputpython/analysis_puzzle/nodes.visit.translation", "res://outputpython/analysis_puzzle/nodes.unique.translation", "res://outputpython/analysis_puzzle/nodes.unique.translation", "res://outputpython/analysis_puzzle/nodes.solve.translation", "res://outputpython/analysis_puzzle/nodes.quit.translation", "res://outputpython/analysis_puzzle/nodes.fail.translation", "res://outputpython/analysis_puzzle/nodes.avg.translation", "res://outputpython/analysis_puzzle/nodes.median.translation", "res://outputpython/analysis_puzzle/nodes.is.translation", "res://outputpython/analysis_puzzle/nodes.is.translation", "res://outputpython/analysis_puzzle/nodes.is.translation", "res://outputpython/analysis_puzzle/nodes.is.translation", "res://outputpython/analysis_puzzle/nodes.scenes.translation", "res://outputpython/analysis_puzzle/nodes.puzzle.translation", "res://outputpython/analysis_puzzle/nodes.sample.translation"]
+
+[params]
+
+compress=true
+delimiter=0

@@ -1,0 +1,6 @@
+source,target,transition_count,transition_probability,avg_transition_time_ms,successful_transition_rate,dominant_trigger_event
+99914b932b,e2295df388,2,1.0,6869.5,1.0,dialog_finished
+e2295df388,bffaadb1a5,1,0.5,9962.0,1.0,quest_added
+bffaadb1a5,cfe440bc0f,1,1.0,10627.0,1.0,quest_completed
+e2295df388,db53fd60d1,1,0.5,28780.0,1.0,quest_completed
+db53fd60d1,70b7858204,1,1.0,16466.0,1.0,dialog_finished

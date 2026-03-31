@@ -1,0 +1,36 @@
+[
+  {
+    "attempt_id": "1774959871_50561_Spaceship_code_29815",
+    "session_id": "1774959871_50561",
+    "scene": "spaceship",
+    "puzzle_id": "Spaceship_code",
+    "outcome": "solved",
+    "duration_ms": 0,
+    "sequence": [
+      {
+        "state_hash": "99914b932b",
+        "t_msec": 29815,
+        "event": "puzzle_started",
+        "scene": "spaceship",
+        "features": {}
+      }
+    ]
+  },
+  {
+    "attempt_id": "1774959972_99298_Spaceship_code_24829",
+    "session_id": "1774959972_99298",
+    "scene": "spaceship",
+    "puzzle_id": "Spaceship_code",
+    "outcome": "solved",
+    "duration_ms": 0,
+    "sequence": [
+      {
+        "state_hash": "99914b932b",
+        "t_msec": 24829,
+        "event": "puzzle_started",
+        "scene": "spaceship",
+        "features": {}
+      }
+    ]
+  }
+]
