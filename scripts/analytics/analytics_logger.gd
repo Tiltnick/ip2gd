@@ -14,6 +14,12 @@ var _last_pos := Vector2.ZERO
 var _has_last_pos := false
 var _last_flush_msec := 0
 
+# Semantischer Zustands-Tracker
+var _state_tracker: SemanticStateTracker = null
+
+# Akkumuliert besuchte Bereiche über die gesamte Session
+var _areas_visited: Array = []
+
 
 func _ready() -> void:
 	# Ordner erstellen
@@ -32,6 +38,11 @@ func _ready() -> void:
 		return
 
 	_last_flush_msec = Time.get_ticks_msec()
+
+	# SemanticStateTracker initialisieren
+	_state_tracker = SemanticStateTracker.new()
+	_state_tracker.attach_logger(self)
+
 	_connect_signals()
 
 
@@ -107,6 +118,7 @@ func track_sample(actor: CharacterBody2D, state_name: String, delta: float) -> v
 
 func _on_quest_added(quest_data: Dictionary) -> void:
 	_log_event("quest_added", {"quest_id": quest_data.get("id", ""), "title": quest_data.get("title", "")})
+	_log_semantic_snapshot("quest_added")
 
 
 func _on_quest_updated(quest_data: Dictionary) -> void:
@@ -115,6 +127,7 @@ func _on_quest_updated(quest_data: Dictionary) -> void:
 
 func _on_quest_completed(quest_data: Dictionary) -> void:
 	_log_event("quest_completed", {"quest_id": quest_data.get("id", ""), "title": quest_data.get("title", "")})
+	_log_semantic_snapshot("quest_completed")
 
 
 func _on_dialog_started() -> void:
@@ -125,6 +138,7 @@ func _on_dialog_started() -> void:
 func _on_dialog_finished() -> void:
 	var path := DialogManager.current_dialog_path
 	_log_event("dialog_finished", {"dialog": path})
+	_log_semantic_snapshot("dialog_finished")
 
 
 func _on_choice_made(choice_id: String) -> void:
@@ -133,21 +147,40 @@ func _on_choice_made(choice_id: String) -> void:
 
 
 func _on_scene_changed(from_path: String, to_path: String) -> void:
-	_log_event("scene_changed", {"from": from_path, "to": to_path})
+	var row := {
+		"type": "scene_changed",
+		"session_id": _session_id,
+		"t_msec": Time.get_ticks_msec(),
+		"from": from_path,
+		"to": to_path,
+	}
+	_write(row)
+	_log_semantic_snapshot("scene_changed")
 
 
 func _on_puzzle_started(puzzle_data: Dictionary) -> void:
-	_log_event("puzzle_started", {
+	var row := {
+		"type": "puzzle_started",
+		"session_id": _session_id,
+		"t_msec": Time.get_ticks_msec(),
 		"puzzle_id": puzzle_data.get("id", ""),
-		"title": puzzle_data.get("title", "")
-	})
+		"title": puzzle_data.get("title", ""),
+	}
+	_write(row)
+	_log_semantic_snapshot("puzzle_started")
 
 
 func _on_puzzle_ended(puzzle_data: Dictionary) -> void:
-	_log_event("puzzle_ended", {
+	var row := {
+		"type": "puzzle_ended",
+		"session_id": _session_id,
+		"t_msec": Time.get_ticks_msec(),
 		"puzzle_id": puzzle_data.get("id", ""),
-		"title": puzzle_data.get("title", "")
-	})
+		"title": puzzle_data.get("title", ""),
+		"result": puzzle_data.get("result", "closed"),
+	}
+	_write(row)
+	_log_semantic_snapshot("puzzle_ended")
 
 
 func _log_event(event: String, extra: Dictionary = {}) -> void:
@@ -159,6 +192,126 @@ func _log_event(event: String, extra: Dictionary = {}) -> void:
 	}
 	row.merge(extra)
 	_write(row)
+
+
+# ── Semantisches Logging ──────────────────────────────────────────────────────
+
+## Loggt einen semantischen Zustandssnapshot. Wird nach jedem bedeutungsvollen
+## Event aufgerufen, um die Zustandsfolge für Playtracer zu rekonstruieren.
+func log_semantic(snapshot: Dictionary, context: String = "") -> void:
+	var row := {
+		"type": "semantic",
+		"session_id": _session_id,
+		"t_msec": Time.get_ticks_msec(),
+		"context": context,
+		"state": snapshot,
+	}
+	_write(row)
+
+
+## Baut einen semantischen Snapshot aus dem aktuellen Spielzustand und loggt ihn.
+func _log_semantic_snapshot(context: String = "") -> void:
+	var snapshot := _build_semantic_snapshot()
+	log_semantic(snapshot, context)
+
+
+## Leitet semantische Features aus dem rohen Spielzustand ab (GameState, QuestManager,
+## hotbarglobal). Konzeptuell gleiche Situationen erzeugen dieselben Feature-Werte.
+func _build_semantic_snapshot() -> Dictionary:
+	# ── Navigation ──────────────────────────────────────────────────────────
+	var area_path: String = GameState.current_area_path
+	var current_area := _scene_name_from_path(area_path)
+
+	# areas_visited akkumulieren: Persistent-Feld in diesem Logger
+	if current_area != "" and not _areas_visited.has(current_area):
+		_areas_visited.append(current_area)
+
+	# ── Items ────────────────────────────────────────────────────────────────
+	var picked: Array = GameState.picked_items.duplicate()
+
+	# "map_collected": Karte eingesammelt
+	var map_collected: bool = (
+		picked.has("minimap_item")
+		or hotbarglobal.has_item("map")
+	)
+
+	# "diary_collected": Tagebuch eingesammelt
+	var diary_collected: bool = bool(GameState.puzzle_state.get("spaceship_diary", false))
+
+	# "shovel_collected": Schaufel eingesammelt
+	var shovel_collected: bool = (
+		picked.has("shovel_1")
+		or hotbarglobal.has_item("shovel")
+	)
+
+	# ── Rätsel (Puzzles) ─────────────────────────────────────────────────────
+	var stone_puzzle_solved: bool = bool(GameState.puzzle_state.get("stone_puzzle", false))
+	var color_code_solved: bool = bool(GameState.puzzle_state.get("color_code_2151", false))
+	var statue_puzzle_solved: bool = bool(GameState.puzzle_state.get("statue_puzzle", false))
+	var temple_puzzle_solved: bool = bool(GameState.puzzle_state.get("outside5_pillar_puzzle_solved", false))
+	var all_tripods_interacted: bool = bool(GameState.puzzle_state.get("all_tripods_interacted", false))
+	var treasure_chest_solved: bool = bool(GameState.puzzle_state.get("treasure_chest_code", false))
+
+	# ── Mr. Blob Dialog-Stufe ────────────────────────────────────────────────
+	# Jede Stufe entspricht einem abgeschlossenen Dialog-Schritt.
+	var mr_blob_dialog_stage := _compute_blob_dialog_stage()
+
+	# ── Quests ───────────────────────────────────────────────────────────────
+	var active_quests: Array = []
+	var completed_quests_list: Array = []
+	for qid in QuestManager.current_quests.keys():
+		active_quests.append(qid)
+	for qid in QuestManager.completed_quests.keys():
+		completed_quests_list.append(qid)
+
+	# ── Tutorial ─────────────────────────────────────────────────────────────
+	var tutorial_done: bool = GameState.tutorial_done
+
+	return {
+		"current_area": current_area,
+		"areas_visited": _areas_visited.duplicate(),
+		"map_collected": map_collected,
+		"diary_collected": diary_collected,
+		"shovel_collected": shovel_collected,
+		"items_collected": picked,
+		"stone_puzzle_solved": stone_puzzle_solved,
+		"color_code_solved": color_code_solved,
+		"statue_puzzle_solved": statue_puzzle_solved,
+		"temple_puzzle_solved": temple_puzzle_solved,
+		"all_tripods_interacted": all_tripods_interacted,
+		"treasure_chest_solved": treasure_chest_solved,
+		"mr_blob_dialog_stage": mr_blob_dialog_stage,
+		"active_quests": active_quests,
+		"completed_quests": completed_quests_list,
+		"tutorial_done": tutorial_done,
+	}
+
+
+## Leitet die aktuelle Dialog-Stufe mit Mr. Blob aus den gesetzten Flags ab.
+## Höhere Stages bedeuten fortgeschritteneren Spielfortschritt.
+func _compute_blob_dialog_stage() -> int:
+	var ps: Dictionary = GameState.puzzle_state
+	if bool(ps.get("blob_flower_done", false)):
+		return 6
+	if bool(ps.get("blob_cave_done", false)):
+		return 5
+	if bool(ps.get("blob_revelation_done", false)):
+		return 4
+	if bool(ps.get("blob_clue_done", false)):
+		return 3
+	if bool(ps.get("blob_intro_done", false)):
+		return 2
+	if bool(ps.get("outside1_done", false)):
+		return 1
+	return 0
+
+
+## Extrahiert den lesbaren Szenennamen aus einem res://-Pfad.
+## z.B. "res://scenes/maps/Outside_2/outside_2.tscn" -> "outside_2"
+func _scene_name_from_path(scene_path: String) -> String:
+	if scene_path == "":
+		return ""
+	return scene_path.get_file().get_basename()
 
 
 # ── Internes Schreiben ────────────────────────────────────────────────────────
