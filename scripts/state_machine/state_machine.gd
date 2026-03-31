@@ -108,4 +108,4 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if current_state:
 		current_state.PhysicsUpdate(delta)
-		MovementTracker.track_sample(get_parent() as CharacterBody2D, current_state.name, delta)
+		AnalyticsLogger.track_sample(get_parent() as CharacterBody2D, current_state.name, delta)

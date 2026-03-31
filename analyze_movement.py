@@ -2,10 +2,15 @@ import json
 import math
 import os
 import sys
+import warnings
 from collections import defaultdict
 
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image, ImageDraw
+from sklearn.manifold import MDS
 
 GRID_W = 256
 GRID_H = 256
@@ -44,6 +49,13 @@ SCENE_MAPS = {
 }
 
 def load_rows(path):
+    """Load JSONL rows from *path*.
+
+    Accepts both the legacy format (movement_*.jsonl / events_*.jsonl) and the
+    unified analytics_*.jsonl format produced by AnalyticsLogger.  Only rows
+    that carry position data (keys ``x`` and ``y``) are returned so that the
+    existing visualisation functions continue to work unchanged.
+    """
     rows = []
     with open(path, "r", encoding="utf-8") as f:
         for line in f:
@@ -51,9 +63,14 @@ def load_rows(path):
             if not line:
                 continue
             try:
-                rows.append(json.loads(line))
+                row = json.loads(line)
             except json.JSONDecodeError:
-                pass
+                continue
+            # Unified format: keep only movement rows
+            if "type" in row and row["type"] != "movement":
+                continue
+            if "x" in row and "y" in row:
+                rows.append(row)
     return rows
 
 def group_by_scene(rows):
@@ -269,9 +286,125 @@ def save_flow_arrows(density, vx, vy, map_path, out_path):
     out = Image.alpha_composite(base, overlay)
     out.save(out_path)
 
+
+# ── Playtracer / MDS ──────────────────────────────────────────────────────────
+
+def _hausdorff(path_a, path_b):
+    """Symmetric Hausdorff distance between two lists of (x, y) tuples."""
+    a = np.array(path_a, dtype=np.float32)
+    b = np.array(path_b, dtype=np.float32)
+
+    def _directed(p, q):
+        # For each point in p find minimum distance to any point in q
+        diffs = p[:, None, :] - q[None, :, :]           # (|p|, |q|, 2)
+        dists = np.hypot(diffs[..., 0], diffs[..., 1])  # (|p|, |q|)
+        return dists.min(axis=1).max()
+
+    return max(_directed(a, b), _directed(b, a))
+
+
+def _session_paths(rows):
+    """Return dict {session_id: [(x, y), ...]} sorted by time."""
+    by_session = defaultdict(list)
+    for r in rows:
+        by_session[r.get("session_id", "default")].append(r)
+    paths = {}
+    for sid, samples in by_session.items():
+        samples.sort(key=lambda r: r.get("t_msec", 0))
+        pts = [(r["x"], r["y"]) for r in samples]
+        if len(pts) >= 2:
+            paths[sid] = pts
+    return paths
+
+
+def save_mds_plot(rows, scene, out_path):
+    """Compute pairwise Hausdorff distances between sessions and save an MDS
+    scatter plot to *out_path*.
+
+    The method follows the Playtracer approach described in
+      * Drachen et al. (CHI Play 2012) – multi-variate play-trace comparison
+      * Drachen & Canossa (FDG 2009) – spatio-temporal play-trace analysis
+    where player paths are compared via a spatial distance metric and then
+    projected into a low-dimensional space with MDS so that similar play
+    sessions cluster together visually.
+
+    At least two sessions with at least two position samples each are required.
+    If the data does not meet this requirement the function prints a warning and
+    returns without writing a file.
+    """
+    paths = _session_paths(rows)
+    session_ids = list(paths.keys())
+    n = len(session_ids)
+
+    if n < 2:
+        print(f"  MDS übersprungen für '{scene}': weniger als 2 Sessions ({n}).")
+        return
+
+    # Build symmetric pairwise Hausdorff distance matrix
+    dist_matrix = np.zeros((n, n), dtype=np.float64)
+    for i in range(n):
+        for j in range(i + 1, n):
+            d = _hausdorff(paths[session_ids[i]], paths[session_ids[j]])
+            dist_matrix[i, j] = d
+            dist_matrix[j, i] = d
+
+    # MDS with n_components=2, dissimilarity matrix already computed.
+    # Suppress FutureWarnings from sklearn about parameter renames
+    # (dissimilarity → metric, metric → metric_mds) that are not yet
+    # resolved across all supported sklearn versions.
+    n_components = min(2, n - 1)
+    with warnings.catch_warnings():
+        warnings.filterwarnings("ignore", category=FutureWarning, module="sklearn")
+        mds = MDS(
+            n_components=n_components,
+            metric=True,
+            dissimilarity="precomputed",
+            random_state=42,
+            normalized_stress="auto",
+            n_init=4,
+            init="random",
+        )
+        embedding = mds.fit_transform(dist_matrix)
+
+    # ── Plot ──────────────────────────────────────────────────────────────────
+    fig, ax = plt.subplots(figsize=(7, 7))
+
+    if n_components == 2:
+        scatter = ax.scatter(
+            embedding[:, 0],
+            embedding[:, 1],
+            c=range(n),
+            cmap="tab20",
+            s=80,
+            zorder=3,
+        )
+        for idx, sid in enumerate(session_ids):
+            ax.annotate(
+                sid[:12],
+                (embedding[idx, 0], embedding[idx, 1]),
+                fontsize=6,
+                alpha=0.75,
+            )
+        ax.set_xlabel("MDS Dimension 1")
+        ax.set_ylabel("MDS Dimension 2")
+    else:
+        # Only one dimension – plot on a line
+        ax.scatter(embedding[:, 0], np.zeros(n), c=range(n), cmap="tab20", s=80, zorder=3)
+        for idx, sid in enumerate(session_ids):
+            ax.annotate(sid[:12], (embedding[idx, 0], 0), fontsize=6, alpha=0.75)
+        ax.set_xlabel("MDS Dimension 1")
+        ax.set_yticks([])
+
+    ax.set_title(f"Playtracer MDS – {os.path.basename(scene)}\n"
+                 f"({n} Sessions, Hausdorff-Distanz)")
+    ax.grid(True, alpha=0.3)
+    fig.tight_layout()
+    fig.savefig(out_path, dpi=150)
+    plt.close(fig)
+
 def main():
     if len(sys.argv) < 3:
-        print("Usage: python analyze_movement.py movement.jsonl output_dir")
+        print("Usage: python analyze_movement.py <analytics.jsonl> <output_dir>")
         sys.exit(1)
 
     input_path = sys.argv[1]
@@ -280,7 +413,7 @@ def main():
 
     rows = load_rows(input_path)
     if not rows:
-        print("Keine Daten gefunden.")
+        print("Keine Bewegungsdaten gefunden.")
         sys.exit(1)
 
     map_bounds = load_map_bounds(input_path)
@@ -299,12 +432,14 @@ def main():
         density, vx, vy = rasterize(scene_rows, bounds)
         save_heatmap(density, map_path, os.path.join(output_dir, f"{safe_scene}_heatmap.png"))
         save_flow_arrows(density, vx, vy, map_path, os.path.join(output_dir, f"{safe_scene}_flow.png"))
+        save_mds_plot(scene_rows, scene, os.path.join(output_dir, f"{safe_scene}_mds.png"))
 
         print(f"Fertig: {scene}")
 
 if __name__ == "__main__":
     main()
 
-# python "c:\Users\yanni\OneDrive\Desktop\IP2\ip2gd\analyze_movement.py" 
-# "C:\Users\yanni\AppData\Roaming\Godot\app_userdata\BloomOfMemory\analytics\MOVEMENT_DATEI_HIER" 
-# "c:\Users\yanni\OneDrive\Desktop\IP2\ip2gd\output"
+# Beispielaufruf:
+# python analyze_movement.py
+#   "C:\Users\...\app_userdata\BloomOfMemory\analytics\analytics_SESSIONID.jsonl"
+#   "output"
