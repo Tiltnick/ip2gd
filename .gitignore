@@ -1,34 +1,31 @@
 # Godot 4+ specific ignores
 .godot/
+.import/
+.export/
+.export_presets.cfg
 /android/
-/.idea
-
-Godot 4+ specific ignores
-.godot/
+.idea
 .nomedia
 
-Godot-specific ignores
-.import/
-export.cfg
-exportcredentials.cfg
-
-Imported translations (automatically generated from CSV files)
+# Godot generated
 *.translation
 
-Mono-specific ignores
+# Mono
 .mono/
-/data/
-mono_crash..json
+mono_crash.*.json
 
-Android build directory
-/android/
-
-macOS system file
+# OS
 .DS_Store
+Thumbs.db
 
-
+# Node
 node_modules/
 dist/
-package-lock.json
+
+# ENV 
+.env
+
+# Nakama
 nakama/data/.cookie
 backend/.env
+nakama/package-lock.json
