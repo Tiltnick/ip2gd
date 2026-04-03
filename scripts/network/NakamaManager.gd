@@ -29,34 +29,28 @@ func login_device():
 	session = result
 	print("Successful Login: User ID: ", session.user_id)
 
-func register_email(email: String, password: String, username: String = ""):
-	if client == null:
-		print("Client nicht initialisiert.")
-		return
+func login_email(email: String, password: String) -> bool:
+	var result = await client.authenticate_email_async(email, password)
 
+	if result.is_exception():
+		print("Login Error:", result)
+		return false
+
+	session = result
+	print("Login erfolgreich:", session.user_id)
+	return true
+
+
+func register_email(email: String, password: String, username: String) -> bool:
 	var result = await client.authenticate_email_async(email, password, username, true)
 
 	if result.is_exception():
-		print("Register Error: ", result)
-		return
+		print("Signup Error:", result)
+		return false
 
 	session = result
-	print("Registration successful. User ID: ", session.user_id)
-
-func login_email(email: String, password: String):
-
-	if client == null:
-		print("Client nicht initialisiert.")
-		return
-
-	var result = await client.authenticate_email_async(email, password, "", false)
-
-	if result.is_exception():
-		print("Login Error: ", result)
-		return
-
-	session = result
-	print("Login successful. User ID: ", session.user_id)
+	print("Signup erfolgreich:", session.user_id)
+	return true
 
 func logout():
 	if session == null:
