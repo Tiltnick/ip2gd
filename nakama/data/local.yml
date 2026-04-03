@@ -5,5 +5,4 @@ runtime:
   js_entrypoint: "spacegram.js"
 
 session:
-  encryption_key: "spacegram-secret-dev-key"
   token_expiry_sec: 7200

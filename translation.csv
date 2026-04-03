@@ -63,5 +63,3 @@ TUTORIAL_TEXT_MOVEMENT,Use WASD to move (%d/4),Benutze WASD zur Steuerung (%d/4)
 TUTORIAL_TEXT_SPRINT,Hold Shift to sprint,Halte Shift um zu rennen
 TUTORIAL_TEXT_INTERACT,Press E to interact,Drücke E zum Interagieren
 NEW_DIARY_ENTRY,New Diary Entry,Neuer Tagebucheintrag
-LOGIN,Login,Login
-SIGN_UP,Sign up,Registrieren

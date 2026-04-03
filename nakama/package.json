@@ -10,7 +10,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^5.2.1",
     "nakama-runtime": "github:heroiclabs/nakama-common#master"
   },
   "devDependencies": {
