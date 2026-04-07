@@ -1,0 +1,19 @@
+[gd_resource type="StyleBoxFlat" format=3 uid="uid://nlwlaivoia4e"]
+
+[resource]
+content_margin_left = 56.0
+content_margin_top = 10.0
+content_margin_right = 56.0
+content_margin_bottom = 10.0
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+shadow_size = 1
+shadow_offset = Vector2(0, 1)
