@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dnytrk2ppaar1"]
+[gd_scene load_steps=27 format=3 uid="uid://dnytrk2ppaar1"]
 
 [ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="1_8r4ab"]
 [ext_resource type="StyleBox" uid="uid://dygv1xoqrtktv" path="res://scenes/UI/StyleBoxes/BackgroundBox.tres" id="1_ugn4p"]
@@ -47,6 +47,31 @@ corner_radius_bottom_right = 60
 corner_radius_bottom_left = 62
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a4lij"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dava"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1lvw"]
+content_margin_left = 30.0
+content_margin_top = 20.0
+content_margin_right = 30.0
+content_margin_bottom = 5.0
+bg_color = Color(0.0627451, 0.16862746, 0.18431373, 0.5137255)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_color = Color(0.2784314, 0.6117647, 0.5647059, 0.54509807)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g7klc"]
 
@@ -109,6 +134,19 @@ corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bftyr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8adt"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.2627451, 0.6117647, 0.5764706, 0.52156866)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+shadow_size = 1
 
 [node name="AuthScreen" type="CanvasLayer"]
 
@@ -176,9 +214,9 @@ theme_override_colors/font_hovered_color = Color(0.84313726, 0.8156863, 0.670588
 theme_override_colors/font_unselected_color = Color(0.4509804, 0.43529412, 0.36078432, 1)
 theme_override_fonts/font = ExtResource("3_a1b63")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/panel = ExtResource("1_ugn4p")
+theme_override_styles/panel = SubResource("StyleBoxFlat_3dava")
 theme_override_styles/tab_unselected = ExtResource("4_0p0ek")
-theme_override_styles/tab_hovered = ExtResource("5_hlrxc")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_n1lvw")
 theme_override_styles/tab_selected = ExtResource("5_hlrxc")
 theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_g7klc")
 tab_alignment = 1
@@ -316,7 +354,13 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_bftyr")
 text = "LOGIN"
 
 [node name="LoginErrorLabel" type="Label" parent="Root/WindowPanel/TabContainer/LOGIN/LoginCenter/LoginForm/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
+theme_override_colors/font_color = Color(0.88315314, 0.4323961, 0.42329898, 1)
+theme_override_fonts/font = ExtResource("3_a1b63")
+theme_override_font_sizes/font_size = 25
+text = "ERROR"
+horizontal_alignment = 1
 
 [node name="SIGN_UP" type="Control" parent="Root/WindowPanel/TabContainer"]
 layout_mode = 2
@@ -337,7 +381,7 @@ metadata/_edit_use_anchors_ = true
 [node name="SignupForm" type="PanelContainer" parent="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter"]
 custom_minimum_size = Vector2(800, 400)
 layout_mode = 2
-theme_override_styles/panel = ExtResource("1_ugn4p")
+theme_override_styles/panel = SubResource("StyleBoxFlat_w8adt")
 
 [node name="MarginContainer" type="MarginContainer" parent="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm"]
 layout_mode = 2
@@ -482,4 +526,10 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_bftyr")
 text = "SIGN_UP"
 
 [node name="SignupErrorLabel" type="Label" parent="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
+theme_override_colors/font_color = Color(0.88315314, 0.4323961, 0.42329898, 1)
+theme_override_fonts/font = ExtResource("3_a1b63")
+theme_override_font_sizes/font_size = 25
+text = "ERROR"
+horizontal_alignment = 1
