@@ -6,14 +6,6 @@ class_name main_menu
 @onready var resume_button: Button = $VBoxContainer/ResumeButton
 @onready var pointlight: PointLight2D = $Logo/PointLight2D
 
-@onready var login_email: LineEdit = $Login/Email
-@onready var login_password: LineEdit = $Login/Password
-@onready var login_button: Button = $Login/Login
-
-@onready var signup_username: LineEdit = $SignUp/Username
-@onready var signup_email: LineEdit = $SignUp/Email
-@onready var signup_password: LineEdit = $SignUp/Password
-@onready var signup_button: Button = $SignUp/SignUp
 
 func _ready() -> void:
 	print("main_menu _ready: ", get_instance_id())
@@ -22,8 +14,7 @@ func _ready() -> void:
 	BgmPlayer.bgm_main_menu()
 	play_click_sound()
 	
-	login_button.pressed.connect(_on_login_pressed)
-	signup_button.pressed.connect(_on_signup_pressed)
+
 	
 	#test für verbindung zu server 
 	#await NakamaManager.login_device()
@@ -59,31 +50,6 @@ func _ready() -> void:
 	# $SpacegramApi.get_profile_by_user_id("00000000-0000-0000-0000-000000000000")
 		
 		
-func _on_login_pressed():
-	var email = login_email.text
-	var password = login_password.text
-
-	print("Login:", email)
-
-	var success = await NakamaManager.login_email(email, password)
-
-	if success:
-		print("Login im UI erfolgreich")
-		$SpacegramApi.get_my_profile()
-
-
-func _on_signup_pressed():
-	var username = signup_username.text
-	var email = signup_email.text
-	var password = signup_password.text
-
-	print("Signup:", username, email)
-
-	var success = await NakamaManager.register_email(email, password, username)
-
-	if success:
-		print("Signup im UI erfolgreich")
-		$SpacegramApi.get_my_profile()
 
 func _on_new_g_button_pressed() -> void:
 	pointlight.visible = false

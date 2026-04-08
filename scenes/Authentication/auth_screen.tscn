@@ -1,6 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://dnytrk2ppaar1"]
+[gd_scene load_steps=28 format=3 uid="uid://dnytrk2ppaar1"]
 
 [ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="1_8r4ab"]
+[ext_resource type="Script" uid="uid://bf01b8u38586l" path="res://scripts/Authentication/auth_screen.gd" id="1_o1g10"]
 [ext_resource type="StyleBox" uid="uid://dygv1xoqrtktv" path="res://scenes/UI/StyleBoxes/BackgroundBox.tres" id="1_ugn4p"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="3_a1b63"]
 [ext_resource type="StyleBox" uid="uid://d0tnbl0xkij46" path="res://scenes/UI/StyleBoxes/TabUnselected.tres" id="4_0p0ek"]
@@ -149,6 +150,7 @@ corner_radius_bottom_left = 25
 shadow_size = 1
 
 [node name="AuthScreen" type="CanvasLayer"]
+script = ExtResource("1_o1g10")
 
 [node name="Root" type="Control" parent="."]
 layout_mode = 3
