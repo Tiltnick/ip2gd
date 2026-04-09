@@ -22,6 +22,8 @@ func _ready():
 
 	login_error.visible = false
 	signup_error.visible = false
+	
+
 
 
 
@@ -34,9 +36,9 @@ func _on_login_pressed():
 		login_error.visible = true
 		return
 
-	if not email.contains("@"):
-		login_error.text = "ERROR_INVALID_EMAIL"
-		login_error.visible = true
+	if not is_valid_email(email):
+		signup_error.text = "ERROR_INVALID_EMAIL"
+		signup_error.visible = true
 		return
 
 	login_error.text = ""
@@ -46,10 +48,9 @@ func _on_login_pressed():
 	var result = await NakamaManager.login_email(email, password)
 
 	if result.success:
-		print("Login erfolgreich")
 		visible = false
 	else:
-		login_error.text = result.error
+		login_error.text = "ERROR_INVALID_LOGIN"
 		login_error.visible = true
 
 	login_button.disabled = false
@@ -94,6 +95,78 @@ func _on_signup_pressed():
 	signup_button.disabled = false
 
 
+func _on_signup_text_changed(_new_text: String):
+	validate_signup()
+	
+func validate_signup():
+	var email = signup_email.text
+	var password = signup_password.text
+	var username = signup_username.text
+
+	if not email.is_empty() and not is_valid_email(email):
+		show_signup_error("ERROR_INVALID_EMAIL")
+		return
+
+	if not password.is_empty() and password.length() < 8:
+		show_signup_error("ERROR_PASSWORD_TOO_SHORT")
+		return
+
+	if not username.is_empty() and username.length() < 3:
+		show_signup_error("ERROR_USERNAME_TOO_SHORT")
+		return
+
+	hide_signup_error()
+
+	
+	
+func validate_login():
+	var email = login_email.text
+	var password = login_password.text
+
+	if not email.is_empty() and not is_valid_email(email):
+		show_login_error("ERROR_INVALID_EMAIL")
+		return
+
+	#if not password.is_empty() and password.length() < 8:
+		#show_login_error("ERROR_PASSWORD_TOO_SHORT")
+		#return
+		
+	
+
+	hide_login_error()
+
+func is_valid_email(email: String) -> bool:
+	if email.count("@") != 1:
+		return false
+
+	var parts = email.split("@")
+	if parts[0].length() < 1:
+		return false
+
+	if not parts[1].contains("."):
+		return false
+
+	return true
+
+func _on_login_text_changed(_new_text: String):
+	validate_login()
+	
+
+
+func show_signup_error(key: String):
+	signup_error.text = key
+	signup_error.visible = true
+
+func hide_signup_error():
+	signup_error.visible = false
+
+
+func show_login_error(key: String):
+	login_error.text = key
+	login_error.visible = true
+
+func hide_login_error():
+	login_error.visible = false
 
 func _map_error(error: String) -> String:
 	if error == null:

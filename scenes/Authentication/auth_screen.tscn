@@ -401,7 +401,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
 theme_override_fonts/font = ExtResource("3_a1b63")
 theme_override_font_sizes/font_size = 45
-text = "WELCOME_BACK_!"
+text = "GET_STARTED_!"
 horizontal_alignment = 1
 
 [node name="SignupEmailField" type="PanelContainer" parent="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer"]
@@ -535,3 +535,9 @@ theme_override_fonts/font = ExtResource("3_a1b63")
 theme_override_font_sizes/font_size = 25
 text = "ERROR"
 horizontal_alignment = 1
+
+[connection signal="text_changed" from="Root/WindowPanel/TabContainer/LOGIN/LoginCenter/LoginForm/MarginContainer/VBoxContainer/LoginEmailField/MarginContainer/HBoxContainer/LineEdit" to="." method="_on_login_text_changed"]
+[connection signal="text_changed" from="Root/WindowPanel/TabContainer/LOGIN/LoginCenter/LoginForm/MarginContainer/VBoxContainer/LoginPasswordField/MarginContainer/HBoxContainer/PasswordLineEdit" to="." method="_on_login_text_changed"]
+[connection signal="text_changed" from="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/SignupEmailField/MarginContainer/HBoxContainer/LineEdit" to="." method="_on_signup_text_changed"]
+[connection signal="text_changed" from="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/SignupPasswordField/MarginContainer/HBoxContainer/PasswordSignup" to="." method="_on_signup_text_changed"]
+[connection signal="text_changed" from="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/SignupUsernameField/MarginContainer/HBoxContainer/Username" to="." method="_on_signup_text_changed"]

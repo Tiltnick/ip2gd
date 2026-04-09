@@ -66,7 +66,7 @@ NEW_DIARY_ENTRY,New Diary Entry,Neuer Tagebucheintrag
 LOGIN,Login,Login
 SIGN_UP,Sign up,Registrieren
 WELCOME_BACK_!,Welcome Back!,Willkommen zurück!
-GET_STARTED!,Get started!,Lass uns loslegen!
+GET_STARTED_!,Get started!,Lass uns loslegen!
 EMAIL,Email,Email
 PASSWORD,Password,Passwort
 USERNAME,Username,Benutzername
@@ -76,3 +76,4 @@ ERROR_INVALID_LOGIN,Invalid email or password,Falsche E-Mail oder falsches Passw
 ERROR_USER_EXISTS,User already exists,Account existiert bereits
 ERROR_UNKNOWN,An unknown error occurred,Ein unbekannter Fehler ist aufgetreten
 ERROR_EMPTY_FIELDS,Please fill in all fields,Bitte alle Felder ausfüllen
+ERROR_USERNAME_TOO_SHORT,Username too short,Username ist zu kurz
