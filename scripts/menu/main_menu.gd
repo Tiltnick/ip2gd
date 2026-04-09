@@ -6,13 +6,21 @@ class_name main_menu
 @onready var resume_button: Button = $VBoxContainer/ResumeButton
 @onready var pointlight: PointLight2D = $Logo/PointLight2D
 
+@onready var auth_screen = $AuthScreen
+
 
 func _ready() -> void:
 	print("main_menu _ready: ", get_instance_id())
+	if not NakamaManager.is_logged_in():
+		auth_screen.visible = true
+	else:
+		auth_screen.visible = false
+	
 	# Prüft ob es eine Save-Datei gibt -> Nein = button.disabled
 	resume_button.disabled = not FileAccess.file_exists(SaveSystem.SAVE_PATH)
 	BgmPlayer.bgm_main_menu()
 	play_click_sound()
+	
 	
 
 	
