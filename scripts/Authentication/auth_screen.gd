@@ -15,6 +15,15 @@ extends CanvasLayer
 @onready var signup_button = $Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/SignupSubmitButton
 @onready var signup_error = $Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/SignupErrorLabel
 
+@onready var login_eye_button = $Root/WindowPanel/TabContainer/LOGIN/LoginCenter/LoginForm/MarginContainer/VBoxContainer/LoginPasswordField/MarginContainer/HBoxContainer/EyeButton
+@onready var signup_eye_button = $Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/SignupPasswordField/MarginContainer/HBoxContainer/EyeButton
+
+var login_password_visible := false
+var signup_password_visible := false
+
+var eye_open = preload("res://assets/sprites/ui/eye (1).png")
+var eye_closed = preload("res://assets/sprites/ui/hide (2).png")
+
 
 func _ready():
 	login_button.pressed.connect(_on_login_pressed)
@@ -23,9 +32,8 @@ func _ready():
 	login_error.visible = false
 	signup_error.visible = false
 	
-
-
-
+	
+	
 
 func _on_login_pressed():
 	var email = login_email.text.strip_edges()
@@ -37,8 +45,8 @@ func _on_login_pressed():
 		return
 
 	if not is_valid_email(email):
-		signup_error.text = "ERROR_INVALID_EMAIL"
-		signup_error.visible = true
+		login_error.text = "ERROR_INVALID_EMAIL"
+		login_error.visible = true
 		return
 
 	login_error.text = ""
@@ -167,6 +175,23 @@ func show_login_error(key: String):
 
 func hide_login_error():
 	login_error.visible = false
+
+
+func toggle_password_visibility(password_field: LineEdit, button: TextureButton):
+	password_field.secret = not password_field.secret
+	
+	if password_field.secret:
+		button.texture_normal = eye_closed
+	else:
+		button.texture_normal = eye_open
+
+func _on_login_eye_button_pressed():
+	toggle_password_visibility(login_password, login_eye_button)
+	
+func _on_signup_eye_button_pressed():
+	toggle_password_visibility(signup_password, signup_eye_button)
+
+
 
 func _map_error(error: String) -> String:
 	if error == null:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dnytrk2ppaar1"]
+[gd_scene load_steps=29 format=3 uid="uid://dnytrk2ppaar1"]
 
 [ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="1_8r4ab"]
 [ext_resource type="Script" uid="uid://bf01b8u38586l" path="res://scripts/Authentication/auth_screen.gd" id="1_o1g10"]
@@ -10,6 +10,7 @@
 [ext_resource type="StyleBox" uid="uid://nlwlaivoia4e" path="res://scenes/UI/StyleBoxes/LoginButtonSimple.tres" id="7_a1b63"]
 [ext_resource type="Texture2D" uid="uid://cqpo0of4nagrj" path="res://assets/sprites/ui/sperren.png" id="7_o1g10"]
 [ext_resource type="Texture2D" uid="uid://wn8rij3au6l2" path="res://assets/sprites/ui/planet.png" id="9_g7klc"]
+[ext_resource type="Texture2D" uid="uid://djxcdom7qhjor" path="res://assets/sprites/ui/hide (2).png" id="11_3dava"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7h4w"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -332,6 +333,14 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_o1g10")
 placeholder_text = "PASSWORD"
 secret = true
 
+[node name="EyeButton" type="TextureButton" parent="Root/WindowPanel/TabContainer/LOGIN/LoginCenter/LoginForm/MarginContainer/VBoxContainer/LoginPasswordField/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 32)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("11_3dava")
+stretch_mode = 3
+
 [node name="LoginSubmitButton" type="Button" parent="Root/WindowPanel/TabContainer/LOGIN/LoginCenter/LoginForm/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
@@ -471,6 +480,14 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_o1g10")
 placeholder_text = "PASSWORD"
 secret = true
 
+[node name="EyeButton" type="TextureButton" parent="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/SignupPasswordField/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 32)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("11_3dava")
+stretch_mode = 3
+
 [node name="SignupUsernameField" type="PanelContainer" parent="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
@@ -538,6 +555,8 @@ horizontal_alignment = 1
 
 [connection signal="text_changed" from="Root/WindowPanel/TabContainer/LOGIN/LoginCenter/LoginForm/MarginContainer/VBoxContainer/LoginEmailField/MarginContainer/HBoxContainer/LineEdit" to="." method="_on_login_text_changed"]
 [connection signal="text_changed" from="Root/WindowPanel/TabContainer/LOGIN/LoginCenter/LoginForm/MarginContainer/VBoxContainer/LoginPasswordField/MarginContainer/HBoxContainer/PasswordLineEdit" to="." method="_on_login_text_changed"]
+[connection signal="pressed" from="Root/WindowPanel/TabContainer/LOGIN/LoginCenter/LoginForm/MarginContainer/VBoxContainer/LoginPasswordField/MarginContainer/HBoxContainer/EyeButton" to="." method="_on_login_eye_button_pressed"]
 [connection signal="text_changed" from="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/SignupEmailField/MarginContainer/HBoxContainer/LineEdit" to="." method="_on_signup_text_changed"]
 [connection signal="text_changed" from="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/SignupPasswordField/MarginContainer/HBoxContainer/PasswordSignup" to="." method="_on_signup_text_changed"]
+[connection signal="pressed" from="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/SignupPasswordField/MarginContainer/HBoxContainer/EyeButton" to="." method="_on_signup_eye_button_pressed"]
 [connection signal="text_changed" from="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/SignupUsernameField/MarginContainer/HBoxContainer/Username" to="." method="_on_signup_text_changed"]
