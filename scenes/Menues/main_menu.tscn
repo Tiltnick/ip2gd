@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cc86xpvrn37so"]
+[gd_scene load_steps=23 format=3 uid="uid://cc86xpvrn37so"]
 
 [ext_resource type="Script" uid="uid://c66icxn0ex1r2" path="res://scripts/menu/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_l6cm7"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://bcydf3meoraya" path="res://assets/fonts/ModernDOS9x14.ttf" id="4_wu84c"]
 [ext_resource type="Texture2D" uid="uid://dprepxc2r0jqd" path="res://assets/sprites/ui/instagram (2) 1.png" id="5_oa1go"]
 [ext_resource type="Texture2D" uid="uid://d12eclmam7q5d" path="res://assets/sprites/ui/discord 1.png" id="7_jk1qb"]
+[ext_resource type="PackedScene" uid="uid://cpockpmuyp365" path="res://scenes/Menues/PopUp.tscn" id="8_tbmy8"]
 [ext_resource type="PackedScene" uid="uid://dnytrk2ppaar1" path="res://scenes/Authentication/auth_screen.tscn" id="10_34lgo"]
 [ext_resource type="Script" uid="uid://bd1iyj8i00qwe" path="res://scripts/api/SpacegramApi.gd" id="10_phixr"]
 
@@ -308,6 +309,10 @@ script = ExtResource("10_phixr")
 
 [node name="AuthScreen" parent="." instance=ExtResource("10_34lgo")]
 visible = false
+
+[node name="PopUp" parent="." instance=ExtResource("8_tbmy8")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="VBoxContainer/NewGButton" to="." method="_on_new_g_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
