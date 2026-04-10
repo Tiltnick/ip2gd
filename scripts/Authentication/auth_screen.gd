@@ -61,6 +61,7 @@ func _on_login_pressed():
 		get_parent().update_resume_button(has_save)  # HIER
 
 		visible = false
+		
 
 	else:
 		login_error.text = "ERROR_INVALID_LOGIN"
