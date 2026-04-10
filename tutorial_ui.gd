@@ -29,7 +29,7 @@ func _ready():
 		set_process_internal(false)
 		set_process_shortcut_input(false)
 		set_process_unhandled_key_input(false)
-	return
+		return
 
 	_update_text()
 
