@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cc86xpvrn37so"]
+[gd_scene load_steps=22 format=3 uid="uid://cc86xpvrn37so"]
 
 [ext_resource type="Script" uid="uid://c66icxn0ex1r2" path="res://scripts/menu/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_l6cm7"]
@@ -7,7 +7,6 @@
 [ext_resource type="FontFile" uid="uid://bcydf3meoraya" path="res://assets/fonts/ModernDOS9x14.ttf" id="4_wu84c"]
 [ext_resource type="Texture2D" uid="uid://dprepxc2r0jqd" path="res://assets/sprites/ui/instagram (2) 1.png" id="5_oa1go"]
 [ext_resource type="Texture2D" uid="uid://d12eclmam7q5d" path="res://assets/sprites/ui/discord 1.png" id="7_jk1qb"]
-[ext_resource type="PackedScene" uid="uid://cpockpmuyp365" path="res://scenes/Menues/PopUp.tscn" id="8_tbmy8"]
 [ext_resource type="PackedScene" uid="uid://dnytrk2ppaar1" path="res://scenes/Authentication/auth_screen.tscn" id="10_34lgo"]
 [ext_resource type="Script" uid="uid://bd1iyj8i00qwe" path="res://scripts/api/SpacegramApi.gd" id="10_phixr"]
 
@@ -155,9 +154,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -122.0
-offset_top = -443.0
+offset_top = -467.0
 offset_right = 122.0
-offset_bottom = -264.0
+offset_bottom = -352.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 12
@@ -197,23 +196,6 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_l6cm7")
 disabled = true
 text = "RESUME"
-
-[node name="ExitButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-mouse_default_cursor_shape = 2
-theme_override_colors/font_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
-theme_override_colors/font_focus_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
-theme_override_colors/font_pressed_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
-theme_override_colors/font_hover_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
-theme_override_fonts/font = ExtResource("1_l6cm7")
-theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_bqqt6")
-theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_l6cm7")
-text = "EXIT"
 
 [node name="Logo" type="TextureRect" parent="."]
 layout_mode = 1
@@ -321,17 +303,13 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_lgwnu")
 icon = ExtResource("7_jk1qb")
 icon_alignment = 1
 
-[node name="PopUp" parent="." instance=ExtResource("8_tbmy8")]
-visible = false
-layout_mode = 1
-
 [node name="SpacegramApi" type="Node" parent="."]
 script = ExtResource("10_phixr")
 
 [node name="AuthScreen" parent="." instance=ExtResource("10_34lgo")]
+visible = false
 
 [connection signal="pressed" from="VBoxContainer/NewGButton" to="." method="_on_new_g_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="InstaButton" to="." method="_on_insta_button_pressed"]
 [connection signal="pressed" from="DiscordButton" to="." method="_on_discord_button_pressed"]

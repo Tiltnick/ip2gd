@@ -104,20 +104,20 @@ func _on_resume_button_pressed() -> void:
 		print("Kein gültiger Spielstand zum Fortsetzen.")
 
 
-func _on_exit_button_pressed() -> void:
-	pointlight.visible = false
-	var lang = TranslationServer.get_locale().substr(0, 2)
-	play_click_sound()
-	if lang == "en":
-		pop_up.open(
-			"Exit Game?",
-			func(): exit_game()
-		)
-	elif lang == "de":
-		pop_up.open(
-			"Spiel verlassen?",
-			func(): exit_game()
-		)
+#func _on_exit_button_pressed() -> void:
+	#pointlight.visible = false
+	#var lang = TranslationServer.get_locale().substr(0, 2)
+	#play_click_sound()
+	#if lang == "en":
+		#pop_up.open(
+			#"Exit Game?",
+			#func(): exit_game()
+		#)
+	#elif lang == "de":
+		#pop_up.open(
+			#"Spiel verlassen?",
+			#func(): exit_game()
+		#)
 
 
 func _on_insta_button_pressed() -> void:

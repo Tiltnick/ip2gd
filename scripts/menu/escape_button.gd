@@ -1,21 +1,20 @@
 extends Button
 
-func _ready() -> void:
-	# im MainMenu Button sofort verstecken
-	var scene := get_tree().current_scene
-	if scene and scene.name == "MainMenu":
-		hide()
+func _open_exit_popup():
+	var popup = GlobalUI.get_node("PopUp")
 
+	var lang = TranslationServer.get_locale().substr(0, 2)
 
-func _process(_delta: float) -> void:
-	# Sichtbarkeit an die aktuelle Szene koppeln
-	var scene := get_tree().current_scene
-	if scene and scene.name == "MainMenu":
-		visible = false
+	if lang == "en":
+		popup.open("Exit Game?", func(): get_tree().quit())
 	else:
-		visible = true
+		popup.open("Spiel verlassen?", func(): get_tree().quit())
 
 
 func _on_pressed() -> void:
-	# Gleiches Verhalten wie escp, nutzt autoload SavingMenu
-	SavingMenu.toggle_pause()
+	var scene := get_tree().current_scene
+	
+	if scene and scene.name == "MainMenu":
+		_open_exit_popup()
+	else:
+		SavingMenu.toggle_pause()
