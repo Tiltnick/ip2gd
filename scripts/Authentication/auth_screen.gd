@@ -56,7 +56,12 @@ func _on_login_pressed():
 	var result = await NakamaManager.login_email(email, password)
 
 	if result.success:
+		var has_save = await SaveSystem.load_game()
+
+		get_parent().update_resume_button(has_save)  # HIER
+
 		visible = false
+
 	else:
 		login_error.text = "ERROR_INVALID_LOGIN"
 		login_error.visible = true
@@ -92,7 +97,7 @@ func _on_signup_pressed():
 	var result = await NakamaManager.register_email(email, password, username)
 
 	if result.success:
-		print("Signup erfolgreich")
+		GameState.has_save = false
 		visible = false
 	else:
 		signup_error.text = result.error

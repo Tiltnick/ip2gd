@@ -10,6 +10,7 @@ class_name main_menu
 
 
 func _ready() -> void:
+	await _init_menu()
 	print("main_menu _ready: ", get_instance_id())
 	if not NakamaManager.is_logged_in():
 		auth_screen.visible = true
@@ -17,12 +18,29 @@ func _ready() -> void:
 		auth_screen.visible = false
 	
 	# Prüft ob es eine Save-Datei gibt -> Nein = button.disabled
-	resume_button.disabled = not FileAccess.file_exists(SaveSystem.SAVE_PATH)
+	if NakamaManager.is_logged_in():
+		var has_save = await SaveSystem.load_game()
+		resume_button.disabled = not has_save
+	else:
+		resume_button.disabled = true  # erstmal deaktivieren
 	BgmPlayer.bgm_main_menu()
 	play_click_sound()
 	
 	
+func _init_menu() -> void:
+	print("main_menu _ready: ", get_instance_id())
 
+	if not NakamaManager.is_logged_in():
+		auth_screen.visible = true
+		resume_button.disabled = true
+	else:
+		auth_screen.visible = false
+		
+		var has_save = await SaveSystem.load_game()
+		resume_button.disabled = not has_save
+
+	BgmPlayer.bgm_main_menu()
+	play_click_sound()
 	
 	#test für verbindung zu server 
 	#await NakamaManager.login_device()
@@ -74,13 +92,13 @@ func _on_new_g_button_pressed() -> void:
 			func(): start_new_game()
 		)
 	
-func _on_resume_button_pressed() -> void: 
+func _on_resume_button_pressed() -> void:
 	play_click_sound()
-	# Speicherstand aus GameState
-	var loaded := SaveSystem.load_game()
+
+	var loaded := await SaveSystem.load_game()   # FIX
+
 	if loaded and GameState.has_save:
 		get_tree().paused = false
-		# Scene über scene manager starten
 		SceneManager.goto_scene(GameState.current_area_path, "start")
 	else:
 		print("Kein gültiger Spielstand zum Fortsetzen.")
@@ -121,15 +139,25 @@ func start_new_game() -> void:
 	GameState.has_save = false
 	GameState.picked_items = []
 	GameState.tutorial_done = false
+	
+	GameState.use_saved_position = false # spawne wieder im raumschiff start spawnpuhnkt
 
+	GameState.quest_state = {}
+	GameState.inventory_slots = []
+	GameState.map_state = {}
+	GameState.hotbar_icon_override = {}
+	#GameState.dialog_state = {}
+	
 	# Hotbar + Inventory zurücksetzen
 	hotbarglobal.inventory_items.fill(null)
 	hotbarglobal.hotbar_counts.clear()
 	hotbarglobal.hotbar_icon_override.clear()
-
+	hotbarglobal.push_to_gamestate()
 	# UI updaten 
 	hotbarglobal.update_ui()
 
+	# Quests wieder laden
+	QuestManager.rebuild_from_gamestate()
 
 	get_tree().paused = false
 
@@ -147,3 +175,7 @@ func exit_game() -> void:
 
 func play_click_sound(): 
 	SfxPlayer.ui_click_sound()
+
+
+func update_resume_button(has_save: bool):
+	resume_button.disabled = not has_save

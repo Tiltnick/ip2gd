@@ -40,13 +40,12 @@ func rebuild_from_gamestate():
 			continue
 
 		var quest = _build_quest(id)
+
 		match state.get("status", ""):
 			"started":
 				current_quests[id] = quest
-				quest_added.emit(quest)
 			"completed":
 				completed_quests[id] = quest
-				quest_completed.emit(quest)
 
 
 func add_quest(id: String):
