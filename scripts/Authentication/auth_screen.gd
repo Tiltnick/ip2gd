@@ -5,14 +5,13 @@ extends CanvasLayer
 # Login
 @onready var login_email = $Root/WindowPanel/TabContainer/LOGIN/LoginCenter/LoginForm/MarginContainer/VBoxContainer/LoginEmailField/MarginContainer/HBoxContainer/LineEdit
 @onready var login_password = $Root/WindowPanel/TabContainer/LOGIN/LoginCenter/LoginForm/MarginContainer/VBoxContainer/LoginPasswordField/MarginContainer/HBoxContainer/PasswordLineEdit
-@onready var login_button = $Root/WindowPanel/TabContainer/LOGIN/LoginCenter/LoginForm/MarginContainer/VBoxContainer/LoginSubmitButton
+@onready var login_button = $Root/WindowPanel/TabContainer/LOGIN/LoginCenter/LoginForm/MarginContainer/VBoxContainer/ButtonContainer/LoginSubmitButton
 @onready var login_error = $Root/WindowPanel/TabContainer/LOGIN/LoginCenter/LoginForm/MarginContainer/VBoxContainer/LoginErrorLabel
 
 # Signup
-@onready var signup_username = $Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/SignupUsernameField/MarginContainer/HBoxContainer/Username
 @onready var signup_email = $Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/SignupEmailField/MarginContainer/HBoxContainer/LineEdit
 @onready var signup_password = $Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/SignupPasswordField/MarginContainer/HBoxContainer/PasswordSignup
-@onready var signup_button = $Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/SignupSubmitButton
+@onready var signup_button = $Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/ButtonContainer/SignupSubmitButton
 @onready var signup_error = $Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/SignupErrorLabel
 
 @onready var login_eye_button = $Root/WindowPanel/TabContainer/LOGIN/LoginCenter/LoginForm/MarginContainer/VBoxContainer/LoginPasswordField/MarginContainer/HBoxContainer/EyeButton
@@ -69,14 +68,11 @@ func _on_login_pressed():
 
 	login_button.disabled = false
 
-
-
 func _on_signup_pressed():
-	var username = signup_username.text.strip_edges()
 	var email = signup_email.text.strip_edges()
 	var password = signup_password.text.strip_edges()
 
-	if username.is_empty() or email.is_empty() or password.is_empty():
+	if email.is_empty() or password.is_empty():
 		signup_error.text = "ERROR_EMPTY_FIELDS"
 		signup_error.visible = true
 		return
@@ -95,7 +91,7 @@ func _on_signup_pressed():
 	signup_error.visible = false
 	signup_button.disabled = true
 
-	var result = await NakamaManager.register_email(email, password, username)
+	var result = await NakamaManager.register_email(email, password)
 
 	if result.success:
 		GameState.has_save = false
@@ -106,7 +102,7 @@ func _on_signup_pressed():
 
 	signup_button.disabled = false
 
-	signup_button.disabled = false
+
 
 
 func _on_signup_text_changed(_new_text: String):
@@ -115,7 +111,6 @@ func _on_signup_text_changed(_new_text: String):
 func validate_signup():
 	var email = signup_email.text
 	var password = signup_password.text
-	var username = signup_username.text
 
 	if not email.is_empty() and not is_valid_email(email):
 		show_signup_error("ERROR_INVALID_EMAIL")
@@ -123,10 +118,6 @@ func validate_signup():
 
 	if not password.is_empty() and password.length() < 8:
 		show_signup_error("ERROR_PASSWORD_TOO_SHORT")
-		return
-
-	if not username.is_empty() and username.length() < 3:
-		show_signup_error("ERROR_USERNAME_TOO_SHORT")
 		return
 
 	hide_signup_error()

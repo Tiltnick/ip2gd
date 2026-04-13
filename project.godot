@@ -44,6 +44,7 @@ TripodManager="*res://scripts/riddles/sky_riddle/tripod_manager.gd"
 Nakama="*res://addons/com.heroiclabs.nakama/Nakama.gd"
 NakamaManager="*res://scripts/network/NakamaManager.gd"
 GlobalUI="*res://scenes/UI/GlobalUI.tscn"
+SpacegramApi="*res://scripts/api/SpacegramApi.gd"
 
 [dialogic]
 

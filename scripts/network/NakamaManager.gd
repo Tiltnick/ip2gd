@@ -51,20 +51,23 @@ func login_email(email: String, password: String) -> Dictionary:
 	return {"success": true}
 
 
-func register_email(email: String, password: String, username: String) -> Dictionary:
-	var result = await client.authenticate_email_async(email, password, username, true)
+func register_email(email: String, password: String) -> Dictionary:
+	var result = await client.authenticate_email_async(email, password, "", true)
 
 	if result == null:
 		return {"success": false, "error": "ERROR_UNKNOWN"}
 
 	if result.is_exception():
 		var error_text := str(result).to_lower()
+		print("REGISTER ERROR TEXT: ", error_text)
 
 		if "invalid email" in error_text:
 			return {"success": false, "error": "ERROR_INVALID_EMAIL"}
 		elif "password" in error_text and "8" in error_text:
 			return {"success": false, "error": "ERROR_PASSWORD_TOO_SHORT"}
 		elif "already exists" in error_text:
+			return {"success": false, "error": "ERROR_USER_EXISTS"}
+		elif "invalid credentials" in error_text:
 			return {"success": false, "error": "ERROR_USER_EXISTS"}
 		else:
 			return {"success": false, "error": "ERROR_UNKNOWN"}
@@ -74,3 +77,6 @@ func register_email(email: String, password: String, username: String) -> Dictio
 
 func is_logged_in() -> bool:
 	return session != null
+	
+func logout():
+	session = null

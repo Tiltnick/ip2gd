@@ -45,7 +45,7 @@ VALUES (
   ''
 );
 
-ALTER TABLE users
-ADD CONSTRAINT users_username_unique UNIQUE (username);
+ALTER TABLE profile
+ADD CONSTRAINT unique_display_name UNIQUE (display_name);
 
 

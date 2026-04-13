@@ -136,12 +136,15 @@ func get_my_profile():
 		print("Request Fehler: ", error)
 
 
-func update_my_profile(display_name: String, bio: String, profile_picture: String):
+func update_my_profile(display_name: String, bio: String, profile_picture: String) -> Dictionary:
 	var url = BASE_URL + "/profile/me"
 	var headers = _get_auth_headers(true)
 
 	if headers.is_empty():
-		return
+		return {
+			"success": false,
+			"error": "ERROR_NOT_LOGGED_IN"
+		}
 
 	var body = {
 		"display_name": display_name,
@@ -160,6 +163,30 @@ func update_my_profile(display_name: String, bio: String, profile_picture: Strin
 
 	if error != OK:
 		print("Request Fehler: ", error)
+		return {
+			"success": false,
+			"error": "ERROR_REQUEST_FAILED"
+		}
+
+	var result = await http_request.request_completed
+	var response_code = result[1]
+	var response_text = result[3].get_string_from_utf8()
+
+	print("update_my_profile response code: ", response_code)
+	print("update_my_profile response body: ", response_text)
+
+	var json = JSON.parse_string(response_text)
+
+	if response_code >= 200 and response_code < 300:
+		return {
+			"success": true,
+			"data": json.get("data", null)
+		}
+
+	return {
+		"success": false,
+		"error": json.get("error", "ERROR_UNKNOWN")
+	}
 
 func delete_post(post_id: String):
 	var url = BASE_URL + "/posts/" + post_id

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dnytrk2ppaar1"]
+[gd_scene load_steps=23 format=3 uid="uid://dnytrk2ppaar1"]
 
 [ext_resource type="Script" uid="uid://bf01b8u38586l" path="res://scripts/Authentication/auth_screen.gd" id="1_o1g10"]
 [ext_resource type="StyleBox" uid="uid://dygv1xoqrtktv" path="res://scenes/UI/StyleBoxes/BackgroundBox.tres" id="1_ugn4p"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://b2panxcuxnssd" path="res://assets/sprites/ui/email.png" id="6_hlrxc"]
 [ext_resource type="StyleBox" uid="uid://nlwlaivoia4e" path="res://scenes/UI/StyleBoxes/LoginButtonSimple.tres" id="7_a1b63"]
 [ext_resource type="Texture2D" uid="uid://cqpo0of4nagrj" path="res://assets/sprites/ui/sperren.png" id="7_o1g10"]
-[ext_resource type="Texture2D" uid="uid://wn8rij3au6l2" path="res://assets/sprites/ui/planet.png" id="9_g7klc"]
 [ext_resource type="Texture2D" uid="uid://djxcdom7qhjor" path="res://assets/sprites/ui/hide (2).png" id="11_3dava"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dava"]
@@ -61,6 +60,10 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o1g10"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7klc"]
+content_margin_left = 56.0
+content_margin_top = 10.0
+content_margin_right = 56.0
+content_margin_bottom = 10.0
 bg_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
 border_width_left = 8
 border_width_top = 8
@@ -73,6 +76,10 @@ corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1b63"]
+content_margin_left = 56.0
+content_margin_top = 10.0
+content_margin_right = 56.0
+content_margin_bottom = 10.0
 bg_color = Color(0.2627451, 0.6117647, 0.5764706, 0.52156866)
 border_width_left = 8
 border_width_top = 8
@@ -85,6 +92,10 @@ corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o1g10"]
+content_margin_left = 56.0
+content_margin_top = 10.0
+content_margin_right = 56.0
+content_margin_bottom = 10.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_left = 8
 border_width_top = 8
@@ -97,6 +108,10 @@ corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bftyr"]
+content_margin_left = 56.0
+content_margin_top = 10.0
+content_margin_right = 56.0
+content_margin_bottom = 0.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8adt"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -165,9 +180,10 @@ theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_n1lvw")
 theme_override_styles/tab_selected = ExtResource("5_hlrxc")
 theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_g7klc")
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
 
 [node name="LOGIN" type="Control" parent="Root/WindowPanel/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -282,10 +298,17 @@ mouse_default_cursor_shape = 2
 texture_normal = ExtResource("11_3dava")
 stretch_mode = 3
 
-[node name="LoginSubmitButton" type="Button" parent="Root/WindowPanel/TabContainer/LOGIN/LoginCenter/LoginForm/MarginContainer/VBoxContainer"]
+[node name="ButtonContainer" type="HBoxContainer" parent="Root/WindowPanel/TabContainer/LOGIN/LoginCenter/LoginForm/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Root/WindowPanel/TabContainer/LOGIN/LoginCenter/LoginForm/MarginContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LoginSubmitButton" type="Button" parent="Root/WindowPanel/TabContainer/LOGIN/LoginCenter/LoginForm/MarginContainer/VBoxContainer/ButtonContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 1)
 theme_override_colors/font_focus_color = Color(0.8509804, 0.8156863, 0.654902, 1)
@@ -305,6 +328,10 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_o1g10")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bftyr")
 text = "LOGIN"
 
+[node name="Control2" type="Control" parent="Root/WindowPanel/TabContainer/LOGIN/LoginCenter/LoginForm/MarginContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="LoginErrorLabel" type="Label" parent="Root/WindowPanel/TabContainer/LOGIN/LoginCenter/LoginForm/MarginContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
@@ -315,7 +342,6 @@ text = "ERROR"
 horizontal_alignment = 1
 
 [node name="SIGN_UP" type="Control" parent="Root/WindowPanel/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -430,43 +456,17 @@ mouse_default_cursor_shape = 2
 texture_normal = ExtResource("11_3dava")
 stretch_mode = 3
 
-[node name="SignupUsernameField" type="PanelContainer" parent="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
+[node name="ButtonContainer" type="HBoxContainer" parent="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_0p0ek")
 
-[node name="MarginContainer" type="MarginContainer" parent="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/SignupUsernameField"]
-layout_mode = 2
-theme_override_constants/margin_left = 18
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 18
-theme_override_constants/margin_bottom = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/SignupUsernameField/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 16
-
-[node name="Icon" type="TextureRect" parent="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/SignupUsernameField/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-texture = ExtResource("9_g7klc")
-expand_mode = 3
-
-[node name="Username" type="LineEdit" parent="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/SignupUsernameField/MarginContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/ButtonContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
-theme_override_colors/font_placeholder_color = Color(0.2509804, 0.4509804, 0.40392157, 1)
-theme_override_fonts/font = ExtResource("3_a1b63")
-theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxFlat_hlrxc")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_o1g10")
-placeholder_text = "USERNAME"
 
-[node name="SignupSubmitButton" type="Button" parent="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer"]
+[node name="SignupSubmitButton" type="Button" parent="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/ButtonContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 1)
 theme_override_colors/font_focus_color = Color(0.8509804, 0.8156863, 0.654902, 1)
@@ -486,6 +486,10 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_o1g10")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bftyr")
 text = "SIGN_UP"
 
+[node name="Control2" type="Control" parent="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="SignupErrorLabel" type="Label" parent="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
@@ -501,4 +505,3 @@ horizontal_alignment = 1
 [connection signal="text_changed" from="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/SignupEmailField/MarginContainer/HBoxContainer/LineEdit" to="." method="_on_signup_text_changed"]
 [connection signal="text_changed" from="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/SignupPasswordField/MarginContainer/HBoxContainer/PasswordSignup" to="." method="_on_signup_text_changed"]
 [connection signal="pressed" from="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/SignupPasswordField/MarginContainer/HBoxContainer/EyeButton" to="." method="_on_signup_eye_button_pressed"]
-[connection signal="text_changed" from="Root/WindowPanel/TabContainer/SIGN_UP/SignupCenter/SignupForm/MarginContainer/VBoxContainer/SignupUsernameField/MarginContainer/HBoxContainer/Username" to="." method="_on_signup_text_changed"]

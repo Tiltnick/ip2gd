@@ -93,8 +93,15 @@ export async function updateMyProfile(req: AuthRequest, res: Response): Promise<
       data: result.rows[0],
       error: null,
     });
-  } catch (err) {
+  } catch (err: any) {
     console.error("DB Error:", err);
+    if (err.code === "23505") {
+      return res.status(400).json({
+        success: false,
+        data: null,
+        error: "DISPLAY_NAME_TAKEN",
+      });
+    }
     return res.status(500).json({
       success: false,
       data: null,

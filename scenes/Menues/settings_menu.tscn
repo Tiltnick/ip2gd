@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://y5kct0mr503d"]
+[gd_scene load_steps=53 format=3 uid="uid://y5kct0mr503d"]
 
 [ext_resource type="Script" uid="uid://bxjsc3ungryxn" path="res://scripts/menu/settings/settings_menu.gd" id="1_dt6qk"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_ijo36"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bklvnm5csnt2e" path="res://assets/sprites/ui/lautstarke-erhohen (1).png" id="6_pmovl"]
 [ext_resource type="Texture2D" uid="uid://brynadvskwckv" path="res://assets/sprites/ui/lautstarke-runter 1.png" id="7_ghnlw"]
 [ext_resource type="Script" uid="uid://b51mk8v3mgj5" path="res://scripts/menu/settings/graphics_button.gd" id="9_cm8sp"]
+[ext_resource type="Script" uid="uid://dodi7mo21dgj" path="res://scripts/menu/settings/logout_and_delete_acc_button.gd" id="10_6icie"]
 [ext_resource type="StyleBox" uid="uid://du87vvnbwraax" path="res://scenes/UI/StyleBoxes/redButton.tres" id="10_b85bu"]
 [ext_resource type="StyleBox" uid="uid://beqon246yaqxh" path="res://scenes/UI/StyleBoxes/redButtonPressedHover.tres" id="11_safip"]
 [ext_resource type="StyleBox" uid="uid://bgrgvtajrt5lv" path="res://scenes/UI/StyleBoxes/buttonBlue.tres" id="12_3intc"]
@@ -824,6 +825,7 @@ offset_left = 466.0
 offset_top = 757.0
 offset_right = 1650.0
 offset_bottom = 813.0
+script = ExtResource("10_6icie")
 
 [node name="DeleteButton" type="Button" parent="TabContainer/SETTINGS/BottomBar"]
 layout_mode = 2
