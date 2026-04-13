@@ -77,3 +77,9 @@ ERROR_USER_EXISTS,User already exists,Account existiert bereits
 ERROR_UNKNOWN,An unknown error occurred,Ein unbekannter Fehler ist aufgetreten
 ERROR_EMPTY_FIELDS,Please fill in all fields,Bitte alle Felder ausfüllen
 ERROR_USERNAME_TOO_SHORT,Username too short,Username ist zu kurz
+ACCOUNT,Account,Account
+DELETE_ACCOUNT,Delete Account, Account löschen
+LOGOUT,Logout,Ausloggen
+SAVE_CHANGES,Save Changes,Änderungen speichern
+USERNAME,Username,Benutzername
+EMAIL,Email,Email-Adresse
