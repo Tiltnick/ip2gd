@@ -48,6 +48,8 @@ var inventory_slots: Array = [
 var hotbar_counts: Dictionary = {}
 var hotbar_icon_override: Dictionary = {}
 
+var is_in_game: bool = false
+
 
 func start_dialog(dialog_id: String) -> void:
 	# Dialog existiert
@@ -155,3 +157,44 @@ func from_dict(data: Dictionary) -> void:
 		hotbar_icon_override = data["hotbar_icon_override"]
 	else:
 		hotbar_icon_override = {}
+		
+		
+		
+		
+func reset():
+	print("GameState RESET")
+	current_area_path = "res://scenes/maps/spaceship.tscn"
+
+	should_play_intro_dialog = false
+
+	puzzle_state = {}
+	tutorial_done = false
+	dialog_state = {}
+	map_state = {}
+	quest_state = {}
+
+	return_scene_path = ""
+	has_save = false
+
+	player_position = Vector2.ZERO
+	use_saved_position = false
+
+	picked_items = []
+	puzzle_items = []
+
+	sound_setting = 0.0
+	music_setting = 0.0
+	language = "en"
+	display_mode = "fullscreen"
+
+	inventory_slots = [
+		null, null, null, null,
+		null, null, null, null,
+		null, null, null, null,
+		null, null, null, null
+	]
+
+	hotbar_counts = {}
+	hotbar_icon_override = {}
+
+	is_in_game = false

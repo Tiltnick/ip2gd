@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://y5kct0mr503d"]
+[gd_scene load_steps=49 format=3 uid="uid://y5kct0mr503d"]
 
 [ext_resource type="Script" uid="uid://bxjsc3ungryxn" path="res://scripts/menu/settings/settings_menu.gd" id="1_dt6qk"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_ijo36"]
@@ -10,6 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://bklvnm5csnt2e" path="res://assets/sprites/ui/lautstarke-erhohen (1).png" id="6_pmovl"]
 [ext_resource type="Texture2D" uid="uid://brynadvskwckv" path="res://assets/sprites/ui/lautstarke-runter 1.png" id="7_ghnlw"]
 [ext_resource type="Script" uid="uid://b51mk8v3mgj5" path="res://scripts/menu/settings/graphics_button.gd" id="9_cm8sp"]
+[ext_resource type="Script" uid="uid://dodi7mo21dgj" path="res://scripts/menu/settings/logout_and_delete_acc_button.gd" id="10_6icie"]
+[ext_resource type="StyleBox" uid="uid://du87vvnbwraax" path="res://scenes/UI/StyleBoxes/redButton.tres" id="10_b85bu"]
+[ext_resource type="StyleBox" uid="uid://beqon246yaqxh" path="res://scenes/UI/StyleBoxes/redButtonPressedHover.tres" id="11_safip"]
+[ext_resource type="StyleBox" uid="uid://bgrgvtajrt5lv" path="res://scenes/UI/StyleBoxes/buttonBlue.tres" id="12_3intc"]
+[ext_resource type="StyleBox" uid="uid://2dcjn1523slx" path="res://scenes/UI/StyleBoxes/buttonBluePressedHover.tres" id="13_u6bsc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0ysv"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -90,6 +95,24 @@ border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
 expand_margin_top = 35.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qhma1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u6bsc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3w0bn"]
+content_margin_left = 23.0
+content_margin_top = 5.0
+content_margin_right = 23.0
+content_margin_bottom = 5.0
+bg_color = Color(0.8, 0.32941177, 0.32941177, 0.14901961)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.5686275, 0.20392157, 0.20784314, 0.44705883)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghnlw"]
 draw_center = false
@@ -259,6 +282,7 @@ corner_radius_bottom_left = 62
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6icie"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+layer = 11
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -304,7 +328,7 @@ layout_mode = 0
 offset_left = -9.0
 offset_top = -9.0
 offset_right = 410.0
-offset_bottom = 867.0
+offset_bottom = 848.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qhma1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/SETTINGS/Panel"]
@@ -388,6 +412,65 @@ toggle_mode = true
 text = "GRAPHICS"
 alignment = 0
 
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/SETTINGS/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 230)
+layout_mode = 2
+
+[node name="BottomBar" type="HBoxContainer" parent="TabContainer/SETTINGS/Panel/VBoxContainer" node_paths=PackedStringArray("settings_menu")]
+layout_mode = 2
+script = ExtResource("10_6icie")
+settings_menu = NodePath("../../..")
+
+[node name="Spacer3" type="Control" parent="TabContainer/SETTINGS/Panel/VBoxContainer/BottomBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LogoutButton" type="Button" parent="TabContainer/SETTINGS/Panel/VBoxContainer/BottomBar"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.6862745, 0.8627451, 0.76862746, 1)
+theme_override_colors/font_focus_color = Color(0.6862745, 0.8627451, 0.76862746, 1)
+theme_override_colors/font_pressed_color = Color(0.2627451, 0.6117647, 0.5764706, 1)
+theme_override_colors/font_hover_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
+theme_override_colors/font_disabled_color = Color(0.21960784, 0.5019608, 0.4627451, 0.54509807)
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("12_3intc")
+theme_override_styles/pressed = ExtResource("13_u6bsc")
+theme_override_styles/hover = ExtResource("13_u6bsc")
+theme_override_styles/hover_pressed = ExtResource("13_u6bsc")
+theme_override_styles/disabled = ExtResource("13_u6bsc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u6bsc")
+text = "LOGOUT"
+
+[node name="Spacer" type="Control" parent="TabContainer/SETTINGS/Panel/VBoxContainer/BottomBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeleteButton" type="Button" parent="TabContainer/SETTINGS/Panel/VBoxContainer/BottomBar"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.95763046, 0.70047724, 0.68557006, 1)
+theme_override_colors/font_focus_color = Color(0.95686275, 0.7019608, 0.6862745, 1)
+theme_override_colors/font_pressed_color = Color(0.8, 0.32941177, 0.32941177, 1)
+theme_override_colors/font_hover_color = Color(0.96566385, 0.7601023, 0.74633956, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.95686275, 0.7019608, 0.6862745, 1)
+theme_override_colors/font_disabled_color = Color(0.5686275, 0.20392157, 0.20784314, 0.44705883)
+theme_override_fonts/font = ExtResource("1_ijo36")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("10_b85bu")
+theme_override_styles/pressed = ExtResource("11_safip")
+theme_override_styles/hover = ExtResource("11_safip")
+theme_override_styles/hover_pressed = ExtResource("11_safip")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3w0bn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u6bsc")
+text = "DELETE_ACCOUNT"
+
+[node name="Spacer2" type="Control" parent="TabContainer/SETTINGS/Panel/VBoxContainer/BottomBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="GridContainer" type="GridContainer" parent="TabContainer/SETTINGS"]
 layout_direction = 2
 layout_mode = 1
@@ -407,6 +490,7 @@ columns = 2
 
 [node name="MoveUp" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8901961, 0.99215686, 0.9647059, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
@@ -415,6 +499,7 @@ vertical_alignment = 1
 
 [node name="W" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8901961, 0.99215686, 0.9647059, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_safip")
@@ -422,6 +507,7 @@ text = "W"
 
 [node name="MoveDown" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8901961, 0.99215686, 0.9647059, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
@@ -429,6 +515,7 @@ text = "MOVE_DOWN"
 
 [node name="S" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8901961, 0.99215686, 0.9647059, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
@@ -436,6 +523,7 @@ text = "S"
 
 [node name="MoveLeft" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8901961, 0.99215686, 0.9647059, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
@@ -443,6 +531,7 @@ text = "MOVE_LEFT"
 
 [node name="A" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8901961, 0.99215686, 0.9647059, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
@@ -450,6 +539,7 @@ text = "A"
 
 [node name="MoveRight" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8901961, 0.99215686, 0.9647059, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
@@ -457,6 +547,7 @@ text = "MOVE_RIGHT"
 
 [node name="D" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8901961, 0.99215686, 0.9647059, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
@@ -464,6 +555,7 @@ text = "D"
 
 [node name="MoveDown2" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8901961, 0.99215686, 0.9647059, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
@@ -471,6 +563,7 @@ text = "RUN"
 
 [node name="space2" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8901961, 0.99215686, 0.9647059, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_safip")
@@ -478,6 +571,7 @@ text = "shift"
 
 [node name="Interact" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8901961, 0.99215686, 0.9647059, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
@@ -485,6 +579,7 @@ text = "INTERACT_PICKUP"
 
 [node name="E" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8901961, 0.99215686, 0.9647059, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
@@ -492,6 +587,7 @@ text = "E"
 
 [node name="Hotbar" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8901961, 0.99215686, 0.9647059, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
@@ -499,6 +595,7 @@ text = "HOTBAR_SLOTS"
 
 [node name="number" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8901961, 0.99215686, 0.9647059, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
@@ -506,6 +603,7 @@ text = "1, 2, 3, 4"
 
 [node name="Exit" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8901961, 0.99215686, 0.9647059, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghnlw")
@@ -513,6 +611,7 @@ text = "EXIT_GAME"
 
 [node name="esc" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8901961, 0.99215686, 0.9647059, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b85bu")
@@ -520,6 +619,7 @@ text = "esc"
 
 [node name="Dialogue" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8901961, 0.99215686, 0.9647059, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_j3pu0")
@@ -527,6 +627,7 @@ text = "DIALOGUE"
 
 [node name="space" type="Label" parent="TabContainer/SETTINGS/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8901961, 0.99215686, 0.9647059, 1)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_safip")
@@ -710,9 +811,9 @@ process_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -95.0
+offset_left = -86.0
 offset_top = 32.0
-offset_right = -32.0
+offset_right = -23.0
 offset_bottom = 95.0
 grow_horizontal = 0
 mouse_default_cursor_shape = 2

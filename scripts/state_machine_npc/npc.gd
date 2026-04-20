@@ -42,6 +42,10 @@ func _on_any_dialog_finished() -> void:
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	var auth = get_tree().get_first_node_in_group("auth_screen")
+	if auth and auth.visible:
+		return
+	
 	outline.visible = player_inside
 	
 	if player_inside:

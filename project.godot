@@ -43,6 +43,8 @@ Hotkeys="*res://scripts/UI/hotkeys.gd"
 TripodManager="*res://scripts/riddles/sky_riddle/tripod_manager.gd"
 Nakama="*res://addons/com.heroiclabs.nakama/Nakama.gd"
 NakamaManager="*res://scripts/network/NakamaManager.gd"
+GlobalUI="*res://scenes/UI/GlobalUI.tscn"
+SpacegramApi="*res://scripts/api/SpacegramApi.gd"
 
 [dialogic]
 
@@ -114,8 +116,8 @@ translation/locales=[]
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=1910
+window/size/viewport_height=1060
 window/size/mode=3
 window/stretch/mode="canvas_items"
 
@@ -146,6 +148,8 @@ socket_puzzle_ui=""
 panel_puzzle_ui=""
 minimap_ui=""
 slots_mush=""
+popup=""
+settings_menu=""
 
 [input]
 
