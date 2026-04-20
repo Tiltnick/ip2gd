@@ -18,6 +18,9 @@ func _on_logout_pressed():
 	GameState.reset()
 	SceneManager.stop_current_scene()
 	
+	var settings = get_tree().get_first_node_in_group("settings_menu")
+	if settings:
+		settings.update_auth_buttons()
 
 	if settings_menu:
 		settings_menu._on_close_button_pressed()

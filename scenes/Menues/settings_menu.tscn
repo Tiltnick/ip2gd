@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://y5kct0mr503d"]
+[gd_scene load_steps=49 format=3 uid="uid://y5kct0mr503d"]
 
 [ext_resource type="Script" uid="uid://bxjsc3ungryxn" path="res://scripts/menu/settings/settings_menu.gd" id="1_dt6qk"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_ijo36"]
@@ -97,6 +97,22 @@ expand_margin_top = 35.0
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qhma1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u6bsc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3w0bn"]
+content_margin_left = 23.0
+content_margin_top = 5.0
+content_margin_right = 23.0
+content_margin_bottom = 5.0
+bg_color = Color(0.8, 0.32941177, 0.32941177, 0.14901961)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.5686275, 0.20392157, 0.20784314, 0.44705883)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghnlw"]
 draw_center = false
@@ -266,7 +282,7 @@ corner_radius_bottom_left = 62
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6icie"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
-layer = 6
+layer = 11
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -440,12 +456,14 @@ theme_override_colors/font_focus_color = Color(0.95686275, 0.7019608, 0.6862745,
 theme_override_colors/font_pressed_color = Color(0.8, 0.32941177, 0.32941177, 1)
 theme_override_colors/font_hover_color = Color(0.96566385, 0.7601023, 0.74633956, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.95686275, 0.7019608, 0.6862745, 1)
+theme_override_colors/font_disabled_color = Color(0.5686275, 0.20392157, 0.20784314, 0.44705883)
 theme_override_fonts/font = ExtResource("1_ijo36")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("10_b85bu")
 theme_override_styles/pressed = ExtResource("11_safip")
 theme_override_styles/hover = ExtResource("11_safip")
 theme_override_styles/hover_pressed = ExtResource("11_safip")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3w0bn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_u6bsc")
 text = "DELETE_ACCOUNT"
 

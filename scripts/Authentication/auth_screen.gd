@@ -66,9 +66,14 @@ func _on_login_pressed():
 		var has_save = await SaveSystem.load_game()
 
 		get_parent().update_resume_button(has_save)
+		
+		var settings = get_tree().get_first_node_in_group("settings_menu")
+		if settings:
+			settings.update_auth_buttons()
 		get_tree().paused = false
 		queue_free()
-		#visible = false
+		
+	
 		
 
 	else:
@@ -103,13 +108,30 @@ func _on_signup_pressed():
 	var result = await NakamaManager.register_email(email, password)
 
 	if result.success:
-		GameState.has_save = false
+		var has_save = await SaveSystem.load_game()
+
+		get_parent().update_resume_button(has_save)
+
+		var settings = get_tree().get_first_node_in_group("settings_menu")
+		if settings:
+			settings.update_auth_buttons()
+
 		get_tree().paused = false
 		queue_free()
-		#visible = false
-	else:
-		signup_error.text = result.error
-		signup_error.visible = true
+
+
+	#if result.success:
+		#GameState.has_save = false
+		#
+		#var settings = get_tree().get_first_node_in_group("settings_menu")
+		#if settings:
+			#settings.update_auth_buttons()
+		#get_tree().paused = false
+		#queue_free()
+		##visible = false
+	#else:
+		#signup_error.text = result.error
+		#signup_error.visible = true
 
 	signup_button.disabled = false
 
