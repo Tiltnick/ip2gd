@@ -29,6 +29,12 @@ func _ready():
 		
 	login_button.pressed.connect(_on_login_pressed)
 	signup_button.pressed.connect(_on_signup_pressed)
+	
+	login_email.text_submitted.connect(_on_login_enter)
+	login_password.text_submitted.connect(_on_login_enter)
+
+	signup_email.text_submitted.connect(_on_signup_enter)
+	signup_password.text_submitted.connect(_on_signup_enter)
 
 	login_error.visible = false
 	signup_error.visible = false
@@ -193,6 +199,12 @@ func _on_login_eye_button_pressed():
 func _on_signup_eye_button_pressed():
 	toggle_password_visibility(signup_password, signup_eye_button)
 
+
+func _on_login_enter(_text = ""):
+	_on_login_pressed()
+
+func _on_signup_enter(_text = ""):
+	_on_signup_pressed()
 
 
 func _map_error(error: String) -> String:
