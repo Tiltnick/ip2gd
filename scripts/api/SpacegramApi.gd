@@ -260,6 +260,59 @@ func create_comment(post_id: String, text: String):
 
 	if error != OK:
 		print("Request Fehler: ", error)
+		
+		
+func delete_my_account() -> Dictionary:
+	var url = BASE_URL + "/account/me"
+	var headers = _get_auth_headers()
+
+	if headers.is_empty():
+		return {
+			"success": false,
+			"error": "ERROR_NOT_LOGGED_IN"
+		}
+
+	
+	var request = HTTPRequest.new()
+	add_child(request)
+
+	var error = request.request(
+		url,
+		headers,
+		HTTPClient.METHOD_DELETE
+	)
+
+	if error != OK:
+		request.queue_free()
+		return {
+			"success": false,
+			"error": "ERROR_REQUEST_FAILED"
+		}
+
+	var result = await request.request_completed
+	var response_code = result[1]
+	var response_text = result[3].get_string_from_utf8()
+
+	request.queue_free() 
+
+	print("DELETE RESPONSE CODE: ", response_code)
+	print("DELETE RESPONSE TEXT: ", response_text)
+
+	var json = JSON.parse_string(response_text)
+
+	if response_code >= 200 and response_code < 300:
+		return {"success": true}
+
+	if json == null:
+		return {
+			"success": false,
+			"error": "ERROR_NO_JSON_RESPONSE"
+		}
+
+	return {
+	"success": false,
+	"error": json.get("error", "ERROR_UNKNOWN")
+	}
 
 func _on_request_completed(result, response_code, headers, body):
 	var response_text = body.get_string_from_utf8()

@@ -9,7 +9,8 @@ func close_menu():
 	get_tree().paused = false
 	GlobalMenuButton.show()
 	SettingsButton.show()
-	hotbarglobal.hotbar.show()
+	if is_instance_valid(hotbarglobal.hotbar):
+		hotbarglobal.hotbar.show()
 
 	# diary_menu komplett entfernen, damit es nicht "hängen bleibt"
 	queue_free()

@@ -149,6 +149,7 @@ panel_puzzle_ui=""
 minimap_ui=""
 slots_mush=""
 popup=""
+settings_menu=""
 
 [input]
 

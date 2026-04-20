@@ -38,6 +38,10 @@ func interact():
 	pass
 
 func _process(_delta):
+	var auth = get_tree().get_first_node_in_group("auth_screen")
+	if auth and auth.visible:
+		return
+	
 	if Input.is_action_just_pressed("interact"):
 		var allow := player_in_area
 

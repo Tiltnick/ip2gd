@@ -1,9 +1,9 @@
 extends Button
 
-const DIARY_MENU_SCENE: PackedScene = preload("res://scenes/Menues/GameMenu/diary_menu.tscn") # Pfad ggf. anpassen
+const DIARY_MENU_SCENE: PackedScene = preload("res://scenes/Menues/GameMenu/diary_menu.tscn")
 
 func _on_pressed() -> void:
-	get_tree().paused = true
+	#get_tree().paused = true
 	GlobalMenuButton.hide()
 	SettingsButton.hide()
 

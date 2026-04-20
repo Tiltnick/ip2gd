@@ -43,6 +43,10 @@ func is_on() -> bool:
 
 
 func _process(_delta: float) -> void:
+	var auth = get_tree().get_first_node_in_group("auth_screen")
+	if auth and auth.visible:
+		return
+	
 	if _locked:
 		return
 	if not _player_inside:

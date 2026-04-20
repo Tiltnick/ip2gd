@@ -10,22 +10,26 @@ class_name main_menu
 
 
 func _ready() -> void:
+	print("Logged in in main menu: ", NakamaManager.is_logged_in())
 	await _init_menu()
-	print("main_menu _ready: ", get_instance_id())
-	if not NakamaManager.is_logged_in():
-		auth_screen.visible = true
-	else:
-		auth_screen.visible = false
+	#print("main_menu _ready: ", get_instance_id())
+	#if not NakamaManager.is_logged_in():
+		#auth_screen.visible = true
+	#else:
+		#auth_screen.visible = false
 	
 	# Prüft ob es eine Save-Datei gibt -> Nein = button.disabled
 	if NakamaManager.is_logged_in():
 		var has_save = await SaveSystem.load_game()
 		resume_button.disabled = not has_save
 	else:
-		resume_button.disabled = true  # erstmal deaktivieren
+		#resume_button.disabled = true  # erstmal deaktivieren
+		return
 	BgmPlayer.bgm_main_menu()
 	play_click_sound()
 	
+func show_auth():
+	auth_screen.visible = true
 	
 func _init_menu() -> void:
 	print("main_menu _ready: ", get_instance_id())
@@ -33,14 +37,12 @@ func _init_menu() -> void:
 	if not NakamaManager.is_logged_in():
 		auth_screen.visible = true
 		resume_button.disabled = true
-	else:
-		auth_screen.visible = false
-		
-		var has_save = await SaveSystem.load_game()
-		resume_button.disabled = not has_save
+		return  
 
-	BgmPlayer.bgm_main_menu()
-	play_click_sound()
+	auth_screen.visible = false
+		
+	var has_save = await SaveSystem.load_game()
+	resume_button.disabled = not has_save
 	
 	#test für verbindung zu server 
 	#await NakamaManager.login_device()

@@ -79,7 +79,7 @@ ERROR_EMPTY_FIELDS,Please fill in all fields,Bitte alle Felder ausfüllen
 ERROR_USERNAME_TOO_SHORT,Username too short,Username ist zu kurz
 ACCOUNT,Account,Account
 DELETE_ACCOUNT,Delete Account, Account löschen
-LOGOUT,Logout,Ausloggen
+LOGOUT,Logout,Logout
 SAVE_CHANGES,Save Changes,Änderungen speichern
 USERNAME,Username,Benutzername
 EMAIL,Email,Email-Adresse

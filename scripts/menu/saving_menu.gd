@@ -139,4 +139,7 @@ func _on_exit_button_pressed() -> void:
 
 
 func _process(_delta: float) -> void:
+	var auth = get_tree().get_first_node_in_group("auth_screen")
+	if auth and auth.visible:
+		return
 	esc()

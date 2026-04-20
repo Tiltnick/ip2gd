@@ -11,10 +11,17 @@ func _open_exit_popup():
 		popup.open("Spiel verlassen?", func(): get_tree().quit())
 
 
+
 func _on_pressed() -> void:
-	var scene := get_tree().current_scene
-	
-	if scene and scene.name == "MainMenu":
+	if not GameState.is_in_game:
 		_open_exit_popup()
 	else:
 		SavingMenu.toggle_pause()
+
+#func _on_pressed() -> void:
+	#var scene := get_tree().current_scene
+	#
+	#if scene and scene.name == "MainMenu":
+		#_open_exit_popup()
+	#else:
+		#SavingMenu.toggle_pause()

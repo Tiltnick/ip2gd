@@ -25,6 +25,8 @@ var eye_closed = preload("res://assets/sprites/ui/hide (2).png")
 
 
 func _ready():
+	add_to_group("auth_screen")
+		
 	login_button.pressed.connect(_on_login_pressed)
 	signup_button.pressed.connect(_on_signup_pressed)
 
@@ -57,9 +59,10 @@ func _on_login_pressed():
 	if result.success:
 		var has_save = await SaveSystem.load_game()
 
-		get_parent().update_resume_button(has_save)  # HIER
-
-		visible = false
+		get_parent().update_resume_button(has_save)
+		get_tree().paused = false
+		queue_free()
+		#visible = false
 		
 
 	else:
@@ -95,7 +98,9 @@ func _on_signup_pressed():
 
 	if result.success:
 		GameState.has_save = false
-		visible = false
+		get_tree().paused = false
+		queue_free()
+		#visible = false
 	else:
 		signup_error.text = result.error
 		signup_error.visible = true
@@ -126,7 +131,7 @@ func validate_signup():
 	
 func validate_login():
 	var email = login_email.text
-	var password = login_password.text
+	var _password = login_password.text
 
 	if not email.is_empty() and not is_valid_email(email):
 		show_login_error("ERROR_INVALID_EMAIL")

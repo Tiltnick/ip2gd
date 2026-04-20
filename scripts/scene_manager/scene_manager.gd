@@ -11,6 +11,10 @@ func _ready() -> void:
 
 # Szenenwechsel: pfad zur szene, Spawnpoints
 func goto_scene(scene_path: String, spawn_id: String = "start") -> void:
+	GameState.is_in_game = true
+	if current_scene and current_scene.scene_file_path == scene_path:
+		return
+	
 	# Zielscene in Gamestate
 	GameState.current_area_path = scene_path
 
@@ -26,22 +30,35 @@ func goto_scene(scene_path: String, spawn_id: String = "start") -> void:
 	# Deferred laden steht so im docs
 	call_deferred("_deferred_goto_scene", scene_path)
 
-
 func goto_main_menu() -> void:
+	GameState.is_in_game = false
 	var root := get_tree().root
 
-	# Alte scene entfernen
-	if current_scene and is_instance_valid(current_scene):
-		current_scene.queue_free()
+	stop_current_scene()
 
-	# Neue scene laden laden
+	# neue Szene laden
 	var packed: PackedScene = load("res://scenes/Menues/main_menu.tscn")
 	var new_scene: Node = packed.instantiate()
 
-	# Scene als aktuelle setzen
 	root.add_child(new_scene)
 	get_tree().current_scene = new_scene
 	current_scene = new_scene
+
+#func goto_main_menu() -> void:
+	#var root := get_tree().root
+#
+	## Alte scene entfernen
+	#if current_scene and is_instance_valid(current_scene):
+		#current_scene.queue_free()
+#
+	## Neue scene laden laden
+	#var packed: PackedScene = load("res://scenes/Menues/main_menu.tscn")
+	#var new_scene: Node = packed.instantiate()
+#
+	## Scene als aktuelle setzen
+	#root.add_child(new_scene)
+	#get_tree().current_scene = new_scene
+	#current_scene = new_scene
 
 
 func _deferred_goto_scene(scene_path: String) -> void:
@@ -120,3 +137,9 @@ func _spawn_player_in_scene(new_scene: Node) -> void:
 	#if GameState.should_play_intro_dialog:
 		#GameState.should_play_intro_dialog = false
 		#DialogManager.start_dialog("res://dialog/innerMonologue/wakeup.json")
+
+
+func stop_current_scene():
+	if current_scene and is_instance_valid(current_scene):
+		current_scene.queue_free()
+		current_scene = null

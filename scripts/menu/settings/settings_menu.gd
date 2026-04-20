@@ -7,9 +7,6 @@ extends Control
 @onready var sound_menu: VBoxContainer = $VBoxContainer
 @onready var graphics: Button = $Panel/VBoxContainer/Graphics
 @onready var graphic_menu: HBoxContainer = $GraphicsContainer
-@onready var account_menu: GridContainer = $AccountContainer
-@onready var account: Button = $Panel/VBoxContainer/Account
-@onready var account_button_menu: HBoxContainer = $BottomBar
 
 
 
@@ -27,12 +24,9 @@ func _on_controls_pressed() -> void:
 	language_menu.hide()
 	sound_menu.hide()
 	graphic_menu.hide()
-	account_menu.hide()
-	account_button_menu.hide()
 	language.set_pressed_no_signal(false)
 	sound.set_pressed_no_signal(false)
 	graphics.set_pressed_no_signal(false)
-	account.set_pressed_no_signal(false)
 	SfxPlayer.ui_click_sound()
 
 func _on_language_pressed() -> void:
@@ -40,12 +34,9 @@ func _on_language_pressed() -> void:
 	control_menu.hide()
 	sound_menu.hide()
 	graphic_menu.hide()
-	account_menu.hide()
-	account_button_menu.hide()
 	controls.set_pressed_no_signal(false)
 	sound.set_pressed_no_signal(false)
 	graphics.set_pressed_no_signal(false)
-	account.set_pressed_no_signal(false)
 	SfxPlayer.ui_click_sound()
 	
 func _on_sound_pressed() -> void:
@@ -53,12 +44,9 @@ func _on_sound_pressed() -> void:
 	language_menu.hide()
 	control_menu.hide()
 	graphic_menu.hide()
-	account_menu.hide()
-	account_button_menu.hide()
 	controls.set_pressed_no_signal(false)
 	language.set_pressed_no_signal(false)
 	graphics.set_pressed_no_signal(false)
-	account.set_pressed_no_signal(false)
 	SfxPlayer.ui_click_sound()
 	
 func _on_graphics_pressed() -> void:
@@ -66,17 +54,12 @@ func _on_graphics_pressed() -> void:
 	sound_menu.hide()
 	language_menu.hide()
 	control_menu.hide()
-	account_menu.hide()
-	account_button_menu.hide()
 	controls.set_pressed_no_signal(false)
 	language.set_pressed_no_signal(false)
 	sound.set_pressed_no_signal(false)
-	account.set_pressed_no_signal(false)
 	SfxPlayer.ui_click_sound()
 
 func _on_account_pressed():
-	account_menu.show()
-	account_button_menu.show()
 	sound_menu.hide()
 	language_menu.hide()
 	control_menu.hide()
