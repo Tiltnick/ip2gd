@@ -1,0 +1,185 @@
+[gd_scene load_steps=10 format=3 uid="uid://wpaq0y40yr5d"]
+
+[ext_resource type="PackedScene" uid="uid://5fnaykvrlsv3" path="res://scenes/Spacegram/FeedView.tscn" id="1_dmebn"]
+[ext_resource type="Script" uid="uid://bbkud4o4lhkmi" path="res://scripts/Spacegram/spacegramm_app.gd" id="1_r03mq"]
+[ext_resource type="Texture2D" uid="uid://bnwchnpaguafk" path="res://assets/sprites/ui/image (4).png" id="3_io30k"]
+[ext_resource type="Texture2D" uid="uid://0t6jveqkp7e2" path="res://assets/sprites/ui/plus.png" id="4_icuhc"]
+[ext_resource type="Texture2D" uid="uid://cw72y0u06b1en" path="res://assets/sprites/portrait/selfie.png" id="6_icuhc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r03mq"]
+bg_color = Color(0, 0.043137256, 0.05882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_io30k"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1vcq"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8509804, 0.8156863, 0.654902, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icuhc"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="SpacegramApp" type="Control"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 450.0
+offset_bottom = -100.0
+grow_vertical = 2
+script = ExtResource("1_r03mq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.007843138, 0.043137256, 0.05882353, 1)
+
+[node name="TopBar" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 96.0
+grow_horizontal = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_r03mq")
+
+[node name="StoriesRow" type="HBoxContainer" parent="TopBar/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ContentContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.092
+anchor_right = 1.0
+anchor_bottom = 0.457
+offset_bottom = 515.58
+grow_horizontal = 2
+
+[node name="FeedView" parent="ContentContainer" instance=ExtResource("1_dmebn")]
+layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -66.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0, 0.043137256, 0.05882353, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -66.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="BottomNavBar" type="HBoxContainer" parent="ColorRect2/MarginContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Spacer4" type="Control" parent="ColorRect2/MarginContainer/BottomNavBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainerHome" type="PanelContainer" parent="ColorRect2/MarginContainer/BottomNavBar"]
+custom_minimum_size = Vector2(46, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_io30k")
+
+[node name="TextureButton" type="TextureButton" parent="ColorRect2/MarginContainer/BottomNavBar/PanelContainerHome"]
+layout_mode = 2
+texture_normal = ExtResource("3_io30k")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Spacer" type="Control" parent="ColorRect2/MarginContainer/BottomNavBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainerCamera" type="PanelContainer" parent="ColorRect2/MarginContainer/BottomNavBar"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r1vcq")
+
+[node name="Camera" type="TextureButton" parent="ColorRect2/MarginContainer/BottomNavBar/PanelContainerCamera"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture_normal = ExtResource("4_icuhc")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Spacer2" type="Control" parent="ColorRect2/MarginContainer/BottomNavBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainerProfile" type="PanelContainer" parent="ColorRect2/MarginContainer/BottomNavBar"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_icuhc")
+
+[node name="Profile" type="TextureButton" parent="ColorRect2/MarginContainer/BottomNavBar/PanelContainerProfile"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture_normal = ExtResource("6_icuhc")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Spacer3" type="Control" parent="ColorRect2/MarginContainer/BottomNavBar"]
+layout_mode = 2
+size_flags_horizontal = 3

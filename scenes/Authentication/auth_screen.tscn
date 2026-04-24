@@ -180,10 +180,9 @@ theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_n1lvw")
 theme_override_styles/tab_selected = ExtResource("5_hlrxc")
 theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_g7klc")
 tab_alignment = 1
-current_tab = 1
+current_tab = 0
 
 [node name="LOGIN" type="Control" parent="Root/WindowPanel/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -342,6 +341,7 @@ text = "ERROR"
 horizontal_alignment = 1
 
 [node name="SIGN_UP" type="Control" parent="Root/WindowPanel/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
