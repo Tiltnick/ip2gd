@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dwh08fo7hkusx" path="res://assets/sprites/ui/check.png" id="4_cr7l1"]
 [ext_resource type="Texture2D" uid="uid://dtxn7aoi3pj4c" path="res://assets/sprites/ui/heart (3).png" id="4_xrymq"]
 [ext_resource type="Texture2D" uid="uid://cu7i5mb6jko1i" path="res://assets/sprites/ui/comment (1) (5).png" id="5_cr7l1"]
-[ext_resource type="Texture2D" uid="uid://bfh1ed7njsk1k" path="res://assets/sprites/ui/add-friend_16.png" id="5_ld7ne"]
-[ext_resource type="Texture2D" uid="uid://dmettgqkrf7bu" path="res://assets/sprites/ui/heart (1).png" id="7_ld7ne"]
+[ext_resource type="Texture2D" uid="uid://bchlef1divytt" path="res://assets/sprites/ui/add-friend (1).png" id="5_ld7ne"]
+[ext_resource type="Texture2D" uid="uid://dydwoj2du1hrd" path="res://assets/sprites/ui/heart_30 (1).png" id="9_ld7ne"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ld7ne"]
 bg_color = Color(0, 0.043137256, 0.05882353, 1)
@@ -36,6 +36,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ld7ne")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -52,6 +54,7 @@ layout_mode = 2
 [node name="FrameProfileIcon" type="PanelContainer" parent="MarginContainer/VBoxContainer/Header"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_styles/panel = ExtResource("1_ld7ne")
 
 [node name="ProfileIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/Header/FrameProfileIcon"]
@@ -66,6 +69,7 @@ layout_mode = 2
 
 [node name="UsernameLabel" type="Label" parent="MarginContainer/VBoxContainer/Header"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.5529412, 0.83137256, 0.7529412, 1)
 theme_override_fonts/font = ExtResource("2_nbb0b")
 theme_override_font_sizes/font_size = 15
@@ -73,12 +77,13 @@ text = "USERNAME"
 vertical_alignment = 1
 
 [node name="Spacer3" type="Control" parent="MarginContainer/VBoxContainer/Header"]
-custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="FrameAddFriendIcon" type="PanelContainer" parent="MarginContainer/VBoxContainer/Header"]
-custom_minimum_size = Vector2(32, 0)
+custom_minimum_size = Vector2(36, 0)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_styles/panel = ExtResource("4_8ewi4")
 
 [node name="AddFriendButton" type="TextureButton" parent="MarginContainer/VBoxContainer/Header/FrameAddFriendIcon"]
@@ -89,6 +94,10 @@ texture_normal = ExtResource("5_ld7ne")
 texture_pressed = ExtResource("4_cr7l1")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="Spacer4" type="Control" parent="MarginContainer/VBoxContainer/Header"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
 
 [node name="ImageContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 clip_contents = true
@@ -113,7 +122,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture_normal = ExtResource("4_xrymq")
-texture_pressed = ExtResource("7_ld7ne")
+texture_pressed = ExtResource("9_ld7ne")
 ignore_texture_size = true
 stretch_mode = 5
 

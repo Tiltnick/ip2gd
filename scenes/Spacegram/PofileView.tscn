@@ -1,0 +1,241 @@
+[gd_scene load_steps=9 format=3 uid="uid://e3luha0ivwky"]
+
+[ext_resource type="Script" uid="uid://cygw8i4rmy1rs" path="res://scripts/Spacegram/pofile_view.gd" id="1_p75n0"]
+[ext_resource type="Texture2D" uid="uid://cw72y0u06b1en" path="res://assets/sprites/portrait/selfie.png" id="2_p75n0"]
+[ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="3_sf04u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lg3uv"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8509804, 0.8156863, 0.654902, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xv32f"]
+content_margin_left = 23.0
+content_margin_top = 5.0
+content_margin_right = 23.0
+content_margin_bottom = 5.0
+bg_color = Color(0.56078434, 0.90588236, 0.81960785, 0.24705882)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nm8bn"]
+content_margin_left = 23.0
+content_margin_top = 5.0
+content_margin_right = 23.0
+content_margin_bottom = 5.0
+bg_color = Color(0.189219, 0.44591796, 0.3882239, 0.24705882)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.16073242, 0.39123905, 0.34098548, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p75n0"]
+content_margin_left = 23.0
+content_margin_top = 5.0
+content_margin_right = 23.0
+content_margin_bottom = 5.0
+bg_color = Color(0.189219, 0.44591796, 0.3882239, 0.24705882)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.16073242, 0.39123905, 0.34098548, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sf04u"]
+
+[node name="PofileView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p75n0")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 16
+
+[node name="ProfileHeader" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="ProfileAndUsername" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader"]
+layout_mode = 2
+
+[node name="ProfileImageFrame" type="PanelContainer" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/ProfileAndUsername"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lg3uv")
+
+[node name="ProfileImage" type="TextureRect" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/ProfileAndUsername/ProfileImageFrame"]
+layout_mode = 2
+texture = ExtResource("2_p75n0")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="Username" type="Label" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/ProfileAndUsername"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 1)
+theme_override_fonts/font = ExtResource("3_sf04u")
+theme_override_font_sizes/font_size = 18
+text = "USERNAME"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Spacer2" type="Control" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterStatsAndButton" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader"]
+layout_mode = 2
+
+[node name="StatsContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton"]
+layout_mode = 2
+
+[node name="PostsStat" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton/StatsContainer"]
+layout_mode = 2
+
+[node name="NumberLabel" type="Label" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton/StatsContainer/PostsStat"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 1)
+theme_override_fonts/font = ExtResource("3_sf04u")
+theme_override_font_sizes/font_size = 40
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="TextLabel" type="Label" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton/StatsContainer/PostsStat"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 0.61960787)
+theme_override_fonts/font = ExtResource("3_sf04u")
+text = "Posts"
+
+[node name="Spacer2" type="Control" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton/StatsContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FriendStat" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton/StatsContainer"]
+layout_mode = 2
+
+[node name="NumberLabel" type="Label" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton/StatsContainer/FriendStat"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 1)
+theme_override_fonts/font = ExtResource("3_sf04u")
+theme_override_font_sizes/font_size = 40
+text = "30"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="TextLabel" type="Label" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton/StatsContainer/FriendStat"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 0.61960787)
+theme_override_fonts/font = ExtResource("3_sf04u")
+text = "Friends"
+
+[node name="Spacer3" type="Control" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton/StatsContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LevelStat" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton/StatsContainer"]
+layout_mode = 2
+
+[node name="NumberLabel" type="Label" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton/StatsContainer/LevelStat"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 1)
+theme_override_fonts/font = ExtResource("3_sf04u")
+theme_override_font_sizes/font_size = 40
+text = "3rd"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="TextLabel" type="Label" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton/StatsContainer/LevelStat"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 0.61960787)
+theme_override_fonts/font = ExtResource("3_sf04u")
+text = "Level"
+
+[node name="Spacer" type="Control" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="EditButtonCenter" type="CenterContainer" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton"]
+layout_mode = 2
+
+[node name="EditProfileButton" type="Button" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton/EditButtonCenter"]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.6862745, 0.8627451, 0.76862746, 1)
+theme_override_colors/font_focus_color = Color(0.6862745, 0.8627451, 0.76862746, 1)
+theme_override_colors/font_pressed_color = Color(0.2627451, 0.6117647, 0.5764706, 1)
+theme_override_colors/font_hover_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
+theme_override_colors/font_disabled_color = Color(0.21960784, 0.5019608, 0.4627451, 0.54509807)
+theme_override_fonts/font = ExtResource("3_sf04u")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_xv32f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nm8bn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p75n0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sf04u")
+text = "EDIT_PROFILE"
+
+[node name="Spacer3" type="Control" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PostGrid" type="GridContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 3
+theme_override_constants/v_separation = 3
+columns = 3
