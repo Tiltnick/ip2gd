@@ -83,3 +83,11 @@ LOGOUT,Logout,Logout
 SAVE_CHANGES,Save Changes,Änderungen speichern
 USERNAME,Username,Benutzername
 EMAIL,Email,Email-Adresse
+POSTS,Posts,Beiträge
+FRIENDS,Friends,Freunde
+LEVEL,Level,Level
+NUMBER_OF_POSTS,
+NUMBER_OF_FRIENDS
+NUMBER_OF_LEVEL
+EDIT_PROFILE,Edit profile,Profil bearbeiten
+COMMENT_TEXT,Comment text, Kommentartext

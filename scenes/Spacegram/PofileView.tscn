@@ -147,7 +147,6 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 1)
 theme_override_fonts/font = ExtResource("3_sf04u")
 theme_override_font_sizes/font_size = 40
-text = "6"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -155,7 +154,7 @@ vertical_alignment = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 0.61960787)
 theme_override_fonts/font = ExtResource("3_sf04u")
-text = "Posts"
+text = "POSTS"
 
 [node name="Spacer2" type="Control" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton/StatsContainer"]
 custom_minimum_size = Vector2(20, 0)
@@ -171,7 +170,6 @@ mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 1)
 theme_override_fonts/font = ExtResource("3_sf04u")
 theme_override_font_sizes/font_size = 40
-text = "30"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -179,7 +177,7 @@ vertical_alignment = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 0.61960787)
 theme_override_fonts/font = ExtResource("3_sf04u")
-text = "Friends"
+text = "FRIENDS"
 
 [node name="Spacer3" type="Control" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton/StatsContainer"]
 custom_minimum_size = Vector2(20, 0)
@@ -194,7 +192,6 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 1)
 theme_override_fonts/font = ExtResource("3_sf04u")
 theme_override_font_sizes/font_size = 40
-text = "3rd"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -202,7 +199,7 @@ vertical_alignment = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 0.61960787)
 theme_override_fonts/font = ExtResource("3_sf04u")
-text = "Level"
+text = "LEVEL"
 
 [node name="Spacer" type="Control" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton"]
 custom_minimum_size = Vector2(0, 10)

@@ -1,4 +1,14 @@
-[gd_scene format=3 uid="uid://5fnaykvrlsv3"]
+[gd_scene load_steps=3 format=3 uid="uid://5fnaykvrlsv3"]
+
+[ext_resource type="Script" uid="uid://dkeuwjwj65sip" path="res://scripts/Spacegram/feed_view.gd" id="1_5xybm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fky0"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+bg_color = Color(0, 0.043137256, 0.05882353, 1)
+border_width_bottom = 2
+border_color = Color(0.32156864, 0.53333336, 0.49803922, 1)
 
 [node name="FeedView" type="Control"]
 layout_mode = 3
@@ -7,18 +17,37 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5xybm")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TopBar" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_2fky0")
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="StoriesRow" type="HBoxContainer" parent="VBoxContainer/TopBar/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="PostsVBox" type="VBoxContainer" parent="ScrollContainer"]
+[node name="PostsVBox" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 16

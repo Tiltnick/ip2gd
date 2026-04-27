@@ -19,9 +19,11 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [node name="StoryItem" type="VBoxContainer"]
+offset_right = 43.0
+offset_bottom = 87.0
 
 [node name="IconFrame" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(40, 43)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ilaft")
@@ -34,6 +36,6 @@ stretch_mode = 5
 layout_mode = 2
 theme_override_colors/font_color = Color(0.2627451, 0.6117647, 0.5764706, 1)
 theme_override_fonts/font = ExtResource("2_2xg01")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 15
 text = "Account"
 horizontal_alignment = 1

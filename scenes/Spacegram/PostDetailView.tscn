@@ -1,0 +1,171 @@
+[gd_scene load_steps=12 format=3 uid="uid://cl8706cvdham4"]
+
+[ext_resource type="StyleBox" uid="uid://d2tiibavnxvsw" path="res://scenes/UI/StyleBoxes/FrameIconsSpacegramApp.tres" id="1_2c8us"]
+[ext_resource type="Texture2D" uid="uid://bimro8ojwlhv5" path="res://assets/sprites/portrait/oris.png" id="2_cp14p"]
+[ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="3_6d58d"]
+[ext_resource type="Texture2D" uid="uid://df8fqdo6fr8r3" path="res://assets/sprites/ui/image (15).png" id="4_d2dsb"]
+[ext_resource type="Texture2D" uid="uid://qpyr384203kn" path="res://assets/sprites/photos/Photo_Front.jpg" id="7_gs8ko"]
+[ext_resource type="Texture2D" uid="uid://dtxn7aoi3pj4c" path="res://assets/sprites/ui/heart (3).png" id="8_my1vi"]
+[ext_resource type="Texture2D" uid="uid://dydwoj2du1hrd" path="res://assets/sprites/ui/heart_30 (1).png" id="9_il8bt"]
+[ext_resource type="Texture2D" uid="uid://cu7i5mb6jko1i" path="res://assets/sprites/ui/comment (1) (5).png" id="10_xpsd4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8wwht"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.8, 0.32941177, 0.32941177, 0.21568628)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.64705884, 0.105882354, 0.105882354, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nc4c2"]
+bg_color = Color(0, 0.043137256, 0.05882353, 1)
+border_color = Color(0, 0.043137256, 0.05882353, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d2dsb"]
+content_margin_left = 14.0
+content_margin_right = 10.0
+content_margin_bottom = 30.0
+
+[node name="PostDetailView" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 350.0
+offset_bottom = 543.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="ScrollContainer/MarginContainer/VBoxContainer/Header"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="FrameProfileIcon" type="PanelContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/Header"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = ExtResource("1_2c8us")
+
+[node name="ProfileIcon" type="TextureButton" parent="ScrollContainer/MarginContainer/VBoxContainer/Header/FrameProfileIcon"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_cp14p")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Spacer" type="Control" parent="ScrollContainer/MarginContainer/VBoxContainer/Header"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="UsernameLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.5529412, 0.83137256, 0.7529412, 1)
+theme_override_fonts/font = ExtResource("3_6d58d")
+theme_override_font_sizes/font_size = 13
+text = "USERNAME"
+vertical_alignment = 1
+
+[node name="Spacer3" type="Control" parent="ScrollContainer/MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="FrameTrashcan" type="PanelContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/Header"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8wwht")
+
+[node name="TrashIcon" type="TextureButton" parent="ScrollContainer/MarginContainer/VBoxContainer/Header/FrameTrashcan"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_d2dsb")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Spacer4" type="Control" parent="ScrollContainer/MarginContainer/VBoxContainer/Header"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ImageContainer" type="PanelContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nc4c2")
+
+[node name="PostImage" type="TextureRect" parent="ScrollContainer/MarginContainer/VBoxContainer/ImageContainer"]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+texture = ExtResource("7_gs8ko")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="ActionsRow" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Space" type="Control" parent="ScrollContainer/MarginContainer/VBoxContainer/ActionsRow"]
+layout_mode = 2
+
+[node name="LikeButton" type="TextureButton" parent="ScrollContainer/MarginContainer/VBoxContainer/ActionsRow"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("8_my1vi")
+texture_pressed = ExtResource("9_il8bt")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="CommentButton" type="TextureButton" parent="ScrollContainer/MarginContainer/VBoxContainer/ActionsRow"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("10_xpsd4")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="CaptionLabel" type="RichTextLabel" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(350, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0.8509804, 0.8156863, 0.654902, 1)
+theme_override_fonts/normal_font = ExtResource("3_6d58d")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_d2dsb")
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. [color=#4fa9a7][font_size=12]2 Std[/font_size][/color]"
+fit_content = true
+scroll_active = false
