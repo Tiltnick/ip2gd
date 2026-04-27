@@ -11,6 +11,9 @@ func _ready():
 	
 	
 func _on_logout_pressed():
+	if GameState.is_in_game:
+		await SaveSystem.save_game()
+	
 	NakamaManager.logout()
 
 	get_tree().paused = false
