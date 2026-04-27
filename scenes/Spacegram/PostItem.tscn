@@ -1,13 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://c6ot5wsjybq0w"]
+[gd_scene load_steps=16 format=3 uid="uid://c6ot5wsjybq0w"]
 
 [ext_resource type="StyleBox" uid="uid://d2tiibavnxvsw" path="res://scenes/UI/StyleBoxes/FrameIconsSpacegramApp.tres" id="1_ld7ne"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_nbb0b"]
 [ext_resource type="Texture2D" uid="uid://bimro8ojwlhv5" path="res://assets/sprites/portrait/oris.png" id="2_nc4c2"]
-[ext_resource type="Texture2D" uid="uid://qpyr384203kn" path="res://assets/sprites/photos/Photo_Front.jpg" id="3_x8fgt"]
 [ext_resource type="Texture2D" uid="uid://dwh08fo7hkusx" path="res://assets/sprites/ui/check.png" id="4_cr7l1"]
 [ext_resource type="Texture2D" uid="uid://dtxn7aoi3pj4c" path="res://assets/sprites/ui/heart (3).png" id="4_xrymq"]
 [ext_resource type="Texture2D" uid="uid://cu7i5mb6jko1i" path="res://assets/sprites/ui/comment (1) (5).png" id="5_cr7l1"]
 [ext_resource type="Texture2D" uid="uid://bchlef1divytt" path="res://assets/sprites/ui/add-friend (1).png" id="5_ld7ne"]
+[ext_resource type="Shader" uid="uid://cvrh38clkj8l1" path="res://assets/shaders/RoundedCorner.gdshader" id="6_ld7ne"]
+[ext_resource type="Texture2D" uid="uid://cblqkmyh5dlqk" path="res://wiki/Sams_Cave2.png" id="7_ld7ne"]
 [ext_resource type="Texture2D" uid="uid://dydwoj2du1hrd" path="res://assets/sprites/ui/heart_30 (1).png" id="9_ld7ne"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ld7ne"]
@@ -40,6 +41,10 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nc4c2"]
+shader = ExtResource("6_ld7ne")
+shader_parameter/corner_radius = 60.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ewi4"]
 content_margin_left = 14.0
@@ -124,9 +129,10 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nc4c2")
 
 [node name="PostImage" type="TextureRect" parent="MarginContainer/VBoxContainer/ImageContainer"]
+material = SubResource("ShaderMaterial_nc4c2")
 custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
-texture = ExtResource("3_x8fgt")
+texture = ExtResource("7_ld7ne")
 expand_mode = 5
 stretch_mode = 6
 

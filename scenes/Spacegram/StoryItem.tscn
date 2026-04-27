@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cth2lt82idvje"]
+[gd_scene load_steps=6 format=3 uid="uid://cth2lt82idvje"]
 
+[ext_resource type="Shader" uid="uid://cvrh38clkj8l1" path="res://assets/shaders/RoundedCorner.gdshader" id="1_v3o1l"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_2xg01"]
+[ext_resource type="Texture2D" uid="uid://bp3f18ierwohg" path="res://wiki/porcini_spritesheet.png" id="2_6hwmr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ilaft"]
 content_margin_left = 3.0
@@ -18,6 +20,10 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pa3hw"]
+shader = ExtResource("1_v3o1l")
+shader_parameter/corner_radius = 120.0
+
 [node name="StoryItem" type="VBoxContainer"]
 offset_right = 43.0
 offset_bottom = 87.0
@@ -29,7 +35,10 @@ mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ilaft")
 
 [node name="Icon" type="TextureRect" parent="IconFrame"]
+material = SubResource("ShaderMaterial_pa3hw")
 layout_mode = 2
+texture = ExtResource("2_6hwmr")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="."]

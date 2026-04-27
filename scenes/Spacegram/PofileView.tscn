@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://e3luha0ivwky"]
+[gd_scene load_steps=11 format=3 uid="uid://e3luha0ivwky"]
 
 [ext_resource type="Script" uid="uid://cygw8i4rmy1rs" path="res://scripts/Spacegram/pofile_view.gd" id="1_p75n0"]
+[ext_resource type="Shader" uid="uid://cvrh38clkj8l1" path="res://assets/shaders/RoundedCorner.gdshader" id="2_nm8bn"]
 [ext_resource type="Texture2D" uid="uid://cw72y0u06b1en" path="res://assets/sprites/portrait/selfie.png" id="2_p75n0"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="3_sf04u"]
 
@@ -15,10 +16,14 @@ border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0.8509804, 0.8156863, 0.654902, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lg3uv"]
+shader = ExtResource("2_nm8bn")
+shader_parameter/corner_radius = 180.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xv32f"]
 content_margin_left = 23.0
@@ -114,6 +119,7 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lg3uv")
 
 [node name="ProfileImage" type="TextureRect" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/ProfileAndUsername/ProfileImageFrame"]
+material = SubResource("ShaderMaterial_lg3uv")
 layout_mode = 2
 texture = ExtResource("2_p75n0")
 expand_mode = 5

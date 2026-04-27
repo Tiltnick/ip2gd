@@ -1,0 +1,242 @@
+[gd_scene load_steps=15 format=3 uid="uid://t28btp84gnq4"]
+
+[ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="1_vhteb"]
+[ext_resource type="Texture2D" uid="uid://cw72y0u06b1en" path="res://assets/sprites/portrait/selfie.png" id="3_vhteb"]
+[ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="4_cyjrn"]
+[ext_resource type="StyleBox" uid="uid://do0sdephk4163" path="res://scenes/UI/StyleBoxes/yellowButtonPressedHover.tres" id="4_ikjru"]
+[ext_resource type="StyleBox" uid="uid://i5fwn28odglg" path="res://scenes/UI/StyleBoxes/ButtonBeige.tres" id="4_v7svq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2o05m"]
+bg_color = Color(0.007843138, 0.043137256, 0.05882353, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2vu3"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plnpv"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4n8y4"]
+bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fbep3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7svq"]
+bg_color = Color(0, 0, 0, 0)
+border_width_top = 1
+border_color = Color(0.21176471, 0.36078432, 0.34509805, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cyjrn"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8509804, 0.8156863, 0.654902, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbep3"]
+content_margin_left = 23.0
+content_margin_top = 5.0
+content_margin_right = 23.0
+content_margin_bottom = 5.0
+bg_color = Color(0.007843138, 0.043137256, 0.05882353, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.21176471, 0.36078432, 0.34509805, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_88rog"]
+
+[node name="CommentsOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DimBackground" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.54509807)
+
+[node name="Panel" type="PanelContainer" parent="DimBackground"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -548.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2o05m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DimBackground/Panel"]
+layout_mode = 2
+
+[node name="MarginContainerHeader" type="MarginContainer" parent="DimBackground/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_top = 11
+theme_override_constants/margin_right = 9
+theme_override_constants/margin_bottom = 9
+
+[node name="Header" type="HBoxContainer" parent="DimBackground/Panel/VBoxContainer/MarginContainerHeader"]
+layout_mode = 2
+alignment = 1
+
+[node name="Spacer2" type="Control" parent="DimBackground/Panel/VBoxContainer/MarginContainerHeader/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TitleLabel" type="Label" parent="DimBackground/Panel/VBoxContainer/MarginContainerHeader/Header"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5529412, 0.83137256, 0.7529412, 1)
+theme_override_fonts/font = ExtResource("4_cyjrn")
+theme_override_font_sizes/font_size = 24
+text = "COMMENTS"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="DimBackground/Panel/VBoxContainer/MarginContainerHeader/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainerClose" type="MarginContainer" parent="DimBackground/Panel/VBoxContainer/MarginContainerHeader/Header"]
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 11
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 15
+
+[node name="CloseButton" type="Button" parent="DimBackground/Panel/VBoxContainer/MarginContainerHeader/Header/MarginContainerClose"]
+process_mode = 3
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_q2vu3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_plnpv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4n8y4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fbep3")
+icon = ExtResource("1_vhteb")
+icon_alignment = 1
+expand_icon = true
+
+[node name="CommentsScroll" type="ScrollContainer" parent="DimBackground/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CommentsVBox" type="VBoxContainer" parent="DimBackground/Panel/VBoxContainer/CommentsScroll"]
+layout_mode = 2
+
+[node name="InputRowContainer" type="PanelContainer" parent="DimBackground/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v7svq")
+
+[node name="Spacer" type="Control" parent="DimBackground/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="InputRow" type="HBoxContainer" parent="DimBackground/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="DimBackground/Panel/VBoxContainer/InputRow"]
+layout_mode = 2
+
+[node name="FrameProfileIcon" type="PanelContainer" parent="DimBackground/Panel/VBoxContainer/InputRow"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cyjrn")
+
+[node name="ProfileIcon" type="TextureButton" parent="DimBackground/Panel/VBoxContainer/InputRow/FrameProfileIcon"]
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_vhteb")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="LineEdit" type="LineEdit" parent="DimBackground/Panel/VBoxContainer/InputRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.32156864, 0.53333336, 0.49803922, 1)
+theme_override_colors/font_placeholder_color = Color(0.18039216, 0.3137255, 0.3019608, 1)
+theme_override_fonts/font = ExtResource("4_cyjrn")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_fbep3")
+placeholder_text = "Add Comment"
+
+[node name="MarginContainer" type="MarginContainer" parent="DimBackground/Panel/VBoxContainer/InputRow"]
+custom_minimum_size = Vector2(55, 25)
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PostButton" type="Button" parent="DimBackground/Panel/VBoxContainer/InputRow/MarginContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 1)
+theme_override_colors/font_focus_color = Color(0.8509804, 0.8156863, 0.654902, 1)
+theme_override_colors/font_pressed_color = Color(0.7547375, 0.71159786, 0.5177784, 1)
+theme_override_colors/font_hover_color = Color(0.94305104, 0.9278334, 0.8558184, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.9411765, 0.92941177, 0.85490197, 1)
+theme_override_colors/font_disabled_color = Color(0.8509804, 0.8156863, 0.654902, 0.4392157)
+theme_override_fonts/font = ExtResource("4_cyjrn")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = ExtResource("4_v7svq")
+theme_override_styles/pressed = ExtResource("4_ikjru")
+theme_override_styles/hover = ExtResource("4_ikjru")
+theme_override_styles/hover_pressed = ExtResource("4_ikjru")
+theme_override_styles/disabled = ExtResource("4_ikjru")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_88rog")
+text = "POST"
