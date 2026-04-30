@@ -113,6 +113,7 @@ visible = false
 layout_mode = 2
 
 [node name="CommentsOverlay" parent="ContentContainer" instance=ExtResource("4_rmbrc")]
+visible = false
 layout_mode = 2
 
 [node name="ColorRect2" type="PanelContainer" parent="."]

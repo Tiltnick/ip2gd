@@ -1,14 +1,29 @@
 extends PanelContainer
 
-@onready var stories_row = $TopBar/ScrollContainer/StoriesRow
-@onready var feed_view = $ContentContainer/FeedView
-@onready var profile_view = $ContentContainer/ProfileView
-@onready var top_bar = $TopBar
+@onready var post_image = $MarginContainer/VBoxContainer/ImageContainer/PostImage
+@onready var caption_label = $MarginContainer/VBoxContainer/CaptionLabel
+@onready var like_button = $MarginContainer/VBoxContainer/ActionsRow/LikeButton
+@onready var comment_button = $MarginContainer/VBoxContainer/ActionsRow/CommentButton
 
-func show_profile():
-	feed_view.visible = false
-	profile_view.visible = true
-	top_bar.visible = false
+var comments_overlay
 
-func _on_profile_button_pressed():
-	show_profile()
+var is_liked := false
+
+var heart_empty = preload("res://assets/sprites/ui/heart (3) (1).png")
+var heart_filled = preload("res://assets/sprites/ui/heart (1) (1).png")
+
+
+func _ready():
+	comment_button.pressed.connect(_on_comment_pressed)
+	like_button.pressed.connect(_on_like_pressed)
+
+func setup_post(image: Texture2D, caption: String):
+	post_image.texture = image
+	caption_label.text = caption
+	
+func _on_like_pressed():
+	is_liked = !is_liked
+	like_button.texture_normal = heart_filled if is_liked else heart_empty
+	
+func _on_comment_pressed():
+	comments_overlay.visible = true

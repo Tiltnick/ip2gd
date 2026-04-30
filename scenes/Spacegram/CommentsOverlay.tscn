@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://t28btp84gnq4"]
+[gd_scene load_steps=21 format=3 uid="uid://t28btp84gnq4"]
 
 [ext_resource type="Script" uid="uid://b3ci4a0rtn3te" path="res://scripts/Spacegram/comments_overlay.gd" id="1_cyjrn"]
 [ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="1_vhteb"]
 [ext_resource type="Texture2D" uid="uid://cw72y0u06b1en" path="res://assets/sprites/portrait/selfie.png" id="3_vhteb"]
+[ext_resource type="Shader" uid="uid://cvrh38clkj8l1" path="res://assets/shaders/RoundedCorner.gdshader" id="4_2o05m"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="4_cyjrn"]
 [ext_resource type="StyleBox" uid="uid://i5fwn28odglg" path="res://scenes/UI/StyleBoxes/ButtonBeige.tres" id="4_v7svq"]
 [ext_resource type="StyleBox" uid="uid://cl7caq7s2x3om" path="res://scenes/UI/StyleBoxes/ButtonBeigePressed.tres" id="5_ikjru"]
@@ -72,21 +73,25 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q2vu3"]
+shader = ExtResource("4_2o05m")
+shader_parameter/corner_radius = 120.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbep3"]
 content_margin_left = 23.0
 content_margin_top = 5.0
 content_margin_right = 23.0
 content_margin_bottom = 5.0
 bg_color = Color(0.007843138, 0.043137256, 0.05882353, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 border_color = Color(0.21176471, 0.36078432, 0.34509805, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ikjru"]
 
@@ -204,58 +209,63 @@ size_flags_vertical = 3
 
 [node name="CommentsVBox" type="VBoxContainer" parent="MarginContainerPanel/Panel/VBoxContainer/CommentsScroll"]
 layout_mode = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 20
 
 [node name="InputRowContainer" type="PanelContainer" parent="MarginContainerPanel/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_v7svq")
 
-[node name="Spacer" type="Control" parent="MarginContainerPanel/Panel/VBoxContainer"]
-layout_mode = 2
-
 [node name="InputRow" type="HBoxContainer" parent="MarginContainerPanel/Panel/VBoxContainer"]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainerPanel/Panel/VBoxContainer/InputRow"]
+[node name="Spacer" type="Control" parent="MarginContainerPanel/Panel/VBoxContainer/InputRow"]
 layout_mode = 2
 
 [node name="FrameProfileIcon" type="PanelContainer" parent="MarginContainerPanel/Panel/VBoxContainer/InputRow"]
-custom_minimum_size = Vector2(25, 25)
+custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
+size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cyjrn")
 
 [node name="ProfileIcon" type="TextureButton" parent="MarginContainerPanel/Panel/VBoxContainer/InputRow/FrameProfileIcon"]
-custom_minimum_size = Vector2(42, 0)
+material = SubResource("ShaderMaterial_q2vu3")
+custom_minimum_size = Vector2(22, 0)
 layout_mode = 2
 texture_normal = ExtResource("3_vhteb")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="LineEdit" type="TextEdit" parent="MarginContainerPanel/Panel/VBoxContainer/InputRow"]
+[node name="Spacer2" type="Control" parent="MarginContainerPanel/Panel/VBoxContainer/InputRow"]
+layout_mode = 2
+
+[node name="TextEdit" type="TextEdit" parent="MarginContainerPanel/Panel/VBoxContainer/InputRow"]
+custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 theme_override_colors/font_color = Color(0.32156864, 0.53333336, 0.49803922, 1)
 theme_override_colors/font_placeholder_color = Color(0.18039216, 0.3137255, 0.3019608, 1)
 theme_override_constants/caret_width = 1
 theme_override_constants/line_spacing = 0
 theme_override_fonts/font = ExtResource("4_cyjrn")
-theme_override_font_sizes/font_size = 19
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_fbep3")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ikjru")
-placeholder_text = "Add Comment"
+placeholder_text = "ADD_COMMENT"
 wrap_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainerPanel/Panel/VBoxContainer/InputRow"]
 custom_minimum_size = Vector2(55, 25)
 layout_mode = 2
-theme_override_constants/margin_left = 10
+theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="PostButton" type="Button" parent="MarginContainerPanel/Panel/VBoxContainer/InputRow/MarginContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 1)
 theme_override_colors/font_focus_color = Color(0.8509804, 0.8156863, 0.654902, 1)
@@ -272,3 +282,5 @@ theme_override_styles/hover_pressed = ExtResource("5_ikjru")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_88rog")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_88rog")
 text = "POST"
+
+[connection signal="pressed" from="MarginContainerPanel/Panel/VBoxContainer/MarginContainerHeader/Header/MarginContainerClose/CloseButton" to="." method="_on_close_pressed"]

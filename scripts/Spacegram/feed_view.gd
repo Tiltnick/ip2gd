@@ -2,6 +2,7 @@ extends Control
 
 @onready var stories_row = $VBoxContainer/TopBar/ScrollContainer/StoriesRow
 @onready var posts_vbox = $VBoxContainer/ScrollContainer/PostsVBox
+@onready var comments_overlay = $"../../ContentContainer/CommentsOverlay"
 
 
 func _ready():
@@ -20,3 +21,4 @@ func _spawn_dummy_posts():
 		var post = preload("res://scenes/Spacegram/PostItem.tscn").instantiate()
 		
 		posts_vbox.add_child(post)
+		post.comments_overlay = comments_overlay

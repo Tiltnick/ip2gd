@@ -86,6 +86,9 @@ EMAIL,Email,Email-Adresse
 POSTS,Posts,Beiträge
 FRIENDS,Friends,Freunde
 LEVEL,Level,Level
-
+POST,Post,Posten
 EDIT_PROFILE,Edit profile,Profil bearbeiten
 COMMENT_TEXT,Comment text, Kommentartext
+ADD_COMMENT,Add comment,Kommentar schreiben
+ANSWER,Answer,Antworten
+SHOW_REPLIES,Show replies,Antworten anzeigen
