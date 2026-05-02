@@ -6,16 +6,13 @@ extends PanelContainer
 @onready var comment_button = $MarginContainer/VBoxContainer/ActionsRow/CommentButton
 
 var comments_overlay
+var bottom_nav
 
 var is_liked := false
 
 var heart_empty = preload("res://assets/sprites/ui/heart (3) (1).png")
 var heart_filled = preload("res://assets/sprites/ui/heart (1) (1).png")
 
-
-func _ready():
-	comment_button.pressed.connect(_on_comment_pressed)
-	like_button.pressed.connect(_on_like_pressed)
 
 func setup_post(image: Texture2D, caption: String):
 	post_image.texture = image
@@ -27,3 +24,4 @@ func _on_like_pressed():
 	
 func _on_comment_pressed():
 	comments_overlay.visible = true
+	bottom_nav.visible = false

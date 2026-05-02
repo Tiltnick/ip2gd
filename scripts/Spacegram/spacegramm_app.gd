@@ -2,10 +2,14 @@ extends Control
 
 @onready var feed_view = $ContentContainer/FeedView
 @onready var profile_view = $ContentContainer/ProfileView
+@onready var comments_overlay = $ContentContainer/CommentsOverlay
+@onready var bottom_nav = $ColorRect2
 
 
 func _ready():
 	show_feed()
+	feed_view.setup_dependencies(comments_overlay, bottom_nav)
+	comments_overlay.bottom_nav = bottom_nav
 
 
 func show_feed():

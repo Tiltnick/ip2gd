@@ -2,12 +2,13 @@ extends Control
 
 @onready var stories_row = $VBoxContainer/TopBar/ScrollContainer/StoriesRow
 @onready var posts_vbox = $VBoxContainer/ScrollContainer/PostsVBox
-@onready var comments_overlay = $"../../ContentContainer/CommentsOverlay"
+
+var comments_overlay
+var bottom_nav
 
 
 func _ready():
 	_spawn_dummy_stories()
-	_spawn_dummy_posts()
 
 
 func _spawn_dummy_stories():
@@ -22,3 +23,10 @@ func _spawn_dummy_posts():
 		
 		posts_vbox.add_child(post)
 		post.comments_overlay = comments_overlay
+		post.bottom_nav = bottom_nav
+
+func setup_dependencies(overlay, nav):
+	comments_overlay = overlay
+	bottom_nav = nav
+	
+	_spawn_dummy_posts()

@@ -3,10 +3,11 @@ extends Control
 @onready var comments_vbox = $MarginContainerPanel/Panel/VBoxContainer/CommentsScroll/CommentsVBox
 @onready var close_button = $MarginContainerPanel/Panel/VBoxContainer/MarginContainerHeader/Header/MarginContainerClose/CloseButton
 
+var bottom_nav
 
 func _ready():
 	visible = false
-	close_button.pressed.connect(_on_close_pressed)
+	
 	
 	_spawn_dummy_comments()
 	
@@ -24,3 +25,4 @@ func _spawn_dummy_comments():
 
 func _on_close_pressed():
 	visible = false
+	bottom_nav.visible = true
