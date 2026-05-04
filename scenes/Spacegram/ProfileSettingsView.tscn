@@ -1,0 +1,291 @@
+[gd_scene load_steps=20 format=3 uid="uid://dale7drtfbyum"]
+
+[ext_resource type="Script" uid="uid://byym8vi3ihdth" path="res://scripts/Spacegram/profile_settings_view.gd" id="1_e6x4u"]
+[ext_resource type="Shader" uid="uid://cvrh38clkj8l1" path="res://assets/shaders/RoundedCorner.gdshader" id="1_fedhp"]
+[ext_resource type="StyleBox" uid="uid://mhfykxq65u88" path="res://scenes/UI/StyleBoxes/yellowButton.tres" id="2_20y6l"]
+[ext_resource type="Texture2D" uid="uid://cw72y0u06b1en" path="res://assets/sprites/portrait/selfie.png" id="2_anj06"]
+[ext_resource type="StyleBox" uid="uid://beqon246yaqxh" path="res://scenes/UI/StyleBoxes/redButtonPressedHover.tres" id="3_20y6l"]
+[ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="3_anj06"]
+[ext_resource type="StyleBox" uid="uid://do0sdephk4163" path="res://scenes/UI/StyleBoxes/yellowButtonPressedHover.tres" id="3_gguiy"]
+[ext_resource type="StyleBox" uid="uid://bgrgvtajrt5lv" path="res://scenes/UI/StyleBoxes/buttonBlue.tres" id="4_gguiy"]
+[ext_resource type="StyleBox" uid="uid://2dcjn1523slx" path="res://scenes/UI/StyleBoxes/buttonBluePressedHover.tres" id="5_b1c3x"]
+[ext_resource type="Texture2D" uid="uid://cs2dbuc2r535j" path="res://assets/sprites/ui/pen (1).png" id="9_gguiy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6x4u"]
+content_margin_left = 23.0
+content_margin_top = 5.0
+content_margin_right = 23.0
+content_margin_bottom = 5.0
+bg_color = Color(0.8, 0.32941177, 0.32941177, 0.14901961)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.5686275, 0.20392157, 0.20784314, 0.44705883)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_inp4v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lb6hb"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8509804, 0.8156863, 0.654902, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xcq2g"]
+shader = ExtResource("1_fedhp")
+shader_parameter/corner_radius = 180.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_soh5a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jxbxr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcq2g"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.15686275, 0.3647059, 0.34509805, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20y6l"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gguiy"]
+
+[node name="ProfileSettingsView" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e6x4u")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 18
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="TopSection" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonsRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TopSection"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/TopSection/ButtonsRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TopSection/ButtonsRow"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="SavingChangesButton" type="Button" parent="MarginContainer/VBoxContainer/TopSection/ButtonsRow/ButtonsVBox"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 1)
+theme_override_colors/font_focus_color = Color(0.8509804, 0.8156863, 0.654902, 1)
+theme_override_colors/font_pressed_color = Color(0.6934052, 0.64930815, 0.45187712, 1)
+theme_override_colors/font_hover_color = Color(0.89540255, 0.8682688, 0.7428672, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.89411765, 0.8666667, 0.7411765, 1)
+theme_override_colors/font_disabled_color = Color(0.8509804, 0.8156863, 0.654902, 0.49411765)
+theme_override_fonts/font = ExtResource("3_anj06")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = ExtResource("2_20y6l")
+theme_override_styles/pressed = ExtResource("3_gguiy")
+theme_override_styles/hover = ExtResource("3_20y6l")
+theme_override_styles/hover_pressed = ExtResource("3_gguiy")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_e6x4u")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_inp4v")
+text = "SAVE_CHANGES"
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/TopSection/ButtonsRow/ButtonsVBox"]
+layout_mode = 2
+
+[node name="ExitWithoutSavingButton" type="Button" parent="MarginContainer/VBoxContainer/TopSection/ButtonsRow/ButtonsVBox"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.6862745, 0.8627451, 0.76862746, 1)
+theme_override_colors/font_focus_color = Color(0.6862745, 0.8627451, 0.76862746, 1)
+theme_override_colors/font_pressed_color = Color(0.2627451, 0.6117647, 0.5764706, 1)
+theme_override_colors/font_hover_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
+theme_override_colors/font_disabled_color = Color(0.21960784, 0.5019608, 0.4627451, 0.54509807)
+theme_override_fonts/font = ExtResource("3_anj06")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = ExtResource("4_gguiy")
+theme_override_styles/pressed = ExtResource("5_b1c3x")
+theme_override_styles/hover = ExtResource("5_b1c3x")
+theme_override_styles/hover_pressed = ExtResource("5_b1c3x")
+theme_override_styles/disabled = ExtResource("5_b1c3x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_inp4v")
+text = "EXIT_WITHOUT_SAVING"
+
+[node name="ProfileImageCenter" type="CenterContainer" parent="MarginContainer/VBoxContainer/TopSection"]
+layout_mode = 2
+
+[node name="ProfileImageWrapper" type="Control" parent="MarginContainer/VBoxContainer/TopSection/ProfileImageCenter"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="ProfileImageFrame" type="PanelContainer" parent="MarginContainer/VBoxContainer/TopSection/ProfileImageCenter/ProfileImageWrapper"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lb6hb")
+
+[node name="ProfileImage" type="TextureRect" parent="MarginContainer/VBoxContainer/TopSection/ProfileImageCenter/ProfileImageWrapper/ProfileImageFrame"]
+material = SubResource("ShaderMaterial_xcq2g")
+layout_mode = 2
+texture = ExtResource("2_anj06")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="EditIconButton" type="TextureButton" parent="MarginContainer/VBoxContainer/TopSection/ProfileImageCenter/ProfileImageWrapper"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("9_gguiy")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/TopSection"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="ChoosePictureLabel" type="Label" parent="MarginContainer/VBoxContainer/TopSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.13333334, 0.31764707, 0.3019608, 1)
+theme_override_fonts/font = ExtResource("3_anj06")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_soh5a")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jxbxr")
+text = "CHOOSE_A_PROFILE_PICTURE:"
+
+[node name="AvatarGrid" type="GridContainer" parent="MarginContainer/VBoxContainer/TopSection"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 2
+columns = 6
+
+[node name="Separator" type="ColorRect" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.2509804, 0.4509804, 0.40392157, 1)
+
+[node name="FormSection" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="UsernameField" type="PanelContainer" parent="MarginContainer/VBoxContainer/FormSection"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xcq2g")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/FormSection/UsernameField"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/FormSection/UsernameField/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="FieldLabel" type="Label" parent="MarginContainer/VBoxContainer/FormSection/UsernameField/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.13333334, 0.31764707, 0.3019608, 1)
+theme_override_fonts/font = ExtResource("3_anj06")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_soh5a")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jxbxr")
+text = "USERNAME"
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/FormSection/UsernameField/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_placeholder_color = Color(0.84313726, 0.8156863, 0.67058825, 0.5294118)
+theme_override_fonts/font = ExtResource("3_anj06")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_20y6l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gguiy")
+placeholder_text = "USERNAME"
+
+[node name="BioField" type="PanelContainer" parent="MarginContainer/VBoxContainer/FormSection"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xcq2g")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/FormSection/BioField"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/FormSection/BioField/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="FieldLabel" type="Label" parent="MarginContainer/VBoxContainer/FormSection/BioField/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.13333334, 0.31764707, 0.3019608, 1)
+theme_override_fonts/font = ExtResource("3_anj06")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_soh5a")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jxbxr")
+text = "BIO"
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/FormSection/BioField/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
+theme_override_colors/font_placeholder_color = Color(0.84313726, 0.8156863, 0.67058825, 0.5294118)
+theme_override_fonts/font = ExtResource("3_anj06")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_20y6l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gguiy")
+placeholder_text = "TELL_US_MORE_ABOUT_YOURSELF"
