@@ -25,14 +25,14 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import numpy as np
 
-# ── Kurznamen für Szenen-Labels ───────────────────────────────────────────────
+# Szenen Labels
 SCENE_LABELS = {
     "res://scenes/maps/spaceship.tscn":              "Raumschiff",
     "res://scenes/maps/spaceship_room.tscn":         "Raumschiff-Raum",
-    "res://scenes/maps/outside_1.tscn":              "Draußen 1",
-    "res://scenes/maps/Outside_2/outside_2.tscn":    "Draußen 2",
-    "res://scenes/maps/Outside_3/Outside_3.tscn":    "Draußen 3",
-    "res://scenes/maps/Outside_4/Outside_4.tscn":    "Draußen 4",
+    "res://scenes/maps/outside_1.tscn":              "Outside 1",
+    "res://scenes/maps/Outside_2/outside_2.tscn":    "Outside 2",
+    "res://scenes/maps/Outside_3/Outside_3.tscn":    "Outside 3",
+    "res://scenes/maps/Outside_4/Outside_4.tscn":    "Outside 4",
     "res://scenes/maps/Outside_4/temple.tscn":       "Tempel",
     "res://scenes/maps/Outside_2/sams_cave.tscn":    "Sams Höhle",
     "res://scenes/Menues/main_menu.tscn":            "Hauptmenü",
@@ -42,7 +42,7 @@ def scene_label(scene):
     return SCENE_LABELS.get(scene, os.path.basename(scene).replace(".tscn", ""))
 
 
-# ── Laden ─────────────────────────────────────────────────────────────────────
+# Laden
 
 def load_events(path):
     """Lädt alle Zeilen aus einer JSONL-Datei (movement + events)."""
@@ -76,7 +76,7 @@ def load_all(input_path):
     return all_rows
 
 
-# ── Metriken berechnen ────────────────────────────────────────────────────────
+# Metriken berechnen
 
 def compute_session_metrics(all_rows):
     """
