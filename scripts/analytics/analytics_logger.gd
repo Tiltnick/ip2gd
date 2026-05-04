@@ -244,7 +244,7 @@ func _build_semantic_snapshot() -> Dictionary:
 		or hotbarglobal.has_item("shovel")
 	)
 
-	# ── Rätsel (Puzzles) ─────────────────────────────────────────────────────
+	# Rätsel (Puzzle)
 	var stone_puzzle_solved: bool = bool(GameState.puzzle_state.get("stone_puzzle", false))
 	var color_code_solved: bool = bool(GameState.puzzle_state.get("color_code_2151", false))
 	var statue_puzzle_solved: bool = bool(GameState.puzzle_state.get("statue_puzzle", false))
@@ -252,11 +252,11 @@ func _build_semantic_snapshot() -> Dictionary:
 	var all_tripods_interacted: bool = bool(GameState.puzzle_state.get("all_tripods_interacted", false))
 	var treasure_chest_solved: bool = bool(GameState.puzzle_state.get("treasure_chest_code", false))
 
-	# ── Mr. Blob Dialog-Stufe ────────────────────────────────────────────────
+	# Mr. Blob Dialogstufe
 	# Jede Stufe entspricht einem abgeschlossenen Dialog-Schritt.
 	var mr_blob_dialog_stage := _compute_blob_dialog_stage()
 
-	# ── Quests ───────────────────────────────────────────────────────────────
+	# Quests
 	var active_quests: Array = []
 	var completed_quests_list: Array = []
 	for qid in QuestManager.current_quests.keys():
@@ -264,7 +264,7 @@ func _build_semantic_snapshot() -> Dictionary:
 	for qid in QuestManager.completed_quests.keys():
 		completed_quests_list.append(qid)
 
-	# ── Tutorial ─────────────────────────────────────────────────────────────
+	# Tutorial
 	var tutorial_done: bool = GameState.tutorial_done
 
 	return {
@@ -287,8 +287,8 @@ func _build_semantic_snapshot() -> Dictionary:
 	}
 
 
-## Leitet die aktuelle Dialog-Stufe mit Mr. Blob aus den gesetzten Flags ab.
-## Höhere Stages bedeuten fortgeschritteneren Spielfortschritt.
+# Aktuelle Dialogstufe aus Flags ableiten
+# Höhere Stages bedeuten fortgeschritteneren Spielfortschritt.
 func _compute_blob_dialog_stage() -> int:
 	var ps: Dictionary = GameState.puzzle_state
 	if bool(ps.get("blob_flower_done", false)):
@@ -306,15 +306,15 @@ func _compute_blob_dialog_stage() -> int:
 	return 0
 
 
-## Extrahiert den lesbaren Szenennamen aus einem res://-Pfad.
-## z.B. "res://scenes/maps/Outside_2/outside_2.tscn" -> "outside_2"
+# Extrahiert den lesbaren Szenennamen aus einem res://-Pfad.
+# z.B. "res://scenes/maps/Outside_2/outside_2.tscn" -> "outside_2"
 func _scene_name_from_path(scene_path: String) -> String:
 	if scene_path == "":
 		return ""
 	return scene_path.get_file().get_basename()
 
 
-# ── Internes Schreiben ────────────────────────────────────────────────────────
+# Internes Schreiben
 
 func _write(row: Dictionary) -> void:
 	if _file == null:
