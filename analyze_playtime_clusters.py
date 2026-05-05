@@ -322,7 +322,7 @@ def print_summary(enriched, elbow_path, cluster_path, csv_path, json_path):
     for label in PLAYER_TYPE_LABELS:
         mins = by_type.get(label, [])
         avg = sum(mins) / len(mins) if mins else 0.0
-        label_cap = label[0].upper() + label[1:]
+        label_cap = label[:1].upper() + label[1:]
         print(f"  {label_cap}: {len(mins)} Sessions, Ø {avg:.2f} Minuten")
     print(f"  Elbow-Plot gespeichert: {elbow_path}")
     print(f"  Cluster-Plot gespeichert: {cluster_path}")
