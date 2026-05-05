@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://ck03aba6eis7r"]
+[gd_scene load_steps=3 format=3 uid="uid://ck03aba6eis7r"]
 
+[ext_resource type="Script" uid="uid://ddfupjjrcqd2l" path="res://scripts/Spacegram/profile_thumbnail.gd" id="1_7kr03"]
 [ext_resource type="Texture2D" uid="uid://qpyr384203kn" path="res://assets/sprites/photos/Photo_Front.jpg" id="1_x2w2j"]
 
 [node name="ProfileThumbnail" type="PanelContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(150, 150)
 mouse_default_cursor_shape = 2
+script = ExtResource("1_7kr03")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2

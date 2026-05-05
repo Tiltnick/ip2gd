@@ -106,13 +106,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
-[node name="FrameTrashcan" type="PanelContainer" parent="MarginContainer/VBoxContainer/Header"]
+[node name="FrameAddFriend" type="PanelContainer" parent="MarginContainer/VBoxContainer/Header"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cr7l1")
 
-[node name="TrashIcon" type="TextureButton" parent="MarginContainer/VBoxContainer/Header/FrameTrashcan"]
+[node name="AddFriendIcon" type="TextureButton" parent="MarginContainer/VBoxContainer/Header/FrameAddFriend"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("5_ld7ne")
@@ -145,7 +145,10 @@ theme_override_constants/separation = 12
 [node name="Space" type="Control" parent="MarginContainer/VBoxContainer/ActionsRow"]
 layout_mode = 2
 
-[node name="LikeButton" type="TextureButton" parent="MarginContainer/VBoxContainer/ActionsRow"]
+[node name="LikeBlock" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ActionsRow"]
+layout_mode = 2
+
+[node name="LikeButton" type="TextureButton" parent="MarginContainer/VBoxContainer/ActionsRow/LikeBlock"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -154,13 +157,30 @@ texture_pressed = ExtResource("10_8ewi4")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="CommentButton" type="TextureButton" parent="MarginContainer/VBoxContainer/ActionsRow"]
+[node name="LikeCount" type="Label" parent="MarginContainer/VBoxContainer/ActionsRow/LikeBlock"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5917317, 0.5960959, 0.5287567, 1)
+theme_override_fonts/font = ExtResource("2_nbb0b")
+theme_override_font_sizes/font_size = 14
+text = "2365"
+
+[node name="CommentBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ActionsRow"]
+layout_mode = 2
+
+[node name="CommentButton" type="TextureButton" parent="MarginContainer/VBoxContainer/ActionsRow/CommentBox"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("5_cr7l1")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="CommentCount" type="Label" parent="MarginContainer/VBoxContainer/ActionsRow/CommentBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5917317, 0.5960959, 0.5287567, 1)
+theme_override_fonts/font = ExtResource("2_nbb0b")
+theme_override_font_sizes/font_size = 14
+text = "123"
 
 [node name="CaptionLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(350, 40)
@@ -174,5 +194,6 @@ text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
 fit_content = true
 scroll_active = false
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ActionsRow/LikeButton" to="." method="_on_like_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ActionsRow/CommentButton" to="." method="_on_comment_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Header/FrameAddFriend/AddFriendIcon" to="." method="_on_add_friend_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ActionsRow/LikeBlock/LikeButton" to="." method="_on_like_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ActionsRow/CommentBox/CommentButton" to="." method="_on_comment_pressed"]

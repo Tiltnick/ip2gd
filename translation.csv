@@ -80,7 +80,6 @@ ERROR_USERNAME_TOO_SHORT,Username too short,Username ist zu kurz
 ACCOUNT,Account,Account
 DELETE_ACCOUNT,Delete Account, Account löschen
 LOGOUT,Logout,Logout
-SAVE_CHANGES,Save Changes,Änderungen speichern
 USERNAME,Username,Benutzername
 EMAIL,Email,Email-Adresse
 POSTS,Posts,Beiträge
@@ -92,3 +91,10 @@ COMMENT_TEXT,Comment text, Kommentartext
 ADD_COMMENT,Add comment,Kommentar schreiben
 ANSWER,Answer,Antworten
 SHOW_REPLIES,Show replies,Antworten anzeigen
+SAVE_CHANGES,Save changes,Änderungen speichern
+EXIT_WITHOUT_SAVING,Exit without saving,Ohne Speichern verlassen
+CHOOSE_A_PROFILE_PICTURE:,Choose a profile picture:,Wähle ein Profilbild aus:
+TELL_US_MORE_ABOUT_YOURSELF,Tell us more about yourself...,Erzähl ein wenig über dich...
+BIO,Bio,Bio
+USERNAME_PLACEHOLDER,What would you like to be called?,Wie möchtest du heißen?
+EDIT_YOUR_PROFILE,Edit your profile:,Bearbeite dein Profil:

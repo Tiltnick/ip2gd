@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://e3luha0ivwky"]
+[gd_scene load_steps=12 format=3 uid="uid://e3luha0ivwky"]
 
 [ext_resource type="Script" uid="uid://cygw8i4rmy1rs" path="res://scripts/Spacegram/pofile_view.gd" id="1_p75n0"]
 [ext_resource type="Shader" uid="uid://cvrh38clkj8l1" path="res://assets/shaders/RoundedCorner.gdshader" id="2_nm8bn"]
@@ -36,10 +36,10 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.45882353, 0.8392157, 0.7490196, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nm8bn"]
 content_margin_left = 23.0
@@ -52,10 +52,10 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.16073242, 0.39123905, 0.34098548, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p75n0"]
 content_margin_left = 23.0
@@ -68,12 +68,17 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.16073242, 0.39123905, 0.34098548, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sf04u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nm8bn"]
+content_margin_left = 14.0
+content_margin_right = 10.0
+content_margin_bottom = 30.0
 
 [node name="PofileView" type="Control"]
 layout_mode = 3
@@ -129,7 +134,7 @@ stretch_mode = 6
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 1)
 theme_override_fonts/font = ExtResource("3_sf04u")
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 16
 text = "USERNAME"
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -225,7 +230,7 @@ theme_override_colors/font_hover_color = Color(0.76862746, 0.9843137, 0.93333334
 theme_override_colors/font_hover_pressed_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
 theme_override_colors/font_disabled_color = Color(0.21960784, 0.5019608, 0.4627451, 0.54509807)
 theme_override_fonts/font = ExtResource("3_sf04u")
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_xv32f")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_nm8bn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_p75n0")
@@ -237,8 +242,27 @@ custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="MarginContainer2" type="MarginContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="CaptionLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(350, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0.8509804, 0.8156863, 0.654902, 0.75686276)
+theme_override_fonts/normal_font = ExtResource("3_sf04u")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nm8bn")
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. [color=#4fa9a7][font_size=12]2 Std[/font_size][/color]"
+fit_content = true
+scroll_active = false
+
 [node name="PostGrid" type="GridContainer" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 3
 theme_override_constants/v_separation = 3
 columns = 3
+
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton/EditButtonCenter/EditProfileButton" to="." method="_on_edit_profile_button_pressed"]

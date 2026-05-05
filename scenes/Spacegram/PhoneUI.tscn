@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://8i3kdy2wmqj2"]
+[gd_scene load_steps=9 format=3 uid="uid://8i3kdy2wmqj2"]
 
 [ext_resource type="PackedScene" uid="uid://wpaq0y40yr5d" path="res://scenes/Spacegram/SpacegrammApp.tscn" id="1_687bh"]
 [ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="2_kwwpa"]
@@ -53,6 +53,21 @@ corner_radius_bottom_left = 62
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rox1r"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_687bh"]
+bg_color = Color(0.039215688, 0.08627451, 0.105882354, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22745098, 0.27058825, 0.26666668, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.73333335)
+shadow_size = 1
+shadow_offset = Vector2(0, 1)
+
 [node name="PhoneUI" type="CanvasLayer"]
 
 [node name="DimBackground" type="ColorRect" parent="."]
@@ -97,3 +112,17 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_da4yt")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rox1r")
 icon = ExtResource("2_kwwpa")
 icon_alignment = 1
+
+[node name="Taste" type="Panel" parent="."]
+offset_left = 168.0
+offset_top = 1032.0
+offset_right = 333.0
+offset_bottom = 1051.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_687bh")
+
+[node name="Camera" type="Panel" parent="."]
+offset_left = 248.0
+offset_top = 16.0
+offset_right = 267.0
+offset_bottom = 35.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_687bh")

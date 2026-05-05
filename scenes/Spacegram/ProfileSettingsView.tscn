@@ -1,33 +1,16 @@
-[gd_scene load_steps=20 format=3 uid="uid://dale7drtfbyum"]
+[gd_scene load_steps=21 format=3 uid="uid://dale7drtfbyum"]
 
 [ext_resource type="Script" uid="uid://byym8vi3ihdth" path="res://scripts/Spacegram/profile_settings_view.gd" id="1_e6x4u"]
 [ext_resource type="Shader" uid="uid://cvrh38clkj8l1" path="res://assets/shaders/RoundedCorner.gdshader" id="1_fedhp"]
-[ext_resource type="StyleBox" uid="uid://mhfykxq65u88" path="res://scenes/UI/StyleBoxes/yellowButton.tres" id="2_20y6l"]
 [ext_resource type="Texture2D" uid="uid://cw72y0u06b1en" path="res://assets/sprites/portrait/selfie.png" id="2_anj06"]
-[ext_resource type="StyleBox" uid="uid://beqon246yaqxh" path="res://scenes/UI/StyleBoxes/redButtonPressedHover.tres" id="3_20y6l"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="3_anj06"]
-[ext_resource type="StyleBox" uid="uid://do0sdephk4163" path="res://scenes/UI/StyleBoxes/yellowButtonPressedHover.tres" id="3_gguiy"]
-[ext_resource type="StyleBox" uid="uid://bgrgvtajrt5lv" path="res://scenes/UI/StyleBoxes/buttonBlue.tres" id="4_gguiy"]
-[ext_resource type="StyleBox" uid="uid://2dcjn1523slx" path="res://scenes/UI/StyleBoxes/buttonBluePressedHover.tres" id="5_b1c3x"]
-[ext_resource type="Texture2D" uid="uid://cs2dbuc2r535j" path="res://assets/sprites/ui/pen (1).png" id="9_gguiy"]
+[ext_resource type="StyleBox" uid="uid://cnt6s3htadrve" path="res://scenes/UI/StyleBoxes/blueButtonTHIN.tres" id="3_jxbxr"]
+[ext_resource type="Texture2D" uid="uid://baah0jc0r3a4e" path="res://assets/sprites/ui/circle.png" id="5_jxbxr"]
+[ext_resource type="StyleBox" uid="uid://cx47imaj4nt0r" path="res://scenes/UI/StyleBoxes/blueButtonTHINPRESSED.tres" id="7_jxbxr"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6x4u"]
-content_margin_left = 23.0
-content_margin_top = 5.0
-content_margin_right = 23.0
-content_margin_bottom = 5.0
-bg_color = Color(0.8, 0.32941177, 0.32941177, 0.14901961)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.5686275, 0.20392157, 0.20784314, 0.44705883)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_soh5a"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_inp4v"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jxbxr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lb6hb"]
 content_margin_left = 3.0
@@ -49,10 +32,6 @@ corner_radius_bottom_left = 15
 shader = ExtResource("1_fedhp")
 shader_parameter/corner_radius = 180.0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_soh5a"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jxbxr"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcq2g"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 0)
 border_width_left = 3
@@ -69,6 +48,88 @@ corner_radius_bottom_left = 15
 bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gguiy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxbxr"]
+content_margin_left = 23.0
+content_margin_top = 5.0
+content_margin_right = 23.0
+content_margin_bottom = 5.0
+bg_color = Color(0.8509804, 0.8156863, 0.654902, 0.30588236)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8509804, 0.8156863, 0.654902, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gguiy"]
+content_margin_left = 23.0
+content_margin_top = 5.0
+content_margin_right = 23.0
+content_margin_bottom = 5.0
+bg_color = Color(0.7180833, 0.67411345, 0.47703135, 0.30588236)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7708403, 0.7283575, 0.5372278, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1c3x"]
+content_margin_left = 23.0
+content_margin_top = 5.0
+content_margin_right = 23.0
+content_margin_bottom = 5.0
+bg_color = Color(0.7180833, 0.67411345, 0.47703135, 0.30588236)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7708403, 0.7283575, 0.5372278, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6x4u"]
+content_margin_left = 23.0
+content_margin_top = 5.0
+content_margin_right = 23.0
+content_margin_bottom = 5.0
+bg_color = Color(0.7180833, 0.67411345, 0.47703135, 0.30588236)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7708403, 0.7283575, 0.5372278, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_inp4v"]
+content_margin_left = 23.0
+content_margin_top = 5.0
+content_margin_right = 23.0
+content_margin_bottom = 5.0
+bg_color = Color(0.8509804, 0.8156863, 0.654902, 0.19607843)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5564058, 0.51574415, 0.33419263, 0.46666667)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_inp4v"]
 
 [node name="ProfileSettingsView" type="Control"]
 clip_contents = true
@@ -96,66 +157,29 @@ theme_override_constants/margin_bottom = 18
 layout_mode = 2
 theme_override_constants/separation = 18
 
+[node name="ChoosePictureLabel2" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 1)
+theme_override_fonts/font = ExtResource("3_anj06")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_soh5a")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jxbxr")
+text = "EDIT_YOUR_PROFILE"
+horizontal_alignment = 1
+
+[node name="Separator2" type="ColorRect" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.2509804, 0.4509804, 0.40392157, 1)
+
 [node name="TopSection" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-
-[node name="ButtonsRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TopSection"]
-layout_mode = 2
-
-[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/TopSection/ButtonsRow"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="ButtonsVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TopSection/ButtonsRow"]
-layout_mode = 2
-theme_override_constants/separation = 6
-
-[node name="SavingChangesButton" type="Button" parent="MarginContainer/VBoxContainer/TopSection/ButtonsRow/ButtonsVBox"]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 1)
-theme_override_colors/font_focus_color = Color(0.8509804, 0.8156863, 0.654902, 1)
-theme_override_colors/font_pressed_color = Color(0.6934052, 0.64930815, 0.45187712, 1)
-theme_override_colors/font_hover_color = Color(0.89540255, 0.8682688, 0.7428672, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.89411765, 0.8666667, 0.7411765, 1)
-theme_override_colors/font_disabled_color = Color(0.8509804, 0.8156863, 0.654902, 0.49411765)
-theme_override_fonts/font = ExtResource("3_anj06")
-theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = ExtResource("2_20y6l")
-theme_override_styles/pressed = ExtResource("3_gguiy")
-theme_override_styles/hover = ExtResource("3_20y6l")
-theme_override_styles/hover_pressed = ExtResource("3_gguiy")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_e6x4u")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_inp4v")
-text = "SAVE_CHANGES"
-
-[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/TopSection/ButtonsRow/ButtonsVBox"]
-layout_mode = 2
-
-[node name="ExitWithoutSavingButton" type="Button" parent="MarginContainer/VBoxContainer/TopSection/ButtonsRow/ButtonsVBox"]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_colors/font_color = Color(0.6862745, 0.8627451, 0.76862746, 1)
-theme_override_colors/font_focus_color = Color(0.6862745, 0.8627451, 0.76862746, 1)
-theme_override_colors/font_pressed_color = Color(0.2627451, 0.6117647, 0.5764706, 1)
-theme_override_colors/font_hover_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
-theme_override_colors/font_disabled_color = Color(0.21960784, 0.5019608, 0.4627451, 0.54509807)
-theme_override_fonts/font = ExtResource("3_anj06")
-theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = ExtResource("4_gguiy")
-theme_override_styles/pressed = ExtResource("5_b1c3x")
-theme_override_styles/hover = ExtResource("5_b1c3x")
-theme_override_styles/hover_pressed = ExtResource("5_b1c3x")
-theme_override_styles/disabled = ExtResource("5_b1c3x")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_inp4v")
-text = "EXIT_WITHOUT_SAVING"
 
 [node name="ProfileImageCenter" type="CenterContainer" parent="MarginContainer/VBoxContainer/TopSection"]
 layout_mode = 2
 
 [node name="ProfileImageWrapper" type="Control" parent="MarginContainer/VBoxContainer/TopSection/ProfileImageCenter"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 
 [node name="ProfileImageFrame" type="PanelContainer" parent="MarginContainer/VBoxContainer/TopSection/ProfileImageCenter/ProfileImageWrapper"]
@@ -178,12 +202,12 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
+offset_left = -30.0
+offset_top = -30.0
 grow_horizontal = 0
 grow_vertical = 0
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("9_gguiy")
+texture_normal = ExtResource("5_jxbxr")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -193,7 +217,7 @@ layout_mode = 2
 
 [node name="ChoosePictureLabel" type="Label" parent="MarginContainer/VBoxContainer/TopSection"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.13333334, 0.31764707, 0.3019608, 1)
+theme_override_colors/font_color = Color(0.24909773, 0.5292546, 0.5050587, 1)
 theme_override_fonts/font = ExtResource("3_anj06")
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxEmpty_soh5a")
@@ -235,7 +259,7 @@ theme_override_constants/separation = 2
 
 [node name="FieldLabel" type="Label" parent="MarginContainer/VBoxContainer/FormSection/UsernameField/MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.13333334, 0.31764707, 0.3019608, 1)
+theme_override_colors/font_color = Color(0.24909773, 0.5292546, 0.5050587, 1)
 theme_override_fonts/font = ExtResource("3_anj06")
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxEmpty_soh5a")
@@ -251,7 +275,7 @@ theme_override_fonts/font = ExtResource("3_anj06")
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_20y6l")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_gguiy")
-placeholder_text = "USERNAME"
+placeholder_text = "USERNAME_PLACEHOLDER"
 
 [node name="BioField" type="PanelContainer" parent="MarginContainer/VBoxContainer/FormSection"]
 custom_minimum_size = Vector2(0, 60)
@@ -272,7 +296,7 @@ theme_override_constants/separation = 2
 
 [node name="FieldLabel" type="Label" parent="MarginContainer/VBoxContainer/FormSection/BioField/MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.13333334, 0.31764707, 0.3019608, 1)
+theme_override_colors/font_color = Color(0.24909773, 0.5292546, 0.5050587, 1)
 theme_override_fonts/font = ExtResource("3_anj06")
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxEmpty_soh5a")
@@ -289,3 +313,81 @@ theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_20y6l")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_gguiy")
 placeholder_text = "TELL_US_MORE_ABOUT_YOURSELF"
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Spacer3" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Spacer4" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Spacer5" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Spacer6" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonsRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/ButtonsRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ButtonsRow"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="SavingChangesButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsRow/ButtonsVBox"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 1)
+theme_override_colors/font_focus_color = Color(0.8509804, 0.8156863, 0.654902, 1)
+theme_override_colors/font_pressed_color = Color(0.6934052, 0.64930815, 0.45187712, 1)
+theme_override_colors/font_hover_color = Color(0.89540255, 0.8682688, 0.7428672, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.89411765, 0.8666667, 0.7411765, 1)
+theme_override_colors/font_disabled_color = Color(0.8509804, 0.8156863, 0.654902, 0.49411765)
+theme_override_fonts/font = ExtResource("3_anj06")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_jxbxr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gguiy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b1c3x")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_e6x4u")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_inp4v")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_inp4v")
+text = "SAVE_CHANGES"
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/ButtonsRow/ButtonsVBox"]
+layout_mode = 2
+
+[node name="ExitWithoutSavingButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsRow/ButtonsVBox"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.6862745, 0.8627451, 0.76862746, 1)
+theme_override_colors/font_focus_color = Color(0.6862745, 0.8627451, 0.76862746, 1)
+theme_override_colors/font_pressed_color = Color(0.2627451, 0.6117647, 0.5764706, 1)
+theme_override_colors/font_hover_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.76862746, 0.9843137, 0.93333334, 1)
+theme_override_colors/font_disabled_color = Color(0.21960784, 0.5019608, 0.4627451, 0.54509807)
+theme_override_fonts/font = ExtResource("3_anj06")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = ExtResource("3_jxbxr")
+theme_override_styles/pressed = ExtResource("7_jxbxr")
+theme_override_styles/hover = ExtResource("7_jxbxr")
+theme_override_styles/hover_pressed = ExtResource("7_jxbxr")
+theme_override_styles/disabled = ExtResource("7_jxbxr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_inp4v")
+text = "EXIT_WITHOUT_SAVING"
+
+[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsRow/ButtonsVBox/ExitWithoutSavingButton" to="." method="_on_exit_without_saving_pressed"]

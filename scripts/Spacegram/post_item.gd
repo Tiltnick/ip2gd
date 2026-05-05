@@ -2,17 +2,21 @@ extends PanelContainer
 
 @onready var post_image = $MarginContainer/VBoxContainer/ImageContainer/PostImage
 @onready var caption_label = $MarginContainer/VBoxContainer/CaptionLabel
-@onready var like_button = $MarginContainer/VBoxContainer/ActionsRow/LikeButton
-@onready var comment_button = $MarginContainer/VBoxContainer/ActionsRow/CommentButton
+@onready var like_button = $MarginContainer/VBoxContainer/ActionsRow/LikeBlock/LikeButton
+@onready var comment_button = $MarginContainer/VBoxContainer/ActionsRow/CommentBox/CommentButton
+@onready var add_friend_button = $MarginContainer/VBoxContainer/Header/FrameAddFriend/AddFriendIcon
 
 var comments_overlay
 var bottom_nav
 
 var is_liked := false
+var is_friend := false
 
 var heart_empty = preload("res://assets/sprites/ui/heart (3) (1).png")
 var heart_filled = preload("res://assets/sprites/ui/heart (1) (1).png")
 
+var friend = preload("res://assets/sprites/ui/check.png")
+var add_friend = preload("res://assets/sprites/ui/add-friend (1).png")
 
 func setup_post(image: Texture2D, caption: String):
 	post_image.texture = image
@@ -25,3 +29,7 @@ func _on_like_pressed():
 func _on_comment_pressed():
 	comments_overlay.visible = true
 	bottom_nav.visible = false
+	
+func _on_add_friend_pressed():
+	is_friend = !is_friend
+	add_friend_button.texture_normal = add_friend if is_friend else friend
