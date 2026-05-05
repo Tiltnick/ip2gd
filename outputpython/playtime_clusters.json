@@ -1,0 +1,38 @@
+{
+  "sessions": [
+    {
+      "session_id": "1774959871_50561",
+      "playtime_msec": 27650.0,
+      "playtime_seconds": 27.65,
+      "playtime_minutes": 0.4608,
+      "cluster_id": 0,
+      "player_type": "schnelle Spieler"
+    },
+    {
+      "session_id": "1774959972_99298",
+      "playtime_msec": 51924.0,
+      "playtime_seconds": 51.924,
+      "playtime_minutes": 0.8654,
+      "cluster_id": 1,
+      "player_type": "langsame Spieler"
+    }
+  ],
+  "cluster_summary": [
+    {
+      "player_type": "schnelle Spieler",
+      "cluster_id": 0,
+      "anzahl_sessions": 1,
+      "min_playtime_minutes": 0.4608,
+      "max_playtime_minutes": 0.4608,
+      "avg_playtime_minutes": 0.4608
+    },
+    {
+      "player_type": "langsame Spieler",
+      "cluster_id": 1,
+      "anzahl_sessions": 1,
+      "min_playtime_minutes": 0.8654,
+      "max_playtime_minutes": 0.8654,
+      "avg_playtime_minutes": 0.8654
+    }
+  ]
+}

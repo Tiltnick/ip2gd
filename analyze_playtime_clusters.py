@@ -3,10 +3,9 @@ analyze_playtime_clusters.py  –  K-Means Spielzeit-Clustering
 
 Teil 3 – K-Means Spielzeit-Clustering:
   • Berechnet die Spielzeit pro Session aus den JSONL-Trackingdaten.
-  • Teilt Sessions per K-Means (k=3) in drei Spielertypen ein:
+  • Teilt Sessions per K-Means (k=2) in zwei Spielertypen ein:
       - schnelle Spieler
-      - durchschnittliche Spieler
-      - langsamere Spieler
+      - langsame Spieler
   • Ausgaben: CSV, JSON, Elbow-Plot, Cluster-Plot
 
 Aufruf:
@@ -159,12 +158,12 @@ def save_elbow_plot(elbow_data, final_k, output_dir):
 # K-MEANS CLUSTERING
 # ══════════════════════════════════════════════════════════════════════════════
 
-PLAYER_TYPE_LABELS = ["schnelle Spieler", "durchschnittliche Spieler", "langsamere Spieler"]
+PLAYER_TYPE_LABELS = ["schnelle Spieler", "langsame Spieler"]
 
 
 def run_playtime_kmeans(playtimes, output_dir):
     """
-    Führt K-Means mit k=3 auf den Spielzeiten durch.
+    Führt K-Means mit k=2 auf den Spielzeiten durch.
     Sorted die Cluster anhand ihrer Centroids (niedrigste → schnelle Spieler).
 
     Args:
@@ -175,8 +174,8 @@ def run_playtime_kmeans(playtimes, output_dir):
         list of dicts with cluster_id and player_type added,
         or None if not enough sessions
     """
-    if len(playtimes) < 3:
-        print(f"Zu wenige Sessions für K-Means mit 3 Clustern. Mindestens 3 Sessions erforderlich.")
+    if len(playtimes) < 2:
+        print(f"Zu wenige Sessions für K-Means mit 2 Clustern. Mindestens 2 Sessions erforderlich.")
         return None
 
     minutes = [[p["playtime_minutes"]] for p in playtimes]
@@ -189,11 +188,11 @@ def run_playtime_kmeans(playtimes, output_dir):
     max_k = min(10, len(playtimes))
     print(f"  Elbow-Methode: berechne k=1 bis k={max_k}...")
     elbow_data = run_elbow_method(X_scaled, max_k)
-    elbow_path = save_elbow_plot(elbow_data, final_k=3, output_dir=output_dir)
+    elbow_path = save_elbow_plot(elbow_data, final_k=2, output_dir=output_dir)
     print(f"  Elbow-Plot gespeichert: {elbow_path}")
 
-    # Finales K-Means mit k=3
-    km = KMeans(n_clusters=3, random_state=42, n_init="auto")
+    # Finales K-Means mit k=2
+    km = KMeans(n_clusters=2, random_state=42, n_init="auto")
     km.fit(X_scaled)
     labels = km.labels_
 
@@ -280,7 +279,7 @@ def save_cluster_plot(enriched, output_dir):
     # Sortiere Sessions nach Spielzeit für übersichtliche Darstellung
     sorted_data = sorted(enriched, key=lambda x: x["playtime_minutes"])
 
-    colors = {0: "#2ecc71", 1: "#3498db", 2: "#e74c3c"}
+    colors = {0: "#2ecc71", 1: "#e74c3c"}
     color_map = {label: colors[i] for i, label in enumerate(PLAYER_TYPE_LABELS)}
 
     fig, ax = plt.subplots(figsize=(10, 6))
@@ -296,7 +295,7 @@ def save_cluster_plot(enriched, output_dir):
 
     ax.set_xlabel("Session-Index (nach Spielzeit sortiert)", fontsize=11)
     ax.set_ylabel("Spielzeit in Minuten", fontsize=11)
-    ax.set_title("K-Means Spielzeit-Clustering – 3 Spielertypen", fontsize=13)
+    ax.set_title("K-Means Spielzeit-Clustering – 2 Spielertypen", fontsize=13)
     ax.legend(title="Spielertyp", fontsize=9, title_fontsize=10)
     ax.grid(True, alpha=0.3)
     fig.tight_layout()
