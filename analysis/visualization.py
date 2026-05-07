@@ -145,7 +145,7 @@ class TelemetryVisualizer:
         room_index = {room: index for index, room in enumerate(rooms)}
         event_index = {event_type: index for index, event_type in enumerate(event_types)}
         event_divisor = max(len(event_types), 1)
-        fig, ax = plt.subplots(figsize=(12, max(5, len(rooms) * 0.6)))
+        fig, ax = plt.subplots(figsize=(12, max(5, len(rooms) * 0.8)))
         palette = plt.get_cmap("tab20")
         for index, session in enumerate(sequences):
             xs = [int(step["order"]) for step in session["sequence"]]
