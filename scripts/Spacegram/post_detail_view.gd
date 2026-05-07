@@ -2,6 +2,8 @@ extends Control
 
 @onready var posts_vbox = $ScrollContainer/VBoxContainer
 
+var comments_overlay
+var bottom_nav
 
 func setup(posts, selected_index):
 	
@@ -12,13 +14,18 @@ func setup(posts, selected_index):
 	
 	# neue posts spawnen
 	for i in posts.size():
+
 		var post = preload("res://scenes/Spacegram/PostItem.tscn").instantiate()
 
 		posts_vbox.add_child(post)
 
+		post.comments_overlay = comments_overlay
+		post.bottom_nav = bottom_nav
+
 		post.setup_post(
 			posts[i]["image"],
-			posts[i]["caption"]
+			posts[i]["caption"],
+			true
 		)
 
 	

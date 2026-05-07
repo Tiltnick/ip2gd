@@ -14,9 +14,7 @@ func _ready():
 
 
 func _spawn_dummy_thumbnails():
-
 	for i in 9:
-
 		var data = {
 			"image": preload("res://wiki/Photo_Front.png"),
 			"caption": "Post " + str(i)
@@ -25,15 +23,12 @@ func _spawn_dummy_thumbnails():
 		all_posts.append(data)
 
 		var thumb = preload("res://scenes/Spacegram/ProfileThumbnail.tscn").instantiate()
-
 		post_grid.add_child(thumb)
 
-		thumb.thumbnail_pressed.connect(func():
+		thumb.thumbnail_pressed.connect(func(_post_data):
 			post_selected.emit(all_posts, i)
 		)
 
-#func _on_thumbnail_pressed(post_data):
-	#post_selected.emit(post_data)
 
 func _on_edit_profile_button_pressed():
 	edit_profile_pressed.emit()

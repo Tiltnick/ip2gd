@@ -19,11 +19,19 @@ func _spawn_dummy_stories():
 
 func _spawn_dummy_posts():
 	for i in 5:
+
 		var post = preload("res://scenes/Spacegram/PostItem.tscn").instantiate()
-		
+
 		posts_vbox.add_child(post)
+
 		post.comments_overlay = comments_overlay
 		post.bottom_nav = bottom_nav
+
+		post.setup_post(
+			preload("res://wiki/Photo_Front.png"),
+			"Post " + str(i),
+			false
+		)
 
 func setup_dependencies(overlay, nav):
 	comments_overlay = overlay

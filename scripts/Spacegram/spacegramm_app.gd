@@ -3,7 +3,7 @@ extends Control
 @onready var feed_view = $ContentContainer/FeedView
 @onready var profile_view = $ContentContainer/ProfileView
 @onready var profile_settings_view = $ContentContainer/ProfileSettingsView
-@onready var comments_overlay = $ContentContainer/CommentsOverlay
+@onready var comments_overlay = $CommentsOverlay
 @onready var bottom_nav = $ColorRect2
 @onready var post_detail_view = $ContentContainer/PostDetailView
 
@@ -12,6 +12,8 @@ extends Control
 func _ready():
 	show_feed()
 	feed_view.setup_dependencies(comments_overlay, bottom_nav)
+	post_detail_view.comments_overlay = comments_overlay
+	post_detail_view.bottom_nav = bottom_nav
 	comments_overlay.bottom_nav = bottom_nav
 	profile_view.edit_profile_pressed.connect(show_profile_settings)
 	profile_settings_view.back_pressed.connect(show_profile)
@@ -21,6 +23,8 @@ func _ready():
 func show_feed():
 	feed_view.visible = true
 	profile_view.visible = false
+	profile_settings_view.visible = false
+	post_detail_view.visible = false
 
 
 func show_profile_settings():
@@ -33,6 +37,7 @@ func show_profile():
 	feed_view.visible = false
 	profile_view.visible = true
 	profile_settings_view.visible = false
+	post_detail_view.visible = false
 	
 func show_post_detail(posts, selected_index):
 

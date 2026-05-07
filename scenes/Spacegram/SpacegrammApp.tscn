@@ -114,10 +114,6 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
-[node name="CommentsOverlay" parent="ContentContainer" instance=ExtResource("4_rmbrc")]
-visible = false
-layout_mode = 2
-
 [node name="ProfileSettingsView" parent="ContentContainer" instance=ExtResource("5_k1ffk")]
 visible = false
 layout_mode = 2
@@ -125,6 +121,11 @@ layout_mode = 2
 [node name="PostDetailView" parent="ContentContainer" instance=ExtResource("6_l3wvu")]
 visible = false
 layout_mode = 2
+
+[node name="CommentsOverlay" parent="." instance=ExtResource("4_rmbrc")]
+visible = false
+z_index = 100
+layout_mode = 1
 
 [node name="ColorRect2" type="PanelContainer" parent="."]
 layout_mode = 1
