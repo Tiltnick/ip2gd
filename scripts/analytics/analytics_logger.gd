@@ -374,7 +374,7 @@ func _build_row(event_type: String, legacy_type: String, legacy_event: String, e
 		row["event"] = legacy_event
 	if room != "":
 		row["scene"] = room
-	if not position.is_empty():
+	if position.size() > 0:
 		row["position"] = position
 		row["x"] = position["x"]
 		row["y"] = position["y"]
