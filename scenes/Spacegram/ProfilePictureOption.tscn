@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://biry3oo2a415i"]
+[gd_scene load_steps=7 format=3 uid="uid://biry3oo2a415i"]
 
 [ext_resource type="Shader" uid="uid://cvrh38clkj8l1" path="res://assets/shaders/RoundedCorner.gdshader" id="1_8fnok"]
 [ext_resource type="Texture2D" uid="uid://cw72y0u06b1en" path="res://assets/sprites/portrait/selfie.png" id="2_38jio"]
@@ -24,6 +24,18 @@ corner_radius_bottom_left = 10
 shader = ExtResource("1_8fnok")
 shader_parameter/corner_radius = 180.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_38jio"]
+bg_color = Color(0, 0.043137256, 0.05882353, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.23921569, 0.5411765, 0.49803922, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [node name="ProfileImageWrapper" type="Control"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 3
@@ -42,6 +54,11 @@ layout_mode = 2
 texture = ExtResource("2_38jio")
 expand_mode = 5
 stretch_mode = 6
+
+[node name="RadiusBorder" type="PanelContainer" parent="ProfileImageFrame"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_38jio")
 
 [node name="EditIconButton" type="TextureButton" parent="."]
 visible = false

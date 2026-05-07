@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cu7i5mb6jko1i" path="res://assets/sprites/ui/comment (1) (5).png" id="5_cr7l1"]
 [ext_resource type="Texture2D" uid="uid://bchlef1divytt" path="res://assets/sprites/ui/add-friend (1).png" id="5_ld7ne"]
 [ext_resource type="Shader" uid="uid://cvrh38clkj8l1" path="res://assets/shaders/RoundedCorner.gdshader" id="6_ld7ne"]
-[ext_resource type="Texture2D" uid="uid://df8fqdo6fr8r3" path="res://assets/sprites/ui/image (15).png" id="7_8ewi4"]
+[ext_resource type="Texture2D" uid="uid://wfkjot5wt5xo" path="res://assets/sprites/ui/trashcanBreit.png" id="7_8ewi4"]
 [ext_resource type="Texture2D" uid="uid://cblqkmyh5dlqk" path="res://wiki/Sams_Cave2.png" id="7_ld7ne"]
 [ext_resource type="Texture2D" uid="uid://t13ibkrt4se0" path="res://assets/sprites/ui/heart (3) (1).png" id="9_nc4c2"]
 [ext_resource type="Texture2D" uid="uid://c5pun87oyb5ml" path="res://assets/sprites/ui/heart (1) (1).png" id="10_8ewi4"]
