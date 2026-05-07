@@ -162,6 +162,19 @@ class TelemetryVisualizer:
         ax.set_ylabel("Raum")
         ax.set_title("Playtrace nach Raum")
         ax.grid(True, alpha=0.2)
+        legend_handles = [
+            plt.Line2D(
+                [0],
+                [0],
+                marker="o",
+                color="w",
+                label=event_type,
+                markerfacecolor=palette(event_index[event_type] / event_divisor),
+                markersize=6,
+            )
+            for event_type in event_types
+        ]
+        ax.legend(handles=legend_handles, title="Event-Typ", fontsize=8, loc="upper left", bbox_to_anchor=(1.02, 1))
         return self._save(fig, "playtrace_by_room.png")
 
     def plot_playtrace_timeline_by_session(self, sequences: list[dict[str, object]]) -> Path | None:
