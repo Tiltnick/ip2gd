@@ -37,7 +37,7 @@ class KMeansPlaytimeClusterer:
         scaler = sklearn["StandardScaler"]()
         values = [[row["playtime_minutes"]] for row in valid]
         scaled = scaler.fit_transform(values)
-        model = sklearn["KMeans"](n_clusters=final_k, random_state=42, n_init=self._n_init_value())
+        model = self._build_kmeans(sklearn["KMeans"], final_k)
         model.fit(scaled)
 
         centroids = scaler.inverse_transform(model.cluster_centers_)
@@ -70,7 +70,7 @@ class KMeansPlaytimeClusterer:
         scaled = sklearn["StandardScaler"]().fit_transform(values)
         elbow_data: list[dict[str, float]] = []
         for k in range(1, max_k + 1):
-            model = sklearn["KMeans"](n_clusters=k, random_state=42, n_init=self._n_init_value())
+            model = self._build_kmeans(sklearn["KMeans"], k)
             model.fit(scaled)
             elbow_data.append({"k": float(k), "inertia": float(model.inertia_)})
         return elbow_data
@@ -108,5 +108,8 @@ class KMeansPlaytimeClusterer:
         return self._sklearn
 
     @staticmethod
-    def _n_init_value() -> str | int:
-        return "auto"
+    def _build_kmeans(kmeans_class, n_clusters: int):
+        try:
+            return kmeans_class(n_clusters=n_clusters, random_state=42, n_init="auto")
+        except TypeError:
+            return kmeans_class(n_clusters=n_clusters, random_state=42, n_init=10)

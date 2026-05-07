@@ -400,7 +400,7 @@ func _current_player_position() -> Dictionary:
 	var player := get_tree().get_first_node_in_group("player")
 	if player == null:
 		return {}
-	if not player is Node2D:
+	if not (player is Node2D):
 		return {}
 	var pos: Vector2 = (player as Node2D).global_position
 	return {
