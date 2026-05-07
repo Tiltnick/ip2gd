@@ -47,6 +47,10 @@ func mark_collected() -> void:
 	if not GameState.picked_items.has(save_id):
 		GameState.picked_items.append(save_id)
 		QuestManager.on_item_picked(save_id)
+		if has_node("/root/AnalyticsLogger"):
+			AnalyticsLogger.log_item_collected(save_id, {
+				"node_path": str(get_path())
+			})
 
 	SaveSystem.save_game()
 

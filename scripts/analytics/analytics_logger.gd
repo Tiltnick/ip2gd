@@ -13,6 +13,7 @@ var _accum := 0.0
 var _last_pos := Vector2.ZERO
 var _has_last_pos := false
 var _last_flush_msec := 0
+var _session_closed := false
 
 # Semantischer Zustands-Tracker
 var _state_tracker: SemanticStateTracker = null
@@ -44,6 +45,7 @@ func _ready() -> void:
 	_state_tracker.attach_logger(self)
 
 	_connect_signals()
+	_log_session_started()
 
 
 func _connect_signals() -> void:
@@ -97,17 +99,21 @@ func track_sample(actor: CharacterBody2D, state_name: String, delta: float) -> v
 	if current_scene != null:
 		scene_path = current_scene.scene_file_path
 
-	var row := {
-		"type": "movement",
-		"session_id": _session_id,
-		"t_msec": Time.get_ticks_msec(),
+	var row := _build_row("movement_sample", "movement", "", {
 		"scene": scene_path,
 		"state": state_name.to_lower(),
 		"x": pos.x,
 		"y": pos.y,
 		"vx": vel.x,
-		"vy": vel.y
-	}
+		"vy": vel.y,
+		"position": {
+			"x": pos.x,
+			"y": pos.y
+		},
+		"metadata": {
+			"state": state_name.to_lower()
+		}
+	})
 	_write(row)
 
 	_last_pos = pos
@@ -147,51 +153,87 @@ func _on_choice_made(choice_id: String) -> void:
 
 
 func _on_scene_changed(from_path: String, to_path: String) -> void:
-	var row := {
-		"type": "scene_changed",
-		"session_id": _session_id,
-		"t_msec": Time.get_ticks_msec(),
+	var row := _build_row("scene_changed", "scene_changed", "scene_changed", {
 		"from": from_path,
 		"to": to_path,
-	}
+		"from_room": from_path,
+		"to_room": to_path,
+		"room": to_path,
+		"scene": to_path,
+		"metadata": {
+			"from_room": from_path,
+			"to_room": to_path
+		}
+	})
 	_write(row)
 	_log_semantic_snapshot("scene_changed")
 
 
 func _on_puzzle_started(puzzle_data: Dictionary) -> void:
-	var row := {
-		"type": "puzzle_started",
-		"session_id": _session_id,
-		"t_msec": Time.get_ticks_msec(),
+	var row := _build_row("puzzle_started", "puzzle_started", "puzzle_started", {
 		"puzzle_id": puzzle_data.get("id", ""),
 		"title": puzzle_data.get("title", ""),
-	}
+		"metadata": {
+			"puzzle_id": puzzle_data.get("id", ""),
+			"title": puzzle_data.get("title", "")
+		}
+	})
 	_write(row)
 	_log_semantic_snapshot("puzzle_started")
 
 
 func _on_puzzle_ended(puzzle_data: Dictionary) -> void:
-	var row := {
-		"type": "puzzle_ended",
-		"session_id": _session_id,
-		"t_msec": Time.get_ticks_msec(),
+	var row := _build_row("puzzle_solved", "puzzle_ended", "puzzle_ended", {
 		"puzzle_id": puzzle_data.get("id", ""),
 		"title": puzzle_data.get("title", ""),
 		"result": puzzle_data.get("result", "closed"),
-	}
+		"metadata": {
+			"puzzle_id": puzzle_data.get("id", ""),
+			"title": puzzle_data.get("title", ""),
+			"result": puzzle_data.get("result", "closed")
+		}
+	})
 	_write(row)
 	_log_semantic_snapshot("puzzle_ended")
 
 
 func _log_event(event: String, extra: Dictionary = {}) -> void:
-	var row := {
-		"type": "event",
-		"session_id": _session_id,
-		"t_msec": Time.get_ticks_msec(),
-		"event": event,
-	}
-	row.merge(extra)
+	var row := _build_row(event, "event", event, extra)
 	_write(row)
+
+
+func log_interaction(interaction_id: String, extra: Dictionary = {}) -> void:
+	var payload := extra.duplicate(true)
+	payload["interaction_id"] = interaction_id
+	_log_event("interaction", payload)
+
+
+func log_item_collected(item_id: String, extra: Dictionary = {}) -> void:
+	var payload := extra.duplicate(true)
+	payload["item_id"] = item_id
+	_log_event("item_collected", payload)
+	_log_semantic_snapshot("item_collected")
+
+
+func log_checkpoint_reached(checkpoint_id: String, extra: Dictionary = {}) -> void:
+	var payload := extra.duplicate(true)
+	payload["checkpoint_id"] = checkpoint_id
+	_log_event("checkpoint_reached", payload)
+
+
+func log_game_finished(extra: Dictionary = {}) -> void:
+	_log_event("game_finished", extra)
+
+
+func _log_session_started() -> void:
+	_write(_build_row("session_started", "event", "session_started", {}))
+
+
+func _log_session_ended() -> void:
+	if _session_closed:
+		return
+	_session_closed = true
+	_write(_build_row("session_ended", "event", "session_ended", {}))
 
 
 # ── Semantisches Logging ──────────────────────────────────────────────────────
@@ -199,13 +241,13 @@ func _log_event(event: String, extra: Dictionary = {}) -> void:
 ## Loggt einen semantischen Zustandssnapshot. Wird nach jedem bedeutungsvollen
 ## Event aufgerufen, um die Zustandsfolge für Playtracer zu rekonstruieren.
 func log_semantic(snapshot: Dictionary, context: String = "") -> void:
-	var row := {
-		"type": "semantic",
-		"session_id": _session_id,
-		"t_msec": Time.get_ticks_msec(),
+	var row := _build_row("semantic_snapshot", "semantic", "", {
 		"context": context,
 		"state": snapshot,
-	}
+		"metadata": {
+			"context": context
+		}
+	})
 	_write(row)
 
 
@@ -316,6 +358,56 @@ func _scene_name_from_path(scene_path: String) -> String:
 
 # Internes Schreiben
 
+func _build_row(event_type: String, legacy_type: String, legacy_event: String, extra: Dictionary) -> Dictionary:
+	var room := _current_room_path()
+	var position := _current_player_position()
+	var row := {
+		"session_id": _session_id,
+		"t_msec": Time.get_ticks_msec(),
+		"event_type": event_type,
+		"room": room,
+		"metadata": {}
+	}
+	if legacy_type != "":
+		row["type"] = legacy_type
+	if legacy_event != "":
+		row["event"] = legacy_event
+	if room != "":
+		row["scene"] = room
+	if position.size() > 0:
+		row["position"] = position
+		row["x"] = position["x"]
+		row["y"] = position["y"]
+
+	var payload := extra.duplicate(true)
+	if payload.has("metadata") and payload["metadata"] is Dictionary:
+		row["metadata"] = payload["metadata"].duplicate(true)
+		payload.erase("metadata")
+	row.merge(payload, true)
+	return row
+
+
+func _current_room_path() -> String:
+	if GameState.current_area_path != "":
+		return GameState.current_area_path
+	var current_scene := get_tree().current_scene
+	if current_scene != null:
+		return current_scene.scene_file_path
+	return ""
+
+
+func _current_player_position() -> Dictionary:
+	var player := get_tree().get_first_node_in_group("player")
+	if player == null:
+		return {}
+	if not (player is Node2D):
+		return {}
+	var pos: Vector2 = (player as Node2D).global_position
+	return {
+		"x": pos.x,
+		"y": pos.y
+	}
+
 func _write(row: Dictionary) -> void:
 	if _file == null:
 		return
@@ -330,5 +422,6 @@ func _write(row: Dictionary) -> void:
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_PREDELETE:
 		if _file != null:
+			_log_session_ended()
 			_file.flush()
 			_file.close()
