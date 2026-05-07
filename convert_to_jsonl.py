@@ -2,7 +2,7 @@
 convert_to_jsonl.py – Konvertiert trajectories.json zu JSONL-Format
 
 Diese Datei konvertiert die trajectories.json Datei in das JSONL-Format,
-das von analyze_playtime_clusters.py erwartet wird.
+das von run_analysis.py verarbeitet wird.
 
 Aufruf:
   python convert_to_jsonl.py
@@ -15,7 +15,7 @@ def convert_trajectories_to_jsonl():
     """Konvertiert trajectories.json zu analytics.jsonl
     
     Jedes Event aus der Sequence wird als separate JSONL-Zeile geschrieben,
-    damit analyze_playtime_clusters.py die session_id und t_msec findet.
+    damit run_analysis.py session_id und t_msec verarbeiten kann.
     """
     
     input_file = "outputpython/trajectories.json"
@@ -56,7 +56,7 @@ def convert_trajectories_to_jsonl():
     print(f"  Input: {input_file} ({len(attempts)} Attempts)")
     print(f"  Output: {output_file} ({written_lines} Zeilen / Events)")
     print(f"\nNächster Schritt:")
-    print(f"  python analyze_playtime_clusters.py {output_file} outputpython/")
+    print(f"  python run_analysis.py {output_file} outputpython/analysis")
     
     return True
 
