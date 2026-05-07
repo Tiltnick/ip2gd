@@ -1,0 +1,9 @@
+session_id,order,event_type,room,t_msec,relative_t_msec
+1774959871_50561,0,room_entered,spaceship,6803.0,0.0
+1774959871_50561,1,dialog_finished,spaceship,13864.0,7061.0
+1774959871_50561,2,quest_updated,spaceship,23826.0,17023.0
+1774959871_50561,3,quest_updated,b4r2irdvo1x1b,34453.0,27650.0
+1774959972_99298,0,room_entered,spaceship,5804.0,0.0
+1774959972_99298,1,dialog_finished,spaceship,12482.0,6678.0
+1774959972_99298,2,quest_updated,b4r2irdvo1x1b,41262.0,35458.0
+1774959972_99298,3,dialog_finished,b4r2irdvo1x1b,57728.0,51924.0

@@ -49,12 +49,19 @@ class AnalysisPipeline:
 
         session_durations = self.session_analyzer.compute_all_session_durations(events)
         print(f"  Gültige Sessions mit Zeitdaten: {len(session_durations)}")
+        session_summary_path = exporter.save_csv(
+            "session_summary.csv",
+            session_durations,
+            ["session_id", "start_msec", "end_msec", "playtime_msec", "playtime_seconds", "playtime_minutes", "event_count"],
+        ) if session_durations else None
 
         room_times: list[dict[str, Any]] = []
         room_times_path = None
         semantic_counts: list[dict[str, Any]] = []
         semantic_events_path = None
         playtrace_sequences: list[dict[str, Any]] = []
+        playtrace_events_path = None
+        room_transitions_path = None
 
         if include_room_analysis:
             room_times = self.room_time_analyzer.compute_room_times_for_all_sessions(events)
@@ -76,7 +83,21 @@ class AnalysisPipeline:
 
         if include_playtrace:
             playtrace_sequences = self.playtrace_analyzer.build_sequences(events)
+            playtrace_rows = self.playtrace_analyzer.flatten_sequences(playtrace_sequences)
+            playtrace_events_path = exporter.save_csv(
+                "playtrace_events.csv",
+                playtrace_rows,
+                ["session_id", "order", "event_type", "room", "t_msec", "relative_t_msec"],
+            ) if playtrace_rows else None
+            room_transitions = self.playtrace_analyzer.compute_room_transitions(playtrace_sequences)
+            room_transitions_path = exporter.save_csv(
+                "room_transitions.csv",
+                room_transitions,
+                ["source_room", "target_room", "count"],
+            ) if room_transitions else None
+            visualizer.plot_playtrace_timeline_by_session(playtrace_sequences)
             visualizer.plot_playtrace_by_room(playtrace_sequences)
+            visualizer.plot_playtrace_transition_graph(room_transitions)
 
         cluster_rows = None
         cluster_summary: list[dict[str, Any]] = []
@@ -108,11 +129,14 @@ class AnalysisPipeline:
         return {
             "events": events,
             "session_durations": session_durations,
+            "session_summary_path": session_summary_path,
             "room_times": room_times,
             "room_times_path": room_times_path,
             "semantic_counts": semantic_counts,
             "semantic_events_path": semantic_events_path,
             "playtrace_sequences": playtrace_sequences,
+            "playtrace_events_path": playtrace_events_path,
+            "room_transitions_path": room_transitions_path,
             "cluster_rows": cluster_rows,
             "cluster_summary": cluster_summary,
             "elbow_data": elbow_data,

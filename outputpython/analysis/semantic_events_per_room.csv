@@ -1,0 +1,6 @@
+room,event_type,count
+b4r2irdvo1x1b,dialog_finished,1
+b4r2irdvo1x1b,quest_updated,2
+spaceship,dialog_finished,2
+spaceship,quest_updated,1
+spaceship,room_entered,2

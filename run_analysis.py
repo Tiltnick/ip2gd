@@ -2,17 +2,28 @@
 
 from __future__ import annotations
 
-import sys
+import argparse
 
 from analysis import AnalysisPipeline
 
 
 def main() -> int:
-    if len(sys.argv) < 3:
-        print("Usage: python run_analysis.py <analytics.jsonl|ordner> <output_dir>")
-        return 1
+    parser = argparse.ArgumentParser(description="Telemetry analysis pipeline")
+    parser.add_argument(
+        "input_path",
+        nargs="?",
+        default="outputpython/analytics.jsonl",
+        help="Pfad zu analytics.jsonl oder Ordner mit *.jsonl (Default: outputpython/analytics.jsonl)",
+    )
+    parser.add_argument(
+        "output_dir",
+        nargs="?",
+        default="outputpython/analysis",
+        help="Output-Ordner für Exporte und Plots (Default: outputpython/analysis)",
+    )
+    args = parser.parse_args()
     pipeline = AnalysisPipeline()
-    pipeline.run(sys.argv[1], sys.argv[2])
+    pipeline.run(args.input_path, args.output_dir)
     print("\nFertig.")
     return 0
 
