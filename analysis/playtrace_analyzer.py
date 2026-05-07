@@ -24,6 +24,8 @@ class PlaytraceAnalyzer:
         grouped = self.session_analyzer.group_by_session(self.event_analyzer.filter_semantic_events(events))
         sequences: list[dict[str, object]] = []
         for session_id, session_events in sorted(grouped.items()):
+            if not session_events:
+                continue
             session_start = session_events[0].t_msec
             sequence = []
             for index, event in enumerate(session_events):
