@@ -144,13 +144,14 @@ class TelemetryVisualizer:
         event_types = sorted({str(step["event_type"]) for session in sequences for step in session["sequence"]})
         room_index = {room: index for index, room in enumerate(rooms)}
         event_index = {event_type: index for index, event_type in enumerate(event_types)}
+        event_divisor = max(len(event_types), 1)
         fig, ax = plt.subplots(figsize=(12, max(5, len(rooms) * 0.6)))
         palette = plt.get_cmap("tab20")
         for index, session in enumerate(sequences):
             xs = [int(step["order"]) for step in session["sequence"]]
             ys = [room_index[str(step["room"])] for step in session["sequence"]]
             colors = [
-                palette(event_index[str(step["event_type"])] / max(len(event_types), 1))
+                palette(event_index[str(step["event_type"])] / event_divisor)
                 for step in session["sequence"]
             ]
             ax.plot(xs, ys, linewidth=1, alpha=0.2, color="#666666")
@@ -171,12 +172,13 @@ class TelemetryVisualizer:
             return None
         rooms = sorted({str(step["room"]) for session in sequences for step in session["sequence"]})
         room_index = {room: index for index, room in enumerate(rooms)}
+        room_divisor = max(len(rooms), 1)
         fig, ax = plt.subplots(figsize=(12, max(5, len(sequences) * 0.8)))
         palette = plt.get_cmap("tab20")
         for session_index, session in enumerate(sequences):
             xs = [float(step["relative_t_msec"]) / 1000.0 for step in session["sequence"]]
             ys = [session_index] * len(xs)
-            colors = [palette(room_index[str(step["room"])] / max(len(rooms), 1)) for step in session["sequence"]]
+            colors = [palette(room_index[str(step["room"])] / room_divisor) for step in session["sequence"]]
             ax.plot(xs, ys, linewidth=1, alpha=0.2, color="#666666")
             ax.scatter(xs, ys, c=colors, s=35, alpha=0.85, edgecolors="none")
         ax.set_xlabel("Zeit seit Session-Start (Sekunden)")

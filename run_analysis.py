@@ -13,13 +13,13 @@ def main() -> int:
         "input_path",
         nargs="?",
         default="outputpython/analytics.jsonl",
-        help="Pfad zu analytics.jsonl oder Ordner mit *.jsonl (Default: outputpython/analytics.jsonl)",
+        help="Path to analytics.jsonl or folder with *.jsonl files (default: outputpython/analytics.jsonl)",
     )
     parser.add_argument(
         "output_dir",
         nargs="?",
         default="outputpython/analysis",
-        help="Output-Ordner für Exporte und Plots (Default: outputpython/analysis)",
+        help="Output folder for exports and plots (default: outputpython/analysis)",
     )
     args = parser.parse_args()
     pipeline = AnalysisPipeline()
