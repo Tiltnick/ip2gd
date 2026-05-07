@@ -50,6 +50,10 @@ func _process(_delta):
 
 		if allow:
 			_hide_interact_ui()
+			if has_node("/root/AnalyticsLogger"):
+				AnalyticsLogger.log_interaction(name, {
+					"node_path": str(get_path())
+				})
 			interact()
 
 

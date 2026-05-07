@@ -11,6 +11,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func exit_game():
+	if has_node("/root/AnalyticsLogger"):
+		AnalyticsLogger.log_game_finished({
+			"ending_scene": true
+		})
 	get_tree().change_scene_to_packed(START_SCENE)
 	pass
 

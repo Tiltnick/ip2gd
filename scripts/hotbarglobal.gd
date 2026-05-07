@@ -38,11 +38,16 @@ func _get_stack_group(item_id: String) -> String:
 func add_item(item_id: String) -> bool:
 	if item_id == "":
 		return false
+	var is_new_pickup := not GameState.picked_items.has(item_id)
 
 	# Quest-Updates + Quest-Slots
-	if not GameState.picked_items.has(item_id):
+	if is_new_pickup:
 		GameState.picked_items.append(item_id)
 		QuestManager.on_item_picked(item_id)
+		if has_node("/root/AnalyticsLogger"):
+			AnalyticsLogger.log_item_collected(item_id, {
+				"source": "hotbar"
+			})
 
 	# damit items nicht doppelt gesaved werden
 	if inventory_items.has(item_id):
