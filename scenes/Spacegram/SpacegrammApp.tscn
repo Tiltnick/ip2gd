@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://wpaq0y40yr5d"]
+[gd_scene load_steps=18 format=3 uid="uid://wpaq0y40yr5d"]
 
 [ext_resource type="PackedScene" uid="uid://5fnaykvrlsv3" path="res://scenes/Spacegram/FeedView.tscn" id="1_dmebn"]
 [ext_resource type="Script" uid="uid://bbkud4o4lhkmi" path="res://scripts/Spacegram/spacegramm_app.gd" id="1_r03mq"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://0t6jveqkp7e2" path="res://assets/sprites/ui/plus.png" id="4_icuhc"]
 [ext_resource type="PackedScene" uid="uid://t28btp84gnq4" path="res://scenes/Spacegram/CommentsOverlay.tscn" id="4_rmbrc"]
 [ext_resource type="PackedScene" uid="uid://dale7drtfbyum" path="res://scenes/Spacegram/ProfileSettingsView.tscn" id="5_k1ffk"]
+[ext_resource type="PackedScene" uid="uid://ddo1kxq71c6qh" path="res://scenes/Spacegram/PostNewPostView.tscn" id="6_gel25"]
 [ext_resource type="Texture2D" uid="uid://cw72y0u06b1en" path="res://assets/sprites/portrait/selfie.png" id="6_icuhc"]
 [ext_resource type="Texture2D" uid="uid://dbldv0uxciauu" path="res://assets/sprites/ui/image (4) (1).png" id="6_k1ffk"]
 [ext_resource type="PackedScene" uid="uid://cl8706cvdham4" path="res://scenes/Spacegram/PostDetailView.tscn" id="6_l3wvu"]
@@ -119,6 +120,10 @@ visible = false
 layout_mode = 2
 
 [node name="PostDetailView" parent="ContentContainer" instance=ExtResource("6_l3wvu")]
+visible = false
+layout_mode = 2
+
+[node name="PostNewPostView" parent="ContentContainer" instance=ExtResource("6_gel25")]
 visible = false
 layout_mode = 2
 
