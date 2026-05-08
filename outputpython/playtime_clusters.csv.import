@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b2mpcplr515im"
+
+[deps]
+
+files=["res://outputpython/playtime_clusters.playtime.translation", "res://outputpython/playtime_clusters.playtime.translation", "res://outputpython/playtime_clusters.playtime.translation", "res://outputpython/playtime_clusters.cluster.translation", "res://outputpython/playtime_clusters.player.translation"]
+
+source_file="res://outputpython/playtime_clusters.csv"
+dest_files=["res://outputpython/playtime_clusters.playtime.translation", "res://outputpython/playtime_clusters.playtime.translation", "res://outputpython/playtime_clusters.playtime.translation", "res://outputpython/playtime_clusters.cluster.translation", "res://outputpython/playtime_clusters.player.translation"]
+
+[params]
+
+compress=true
+delimiter=0
