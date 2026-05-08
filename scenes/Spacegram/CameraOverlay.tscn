@@ -1,0 +1,226 @@
+[gd_scene load_steps=13 format=3 uid="uid://c68ynecxefg0i"]
+
+[ext_resource type="StyleBox" uid="uid://bb60lekwdfurp" path="res://scenes/UI/StyleBoxes/PhoneUI.tres" id="1_3lxf0"]
+[ext_resource type="Texture2D" uid="uid://bjc45qo7vuijm" path="res://assets/sprites/ui/Group 155.png" id="2_t4cf5"]
+[ext_resource type="Texture2D" uid="uid://w3b1kk2jaaqd" path="res://assets/sprites/ui/GridOverlaySmaller-Photoroom.png" id="2_yecv1"]
+[ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="3_p7mic"]
+[ext_resource type="Texture2D" uid="uid://b1l6vhkqd721n" path="res://assets/sprites/ui/Group 156.png" id="3_so3ii"]
+[ext_resource type="StyleBox" uid="uid://bpemtuogc7qyw" path="res://scenes/UI/StyleBoxes/FrameIconSpacegramAppYellow.tres" id="4_4ceed"]
+[ext_resource type="Texture2D" uid="uid://bg3h6r0wv1h7l" path="res://assets/sprites/ui/Group 100.png" id="5_kh16a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdn5d"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t4cf5"]
+bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_so3ii"]
+bg_color = Color(0.12941177, 0.19607843, 0.22352941, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29411766, 0.6313726, 0.5568628, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 62
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ceed"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kh16a"]
+bg_color = Color(0.039215688, 0.08627451, 0.105882354, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22745098, 0.27058825, 0.26666668, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.73333335)
+shadow_size = 1
+shadow_offset = Vector2(0, 1)
+
+[node name="CameraOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DimBackground" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.33333334)
+
+[node name="PhoneFrameHorizontal" type="PanelContainer" parent="DimBackground"]
+custom_minimum_size = Vector2(1060, 450)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -530.0
+offset_top = -225.0
+offset_right = 530.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_3lxf0")
+
+[node name="Screen" type="MarginContainer" parent="DimBackground/PhoneFrameHorizontal"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 0
+
+[node name="CameraPreview" type="PanelContainer" parent="DimBackground/PhoneFrameHorizontal/Screen"]
+clip_contents = true
+layout_mode = 2
+
+[node name="ScreenshotPreview" type="TextureRect" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Header" type="HBoxContainer" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="ConfirmButton" type="TextureButton" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/Header"]
+custom_minimum_size = Vector2(53, 35)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("2_t4cf5")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="CancelButton" type="TextureButton" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/Header"]
+custom_minimum_size = Vector2(53, 35)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("3_so3ii")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="FooterMarginContainer" type="MarginContainer" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_bottom = 7
+
+[node name="Footer" type="HBoxContainer" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/FooterMarginContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="Control3" type="Control" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/FooterMarginContainer/Footer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/FooterMarginContainer/Footer"]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_4ceed")
+
+[node name="SmallPreview" type="TextureRect" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/FooterMarginContainer/Footer/PanelContainer"]
+custom_minimum_size = Vector2(35, 30)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Control" type="Control" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/FooterMarginContainer/Footer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="CaptureButton" type="TextureButton" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/FooterMarginContainer/Footer"]
+custom_minimum_size = Vector2(50, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture_normal = ExtResource("5_kh16a")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Control2" type="Control" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/FooterMarginContainer/Footer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="GridOverlay" type="TextureRect" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview"]
+layout_mode = 2
+texture = ExtResource("2_yecv1")
+expand_mode = 1
+
+[node name="CloseButton" type="Button" parent="DimBackground"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -425.0
+offset_top = 304.0
+offset_right = -362.0
+offset_bottom = 367.0
+grow_horizontal = 0
+rotation = -1.5707964
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_hdn5d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_t4cf5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_so3ii")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ceed")
+icon = ExtResource("3_p7mic")
+icon_alignment = 1
+
+[node name="Taste" type="Panel" parent="DimBackground"]
+layout_mode = 0
+offset_left = 1440.0
+offset_top = 616.0
+offset_right = 1605.0
+offset_bottom = 635.0
+rotation = -1.5707964
+theme_override_styles/panel = SubResource("StyleBoxFlat_kh16a")
+
+[node name="Camera" type="Panel" parent="DimBackground"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 544.0
+offset_right = 459.0
+offset_bottom = 563.0
+rotation = -1.5707964
+theme_override_styles/panel = SubResource("StyleBoxFlat_kh16a")
