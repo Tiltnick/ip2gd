@@ -174,4 +174,5 @@ theme_override_constants/margin_left = 20
 [node name="RepliesBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/RepliesContainer/MarginContainer"]
 layout_mode = 2
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ActionsRow/AnswerButton" to="." method="_on_answer_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ActionsRow/ShowRepliesButton" to="." method="_on_show_replies_pressed"]

@@ -7,6 +7,9 @@ extends Control
 @onready var like_button = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/LikeBlock/LikeButton
 @onready var replies_vbox = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/RepliesContainer/MarginContainer/RepliesBox
 @onready var show_replies_button = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ActionsRow/ShowRepliesButton
+@onready var answer_button = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ActionsRow/AnswerButton
+
+signal reply_requested(username)
 
 var heart_empty = preload("res://assets/sprites/ui/heart (3) (1).png")
 var heart_filled = preload("res://assets/sprites/ui/heart (1) (1).png")
@@ -48,3 +51,5 @@ func _on_show_replies_pressed():
 	
 	show_replies_button.text = tr("HIDE_REPLIES") if replies_visible else tr("SHOW_REPLIES")
 	
+func _on_answer_pressed():
+	reply_requested.emit(username_label.text)
