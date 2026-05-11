@@ -115,7 +115,7 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.5529412, 0.83137256, 0.7529412, 1)
 theme_override_fonts/font = ExtResource("2_nbb0b")
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 14
 text = "USERNAME"
 vertical_alignment = 1
 

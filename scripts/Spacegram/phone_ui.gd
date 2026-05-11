@@ -2,7 +2,7 @@ extends CanvasLayer
 
 @onready var spacegram_app = $PhoneFrame/Screen/SpacegramApp
 @onready var camera_overlay = $CameraOverlay
-@onready var post_new_post_view = $SpacegramApp/ContentContainer/PostNewPostView
+#@onready var post_new_post_view = $PhoneFrame/Screen/SpacegramApp/ContentContainer/PostNewPostView
 @onready var normal_phone_frame = $PhoneFrame
 @onready var taste = $Taste
 @onready var camera_panel = $Camera
@@ -48,4 +48,5 @@ func show_new_post_view():
 	normal_dim_background.visible = true
 
 	spacegram_app.visible = true
-	post_new_post_view.visible = true
+
+	spacegram_app.show_new_post_view()

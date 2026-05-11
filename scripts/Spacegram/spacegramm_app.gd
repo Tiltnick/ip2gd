@@ -28,12 +28,14 @@ func show_feed():
 	profile_view.visible = false
 	profile_settings_view.visible = false
 	post_detail_view.visible = false
+	post_new_post_view.visible = false
 
 
 func show_profile_settings():
 	feed_view.visible = false
 	profile_view.visible = false
 	profile_settings_view.visible = true
+	post_new_post_view.visible = false
 
 
 func show_profile():
@@ -41,12 +43,14 @@ func show_profile():
 	profile_view.visible = true
 	profile_settings_view.visible = false
 	post_detail_view.visible = false
+	post_new_post_view.visible = false
 	
 func show_post_detail(posts, selected_index):
 
 	feed_view.visible = false
 	profile_view.visible = false
 	profile_settings_view.visible = false
+	post_new_post_view.visible = false
 
 	post_detail_view.visible = true
 
@@ -55,6 +59,13 @@ func show_post_detail(posts, selected_index):
 
 	
 func show_new_post_view():
+
+	feed_view.visible = false
+	profile_view.visible = false
+	profile_settings_view.visible = false
+	post_detail_view.visible = false
+	comments_overlay.visible = false
+
 	post_new_post_view.visible = true
 
 func _on_profile_button_pressed():

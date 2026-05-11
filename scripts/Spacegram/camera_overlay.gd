@@ -3,8 +3,8 @@ extends Control
 signal photo_confirmed
 signal camera_closed
 
-@onready var confirm_button = $DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/Header/ConfirmButton
-@onready var cancel_button = $DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/Header/CancelButton
+@onready var confirm_button = $DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/HeaderMarginContainer/Header/ConfirmButton
+@onready var cancel_button = $DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/HeaderMarginContainer/Header/CancelButton
 @onready var close_button = $DimBackground/CloseButton
 
 func _ready():

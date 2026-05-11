@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c68ynecxefg0i"]
+[gd_scene load_steps=16 format=3 uid="uid://c68ynecxefg0i"]
 
 [ext_resource type="StyleBox" uid="uid://bb60lekwdfurp" path="res://scenes/UI/StyleBoxes/PhoneUI.tres" id="1_3lxf0"]
 [ext_resource type="Script" uid="uid://c3g4jej2f5jdd" path="res://scripts/Spacegram/camera_overlay.gd" id="1_so3ii"]
@@ -8,6 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://b1l6vhkqd721n" path="res://assets/sprites/ui/Group 156.png" id="3_so3ii"]
 [ext_resource type="StyleBox" uid="uid://bpemtuogc7qyw" path="res://scenes/UI/StyleBoxes/FrameIconSpacegramAppYellow.tres" id="4_4ceed"]
 [ext_resource type="Texture2D" uid="uid://bg3h6r0wv1h7l" path="res://assets/sprites/ui/Group 100.png" id="5_kh16a"]
+[ext_resource type="Shader" uid="uid://cvrh38clkj8l1" path="res://assets/shaders/RoundedCorner.gdshader" id="6_4ceed"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kh16a"]
+shader = ExtResource("6_4ceed")
+shader_parameter/corner_radius = 120.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdn5d"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -112,12 +117,17 @@ layout_mode = 2
 expand_mode = 1
 stretch_mode = 6
 
-[node name="Header" type="HBoxContainer" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview"]
+[node name="HeaderMarginContainer" type="MarginContainer" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 6
+
+[node name="Header" type="HBoxContainer" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/HeaderMarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 2
 
-[node name="ConfirmButton" type="TextureButton" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/Header"]
+[node name="ConfirmButton" type="TextureButton" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/HeaderMarginContainer/Header"]
 custom_minimum_size = Vector2(53, 35)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -127,7 +137,7 @@ texture_normal = ExtResource("2_t4cf5")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="CancelButton" type="TextureButton" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/Header"]
+[node name="CancelButton" type="TextureButton" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/HeaderMarginContainer/Header"]
 custom_minimum_size = Vector2(53, 35)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -141,7 +151,7 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/margin_top = 3
-theme_override_constants/margin_bottom = 7
+theme_override_constants/margin_bottom = 13
 
 [node name="Footer" type="HBoxContainer" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/FooterMarginContainer"]
 custom_minimum_size = Vector2(0, 30)
@@ -162,6 +172,7 @@ mouse_default_cursor_shape = 2
 theme_override_styles/panel = ExtResource("4_4ceed")
 
 [node name="SmallPreview" type="TextureRect" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/FooterMarginContainer/Footer/PanelContainer"]
+material = SubResource("ShaderMaterial_kh16a")
 custom_minimum_size = Vector2(35, 30)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -188,8 +199,15 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
+[node name="Control4" type="Control" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/FooterMarginContainer/Footer"]
+custom_minimum_size = Vector2(49, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
 [node name="GridOverlay" type="TextureRect" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview"]
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("2_yecv1")
 expand_mode = 1
 
@@ -232,6 +250,6 @@ offset_bottom = 563.0
 rotation = -1.5707964
 theme_override_styles/panel = SubResource("StyleBoxFlat_kh16a")
 
-[connection signal="pressed" from="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/Header/ConfirmButton" to="." method="_on_confirm_pressed"]
-[connection signal="pressed" from="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/Header/CancelButton" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/HeaderMarginContainer/Header/ConfirmButton" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/HeaderMarginContainer/Header/CancelButton" to="." method="_on_cancel_pressed"]
 [connection signal="pressed" from="DimBackground/CloseButton" to="." method="_on_close_pressed"]
