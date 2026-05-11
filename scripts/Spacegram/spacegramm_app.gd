@@ -6,7 +6,9 @@ extends Control
 @onready var comments_overlay = $CommentsOverlay
 @onready var bottom_nav = $ColorRect2
 @onready var post_detail_view = $ContentContainer/PostDetailView
+@onready var post_new_post_view = $ContentContainer/PostNewPostView
 
+signal open_camera_requested
 
 
 func _ready():
@@ -18,6 +20,7 @@ func _ready():
 	profile_view.edit_profile_pressed.connect(show_profile_settings)
 	profile_settings_view.back_pressed.connect(show_profile)
 	profile_view.post_selected.connect(show_post_detail)
+
 
 
 func show_feed():
@@ -49,6 +52,11 @@ func show_post_detail(posts, selected_index):
 
 	post_detail_view.setup(posts, selected_index)
 
+
+	
+func show_new_post_view():
+	post_new_post_view.visible = true
+
 func _on_profile_button_pressed():
 	show_profile()
 
@@ -56,3 +64,6 @@ func _on_profile_button_pressed():
 func _on_home_button_pressed():
 	show_feed()
 	
+	
+func _on_add_button_pressed():
+	open_camera_requested.emit()

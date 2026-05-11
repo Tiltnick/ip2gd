@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://c68ynecxefg0i"]
+[gd_scene load_steps=14 format=3 uid="uid://c68ynecxefg0i"]
 
 [ext_resource type="StyleBox" uid="uid://bb60lekwdfurp" path="res://scenes/UI/StyleBoxes/PhoneUI.tres" id="1_3lxf0"]
+[ext_resource type="Script" uid="uid://c3g4jej2f5jdd" path="res://scripts/Spacegram/camera_overlay.gd" id="1_so3ii"]
 [ext_resource type="Texture2D" uid="uid://bjc45qo7vuijm" path="res://assets/sprites/ui/Group 155.png" id="2_t4cf5"]
 [ext_resource type="Texture2D" uid="uid://w3b1kk2jaaqd" path="res://assets/sprites/ui/GridOverlaySmaller-Photoroom.png" id="2_yecv1"]
 [ext_resource type="Texture2D" uid="uid://cuis6vsr4w33q" path="res://assets/sprites/ui/loschen.png" id="3_p7mic"]
@@ -68,6 +69,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_so3ii")
 
 [node name="DimBackground" type="ColorRect" parent="."]
 layout_mode = 1
@@ -120,6 +122,7 @@ custom_minimum_size = Vector2(53, 35)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_t4cf5")
 ignore_texture_size = true
 stretch_mode = 5
@@ -129,6 +132,7 @@ custom_minimum_size = Vector2(53, 35)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_so3ii")
 ignore_texture_size = true
 stretch_mode = 5
@@ -154,11 +158,13 @@ size_flags_vertical = 0
 [node name="PanelContainer" type="PanelContainer" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/FooterMarginContainer/Footer"]
 custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_styles/panel = ExtResource("4_4ceed")
 
 [node name="SmallPreview" type="TextureRect" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/FooterMarginContainer/Footer/PanelContainer"]
 custom_minimum_size = Vector2(35, 30)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 expand_mode = 1
 stretch_mode = 6
 
@@ -172,6 +178,7 @@ custom_minimum_size = Vector2(50, 45)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("5_kh16a")
 ignore_texture_size = true
 stretch_mode = 5
@@ -224,3 +231,7 @@ offset_right = 459.0
 offset_bottom = 563.0
 rotation = -1.5707964
 theme_override_styles/panel = SubResource("StyleBoxFlat_kh16a")
+
+[connection signal="pressed" from="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/Header/ConfirmButton" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/Header/CancelButton" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="DimBackground/CloseButton" to="." method="_on_close_pressed"]
