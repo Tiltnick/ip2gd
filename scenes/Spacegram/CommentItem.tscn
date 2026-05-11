@@ -121,6 +121,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.5917317, 0.5960959, 0.5287567, 1)
 theme_override_fonts/font = ExtResource("3_gjspg")
 theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
 
 [node name="ActionsRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2

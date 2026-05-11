@@ -2,7 +2,7 @@ extends Control
 
 @onready var comments_vbox = $MarginContainerPanel/Panel/VBoxContainer/CommentsScroll/CommentsVBox
 @onready var close_button = $MarginContainerPanel/Panel/VBoxContainer/MarginContainerHeader/Header/MarginContainerClose/CloseButton
-@onready var text_edit = $MarginContainerPanel/Panel/VBoxContainer/InputRow/TextEdit
+@onready var text_edit = $MarginContainerPanel/Panel/VBoxContainer/InputRow/CodeEdit
 
 var bottom_nav
 
@@ -11,6 +11,7 @@ func _ready():
 	
 	
 	_spawn_dummy_comments()
+	
 	
 func _spawn_dummy_comments():
 	for i in 5:
@@ -31,7 +32,21 @@ func _on_close_pressed():
 
 func _on_reply_requested(username):
 
-	text_edit.text = "@" + username + " "
+	var mention = "@" + username
+
+	var highlighter = CodeHighlighter.new()
+
+	highlighter.add_keyword_color(
+		mention,
+		Color("e16e6cff")
+	)
+
+	text_edit.syntax_highlighter = highlighter
+
+	text_edit.text = mention + " "
+
 	text_edit.grab_focus()
 
 	text_edit.set_caret_column(text_edit.text.length())
+
+	text_edit.queue_redraw()

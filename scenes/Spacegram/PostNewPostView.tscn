@@ -255,17 +255,19 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_mdchm")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_un0rs")
 text = "CAPTION"
 
-[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/FormSection/CaptionField/MarginContainer/HBoxContainer"]
+[node name="LineEdit" type="TextEdit" parent="MarginContainer/VBoxContainer/FormSection/CaptionField/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
 theme_override_colors/font_placeholder_color = Color(0.84313726, 0.8156863, 0.67058825, 0.5294118)
+theme_override_constants/line_spacing = 0
 theme_override_fonts/font = ExtResource("1_msumy")
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_qwudh")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_76bk7")
 placeholder_text = "CAPTION_PLACEHOLDER"
+wrap_mode = 1
 
 [node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
