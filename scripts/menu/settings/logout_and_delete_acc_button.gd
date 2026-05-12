@@ -48,7 +48,6 @@ func _confirm_delete_account():
 		settings_menu._on_close_button_pressed()
 	
 	var result = await SpacegramApi.delete_my_account()
-
 	if not result.success:
 		print("Delete failed: ", result.error)
 		return

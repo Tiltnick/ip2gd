@@ -265,6 +265,7 @@ func create_comment(post_id: String, text: String):
 func delete_my_account() -> Dictionary:
 	var url = BASE_URL + "/account/me"
 	var headers = _get_auth_headers()
+	print("AUTH HEADERS:", headers)
 
 	if headers.is_empty():
 		return {
@@ -273,27 +274,28 @@ func delete_my_account() -> Dictionary:
 		}
 
 	
-	var request = HTTPRequest.new()
-	add_child(request)
+	var request_data = HTTPRequest.new()
+	add_child(request_data)
 
-	var error = request.request(
+	var error = request_data.request(
 		url,
 		headers,
 		HTTPClient.METHOD_DELETE
 	)
 
 	if error != OK:
-		request.queue_free()
+		request_data.queue_free()
 		return {
 			"success": false,
 			"error": "ERROR_REQUEST_FAILED"
 		}
-
-	var result = await request.request_completed
+	print("RAWR ERROR:", error)
+	var result = await request_data.request_completed
+	print("0: RESONSE RESULT", result[0])
 	var response_code = result[1]
 	var response_text = result[3].get_string_from_utf8()
 
-	request.queue_free() 
+	request_data.queue_free() 
 
 	print("DELETE RESPONSE CODE: ", response_code)
 	print("DELETE RESPONSE TEXT: ", response_text)
