@@ -91,6 +91,7 @@ COMMENT_TEXT,Comment text, Kommentartext
 ADD_COMMENT,Add comment,Kommentar schreiben
 ANSWER,Answer,Antworten
 SHOW_REPLIES,Show replies,Antworten anzeigen
+HIDE_REPLIES,Hide replies,Antworten verstecken
 SAVE_CHANGES,Save changes,Änderungen speichern
 EXIT_WITHOUT_SAVING,Exit without saving,Ohne Speichern verlassen
 CHOOSE_A_PROFILE_PICTURE:,Choose a profile picture:,Wähle ein Profilbild aus:

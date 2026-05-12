@@ -38,7 +38,7 @@ func _on_reply_requested(username):
 
 	highlighter.add_keyword_color(
 		mention,
-		Color("e16e6cff")
+		Color("75d6bfff")
 	)
 
 	text_edit.syntax_highlighter = highlighter
