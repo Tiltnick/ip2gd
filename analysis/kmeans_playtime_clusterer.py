@@ -6,9 +6,23 @@ from statistics import mean
 
 
 class KMeansPlaytimeClusterer:
-    """Clusters sessions into fast, standard, and slow player groups."""
+    """Clusters sessions into fast, standard, and slow player groups.
+
+    This refactor supports clustering on multiple numeric features per session
+    (e.g. time in walk, time in run, time in dialogue, quest duration,
+    puzzle duration). It remains backwards-compatible: if no features are
+    supplied, it falls back to `playtime_minutes`.
+    """
 
     PLAYER_TYPES = ["schnelle Spieler", "Standard-Spieler", "langsame Spieler"]
+    RANDOM_STATE = 42
+    INIT = "k-means++"
+    N_INIT = "auto"
+    MAX_ITER = 300
+    TOL = 1e-4
+    ALGORITHM = "lloyd"
+    # Default set of features (keeps backwards compatibility)
+    DEFAULT_FEATURES = ["playtime_minutes"]
 
     def __init__(self) -> None:
         self._sklearn = None
@@ -18,8 +32,11 @@ class KMeansPlaytimeClusterer:
         playtimes: list[dict[str, float]],
         final_k: int = 3,
         max_k: int = 10,
+        *,
+        feature_keys: list[str] | None = None,
     ) -> tuple[list[dict[str, float | int | str]] | None, list[dict[str, float]]]:
-        valid = [row for row in playtimes if row.get("playtime_minutes", 0) > 0]
+        feature_keys = feature_keys or self.DEFAULT_FEATURES
+        valid = self._valid_playtimes(playtimes)
         if not valid:
             print("  Keine gültigen Zeitwerte gefunden – K-Means wird übersprungen.")
             return None, []
@@ -28,33 +45,30 @@ class KMeansPlaytimeClusterer:
         if sklearn is None:
             return None, []
 
+        max_k = max(1, min(max_k, len(valid)))
+
         if len(valid) < final_k:
             print(f"  Zu wenige Sessions für K-Means mit {final_k} Clustern. Mindestens {final_k} Sessions erforderlich.")
-            return None, self.compute_elbow(valid, min(max_k, len(valid)), sklearn)
+            return None, self.compute_elbow(valid, max_k, sklearn, feature_keys=feature_keys)
 
-        elbow_data = self.compute_elbow(valid, min(max_k, len(valid)), sklearn)
+        elbow_data = self.compute_elbow(valid, max_k, sklearn, feature_keys=feature_keys)
 
-        scaler = sklearn["StandardScaler"]()
-        values = [[row["playtime_minutes"]] for row in valid]
-        scaled = scaler.fit_transform(values)
+        X, scaler = self._build_feature_matrix(valid, feature_keys, sklearn)
         model = self._build_kmeans(sklearn["KMeans"], final_k)
-        model.fit(scaled)
+        labels = model.fit_predict(X)
 
         centroids = scaler.inverse_transform(model.cluster_centers_)
-        sorted_cluster_ids = sorted(range(len(centroids)), key=lambda idx: centroids[idx][0])
+        # rank clusters by total centroid value (sum across selected features)
+        centroid_sums = [float(row.sum()) for row in centroids]
+        sorted_cluster_ids = sorted(range(len(centroid_sums)), key=lambda idx: centroid_sums[idx])
         cluster_rank = {cluster_id: rank for rank, cluster_id in enumerate(sorted_cluster_ids)}
 
         enriched: list[dict[str, float | int | str]] = []
         for index, row in enumerate(valid):
-            raw_cluster = int(model.labels_[index])
+            raw_cluster = int(labels[index])
             rank = cluster_rank[raw_cluster]
-            enriched.append(
-                {
-                    **row,
-                    "cluster_id": rank,
-                    "player_type": self.PLAYER_TYPES[rank],
-                }
-            )
+            player_type = self.PLAYER_TYPES[rank] if rank < len(self.PLAYER_TYPES) else f"cluster_{rank}"
+            enriched.append({**row, "cluster_id": rank, "player_type": player_type})
         return enriched, elbow_data
 
     def compute_elbow(
@@ -62,35 +76,51 @@ class KMeansPlaytimeClusterer:
         playtimes: list[dict[str, float]],
         max_k: int,
         sklearn: dict[str, object] | None = None,
+        *,
+        feature_keys: list[str] | None = None,
     ) -> list[dict[str, float]]:
         sklearn = sklearn or self._import_sklearn()
         if sklearn is None or not playtimes:
             return []
-        values = [[row["playtime_minutes"]] for row in playtimes]
-        scaled = sklearn["StandardScaler"]().fit_transform(values)
+        feature_keys = feature_keys or self.DEFAULT_FEATURES
+        valid = self._valid_playtimes(playtimes)
+        if not valid:
+            return []
+        max_k = max(1, min(max_k, len(valid)))
+        X, _ = self._build_feature_matrix(valid, feature_keys, sklearn)
         elbow_data: list[dict[str, float]] = []
         for k in range(1, max_k + 1):
             model = self._build_kmeans(sklearn["KMeans"], k)
-            model.fit(scaled)
+            model.fit(X)
             elbow_data.append({"k": float(k), "inertia": float(model.inertia_)})
         return elbow_data
 
-    def build_cluster_summary(self, enriched: list[dict[str, float | int | str]]) -> list[dict[str, float | int | str]]:
+    def build_cluster_summary(self, enriched: list[dict[str, float | int | str]], feature_keys: list[str] | None = None) -> list[dict[str, float | int | str]]:
+        """Builds a summary for each cluster including per-feature stats.
+
+        If `feature_keys` is omitted, the method will attempt to infer features
+        from the first enriched row (prefers DEFAULT_FEATURES if present).
+        """
+        if not enriched:
+            return []
+        feature_keys = feature_keys or [k for k in self.DEFAULT_FEATURES if k in enriched[0]]
         summary: list[dict[str, float | int | str]] = []
-        for cluster_id, player_type in enumerate(self.PLAYER_TYPES):
-            values = [float(row["playtime_minutes"]) for row in enriched if int(row["cluster_id"]) == cluster_id]
-            if not values:
+        max_cluster_id = max(int(row["cluster_id"]) for row in enriched)
+        for cluster_id in range(max_cluster_id + 1):
+            rows = [row for row in enriched if int(row["cluster_id"]) == cluster_id]
+            if not rows:
                 continue
-            summary.append(
-                {
-                    "player_type": player_type,
-                    "cluster_id": cluster_id,
-                    "count": len(values),
-                    "min_playtime_minutes": round(min(values), 4),
-                    "max_playtime_minutes": round(max(values), 4),
-                    "avg_playtime_minutes": round(mean(values), 4),
-                }
-            )
+            entry: dict[str, float | int | str] = {
+                "cluster_id": cluster_id,
+                "player_type": self.PLAYER_TYPES[cluster_id] if cluster_id < len(self.PLAYER_TYPES) else f"cluster_{cluster_id}",
+                "count": len(rows),
+            }
+            for feature in feature_keys:
+                values = [float(row.get(feature, 0.0)) for row in rows]
+                entry[f"min_{feature}"] = round(min(values), 4)
+                entry[f"max_{feature}"] = round(max(values), 4)
+                entry[f"avg_{feature}"] = round(mean(values), 4)
+            summary.append(entry)
         return summary
 
     def _import_sklearn(self) -> dict[str, object] | None:
@@ -108,8 +138,48 @@ class KMeansPlaytimeClusterer:
         return self._sklearn
 
     @staticmethod
+    def _valid_playtimes(playtimes: list[dict[str, float]]) -> list[dict[str, float]]:
+        return [row for row in playtimes if float(row.get("playtime_minutes", 0)) > 0]
+
+    @staticmethod
+    def _scale_playtimes(
+        playtimes: list[dict[str, float]],
+        sklearn: dict[str, object],
+    ) -> tuple[object, object]:
+        values = [[float(row["playtime_minutes"])] for row in playtimes]
+        scaler = sklearn["StandardScaler"]()
+        scaled = scaler.fit_transform(values)
+        return scaled, scaler
+
+    def _build_feature_matrix(self, playtimes: list[dict[str, float]], feature_keys: list[str], sklearn: dict[str, object]):
+        """Build feature matrix X and fitted scaler for given feature_keys.
+
+        Missing feature values are treated as 0.0. Returns (X, scaler).
+        """
+        values = [[float(row.get(key, 0.0)) for key in feature_keys] for row in playtimes]
+        scaler = sklearn["StandardScaler"]()
+        X = scaler.fit_transform(values)
+        return X, scaler
+
+    @staticmethod
     def _build_kmeans(kmeans_class, n_clusters: int):
         try:
-            return kmeans_class(n_clusters=n_clusters, random_state=42, n_init="auto")
+            return kmeans_class(
+                n_clusters=n_clusters,
+                init=KMeansPlaytimeClusterer.INIT,
+                n_init=KMeansPlaytimeClusterer.N_INIT,
+                max_iter=KMeansPlaytimeClusterer.MAX_ITER,
+                tol=KMeansPlaytimeClusterer.TOL,
+                random_state=KMeansPlaytimeClusterer.RANDOM_STATE,
+                algorithm=KMeansPlaytimeClusterer.ALGORITHM,
+            )
         except TypeError:
-            return kmeans_class(n_clusters=n_clusters, random_state=42, n_init=10)
+            return kmeans_class(
+                n_clusters=n_clusters,
+                init=KMeansPlaytimeClusterer.INIT,
+                n_init=10,
+                max_iter=KMeansPlaytimeClusterer.MAX_ITER,
+                tol=KMeansPlaytimeClusterer.TOL,
+                random_state=KMeansPlaytimeClusterer.RANDOM_STATE,
+                algorithm=KMeansPlaytimeClusterer.ALGORITHM,
+            )
