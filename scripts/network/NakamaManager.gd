@@ -8,21 +8,21 @@ func _ready():
 	client.timeout = 10
 	print("Created Client: ", client)
 
-	await login_device()
+	#await login_device()
 
 
-func login_device():
-	var device_id = OS.get_unique_id()
-	print("Device ID: ", device_id)
-
-	var result = await client.authenticate_device_async(device_id)
-
-	if result.is_exception():
-		print("Login Error: ", result)
-		return
-
-	session = result
-	print("Successful Login: User ID: ", session.user_id)
+#func login_device():
+	#var device_id = OS.get_unique_id()
+	#print("Device ID: ", device_id)
+#
+	#var result = await client.authenticate_device_async(device_id)
+#
+	#if result.is_exception():
+		#print("Login Error: ", result)
+		#return
+#
+	#session = result
+	#print("Successful Login: User ID: ", session.user_id)
 
 func login_email(email: String, password: String) -> Dictionary:
 	var result = await client.authenticate_email_async(email, password, "", false)

@@ -64,6 +64,7 @@ func _on_login_pressed():
 
 	if result.success:
 		var has_save = await SaveSystem.load_game()
+		
 
 		get_parent().update_resume_button(has_save)
 		

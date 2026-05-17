@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://csejhruust020"]
+[gd_scene load_steps=38 format=4 uid="uid://csejhruust020"]
 
 [ext_resource type="Script" uid="uid://dkosu7fsxv5uu" path="res://scripts/scene_manager/spaceship.gd" id="1_k18lp"]
 [ext_resource type="Texture2D" uid="uid://kxs6kkm0ut6w" path="res://assets/sprites/map/Spaceship/background.png" id="1_krvlx"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://bmwyil8lbg5aq" path="res://scenes/Animations/fog.tscn" id="24_t5k16"]
 [ext_resource type="PackedScene" uid="uid://jndgq2qoed1w" path="res://scenes/UI/tutorial_ui.tscn" id="25_w60i3"]
 [ext_resource type="Texture2D" uid="uid://bbkysrm140l12" path="res://assets/sprites/selfmade/background_sky.png" id="27_7rixv"]
+[ext_resource type="PackedScene" uid="uid://8i3kdy2wmqj2" path="res://scenes/Spacegram/PhoneUI.tscn" id="29_lrb48"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oegse"]
 texture = ExtResource("1_krvlx")
@@ -1465,3 +1466,5 @@ offset_left = -231.0
 offset_top = -93.0
 offset_right = -231.0
 offset_bottom = -93.0
+
+[node name="PhoneUI" parent="." instance=ExtResource("29_lrb48")]

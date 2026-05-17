@@ -51,21 +51,64 @@ func create_post(caption: String, image_path: String):
 		print("Request Fehler: ", error)
 
 
-func get_posts():
+func get_posts() -> Dictionary:
 	var url = BASE_URL + "/posts"
 	var headers = _get_auth_headers()
 
 	if headers.is_empty():
-		return
+		return {
+			"success": false,
+			"data": [],
+			"error": "ERROR_NOT_LOGGED_IN"
+		}
 
-	var error = http_request.request(
+	var request_data = HTTPRequest.new()
+	add_child(request_data)
+
+	var error = request_data.request(
 		url,
 		headers,
 		HTTPClient.METHOD_GET
 	)
 
 	if error != OK:
-		print("Request Fehler: ", error)
+		request_data.queue_free()
+		return {
+			"success": false,
+			"data": [],
+			"error": "ERROR_REQUEST_FAILED"
+		}
+
+	var result = await request_data.request_completed
+	var response_code = result[1]
+	var response_text = result[3].get_string_from_utf8()
+
+	request_data.queue_free()
+
+	print("GET POSTS CODE: ", response_code)
+	print("GET POSTS BODY: ", response_text)
+
+	var json = JSON.parse_string(response_text)
+
+	if json == null:
+		return {
+			"success": false,
+			"data": [],
+			"error": "ERROR_INVALID_JSON"
+		}
+
+	if response_code >= 200 and response_code < 300:
+		return {
+			"success": true,
+			"data": json.get("data", []),
+			"error": null
+		}
+
+	return {
+		"success": false,
+		"data": [],
+		"error": json.get("error", "ERROR_UNKNOWN")
+	}
 
 
 func get_comments(post_id: String):

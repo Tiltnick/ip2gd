@@ -52,6 +52,16 @@ export async function createPost(req: AuthRequest, res: Response): Promise<Respo
 
 export async function getPosts(req: AuthRequest, res: Response): Promise<Response> {
   try {
+    const userId = req.user_id;
+
+    if (!userId) {
+      return res.status(401).json({
+        success: false,
+        data: null,
+        error: "Unauthorized",
+      });
+    }
+
     const query = `
       SELECT 
         p.post_id,
@@ -60,17 +70,31 @@ export async function getPosts(req: AuthRequest, res: Response): Promise<Respons
         p.image_path,
         p.posted_at,
         pr.display_name,
-        COUNT(DISTINCT l.user_id) AS likes_count,
-        COUNT(DISTINCT c.comment_id) AS comments_count
+        pr.profile_picture,
+        COUNT(DISTINCT l.user_id) AS like_count,
+        COUNT(DISTINCT c.comment_id) AS comment_count,
+        EXISTS (
+          SELECT 1
+          FROM likes my_like
+          WHERE my_like.post_id = p.post_id
+          AND my_like.user_id = $1
+        ) AS liked_by_me
       FROM post p
       JOIN profile pr ON pr.user_id = p.user_id
       LEFT JOIN likes l ON l.post_id = p.post_id
       LEFT JOIN comment c ON c.post_id = p.post_id
-      GROUP BY p.post_id, pr.display_name
+      GROUP BY 
+        p.post_id,
+        p.user_id,
+        p.caption,
+        p.image_path,
+        p.posted_at,
+        pr.display_name,
+        pr.profile_picture
       ORDER BY p.posted_at DESC
     `;
 
-    const result = await pool.query(query);
+    const result = await pool.query(query, [userId]);
 
     return res.status(200).json({
       success: true,
