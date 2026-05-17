@@ -67,13 +67,12 @@ func _spawn_post(post_data: Dictionary) -> void:
 	post.comments_overlay = comments_overlay
 	post.bottom_nav = bottom_nav
 
-	var caption: String = str(post_data.get("caption", ""))
 	var image_path: String = str(post_data.get("image_path", ""))
 	var image_texture := _load_post_texture(image_path)
 
-	post.setup_post(
+	post.setup_post_data(
+		post_data,
 		image_texture,
-		caption,
 		false
 	)
 

@@ -111,55 +111,164 @@ func get_posts() -> Dictionary:
 	}
 
 
-func get_comments(post_id: String):
+func get_comments(post_id: String) -> Dictionary:
 	var url = BASE_URL + "/posts/" + post_id + "/comments"
 	var headers = _get_auth_headers()
 
 	if headers.is_empty():
-		return
+		return {
+			"success": false,
+			"data": [],
+			"error": "ERROR_NOT_LOGGED_IN"
+		}
 
-	var error = http_request.request(
+	var request_data = HTTPRequest.new()
+	add_child(request_data)
+
+	var error = request_data.request(
 		url,
 		headers,
 		HTTPClient.METHOD_GET
 	)
 
 	if error != OK:
-		print("Request Fehler: ", error)
+		request_data.queue_free()
+		return {
+			"success": false,
+			"data": [],
+			"error": "ERROR_REQUEST_FAILED"
+		}
+
+	var result = await request_data.request_completed
+	var response_code = result[1]
+	var response_text = result[3].get_string_from_utf8()
+
+	request_data.queue_free()
+
+	print("GET COMMENTS CODE: ", response_code)
+	print("GET COMMENTS BODY: ", response_text)
+
+	var json = JSON.parse_string(response_text)
+
+	if json == null:
+		return {
+			"success": false,
+			"data": [],
+			"error": "ERROR_INVALID_JSON"
+		}
+
+	if response_code >= 200 and response_code < 300:
+		return {
+			"success": true,
+			"data": json.get("data", []),
+			"error": null
+		}
+
+	return {
+		"success": false,
+		"data": [],
+		"error": json.get("error", "ERROR_UNKNOWN")
+	}
 
 
-func like_post(post_id: String):
+func like_post(post_id: String) -> Dictionary:
 	var url = BASE_URL + "/posts/" + post_id + "/like"
 	var headers = _get_auth_headers()
 
 	if headers.is_empty():
-		return
+		return {
+			"success": false,
+			"error": "ERROR_NOT_LOGGED_IN"
+		}
 
-	var error = http_request.request(
+	var request_data = HTTPRequest.new()
+	add_child(request_data)
+
+	var error = request_data.request(
 		url,
 		headers,
 		HTTPClient.METHOD_POST
 	)
 
 	if error != OK:
-		print("Request Fehler: ", error)
+		request_data.queue_free()
+		return {
+			"success": false,
+			"error": "ERROR_REQUEST_FAILED"
+		}
+
+	var result = await request_data.request_completed
+	var response_code = result[1]
+	var response_text = result[3].get_string_from_utf8()
+
+	request_data.queue_free()
+
+	print("LIKE CODE: ", response_code)
+	print("LIKE BODY: ", response_text)
+
+	var json = JSON.parse_string(response_text)
+
+	if response_code >= 200 and response_code < 300:
+		return {
+			"success": true,
+			"data": json.get("data", null) if json != null else null,
+			"error": null
+		}
+
+	return {
+		"success": false,
+		"error": json.get("error", "ERROR_UNKNOWN") if json != null else "ERROR_INVALID_JSON"
+	}
 
 
-func unlike_post(post_id: String):
+func unlike_post(post_id: String) -> Dictionary:
 	var url = BASE_URL + "/posts/" + post_id + "/like"
 	var headers = _get_auth_headers()
 
 	if headers.is_empty():
-		return
+		return {
+			"success": false,
+			"error": "ERROR_NOT_LOGGED_IN"
+		}
 
-	var error = http_request.request(
+	var request_data = HTTPRequest.new()
+	add_child(request_data)
+
+	var error = request_data.request(
 		url,
 		headers,
 		HTTPClient.METHOD_DELETE
 	)
 
 	if error != OK:
-		print("Request Fehler: ", error)
+		request_data.queue_free()
+		return {
+			"success": false,
+			"error": "ERROR_REQUEST_FAILED"
+		}
+
+	var result = await request_data.request_completed
+	var response_code = result[1]
+	var response_text = result[3].get_string_from_utf8()
+
+	request_data.queue_free()
+
+	print("UNLIKE CODE: ", response_code)
+	print("UNLIKE BODY: ", response_text)
+
+	var json = JSON.parse_string(response_text)
+
+	if response_code >= 200 and response_code < 300:
+		return {
+			"success": true,
+			"data": json.get("data", null) if json != null else null,
+			"error": null
+		}
+
+	return {
+		"success": false,
+		"error": json.get("error", "ERROR_UNKNOWN") if json != null else "ERROR_INVALID_JSON"
+	}
 
 
 func get_my_profile():
@@ -248,21 +357,53 @@ func delete_post(post_id: String):
 		print("Request Fehler: ", error)
 
 
-func delete_comment(comment_id: String):
+func delete_comment(comment_id: String) -> Dictionary:
 	var url = BASE_URL + "/posts/comments/" + comment_id
 	var headers = _get_auth_headers()
 
 	if headers.is_empty():
-		return
+		return {
+			"success": false,
+			"error": "ERROR_NOT_LOGGED_IN"
+		}
 
-	var error = http_request.request(
+	var request_data = HTTPRequest.new()
+	add_child(request_data)
+
+	var error = request_data.request(
 		url,
 		headers,
 		HTTPClient.METHOD_DELETE
 	)
 
 	if error != OK:
-		print("Request Fehler: ", error)
+		request_data.queue_free()
+		return {
+			"success": false,
+			"error": "ERROR_REQUEST_FAILED"
+		}
+
+	var result = await request_data.request_completed
+	var response_code = result[1]
+	var response_text = result[3].get_string_from_utf8()
+
+	request_data.queue_free()
+
+	print("DELETE COMMENT CODE: ", response_code)
+	print("DELETE COMMENT BODY: ", response_text)
+
+	var json = JSON.parse_string(response_text)
+
+	if response_code >= 200 and response_code < 300:
+		return {
+			"success": true,
+			"error": null
+		}
+
+	return {
+		"success": false,
+		"error": json.get("error", "ERROR_UNKNOWN") if json != null else "ERROR_INVALID_JSON"
+	}
 
 
 func get_profile_by_user_id(user_id: String):
@@ -281,12 +422,16 @@ func get_profile_by_user_id(user_id: String):
 	if error != OK:
 		print("Request Fehler: ", error)
 
-func create_comment(post_id: String, text: String):
+func create_comment(post_id: String, text: String) -> Dictionary:
 	var url = BASE_URL + "/posts/" + post_id + "/comments"
 	var headers = _get_auth_headers(true)
 
 	if headers.is_empty():
-		return
+		return {
+			"success": false,
+			"data": null,
+			"error": "ERROR_NOT_LOGGED_IN"
+		}
 
 	var body = {
 		"text": text
@@ -294,7 +439,10 @@ func create_comment(post_id: String, text: String):
 
 	var json_body = JSON.stringify(body)
 
-	var error = http_request.request(
+	var request_data = HTTPRequest.new()
+	add_child(request_data)
+
+	var error = request_data.request(
 		url,
 		headers,
 		HTTPClient.METHOD_POST,
@@ -302,7 +450,43 @@ func create_comment(post_id: String, text: String):
 	)
 
 	if error != OK:
-		print("Request Fehler: ", error)
+		request_data.queue_free()
+		return {
+			"success": false,
+			"data": null,
+			"error": "ERROR_REQUEST_FAILED"
+		}
+
+	var result = await request_data.request_completed
+	var response_code = result[1]
+	var response_text = result[3].get_string_from_utf8()
+
+	request_data.queue_free()
+
+	print("CREATE COMMENT CODE: ", response_code)
+	print("CREATE COMMENT BODY: ", response_text)
+
+	var json = JSON.parse_string(response_text)
+
+	if json == null:
+		return {
+			"success": false,
+			"data": null,
+			"error": "ERROR_INVALID_JSON"
+		}
+
+	if response_code >= 200 and response_code < 300:
+		return {
+			"success": true,
+			"data": json.get("data", null),
+			"error": null
+		}
+
+	return {
+		"success": false,
+		"data": null,
+		"error": json.get("error", "ERROR_UNKNOWN")
+	}
 		
 		
 func delete_my_account() -> Dictionary:
@@ -358,6 +542,9 @@ func delete_my_account() -> Dictionary:
 	"success": false,
 	"error": json.get("error", "ERROR_UNKNOWN")
 	}
+	
+	
+
 
 func _on_request_completed(result, response_code, headers, body):
 	var response_text = body.get_string_from_utf8()

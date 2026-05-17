@@ -8,8 +8,10 @@ extends Control
 @onready var replies_vbox = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/RepliesContainer/MarginContainer/RepliesBox
 @onready var show_replies_button = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ActionsRow/ShowRepliesButton
 @onready var answer_button = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ActionsRow/AnswerButton
+@onready var delete_button = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/DeleteCommentButton
 
 signal reply_requested(username)
+signal delete_requested(comment_id)
 
 var heart_empty = preload("res://assets/sprites/ui/heart (3) (1).png")
 var heart_filled = preload("res://assets/sprites/ui/heart (1) (1).png")
@@ -17,23 +19,39 @@ var heart_filled = preload("res://assets/sprites/ui/heart (1) (1).png")
 var is_liked := false
 var replies_visible := false
 
-func _ready() -> void:
-	like_button.pressed.connect(_on_like_pressed)
+var comment_id: String = ""
+var user_id: String = ""
 
-func setup(username: String, text: String, time: String, likes: int, is_reply := false) -> void:
+
+
+func setup(
+	username: String,
+	text: String,
+	time: String,
+	likes: int,
+	is_reply := false,
+	new_comment_id := "",
+	new_user_id := ""
+) -> void:
+	comment_id = str(new_comment_id)
+	user_id = str(new_user_id)
+
 	comment_text.clear()
 	comment_text.text = text
 	
 	username_label.text = username
 	time_label.text = time
 	like_count.text = str(likes)
+
 	replies_vbox.visible = false
+	show_replies_button.visible = false
 	
-	if not is_reply:
-		add_reply("Truffle", "@Porccini Lorem ipsum!", "12h", 28)
-		add_reply("AnotherUser", "Antwort hier", "2h", 5)
-		
-	show_replies_button.visible = replies_vbox.get_child_count() > 0
+	var is_own_comment := false
+	
+	if NakamaManager.is_logged_in():
+		is_own_comment = user_id == NakamaManager.session.user_id
+
+	delete_button.visible = is_own_comment
 
 func _on_like_pressed():
 	is_liked = !is_liked
@@ -53,3 +71,13 @@ func _on_show_replies_pressed():
 	
 func _on_answer_pressed():
 	reply_requested.emit(username_label.text)
+	
+	
+func _on_delete_pressed() -> void:
+	print("Delete Button gedrückt für comment_id: ", comment_id)
+
+	if comment_id.is_empty():
+		print("CommentItem: Keine comment_id gesetzt.")
+		return
+
+	delete_requested.emit(comment_id)

@@ -287,3 +287,4 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_88rog")
 text = "POST"
 
 [connection signal="pressed" from="MarginContainerPanel/Panel/VBoxContainer/MarginContainerHeader/Header/MarginContainerClose/CloseButton" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="MarginContainerPanel/Panel/VBoxContainer/InputRow/MarginContainer/PostButton" to="." method="_on_post_button_pressed"]

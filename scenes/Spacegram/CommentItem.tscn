@@ -92,6 +92,23 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
+[node name="DeleteCommentButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88315314, 0.4323961, 0.42329898, 1)
+theme_override_colors/font_focus_color = Color(0.88315314, 0.4323961, 0.42329898, 1)
+theme_override_colors/font_pressed_color = Color(0.8, 0.32941177, 0.32941177, 1)
+theme_override_colors/font_hover_color = Color(0.9495718, 0.6526867, 0.6360583, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.9490196, 0.6509804, 0.63529414, 1)
+theme_override_colors/font_disabled_color = Color(0.30980393, 0.47843137, 0.4392157, 0.4745098)
+theme_override_fonts/font = ExtResource("3_gjspg")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_v6c06")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pewyd")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_lgnxh")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ns4ei")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7bd40")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gjspg")
+text = "DELETE_COMMENT"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -175,5 +192,7 @@ layout_mode = 2
 [node name="RepliesBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/RepliesContainer/MarginContainer"]
 layout_mode = 2
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/DeleteCommentButton" to="." method="_on_delete_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/LikeBlock/LikeButton" to="." method="_on_like_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ActionsRow/AnswerButton" to="." method="_on_answer_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ActionsRow/ShowRepliesButton" to="." method="_on_show_replies_pressed"]
