@@ -1,5 +1,3 @@
-"""Telemetry loading and normalization."""
-
 from __future__ import annotations
 
 import json
@@ -10,7 +8,6 @@ from .telemetry_models import LoadReport, TelemetryEvent
 
 
 class EventNormalizer:
-    """Normalizes telemetry rows from legacy and current schemas."""
 
     SEMANTIC_ALIASES = {
         "interaction_used": "interaction",

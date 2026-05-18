@@ -1,19 +1,9 @@
-"""K-Means clustering for playtime analysis."""
-
 from __future__ import annotations
 
 from statistics import mean
 
 
 class KMeansPlaytimeClusterer:
-    """Clusters sessions into fast, standard, and slow player groups.
-
-    This refactor supports clustering on multiple numeric features per session
-    (e.g. time in walk, time in run, time in dialogue, quest duration,
-    puzzle duration). It remains backwards-compatible: if no features are
-    supplied, it falls back to `playtime_minutes`.
-    """
-
     PLAYER_TYPES = ["schnelle Spieler", "Standard-Spieler", "langsame Spieler"]
     RANDOM_STATE = 42
     INIT = "k-means++"
@@ -21,7 +11,6 @@ class KMeansPlaytimeClusterer:
     MAX_ITER = 300
     TOL = 1e-4
     ALGORITHM = "lloyd"
-    # Default set of features (keeps backwards compatibility)
     DEFAULT_FEATURES = ["playtime_minutes"]
 
     def __init__(self) -> None:
@@ -38,7 +27,7 @@ class KMeansPlaytimeClusterer:
         feature_keys = feature_keys or self.DEFAULT_FEATURES
         valid = self._valid_playtimes(playtimes)
         if not valid:
-            print("  Keine gültigen Zeitwerte gefunden – K-Means wird übersprungen.")
+            print("  Keine gültigen Zeitwerte gefunden K-Means wird übersprungen.")
             return None, []
 
         sklearn = self._import_sklearn()
@@ -96,11 +85,6 @@ class KMeansPlaytimeClusterer:
         return elbow_data
 
     def build_cluster_summary(self, enriched: list[dict[str, float | int | str]], feature_keys: list[str] | None = None) -> list[dict[str, float | int | str]]:
-        """Builds a summary for each cluster including per-feature stats.
-
-        If `feature_keys` is omitted, the method will attempt to infer features
-        from the first enriched row (prefers DEFAULT_FEATURES if present).
-        """
         if not enriched:
             return []
         feature_keys = feature_keys or [k for k in self.DEFAULT_FEATURES if k in enriched[0]]
@@ -130,8 +114,6 @@ class KMeansPlaytimeClusterer:
             from sklearn.cluster import KMeans
             from sklearn.preprocessing import StandardScaler
         except ImportError:
-            print("Hinweis: scikit-learn ist nicht installiert. K-Means-Clustering wird übersprungen.")
-            print("pip install scikit-learn")
             self._sklearn = None
             return None
         self._sklearn = {"KMeans": KMeans, "StandardScaler": StandardScaler}
@@ -152,10 +134,6 @@ class KMeansPlaytimeClusterer:
         return scaled, scaler
 
     def _build_feature_matrix(self, playtimes: list[dict[str, float]], feature_keys: list[str], sklearn: dict[str, object]):
-        """Build feature matrix X and fitted scaler for given feature_keys.
-
-        Missing feature values are treated as 0.0. Returns (X, scaler).
-        """
         values = [[float(row.get(key, 0.0)) for key in feature_keys] for row in playtimes]
         scaler = sklearn["StandardScaler"]()
         X = scaler.fit_transform(values)

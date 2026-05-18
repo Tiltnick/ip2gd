@@ -1,5 +1,3 @@
-"""Room-based telemetry analysis."""
-
 from __future__ import annotations
 
 from collections import defaultdict
@@ -9,7 +7,6 @@ from .telemetry_models import TelemetryEvent
 
 
 class RoomTimeAnalyzer:
-    """Computes time spent per room."""
 
     def __init__(self, session_analyzer: SessionAnalyzer | None = None) -> None:
         self.session_analyzer = session_analyzer or SessionAnalyzer()

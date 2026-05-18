@@ -1,5 +1,3 @@
-"""Playtrace preparation based on semantic events."""
-
 from __future__ import annotations
 
 from collections import Counter, defaultdict
@@ -10,7 +8,6 @@ from .telemetry_models import TelemetryEvent
 
 
 class PlaytraceAnalyzer:
-    """Builds lightweight playtrace-ready sequences."""
 
     def __init__(
         self,

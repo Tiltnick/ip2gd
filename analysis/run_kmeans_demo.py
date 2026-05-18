@@ -1,12 +1,3 @@
-"""Kleines Demo-Skript für K-Means-Clusterer (Beispieldaten).
-
-Ausführung:
-    python -m ip2gd.analysis.run_kmeans_demo
-
-Das Skript erstellt synthetische Sessions mit mehreren Zeit-Features,
-führt das Clustering durch und druckt angereicherte Sessions + Zusammenfassung.
-"""
-
 from __future__ import annotations
 
 from pprint import pprint
@@ -29,7 +20,6 @@ def make_sample_sessions():
             "playtime_seconds": base_msec / 1000.0,
             "playtime_minutes": float(kwargs.get("playtime_minutes", 10.0)),
             "event_count": float(kwargs.get("event_count", 20)),
-            # optional detailed features (minutes)
             "walk_minutes": float(kwargs.get("walk_minutes", 0.0)),
             "run_minutes": float(kwargs.get("run_minutes", 0.0)),
             "dialogue_minutes": float(kwargs.get("dialogue_minutes", 0.0)),

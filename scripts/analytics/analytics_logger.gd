@@ -137,18 +137,18 @@ func _on_quest_completed(quest_data: Dictionary) -> void:
 
 
 func _on_dialog_started() -> void:
-	var path := DialogManager.current_dialog_path
+	var path = DialogManager.current_dialog_path
 	_log_event("dialog_started", {"dialog": path})
 
 
 func _on_dialog_finished() -> void:
-	var path := DialogManager.current_dialog_path
+	var path = DialogManager.current_dialog_path
 	_log_event("dialog_finished", {"dialog": path})
 	_log_semantic_snapshot("dialog_finished")
 
 
 func _on_choice_made(choice_id: String) -> void:
-	var path := DialogManager.current_dialog_path
+	var path = DialogManager.current_dialog_path
 	_log_event("dialog_choice", {"dialog": path, "choice_id": choice_id})
 
 
