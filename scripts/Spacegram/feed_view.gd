@@ -81,6 +81,16 @@ func _load_post_texture(image_path: String) -> Texture2D:
 	if image_path.is_empty():
 		return FALLBACK_POST_IMAGE
 
+	if image_path.begins_with("user://"):
+		var image := Image.new()
+		var error := image.load(image_path)
+
+		if error != OK:
+			print("FeedView: user:// Bild nicht gefunden: ", image_path)
+			return FALLBACK_POST_IMAGE
+
+		return ImageTexture.create_from_image(image)
+
 	var normalized_path := image_path
 
 	if not normalized_path.begins_with("res://"):

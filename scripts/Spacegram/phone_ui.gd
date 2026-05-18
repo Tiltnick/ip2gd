@@ -37,7 +37,7 @@ func close_camera():
 	spacegram_app.visible = true
 
 
-func show_new_post_view():
+func show_new_post_view(image_path: String):
 
 	camera_overlay.visible = false
 
@@ -49,4 +49,4 @@ func show_new_post_view():
 
 	spacegram_app.visible = true
 
-	spacegram_app.show_new_post_view()
+	spacegram_app.show_new_post_view(image_path)

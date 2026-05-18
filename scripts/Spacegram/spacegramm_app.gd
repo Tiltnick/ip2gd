@@ -20,6 +20,8 @@ func _ready():
 	profile_view.edit_profile_pressed.connect(show_profile_settings)
 	profile_settings_view.back_pressed.connect(show_profile)
 	profile_view.post_selected.connect(show_post_detail)
+	post_new_post_view.post_created.connect(_on_post_created)
+	post_new_post_view.cancel_requested.connect(show_feed)
 
 
 
@@ -58,7 +60,7 @@ func show_post_detail(posts, selected_index):
 
 
 	
-func show_new_post_view():
+func show_new_post_view(image_path: String):
 
 	feed_view.visible = false
 	profile_view.visible = false
@@ -67,6 +69,7 @@ func show_new_post_view():
 	comments_overlay.visible = false
 
 	post_new_post_view.visible = true
+	post_new_post_view.setup(image_path)
 
 func _on_profile_button_pressed():
 	show_profile()
@@ -78,3 +81,7 @@ func _on_home_button_pressed():
 	
 func _on_add_button_pressed():
 	open_camera_requested.emit()
+	
+func _on_post_created() -> void:
+	show_feed()
+	feed_view.refresh_posts()
