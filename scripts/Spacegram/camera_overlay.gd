@@ -7,17 +7,48 @@ signal camera_closed
 @onready var cancel_button = $DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/HeaderMarginContainer/Header/CancelButton
 @onready var close_button = $DimBackground/CloseButton
 
+@onready var capture_button = $DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/FooterMarginContainer/Footer/CaptureButton
+@onready var screenshot_preview = $DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/ScreenshotPreview
+@onready var small_preview = $DimBackground/PhoneFrameHorizontal/Screen/CameraPreview/FooterMarginContainer/Footer/PanelContainer/SmallPreview
+
 var captured_image_path: String = ""
 
 
-func _ready():
+func _ready() -> void:
 	visible = false
+	_reset_camera_state()
+
+
+func _reset_camera_state() -> void:
+	captured_image_path = ""
+
+	screenshot_preview.texture = null
+	small_preview.texture = null
+
+	capture_button.visible = true
+	confirm_button.visible = false
+	cancel_button.visible = false
+
+
+func _show_preview_state() -> void:
+	capture_button.visible = false
+	confirm_button.visible = true
+	cancel_button.visible = true
+
+
+func _on_capture_pressed() -> void:
+	await capture_screenshot()
+
+	if not captured_image_path.is_empty():
+		_show_preview_state()
 
 
 func capture_screenshot() -> void:
+	# Overlay kurz ausblenden, damit es nicht mitfotografiert wird
 	visible = false
 
 	await RenderingServer.frame_post_draw
+	await get_tree().process_frame
 
 	var image := get_viewport().get_texture().get_image()
 
@@ -36,22 +67,27 @@ func capture_screenshot() -> void:
 		return
 
 	captured_image_path = file_path
+
+	var texture := ImageTexture.create_from_image(image)
+	screenshot_preview.texture = texture
+	small_preview.texture = texture
+
 	print("Screenshot gespeichert: ", captured_image_path)
 
 
-func _on_confirm_pressed():
+func _on_confirm_pressed() -> void:
 	if captured_image_path.is_empty():
-		await capture_screenshot()
-
-	if captured_image_path.is_empty():
+		print("Kein Screenshot vorhanden.")
 		return
 
 	photo_confirmed.emit(captured_image_path)
+	_reset_camera_state()
 
 
-func _on_cancel_pressed():
-	camera_closed.emit()
+func _on_cancel_pressed() -> void:
+	_reset_camera_state()
 
 
-func _on_close_pressed():
+func _on_close_pressed() -> void:
+	_reset_camera_state()
 	camera_closed.emit()
