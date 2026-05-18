@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c68ynecxefg0i"]
+[gd_scene load_steps=18 format=3 uid="uid://c68ynecxefg0i"]
 
 [ext_resource type="StyleBox" uid="uid://bb60lekwdfurp" path="res://scenes/UI/StyleBoxes/PhoneUI.tres" id="1_3lxf0"]
 [ext_resource type="Script" uid="uid://c3g4jej2f5jdd" path="res://scripts/Spacegram/camera_overlay.gd" id="1_so3ii"]
@@ -9,6 +9,9 @@
 [ext_resource type="StyleBox" uid="uid://bpemtuogc7qyw" path="res://scenes/UI/StyleBoxes/FrameIconSpacegramAppYellow.tres" id="4_4ceed"]
 [ext_resource type="Texture2D" uid="uid://bg3h6r0wv1h7l" path="res://assets/sprites/ui/Group 100.png" id="5_kh16a"]
 [ext_resource type="Shader" uid="uid://cvrh38clkj8l1" path="res://assets/shaders/RoundedCorner.gdshader" id="6_4ceed"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ceed"]
+bg_color = Color(0, 0.043137256, 0.05882353, 0.05490196)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kh16a"]
 shader = ExtResource("6_4ceed")
@@ -51,6 +54,15 @@ corner_radius_bottom_right = 60
 corner_radius_bottom_left = 62
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ceed"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ad28g"]
+bg_color = Color(0.101960786, 0.14117648, 0.16078432, 1)
+border_color = Color(0.22745098, 0.27058825, 0.26666668, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_offset = Vector2(0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kh16a"]
 bg_color = Color(0.039215688, 0.08627451, 0.105882354, 1)
@@ -111,6 +123,7 @@ theme_override_constants/margin_bottom = 0
 [node name="CameraPreview" type="PanelContainer" parent="DimBackground/PhoneFrameHorizontal/Screen"]
 clip_contents = true
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ceed")
 
 [node name="ScreenshotPreview" type="TextureRect" parent="DimBackground/PhoneFrameHorizontal/Screen/CameraPreview"]
 layout_mode = 2
@@ -231,6 +244,24 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_so3ii")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4ceed")
 icon = ExtResource("3_p7mic")
 icon_alignment = 1
+
+[node name="PhoneFrame" type="Panel" parent="DimBackground"]
+layout_mode = 0
+offset_left = 1423.8949
+offset_top = 737.0727
+offset_right = 1828.8717
+offset_bottom = 791.52277
+rotation = -1.5707964
+theme_override_styles/panel = SubResource("StyleBoxFlat_ad28g")
+
+[node name="PhoneFrame2" type="Panel" parent="DimBackground"]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 736.0
+offset_right = 836.9768
+offset_bottom = 769.5311
+rotation = -1.5707964
+theme_override_styles/panel = SubResource("StyleBoxFlat_ad28g")
 
 [node name="Taste" type="Panel" parent="DimBackground"]
 layout_mode = 0
