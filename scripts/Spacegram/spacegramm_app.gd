@@ -59,6 +59,7 @@ func show_profile():
 	profile_settings_view.visible = false
 	post_detail_view.visible = false
 	post_new_post_view.visible = false
+	profile_is_dirty = false
 	await profile_view.load_profile()
 	
 func show_post_detail(posts, selected_index):
