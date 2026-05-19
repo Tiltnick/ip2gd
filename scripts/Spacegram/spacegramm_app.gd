@@ -9,6 +9,9 @@ extends Control
 @onready var post_new_post_view = $ContentContainer/PostNewPostView
 @onready var confirm_popup = $SpacegramConfirmPopup
 
+var feed_is_dirty := false
+var profile_is_dirty := false
+
 signal open_camera_requested
 
 
@@ -38,7 +41,9 @@ func show_feed():
 	post_detail_view.visible = false
 	post_new_post_view.visible = false
 	
-	feed_view.refresh_posts()
+	if feed_is_dirty:
+		feed_is_dirty = false
+		feed_view.refresh_posts()
 
 
 func show_profile_settings():
@@ -102,5 +107,5 @@ func _on_post_created() -> void:
 	profile_view.refresh_profile()
 	
 func _on_spacegram_data_changed() -> void:
-	feed_view.refresh_posts()
-	profile_view.refresh_profile()
+	feed_is_dirty = true
+	profile_is_dirty = true
