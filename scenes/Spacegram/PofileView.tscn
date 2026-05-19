@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://e3luha0ivwky"]
+[gd_scene load_steps=11 format=3 uid="uid://e3luha0ivwky"]
 
 [ext_resource type="Script" uid="uid://cygw8i4rmy1rs" path="res://scripts/Spacegram/pofile_view.gd" id="1_p75n0"]
 [ext_resource type="Shader" uid="uid://cvrh38clkj8l1" path="res://assets/shaders/RoundedCorner.gdshader" id="2_nm8bn"]
-[ext_resource type="Texture2D" uid="uid://cw72y0u06b1en" path="res://assets/sprites/portrait/selfie.png" id="2_p75n0"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="3_sf04u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lg3uv"]
@@ -126,7 +125,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_lg3uv")
 [node name="ProfileImage" type="TextureRect" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/ProfileAndUsername/ProfileImageFrame"]
 material = SubResource("ShaderMaterial_lg3uv")
 layout_mode = 2
-texture = ExtResource("2_p75n0")
 expand_mode = 5
 stretch_mode = 6
 
