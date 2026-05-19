@@ -383,21 +383,53 @@ func update_my_profile(display_name: String, bio: String, profile_picture: Strin
 		"error": json.get("error", "ERROR_UNKNOWN")
 	}
 
-func delete_post(post_id: String):
+func delete_post(post_id: String) -> Dictionary:
 	var url = BASE_URL + "/posts/" + post_id
 	var headers = _get_auth_headers()
 
 	if headers.is_empty():
-		return
+		return {
+			"success": false,
+			"error": "ERROR_NOT_LOGGED_IN"
+		}
 
-	var error = http_request.request(
+	var request_data = HTTPRequest.new()
+	add_child(request_data)
+
+	var error = request_data.request(
 		url,
 		headers,
 		HTTPClient.METHOD_DELETE
 	)
 
 	if error != OK:
-		print("Request Fehler: ", error)
+		request_data.queue_free()
+		return {
+			"success": false,
+			"error": "ERROR_REQUEST_FAILED"
+		}
+
+	var result = await request_data.request_completed
+	var response_code = result[1]
+	var response_text = result[3].get_string_from_utf8()
+
+	request_data.queue_free()
+
+	print("DELETE POST CODE: ", response_code)
+	print("DELETE POST BODY: ", response_text)
+
+	var json = JSON.parse_string(response_text)
+
+	if response_code >= 200 and response_code < 300:
+		return {
+			"success": true,
+			"error": null
+		}
+
+	return {
+		"success": false,
+		"error": json.get("error", "ERROR_UNKNOWN") if json != null else "ERROR_INVALID_JSON"
+	}
 
 
 func delete_comment(comment_id: String) -> Dictionary:

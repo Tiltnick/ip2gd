@@ -112,11 +112,14 @@ export async function getPosts(req: AuthRequest, res: Response): Promise<Respons
 }
 
 export async function deletePost(req: AuthRequest, res: Response): Promise<Response> {
+  const client = await pool.connect();
+
   try {
     const userId = req.user_id;
     const postId = req.params.id;
 
     if (!userId) {
+      client.release();
       return res.status(401).json({
         success: false,
         data: null,
@@ -124,15 +127,20 @@ export async function deletePost(req: AuthRequest, res: Response): Promise<Respo
       });
     }
 
-    const query = `
-      DELETE FROM post
+    await client.query("BEGIN");
+
+    const checkQuery = `
+      SELECT *
+      FROM post
       WHERE post_id = $1 AND user_id = $2
-      RETURNING *
     `;
 
-    const result = await pool.query(query, [postId, userId]);
+    const checkResult = await client.query(checkQuery, [postId, userId]);
 
-    if (result.rows.length === 0) {
+    if (checkResult.rows.length === 0) {
+      await client.query("ROLLBACK");
+      client.release();
+
       return res.status(404).json({
         success: false,
         data: null,
@@ -140,12 +148,30 @@ export async function deletePost(req: AuthRequest, res: Response): Promise<Respo
       });
     }
 
+    await client.query(`DELETE FROM likes WHERE post_id = $1`, [postId]);
+    await client.query(`DELETE FROM comment WHERE post_id = $1`, [postId]);
+
+    const deleteResult = await client.query(
+      `
+      DELETE FROM post
+      WHERE post_id = $1 AND user_id = $2
+      RETURNING *
+      `,
+      [postId, userId]
+    );
+
+    await client.query("COMMIT");
+    client.release();
+
     return res.status(200).json({
       success: true,
-      data: result.rows[0],
+      data: deleteResult.rows[0],
       error: null,
     });
   } catch (err) {
+    await client.query("ROLLBACK");
+    client.release();
+
     console.error("DB Error:", err);
     return res.status(500).json({
       success: false,

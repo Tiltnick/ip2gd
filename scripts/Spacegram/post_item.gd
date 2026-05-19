@@ -35,6 +35,7 @@ var heart_filled = preload("res://assets/sprites/ui/heart (1) (1).png")
 var friend = preload("res://assets/sprites/ui/check.png")
 var add_friend = preload("res://assets/sprites/ui/add-friend (1).png")
 
+signal delete_requested(post_id)
 
 func setup_post_data(post_data: Dictionary, image: Texture2D, is_detail := false) -> void:
 	post_id = str(post_data.get("post_id", ""))
@@ -54,8 +55,13 @@ func setup_post_data(post_data: Dictionary, image: Texture2D, is_detail := false
 	_update_like_ui()
 	_update_comment_ui()
 
-	add_friend_frame.visible = not is_detail
-	trash_frame.visible = is_detail
+	var is_own_post := false
+
+	if NakamaManager.is_logged_in():
+		is_own_post = user_id == NakamaManager.session.user_id
+
+	add_friend_frame.visible = not is_detail and not is_own_post
+	trash_frame.visible = is_detail and is_own_post
 
 
 func setup_post(image: Texture2D, caption: String, is_detail := false) -> void:
@@ -128,6 +134,13 @@ func _on_comment_pressed() -> void:
 func _on_add_friend_pressed() -> void:
 	is_friend = !is_friend
 	add_friend_button.texture_normal = friend if is_friend else add_friend
+
+func _on_delete_pressed() -> void:
+	if post_id.is_empty():
+		print("PostItem: Keine post_id gesetzt.")
+		return
+
+	delete_requested.emit(post_id)
 
 func increment_comment_count() -> void:
 	comment_count += 1

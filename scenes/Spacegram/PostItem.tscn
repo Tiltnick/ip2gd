@@ -231,5 +231,6 @@ fit_content = true
 scroll_active = false
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Header/FrameAddFriend/AddFriendIcon" to="." method="_on_add_friend_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Header/FrameTrashcan/TrashIcon" to="." method="_on_delete_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ActionsRow/LikeBlock/LikeButton" to="." method="_on_like_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ActionsRow/CommentBox/CommentButton" to="." method="_on_comment_pressed"]
