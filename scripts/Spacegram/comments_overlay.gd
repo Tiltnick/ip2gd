@@ -11,6 +11,7 @@ var bottom_nav
 var current_post_id: String = ""
 var current_post_item = null
 
+signal comments_changed
 
 func _ready():
 	visible = false
@@ -103,6 +104,8 @@ func _on_post_button_pressed() -> void:
 		if current_post_item:
 			current_post_item.increment_comment_count()
 
+		comments_changed.emit()
+
 		await load_comments()
 	else:
 		print("Kommentar konnte nicht erstellt werden: ", result.error)
@@ -139,6 +142,8 @@ func _on_delete_comment_requested(comment_id: String) -> void:
 	if result.success:
 		if current_post_item:
 			current_post_item.decrement_comment_count()
+
+		comments_changed.emit()
 
 		await load_comments()
 	else:

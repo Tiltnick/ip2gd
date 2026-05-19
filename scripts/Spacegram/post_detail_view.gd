@@ -8,8 +8,10 @@ const FALLBACK_POST_IMAGE := preload("res://assets/sprites/portrait/selfie.png")
 var comments_overlay
 var bottom_nav
 var current_posts: Array = []
+var confirm_popup
 
 signal post_deleted
+signal post_changed
 
 func setup(posts, selected_index):
 	current_posts = posts
@@ -24,6 +26,7 @@ func setup(posts, selected_index):
 		post.comments_overlay = comments_overlay
 		post.bottom_nav = bottom_nav
 		post.delete_requested.connect(_on_delete_post_requested)
+		post.post_changed.connect(_on_post_changed)
 
 		var image_path: String = str(posts[i].get("image_path", ""))
 		var image_texture := _load_post_texture(image_path)
@@ -42,6 +45,23 @@ func setup(posts, selected_index):
 
 
 func _on_delete_post_requested(post_id: String) -> void:
+	var message := "Beitrag löschen?"
+
+	var lang = TranslationServer.get_locale().substr(0, 2)
+
+	if lang == "en":
+		message = "Delete post?"
+
+	if confirm_popup:
+		var confirmed: bool = await confirm_popup.ask(message)
+		
+		if not confirmed:
+			return
+
+	await _delete_post_confirmed(post_id)
+
+
+func _delete_post_confirmed(post_id: String) -> void:
 	var result = await SpacegramApi.delete_post(post_id)
 
 	if result.success:
@@ -51,11 +71,16 @@ func _on_delete_post_requested(post_id: String) -> void:
 			func(post_data):
 				return str(post_data.get("post_id", "")) != post_id
 		)
+
 		post_deleted.emit()
+
+		if current_posts.is_empty():
+			visible = false
+			return
+
 		setup(current_posts, 0)
 	else:
 		print("Post konnte nicht gelöscht werden: ", result.error)
-
 
 func _load_post_texture(image_path: String) -> Texture2D:
 	if image_path.is_empty():
@@ -84,3 +109,6 @@ func _load_post_texture(image_path: String) -> Texture2D:
 		return texture
 
 	return FALLBACK_POST_IMAGE
+	
+func _on_post_changed() -> void:
+	post_changed.emit()

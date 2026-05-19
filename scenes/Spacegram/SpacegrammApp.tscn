@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://wpaq0y40yr5d"]
+[gd_scene load_steps=19 format=3 uid="uid://wpaq0y40yr5d"]
 
 [ext_resource type="PackedScene" uid="uid://5fnaykvrlsv3" path="res://scenes/Spacegram/FeedView.tscn" id="1_dmebn"]
 [ext_resource type="Script" uid="uid://bbkud4o4lhkmi" path="res://scripts/Spacegram/spacegramm_app.gd" id="1_r03mq"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dbldv0uxciauu" path="res://assets/sprites/ui/image (4) (1).png" id="6_k1ffk"]
 [ext_resource type="PackedScene" uid="uid://cl8706cvdham4" path="res://scenes/Spacegram/PostDetailView.tscn" id="6_l3wvu"]
 [ext_resource type="Shader" uid="uid://cvrh38clkj8l1" path="res://assets/shaders/RoundedCorner.gdshader" id="6_r1vcq"]
+[ext_resource type="PackedScene" uid="uid://ba2og81ea7gqb" path="res://scenes/Spacegram/SpacegramConfirmPopup.tscn" id="12_p7plx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmbrc"]
 bg_color = Color(0.007843138, 0.043137256, 0.05882353, 1)
@@ -218,6 +219,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_k1ffk")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
+
+[node name="SpacegramConfirmPopup" parent="." instance=ExtResource("12_p7plx")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="ColorRect2/MarginContainer/BottomNavBar/PanelContainerHome/Home" to="." method="_on_home_button_pressed"]
 [connection signal="pressed" from="ColorRect2/MarginContainer/BottomNavBar/PanelContainerCamera/Camera" to="." method="_on_add_button_pressed"]

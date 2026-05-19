@@ -36,6 +36,7 @@ var friend = preload("res://assets/sprites/ui/check.png")
 var add_friend = preload("res://assets/sprites/ui/add-friend (1).png")
 
 signal delete_requested(post_id)
+signal post_changed
 
 func setup_post_data(post_data: Dictionary, image: Texture2D, is_detail := false) -> void:
 	post_id = str(post_data.get("post_id", ""))
@@ -118,6 +119,7 @@ func _on_like_pressed() -> void:
 			print("Like fehlgeschlagen: ", result.error)
 
 	like_button.disabled = false
+	post_changed.emit()
 
 
 func _on_comment_pressed() -> void:

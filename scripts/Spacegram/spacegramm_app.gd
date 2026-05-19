@@ -7,6 +7,7 @@ extends Control
 @onready var bottom_nav = $ColorRect2
 @onready var post_detail_view = $ContentContainer/PostDetailView
 @onready var post_new_post_view = $ContentContainer/PostNewPostView
+@onready var confirm_popup = $SpacegramConfirmPopup
 
 signal open_camera_requested
 
@@ -23,6 +24,10 @@ func _ready():
 	post_new_post_view.post_created.connect(_on_post_created)
 	post_new_post_view.cancel_requested.connect(show_feed)
 	post_detail_view.post_deleted.connect(_on_post_deleted)
+	post_detail_view.confirm_popup = confirm_popup
+	feed_view.post_changed.connect(_on_spacegram_data_changed)
+	post_detail_view.post_changed.connect(_on_spacegram_data_changed)
+	comments_overlay.comments_changed.connect(_on_spacegram_data_changed)
 
 
 
@@ -32,6 +37,8 @@ func show_feed():
 	profile_settings_view.visible = false
 	post_detail_view.visible = false
 	post_new_post_view.visible = false
+	
+	feed_view.refresh_posts()
 
 
 func show_profile_settings():
@@ -47,7 +54,7 @@ func show_profile():
 	profile_settings_view.visible = false
 	post_detail_view.visible = false
 	post_new_post_view.visible = false
-	profile_view.load_profile()
+	await profile_view.load_profile()
 	
 func show_post_detail(posts, selected_index):
 
@@ -91,5 +98,9 @@ func _on_add_button_pressed():
 	
 func _on_post_created() -> void:
 	show_feed()
+	feed_view.refresh_posts()
+	profile_view.refresh_profile()
+	
+func _on_spacegram_data_changed() -> void:
 	feed_view.refresh_posts()
 	profile_view.refresh_profile()

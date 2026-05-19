@@ -11,6 +11,8 @@ var comments_overlay
 var bottom_nav
 var has_loaded_posts := false
 
+signal post_changed
+
 
 func _ready():
 	_spawn_dummy_stories()
@@ -66,6 +68,8 @@ func _spawn_post(post_data: Dictionary) -> void:
 
 	post.comments_overlay = comments_overlay
 	post.bottom_nav = bottom_nav
+	
+	post.post_changed.connect(_on_post_changed)
 
 	var image_path: String = str(post_data.get("image_path", ""))
 	var image_texture := _load_post_texture(image_path)
@@ -116,3 +120,6 @@ func _clear_posts() -> void:
 func refresh_posts() -> void:
 	has_loaded_posts = false
 	_load_posts()
+	
+func _on_post_changed() -> void:
+	post_changed.emit()
