@@ -247,7 +247,7 @@ layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="CaptionLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/MarginContainer2"]
+[node name="BioLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/MarginContainer2"]
 custom_minimum_size = Vector2(350, 40)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -255,7 +255,6 @@ theme_override_colors/default_color = Color(0.8509804, 0.8156863, 0.654902, 0.75
 theme_override_fonts/normal_font = ExtResource("3_sf04u")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_nm8bn")
 bbcode_enabled = true
-text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. [color=#4fa9a7][font_size=12]2 Std[/font_size][/color]"
 fit_content = true
 scroll_active = false
 

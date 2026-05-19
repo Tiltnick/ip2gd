@@ -314,21 +314,64 @@ func unlike_post(post_id: String) -> Dictionary:
 	}
 
 
-func get_my_profile():
+func get_my_profile() -> Dictionary:
 	var url = BASE_URL + "/profile/me"
 	var headers = _get_auth_headers()
 
 	if headers.is_empty():
-		return
+		return {
+			"success": false,
+			"data": null,
+			"error": "ERROR_NOT_LOGGED_IN"
+		}
 
-	var error = http_request.request(
+	var request_data = HTTPRequest.new()
+	add_child(request_data)
+
+	var error = request_data.request(
 		url,
 		headers,
 		HTTPClient.METHOD_GET
 	)
 
 	if error != OK:
-		print("Request Fehler: ", error)
+		request_data.queue_free()
+		return {
+			"success": false,
+			"data": null,
+			"error": "ERROR_REQUEST_FAILED"
+		}
+
+	var result = await request_data.request_completed
+	var response_code = result[1]
+	var response_text = result[3].get_string_from_utf8()
+
+	request_data.queue_free()
+
+	print("GET MY PROFILE CODE: ", response_code)
+	print("GET MY PROFILE BODY: ", response_text)
+
+	var json = JSON.parse_string(response_text)
+
+	if json == null:
+		return {
+			"success": false,
+			"data": null,
+			"error": "ERROR_INVALID_JSON"
+		}
+
+	if response_code >= 200 and response_code < 300:
+		return {
+			"success": true,
+			"data": json.get("data", null),
+			"error": null
+		}
+
+	return {
+		"success": false,
+		"data": null,
+		"error": json.get("error", "ERROR_UNKNOWN")
+	}
 
 
 func update_my_profile(display_name: String, bio: String, profile_picture: String) -> Dictionary:

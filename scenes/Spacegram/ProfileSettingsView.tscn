@@ -266,7 +266,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_soh5a")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jxbxr")
 text = "USERNAME"
 
-[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/FormSection/UsernameField/MarginContainer/HBoxContainer"]
+[node name="UsernameLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/FormSection/UsernameField/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
@@ -303,7 +303,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_soh5a")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jxbxr")
 text = "BIO"
 
-[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/FormSection/BioField/MarginContainer/HBoxContainer"]
+[node name="BioLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/FormSection/BioField/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.84313726, 0.8156863, 0.67058825, 1)
@@ -390,4 +390,5 @@ text = "EXIT_WITHOUT_SAVING"
 layout_mode = 2
 size_flags_vertical = 3
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsRow/ButtonsVBox/SavingChangesButton" to="." method="_on_saving_changes_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsRow/ButtonsVBox/ExitWithoutSavingButton" to="." method="_on_exit_without_saving_pressed"]

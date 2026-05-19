@@ -31,7 +31,7 @@ func _ready():
 	feed_view.post_changed.connect(_on_spacegram_data_changed)
 	post_detail_view.post_changed.connect(_on_spacegram_data_changed)
 	comments_overlay.comments_changed.connect(_on_spacegram_data_changed)
-
+	profile_settings_view.profile_saved.connect(_on_profile_saved)
 
 
 func show_feed():
@@ -50,7 +50,10 @@ func show_profile_settings():
 	feed_view.visible = false
 	profile_view.visible = false
 	profile_settings_view.visible = true
+	post_detail_view.visible = false
 	post_new_post_view.visible = false
+	
+	await profile_settings_view.load_settings()
 
 
 func show_profile():
@@ -59,8 +62,9 @@ func show_profile():
 	profile_settings_view.visible = false
 	post_detail_view.visible = false
 	post_new_post_view.visible = false
+	
 	profile_is_dirty = false
-	await profile_view.load_profile()
+	await profile_view.refresh_profile()
 	
 func show_post_detail(posts, selected_index):
 
@@ -110,3 +114,8 @@ func _on_post_created() -> void:
 func _on_spacegram_data_changed() -> void:
 	feed_is_dirty = true
 	profile_is_dirty = true
+	
+func _on_profile_saved() -> void:
+	feed_is_dirty = true
+	profile_is_dirty = true
+	await show_profile()

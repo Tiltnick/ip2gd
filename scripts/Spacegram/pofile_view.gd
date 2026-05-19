@@ -3,6 +3,8 @@ extends Control
 @onready var post_grid = $ScrollContainer/VBoxContainer/PostGrid
 @onready var username_label = $ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/ProfileAndUsername/Username
 @onready var number_label = $ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton/StatsContainer/PostsStat/NumberLabel
+@onready var bio_label = $ScrollContainer/VBoxContainer/MarginContainer2/BioLabel
+@onready var profile_image = $ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/ProfileAndUsername/ProfileImageFrame/ProfileImage
 
 const THUMBNAIL_SCENE := preload("res://scenes/Spacegram/ProfileThumbnail.tscn")
 const FALLBACK_POST_IMAGE := preload("res://assets/sprites/portrait/selfie.png")
@@ -19,21 +21,35 @@ func _ready():
 
 func load_profile() -> void:
 	_clear_thumbnails()
+	await get_tree().process_frame
+	
 	all_posts.clear()
 
 	if not NakamaManager.is_logged_in():
 		print("ProfileView: Nicht eingeloggt.")
 		return
 
-	username_label.text = NakamaManager.session.username
+	var profile_result = await SpacegramApi.get_my_profile()
 
-	var result = await SpacegramApi.get_posts()
+	if profile_result.success and profile_result.data != null:
+		var profile_data: Dictionary = profile_result.data
 
-	if not result.success:
-		print("ProfileView: Posts konnten nicht geladen werden: ", result.error)
+		var display_name: String = str(profile_data.get("display_name", NakamaManager.session.username))
+		var bio: String = str(profile_data.get("bio", ""))
+
+		username_label.text = display_name
+		bio_label.text = bio
+	else:
+		username_label.text = str(NakamaManager.session.username)
+		bio_label.text = ""
+
+	var posts_result = await SpacegramApi.get_posts()
+
+	if not posts_result.success:
+		print("ProfileView: Posts konnten nicht geladen werden: ", posts_result.error)
 		return
 
-	var posts: Array = result.data
+	var posts: Array = posts_result.data
 	var current_user_id: String = str(NakamaManager.session.user_id)
 
 	for post_data in posts:
