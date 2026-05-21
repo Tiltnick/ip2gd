@@ -78,7 +78,13 @@ export async function getPosts(req: AuthRequest, res: Response): Promise<Respons
           FROM likes my_like
           WHERE my_like.post_id = p.post_id
           AND my_like.user_id = $1
-        ) AS liked_by_me
+        ) AS liked_by_me,
+        EXISTS (
+          SELECT 1
+          FROM follow my_follow
+          WHERE my_follow.following_id = p.user_id
+          AND my_follow.follower_id = $1
+        ) AS followed_by_me
       FROM post p
       JOIN profile pr ON pr.user_id = p.user_id
       LEFT JOIN likes l ON l.post_id = p.post_id

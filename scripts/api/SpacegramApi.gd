@@ -677,3 +677,155 @@ func _on_request_completed(result, response_code, headers, body):
 
 	print("Response Code: ", response_code)
 	print("Response JSON: ", json)
+	
+	
+func follow_user(user_id: String) -> Dictionary:
+	var url = BASE_URL + "/profile/" + user_id + "/follow"
+	var headers = _get_auth_headers()
+
+	if headers.is_empty():
+		return {
+			"success": false,
+			"error": "ERROR_NOT_LOGGED_IN"
+		}
+
+	var request_data = HTTPRequest.new()
+	add_child(request_data)
+
+	var error = request_data.request(
+		url,
+		headers,
+		HTTPClient.METHOD_POST
+	)
+
+	if error != OK:
+		request_data.queue_free()
+		return {
+			"success": false,
+			"error": "ERROR_REQUEST_FAILED"
+		}
+
+	var result = await request_data.request_completed
+	var response_code = result[1]
+	var response_text = result[3].get_string_from_utf8()
+
+	request_data.queue_free()
+
+	print("FOLLOW CODE: ", response_code)
+	print("FOLLOW BODY: ", response_text)
+
+	var json = JSON.parse_string(response_text)
+
+	if response_code >= 200 and response_code < 300:
+		return {
+			"success": true,
+			"data": json.get("data", null) if json != null else null,
+			"error": null
+		}
+
+	return {
+		"success": false,
+		"error": json.get("error", "ERROR_UNKNOWN") if json != null else "ERROR_INVALID_JSON"
+	}
+
+
+func unfollow_user(user_id: String) -> Dictionary:
+	var url = BASE_URL + "/profile/" + user_id + "/follow"
+	var headers = _get_auth_headers()
+
+	if headers.is_empty():
+		return {
+			"success": false,
+			"error": "ERROR_NOT_LOGGED_IN"
+		}
+
+	var request_data = HTTPRequest.new()
+	add_child(request_data)
+
+	var error = request_data.request(
+		url,
+		headers,
+		HTTPClient.METHOD_DELETE
+	)
+
+	if error != OK:
+		request_data.queue_free()
+		return {
+			"success": false,
+			"error": "ERROR_REQUEST_FAILED"
+		}
+
+	var result = await request_data.request_completed
+	var response_code = result[1]
+	var response_text = result[3].get_string_from_utf8()
+
+	request_data.queue_free()
+
+	print("UNFOLLOW CODE: ", response_code)
+	print("UNFOLLOW BODY: ", response_text)
+
+	var json = JSON.parse_string(response_text)
+
+	if response_code >= 200 and response_code < 300:
+		return {
+			"success": true,
+			"error": null
+		}
+
+	return {
+		"success": false,
+		"error": json.get("error", "ERROR_UNKNOWN") if json != null else "ERROR_INVALID_JSON"
+	}
+
+
+func get_following() -> Dictionary:
+	var url = BASE_URL + "/profile/following"
+	var headers = _get_auth_headers()
+
+	if headers.is_empty():
+		return {
+			"success": false,
+			"data": [],
+			"error": "ERROR_NOT_LOGGED_IN"
+		}
+
+	var request_data = HTTPRequest.new()
+	add_child(request_data)
+
+	var error = request_data.request(
+		url,
+		headers,
+		HTTPClient.METHOD_GET
+	)
+
+	if error != OK:
+		request_data.queue_free()
+		return {
+			"success": false,
+			"data": [],
+			"error": "ERROR_REQUEST_FAILED"
+		}
+
+	var result = await request_data.request_completed
+	var response_code = result[1]
+	var response_text = result[3].get_string_from_utf8()
+
+	request_data.queue_free()
+
+	print("GET FOLLOWING CODE: ", response_code)
+	print("GET FOLLOWING BODY: ", response_text)
+
+	var json = JSON.parse_string(response_text)
+
+	if response_code >= 200 and response_code < 300:
+		return {
+			"success": true,
+			"data": json.get("data", []) if json != null else [],
+			"error": null
+		}
+
+	return {
+		"success": false,
+		"data": [],
+		"error": json.get("error", "ERROR_UNKNOWN") if json != null else "ERROR_INVALID_JSON"
+	}

@@ -15,24 +15,42 @@ signal post_changed
 
 
 func _ready():
-	_spawn_dummy_stories()
+	pass
 
 
 func setup_dependencies(overlay, nav):
 	comments_overlay = overlay
 	bottom_nav = nav
 	
+	load_stories()
 	_load_posts()
 
 
-func _spawn_dummy_stories():
+func load_stories() -> void:
 	for child in stories_row.get_children():
 		child.queue_free()
 
-	for i in 8:
+	if not NakamaManager.is_logged_in():
+		return
+
+	var result = await SpacegramApi.get_following()
+
+	if not result.success:
+		print("FeedView: Following konnte nicht geladen werden: ", result.error)
+		return
+
+	var following: Array = result.data
+
+	for profile_data in following:
 		var story = STORY_ITEM_SCENE.instantiate()
 		stories_row.add_child(story)
 
+		story.setup(profile_data)
+		story.story_pressed.connect(_on_story_pressed)
+
+
+func _on_story_pressed(profile_data: Dictionary) -> void:
+	print("Story geklickt: ", profile_data)
 
 func _load_posts() -> void:
 	if has_loaded_posts:
@@ -119,6 +137,7 @@ func _clear_posts() -> void:
 
 func refresh_posts() -> void:
 	has_loaded_posts = false
+	load_stories()
 	_load_posts()
 	
 func _on_post_changed() -> void:

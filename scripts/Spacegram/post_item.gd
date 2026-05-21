@@ -49,6 +49,7 @@ func setup_post_data(post_data: Dictionary, image: Texture2D, is_detail := false
 	like_count = int(post_data.get("like_count", 0))
 	comment_count = int(post_data.get("comment_count", 0))
 	is_liked = bool(post_data.get("liked_by_me", false))
+	is_friend = bool(post_data.get("followed_by_me", false))
 
 	username_label.text = display_name
 	caption_label.text = caption
@@ -58,6 +59,7 @@ func setup_post_data(post_data: Dictionary, image: Texture2D, is_detail := false
 
 	_update_like_ui()
 	_update_comment_ui()
+	_update_friend_ui()
 
 	var is_own_post := false
 
@@ -137,8 +139,34 @@ func _on_comment_pressed() -> void:
 
 
 func _on_add_friend_pressed() -> void:
+	if user_id.is_empty():
+		print("PostItem: Keine user_id gesetzt.")
+		return
+
+	if NakamaManager.is_logged_in() and user_id == NakamaManager.session.user_id:
+		return
+
+	add_friend_button.disabled = true
+
+	var old_is_friend := is_friend
+
 	is_friend = !is_friend
-	add_friend_button.texture_normal = friend if is_friend else add_friend
+	_update_friend_ui()
+
+	var result: Dictionary
+
+	if is_friend:
+		result = await SpacegramApi.follow_user(user_id)
+	else:
+		result = await SpacegramApi.unfollow_user(user_id)
+
+	if not result.success:
+		is_friend = old_is_friend
+		_update_friend_ui()
+		print("Follow/Unfollow fehlgeschlagen: ", result.error)
+
+	add_friend_button.disabled = false
+	post_changed.emit()
 
 func _on_delete_pressed() -> void:
 	if post_id.is_empty():
@@ -171,3 +199,7 @@ func _set_profile_icon(profile_picture: String) -> void:
 		profile_icon.texture_normal = texture
 	else:
 		print("PostItem: ProfileIcon hat unerwarteten Typ: ", profile_icon.get_class())
+		
+		
+func _update_friend_ui() -> void:
+	add_friend_button.texture_normal = friend if is_friend else add_friend

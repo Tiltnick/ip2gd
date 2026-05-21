@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cth2lt82idvje"]
 
+[ext_resource type="Script" uid="uid://c55ju13p4u36m" path="res://scripts/Spacegram/story_item.gd" id="1_6hwmr"]
 [ext_resource type="Shader" uid="uid://cvrh38clkj8l1" path="res://assets/shaders/RoundedCorner.gdshader" id="1_v3o1l"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_2xg01"]
-[ext_resource type="Texture2D" uid="uid://bp3f18ierwohg" path="res://wiki/porcini_spritesheet.png" id="2_6hwmr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ilaft"]
 content_margin_left = 3.0
@@ -25,26 +25,31 @@ shader = ExtResource("1_v3o1l")
 shader_parameter/corner_radius = 120.0
 
 [node name="StoryItem" type="VBoxContainer"]
-offset_right = 43.0
+offset_right = 88.0
 offset_bottom = 87.0
+mouse_filter = 0
+script = ExtResource("1_6hwmr")
 
 [node name="IconFrame" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(40, 43)
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ilaft")
 
 [node name="Icon" type="TextureRect" parent="IconFrame"]
 material = SubResource("ShaderMaterial_pa3hw")
 layout_mode = 2
-texture = ExtResource("2_6hwmr")
+mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.2627451, 0.6117647, 0.5764706, 1)
 theme_override_fonts/font = ExtResource("2_2xg01")
 theme_override_font_sizes/font_size = 15
-text = "Account"
+text = "ACCOUNT"
 horizontal_alignment = 1

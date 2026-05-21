@@ -5,7 +5,7 @@ extends Control
 @onready var number_label = $ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton/StatsContainer/PostsStat/NumberLabel
 @onready var bio_label = $ScrollContainer/VBoxContainer/MarginContainer2/BioLabel
 @onready var profile_image = $ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/ProfileAndUsername/ProfileImageFrame/ProfileImage
-
+@onready var friend_number_label = $ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton/StatsContainer/FriendStat/NumberLabel
 
 const THUMBNAIL_SCENE := preload("res://scenes/Spacegram/ProfileThumbnail.tscn")
 const FALLBACK_POST_IMAGE := preload("res://assets/sprites/portrait/selfie.png")
@@ -47,6 +47,13 @@ func load_profile() -> void:
 	else:
 		username_label.text = str(NakamaManager.session.username)
 		bio_label.text = ""
+
+	var following_result = await SpacegramApi.get_following()
+
+	if following_result.success:
+		friend_number_label.text = str(following_result.data.size())
+	else:
+		friend_number_label.text = "0"
 
 	var posts_result = await SpacegramApi.get_posts()
 

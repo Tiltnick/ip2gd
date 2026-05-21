@@ -125,6 +125,8 @@ func _on_post_created() -> void:
 func _on_spacegram_data_changed() -> void:
 	feed_is_dirty = true
 	profile_is_dirty = true
+	if feed_view.visible:
+		feed_view.load_stories()
 	
 func _on_profile_saved() -> void:
 	feed_is_dirty = true

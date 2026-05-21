@@ -169,3 +169,144 @@ export async function getProfileByUserId(req: AuthRequest, res: Response): Promi
     });
   }
 }
+
+export async function followProfile(req: AuthRequest, res: Response): Promise<Response> {
+  try {
+    const followerId = req.user_id;
+    const followingId = req.params.user_id;
+
+    if (!followerId) {
+      return res.status(401).json({
+        success: false,
+        data: null,
+        error: "Unauthorized",
+      });
+    }
+
+    if (followerId === followingId) {
+      return res.status(400).json({
+        success: false,
+        data: null,
+        error: "CANNOT_FOLLOW_SELF",
+      });
+    }
+
+    const profileCheck = await pool.query(
+      `SELECT user_id FROM profile WHERE user_id = $1`,
+      [followingId]
+    );
+
+    if (profileCheck.rows.length === 0) {
+      return res.status(404).json({
+        success: false,
+        data: null,
+        error: "Profile not found",
+      });
+    }
+
+    const query = `
+      INSERT INTO follow (follower_id, following_id)
+      VALUES ($1, $2)
+      ON CONFLICT (follower_id, following_id) DO NOTHING
+      RETURNING *
+    `;
+
+    const result = await pool.query(query, [followerId, followingId]);
+
+    return res.status(200).json({
+      success: true,
+      data: result.rows[0] || {
+        follower_id: followerId,
+        following_id: followingId,
+      },
+      error: null,
+    });
+  } catch (err) {
+    console.error("Follow Error:", err);
+    return res.status(500).json({
+      success: false,
+      data: null,
+      error: "Internal server error",
+    });
+  }
+}
+
+
+export async function unfollowProfile(req: AuthRequest, res: Response): Promise<Response> {
+  try {
+    const followerId = req.user_id;
+    const followingId = req.params.user_id;
+
+    if (!followerId) {
+      return res.status(401).json({
+        success: false,
+        data: null,
+        error: "Unauthorized",
+      });
+    }
+
+    await pool.query(
+      `
+      DELETE FROM follow
+      WHERE follower_id = $1 AND following_id = $2
+      `,
+      [followerId, followingId]
+    );
+
+    return res.status(200).json({
+      success: true,
+      data: null,
+      error: null,
+    });
+  } catch (err) {
+    console.error("Unfollow Error:", err);
+    return res.status(500).json({
+      success: false,
+      data: null,
+      error: "Internal server error",
+    });
+  }
+}
+
+
+export async function getFollowing(req: AuthRequest, res: Response): Promise<Response> {
+  try {
+    const followerId = req.user_id;
+
+    if (!followerId) {
+      return res.status(401).json({
+        success: false,
+        data: null,
+        error: "Unauthorized",
+      });
+    }
+
+    const query = `
+      SELECT
+        p.user_id,
+        p.display_name,
+        p.bio,
+        p.profile_picture,
+        f.created_at
+      FROM follow f
+      JOIN profile p ON p.user_id = f.following_id
+      WHERE f.follower_id = $1
+      ORDER BY f.created_at DESC
+    `;
+
+    const result = await pool.query(query, [followerId]);
+
+    return res.status(200).json({
+      success: true,
+      data: result.rows,
+      error: null,
+    });
+  } catch (err) {
+    console.error("Get Following Error:", err);
+    return res.status(500).json({
+      success: false,
+      data: null,
+      error: "Internal server error",
+    });
+  }
+}
