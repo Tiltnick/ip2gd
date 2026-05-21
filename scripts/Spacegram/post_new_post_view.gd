@@ -1,15 +1,16 @@
 extends Control
 
-signal post_created
-signal cancel_requested
-
 @onready var preview_image = $MarginContainer/VBoxContainer/TopSection/ProfileImageCenter/ProfileImageWrapper/ProfileImageFrame/ProfileImage
 @onready var caption_line_edit = $MarginContainer/VBoxContainer/FormSection/CaptionField/MarginContainer/HBoxContainer/LineEdit
 @onready var post_button = $MarginContainer/VBoxContainer/ButtonsRow/ButtonsVBox/PostButton
 @onready var cancel_button = $MarginContainer/VBoxContainer/ButtonsRow/ButtonsVBox/CancelButton
+@onready var change_picture_button = $MarginContainer/VBoxContainer/TopSection/ProfileImageCenter/ProfileImageWrapper/HBoxContainer/EditIconButton
 
 var selected_image_path: String = ""
 
+signal post_created
+signal cancel_requested
+signal change_picture_requested
 
 func _ready() -> void:
 	visible = false
@@ -82,3 +83,7 @@ func _load_texture_from_path(image_path: String) -> Texture2D:
 		return texture
 
 	return null
+	
+	
+func _on_change_picture_pressed() -> void:
+	change_picture_requested.emit()

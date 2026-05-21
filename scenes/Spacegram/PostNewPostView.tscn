@@ -384,3 +384,5 @@ size_flags_vertical = 3
 [node name="Spacer14" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TopSection/ProfileImageCenter/ProfileImageWrapper/HBoxContainer/EditIconButton" to="." method="_on_change_picture_pressed"]

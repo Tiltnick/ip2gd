@@ -35,6 +35,7 @@ func _ready():
 	post_detail_view.post_changed.connect(_on_spacegram_data_changed)
 	comments_overlay.comments_changed.connect(_on_spacegram_data_changed)
 	profile_settings_view.profile_saved.connect(_on_profile_saved)
+	post_new_post_view.change_picture_requested.connect(_on_change_picture_requested)
 	
 	
 	print("BottomNav button found: ", bottom_nav_profile_button)
@@ -130,6 +131,10 @@ func _on_profile_saved() -> void:
 	profile_is_dirty = true
 	await refresh_bottom_nav_avatar()
 	await show_profile()
+	
+func _on_change_picture_requested() -> void:
+	post_new_post_view.visible = false
+	open_camera_requested.emit()
 	
 func refresh_bottom_nav_avatar() -> void:
 	if bottom_nav_profile_button == null:
