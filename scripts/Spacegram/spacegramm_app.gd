@@ -9,6 +9,9 @@ extends Control
 @onready var post_new_post_view = $ContentContainer/PostNewPostView
 @onready var confirm_popup = $SpacegramConfirmPopup
 
+#@onready var bottom_nav_profile_button = $ColorRect2/MarginContainer/BottomNavBar/PanelContainerProfile/Profile
+@onready var bottom_nav_profile_button = get_node_or_null("ColorRect2/MarginContainer/BottomNavBar/PanelContainerProfile/Profile")
+
 var feed_is_dirty := false
 var profile_is_dirty := false
 
@@ -32,6 +35,13 @@ func _ready():
 	post_detail_view.post_changed.connect(_on_spacegram_data_changed)
 	comments_overlay.comments_changed.connect(_on_spacegram_data_changed)
 	profile_settings_view.profile_saved.connect(_on_profile_saved)
+	
+	
+	print("BottomNav button found: ", bottom_nav_profile_button)
+
+	if bottom_nav_profile_button:
+		print("BottomNav button class: ", bottom_nav_profile_button.get_class())
+	refresh_bottom_nav_avatar()
 
 
 func show_feed():
@@ -118,4 +128,38 @@ func _on_spacegram_data_changed() -> void:
 func _on_profile_saved() -> void:
 	feed_is_dirty = true
 	profile_is_dirty = true
+	await refresh_bottom_nav_avatar()
 	await show_profile()
+	
+func refresh_bottom_nav_avatar() -> void:
+	if bottom_nav_profile_button == null:
+		print("BottomNav: Profile Button wurde nicht gefunden.")
+		return
+
+	if not NakamaManager.is_logged_in():
+		return
+
+	var result = await SpacegramApi.get_my_profile()
+
+	if not result.success or result.data == null:
+		print("BottomNav: Profil konnte nicht geladen werden.")
+		return
+
+	var profile_data: Dictionary = result.data
+	var profile_picture: String = str(profile_data.get("profile_picture", ""))
+
+	if profile_picture.is_empty():
+		return
+
+	if not ResourceLoader.exists(profile_picture):
+		print("BottomNav: Profilbild nicht gefunden: ", profile_picture)
+		return
+
+	var texture: Texture2D = load(profile_picture)
+
+	if bottom_nav_profile_button is TextureButton:
+		bottom_nav_profile_button.texture_normal = texture
+	elif bottom_nav_profile_button is TextureRect:
+		bottom_nav_profile_button.texture = texture
+	else:
+		print("BottomNav: Unerwarteter Node-Typ: ", bottom_nav_profile_button.get_class())

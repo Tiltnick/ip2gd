@@ -8,6 +8,7 @@ extends Control
 
 @onready var save_button = $MarginContainer/VBoxContainer/ButtonsRow/ButtonsVBox/SavingChangesButton
 @onready var exit_button = $MarginContainer/VBoxContainer/ButtonsRow/ButtonsVBox/ExitWithoutSavingButton
+@onready var error_label = $MarginContainer/VBoxContainer/FormSection/UsernameErrorLabel
 
 const PROFILE_PICTURE_OPTION_SCENE := preload("res://scenes/Spacegram/ProfilePictureOption.tscn")
 
@@ -31,6 +32,9 @@ var selected_profile_picture: String = ""
 var avatar_options: Array = []
 
 func _ready() -> void:
+	error_label.visible = false
+	username_line_edit.max_length = 12
+	username_line_edit.text_changed.connect(_on_username_text_changed)
 	_spawn_profile_picture_options()
 
 
@@ -112,8 +116,14 @@ func _on_saving_changes_button_pressed() -> void:
 	var display_name: String = username_line_edit.text.strip_edges()
 	var bio: String = bio_line_edit.text.strip_edges()
 
+	hide_error()
+
 	if display_name.is_empty():
-		print("Display Name darf nicht leer sein.")
+		show_error("ERROR_DISPLAY_NAME_REQUIRED")
+		return
+
+	if display_name.length() > 12:
+		show_error("ERROR_DISPLAY_NAME_TOO_LONG")
 		return
 
 	if selected_profile_picture.is_empty():
@@ -133,7 +143,16 @@ func _on_saving_changes_button_pressed() -> void:
 		print("Profil gespeichert.")
 		profile_saved.emit()
 	else:
-		print("Profil konnte nicht gespeichert werden: ", result.error)
+		var error: String = str(result.error)
+
+		if error == "DISPLAY_NAME_TAKEN":
+			show_error("ERROR_DISPLAY_NAME_TAKEN")
+		elif error == "DISPLAY_NAME_TOO_LONG":
+			show_error("ERROR_DISPLAY_NAME_TOO_LONG")
+		elif error == "DISPLAY_NAME_REQUIRED":
+			show_error("ERROR_DISPLAY_NAME_REQUIRED")
+		else:
+			show_error("ERROR_PROFILE_SAVE_FAILED")
 
 
 func _on_exit_without_saving_pressed() -> void:
@@ -142,3 +161,18 @@ func _on_exit_without_saving_pressed() -> void:
 func _update_selected_avatar_ui() -> void:
 	for option in avatar_options:
 		option.set_selected(option.image_path == selected_profile_picture)
+		
+func show_error(key: String) -> void:
+	error_label.text = key
+	error_label.visible = true
+
+
+func hide_error() -> void:
+	error_label.text = ""
+	error_label.visible = false
+	
+func _on_username_text_changed(new_text: String) -> void:
+	if new_text.length() >= 12:
+		show_error("ERROR_DISPLAY_NAME_TOO_LONG")
+	else:
+		hide_error()

@@ -67,6 +67,26 @@ export async function updateMyProfile(req: AuthRequest, res: Response): Promise<
       });
     }
 
+    if (display_name !== undefined) {
+      const trimmedDisplayName = display_name.trim();
+
+      if (trimmedDisplayName.length === 0) {
+        return res.status(400).json({
+          success: false,
+          data: null,
+          error: "DISPLAY_NAME_REQUIRED",
+        });
+      }
+
+      if (trimmedDisplayName.length > 12) {
+        return res.status(400).json({
+          success: false,
+          data: null,
+          error: "DISPLAY_NAME_TOO_LONG",
+        });
+      }
+    }
+
     const query = `
       UPDATE profile
       SET
@@ -77,7 +97,7 @@ export async function updateMyProfile(req: AuthRequest, res: Response): Promise<
       RETURNING user_id, display_name, bio, profile_picture
     `;
 
-    const values = [display_name, bio, profile_picture, userId];
+    const values = [display_name?.trim(), bio, profile_picture, userId];
     const result = await pool.query(query, values);
 
     if (result.rows.length === 0) {

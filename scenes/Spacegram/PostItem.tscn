@@ -1,15 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://c6ot5wsjybq0w"]
+[gd_scene load_steps=17 format=3 uid="uid://c6ot5wsjybq0w"]
 
 [ext_resource type="StyleBox" uid="uid://d2tiibavnxvsw" path="res://scenes/UI/StyleBoxes/FrameIconsSpacegramApp.tres" id="1_ld7ne"]
 [ext_resource type="Script" uid="uid://c3ca48qbxado6" path="res://scripts/Spacegram/post_item.gd" id="1_nc4c2"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_nbb0b"]
-[ext_resource type="Texture2D" uid="uid://bimro8ojwlhv5" path="res://assets/sprites/portrait/oris.png" id="2_nc4c2"]
 [ext_resource type="Texture2D" uid="uid://dwh08fo7hkusx" path="res://assets/sprites/ui/check.png" id="4_cr7l1"]
 [ext_resource type="Texture2D" uid="uid://cu7i5mb6jko1i" path="res://assets/sprites/ui/comment (1) (5).png" id="5_cr7l1"]
 [ext_resource type="Texture2D" uid="uid://bchlef1divytt" path="res://assets/sprites/ui/add-friend (1).png" id="5_ld7ne"]
 [ext_resource type="Shader" uid="uid://cvrh38clkj8l1" path="res://assets/shaders/RoundedCorner.gdshader" id="6_ld7ne"]
 [ext_resource type="Texture2D" uid="uid://wfkjot5wt5xo" path="res://assets/sprites/ui/trashcanBreit.png" id="7_8ewi4"]
-[ext_resource type="Texture2D" uid="uid://cblqkmyh5dlqk" path="res://wiki/Sams_Cave2.png" id="7_ld7ne"]
 [ext_resource type="Texture2D" uid="uid://t13ibkrt4se0" path="res://assets/sprites/ui/heart (3) (1).png" id="9_nc4c2"]
 [ext_resource type="Texture2D" uid="uid://c5pun87oyb5ml" path="res://assets/sprites/ui/heart (1) (1).png" id="10_8ewi4"]
 
@@ -93,7 +91,7 @@ layout_mode = 2
 size_flags_vertical = 0
 
 [node name="FrameProfileIcon" type="PanelContainer" parent="MarginContainer/VBoxContainer/Header"]
-custom_minimum_size = Vector2(25, 25)
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = ExtResource("1_ld7ne")
@@ -101,7 +99,6 @@ theme_override_styles/panel = ExtResource("1_ld7ne")
 [node name="ProfileIcon" type="TextureButton" parent="MarginContainer/VBoxContainer/Header/FrameProfileIcon"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("2_nc4c2")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -115,7 +112,7 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.5529412, 0.83137256, 0.7529412, 1)
 theme_override_fonts/font = ExtResource("2_nbb0b")
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 16
 text = "USERNAME"
 vertical_alignment = 1
 
@@ -125,7 +122,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 0
 
 [node name="FrameAddFriend" type="PanelContainer" parent="MarginContainer/VBoxContainer/Header"]
-custom_minimum_size = Vector2(25, 25)
+custom_minimum_size = Vector2(30, 25)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cr7l1")
@@ -144,7 +141,7 @@ layout_mode = 2
 size_flags_vertical = 0
 
 [node name="FrameTrashcan" type="PanelContainer" parent="MarginContainer/VBoxContainer/Header"]
-custom_minimum_size = Vector2(25, 25)
+custom_minimum_size = Vector2(30, 25)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_c8275")
@@ -170,7 +167,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_nc4c2")
 material = SubResource("ShaderMaterial_nc4c2")
 custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
-texture = ExtResource("7_ld7ne")
 expand_mode = 5
 stretch_mode = 6
 

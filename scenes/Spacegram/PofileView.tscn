@@ -116,9 +116,10 @@ layout_mode = 2
 
 [node name="ProfileAndUsername" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader"]
 layout_mode = 2
+alignment = 1
 
 [node name="ProfileImageFrame" type="PanelContainer" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/ProfileAndUsername"]
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(84, 84)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lg3uv")
 
@@ -133,11 +134,9 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 1)
 theme_override_fonts/font = ExtResource("3_sf04u")
 theme_override_font_sizes/font_size = 16
-text = "USERNAME"
+text = "USERNAME_TWE"
 horizontal_alignment = 1
 vertical_alignment = 2
-clip_text = true
-text_overrun_behavior = 1
 
 [node name="Spacer2" type="Control" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader"]
 custom_minimum_size = Vector2(20, 0)

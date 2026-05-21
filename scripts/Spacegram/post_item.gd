@@ -54,8 +54,7 @@ func setup_post_data(post_data: Dictionary, image: Texture2D, is_detail := false
 	caption_label.text = caption
 	post_image.texture = image
 
-	#if not profile_picture.is_empty() and ResourceLoader.exists(profile_picture):
-		#profile_icon.texture = load(profile_picture)
+	_set_profile_icon(profile_picture)
 
 	_update_like_ui()
 	_update_comment_ui()
@@ -155,3 +154,20 @@ func increment_comment_count() -> void:
 func decrement_comment_count() -> void:
 	comment_count = max(comment_count - 1, 0)
 	_update_comment_ui()
+
+func _set_profile_icon(profile_picture: String) -> void:
+	if profile_picture.is_empty():
+		return
+
+	if not ResourceLoader.exists(profile_picture):
+		print("PostItem: Profilbild nicht gefunden: ", profile_picture)
+		return
+
+	var texture: Texture2D = load(profile_picture)
+
+	if profile_icon is TextureRect:
+		profile_icon.texture = texture
+	elif profile_icon is TextureButton:
+		profile_icon.texture_normal = texture
+	else:
+		print("PostItem: ProfileIcon hat unerwarteten Typ: ", profile_icon.get_class())

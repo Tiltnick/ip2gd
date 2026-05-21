@@ -276,6 +276,15 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_20y6l")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_gguiy")
 placeholder_text = "USERNAME_PLACEHOLDER"
 
+[node name="UsernameErrorLabel" type="Label" parent="MarginContainer/VBoxContainer/FormSection"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88315314, 0.4323961, 0.42329898, 1)
+theme_override_fonts/font = ExtResource("3_anj06")
+theme_override_font_sizes/font_size = 18
+text = "ERROR"
+horizontal_alignment = 1
+
 [node name="BioField" type="PanelContainer" parent="MarginContainer/VBoxContainer/FormSection"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
