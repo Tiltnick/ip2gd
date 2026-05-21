@@ -1,8 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://dale7drtfbyum"]
+[gd_scene load_steps=20 format=3 uid="uid://dale7drtfbyum"]
 
 [ext_resource type="Script" uid="uid://byym8vi3ihdth" path="res://scripts/Spacegram/profile_settings_view.gd" id="1_e6x4u"]
 [ext_resource type="Shader" uid="uid://cvrh38clkj8l1" path="res://assets/shaders/RoundedCorner.gdshader" id="1_fedhp"]
-[ext_resource type="Texture2D" uid="uid://cw72y0u06b1en" path="res://assets/sprites/portrait/selfie.png" id="2_anj06"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="3_anj06"]
 [ext_resource type="StyleBox" uid="uid://cnt6s3htadrve" path="res://scenes/UI/StyleBoxes/blueButtonTHIN.tres" id="3_jxbxr"]
 [ext_resource type="Texture2D" uid="uid://baah0jc0r3a4e" path="res://assets/sprites/ui/circle.png" id="5_jxbxr"]
@@ -190,11 +189,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_lb6hb")
 [node name="ProfileImage" type="TextureRect" parent="MarginContainer/VBoxContainer/TopSection/ProfileImageCenter/ProfileImageWrapper/ProfileImageFrame"]
 material = SubResource("ShaderMaterial_xcq2g")
 layout_mode = 2
-texture = ExtResource("2_anj06")
-expand_mode = 5
-stretch_mode = 6
+expand_mode = 1
+stretch_mode = 5
 
 [node name="EditIconButton" type="TextureButton" parent="MarginContainer/VBoxContainer/TopSection/ProfileImageCenter/ProfileImageWrapper"]
+visible = false
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 1
 anchors_preset = 3

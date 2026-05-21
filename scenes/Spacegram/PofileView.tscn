@@ -136,6 +136,8 @@ theme_override_font_sizes/font_size = 16
 text = "USERNAME"
 horizontal_alignment = 1
 vertical_alignment = 2
+clip_text = true
+text_overrun_behavior = 1
 
 [node name="Spacer2" type="Control" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader"]
 custom_minimum_size = Vector2(20, 0)

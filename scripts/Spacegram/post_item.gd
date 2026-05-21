@@ -15,7 +15,7 @@ extends PanelContainer
 @onready var username_label = $MarginContainer/VBoxContainer/Header/UsernameLabel
 @onready var like_count_label = $MarginContainer/VBoxContainer/ActionsRow/LikeBlock/LikeCount
 @onready var comment_count_label = $MarginContainer/VBoxContainer/ActionsRow/CommentBox/CommentCount
-
+@onready var profile_icon = $MarginContainer/VBoxContainer/Header/FrameProfileIcon/ProfileIcon
 
 var comments_overlay
 var bottom_nav
@@ -44,6 +44,7 @@ func setup_post_data(post_data: Dictionary, image: Texture2D, is_detail := false
 
 	var display_name := str(post_data.get("display_name", "Unknown"))
 	var caption := str(post_data.get("caption", ""))
+	var profile_picture: String = str(post_data.get("profile_picture", ""))
 
 	like_count = int(post_data.get("like_count", 0))
 	comment_count = int(post_data.get("comment_count", 0))
@@ -52,6 +53,9 @@ func setup_post_data(post_data: Dictionary, image: Texture2D, is_detail := false
 	username_label.text = display_name
 	caption_label.text = caption
 	post_image.texture = image
+
+	#if not profile_picture.is_empty() and ResourceLoader.exists(profile_picture):
+		#profile_icon.texture = load(profile_picture)
 
 	_update_like_ui()
 	_update_comment_ui()

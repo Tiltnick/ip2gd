@@ -1,6 +1,7 @@
 extends Control
 
 @onready var avatar_grid = $MarginContainer/VBoxContainer/TopSection/AvatarGrid
+@onready var preview_image = $MarginContainer/VBoxContainer/TopSection/ProfileImageCenter/ProfileImageWrapper/ProfileImageFrame/ProfileImage
 
 @onready var username_line_edit = $MarginContainer/VBoxContainer/FormSection/UsernameField/MarginContainer/HBoxContainer/UsernameLineEdit
 @onready var bio_line_edit = $MarginContainer/VBoxContainer/FormSection/BioField/MarginContainer/HBoxContainer/BioLineEdit
@@ -8,14 +9,29 @@ extends Control
 @onready var save_button = $MarginContainer/VBoxContainer/ButtonsRow/ButtonsVBox/SavingChangesButton
 @onready var exit_button = $MarginContainer/VBoxContainer/ButtonsRow/ButtonsVBox/ExitWithoutSavingButton
 
+const PROFILE_PICTURE_OPTION_SCENE := preload("res://scenes/Spacegram/ProfilePictureOption.tscn")
+
+const AVATAR_PATHS := [
+	"res://assets/Spacegram/posts/profile_pictures/avatar_01.png",
+	"res://assets/Spacegram/posts/profile_pictures/avatar_02.png",
+	"res://assets/Spacegram/posts/profile_pictures/avatar_03.png",
+	"res://assets/Spacegram/posts/profile_pictures/avatar_04.png",
+	"res://assets/Spacegram/posts/profile_pictures/avatar_05.png",
+	"res://assets/Spacegram/posts/profile_pictures/avatar_06.png",
+	"res://assets/Spacegram/posts/profile_pictures/avatar_07.png",
+	"res://assets/Spacegram/posts/profile_pictures/avatar_08.png",
+	"res://assets/Spacegram/posts/profile_pictures/avatar_09.png",
+	"res://assets/Spacegram/posts/profile_pictures/avatar_10.png"
+]
+
 signal back_pressed
 signal profile_saved
 
 var selected_profile_picture: String = ""
+var avatar_options: Array = []
 
-
-func _ready():
-	_spawn_dummy_profile_pictures()
+func _ready() -> void:
+	_spawn_profile_picture_options()
 
 
 func load_settings() -> void:
@@ -37,17 +53,60 @@ func load_settings() -> void:
 
 	username_line_edit.text = str(profile_data.get("display_name", ""))
 	bio_line_edit.text = str(profile_data.get("bio", ""))
+
 	selected_profile_picture = str(profile_data.get("profile_picture", ""))
 
+	if not selected_profile_picture.is_empty() and ResourceLoader.exists(selected_profile_picture):
+		preview_image.texture = load(selected_profile_picture)
+	else:
+		_set_default_avatar()
+		
+	_update_selected_avatar_ui()
 
-func _spawn_dummy_profile_pictures():
+
+func _spawn_profile_picture_options() -> void:
 	for child in avatar_grid.get_children():
 		child.queue_free()
 
-	for i in 12:
-		var picture = preload("res://scenes/Spacegram/ProfilePictureOption.tscn").instantiate()
+	avatar_options.clear()
+
+	for avatar_path in AVATAR_PATHS:
+		if not ResourceLoader.exists(avatar_path):
+			print("Avatar nicht gefunden: ", avatar_path)
+			continue
+
+		var texture: Texture2D = load(avatar_path)
+
+		var picture = PROFILE_PICTURE_OPTION_SCENE.instantiate()
 		avatar_grid.add_child(picture)
 
+		picture.setup(avatar_path, texture)
+		picture.avatar_selected.connect(_on_avatar_selected)
+
+		avatar_options.append(picture)
+
+
+func _on_avatar_selected(image_path: String, option_node: Control) -> void:
+	selected_profile_picture = image_path
+
+	if ResourceLoader.exists(image_path):
+		preview_image.texture = load(image_path)
+
+	for option in avatar_options:
+		option.set_selected(option == option_node)
+
+
+func _set_default_avatar() -> void:
+	if AVATAR_PATHS.is_empty():
+		return
+
+	var default_path: String = AVATAR_PATHS[0]
+
+	if ResourceLoader.exists(default_path):
+		selected_profile_picture = default_path
+		preview_image.texture = load(default_path)
+
+	_update_selected_avatar_ui()
 
 func _on_saving_changes_button_pressed() -> void:
 	var display_name: String = username_line_edit.text.strip_edges()
@@ -56,6 +115,9 @@ func _on_saving_changes_button_pressed() -> void:
 	if display_name.is_empty():
 		print("Display Name darf nicht leer sein.")
 		return
+
+	if selected_profile_picture.is_empty():
+		_set_default_avatar()
 
 	save_button.disabled = true
 
@@ -70,10 +132,13 @@ func _on_saving_changes_button_pressed() -> void:
 	if result.success:
 		print("Profil gespeichert.")
 		profile_saved.emit()
-		
 	else:
 		print("Profil konnte nicht gespeichert werden: ", result.error)
 
 
-func _on_exit_without_saving_pressed():
+func _on_exit_without_saving_pressed() -> void:
 	back_pressed.emit()
+
+func _update_selected_avatar_ui() -> void:
+	for option in avatar_options:
+		option.set_selected(option.image_path == selected_profile_picture)

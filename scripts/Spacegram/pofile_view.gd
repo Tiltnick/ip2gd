@@ -6,6 +6,7 @@ extends Control
 @onready var bio_label = $ScrollContainer/VBoxContainer/MarginContainer2/BioLabel
 @onready var profile_image = $ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/ProfileAndUsername/ProfileImageFrame/ProfileImage
 
+
 const THUMBNAIL_SCENE := preload("res://scenes/Spacegram/ProfileThumbnail.tscn")
 const FALLBACK_POST_IMAGE := preload("res://assets/sprites/portrait/selfie.png")
 
@@ -36,9 +37,13 @@ func load_profile() -> void:
 
 		var display_name: String = str(profile_data.get("display_name", NakamaManager.session.username))
 		var bio: String = str(profile_data.get("bio", ""))
+		var profile_picture: String = str(profile_data.get("profile_picture", ""))
 
 		username_label.text = display_name
 		bio_label.text = bio
+
+		if not profile_picture.is_empty() and ResourceLoader.exists(profile_picture):
+			profile_image.texture = load(profile_picture)
 	else:
 		username_label.text = str(NakamaManager.session.username)
 		bio_label.text = ""
