@@ -28,6 +28,7 @@ shader_parameter/corner_radius = 120.0
 offset_right = 88.0
 offset_bottom = 87.0
 mouse_filter = 0
+mouse_default_cursor_shape = 2
 script = ExtResource("1_6hwmr")
 
 [node name="IconFrame" type="PanelContainer" parent="."]

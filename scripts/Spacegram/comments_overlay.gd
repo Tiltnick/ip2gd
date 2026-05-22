@@ -4,6 +4,7 @@ extends Control
 @onready var close_button = $MarginContainerPanel/Panel/VBoxContainer/MarginContainerHeader/Header/MarginContainerClose/CloseButton
 @onready var text_edit = $MarginContainerPanel/Panel/VBoxContainer/InputRow/CodeEdit
 @onready var post_button = $MarginContainerPanel/Panel/VBoxContainer/InputRow/MarginContainer/PostButton
+@onready var input_profile_icon = $MarginContainerPanel/Panel/VBoxContainer/InputRow/FrameProfileIcon/ProfileIcon
 
 const COMMENT_ITEM_SCENE := preload("res://scenes/Spacegram/CommentItem.tscn")
 
@@ -15,6 +16,7 @@ signal comments_changed
 
 func _ready():
 	visible = false
+	refresh_input_profile_icon()
 
 
 func open_for_post(post_id: String, post_item = null) -> void:
@@ -22,6 +24,7 @@ func open_for_post(post_id: String, post_item = null) -> void:
 	current_post_item = post_item
 
 	visible = true
+	await refresh_input_profile_icon()
 
 	if bottom_nav:
 		bottom_nav.visible = false
@@ -60,6 +63,7 @@ func _spawn_comment(comment_data: Dictionary) -> void:
 	var time := _format_comment_time(str(comment_data.get("posted_at", "")))
 	var comment_id := str(comment_data.get("comment_id", ""))
 	var user_id := str(comment_data.get("user_id", ""))
+	var profile_picture := str(comment_data.get("profile_picture", ""))
 
 	comment.setup(
 		username,
@@ -68,7 +72,8 @@ func _spawn_comment(comment_data: Dictionary) -> void:
 		0,
 		false,
 		comment_id,
-		user_id
+		user_id,
+		profile_picture
 	)
 
 
@@ -148,3 +153,33 @@ func _on_delete_comment_requested(comment_id: String) -> void:
 		await load_comments()
 	else:
 		print("Kommentar konnte nicht gelöscht werden: ", result.error)
+		
+		
+func refresh_input_profile_icon() -> void:
+	if not NakamaManager.is_logged_in():
+		return
+
+	var result = await SpacegramApi.get_my_profile()
+
+	if not result.success or result.data == null:
+		print("CommentsOverlay: eigenes Profilbild konnte nicht geladen werden.")
+		return
+
+	var profile_data: Dictionary = result.data
+	var profile_picture: String = str(profile_data.get("profile_picture", ""))
+
+	if profile_picture.is_empty():
+		return
+
+	if not ResourceLoader.exists(profile_picture):
+		print("CommentsOverlay: Profilbild nicht gefunden: ", profile_picture)
+		return
+
+	var texture: Texture2D = load(profile_picture)
+
+	if input_profile_icon is TextureRect:
+		input_profile_icon.texture = texture
+	elif input_profile_icon is TextureButton:
+		input_profile_icon.texture_normal = texture
+	else:
+		print("CommentsOverlay: Unerwarteter Icon-Typ: ", input_profile_icon.get_class())

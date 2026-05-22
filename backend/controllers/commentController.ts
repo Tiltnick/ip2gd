@@ -59,7 +59,8 @@ export async function getCommentsByPost(req: AuthRequest, res: Response): Promis
         c.user_id,
         c.text,
         c.posted_at,
-        p.display_name
+        p.display_name,
+        p.profile_picture
       FROM comment c
       JOIN profile p ON p.user_id = c.user_id
       WHERE c.post_id = $1

@@ -9,6 +9,7 @@ extends Control
 @onready var show_replies_button = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ActionsRow/ShowRepliesButton
 @onready var answer_button = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ActionsRow/AnswerButton
 @onready var delete_button = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/DeleteCommentButton
+@onready var profile_icon = $MarginContainer/VBoxContainer/HBoxContainer/FrameProfileIcon/ProfileIcon
 
 signal reply_requested(username)
 signal delete_requested(comment_id)
@@ -31,7 +32,8 @@ func setup(
 	likes: int,
 	is_reply := false,
 	new_comment_id := "",
-	new_user_id := ""
+	new_user_id := "",
+	profile_picture := ""
 ) -> void:
 	comment_id = str(new_comment_id)
 	user_id = str(new_user_id)
@@ -42,6 +44,7 @@ func setup(
 	username_label.text = username
 	time_label.text = time
 	like_count.text = str(likes)
+	_set_profile_icon(str(profile_picture))
 
 	replies_vbox.visible = false
 	show_replies_button.visible = false
@@ -81,3 +84,21 @@ func _on_delete_pressed() -> void:
 		return
 
 	delete_requested.emit(comment_id)
+
+
+func _set_profile_icon(profile_picture: String) -> void:
+	if profile_picture.is_empty():
+		return
+
+	if not ResourceLoader.exists(profile_picture):
+		print("CommentItem: Profilbild nicht gefunden: ", profile_picture)
+		return
+
+	var texture: Texture2D = load(profile_picture)
+
+	if profile_icon is TextureRect:
+		profile_icon.texture = texture
+	elif profile_icon is TextureButton:
+		profile_icon.texture_normal = texture
+	else:
+		print("CommentItem: ProfileIcon hat unerwarteten Typ: ", profile_icon.get_class())

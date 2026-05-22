@@ -15,6 +15,7 @@ const FALLBACK_POST_IMAGE := preload("res://assets/sprites/portrait/selfie.png")
 var all_posts: Array = []
 var current_user_id: String = ""
 var is_following := true
+var follower_count := 0
 
 signal post_selected(posts, selected_index)
 signal follow_changed
@@ -43,8 +44,12 @@ func load_profile_by_user_id(user_id: String) -> void:
 	var bio: String = str(profile_data.get("bio", ""))
 	var profile_picture: String = str(profile_data.get("profile_picture", ""))
 
+	follower_count = int(profile_data.get("follower_count", 0))
+	is_following = bool(profile_data.get("followed_by_me", false))
+
 	username_label.text = display_name
 	bio_label.text = bio
+	friend_number_label.text = str(follower_count)
 
 	if not profile_picture.is_empty() and ResourceLoader.exists(profile_picture):
 		profile_image.texture = load(profile_picture)
@@ -64,7 +69,6 @@ func load_profile_by_user_id(user_id: String) -> void:
 			all_posts.append(post_data)
 
 	post_number_label.text = str(all_posts.size())
-	friend_number_label.text = "-"
 
 	for i in all_posts.size():
 		_spawn_thumbnail(all_posts[i], i)
@@ -149,6 +153,14 @@ func _on_follow_button_pressed() -> void:
 
 	if result.success:
 		is_following = !is_following
+
+		if is_following:
+			follower_count += 1
+		else:
+			follower_count = max(follower_count - 1, 0)
+
+		friend_number_label.text = str(follower_count)
+
 		_update_follow_button()
 		follow_changed.emit()
 	else:

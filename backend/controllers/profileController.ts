@@ -132,20 +132,45 @@ export async function updateMyProfile(req: AuthRequest, res: Response): Promise<
 
 export async function getProfileByUserId(req: AuthRequest, res: Response): Promise<Response> {
   try {
+    const viewerId = req.user_id;
     const userId = req.params.user_id;
+
+    if (!viewerId) {
+      return res.status(401).json({
+        success: false,
+        data: null,
+        error: "Unauthorized",
+      });
+    }
 
     const query = `
       SELECT
-        user_id,
-        display_name,
-        bio,
-        profile_picture
-      FROM profile
-      WHERE user_id = $1
+        p.user_id,
+        p.display_name,
+        p.bio,
+        p.profile_picture,
+        (
+          SELECT COUNT(*)
+          FROM follow f
+          WHERE f.following_id = p.user_id
+        ) AS follower_count,
+        (
+          SELECT COUNT(*)
+          FROM follow f
+          WHERE f.follower_id = p.user_id
+        ) AS following_count,
+        EXISTS (
+          SELECT 1
+          FROM follow f
+          WHERE f.follower_id = $1
+          AND f.following_id = p.user_id
+        ) AS followed_by_me
+      FROM profile p
+      WHERE p.user_id = $2
       LIMIT 1
     `;
 
-    const result = await pool.query(query, [userId]);
+    const result = await pool.query(query, [viewerId, userId]);
 
     if (result.rows.length === 0) {
       return res.status(404).json({
