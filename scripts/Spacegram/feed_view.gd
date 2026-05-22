@@ -12,6 +12,7 @@ var bottom_nav
 var has_loaded_posts := false
 
 signal post_changed
+signal story_selected(profile_data)
 
 
 func _ready():
@@ -50,7 +51,7 @@ func load_stories() -> void:
 
 
 func _on_story_pressed(profile_data: Dictionary) -> void:
-	print("Story geklickt: ", profile_data)
+	story_selected.emit(profile_data)
 
 func _load_posts() -> void:
 	if has_loaded_posts:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://wpaq0y40yr5d"]
+[gd_scene load_steps=19 format=3 uid="uid://wpaq0y40yr5d"]
 
 [ext_resource type="PackedScene" uid="uid://5fnaykvrlsv3" path="res://scenes/Spacegram/FeedView.tscn" id="1_dmebn"]
 [ext_resource type="Script" uid="uid://bbkud4o4lhkmi" path="res://scripts/Spacegram/spacegramm_app.gd" id="1_r03mq"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dbldv0uxciauu" path="res://assets/sprites/ui/image (4) (1).png" id="6_k1ffk"]
 [ext_resource type="PackedScene" uid="uid://cl8706cvdham4" path="res://scenes/Spacegram/PostDetailView.tscn" id="6_l3wvu"]
 [ext_resource type="Shader" uid="uid://cvrh38clkj8l1" path="res://assets/shaders/RoundedCorner.gdshader" id="6_r1vcq"]
+[ext_resource type="PackedScene" uid="uid://ddqnbbe0lma3y" path="res://scenes/Spacegram/OtherPofileView.tscn" id="7_p7plx"]
 [ext_resource type="PackedScene" uid="uid://ba2og81ea7gqb" path="res://scenes/Spacegram/SpacegramConfirmPopup.tscn" id="12_p7plx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmbrc"]
@@ -124,6 +125,10 @@ visible = false
 layout_mode = 2
 
 [node name="PostNewPostView" parent="ContentContainer" instance=ExtResource("6_gel25")]
+visible = false
+layout_mode = 2
+
+[node name="OtherPofileView" parent="ContentContainer" instance=ExtResource("7_p7plx")]
 visible = false
 layout_mode = 2
 

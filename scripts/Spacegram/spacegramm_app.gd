@@ -8,8 +8,8 @@ extends Control
 @onready var post_detail_view = $ContentContainer/PostDetailView
 @onready var post_new_post_view = $ContentContainer/PostNewPostView
 @onready var confirm_popup = $SpacegramConfirmPopup
+@onready var other_profile_view = $ContentContainer/OtherPofileView
 
-#@onready var bottom_nav_profile_button = $ColorRect2/MarginContainer/BottomNavBar/PanelContainerProfile/Profile
 @onready var bottom_nav_profile_button = get_node_or_null("ColorRect2/MarginContainer/BottomNavBar/PanelContainerProfile/Profile")
 
 var feed_is_dirty := false
@@ -36,6 +36,9 @@ func _ready():
 	comments_overlay.comments_changed.connect(_on_spacegram_data_changed)
 	profile_settings_view.profile_saved.connect(_on_profile_saved)
 	post_new_post_view.change_picture_requested.connect(_on_change_picture_requested)
+	feed_view.story_selected.connect(show_other_profile)
+	other_profile_view.post_selected.connect(show_post_detail)
+	other_profile_view.follow_changed.connect(_on_spacegram_data_changed)
 	
 	
 	print("BottomNav button found: ", bottom_nav_profile_button)
@@ -51,6 +54,7 @@ func show_feed():
 	profile_settings_view.visible = false
 	post_detail_view.visible = false
 	post_new_post_view.visible = false
+	other_profile_view.visible = false
 	
 	if feed_is_dirty:
 		feed_is_dirty = false
@@ -83,6 +87,7 @@ func show_post_detail(posts, selected_index):
 	profile_view.visible = false
 	profile_settings_view.visible = false
 	post_new_post_view.visible = false
+	other_profile_view.visible = false
 
 	post_detail_view.visible = true
 
@@ -100,6 +105,24 @@ func show_new_post_view(image_path: String):
 
 	post_new_post_view.visible = true
 	post_new_post_view.setup(image_path)
+	
+	
+func show_other_profile(profile_data: Dictionary) -> void:
+	var user_id: String = str(profile_data.get("user_id", ""))
+
+	if user_id.is_empty():
+		print("SpacegramApp: Story hat keine user_id.")
+		return
+
+	feed_view.visible = false
+	profile_view.visible = false
+	profile_settings_view.visible = false
+	post_detail_view.visible = false
+	post_new_post_view.visible = false
+	comments_overlay.visible = false
+	other_profile_view.visible = true
+
+	await other_profile_view.load_profile_by_user_id(user_id)
 
 func _on_profile_button_pressed():
 	show_profile()
