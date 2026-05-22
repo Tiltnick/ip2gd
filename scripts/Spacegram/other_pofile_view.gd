@@ -1,7 +1,7 @@
 extends Control
 
 @onready var post_grid = $ScrollContainer/VBoxContainer/PostGrid
-@onready var username_label = $ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/ProfileAndUsername/Username
+@onready var username_label = $ScrollContainer/VBoxContainer/MarginContainer3/TopBar/Username
 @onready var post_number_label = $ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton/StatsContainer/PostsStat/NumberLabel
 @onready var friend_number_label = $ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton/StatsContainer/FriendStat/NumberLabel
 @onready var bio_label = $ScrollContainer/VBoxContainer/MarginContainer2/BioLabel
@@ -18,7 +18,7 @@ var is_following := true
 
 signal post_selected(posts, selected_index)
 signal follow_changed
-
+signal back_requested
 
 func load_profile_by_user_id(user_id: String) -> void:
 	current_user_id = user_id
@@ -156,3 +156,7 @@ func _on_follow_button_pressed() -> void:
 
 	if follow_button:
 		follow_button.disabled = false
+		
+		
+func _on_back_button_pressed() -> void:
+	back_requested.emit()

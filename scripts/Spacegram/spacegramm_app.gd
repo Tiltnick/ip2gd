@@ -14,6 +14,7 @@ extends Control
 
 var feed_is_dirty := false
 var profile_is_dirty := false
+var last_view_before_detail := "feed"
 
 signal open_camera_requested
 
@@ -39,6 +40,8 @@ func _ready():
 	feed_view.story_selected.connect(show_other_profile)
 	other_profile_view.post_selected.connect(show_post_detail)
 	other_profile_view.follow_changed.connect(_on_spacegram_data_changed)
+	other_profile_view.back_requested.connect(show_feed)
+	post_detail_view.back_requested.connect(_on_post_detail_back_requested)
 	
 	
 	print("BottomNav button found: ", bottom_nav_profile_button)
@@ -82,6 +85,13 @@ func show_profile():
 	await profile_view.refresh_profile()
 	
 func show_post_detail(posts, selected_index):
+	if profile_view.visible:
+		last_view_before_detail = "profile"
+	elif other_profile_view.visible:
+		last_view_before_detail = "other_profile"
+	else:
+		last_view_before_detail = "feed"
+
 
 	feed_view.visible = false
 	profile_view.visible = false
@@ -193,3 +203,14 @@ func refresh_bottom_nav_avatar() -> void:
 		bottom_nav_profile_button.texture = texture
 	else:
 		print("BottomNav: Unerwarteter Node-Typ: ", bottom_nav_profile_button.get_class())
+		
+		
+func _on_post_detail_back_requested() -> void:
+	post_detail_view.visible = false
+
+	if last_view_before_detail == "profile":
+		await show_profile()
+	elif last_view_before_detail == "other_profile":
+		other_profile_view.visible = true
+	else:
+		show_feed()

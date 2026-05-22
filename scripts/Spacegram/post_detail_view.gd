@@ -1,6 +1,6 @@
 extends Control
 
-@onready var posts_vbox = $ScrollContainer/VBoxContainer
+@onready var posts_vbox = $ScrollContainer/PostsBox
 
 const POST_ITEM_SCENE := preload("res://scenes/Spacegram/PostItem.tscn")
 const FALLBACK_POST_IMAGE := preload("res://assets/sprites/portrait/selfie.png")
@@ -12,6 +12,7 @@ var confirm_popup
 
 signal post_deleted
 signal post_changed
+signal back_requested
 
 func setup(posts, selected_index):
 	current_posts = posts
@@ -112,3 +113,6 @@ func _load_post_texture(image_path: String) -> Texture2D:
 	
 func _on_post_changed() -> void:
 	post_changed.emit()
+	
+func _on_back_button_pressed() -> void:
+	back_requested.emit()

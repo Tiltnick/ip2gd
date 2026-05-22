@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddqnbbe0lma3y"]
+[gd_scene load_steps=12 format=3 uid="uid://ddqnbbe0lma3y"]
 
 [ext_resource type="Script" uid="uid://ryum6526qji0" path="res://scripts/Spacegram/other_pofile_view.gd" id="1_t0w7a"]
 [ext_resource type="Shader" uid="uid://cvrh38clkj8l1" path="res://assets/shaders/RoundedCorner.gdshader" id="2_4apea"]
+[ext_resource type="Texture2D" uid="uid://wqypw5mdayab" path="res://assets/sprites/ui/backButtonArrowYellow.png" id="2_wiqek"]
 [ext_resource type="FontFile" uid="uid://dgqqm7w7cyunk" path="res://assets/fonts/Jersey10-Regular.ttf" id="3_wiqek"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lg3uv"]
@@ -103,9 +104,35 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
+[node name="MarginContainer3" type="MarginContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = -19
+
+[node name="TopBar" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+
+[node name="BackButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/MarginContainer3/TopBar"]
+custom_minimum_size = Vector2(65, 45)
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_wiqek")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Username" type="Label" parent="ScrollContainer/VBoxContainer/MarginContainer3/TopBar"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 1)
+theme_override_fonts/font = ExtResource("3_wiqek")
+theme_override_font_sizes/font_size = 18
+text = "USERNAME_TWE"
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 16
+theme_override_constants/margin_top = 0
 
 [node name="ProfileHeader" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
@@ -128,15 +155,6 @@ material = SubResource("ShaderMaterial_lg3uv")
 layout_mode = 2
 expand_mode = 5
 stretch_mode = 6
-
-[node name="Username" type="Label" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/ProfileAndUsername"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.8509804, 0.8156863, 0.654902, 1)
-theme_override_fonts/font = ExtResource("3_wiqek")
-theme_override_font_sizes/font_size = 16
-text = "USERNAME_TWE"
-horizontal_alignment = 1
-vertical_alignment = 2
 
 [node name="Spacer2" type="Control" parent="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader"]
 custom_minimum_size = Vector2(20, 0)
@@ -263,5 +281,6 @@ theme_override_constants/h_separation = 3
 theme_override_constants/v_separation = 3
 columns = 3
 
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/MarginContainer3/TopBar/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton/FollowButtonCenter/FollowButton" to="." method="_on_edit_profile_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/MarginContainer/ProfileHeader/CenterStatsAndButton/FollowButtonCenter/FollowButton" to="." method="_on_follow_button_pressed"]
