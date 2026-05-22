@@ -42,6 +42,7 @@ func _ready():
 	other_profile_view.follow_changed.connect(_on_spacegram_data_changed)
 	other_profile_view.back_requested.connect(show_feed)
 	post_detail_view.back_requested.connect(_on_post_detail_back_requested)
+	feed_view.profile_selected.connect(_on_profile_selected_from_post)
 	
 	
 	print("BottomNav button found: ", bottom_nav_profile_button)
@@ -214,3 +215,14 @@ func _on_post_detail_back_requested() -> void:
 		other_profile_view.visible = true
 	else:
 		show_feed()
+
+func _on_profile_selected_from_post(user_id: String) -> void:
+	if user_id.is_empty():
+		return
+
+	if NakamaManager.is_logged_in() and user_id == NakamaManager.session.user_id:
+		await show_profile()
+	else:
+		await show_other_profile({
+			"user_id": user_id
+		})

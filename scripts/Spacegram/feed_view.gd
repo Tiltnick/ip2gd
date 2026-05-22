@@ -13,6 +13,7 @@ var has_loaded_posts := false
 
 signal post_changed
 signal story_selected(profile_data)
+signal profile_selected(user_id)
 
 
 func _ready():
@@ -89,6 +90,7 @@ func _spawn_post(post_data: Dictionary) -> void:
 	post.bottom_nav = bottom_nav
 	
 	post.post_changed.connect(_on_post_changed)
+	post.profile_selected.connect(_on_post_profile_selected)
 
 	var image_path: String = str(post_data.get("image_path", ""))
 	var image_texture := _load_post_texture(image_path)
@@ -143,3 +145,6 @@ func refresh_posts() -> void:
 	
 func _on_post_changed() -> void:
 	post_changed.emit()
+	
+func _on_post_profile_selected(user_id: String) -> void:
+	profile_selected.emit(user_id)

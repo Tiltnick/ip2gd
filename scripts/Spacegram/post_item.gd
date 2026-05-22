@@ -37,6 +37,15 @@ var add_friend = preload("res://assets/sprites/ui/add-friend (1).png")
 
 signal delete_requested(post_id)
 signal post_changed
+signal profile_selected(user_id)
+
+func _ready() -> void:
+	username_label.gui_input.connect(_on_profile_area_gui_input)
+
+	if profile_icon is TextureButton:
+		profile_icon.pressed.connect(_on_profile_icon_pressed)
+	elif profile_icon is TextureRect:
+		profile_icon.gui_input.connect(_on_profile_area_gui_input)
 
 func setup_post_data(post_data: Dictionary, image: Texture2D, is_detail := false) -> void:
 	post_id = str(post_data.get("post_id", ""))
@@ -203,3 +212,19 @@ func _set_profile_icon(profile_picture: String) -> void:
 		
 func _update_friend_ui() -> void:
 	add_friend_button.texture_normal = friend if is_friend else add_friend
+	
+func _on_profile_icon_pressed() -> void:
+	_emit_profile_selected()
+
+
+func _on_profile_area_gui_input(event) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		_emit_profile_selected()
+
+
+func _emit_profile_selected() -> void:
+	if user_id.is_empty():
+		print("PostItem: Keine user_id für Profilnavigation.")
+		return
+
+	profile_selected.emit(user_id)
