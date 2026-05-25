@@ -6,7 +6,10 @@ export async function createComment(req: AuthRequest, res: Response): Promise<Re
   try {
     const userId = req.user_id;
     const postId = req.params.id;
-    const { text } = req.body as { text?: string };
+    const { text, parent_comment_id } = req.body as {
+      text?: string;
+      parent_comment_id?: string | null;
+    };
 
     if (!userId) {
       return res.status(401).json({
@@ -16,7 +19,7 @@ export async function createComment(req: AuthRequest, res: Response): Promise<Re
       });
     }
 
-    if (!text) {
+    if (!text || text.trim().length === 0) {
       return res.status(400).json({
         success: false,
         data: null,
@@ -24,13 +27,32 @@ export async function createComment(req: AuthRequest, res: Response): Promise<Re
       });
     }
 
+    if (parent_comment_id) {
+      const parentCheck = await pool.query(
+        `
+        SELECT comment_id
+        FROM comment
+        WHERE comment_id = $1 AND post_id = $2
+        `,
+        [parent_comment_id, postId]
+      );
+
+      if (parentCheck.rows.length === 0) {
+        return res.status(404).json({
+          success: false,
+          data: null,
+          error: "Parent comment not found",
+        });
+      }
+    }
+
     const query = `
-      INSERT INTO comment (post_id, user_id, text)
-      VALUES ($1, $2, $3)
+      INSERT INTO comment (post_id, user_id, text, parent_comment_id)
+      VALUES ($1, $2, $3, $4)
       RETURNING *
     `;
 
-    const values = [postId, userId, text];
+    const values = [postId, userId, text.trim(), parent_comment_id || null];
     const result = await pool.query(query, values);
 
     return res.status(201).json({
@@ -59,6 +81,7 @@ export async function getCommentsByPost(req: AuthRequest, res: Response): Promis
         c.user_id,
         c.text,
         c.posted_at,
+        c.parent_comment_id,
         p.display_name,
         p.profile_picture
       FROM comment c

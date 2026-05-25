@@ -583,7 +583,7 @@ func get_profile_by_user_id(user_id: String) -> Dictionary:
 		"error": json.get("error", "ERROR_UNKNOWN")
 	}
 
-func create_comment(post_id: String, text: String) -> Dictionary:
+func create_comment(post_id: String, text: String, parent_comment_id: String = "") -> Dictionary:
 	var url = BASE_URL + "/posts/" + post_id + "/comments"
 	var headers = _get_auth_headers(true)
 
@@ -597,6 +597,9 @@ func create_comment(post_id: String, text: String) -> Dictionary:
 	var body = {
 		"text": text
 	}
+	
+	if not parent_comment_id.is_empty():
+		body["parent_comment_id"] = parent_comment_id
 
 	var json_body = JSON.stringify(body)
 

@@ -191,6 +191,10 @@ func increment_comment_count() -> void:
 func decrement_comment_count() -> void:
 	comment_count = max(comment_count - 1, 0)
 	_update_comment_ui()
+	
+func set_comment_count(new_count: int) -> void:
+	comment_count = max(new_count, 0)
+	_update_comment_ui()
 
 func _set_profile_icon(profile_picture: String) -> void:
 	if profile_picture.is_empty():

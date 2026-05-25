@@ -11,7 +11,7 @@ extends Control
 @onready var delete_button = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/DeleteCommentButton
 @onready var profile_icon = $MarginContainer/VBoxContainer/HBoxContainer/FrameProfileIcon/ProfileIcon
 
-signal reply_requested(username)
+signal reply_requested(username, comment_id)
 signal delete_requested(comment_id)
 
 var heart_empty = preload("res://assets/sprites/ui/heart (3) (1).png")
@@ -46,8 +46,14 @@ func setup(
 	like_count.text = str(likes)
 	_set_profile_icon(str(profile_picture))
 
-	replies_vbox.visible = false
-	show_replies_button.visible = false
+	if is_reply:
+		answer_button.visible = false
+		show_replies_button.visible = false
+		replies_vbox.visible = false
+	else:
+		answer_button.visible = true
+		show_replies_button.visible = false
+		replies_vbox.visible = false
 	
 	var is_own_comment := false
 	
@@ -73,7 +79,7 @@ func _on_show_replies_pressed():
 	show_replies_button.text = tr("HIDE_REPLIES") if replies_visible else tr("SHOW_REPLIES")
 	
 func _on_answer_pressed():
-	reply_requested.emit(username_label.text)
+	reply_requested.emit(username_label.text, comment_id)
 	
 	
 func _on_delete_pressed() -> void:
@@ -102,3 +108,39 @@ func _set_profile_icon(profile_picture: String) -> void:
 		profile_icon.texture_normal = texture
 	else:
 		print("CommentItem: ProfileIcon hat unerwarteten Typ: ", profile_icon.get_class())
+		
+		
+func add_reply_from_data(comment_data: Dictionary) -> void:
+	var reply = preload("res://scenes/Spacegram/CommentItem.tscn").instantiate()
+	replies_vbox.add_child(reply)
+
+	var username := str(comment_data.get("display_name", "Unknown"))
+	var text := str(comment_data.get("text", ""))
+	var time := "now"
+	var reply_comment_id := str(comment_data.get("comment_id", ""))
+	var reply_user_id := str(comment_data.get("user_id", ""))
+	var profile_picture := str(comment_data.get("profile_picture", ""))
+
+	reply.setup(
+		username,
+		text,
+		time,
+		0,
+		true,
+		reply_comment_id,
+		reply_user_id,
+		profile_picture
+	)
+
+	reply.delete_requested.connect(func(id):
+		delete_requested.emit(id)
+	)
+
+	show_replies_button.visible = true
+
+func set_replies_visible(value: bool) -> void:
+	replies_visible = value
+	replies_vbox.visible = value
+	
+	if show_replies_button.visible:
+		show_replies_button.text = tr("HIDE_REPLIES") if value else tr("SHOW_REPLIES")

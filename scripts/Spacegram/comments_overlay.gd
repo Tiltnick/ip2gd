@@ -11,6 +11,8 @@ const COMMENT_ITEM_SCENE := preload("res://scenes/Spacegram/CommentItem.tscn")
 var bottom_nav
 var current_post_id: String = ""
 var current_post_item = null
+var reply_parent_comment_id: String = ""
+var reply_parent_username: String = ""
 
 signal comments_changed
 
@@ -32,9 +34,7 @@ func open_for_post(post_id: String, post_item = null) -> void:
 	await load_comments()
 
 
-func load_comments() -> void:
-	_clear_comments()
-
+func load_comments(expand_parent_id: String = "") -> void:
 	if current_post_id.is_empty():
 		print("CommentsOverlay: Keine post_id gesetzt.")
 		return
@@ -45,13 +45,42 @@ func load_comments() -> void:
 		print("CommentsOverlay: Kommentare konnten nicht geladen werden: ", result.error)
 		return
 
+	_clear_comments()
+
 	var comments: Array = result.data
 
+	if current_post_item:
+		current_post_item.set_comment_count(comments.size())
+
+	var parent_nodes := {}
+
 	for comment_data in comments:
-		_spawn_comment(comment_data)
+		var parent_raw = comment_data.get("parent_comment_id", null)
+		var parent_id := ""
+
+		if parent_raw != null:
+			parent_id = str(parent_raw)
+
+		if parent_id.is_empty():
+			var comment_node = _spawn_parent_comment(comment_data)
+			var comment_id := str(comment_data.get("comment_id", ""))
+			parent_nodes[comment_id] = comment_node
+
+	for comment_data in comments:
+		var parent_raw = comment_data.get("parent_comment_id", null)
+		var parent_id := ""
+
+		if parent_raw != null:
+			parent_id = str(parent_raw)
+
+		if not parent_id.is_empty() and parent_nodes.has(parent_id):
+			parent_nodes[parent_id].add_reply_from_data(comment_data)
+
+	if not expand_parent_id.is_empty() and parent_nodes.has(expand_parent_id):
+		parent_nodes[expand_parent_id].set_replies_visible(true)
 
 
-func _spawn_comment(comment_data: Dictionary) -> void:
+func _spawn_parent_comment(comment_data: Dictionary):
 	var comment = COMMENT_ITEM_SCENE.instantiate()
 	comments_vbox.add_child(comment)
 
@@ -75,6 +104,8 @@ func _spawn_comment(comment_data: Dictionary) -> void:
 		user_id,
 		profile_picture
 	)
+
+	return comment
 
 
 func _clear_comments() -> void:
@@ -101,24 +132,35 @@ func _on_post_button_pressed() -> void:
 
 	post_button.disabled = true
 
-	var result = await SpacegramApi.create_comment(current_post_id, comment_text_input)
-
+	var result = await SpacegramApi.create_comment(
+		current_post_id,
+		comment_text_input,
+		reply_parent_comment_id
+	)
 	if result.success:
 		text_edit.text = ""
 
-		if current_post_item:
-			current_post_item.increment_comment_count()
+		var parent_to_expand := reply_parent_comment_id
+
+		reply_parent_comment_id = ""
+		reply_parent_username = ""
+
+		#if current_post_item:
+			#current_post_item.increment_comment_count()
 
 		comments_changed.emit()
 
-		await load_comments()
+		await load_comments(parent_to_expand)
 	else:
 		print("Kommentar konnte nicht erstellt werden: ", result.error)
 
 	post_button.disabled = false
 
 
-func _on_reply_requested(username):
+func _on_reply_requested(username: String, comment_id: String) -> void:
+	reply_parent_comment_id = comment_id
+	reply_parent_username = username
+
 	var mention = "@" + username
 
 	var highlighter = CodeHighlighter.new()
@@ -145,8 +187,8 @@ func _on_delete_comment_requested(comment_id: String) -> void:
 	var result = await SpacegramApi.delete_comment(comment_id)
 
 	if result.success:
-		if current_post_item:
-			current_post_item.decrement_comment_count()
+		#if current_post_item:
+			#current_post_item.decrement_comment_count()
 
 		comments_changed.emit()
 
