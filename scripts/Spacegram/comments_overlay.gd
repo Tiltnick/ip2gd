@@ -86,6 +86,7 @@ func _spawn_parent_comment(comment_data: Dictionary):
 
 	comment.reply_requested.connect(_on_reply_requested)
 	comment.delete_requested.connect(_on_delete_comment_requested)
+	comment.comment_like_changed.connect(_on_comment_like_changed)
 
 	var username := str(comment_data.get("display_name", "Unknown"))
 	var comment_text_value: String = str(comment_data.get("text", ""))
@@ -93,16 +94,19 @@ func _spawn_parent_comment(comment_data: Dictionary):
 	var comment_id := str(comment_data.get("comment_id", ""))
 	var user_id := str(comment_data.get("user_id", ""))
 	var profile_picture := str(comment_data.get("profile_picture", ""))
+	var like_count_value := int(comment_data.get("like_count", 0))
+	var liked_by_me := bool(comment_data.get("liked_by_me", false))
 
 	comment.setup(
 		username,
 		comment_text_value,
 		time,
-		0,
+		like_count_value,
 		false,
 		comment_id,
 		user_id,
-		profile_picture
+		profile_picture,
+		liked_by_me
 	)
 
 	return comment
@@ -225,3 +229,7 @@ func refresh_input_profile_icon() -> void:
 		input_profile_icon.texture_normal = texture
 	else:
 		print("CommentsOverlay: Unerwarteter Icon-Typ: ", input_profile_icon.get_class())
+		
+		
+func _on_comment_like_changed() -> void:
+	comments_changed.emit()

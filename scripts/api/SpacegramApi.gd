@@ -875,3 +875,103 @@ func get_following() -> Dictionary:
 		"data": [],
 		"error": json.get("error", "ERROR_UNKNOWN") if json != null else "ERROR_INVALID_JSON"
 	}
+
+
+
+func like_comment(comment_id: String) -> Dictionary:
+	var url = BASE_URL + "/posts/comments/" + comment_id + "/like"
+	var headers = _get_auth_headers()
+
+	if headers.is_empty():
+		return {
+			"success": false,
+			"error": "ERROR_NOT_LOGGED_IN"
+		}
+
+	var request_data = HTTPRequest.new()
+	add_child(request_data)
+
+	var error = request_data.request(
+		url,
+		headers,
+		HTTPClient.METHOD_POST
+	)
+
+	if error != OK:
+		request_data.queue_free()
+		return {
+			"success": false,
+			"error": "ERROR_REQUEST_FAILED"
+		}
+
+	var result = await request_data.request_completed
+	var response_code = result[1]
+	var response_text = result[3].get_string_from_utf8()
+
+	request_data.queue_free()
+
+	print("LIKE COMMENT CODE: ", response_code)
+	print("LIKE COMMENT BODY: ", response_text)
+
+	var json = JSON.parse_string(response_text)
+
+	if response_code >= 200 and response_code < 300:
+		return {
+			"success": true,
+			"data": json.get("data", null) if json != null else null,
+			"error": null
+		}
+
+	return {
+		"success": false,
+		"error": json.get("error", "ERROR_UNKNOWN") if json != null else "ERROR_INVALID_JSON"
+	}
+
+
+func unlike_comment(comment_id: String) -> Dictionary:
+	var url = BASE_URL + "/posts/comments/" + comment_id + "/like"
+	var headers = _get_auth_headers()
+
+	if headers.is_empty():
+		return {
+			"success": false,
+			"error": "ERROR_NOT_LOGGED_IN"
+		}
+
+	var request_data = HTTPRequest.new()
+	add_child(request_data)
+
+	var error = request_data.request(
+		url,
+		headers,
+		HTTPClient.METHOD_DELETE
+	)
+
+	if error != OK:
+		request_data.queue_free()
+		return {
+			"success": false,
+			"error": "ERROR_REQUEST_FAILED"
+		}
+
+	var result = await request_data.request_completed
+	var response_code = result[1]
+	var response_text = result[3].get_string_from_utf8()
+
+	request_data.queue_free()
+
+	print("UNLIKE COMMENT CODE: ", response_code)
+	print("UNLIKE COMMENT BODY: ", response_text)
+
+	var json = JSON.parse_string(response_text)
+
+	if response_code >= 200 and response_code < 300:
+		return {
+			"success": true,
+			"error": null
+		}
+
+	return {
+		"success": false,
+		"error": json.get("error", "ERROR_UNKNOWN") if json != null else "ERROR_INVALID_JSON"
+	}

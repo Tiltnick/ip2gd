@@ -73,6 +73,15 @@ export async function createComment(req: AuthRequest, res: Response): Promise<Re
 export async function getCommentsByPost(req: AuthRequest, res: Response): Promise<Response> {
   try {
     const postId = req.params.id;
+    const userId = req.user_id;
+
+    if (!userId) {
+      return res.status(401).json({
+        success: false,
+        data: null,
+        error: "Unauthorized",
+      });
+    }
 
     const query = `
       SELECT
@@ -83,14 +92,31 @@ export async function getCommentsByPost(req: AuthRequest, res: Response): Promis
         c.posted_at,
         c.parent_comment_id,
         p.display_name,
-        p.profile_picture
+        p.profile_picture,
+        COUNT(DISTINCT cl.user_id)::int AS like_count,
+        EXISTS (
+          SELECT 1
+          FROM comment_likes my_like
+          WHERE my_like.comment_id = c.comment_id
+          AND my_like.user_id = $2
+        ) AS liked_by_me
       FROM comment c
       JOIN profile p ON p.user_id = c.user_id
+      LEFT JOIN comment_likes cl ON cl.comment_id = c.comment_id
       WHERE c.post_id = $1
+      GROUP BY
+        c.comment_id,
+        c.post_id,
+        c.user_id,
+        c.text,
+        c.posted_at,
+        c.parent_comment_id,
+        p.display_name,
+        p.profile_picture
       ORDER BY c.posted_at ASC
     `;
 
-    const result = await pool.query(query, [postId]);
+    const result = await pool.query(query, [postId, userId]);
 
     return res.status(200).json({
       success: true,
@@ -143,6 +169,101 @@ export async function deleteComment(req: AuthRequest, res: Response): Promise<Re
     });
   } catch (err) {
     console.error("DB Error:", err);
+    return res.status(500).json({
+      success: false,
+      data: null,
+      error: "Internal server error",
+    });
+  }
+}
+
+
+export async function likeComment(req: AuthRequest, res: Response): Promise<Response> {
+  try {
+    const userId = req.user_id;
+    const commentId = req.params.comment_id;
+
+    if (!userId) {
+      return res.status(401).json({
+        success: false,
+        data: null,
+        error: "Unauthorized",
+      });
+    }
+
+    const commentCheck = await pool.query(
+      `
+      SELECT comment_id
+      FROM comment
+      WHERE comment_id = $1
+      `,
+      [commentId]
+    );
+
+    if (commentCheck.rows.length === 0) {
+      return res.status(404).json({
+        success: false,
+        data: null,
+        error: "Comment not found",
+      });
+    }
+
+    const query = `
+      INSERT INTO comment_likes (user_id, comment_id)
+      VALUES ($1, $2)
+      ON CONFLICT (user_id, comment_id) DO NOTHING
+      RETURNING *
+    `;
+
+    const result = await pool.query(query, [userId, commentId]);
+
+    return res.status(200).json({
+      success: true,
+      data: result.rows[0] || {
+        user_id: userId,
+        comment_id: commentId,
+      },
+      error: null,
+    });
+  } catch (err) {
+    console.error("Like Comment Error:", err);
+    return res.status(500).json({
+      success: false,
+      data: null,
+      error: "Internal server error",
+    });
+  }
+}
+
+
+export async function unlikeComment(req: AuthRequest, res: Response): Promise<Response> {
+  try {
+    const userId = req.user_id;
+    const commentId = req.params.comment_id;
+
+    if (!userId) {
+      return res.status(401).json({
+        success: false,
+        data: null,
+        error: "Unauthorized",
+      });
+    }
+
+    await pool.query(
+      `
+      DELETE FROM comment_likes
+      WHERE user_id = $1 AND comment_id = $2
+      `,
+      [userId, commentId]
+    );
+
+    return res.status(200).json({
+      success: true,
+      data: null,
+      error: null,
+    });
+  } catch (err) {
+    console.error("Unlike Comment Error:", err);
     return res.status(500).json({
       success: false,
       data: null,

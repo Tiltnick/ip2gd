@@ -8,6 +8,8 @@ import {
   createComment,
   getCommentsByPost,
   deleteComment,
+  likeComment,
+  unlikeComment,
 } from "../controllers/commentController";
 import { likePost, unlikePost } from "../controllers/likeController";
 
@@ -19,6 +21,10 @@ router.get("/", authMiddleware, ensureProfile, getPosts);
 
 router.post("/:id/comments", authMiddleware, ensureProfile, createComment);
 router.get("/:id/comments", authMiddleware, ensureProfile, getCommentsByPost);
+
+router.post("/comments/:comment_id/like", authMiddleware, ensureProfile, likeComment);
+router.delete("/comments/:comment_id/like", authMiddleware, ensureProfile, unlikeComment);
+
 router.delete("/comments/:comment_id", authMiddleware, ensureProfile, deleteComment);
 
 router.post("/:id/like", authMiddleware, ensureProfile, likePost);

@@ -47,3 +47,35 @@ ALTER TABLE profile
 ADD CONSTRAINT unique_display_name UNIQUE (display_name);
 
 
+
+CREATE TABLE follow (
+    follower_id UUID NOT NULL,
+    following_id UUID NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (follower_id, following_id),
+    FOREIGN KEY (follower_id) REFERENCES profile(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (following_id) REFERENCES profile(user_id) ON DELETE CASCADE,
+    CHECK (follower_id <> following_id)
+);
+
+
+ALTER TABLE comment
+ADD COLUMN IF NOT EXISTS parent_comment_id UUID REFERENCES comment(comment_id) ON DELETE CASCADE;
+
+
+ALTER TABLE comment
+DROP CONSTRAINT IF EXISTS comment_parent_comment_id_fkey;
+
+ALTER TABLE comment
+ADD CONSTRAINT comment_parent_comment_id_fkey
+FOREIGN KEY (parent_comment_id)
+REFERENCES comment(comment_id)
+ON DELETE CASCADE;
+
+
+CREATE TABLE comment_likes (
+    user_id UUID NOT NULL,
+    comment_id UUID NOT NULL REFERENCES comment(comment_id) ON DELETE CASCADE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (user_id, comment_id)
+);

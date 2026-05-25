@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dnytrk2ppaar1"]
+[gd_scene load_steps=24 format=3 uid="uid://dnytrk2ppaar1"]
 
 [ext_resource type="Script" uid="uid://bf01b8u38586l" path="res://scripts/Authentication/auth_screen.gd" id="1_o1g10"]
 [ext_resource type="StyleBox" uid="uid://dygv1xoqrtktv" path="res://scenes/UI/StyleBoxes/BackgroundBox.tres" id="1_ugn4p"]
@@ -9,6 +9,8 @@
 [ext_resource type="StyleBox" uid="uid://nlwlaivoia4e" path="res://scenes/UI/StyleBoxes/LoginButtonSimple.tres" id="7_a1b63"]
 [ext_resource type="Texture2D" uid="uid://cqpo0of4nagrj" path="res://assets/sprites/ui/sperren.png" id="7_o1g10"]
 [ext_resource type="Texture2D" uid="uid://djxcdom7qhjor" path="res://assets/sprites/ui/hide (2).png" id="11_3dava"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hlrxc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dava"]
 bg_color = Color(0.09019608, 0.14117648, 0.16470589, 1)
@@ -161,6 +163,7 @@ offset_right = 700.0
 offset_bottom = 465.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hlrxc")
 
 [node name="TabContainer" type="TabContainer" parent="Root/WindowPanel"]
 layout_mode = 1
