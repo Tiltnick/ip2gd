@@ -70,10 +70,12 @@ func _emit(kind: String, name: String, payload: Dictionary, context: Dictionary,
 
 
 func _sanitize_dict(data: Dictionary) -> Dictionary:
-	var cloned := data.duplicate(true)
+	var cloned: Dictionary = data.duplicate(true)
 	if _privacy_filter == null:
 		return cloned
-	var sanitized := _privacy_filter.sanitize(cloned)
+
+	var sanitized: Variant = _privacy_filter.sanitize(cloned)
 	if sanitized is Dictionary:
-		return sanitized
+		return sanitized as Dictionary
+
 	return {}
