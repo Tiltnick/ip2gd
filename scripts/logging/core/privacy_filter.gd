@@ -2,6 +2,8 @@ extends RefCounted
 class_name LogPrivacyFilter
 
 const REDACTED_VALUE := "[REDACTED]"
+const DIGIT_ZERO := 48
+const DIGIT_NINE := 57
 const DEFAULT_BLOCKED_KEYS: Array[String] = [
 	"name",
 	"first_name",
@@ -21,18 +23,22 @@ const DEFAULT_BLOCKED_KEYS: Array[String] = [
 	"postal_code",
 ]
 
-var _blocked_keys: Array[String] = []
+var _blocked_keys_set: Dictionary = {}
 var _email_regex: RegEx = RegEx.new()
 var _ipv4_regex: RegEx = RegEx.new()
 
 
 func _init(extra_blocked_keys: Array = []) -> void:
 	for key in DEFAULT_BLOCKED_KEYS:
-		_blocked_keys.append(key.to_lower())
+		_blocked_keys_set[key.to_lower()] = true
 	for key in extra_blocked_keys:
-		_blocked_keys.append(str(key).to_lower())
-	_email_regex.compile("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}")
-	_ipv4_regex.compile("\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b")
+		_blocked_keys_set[str(key).to_lower()] = true
+	var email_err := _email_regex.compile("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}")
+	if email_err != OK:
+		push_error("LogPrivacyFilter: failed to compile email regex")
+	var ipv4_err := _ipv4_regex.compile("\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b")
+	if ipv4_err != OK:
+		push_error("LogPrivacyFilter: failed to compile ipv4 regex")
 
 
 func sanitize(value: Variant) -> Variant:
@@ -59,8 +65,11 @@ func sanitize(value: Variant) -> Variant:
 
 func _is_blocked_key(key: String) -> bool:
 	var normalized := key.to_lower()
-	for blocked in _blocked_keys:
-		if normalized == blocked or normalized.contains(blocked):
+	if _blocked_keys_set.has(normalized):
+		return true
+	var tokens := normalized.replace(".", "_").replace("-", "_").split("_", false)
+	for token in tokens:
+		if _blocked_keys_set.has(token):
 			return true
 	return false
 
@@ -79,6 +88,6 @@ func _looks_like_phone(text: String) -> bool:
 	var digits := 0
 	for i in text.length():
 		var code := text.unicode_at(i)
-		if code >= 48 and code <= 57:
+		if code >= DIGIT_ZERO and code <= DIGIT_NINE:
 			digits += 1
 	return digits >= 7

@@ -25,7 +25,14 @@ var _areas_visited: Array = []
 
 
 func _ready() -> void:
-    _session_id = "%d_%d" % [Time.get_unix_time_from_system(), randi() % 100000]
+    var random_suffix := ""
+    var crypto := Crypto.new()
+    var random_bytes := crypto.generate_random_bytes(8)
+    if random_bytes.size() > 0:
+        random_suffix = random_bytes.hex_encode()
+    else:
+        random_suffix = "%d_%d" % [randi(), randi()]
+    _session_id = "%d_%s" % [Time.get_unix_time_from_system(), random_suffix]
     var path := "%s/%s_%s.jsonl" % [LOG_DIR, LOG_FILE_PREFIX, _session_id]
 
     _sink = JsonFileSinkCore.new(path, FLUSH_INTERVAL_MSEC)
@@ -356,6 +363,8 @@ func _emit_adapter_event(kind: String, event_name: String, extra: Dictionary, le
             var level := String(extra.get("level", "info"))
             var message := String(extra.get("message", ""))
             emit_log(level, message, extra, context, legacy_row)
+        "event":
+            emit_event(event_name, extra, context, legacy_row)
         _:
             emit_event(event_name, extra, context, legacy_row)
 

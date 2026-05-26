@@ -1,7 +1,7 @@
 extends RefCounted
 class_name GameLogger
 
-const SCHEMA := "ip2gd.ndjson.v1"
+const SCHEMA := "game_events.ndjson.v1"
 const SCHEMA_VERSION := 1
 
 var _session_id := ""
@@ -55,7 +55,7 @@ func _emit(kind: String, name: String, payload: Dictionary, context: Dictionary,
 		"seq": _sequence,
 		"kind": kind,
 		"name": name,
-		"ts_unix_msec": int(Time.get_unix_time_from_system() * 1000.0),
+		"ts_unix_msec": roundi(Time.get_unix_time_from_system() * 1000.0),
 		"t_msec": Time.get_ticks_msec(),
 		"source": _sanitize_dict(_source),
 		"context": _sanitize_dict(context),
@@ -64,7 +64,7 @@ func _emit(kind: String, name: String, payload: Dictionary, context: Dictionary,
 
 	var safe_legacy := _sanitize_dict(legacy_fields)
 	if safe_legacy.size() > 0:
-		row.merge(safe_legacy, true)
+		row.merge(safe_legacy, false)
 
 	_sink.write_row(row)
 

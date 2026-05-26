@@ -47,12 +47,17 @@ func _open_file() -> void:
 	var dir_path := _path.get_base_dir()
 	var err := DirAccess.make_dir_recursive_absolute(dir_path)
 	if err != OK:
-		push_error("JsonFileSink: Konnte Verzeichnis nicht erstellen: %s (Fehler %d)" % [dir_path, err])
+		push_error("JsonFileSink: Could not create directory: %s (error %d)" % [dir_path, err])
 		return
 
-	_file = FileAccess.open(_path, FileAccess.WRITE)
+	if FileAccess.file_exists(_path):
+		_file = FileAccess.open(_path, FileAccess.READ_WRITE)
+		if _file != null:
+			_file.seek_end()
+	else:
+		_file = FileAccess.open(_path, FileAccess.WRITE)
 	if _file == null:
-		push_error("JsonFileSink: Konnte Datei nicht öffnen: %s (Fehler %d)" % [_path, FileAccess.get_open_error()])
+		push_error("JsonFileSink: Could not open file: %s (error %d)" % [_path, FileAccess.get_open_error()])
 		return
 
 	_last_flush_msec = Time.get_ticks_msec()
