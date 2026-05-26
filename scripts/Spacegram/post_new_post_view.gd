@@ -24,6 +24,8 @@ func setup(image_path: String) -> void:
 	caption_line_edit.text = ""
 	preview_image.texture = _load_texture_from_path(image_path)
 	visible = true
+	
+	caption_line_edit.grab_focus()
 
 
 func _on_post_pressed() -> void:

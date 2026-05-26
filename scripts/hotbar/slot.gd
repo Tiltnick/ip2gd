@@ -20,6 +20,9 @@ func _ready():
 
 
 func _gui_input(event):
+	if GameState.should_block_gameplay_input():
+		return
+	
 	if event is InputEventMouseButton and event.pressed:
 		if click_callback:
 			click_callback.call(slot_index)

@@ -66,6 +66,9 @@ func load_settings() -> void:
 		_set_default_avatar()
 		
 	_update_selected_avatar_ui()
+	
+	username_line_edit.release_focus()
+	bio_line_edit.release_focus()
 
 
 func _spawn_profile_picture_options() -> void:

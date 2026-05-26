@@ -11,6 +11,9 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _input(event: InputEvent) -> void:
+	if GameState.should_block_gameplay_input():
+		return
+	
 	# nur wenn Tagebuch eingesammelt
 	if not bool(GameState.puzzle_state.get("spaceship_diary", false)):
 		return

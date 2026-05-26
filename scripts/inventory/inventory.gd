@@ -48,6 +48,9 @@ func update_slots():
 
 
 func _on_slot_clicked(index: int):
+	if GameState.should_block_gameplay_input():
+		return
+	
 	selected_slot = index
 	_update_selected_visuals()
 

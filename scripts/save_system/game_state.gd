@@ -38,6 +38,8 @@ var language: String = "en"
 
 var display_mode: String = "fullscreen"
 
+var phone_open: bool = false
+
 
 var inventory_slots: Array = [
 	null, null, null, null,
@@ -63,6 +65,18 @@ func finish_dialog(dialog_id: String) -> void:
 
 func is_dialog_finished(dialog_id: String) -> bool:
 	return dialog_state.get(dialog_id, false)
+	
+func is_typing_in_text_field() -> bool:
+	var focused := get_viewport().gui_get_focus_owner()
+
+	if focused == null:
+		return false
+
+	return focused is LineEdit or focused is TextEdit or focused is CodeEdit
+	
+	
+func should_block_gameplay_input() -> bool:
+	return phone_open or is_typing_in_text_field()
 
 
 # Funktion -> Dic wird geupdated

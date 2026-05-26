@@ -30,6 +30,10 @@ func _process(_delta: float) -> void:
 		update_visibility(path)
 
 func _on_pressed():
+	if GameState.should_block_gameplay_input():
+		return
+	
+	
 	# Öffnet das MainMenu innerhalb der Szene
 	var menu = get_tree().current_scene.get_node("CanvasLayer") 
 	menu.visible = true

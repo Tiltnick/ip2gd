@@ -28,6 +28,10 @@ func _ready():
 
 
 func _unhandled_input(event):
+	if GameState.should_block_gameplay_input():
+		return
+	
+	
 	for i in range(slots.size()):
 		if event.is_action_pressed("hotbar_%d" % (i + 1)):
 			_on_slot_triggered(i)   # gleiche fnkt wie klick
@@ -68,6 +72,9 @@ func update_slots():
 
 
 func _on_slot_clicked(index: int):
+	if GameState.should_block_gameplay_input():
+		return
+		
 	_on_slot_triggered(index)
 
 
@@ -99,6 +106,9 @@ func _close_active_item():
 
 
 func use_slot(slot_index: int):
+	
+	if GameState.should_block_gameplay_input():
+		return
 	
 	var item_id = hotbarglobal.get_hotbar_item(slot_index)
 	if not item_id:

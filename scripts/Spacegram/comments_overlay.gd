@@ -32,6 +32,8 @@ func open_for_post(post_id: String, post_item = null) -> void:
 		bottom_nav.visible = false
 
 	await load_comments()
+	
+	text_edit.grab_focus()
 
 
 func load_comments(expand_parent_id: String = "") -> void:
