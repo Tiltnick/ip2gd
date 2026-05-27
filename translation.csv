@@ -110,3 +110,4 @@ ERROR_DISPLAY_NAME_TAKEN,This username is already taken.,Dieser Username ist sch
 ERROR_DISPLAY_NAME_TOO_LONG,Username can't be longer than 12 characters.,Username darf maximal 12 Zeichen lang sein.
 ERROR_DISPLAY_NAME_REQUIRED,Display name cannot be empty.,Display Name darf nicht leer sein.
 ERROR_PROFILE_SAVE_FAILED,Profile could not be saved.,Profil konnte nicht gespeichert werden.
+SPACEGRAM,Spacegram,Spacegram

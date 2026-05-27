@@ -140,8 +140,8 @@ func _clear_posts() -> void:
 
 func refresh_posts() -> void:
 	has_loaded_posts = false
-	load_stories()
-	_load_posts()
+	await load_stories()
+	await _load_posts()
 	
 func _on_post_changed() -> void:
 	post_changed.emit()

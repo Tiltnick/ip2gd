@@ -9,6 +9,8 @@ extends CanvasLayer
 @onready var normal_close_button = $CloseButton
 @onready var normal_dim_background = $DimBackground
 
+signal phone_closed
+
 
 const BLOCKED_ACTIONS := [
 	"hotbar_1",
@@ -23,6 +25,8 @@ const BLOCKED_ACTIONS := [
 func _ready():
 	visibility_changed.connect(_update_phone_state)
 	_update_phone_state()
+	
+	normal_close_button.pressed.connect(close_phone)
 	spacegram_app.open_camera_requested.connect(show_camera)
 	camera_overlay.photo_confirmed.connect(show_new_post_view)
 	camera_overlay.camera_closed.connect(close_camera)
@@ -78,3 +82,29 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.is_action_pressed(action):
 			get_viewport().set_input_as_handled()
 			return
+			
+			
+func open_phone() -> void:
+	visible = true
+	GameState.phone_open = true
+
+	normal_phone_frame.visible = true
+	taste.visible = true
+	camera_panel.visible = true
+	normal_close_button.visible = true
+	normal_dim_background.visible = true
+	camera_overlay.visible = false
+	spacegram_app.visible = true
+
+	if spacegram_app.has_method("show_feed"):
+		await spacegram_app.show_feed()
+
+	#if spacegram_app.has_method("show_feed"):
+		#spacegram_app.show_feed()
+	
+
+
+func close_phone() -> void:
+	visible = false
+	GameState.phone_open = false
+	phone_closed.emit()

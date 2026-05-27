@@ -49,7 +49,7 @@ func _ready():
 
 	if bottom_nav_profile_button:
 		print("BottomNav button class: ", bottom_nav_profile_button.get_class())
-	refresh_bottom_nav_avatar()
+	await refresh_bottom_nav_avatar()
 
 
 func show_feed():
@@ -60,9 +60,10 @@ func show_feed():
 	post_new_post_view.visible = false
 	other_profile_view.visible = false
 	
-	if feed_is_dirty:
-		feed_is_dirty = false
-		feed_view.refresh_posts()
+	await refresh_bottom_nav_avatar()
+	
+	feed_is_dirty = false
+	await feed_view.refresh_posts()
 
 
 func show_profile_settings():
@@ -71,6 +72,8 @@ func show_profile_settings():
 	profile_settings_view.visible = true
 	post_detail_view.visible = false
 	post_new_post_view.visible = false
+	
+	await refresh_bottom_nav_avatar()
 	
 	await profile_settings_view.load_settings()
 
@@ -81,6 +84,8 @@ func show_profile():
 	profile_settings_view.visible = false
 	post_detail_view.visible = false
 	post_new_post_view.visible = false
+	
+	await refresh_bottom_nav_avatar()
 	
 	profile_is_dirty = false
 	await profile_view.refresh_profile()

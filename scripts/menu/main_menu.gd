@@ -8,6 +8,16 @@ class_name main_menu
 
 @onready var auth_screen = $AuthScreen
 
+@onready var spacegram_button: Button = $VBoxContainer/SpacegramButton
+@onready var phone_ui = $PhoneUI
+
+@onready var background = $ColorRect
+@onready var main_buttons = $VBoxContainer
+@onready var logo = $Logo
+@onready var title_container = $VBoxContainer2
+@onready var insta_button = $InstaButton
+@onready var discord_button = $DiscordButton
+
 
 func _ready() -> void:
 	print("Logged in in main menu: ", NakamaManager.is_logged_in())
@@ -17,6 +27,9 @@ func _ready() -> void:
 		#auth_screen.visible = true
 	#else:
 		#auth_screen.visible = false
+		
+	phone_ui.visible = false
+	phone_ui.phone_closed.connect(_on_phone_closed)
 	
 	# Prüft ob es eine Save-Datei gibt -> Nein = button.disabled
 	if NakamaManager.is_logged_in():
@@ -181,3 +194,27 @@ func play_click_sound():
 
 func update_resume_button(has_save: bool):
 	resume_button.disabled = not has_save
+	
+	
+func _on_spacegram_button_pressed() -> void:
+	play_click_sound()
+
+	if not NakamaManager.is_logged_in():
+		show_auth()
+		return
+
+	_set_main_menu_visible(false)
+	phone_ui.open_phone()
+
+
+func _on_phone_closed() -> void:
+	_set_main_menu_visible(true)
+
+
+func _set_main_menu_visible(value: bool) -> void:
+	background.visible = value
+	main_buttons.visible = value
+	logo.visible = value
+	title_container.visible = value
+	insta_button.visible = value
+	discord_button.visible = value
