@@ -46,6 +46,7 @@ NakamaManager="*res://scripts/network/NakamaManager.gd"
 GlobalUI="*res://scenes/UI/GlobalUI.tscn"
 SpacegramApi="*res://scripts/api/SpacegramApi.gd"
 PhoneButton="*res://scripts/menu/GameMenu/PhoneButtonManager.gd"
+PhoneManager="*res://scripts/Spacegram/phone_manager.gd"
 
 [dialogic]
 

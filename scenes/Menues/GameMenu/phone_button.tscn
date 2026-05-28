@@ -56,7 +56,7 @@ offset_bottom = 104.0
 grow_horizontal = 0
 pivot_offset = Vector2(-100, 20)
 
-[node name="RoundButtton" type="Button" parent="Control"]
+[node name="RoundButton" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -76,4 +76,4 @@ icon = ExtResource("1_nfreb")
 icon_alignment = 1
 expand_icon = true
 
-[connection signal="pressed" from="Control/RoundButtton" to="Control/RoundButtton" method="_on_pressed"]
+[connection signal="pressed" from="Control/RoundButton" to="Control/RoundButton" method="_on_pressed"]

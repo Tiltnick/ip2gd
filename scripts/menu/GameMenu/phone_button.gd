@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var button: Button = $Control/RoundButtton
+@onready var button: Button = $Control/RoundButton
 
 
 func _ready() -> void:
@@ -18,11 +18,4 @@ func _on_pressed() -> void:
 	if not bool(GameState.puzzle_state.get("phone", false)):
 		return
 
-	var phone_ui = get_tree().get_first_node_in_group("phone_ui")
-
-	if phone_ui == null:
-		print("PhoneButton: PhoneUI nicht gefunden.")
-		return
-
-	if phone_ui.has_method("open_phone"):
-		phone_ui.open_phone()
+	PhoneManager.open_phone()
