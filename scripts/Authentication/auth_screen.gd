@@ -64,13 +64,19 @@ func _on_login_pressed():
 
 	if result.success:
 		var has_save = await SaveSystem.load_game()
-		
 
 		get_parent().update_resume_button(has_save)
+
+		if get_parent().has_method("update_spacegram_button"):
+			get_parent().update_spacegram_button()
+
+		if PhoneButton:
+			PhoneButton.update_visibility()
 		
 		var settings = get_tree().get_first_node_in_group("settings_menu")
 		if settings:
 			settings.update_auth_buttons()
+
 		get_tree().paused = false
 		queue_free()
 		
@@ -112,6 +118,12 @@ func _on_signup_pressed():
 		var has_save = await SaveSystem.load_game()
 
 		get_parent().update_resume_button(has_save)
+
+		if get_parent().has_method("update_spacegram_button"):
+			get_parent().update_spacegram_button()
+
+		if PhoneButton:
+			PhoneButton.update_visibility()
 
 		var settings = get_tree().get_first_node_in_group("settings_menu")
 		if settings:

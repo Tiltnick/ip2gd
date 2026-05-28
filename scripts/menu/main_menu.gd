@@ -21,25 +21,39 @@ class_name main_menu
 
 func _ready() -> void:
 	print("Logged in in main menu: ", NakamaManager.is_logged_in())
-	await _init_menu()
-	#print("main_menu _ready: ", get_instance_id())
-	#if not NakamaManager.is_logged_in():
-		#auth_screen.visible = true
-	#else:
-		#auth_screen.visible = false
-		
+
 	phone_ui.visible = false
-	phone_ui.phone_closed.connect(_on_phone_closed)
-	
-	# Prüft ob es eine Save-Datei gibt -> Nein = button.disabled
-	if NakamaManager.is_logged_in():
-		var has_save = await SaveSystem.load_game()
-		resume_button.disabled = not has_save
-	else:
-		#resume_button.disabled = true  # erstmal deaktivieren
-		return
+
+	if not phone_ui.phone_closed.is_connected(_on_phone_closed):
+		phone_ui.phone_closed.connect(_on_phone_closed)
+
+	await refresh_menu_after_login_or_save()
+
 	BgmPlayer.bgm_main_menu()
 	play_click_sound()
+
+#func _ready() -> void:
+	#print("Logged in in main menu: ", NakamaManager.is_logged_in())
+	#await _init_menu()
+	#
+	#update_spacegram_button()
+#
+	#if PhoneButton:
+		#PhoneButton.update_visibility()
+#
+		#
+	#phone_ui.visible = false
+	#phone_ui.phone_closed.connect(_on_phone_closed)
+	#
+	## Prüft ob es eine Save-Datei gibt -> Nein = button.disabled
+	#if NakamaManager.is_logged_in():
+		#var has_save = await SaveSystem.load_game()
+		#resume_button.disabled = not has_save
+	#else:
+		##resume_button.disabled = true  # erstmal deaktivieren
+		#return
+	#BgmPlayer.bgm_main_menu()
+	#play_click_sound()
 	
 func show_auth():
 	auth_screen.visible = true
@@ -50,12 +64,15 @@ func _init_menu() -> void:
 	if not NakamaManager.is_logged_in():
 		auth_screen.visible = true
 		resume_button.disabled = true
+		spacegram_button.disabled = true
 		return  
 
 	auth_screen.visible = false
 		
 	var has_save = await SaveSystem.load_game()
 	resume_button.disabled = not has_save
+
+	update_spacegram_button()
 	
 	#test für verbindung zu server 
 	#await NakamaManager.login_device()
@@ -153,6 +170,7 @@ func start_new_game() -> void:
 	GameState.puzzle_state = {}
 	if PhoneButton:
 		PhoneButton.update_visibility()
+	update_spacegram_button()
 	GameState.has_save = false
 	GameState.picked_items = []
 	GameState.tutorial_done = false
@@ -201,12 +219,27 @@ func update_resume_button(has_save: bool):
 func _on_spacegram_button_pressed() -> void:
 	play_click_sound()
 
+	if not bool(GameState.puzzle_state.get("phone", false)):
+		return
+
 	if not NakamaManager.is_logged_in():
 		show_auth()
 		return
 
 	_set_main_menu_visible(false)
 	phone_ui.open_phone()
+	
+	
+func update_spacegram_button() -> void:
+	var has_phone := bool(GameState.puzzle_state.get("phone", false))
+	
+
+	spacegram_button.disabled = not has_phone
+
+	if has_phone:
+		spacegram_button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	else:
+		spacegram_button.mouse_default_cursor_shape = Control.CURSOR_FORBIDDEN
 
 
 func _on_phone_closed() -> void:
@@ -220,3 +253,21 @@ func _set_main_menu_visible(value: bool) -> void:
 	title_container.visible = value
 	insta_button.visible = value
 	discord_button.visible = value
+	
+	
+func refresh_menu_after_login_or_save() -> void:
+	if not NakamaManager.is_logged_in():
+		auth_screen.visible = true
+		resume_button.disabled = true
+		spacegram_button.disabled = true
+		return
+
+	auth_screen.visible = false
+
+	var has_save := await SaveSystem.load_game()
+	resume_button.disabled = not has_save
+
+	update_spacegram_button()
+
+	if PhoneButton:
+		PhoneButton.update_visibility()

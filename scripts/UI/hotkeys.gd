@@ -11,6 +11,19 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _input(event: InputEvent) -> void:
+	if _is_typing_in_text_field():
+		return
+
+	if event.is_action_pressed("open_phone"):
+		_open_phone()
+		get_viewport().set_input_as_handled()
+		return
+
+	if event.is_action_pressed("close_phone"):
+		_close_phone()
+		get_viewport().set_input_as_handled()
+		return
+	
 	if GameState.should_block_gameplay_input():
 		return
 	
@@ -100,3 +113,48 @@ func _find_tab_container(root: Node) -> TabContainer:
 		if found:
 			return found
 	return null
+	
+	
+func _is_typing_in_text_field() -> bool:
+	var focused := get_viewport().gui_get_focus_owner()
+
+	if focused == null:
+		return false
+
+	return focused is LineEdit or focused is TextEdit or focused is CodeEdit
+
+
+func _open_phone() -> void:
+	if not bool(GameState.puzzle_state.get("phone", false)):
+		return
+
+	if GameState.phone_open:
+		return
+
+	var phone_ui = get_tree().get_first_node_in_group("phone_ui")
+
+	if phone_ui == null:
+		print("UIHotkeys: PhoneUI nicht gefunden.")
+		return
+
+	if phone_ui.has_method("open_phone"):
+		phone_ui.open_phone()
+	else:
+		phone_ui.visible = true
+
+
+func _close_phone() -> void:
+	if not GameState.phone_open:
+		return
+
+	var phone_ui = get_tree().get_first_node_in_group("phone_ui")
+
+	if phone_ui == null:
+		print("UIHotkeys: PhoneUI nicht gefunden.")
+		return
+
+	if phone_ui.has_method("close_phone"):
+		phone_ui.close_phone()
+	else:
+		phone_ui.visible = false
+		GameState.phone_open = false

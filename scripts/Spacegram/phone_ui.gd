@@ -26,8 +26,8 @@ func _ready():
 	add_to_group("phone_ui")
 	visibility_changed.connect(_update_phone_state)
 	_update_phone_state()
-	
-	normal_close_button.pressed.connect(close_phone)
+	if not normal_close_button.pressed.is_connected(close_phone):
+		normal_close_button.pressed.connect(close_phone)
 	spacegram_app.open_camera_requested.connect(show_camera)
 	camera_overlay.photo_confirmed.connect(show_new_post_view)
 	camera_overlay.camera_closed.connect(close_camera)
@@ -100,12 +100,10 @@ func open_phone() -> void:
 	if spacegram_app.has_method("show_feed"):
 		await spacegram_app.show_feed()
 
-	#if spacegram_app.has_method("show_feed"):
-		#spacegram_app.show_feed()
-	
-
 
 func close_phone() -> void:
 	visible = false
 	GameState.phone_open = false
 	phone_closed.emit()
+	
+	

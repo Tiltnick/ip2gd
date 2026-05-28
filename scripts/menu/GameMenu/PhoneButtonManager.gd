@@ -18,6 +18,16 @@ func update_visibility() -> void:
 	if button_instance == null:
 		return
 
+	var in_main_menu := false
+	var scene := get_tree().current_scene
+
+	if scene != null and scene.scene_file_path == "res://scenes/Menues/main_menu.tscn":
+		in_main_menu = true
+
+	if in_main_menu:
+		button_instance.visible = false
+		return
+
 	if button_instance.has_method("update_visibility"):
 		button_instance.update_visibility()
 
