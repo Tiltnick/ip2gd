@@ -151,6 +151,8 @@ func start_new_game() -> void:
 	GameState.current_area_path = "res://scenes/maps/spaceship.tscn"
 	GameState.puzzle_items = []
 	GameState.puzzle_state = {}
+	if PhoneButton:
+		PhoneButton.update_visibility()
 	GameState.has_save = false
 	GameState.picked_items = []
 	GameState.tutorial_done = false

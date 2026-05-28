@@ -314,4 +314,17 @@ var DATA := {
 		"world_scene": "res://scenes/interactables/objects/note.tscn"
 },
 
+
+	"phone": {
+		"name_de": "Handy",
+		"name_en": "Phone",
+		"description_de": "Ein altes Handy. Vielleicht kann ich damit Spacegram öffnen.",
+		"description_en": "An old phone. Maybe I can use it to open Spacegram.",
+		"icon": "res://assets/sprites/selfmade/provisorisches_phone.png",
+		"icon_size": Vector2(55, 55),
+		"world_scene": "res://scenes/interactables/objects/phone_item.tscn",
+		"show_in_inventory": true,
+		"show_in_hotbar": false
+},
+
 }

@@ -23,6 +23,7 @@ const BLOCKED_ACTIONS := [
 ]
 
 func _ready():
+	add_to_group("phone_ui")
 	visibility_changed.connect(_update_phone_state)
 	_update_phone_state()
 	

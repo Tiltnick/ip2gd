@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://b4r2irdvo1x1b"]
+[gd_scene load_steps=25 format=4 uid="uid://b4r2irdvo1x1b"]
 
 [ext_resource type="Script" uid="uid://ch2sapm3vk3ex" path="res://scripts/scene_manager/outside_1.gd" id="1_ax0hk"]
 [ext_resource type="Texture2D" uid="uid://bfd0d1qqtnli" path="res://assets/sprites/map/Outside_1/Ground.png" id="1_iu6ob"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://eghgox4suvdf" path="res://scenes/interactables/objects/stone pieces/stone_piece_1.tscn" id="13_8xlm2"]
 [ext_resource type="PackedScene" uid="uid://camj1pl05ycfb" path="res://scenes/Character/npc_funghi_shmunghi.tscn" id="14_6tf17"]
 [ext_resource type="PackedScene" uid="uid://dtr2hps8xd1f8" path="res://scenes/Animations/grass.tscn" id="14_vb0ej"]
+[ext_resource type="PackedScene" uid="uid://8i3kdy2wmqj2" path="res://scenes/Spacegram/PhoneUI.tscn" id="16_dd81n"]
+[ext_resource type="PackedScene" uid="uid://c1n22hp7lloa4" path="res://scenes/interactables/objects/phone_item.tscn" id="17_qal2u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ax0hk"]
 texture = ExtResource("1_iu6ob")
@@ -618,3 +620,18 @@ position = Vector2(-424, 114)
 [node name="NPC" parent="." node_paths=PackedStringArray("spawn_marker", "path_follow") instance=ExtResource("8_iqy5x")]
 spawn_marker = NodePath("../SpawnPoints/blob_spawn")
 path_follow = NodePath("../NPCPath/NPCPathFollow")
+
+[node name="PhoneUI" parent="." instance=ExtResource("16_dd81n")]
+visible = false
+
+[node name="Phone" parent="." node_paths=PackedStringArray("e_popup_node") instance=ExtResource("17_qal2u")]
+position = Vector2(-88, -37)
+e_popup_node = NodePath("Press_E_Popup")
+disable_area_on_interact = false
+
+[node name="Press_E_Popup" parent="Phone" instance=ExtResource("7_8xmlc")]
+visible = false
+offset_left = -11.0
+offset_top = -30.0
+offset_right = -11.0
+offset_bottom = -30.0

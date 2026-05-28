@@ -45,6 +45,7 @@ Nakama="*res://addons/com.heroiclabs.nakama/Nakama.gd"
 NakamaManager="*res://scripts/network/NakamaManager.gd"
 GlobalUI="*res://scenes/UI/GlobalUI.tscn"
 SpacegramApi="*res://scripts/api/SpacegramApi.gd"
+PhoneButton="*res://scripts/menu/GameMenu/PhoneButtonManager.gd"
 
 [dialogic]
 
