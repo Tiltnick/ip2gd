@@ -3,7 +3,7 @@ extends Node2D
 const RETURN_FROM_CAVE_SPAWN_ID := "from_sams_cave"
 
 func _ready() -> void:
-	
+	GameState.unlock_progress_key("outside_2_entered")
 	BgmPlayer.bgm_outside2()
 	# Einmaliger innerer Monolog in Outside2
 	if not GameState.puzzle_state.get("outside2_monologue_done", false):

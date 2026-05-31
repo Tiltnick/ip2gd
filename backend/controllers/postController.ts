@@ -54,6 +54,17 @@ export async function getPosts(req: AuthRequest, res: Response): Promise<Respons
   try {
     const userId = req.user_id;
 
+    const unlockedKeysParam = req.query.unlocked_keys;
+
+    let unlockedKeys: string[] = [];
+
+    if (typeof unlockedKeysParam === "string") {
+      unlockedKeys = unlockedKeysParam
+        .split(",")
+        .map((key) => key.trim())
+        .filter((key) => key.length > 0);
+    }
+
     if (!userId) {
       return res.status(401).json({
         success: false,
@@ -69,6 +80,8 @@ export async function getPosts(req: AuthRequest, res: Response): Promise<Respons
         p.caption,
         p.image_path,
         p.posted_at,
+        p.unlock_key,
+        p.spacegram_order,
         pr.display_name,
         pr.profile_picture,
         COUNT(DISTINCT l.user_id) AS like_count,
@@ -89,18 +102,27 @@ export async function getPosts(req: AuthRequest, res: Response): Promise<Respons
       JOIN profile pr ON pr.user_id = p.user_id
       LEFT JOIN likes l ON l.post_id = p.post_id
       LEFT JOIN comment c ON c.post_id = p.post_id
+      WHERE 
+        (p.unlock_key IS NULL OR p.unlock_key = ANY($2::text[]))
+        AND
+        (pr.unlock_key IS NULL OR pr.unlock_key = ANY($2::text[]))
       GROUP BY 
         p.post_id,
         p.user_id,
         p.caption,
         p.image_path,
         p.posted_at,
+        p.unlock_key,
+        p.spacegram_order,
         pr.display_name,
         pr.profile_picture
-      ORDER BY p.posted_at DESC
+      ORDER BY 
+        p.spacegram_order DESC,
+        p.posted_at DESC,
+        p.post_id DESC
     `;
 
-    const result = await pool.query(query, [userId]);
+    const result = await pool.query(query, [userId, unlockedKeys]);
 
     return res.status(200).json({
       success: true,

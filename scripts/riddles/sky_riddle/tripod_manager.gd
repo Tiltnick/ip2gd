@@ -5,11 +5,22 @@ const ALL_FLAG := "all_tripods_interacted"
 
 const TRIPOD_IDS := ["tripod_1", "tripod_2", "tripod_3"]
 
+
 func mark_interacted(tripod_id: String) -> void:
+	GameState.unlock_progress_key("telescope_hint_unlocked")
+
 	var flag := FIRST_PREFIX + tripod_id
+	
 	if not bool(GameState.puzzle_state.get(flag, false)):
 		GameState.puzzle_state[flag] = true
 		_update_all_flag_if_ready()
+
+#func mark_interacted(tripod_id: String) -> void:
+	#var flag := FIRST_PREFIX + tripod_id
+	#if not bool(GameState.puzzle_state.get(flag, false)):
+		#GameState.puzzle_state[flag] = true
+		#GameState.unlock_progress_key("telescope_hint_unlocked")
+		#_update_all_flag_if_ready()
 
 func has_interacted(tripod_id: String) -> bool:
 	return bool(GameState.puzzle_state.get(FIRST_PREFIX + tripod_id, false))

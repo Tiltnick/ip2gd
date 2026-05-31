@@ -20,11 +20,14 @@ const NO_TELESCOPE_END := "res://dialog/innerMonologue/tripod_without_telescope_
 const DONE_WITH_TELESCOPE_DIALOG := "res://dialog/innerMonologue/done_with_telescope.json"
 const TELESCOPE_USED_FLAG := "telescope_consumed_after_statue"
 
+
 func interact() -> void:
 	SfxPlayer.ui_click_sound()
 	QuestManager.add_quest("quest_5")
+
+	GameState.unlock_progress_key("telescope_hint_unlocked")
 	
-	#wenn teleskop vorhanden
+	# wenn teleskop vorhanden
 	if _has_required_item():
 		print("Tripod interact:", tripod_id)
 		TripodManager.mark_interacted(tripod_id)
@@ -36,10 +39,32 @@ func interact() -> void:
 		DialogManager.start_dialog(DONE_WITH_TELESCOPE_DIALOG)
 		return
 
-	# wenn teleskop noch nciht eingesammelt wurde
+	# wenn wir noch kein teleskop 
 	var dialog_path := _get_no_telescope_dialog()
 	if dialog_path != "":
 		DialogManager.start_dialog(dialog_path)
+
+
+#func interact() -> void:
+	#SfxPlayer.ui_click_sound()
+	#QuestManager.add_quest("quest_5")
+	#
+	##wenn teleskop vorhanden
+	#if _has_required_item():
+		#print("Tripod interact:", tripod_id)
+		#TripodManager.mark_interacted(tripod_id)
+		#_go_to_sky_scene()
+		#return
+#
+	## wenn teleskop schon verbraucht
+	#if bool(GameState.puzzle_state.get(TELESCOPE_USED_FLAG, false)):
+		#DialogManager.start_dialog(DONE_WITH_TELESCOPE_DIALOG)
+		#return
+#
+	## wenn teleskop noch nciht eingesammelt wurde
+	#var dialog_path := _get_no_telescope_dialog()
+	#if dialog_path != "":
+		#DialogManager.start_dialog(dialog_path)
 
 #func interact() -> void:
 	#SfxPlayer.ui_click_sound()

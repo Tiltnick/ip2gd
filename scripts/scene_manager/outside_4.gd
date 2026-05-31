@@ -10,6 +10,7 @@ var follow_blob := false
 
 
 func _ready() -> void:
+	GameState.unlock_progress_key("outside_4_entered")
 	BgmPlayer.bgm_outside4()
 #	QuestManager.add_quest("quest_11")
 

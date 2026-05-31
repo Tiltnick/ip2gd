@@ -7,6 +7,7 @@ func _ready() -> void:
 	super._ready()
 
 func interact():
+	GameState.unlock_progress_key("mushroom_puzzle_discovered")
 	SfxPlayer.ui_click_sound()
 	if GameState.puzzle_state.has("stone_puzzle"):
 		mushroom_ui.open_socket()

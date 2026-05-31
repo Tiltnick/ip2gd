@@ -93,9 +93,35 @@ func create_post(caption: String, image_path: String) -> Dictionary:
 		"error": json.get("error", "ERROR_UNKNOWN")
 	}
 
+func _get_unlocked_keys() -> Array[String]:
+	var keys: Array[String] = []
+
+	for key in GameState.puzzle_state.keys():
+		if bool(GameState.puzzle_state.get(key, false)):
+			keys.append(str(key))
+
+	return keys
+
+
+func _keys_to_query(keys: Array[String]) -> String:
+	var encoded_keys: Array[String] = []
+
+	for key in keys:
+		encoded_keys.append(key.uri_encode())
+
+	return ",".join(encoded_keys)
 
 func get_posts() -> Dictionary:
 	var url = BASE_URL + "/posts"
+	var unlocked_keys := _get_unlocked_keys()
+	
+	print("Unlocked Keys für Feed: ", unlocked_keys)
+
+	if not unlocked_keys.is_empty():
+		url += "?unlocked_keys=" + _keys_to_query(unlocked_keys)
+	
+	print("GET POSTS URL: ", url)
+	
 	var headers = _get_auth_headers()
 
 	if headers.is_empty():

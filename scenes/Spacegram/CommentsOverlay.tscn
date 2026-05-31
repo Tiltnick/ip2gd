@@ -255,6 +255,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_fbep3")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ikjru")
 placeholder_text = "ADD_COMMENT"
 wrap_mode = 1
+scroll_fit_content_height = true
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainerPanel/Panel/VBoxContainer/InputRow"]
 custom_minimum_size = Vector2(55, 25)

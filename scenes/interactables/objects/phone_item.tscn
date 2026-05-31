@@ -15,6 +15,7 @@ size = Vector2(32, 63)
 [node name="Phone" type="Node2D"]
 z_index = 4
 script = ExtResource("1_ec7o7")
+item_icon = ExtResource("2_ec7o7")
 
 [node name="Phone" type="Sprite2D" parent="."]
 z_index = 1

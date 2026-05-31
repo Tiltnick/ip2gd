@@ -12,6 +12,7 @@ const BLOB_RAN_AWAY_OUTSIDE1_FLAG := "blob_ran_away_outside1"
 var blob: NpcDialogProcessBlob = null
 
 func _ready() -> void:
+	GameState.unlock_progress_key("outside_1_entered")
 	BgmPlayer.bgm_outside1()
 	
 	if GameState.puzzle_state.get(BLOB_RAN_AWAY_OUTSIDE1_FLAG, false):

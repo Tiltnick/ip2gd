@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready() -> void:
+	GameState.unlock_progress_key("outside_3_entered")
 	BgmPlayer.bgm_outside3()
 	if not GameState.puzzle_state.get("outside3_monologue_done", false):
 		GameState.puzzle_state["outside3_monologue_done"] = true

@@ -78,6 +78,15 @@ func is_typing_in_text_field() -> bool:
 func should_block_gameplay_input() -> bool:
 	return phone_open or is_typing_in_text_field()
 
+func unlock_progress_key(key: String, save_after_unlock: bool = true) -> void:
+	if puzzle_state.get(key, false):
+		return
+
+	puzzle_state[key] = true
+	print("Progress-Key freigeschaltet: ", key)
+
+	if save_after_unlock:
+		SaveSystem.save_game()
 
 # Funktion -> Dic wird geupdated
 func to_dict() -> Dictionary:

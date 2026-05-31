@@ -40,6 +40,7 @@ func change_sprite():
 
 
 func interact() -> void:
+	GameState.unlock_progress_key("shovel_puzzle_discovered")
 	SfxPlayer.ui_click_sound()
 	PopupManager.popup_spacegram()
 
