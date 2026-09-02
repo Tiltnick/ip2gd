@@ -20,6 +20,14 @@ var _last_pos := Vector2.ZERO
 var _has_last_pos := false
 var _session_closed := false
 
+# Zaehler fuer die Bewegungs-Filterstatistik (Bereinigung, Kapitel 5.1):
+# wie viele Abtast-Ticks (10 Hz, ausserhalb Dialog) betrachtet und wie viele
+# davon tatsaechlich geschrieben wurden.
+var _mv_considered := 0
+var _mv_written := 0
+var _mv_drop_still := 0   # verworfen: Geschwindigkeit ~ 0
+var _mv_drop_near := 0    # verworfen: Weg < MIN_DISTANCE_PX
+
 var _state_tracker: SemanticStateTracker = null
 var _areas_visited: Array = []
 
@@ -102,14 +110,17 @@ func track_sample(actor: CharacterBody2D, state_name: String, delta: float) -> v
 	if _accum < SAMPLE_INTERVAL:
 		return
 	_accum = 0.0
+	_mv_considered += 1
 
 	var pos: Vector2 = actor.global_position
 	var vel: Vector2 = actor.velocity
 
 	if vel.length() < 0.01:
+		_mv_drop_still += 1
 		return
 
 	if _has_last_pos and pos.distance_to(_last_pos) < MIN_DISTANCE_PX:
+		_mv_drop_near += 1
 		return
 
 	var current_scene := get_tree().current_scene
@@ -133,6 +144,7 @@ func track_sample(actor: CharacterBody2D, state_name: String, delta: float) -> v
 		}
 	}
 	_emit_adapter_event("telemetry", "movement_sample", payload, "movement", "")
+	_mv_written += 1
 
 	_last_pos = pos
 	_has_last_pos = true
@@ -245,7 +257,27 @@ func _log_session_ended() -> void:
 	if _session_closed:
 		return
 	_session_closed = true
+	_log_movement_filter_stats()
 	_emit_adapter_event("event", "session_ended", {}, "event", "session_ended")
+
+
+func _log_movement_filter_stats() -> void:
+	# Bereinigungs-Kennzahlen der Bewegungsdaten (Kapitel 5.1): wie viele
+	# Abtast-Ticks betrachtet und wie viele nach den Filtern geschrieben wurden.
+	_emit_adapter_event("telemetry", "movement_filter_stats", {
+		"considered": _mv_considered,
+		"written": _mv_written,
+		"dropped_still": _mv_drop_still,
+		"dropped_near": _mv_drop_near,
+		"min_distance_px": MIN_DISTANCE_PX,
+		"sample_interval_s": SAMPLE_INTERVAL,
+		"metadata": {
+			"considered": _mv_considered,
+			"written": _mv_written,
+			"dropped_still": _mv_drop_still,
+			"dropped_near": _mv_drop_near
+		}
+	}, "telemetry", "")
 
 
 func log_semantic(snapshot: Dictionary, context: String = "") -> void:
