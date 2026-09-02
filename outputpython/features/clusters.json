@@ -1,5 +1,5 @@
 {
-  "chosen_k": 2,
+  "chosen_k": 3,
   "feature_keys": [
     "distinct_area_types",
     "path_length_px",
@@ -18,54 +18,91 @@
   "silhouette_table": [
     {
       "k": 2.0,
-      "silhouette": 0.3423,
-      "inertia": 20.0043
+      "silhouette": 0.2353,
+      "inertia": 52.4338
     },
     {
       "k": 3.0,
-      "silhouette": 0.1958,
-      "inertia": 12.0031
+      "silhouette": 0.2481,
+      "inertia": 33.4166
     },
     {
       "k": 4.0,
-      "silhouette": 0.0445,
-      "inertia": 4.8838
+      "silhouette": 0.182,
+      "inertia": 24.2933
+    },
+    {
+      "k": 5.0,
+      "silhouette": 0.1331,
+      "inertia": 18.942
+    },
+    {
+      "k": 6.0,
+      "silhouette": 0.1291,
+      "inertia": 10.8137
+    },
+    {
+      "k": 7.0,
+      "silhouette": 0.1733,
+      "inertia": 4.0877
+    },
+    {
+      "k": 8.0,
+      "silhouette": 0.0897,
+      "inertia": 1.9588
     }
   ],
   "cluster_summary": [
     {
       "cluster_id": 0,
-      "n_sessions": 3,
+      "n_sessions": 4,
       "mean_distinct_area_types": 4.0,
-      "mean_path_length_px": 22377.3733,
-      "mean_explore_time_ratio": 0.6797,
-      "mean_playtime_min": 7.1598,
-      "mean_mean_quest_duration_min": 2.8764,
-      "mean_dialogs_per_min": 2.3741,
+      "mean_path_length_px": 22539.59,
+      "mean_explore_time_ratio": 0.6552,
+      "mean_playtime_min": 5.6745,
+      "mean_mean_quest_duration_min": 2.2595,
+      "mean_dialogs_per_min": 2.8928,
       "mean_choices_made": 0.0,
-      "mean_quest_completion_ratio": 0.7833,
-      "mean_scene_changes": 19.6667,
+      "mean_quest_completion_ratio": 0.7875,
+      "mean_scene_changes": 18.75,
       "mean_puzzle_solve_ratio": 1.0,
-      "mean_exploration_index": 0.4634,
-      "mean_goal_orientation": 0.6795,
-      "mean_disorientation": 0.4575
+      "mean_exploration_index": 0.4252,
+      "mean_goal_orientation": 0.7563,
+      "mean_disorientation": 0.4295
     },
     {
       "cluster_id": 1,
-      "n_sessions": 2,
+      "n_sessions": 3,
       "mean_distinct_area_types": 4.0,
-      "mean_path_length_px": 14242.12,
-      "mean_explore_time_ratio": 0.571,
-      "mean_playtime_min": 3.5099,
-      "mean_mean_quest_duration_min": 1.1864,
-      "mean_dialogs_per_min": 3.134,
+      "mean_path_length_px": 14338.6233,
+      "mean_explore_time_ratio": 0.5837,
+      "mean_playtime_min": 3.4653,
+      "mean_mean_quest_duration_min": 1.1022,
+      "mean_dialogs_per_min": 3.1754,
       "mean_choices_made": 0.0,
       "mean_quest_completion_ratio": 0.6,
       "mean_scene_changes": 15.0,
       "mean_puzzle_solve_ratio": 1.0,
-      "mean_exploration_index": 0.0381,
-      "mean_goal_orientation": 0.852,
-      "mean_disorientation": 0.3818
+      "mean_exploration_index": 0.0631,
+      "mean_goal_orientation": 0.8447,
+      "mean_disorientation": 0.4227
+    },
+    {
+      "cluster_id": 2,
+      "n_sessions": 2,
+      "mean_distinct_area_types": 4.0,
+      "mean_path_length_px": 19351.915,
+      "mean_explore_time_ratio": 0.6886,
+      "mean_playtime_min": 8.2219,
+      "mean_mean_quest_duration_min": 3.2612,
+      "mean_dialogs_per_min": 1.7637,
+      "mean_choices_made": 0.0,
+      "mean_quest_completion_ratio": 0.7333,
+      "mean_scene_changes": 17.0,
+      "mean_puzzle_solve_ratio": 1.0,
+      "mean_exploration_index": 0.3915,
+      "mean_goal_orientation": 0.6078,
+      "mean_disorientation": 0.263
     }
   ],
   "sessions": [
@@ -83,11 +120,27 @@
     },
     {
       "session_id": "1788369683_4423aa35f1b9cf6d",
-      "cluster_id": 0
+      "cluster_id": 2
     },
     {
       "session_id": "1788370191_8258a38bed4343b3",
       "cluster_id": 1
+    },
+    {
+      "session_id": "1788371272_a697ec618a1d6783",
+      "cluster_id": 0
+    },
+    {
+      "session_id": "1788385412_b92287bee1af202c",
+      "cluster_id": 1
+    },
+    {
+      "session_id": "1788385650_42011fdd863ed66e",
+      "cluster_id": 0
+    },
+    {
+      "session_id": "1788385970_831fdd524fc92133",
+      "cluster_id": 2
     }
   ]
 }

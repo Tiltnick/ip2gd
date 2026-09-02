@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://d1mpx2cjbrhjq"
+
+[deps]
+
+files=["res://outputpython/features/silhouette_scores.silhouette.translation", "res://outputpython/features/silhouette_scores.inertia.translation"]
+
+source_file="res://outputpython/features/silhouette_scores.csv"
+dest_files=["res://outputpython/features/silhouette_scores.silhouette.translation", "res://outputpython/features/silhouette_scores.inertia.translation"]
+
+[params]
+
+compress=true
+delimiter=0

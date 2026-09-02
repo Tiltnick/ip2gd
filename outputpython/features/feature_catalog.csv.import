@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dnfcufv7iff4e"
+
+[deps]
+
+files=["res://outputpython/features/feature_catalog.ebene.translation", "res://outputpython/features/feature_catalog.einheit.translation", "res://outputpython/features/feature_catalog.berechnung.translation"]
+
+source_file="res://outputpython/features/feature_catalog.csv"
+dest_files=["res://outputpython/features/feature_catalog.ebene.translation", "res://outputpython/features/feature_catalog.einheit.translation", "res://outputpython/features/feature_catalog.berechnung.translation"]
+
+[params]
+
+compress=true
+delimiter=0
