@@ -1,0 +1,93 @@
+{
+  "chosen_k": 2,
+  "feature_keys": [
+    "distinct_area_types",
+    "path_length_px",
+    "explore_time_ratio",
+    "playtime_min",
+    "mean_quest_duration_min",
+    "dialogs_per_min",
+    "choices_made",
+    "quest_completion_ratio",
+    "scene_changes",
+    "puzzle_solve_ratio",
+    "exploration_index",
+    "goal_orientation",
+    "disorientation"
+  ],
+  "silhouette_table": [
+    {
+      "k": 2.0,
+      "silhouette": 0.3423,
+      "inertia": 20.0043
+    },
+    {
+      "k": 3.0,
+      "silhouette": 0.1958,
+      "inertia": 12.0031
+    },
+    {
+      "k": 4.0,
+      "silhouette": 0.0445,
+      "inertia": 4.8838
+    }
+  ],
+  "cluster_summary": [
+    {
+      "cluster_id": 0,
+      "n_sessions": 3,
+      "mean_distinct_area_types": 4.0,
+      "mean_path_length_px": 22377.3733,
+      "mean_explore_time_ratio": 0.6797,
+      "mean_playtime_min": 7.1598,
+      "mean_mean_quest_duration_min": 2.8764,
+      "mean_dialogs_per_min": 2.3741,
+      "mean_choices_made": 0.0,
+      "mean_quest_completion_ratio": 0.7833,
+      "mean_scene_changes": 19.6667,
+      "mean_puzzle_solve_ratio": 1.0,
+      "mean_exploration_index": 0.4634,
+      "mean_goal_orientation": 0.6795,
+      "mean_disorientation": 0.4575
+    },
+    {
+      "cluster_id": 1,
+      "n_sessions": 2,
+      "mean_distinct_area_types": 4.0,
+      "mean_path_length_px": 14242.12,
+      "mean_explore_time_ratio": 0.571,
+      "mean_playtime_min": 3.5099,
+      "mean_mean_quest_duration_min": 1.1864,
+      "mean_dialogs_per_min": 3.134,
+      "mean_choices_made": 0.0,
+      "mean_quest_completion_ratio": 0.6,
+      "mean_scene_changes": 15.0,
+      "mean_puzzle_solve_ratio": 1.0,
+      "mean_exploration_index": 0.0381,
+      "mean_goal_orientation": 0.852,
+      "mean_disorientation": 0.3818
+    }
+  ],
+  "sessions": [
+    {
+      "session_id": "1788365938_d262e01d0f0a76ed",
+      "cluster_id": 1
+    },
+    {
+      "session_id": "1788368213_ff1e38c9df49a20c",
+      "cluster_id": 0
+    },
+    {
+      "session_id": "1788368714_7661175286cd89df",
+      "cluster_id": 0
+    },
+    {
+      "session_id": "1788369683_4423aa35f1b9cf6d",
+      "cluster_id": 0
+    },
+    {
+      "session_id": "1788370191_8258a38bed4343b3",
+      "cluster_id": 1
+    }
+  ]
+}

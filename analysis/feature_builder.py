@@ -14,7 +14,7 @@ import math
 from collections import defaultdict
 from dataclasses import dataclass
 
-from .area_types import AUSSEN, area_type_for
+from .area_types import AUSSEN, area_type_for, resolve_scene
 from .session_analyzer import SessionAnalyzer
 from .telemetry_models import TelemetryEvent
 
@@ -158,7 +158,7 @@ class SessionFeatureBuilder:
         quest_spans: dict[str, _QuestSpan] = defaultdict(_QuestSpan)
         first_quest_completed_msec: float | None = None
 
-        current_room: str | None = ev[0].room
+        current_room: str | None = resolve_scene(ev[0].room) or None
         if current_room:
             rooms_seen.append(current_room)
             visited_rooms.add(current_room)
@@ -168,7 +168,7 @@ class SessionFeatureBuilder:
         for i, cur in enumerate(ev):
             nxt = ev[i + 1] if i + 1 < len(ev) else None
             dt = max(nxt.t_msec - cur.t_msec, 0.0) if nxt is not None else 0.0
-            room = cur.room or current_room
+            room = resolve_scene(cur.room) or current_room
             if room:
                 total_dwell_msec += dt
                 if area_type_for(room) == AUSSEN:
@@ -194,7 +194,8 @@ class SessionFeatureBuilder:
 
             if etype == "scene_changed":
                 scene_changes += 1
-                to_room = (cur.metadata or {}).get("to_room") or (nxt.room if nxt is not None else None)
+                raw_to = (cur.metadata or {}).get("to_room") or (nxt.room if nxt is not None else None)
+                to_room = resolve_scene(raw_to) or None
                 if to_room:
                     transitions += 1
                     entries += 1
@@ -202,9 +203,9 @@ class SessionFeatureBuilder:
                         revisits += 1
                         backtracks += 1
                     visited_rooms.add(to_room)
-                    rooms_seen.append(str(to_room))
+                    rooms_seen.append(to_room)
                     area_types_seen.add(area_type_for(to_room))
-                    current_room = str(to_room)
+                    current_room = to_room
 
             if name == "dialog_started":
                 dialogs_started += 1

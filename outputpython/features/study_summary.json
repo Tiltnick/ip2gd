@@ -1,0 +1,78 @@
+{
+  "n_sessions": 5,
+  "n_events_total": 6888,
+  "n_movement_events": 5864,
+  "n_discrete_events": 1024,
+  "raw_rows": 6710,
+  "skipped_lines": 3,
+  "truncation": {
+    "stop_scenes": [
+      "outside_3",
+      "outside_4",
+      "temple",
+      "sams_cave",
+      "map_generation",
+      "ending_scene"
+    ],
+    "max_minutes": null,
+    "n_sessions": 5,
+    "n_truncated": 0,
+    "details": []
+  },
+  "movement_filter": {
+    "samples_considered": 3180,
+    "samples_written": 1778,
+    "dropped_velocity_near_zero": 1379,
+    "dropped_below_min_distance": 23,
+    "reduction_pct": 44.09
+  },
+  "playtime_minutes": {
+    "min": 3.5,
+    "mean": 5.7,
+    "max": 8.23
+  },
+  "n_features_total": 26,
+  "n_features_cluster_vector": 13,
+  "cluster_feature_keys": [
+    "distinct_area_types",
+    "path_length_px",
+    "explore_time_ratio",
+    "playtime_min",
+    "mean_quest_duration_min",
+    "dialogs_per_min",
+    "choices_made",
+    "quest_completion_ratio",
+    "scene_changes",
+    "puzzle_solve_ratio",
+    "exploration_index",
+    "goal_orientation",
+    "disorientation"
+  ],
+  "k_range": [
+    2,
+    3,
+    4
+  ],
+  "silhouette_table": [
+    {
+      "k": 2.0,
+      "silhouette": 0.3423,
+      "inertia": 20.0043
+    },
+    {
+      "k": 3.0,
+      "silhouette": 0.1958,
+      "inertia": 12.0031
+    },
+    {
+      "k": 4.0,
+      "silhouette": 0.0445,
+      "inertia": 4.8838
+    }
+  ],
+  "chosen_k": 2,
+  "cluster_sizes": {
+    "0": 3,
+    "1": 2
+  }
+}

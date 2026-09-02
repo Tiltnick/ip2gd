@@ -27,6 +27,7 @@ var _mv_considered := 0
 var _mv_written := 0
 var _mv_drop_still := 0   # verworfen: Geschwindigkeit ~ 0
 var _mv_drop_near := 0    # verworfen: Weg < MIN_DISTANCE_PX
+var _mv_stats_logged := false
 
 var _state_tracker: SemanticStateTracker = null
 var _areas_visited: Array = []
@@ -247,6 +248,9 @@ func log_checkpoint_reached(checkpoint_id: String, extra: Dictionary = {}) -> vo
 
 func log_game_finished(extra: Dictionary = {}) -> void:
 	_log_event("game_finished", extra)
+	# Filterstatistik hier schon sichern -- falls das Spiel nach dem Abspann
+	# abrupt beendet wird (z. B. Editor-Stop), ohne dass _notification feuert.
+	_log_movement_filter_stats()
 
 
 func _log_session_started() -> void:
@@ -264,6 +268,10 @@ func _log_session_ended() -> void:
 func _log_movement_filter_stats() -> void:
 	# Bereinigungs-Kennzahlen der Bewegungsdaten (Kapitel 5.1): wie viele
 	# Abtast-Ticks betrachtet und wie viele nach den Filtern geschrieben wurden.
+	# Nur einmal je Session schreiben.
+	if _mv_stats_logged:
+		return
+	_mv_stats_logged = true
 	_emit_adapter_event("telemetry", "movement_filter_stats", {
 		"considered": _mv_considered,
 		"written": _mv_written,

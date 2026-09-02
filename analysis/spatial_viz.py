@@ -17,7 +17,7 @@ from __future__ import annotations
 from collections import defaultdict
 from pathlib import Path
 
-from .area_types import scene_name
+from .area_types import resolve_scene, scene_name
 from .telemetry_models import TelemetryEvent
 
 try:
@@ -56,7 +56,7 @@ def _movement_by_scene(
             x, y = float(e.x), float(e.y)
         else:
             continue
-        by_scene[e.room or "unknown"].append((x, y))
+        by_scene[resolve_scene(e.room) or "unknown"].append((x, y))
     return by_scene
 
 
@@ -102,14 +102,14 @@ class SpatialVisualizer:
         scene_counts: dict[str, int] = defaultdict(int)
         for e in events:
             if e.event_type == "movement_sample":
-                scene_counts[e.room or "unknown"] += 1
+                scene_counts[resolve_scene(e.room) or "unknown"] += 1
         top_scenes = [s for s, c in sorted(scene_counts.items(), key=lambda kv: -kv[1]) if c >= MIN_SAMPLES_PER_SCENE]
 
         paths: list[Path] = []
         for scene in top_scenes:
             pts_all = [
                 e for e in events
-                if e.event_type == "movement_sample" and (e.room or "unknown") == scene
+                if e.event_type == "movement_sample" and (resolve_scene(e.room) or "unknown") == scene
             ]
             extent = self._extent(scene, [self._xy(e) for e in pts_all if self._xy(e)], map_bounds)
             fig, axes = plt.subplots(1, len(clusters), figsize=(4.2 * len(clusters), 4.4), squeeze=False)
@@ -156,10 +156,19 @@ class SpatialVisualizer:
 
         matrix = np.array([[float(r.get(k, 0.0)) for k in keys] for r in feature_rows])
         matrix = StandardScaler().fit_transform(matrix)
-        try:
-            mds = MDS(n_components=2, random_state=42, n_init=4, normalized_stress="auto")
-        except TypeError:  # ältere scikit-learn-Versionen ohne normalized_stress
-            mds = MDS(n_components=2, random_state=42, n_init=4)
+        # init explizit setzen (in neueren scikit-learn-Versionen aendert sich
+        # sonst der Default) und normalized_stress nur uebergeben, wenn bekannt.
+        mds = None
+        for kwargs in (
+            {"init": "random", "normalized_stress": "auto"},
+            {"normalized_stress": "auto"},
+            {},
+        ):
+            try:
+                mds = MDS(n_components=2, random_state=42, n_init=4, **kwargs)
+                break
+            except TypeError:
+                continue
         coords = mds.fit_transform(matrix)
 
         fig, ax = plt.subplots(figsize=(8, 6))

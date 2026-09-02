@@ -77,19 +77,30 @@ _RULES: list[tuple[str, str]] = [
 _EXACT_OVERRIDES: dict[str, str] = {}
 
 
-def _resolve(scene_path: str) -> str:
-    """uid://-Referenz auf den res://-Pfad abbilden (sonst unveraendert)."""
-    key = scene_path.strip()
+def resolve_scene(scene_path: str | None) -> str:
+    """uid://-Referenz auf den res://-Pfad abbilden (sonst unveraendert).
+
+    Dient als kanonischer Schluessel: dieselbe Szene taucht in der Telemetrie
+    mal als res://-Pfad (Bewegungsproben) und mal als uid://-Referenz
+    (Szenenwechsel) auf.
+    """
+    if not scene_path:
+        return ""
+    key = str(scene_path).strip()
     if key.startswith("uid://"):
         return _UID_TO_SCENE.get(key, key)
     return key
+
+
+# interner Alias (Rueckwaertskompatibilitaet)
+_resolve = resolve_scene
 
 
 def area_type_for(scene_path: str | None) -> str:
     """Gibt den Bereichstyp fuer einen Szenenpfad / eine Raumkennung zurueck."""
     if not scene_path:
         return UNBEKANNT
-    resolved = _resolve(str(scene_path))
+    resolved = resolve_scene(scene_path)
     if resolved in _EXACT_OVERRIDES:
         return _EXACT_OVERRIDES[resolved]
     lowered = resolved.lower()
@@ -103,7 +114,7 @@ def scene_name(scene_path: str | None) -> str:
     """Kurzname einer Szene (Dateiname ohne Pfad/Endung) fuer Beschriftungen."""
     if not scene_path:
         return "unknown"
-    resolved = _resolve(str(scene_path))
+    resolved = resolve_scene(scene_path)
     tail = resolved.replace("\\", "/").rstrip("/").split("/")[-1]
     for suffix in (".tscn", ".scn", ".res"):
         if tail.endswith(suffix):

@@ -17,6 +17,7 @@ from .exporter import TelemetryExporter
 from .feature_builder import DEFAULT_CLUSTER_FEATURES, FEATURE_META, SessionFeatureBuilder
 from .feature_clusterer import KMeansFeatureClusterer
 from .session_analyzer import SessionAnalyzer
+from .session_window import truncate_sessions
 from .spatial_viz import SpatialVisualizer
 from .telemetry_loader import TelemetryLoader
 
@@ -35,6 +36,8 @@ class FeatureAnalysisPipeline:
         *,
         feature_keys: list[str] | None = None,
         final_k: int | None = None,
+        stop_scenes: list[str] | None = None,
+        max_minutes: float | None = None,
     ) -> dict[str, Any]:
         exporter = TelemetryExporter(output_dir)
         viz = SpatialVisualizer(exporter.output_dir)
@@ -43,6 +46,20 @@ class FeatureAnalysisPipeline:
         print("Lade Daten ...")
         events = self.loader.load(input_path)
         report = self.loader.last_report
+
+        # -- Sessions auf gemeinsamen Abschnitt zuschneiden (Kapitel 5.1) --
+        events, trunc = truncate_sessions(
+            events, stop_scenes=stop_scenes, max_minutes=max_minutes
+        )
+        if trunc.n_truncated:
+            print(
+                f"  Zuschnitt: {trunc.n_truncated}/{trunc.n_sessions} Sessions gekuerzt "
+                f"(Stopp-Szenen: {', '.join(trunc.stop_scenes) or '-'}"
+                + (f", max {trunc.max_minutes} min" if trunc.max_minutes else "")
+                + ")"
+            )
+            for d in trunc.details:
+                print(f"    {d['session_id']}: {d['reason']}, {d['kept_minutes']} min behalten")
         n_movement = sum(1 for e in events if e.event_type == "movement_sample")
         n_discrete = len(events) - n_movement
         print(
@@ -116,6 +133,13 @@ class FeatureAnalysisPipeline:
             "n_discrete_events": n_discrete,
             "raw_rows": report.raw_rows,
             "skipped_lines": report.skipped_lines,
+            "truncation": {
+                "stop_scenes": trunc.stop_scenes,
+                "max_minutes": trunc.max_minutes,
+                "n_sessions": trunc.n_sessions,
+                "n_truncated": trunc.n_truncated,
+                "details": trunc.details,
+            },
             "movement_filter": filter_stats,
             "playtime_minutes": {
                 "min": round(min(playtimes), 2),

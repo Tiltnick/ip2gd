@@ -11,6 +11,7 @@ from .kmeans_playtime_clusterer import KMeansPlaytimeClusterer
 from .playtrace_analyzer import PlaytraceAnalyzer
 from .room_time_analyzer import RoomTimeAnalyzer
 from .session_analyzer import SessionAnalyzer
+from .session_window import truncate_sessions
 from .spatial_viz import SpatialVisualizer
 from .telemetry_loader import EventNormalizer, TelemetryLoader
 from .telemetry_models import TelemetryEvent
@@ -35,4 +36,5 @@ __all__ = [
     "TelemetryVisualizer",
     "area_type_for",
     "scene_name",
+    "truncate_sessions",
 ]

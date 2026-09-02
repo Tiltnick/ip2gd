@@ -1,0 +1,27 @@
+feature,ebene,einheit,berechnung
+distinct_areas,räumlich,Anzahl,Zahl unterschiedlicher besuchter Szenen
+distinct_area_types,räumlich,Anzahl,Zahl unterschiedlicher Bereichstypen (innen/außen/rätsel/narrativ)
+path_length_px,räumlich,Pixel,Summe der Distanzen aufeinanderfolgender Bewegungsproben (je Szene)
+mean_step_px,räumlich,Pixel,path_length_px / Anzahl Bewegungsproben
+revisit_ratio,räumlich,Anteil,erneute Bereichsbetretungen / alle Bereichsbetretungen
+backtracking_ratio,räumlich,Anteil,Szenenwechsel zu bereits besuchtem Bereich / alle Szenenwechsel
+playtime_min,zeitlich,Minuten,max(t_msec) - min(t_msec) der Session
+move_time_min,zeitlich,Minuten,Zeitanteil im Zustand move/run (aus Proben-Deltas)
+idle_time_min,zeitlich,Minuten,Zeitanteil ohne Bewegung
+explore_time_ratio,zeitlich,Anteil,Aufenthaltszeit in Außen-/Erkundungsbereichen / Gesamtzeit
+time_to_first_quest_min,zeitlich,Minuten,Zeit von Session-Start bis erstem quest_completed
+mean_quest_duration_min,zeitlich,Minuten,mittlere Dauer angenommen -> abgeschlossen je Quest
+dialogs_started,interaktion,Anzahl,Zahl begonnener Dialoge
+dialogs_per_min,interaktion,1/min,dialogs_started / playtime_min
+choices_made,interaktion,Anzahl,Zahl getroffener Dialogentscheidungen
+quests_added,interaktion,Anzahl,Zahl angenommener Quests
+quests_completed,interaktion,Anzahl,Zahl abgeschlossener Quests
+quest_completion_ratio,interaktion,Anteil,"quests_completed / max(quests_added, 1)"
+scene_changes,interaktion,Anzahl,Zahl der Szenenwechsel
+puzzle_starts,interaktion,Anzahl,Zahl begonnener Rätsel
+puzzle_solves,interaktion,Anzahl,Zahl gelöster Rätsel
+puzzle_solve_ratio,interaktion,Anteil,"puzzle_solves / max(puzzle_starts, 1)"
+items_collected,interaktion,Anzahl,Zahl eingesammelter Gegenstände
+exploration_index,verhalten,0..1,"Mittel aus norm(distinct_area_types, path_length_px, explore_time_ratio)"
+goal_orientation,verhalten,0..1,"Mittel aus quest_completion_ratio, puzzle_solve_ratio, 1-norm(mean_quest_duration_min)"
+disorientation,verhalten,0..1,"Mittel aus norm(backtracking_ratio), norm(scene_changes je abgeschl. Quest), 1-norm(quest_completion_ratio)"
